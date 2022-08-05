@@ -20,7 +20,7 @@ typedef vector<double> vd;
 typedef pair<long long, long long> P;
 
 const long long INF = 0x1fffffffffffffff;
-const long long MOD = 1000000007;
+const long long MOD = 998244353;
 const long double PI = acos(-1);
  
 template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; } return 0; }

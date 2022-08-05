@@ -4,12 +4,10 @@ using namespace std;
 
 const long long INF = 0x1fffffffffffffff;
 
-typedef long long int ll;
-
 int n, m;
-vector<vector<ll>> d;
+vector<vector<long long>> d;
 
-// ワ―シャルフロイド法 (O(n^3))
+// ワ―シャルフロイド法で全頂点間の最短距離を求めます : (O(n^3))
 template <typename T>
 void warshall_floyd(T n) { // nは頂点数
   for (int i = 0; i < n; i++)      // 経由する頂点
@@ -18,9 +16,10 @@ void warshall_floyd(T n) { // nは頂点数
         d[j][k] = min(d[j][k], d[j][i] + d[i][k]);
 }
 
-void inputGraph() {
+// example
+int main(){
     cin >> n >> m;
-    d = vector<vector<ll>>(n, vector<ll>(n, INF));
+    d = vector<vector<long long>>(n, vector<long long>(n, INF));
 
     for(int i = 0; i < m; i++){
         int a, b, c;

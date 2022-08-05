@@ -2,8 +2,6 @@
 
 using namespace std;
 
-const long long INF = 0x1fffffffffffffff;
-
 /* 
     SegTree<X>(n,fx,ex) : モノイド(集合 X, 二項演算 fx, 単位元 ex)についてサイズnで構築します。
     set(int i, X x), build() : i 番目の要素を x にセット。まとめてセグ木を構築します。O(n)
@@ -62,6 +60,8 @@ struct SegTree {
         }
     }
 };
+
+const long long INF = 0x1fffffffffffffff;
 
 int n;
 
