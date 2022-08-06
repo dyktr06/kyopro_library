@@ -4,7 +4,7 @@ using namespace std;
 
 /* 
     binary_indexed_tree<T>(n) : BITをサイズnで構築
-    add(i, x) : i 番目の要素に加算します。 O(log(n)
+    add(i, x) : i 番目の要素に加算します。 O(log(n))
     sum(l, r) : [l, r) の区間和を取得します。O(log(n))
 */
 
