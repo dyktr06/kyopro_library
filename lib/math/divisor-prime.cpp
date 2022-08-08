@@ -58,6 +58,39 @@ vector<pair<T, T>> prime_factor(T n) {
     return ret;
 }
 
+// N について素因数分解をします : 構築: O(NloglogN) 取得: O(logN)
+template <typename T>
+struct PrimeFact{
+    vector<T> spf;
+    PrimeFact(T N){ init(N); }
+    void init(T N){
+        spf.assign(N + 1, 0);
+        for(T i = 0; i <= N; i++) spf[i] = i;
+        for(T i = 2; i * i <= N; i++) {
+            if(spf[i] == i) {
+                for(T j = i * i; j <= N; j += i){
+                    if(spf[j] == j){
+                        spf[j] = i;
+                    }
+                }
+            }
+        }
+    }
+
+    map<T, T> get(T n){
+        map<T, T> m;
+        while(n != 1){
+            if(m.count(spf[n]) == 0){
+                m[spf[n]] = 1;
+            }else{
+                m[spf[n]]++;
+            }
+            n /= spf[n];
+        }
+        return m;
+    }
+};
+
 // 2からNまでの素因数の個数を返します (エラトステネスのふるい) : O(NloglogN)
 template <typename T>
 vector<T> getSieve(T n){
