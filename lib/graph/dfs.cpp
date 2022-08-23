@@ -5,7 +5,7 @@ using namespace std;
 int n;
 vector<vector<int>> G;
 
-// DFSのテンプレ
+// DFS
 void dfs(int curr, int prev = -1) {
 
     if(prev == -1){
@@ -24,7 +24,7 @@ void dfs(int curr, int prev = -1) {
 
 vector<int> depth;
 
-// スタートを基準とする他の頂点の深さを求める (グラフが木でないと使えない) : O(N)
+// スタートを基準とする他の頂点の深さを求めます (グラフが木でないと使えない) : O(N)
 template <typename T>
 void getDepth(T curr, T prev = -1) {
     if(prev == -1){
