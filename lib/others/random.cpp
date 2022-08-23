@@ -12,7 +12,7 @@ struct RandomNumber{
 	RandomNumber(long long l = 0, long long r = 0){
         rnd = mt19937_64(seed);
         p = uniform_int_distribution<long long>(l, r);
-        Sleep(100);
+        Sleep(1);
     }
 
 	long long get(){

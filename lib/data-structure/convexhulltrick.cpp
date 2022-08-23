@@ -2,6 +2,9 @@
 
 using namespace std;
 
+// ある x に対し、直線集合の中で最小値をとるような直線の値を求めます。
+// 追加される直線の傾きが単調増加、計算する最小値の座標が単調増加である必要があります。
+// N本の直線追加 : O(N)、Q回のクエリ : O(Q)
 template <typename T>
 struct ConvexHullTrick{
     deque<pair<T, T>> deq;
