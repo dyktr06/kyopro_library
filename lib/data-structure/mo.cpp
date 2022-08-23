@@ -14,7 +14,7 @@ struct Mo{
         lr.push_back({l, r});
     }
 
-    template<typename AL, typename AR, typename EL, typename ER, typename O>
+    template <typename AL, typename AR, typename EL, typename ER, typename O>
     void build(const AL &add_left, const AR &add_right, const EL &erase_left, const ER &erase_right, const O &out){
         int q = (int) lr.size();
         int border = n / min(n, (int) sqrt(q));
@@ -37,7 +37,7 @@ struct Mo{
         }
     }
 
-    template<typename A, typename E, typename O>
+    template <typename A, typename E, typename O>
     void build(const A &add, const E &erase, const O &out){
         build(add, add, erase, erase, out);
     }

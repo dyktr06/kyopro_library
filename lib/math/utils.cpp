@@ -10,19 +10,19 @@ long long sum(T a, T b){
 }
 
 // x^nをもとめます : O(logN)
-template< typename T >
+template <typename T>
 T intpow(T x, T n){
-  T ret = 1;
-  while(n > 0) {
-    if(n & 1) (ret *= x);
-    (x *= x);
-    n >>= 1;
-  }
-  return ret;
+    T ret = 1;
+    while(n > 0) {
+        if(n & 1) (ret *= x);
+        (x *= x);
+        n >>= 1;
+    }
+    return ret;
 }
 
 // a を b で割った正のあまりを求めます : O(1)
-template< typename T >
+template <typename T>
 T getReminder(T a, T b){
     if(b == 0) return -1;
     if(a >= 0 && b > 0){
