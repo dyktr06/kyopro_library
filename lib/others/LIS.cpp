@@ -7,7 +7,7 @@ using namespace std;
 // dp[i] : = 長さが i の増加部分列として最後尾の要素のとりうる最小値
 // is_strong = false のとき、同じ値が連続することを許す
 template<class T>
-int LIS(vector<T> a,  bool is_strong = true) {
+int LIS(vector<T> a,  bool is_strong = true){
     const long long INF = 0x1fffffffffffffff;
     int n = (int) a.size();
     vector<T> dp(n, INF);
