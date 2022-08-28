@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// ax + by = gcd(x, y) となる x, y を求めます : O(log a)
+// ax + by = gcd(a, b) となる x, y を求めます : O(log a)
 long long extGCD(long long a, long long b, long long &x, long long &y){
     if(b == 0){
         x = 1;
