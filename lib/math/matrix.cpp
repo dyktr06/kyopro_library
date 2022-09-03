@@ -14,8 +14,8 @@ vector<vector<long long>> matrixpow(vector<vector<long long>> a, long long n, lo
     auto mul = [](vector<vector<long long>> a, vector<vector<long long>> b, long long m) -> vector<vector<long long>> {
         vector<vector<long long>> res((int) a.size(), vector<long long>(b[0].size()));
         for(int i = 0; i < (int) a.size(); i++){
-            for(int j = 0; j < (int) b[0].size(); j++){
-                for(int k = 0; k < (int) b.size(); k++){
+            for(int k = 0; k < (int) b.size(); k++){
+                for(int j = 0; j < (int) b[0].size(); j++){
                     res[i][j] += a[i][k] * b[k][j];
                     res[i][j] %= m;
                 }
@@ -36,8 +36,8 @@ vector<vector<long long>> matrixpow(vector<vector<long long>> a, long long n, lo
 vector<vector<long long>> mul(vector<vector<long long>> a, vector<vector<long long>> b, long long m){
     vector<vector<long long>> res((int) a.size(), vector<long long>(b[0].size()));
     for(int i = 0; i < (int) a.size(); i++){
-        for(int j = 0; j < (int) b[0].size(); j++){
-            for(int k = 0; k < (int) b.size(); k++){
+        for(int k = 0; k < (int) b.size(); k++){
+            for(int j = 0; j < (int) b[0].size(); j++){
                 res[i][j] += a[i][k] * b[k][j];
                 res[i][j] %= m;
             }

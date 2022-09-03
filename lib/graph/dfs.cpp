@@ -6,7 +6,7 @@ int n;
 vector<vector<int>> G;
 
 // DFS
-void dfs(int curr, int prev = -1) {
+void dfs(int curr, int prev = -1){
 
     if(prev == -1){
 
