@@ -5,7 +5,7 @@ using namespace std;
 // mod. m での x^n を計算します : O(logn)
 template <typename T>
 T modpow(T x, T n, const T &m){
-    T ret = 1;
+    T ret = 1 % m;
     x %= m;
     while(n > 0){
         if(n & 1) (ret *= x) %= m;
