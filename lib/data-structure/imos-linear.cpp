@@ -24,9 +24,9 @@ struct imos_linear{
     void add(int l, int r, T v, T w){
         l = clamp(l, 0, N), r = clamp(r, 0, N);
         imos1[l] += w;
-		imos1[r] -= w;
-		imos0[l] += v - w;
-		imos0[r] -= v + w * (r - l - 1);
+        imos1[r] -= w;
+        imos0[l] += v - w;
+        imos0[r] -= v + w * (r - l - 1);
     }
 
     void build(){
@@ -50,7 +50,7 @@ int main(){
         cin >> p[i];
     }
 
-    imos_linear<int> imos(n * 2 + 1);
+    imos_linear<long long> imos(n * 2 + 1);
 
     int m = (n + 1) / 2, v = n / 2;
     for(int i = 0; i < n; i++){
@@ -60,12 +60,12 @@ int main(){
     }
     imos.build();
 
-    vector<int> res(n);
+    vector<long long> res(n);
     for(int i = 0; i < 2 * n + 1; i++){
         res[i % n] += imos[i];
     }
 
-    int ans = 1 << 30;
+    long long ans = 1LL << 60;
     for(int i = 0; i < n; i++){
         ans = min(ans, res[i]);
     }
