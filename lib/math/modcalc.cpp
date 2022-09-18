@@ -29,6 +29,25 @@ T modinv(T a, T m){
     return u;
 }
 
+// mod. m での初項 a, 公差 d, 項数 n の等差数列の和を計算します : O(1)
+template <typename T>
+T modarithmeticsum(T a, T d, T n, T m){
+    a %= m, n %= m, d %= m;
+    T b = (n - 1) * d % m;
+    return n * (a * 2 + b) % m * modinv((T) 2, m) % m;
+}
+
+// mod. m での初項 a, 公比 r, 項数 n の等比数列の和を計算します : O(1)
+template <typename T>
+T modgeometricsum(T a, T r, T n, T m){
+    a %= m;
+    if(r == 1){
+        n %= m;
+        return a * n % m;
+    }
+    return a * (modpow(r, n, m) + m - 1) % m * modinv(r - 1, m) % m;
+}
+
 // mod. m での二項係数などを高速で計算します : O(NlogN)
 struct Combination{
     vector<long long> memo, memoinv, inv;

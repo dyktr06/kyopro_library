@@ -21,6 +21,21 @@ T intpow(T x, T n){
     return ret;
 }
 
+// 初項 a, 公差 d, 項数 n の等差数列の和を計算します : O(1)
+template <typename T>
+T arithmeticsum(T a, T d, T n){
+    return n * (a * 2 + (n - 1) * d) / 2;
+}
+
+// 初項 a, 公比 r, 項数 n の等比数列の和を計算します : O(1)
+template <typename T>
+T geometricsum(T a, T r, T n){
+    if(r == 1){
+        return a * n;
+    }
+    return a * (intpow(r, n) - 1) / (r - 1);
+}
+
 // a を b で割った正のあまりを求めます : O(1)
 template <typename T>
 T getReminder(T a, T b){
