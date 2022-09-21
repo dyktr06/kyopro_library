@@ -3,7 +3,7 @@
 using namespace std;
 
 // 文字列 s と文字列 t の最長共通部分列を求めます : O(|s||t|)
-string LCS(string s, string t){
+string LCS(const string &s, const string &t){
     int n = s.size(), m = t.size();
     vector<vector<int>> memo(n + 1, vector<int>(m + 1));
     for(int i = 0; i < n; i++){

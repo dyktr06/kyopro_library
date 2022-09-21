@@ -3,7 +3,7 @@
 using namespace std;
 
 // 並び変えてできる文字列としてありえるものを辞書順ですべて列挙します : O(N*N!)
-vector<string> getPermutation(string s){
+vector<string> getPermutation(const string &s){
     int n = s.size();
     vector<int> array(n);
     iota(array.begin(), array.end(), 0);
