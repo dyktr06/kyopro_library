@@ -2,6 +2,10 @@
 
 using namespace std;
 
+// Rho::rabin_miller(N) : N が素数かどうかを判定します。(N <= 2^64 なら必ず成功します) O(log N)
+// Rho::factorial(N) : N について素因数分解をします。O(N^(1/4))
+// Rho::divisor(N) : N の約数を列挙します。O(N^(1/4) log N)
+
 namespace Rho{
     unsigned long long mul(unsigned long long a, unsigned long long b, const unsigned long long mod) {
         long long ret = a * b - mod * (unsigned long long)(1.0L / mod * a * b);
