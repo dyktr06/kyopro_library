@@ -7,7 +7,7 @@ template <typename T>
 vector<T> getDivisor(T n){
     T rt = sqrt(n);
     vector<T> res, resB;
-    for(T i = 1; i*i <= n; i++){
+    for(T i = 1; i * i <= n; i++){
         if(n % i == 0){
             res.push_back(i);
             T j = n / i;
@@ -16,7 +16,7 @@ vector<T> getDivisor(T n){
             }
         }
     }
-    for(T i = (int) resB.size() - 1; i >= 0; i--){
+    for(int i = (int) resB.size() - 1; i >= 0; i--){
         res.push_back(resB[i]);
     }
     return res;
