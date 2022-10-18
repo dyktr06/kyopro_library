@@ -11,7 +11,7 @@ using namespace atcoder;
 #define RSort(a) sort(a.rbegin(), a.rend())
 
 typedef long long int ll;
-typedef unsigned long ul;
+typedef unsigned long long ul;
 typedef long double ld;
 typedef vector<int> vi;
 typedef vector<long long> vll;

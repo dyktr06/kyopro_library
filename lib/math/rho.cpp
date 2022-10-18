@@ -104,7 +104,7 @@ int main(){
     int q; cin >> q;
     while(q--){
         long long a; cin >> a;
-        vector<unsigned long> factor = Rho::factorize(a);
+        vector<unsigned long long> factor = Rho::factorize(a);
         sort(factor.begin(), factor.end());
         int n = factor.size();
         cout << n;
