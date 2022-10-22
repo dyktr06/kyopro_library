@@ -5,12 +5,21 @@ using namespace std;
 // 分数(p/q) の構造体
 struct fraction{
     long long p, q;
-    fraction(long long P = 0, long long Q = 1): p(P), q(Q){}
+    fraction(long long P = 0, long long Q = 1): p(P), q(Q){
+        normalize();
+    }
+    void normalize(){
+        long long g = __gcd(p, q);
+        p /= g, q /= g;
+        if(q < 0){
+            p *= -1, q *= -1;
+        }
+    }
     bool operator<(const fraction &other)const{
         return p * other.q < other.p * q;
     }
     bool operator<=(const fraction &other)const{
-        return p * other.q <= other.p * q;
+        return p * other.q >= other.p * q;
     }
 };
 
