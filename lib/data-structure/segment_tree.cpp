@@ -16,9 +16,8 @@ struct SegTree{
     FX fx;
     const X ex;
     vector<X> dat;
-    vector<X> val;
 
-    SegTree(int n_, FX fx_, X ex_) : n(), fx(fx_), ex(ex_), dat(n_ * 4, ex_), val(n_, ex_){
+    SegTree(int n_, FX fx_, X ex_) : n(), fx(fx_), ex(ex_), dat(n_ * 4, ex_){
         int x = 1;
         while(n_ > x){
             x *= 2;
@@ -27,7 +26,7 @@ struct SegTree{
     }
 
     X get(int i){
-        return val[i];
+        return dat[i + n - 1];
     }
     
     void set(int i, X x){ dat[i + n - 1] = x; }
@@ -37,7 +36,6 @@ struct SegTree{
     }
 
     void update(int i, X x){
-        val[i] = x;
         i += n - 1;
         dat[i] = x;
         while(i > 0){
@@ -61,7 +59,7 @@ struct SegTree{
     }
 };
 
-const long long INF = 0x1fffffffffffffff;
+const int INF = 1 << 30;
 
 int n;
 
@@ -72,5 +70,5 @@ int main(){
     int ex = INF;
     SegTree<int> rmq(n, fx, ex);
     rmq.update(0, 5);
-    rmq.query(0, n);
+    cout << rmq.query(0, n) << endl;
 }

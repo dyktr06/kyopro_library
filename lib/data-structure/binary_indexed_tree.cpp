@@ -4,6 +4,7 @@ using namespace std;
 
 /* 
     binary_indexed_tree<T>(n) : BITをサイズnで構築
+    get(i)    : i 番目の要素を取得します。 O(log(n))
     add(i, x) : i 番目の要素に加算します。 O(log(n))
     sum(l, r) : [l, r) の区間和を取得します。O(log(n))
     
@@ -18,7 +19,11 @@ struct binary_indexed_tree{
     vector<T> BIT;
     binary_indexed_tree(int N): N(N), BIT(N + 1, 0){
     }
- 
+
+    T get(int i){
+        return sum(i + 1) - sum(i);
+    }
+
     void add(int i, T x){
         i++;
         while(i <= N){
@@ -26,7 +31,7 @@ struct binary_indexed_tree{
             i += i & -i;
         }
     }
- 
+
     T sum(int i){
         T ans = 0;
         while(i > 0){
@@ -35,11 +40,11 @@ struct binary_indexed_tree{
         }
         return ans;
     }
- 
+
     T sum(int L, int R){
         return sum(R) - sum(L);
     }
- 
+
     int lower_bound(T x){
         if(x <= 0){
             return 0;
@@ -55,7 +60,7 @@ struct binary_indexed_tree{
             return v;
         }
     }
- 
+
     int upper_bound(T x){
         if(x < 0){
             return 0;
