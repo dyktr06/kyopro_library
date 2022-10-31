@@ -14,10 +14,10 @@ using namespace std;
 */
 
 template <typename T>
-struct binary_indexed_tree{
+struct BinaryIndexedTree{
     int N;
     vector<T> BIT;
-    binary_indexed_tree(int N): N(N), BIT(N + 1, 0){
+    BinaryIndexedTree(int N): N(N), BIT(N + 1, 0){
     }
 
     T get(int i){
@@ -82,7 +82,7 @@ struct binary_indexed_tree{
 template <typename T>
 long long getInvNum(T p){
     long long res = 0;
-    binary_indexed_tree<long long> BIT(n);
+    BinaryIndexedTree<long long> BIT(n);
     for(int i = 0; i < (int) p.size(); i++){
       res += BIT.sum(p[i], n);
       BIT.add(p[i], 1);
