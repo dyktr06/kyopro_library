@@ -51,7 +51,7 @@ struct BinaryIndexedTree2D{
     }
 };
 
-//example
+//example (MMA004-5)
 int main(){
     int n, a, b; cin >> n >> a >> b;
     BinaryIndexedTree2D<long long> BIT(n, n);
