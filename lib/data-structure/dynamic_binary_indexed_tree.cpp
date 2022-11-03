@@ -14,7 +14,7 @@ using namespace std;
 template <typename S, typename T>
 struct DynamicBinaryIndexedTree{
     S N;
-    map<S, T> data;
+    unordered_map<S, T> data;
     DynamicBinaryIndexedTree(S _N): N(_N + 1){
     }
 
