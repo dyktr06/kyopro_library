@@ -17,7 +17,7 @@ template <typename T>
 struct BinaryIndexedTree{
     int N;
     vector<T> BIT;
-    BinaryIndexedTree(int N): N(N), BIT(N + 1, 0){
+    BinaryIndexedTree(const int &N): N(N), BIT(N + 1, 0){
     }
 
     T get(int i){
@@ -32,7 +32,7 @@ struct BinaryIndexedTree{
         }
     }
 
-    T sum(int i){
+    T sum(int i) const {
         T ans = 0;
         while(i > 0){
             ans += BIT[i];
@@ -41,11 +41,11 @@ struct BinaryIndexedTree{
         return ans;
     }
 
-    T sum(int L, int R){
+    T sum(int L, int R) const {
         return sum(R) - sum(L);
     }
 
-    int lower_bound(T x){
+    int lower_bound(T x) const {
         if(x <= 0){
             return 0;
         }else{
@@ -61,7 +61,7 @@ struct BinaryIndexedTree{
         }
     }
 
-    int upper_bound(T x){
+    int upper_bound(T x) const {
         if(x < 0){
             return 0;
         }else{
