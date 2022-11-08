@@ -45,7 +45,7 @@ struct ModInt{
         if(--val < 0) val += Modulus;
         return t;
     }
-    inline ModInt operator-() const noexcept { return -val + Modulus; }
+    inline ModInt operator-() const noexcept { return (Modulus - val) % Modulus; }
     inline ModInt inv(void) const { return inv(val); }
     ModInt inv(const ll& n) const {
         long long a = n, b = Modulus, u = 1, v = 0;
