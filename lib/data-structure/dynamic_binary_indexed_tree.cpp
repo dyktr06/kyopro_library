@@ -41,7 +41,7 @@ struct DynamicBinaryIndexedTree{
         return sum(R) - sum(L);
     }
 
-    T operator[](S i) const{
+    T operator[](S i){
         return sum(i + 1) - sum(i);
     }
 
