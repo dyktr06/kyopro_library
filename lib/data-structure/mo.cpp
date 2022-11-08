@@ -7,17 +7,17 @@ struct Mo{
     int n;
     vector<pair<int, int>> lr;
 
-    Mo(int n) : n(n) {}
+    Mo(const int &n) : n(n) {}
 
     /* [l, r) */
-    void add(int l,  int r){
+    void add(const int &l,  const int &r){
         lr.push_back({l, r});
     }
 
     template <typename AL, typename AR, typename EL, typename ER, typename O>
     void build(const AL &add_left, const AR &add_right, const EL &erase_left, const ER &erase_right, const O &out){
         int q = (int) lr.size();
-        int border = n / min(n, (int) sqrt(q));
+        int border = max<int>(1, 1.0 * n / max<double>(1.0, sqrt(q * 2.0 / 3.0)));
         vector<int> ord(q);
         iota(ord.begin(), ord.end(), 0);
         sort(ord.begin(), ord.end(), [&](int a, int b){
