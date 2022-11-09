@@ -12,9 +12,9 @@ data:
     - icon: ':warning:'
       path: lib/data_structure/convexhulltrick.cpp
       title: lib/data_structure/convexhulltrick.cpp
-    - icon: ':warning:'
-      path: lib/data_structure/deswag.cpp
-      title: lib/data_structure/deswag.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/deswag.hpp
+      title: lib/data_structure/deswag.hpp
     - icon: ':warning:'
       path: lib/data_structure/double_ended_priority_queue.cpp
       title: lib/data_structure/double_ended_priority_queue.cpp
@@ -27,18 +27,18 @@ data:
     - icon: ':warning:'
       path: lib/data_structure/imos_linear.cpp
       title: lib/data_structure/imos_linear.cpp
-    - icon: ':warning:'
-      path: lib/data_structure/mo.cpp
-      title: lib/data_structure/mo.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/mo.hpp
+      title: lib/data_structure/mo.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree.hpp
       title: lib/data_structure/segment_tree.hpp
-    - icon: ':warning:'
-      path: lib/data_structure/swag.cpp
-      title: lib/data_structure/swag.cpp
-    - icon: ':warning:'
-      path: lib/data_structure/union_find.cpp
-      title: lib/data_structure/union_find.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/swag.hpp
+      title: lib/data_structure/swag.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/union_find.hpp
+      title: lib/data_structure/union_find.hpp
   - name: lib/dp
     pages:
     - icon: ':warning:'
@@ -105,9 +105,9 @@ data:
     - icon: ':warning:'
       path: lib/math/modcalc.cpp
       title: lib/math/modcalc.cpp
-    - icon: ':warning:'
-      path: lib/math/modint.cpp
-      title: lib/math/modint.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/math/modint.hpp
+      title: lib/math/modint.hpp
     - icon: ':warning:'
       path: lib/math/rho.cpp
       title: lib/math/rho.cpp
@@ -119,9 +119,12 @@ data:
     - icon: ':warning:'
       path: lib/others/bit-search.cpp
       title: lib/others/bit-search.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/others/compression.hpp
+      title: lib/others/compression.hpp
     - icon: ':warning:'
-      path: lib/others/compression.cpp
-      title: lib/others/compression.cpp
+      path: lib/others/compression_old.hpp
+      title: lib/others/compression_old.hpp
     - icon: ':warning:'
       path: lib/others/others.cpp
       title: lib/others/others.cpp
@@ -150,11 +153,28 @@ data:
     - icon: ':warning:'
       path: lib/template.cpp
       title: lib/template.cpp
+  - name: test/library_checker/data_structure
+    pages:
+    - icon: ':warning:'
+      path: test/library_checker/data_structure/tempCodeRunnerFile.cpp
+      title: test/library_checker/data_structure/tempCodeRunnerFile.cpp
   verificationCategories:
   - name: test/library_checker/data_structure
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
+      title: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
+      title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/static_range_frequency.test.cpp
+      title: test/library_checker/data_structure/static_range_frequency.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_rmq.test.cpp
       title: test/library_checker/data_structure/static_rmq.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/unionfind.test.cpp
+      title: test/library_checker/data_structure/unionfind.test.cpp
 layout: toppage
 ---
