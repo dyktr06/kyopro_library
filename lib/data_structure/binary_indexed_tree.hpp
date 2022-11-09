@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 /* 
     binary_indexed_tree<T>(n) : BITをサイズnで構築
@@ -77,15 +75,3 @@ struct BinaryIndexedTree{
         }
     }
 };
-
-// 配列 p の転倒数を求めます : O(NlogN)
-template <typename T>
-long long getInvNum(T p){
-    long long res = 0;
-    BinaryIndexedTree<long long> BIT(n);
-    for(int i = 0; i < (int) p.size(); i++){
-      res += BIT.sum(p[i], n);
-      BIT.add(p[i], 1);
-    }
-    return res;
-}

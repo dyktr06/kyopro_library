@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 /* 
     SegTree<X>(n,fx,ex) : モノイド(集合 X, 二項演算 fx, 単位元 ex)についてサイズnで構築します。
@@ -58,17 +56,3 @@ struct SegTree{
         }
     }
 };
-
-const int INF = 1 << 30;
-
-int n;
-
-// example
-int main(){
-    cin >> n;
-    auto fx = [](int x1, int x2) -> int { return min(x1, x2); };
-    int ex = INF;
-    SegTree<int> rmq(n, fx, ex);
-    rmq.update(0, 5);
-    cout << rmq.query(0, n) << endl;
-}
