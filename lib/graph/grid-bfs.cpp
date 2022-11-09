@@ -7,7 +7,7 @@ vector<int> dy = {1, 0, -1, 0};
 
 // 二次元グリッド上で、スタートから各マスへの最短距離を求めます : O(HW)
 // '.' -> 移動可能、'#' -> 移動不可
-vector<vector<int>> bfs(vector<string> s, int sx = 0, int sy = 0){
+vector<vector<int>> bfs(const vector<string> &s, int sx = 0, int sy = 0){
     int h = s.size(), w = s[0].size();
     deque<tuple<int, int, int>> dq;
     dq.push_back(make_tuple(0, sx, sy));
