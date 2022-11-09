@@ -3,7 +3,8 @@
 using namespace std;
 
 // それぞれの i (1 <= i <= |S|) について、S[i] を中心とする最長回文の半径を求めます。 : O(|S|) 
-vector<int> manacher(const string &s){
+template <typename T>
+vector<int> manacher(const T &s){
     int n = s.size();
     vector<int> rad(n);
     int i = 0, j = 0;

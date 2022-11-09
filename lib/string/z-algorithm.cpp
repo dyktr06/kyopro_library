@@ -4,7 +4,7 @@ using namespace std;
 
 // それぞれの i (1 <= i <= |S|) について、S[1] + S[2] + ... と S[i] + S[i + 1] + ... の最長共通接頭辞の長さ を求めます。 : O(|S|) 
 template <typename T>
-vector<int> z_algorithm(T &s) {
+vector<int> z_algorithm(const T &s) {
     int n = s.size();
     vector<int> res(n, 0);
     for(int i = 1, j = 0; i < n; ++i){
