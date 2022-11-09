@@ -4,8 +4,8 @@ data:
   - name: lib/data_structure
     pages:
     - icon: ':warning:'
-      path: lib/data_structure/binary_indexed_tree.cpp
-      title: lib/data_structure/binary_indexed_tree.cpp
+      path: lib/data_structure/binary_indexed_tree.hpp
+      title: lib/data_structure/binary_indexed_tree.hpp
     - icon: ':warning:'
       path: lib/data_structure/binary_indexed_tree_2d.cpp
       title: lib/data_structure/binary_indexed_tree_2d.cpp
@@ -30,9 +30,9 @@ data:
     - icon: ':warning:'
       path: lib/data_structure/mo.cpp
       title: lib/data_structure/mo.cpp
-    - icon: ':warning:'
-      path: lib/data_structure/segment_tree.cpp
-      title: lib/data_structure/segment_tree.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/segment_tree.hpp
+      title: lib/data_structure/segment_tree.hpp
     - icon: ':warning:'
       path: lib/data_structure/swag.cpp
       title: lib/data_structure/swag.cpp
