@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 /* 
     UnionFind(n) : Union-Find 木をサイズnで構築
@@ -57,16 +55,3 @@ struct UnionFind {
         return edg[root(x)];
     }
 };
-
-int n, m;
-
-// example
-int main(){
-    cin >> n >> m;
-
-    UnionFind tree(n);
-    for(int i = 0; i < m; i++){
-        int a, b; cin >> a >> b; a--; b--;
-        tree.unite(a, b);
-    }
-}

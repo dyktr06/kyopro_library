@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 template <long long Modulus>
 struct ModInt{

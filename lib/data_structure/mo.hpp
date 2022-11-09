@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // [0 , N) 上の区間に対する Q 個のクエリを計算します。 : O(N√Q) (区間の伸縮が O(1) で行える場合)
 struct Mo{
@@ -42,37 +40,3 @@ struct Mo{
         build(add, add, erase, erase, out);
     }
 };
-
-// example (ABC174F)
-int main(){
-    int n, q; cin >> n >> q;
-    vector<int> c(n);
-    for(int i = 0; i < n; i++){
-        cin >> c[i];
-    }
-    Mo mo(n);
-    for(int i = 0; i < q; i++){
-        int l, r; cin >> l >> r;
-        mo.add(l - 1, r);
-    }
- 
-    vector<int> cnt(n + 1);
-    int sum = 0;
-    vector<int> res(q);
-    auto add = [&](int i){
-        if(cnt[c[i]] == 0) sum++;
-        cnt[c[i]]++;
-    };
-    auto erase = [&](int i){
-        cnt[c[i]]--;
-        if(cnt[c[i]] == 0) sum--;
-    };
-    auto output = [&](int q){
-        res[q] = sum;
-    };
-    mo.build(add, erase, output);
- 
-    for(auto x : res){
-        cout << x << "\n";
-    }
-}

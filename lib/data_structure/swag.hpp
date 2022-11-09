@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 /* 
     SWAG<T>(op) : SWAG を構築します。
@@ -66,20 +64,3 @@ public:
         front_stack.pop();
     }
 };
-
-// example (AOJ DSL_3_D)
-int main(){
-    int n, l; cin >> n >> l;
-    auto op = [](int x1, int x2) -> int { return min(x1, x2); };
-    SWAG<int> swag(op);
-    for(int i = 0; i < n; i++){
-        int a; cin >> a;
-        swag.push(a);
-        if(i >= l - 1){
-            if(i >= l) cout << " ";
-            cout << swag.fold();
-            swag.pop();
-        }
-    }
-    cout << "\n";
-}

@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 /* 
     DESWAG<T>(op) : 両端SWAG を構築します。
