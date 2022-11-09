@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // 文字列 s において、ある地点からある文字が次にどの地点に出てくるかを計算します。: O(|S|)
 vector<vector<int>> calc_next(const string &s) {

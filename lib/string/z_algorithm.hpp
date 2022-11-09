@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // それぞれの i (1 <= i <= |S|) について、S[1] + S[2] + ... と S[i] + S[i + 1] + ... の最長共通接頭辞の長さ を求めます。 : O(|S|) 
 template <typename T>
@@ -18,16 +16,4 @@ vector<int> z_algorithm(const T &s) {
     }
     res[0] = n;
     return res;
-}
-
-string s;
-
-// example
-int main(){
-    cin >> s;
-    vector<int> z = z_algorithm(s);
-    int n = s.size();
-    for(int i = 0; i < n; i++){
-        cout << z[i] << endl;
-    }
 }
