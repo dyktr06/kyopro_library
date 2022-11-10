@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/binary_indexed_tree.hpp
       title: lib/data_structure/binary_indexed_tree.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/binary_indexed_tree_2d.hpp
       title: lib/data_structure/binary_indexed_tree_2d.hpp
     - icon: ':warning:'
@@ -76,7 +76,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/tree.hpp
       title: lib/graph/tree.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/warshall_floyd.hpp
       title: lib/graph/warshall_floyd.hpp
   - name: lib/math
@@ -170,7 +170,7 @@ data:
       title: test/aoj/alds1/alds1_5_d.test.cpp
   - name: test/aoj/dsl
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/dsl/dsl_5_b.test.cpp
       title: test/aoj/dsl/dsl_5_b.test.cpp
   - name: test/aoj/grl
@@ -178,7 +178,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/grl/grl_1_b.test.cpp
       title: test/aoj/grl/grl_1_b.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/grl/grl_1_c.test.cpp
       title: test/aoj/grl/grl_1_c.test.cpp
     - icon: ':x:'

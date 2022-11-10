@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/binary_indexed_tree_2d.hpp
     title: lib/data_structure/binary_indexed_tree_2d.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_5_B
@@ -41,25 +41,25 @@ data:
     \ + sum(x1 - 1, y1 - 1);\n    }\n};\n#line 6 \"test/aoj/dsl/dsl_5_b.test.cpp\"\
     \n\nint main(){\n    int n; cin >> n;\n    BinaryIndexedTree2D<long long> BIT(1002,\
     \ 1002);\n    for(int i = 0; i < n; i++){\n        int x1, y1, x2, y2; cin >>\
-    \ x1 >> y1 >> x2 >> y2;\n        BIT.imos(x1, y1, x2, y2, 1);\n    }\n    long\
-    \ long ans = 0;\n    for(int i = 0; i <= 1000; i++){\n        for(int j = 0; j\
-    \ <= 1000; j++){\n            ans = max(ans, BIT.sum(0, 0, i, j));\n        }\n\
-    \    }\n    cout << ans << \"\\n\";\n}\n"
+    \ x1 >> y1 >> x2 >> y2;\n        BIT.imos(x1, y1, x2 - 1, y2 - 1, 1);\n    }\n\
+    \    long long ans = 0;\n    for(int i = 0; i <= 1000; i++){\n        for(int\
+    \ j = 0; j <= 1000; j++){\n            ans = max(ans, BIT.sum(0, 0, i, j));\n\
+    \        }\n    }\n    cout << ans << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_5_B\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/data_structure/binary_indexed_tree_2d.hpp\"\
     \n\nint main(){\n    int n; cin >> n;\n    BinaryIndexedTree2D<long long> BIT(1002,\
     \ 1002);\n    for(int i = 0; i < n; i++){\n        int x1, y1, x2, y2; cin >>\
-    \ x1 >> y1 >> x2 >> y2;\n        BIT.imos(x1, y1, x2, y2, 1);\n    }\n    long\
-    \ long ans = 0;\n    for(int i = 0; i <= 1000; i++){\n        for(int j = 0; j\
-    \ <= 1000; j++){\n            ans = max(ans, BIT.sum(0, 0, i, j));\n        }\n\
-    \    }\n    cout << ans << \"\\n\";\n}"
+    \ x1 >> y1 >> x2 >> y2;\n        BIT.imos(x1, y1, x2 - 1, y2 - 1, 1);\n    }\n\
+    \    long long ans = 0;\n    for(int i = 0; i <= 1000; i++){\n        for(int\
+    \ j = 0; j <= 1000; j++){\n            ans = max(ans, BIT.sum(0, 0, i, j));\n\
+    \        }\n    }\n    cout << ans << \"\\n\";\n}"
   dependsOn:
   - lib/data_structure/binary_indexed_tree_2d.hpp
   isVerificationFile: true
   path: test/aoj/dsl/dsl_5_b.test.cpp
   requiredBy: []
-  timestamp: '2022-11-11 03:58:03+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-11 04:46:36+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/dsl/dsl_5_b.test.cpp
 layout: document

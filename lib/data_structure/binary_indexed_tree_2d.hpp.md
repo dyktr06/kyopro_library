@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/dsl/dsl_5_b.test.cpp
     title: test/aoj/dsl/dsl_5_b.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/binary_indexed_tree_2d.hpp\"\n\n/* \n\
@@ -63,7 +63,7 @@ data:
   path: lib/data_structure/binary_indexed_tree_2d.hpp
   requiredBy: []
   timestamp: '2022-11-11 03:58:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/dsl/dsl_5_b.test.cpp
 documentation_of: lib/data_structure/binary_indexed_tree_2d.hpp
