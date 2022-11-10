@@ -134,30 +134,25 @@ data:
   - name: lib/string
     pages:
     - icon: ':warning:'
-      path: lib/string/calc-next.cpp
-      title: lib/string/calc-next.cpp
-    - icon: ':warning:'
-      path: lib/string/manacher.cpp
-      title: lib/string/manacher.cpp
+      path: lib/string/calc-next.hpp
+      title: lib/string/calc-next.hpp
+    - icon: ':x:'
+      path: lib/string/manacher.hpp
+      title: lib/string/manacher.hpp
     - icon: ':warning:'
       path: lib/string/permutation.cpp
       title: lib/string/permutation.cpp
     - icon: ':warning:'
       path: lib/string/rollinghash.cpp
       title: lib/string/rollinghash.cpp
-    - icon: ':warning:'
-      path: lib/string/z-algorithm.cpp
-      title: lib/string/z-algorithm.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/string/z_algorithm.hpp
+      title: lib/string/z_algorithm.hpp
   - name: lib
     pages:
     - icon: ':warning:'
       path: lib/template.cpp
       title: lib/template.cpp
-  - name: test/library_checker/data_structure
-    pages:
-    - icon: ':warning:'
-      path: test/library_checker/data_structure/tempCodeRunnerFile.cpp
-      title: test/library_checker/data_structure/tempCodeRunnerFile.cpp
   verificationCategories:
   - name: test/library_checker/data_structure
     pages:
@@ -176,5 +171,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/unionfind.test.cpp
       title: test/library_checker/data_structure/unionfind.test.cpp
+  - name: test/library_checker/string
+    pages:
+    - icon: ':x:'
+      path: test/library_checker/string/enumerate_palindromes.test.cpp
+      title: test/library_checker/string/enumerate_palindromes.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/string/z_algorithm.test.cpp
+      title: test/library_checker/string/z_algorithm.test.cpp
 layout: toppage
 ---
