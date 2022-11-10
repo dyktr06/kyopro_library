@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_186.test.cpp
     title: test/yukicoder/yuki_186.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_2119.test.cpp
     title: test/yukicoder/yuki_2119.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/math/crt.hpp\"\n\n// CRT::extGCD(a, b, x, y) : ax +\
@@ -51,7 +51,7 @@ data:
   path: lib/math/crt.hpp
   requiredBy: []
   timestamp: '2022-11-11 02:31:13+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_2119.test.cpp
   - test/yukicoder/yuki_186.test.cpp

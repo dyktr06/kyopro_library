@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_2087.test.cpp
     title: test/yukicoder/yuki_2087.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/math/convert_base.hpp\"\n\n// 10\u9032\u6570\u3067\u306E\
@@ -30,7 +30,7 @@ data:
   path: lib/math/convert_base.hpp
   requiredBy: []
   timestamp: '2022-11-11 02:31:13+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_2087.test.cpp
 documentation_of: lib/math/convert_base.hpp

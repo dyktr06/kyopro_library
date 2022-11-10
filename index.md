@@ -18,9 +18,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/double_ended_priority_queue.hpp
       title: lib/data_structure/double_ended_priority_queue.hpp
-    - icon: ':warning:'
-      path: lib/data_structure/dynamic_binary_indexed_tree.cpp
-      title: lib/data_structure/dynamic_binary_indexed_tree.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/dynamic_binary_indexed_tree.hpp
+      title: lib/data_structure/dynamic_binary_indexed_tree.hpp
     - icon: ':warning:'
       path: lib/data_structure/dynamic_binary_indexed_tree_2d.cpp
       title: lib/data_structure/dynamic_binary_indexed_tree_2d.cpp
@@ -52,9 +52,9 @@ data:
       title: lib/dp/substring.cpp
   - name: lib/graph
     pages:
-    - icon: ':warning:'
-      path: lib/graph/bellman_ford.cpp
-      title: lib/graph/bellman_ford.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/bellman_ford.hpp
+      title: lib/graph/bellman_ford.hpp
     - icon: ':warning:'
       path: lib/graph/dfs.cpp
       title: lib/graph/dfs.cpp
@@ -87,10 +87,10 @@ data:
     - icon: ':warning:'
       path: lib/math/bit.cpp
       title: lib/math/bit.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: lib/math/convert_base.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/crt.hpp
       title: lib/math/crt.hpp
     - icon: ':warning:'
@@ -154,6 +154,16 @@ data:
       path: lib/template.cpp
       title: lib/template.cpp
   verificationCategories:
+  - name: test/aoj/alds1
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/alds1/alds1_5_d.test.cpp
+      title: test/aoj/alds1/alds1_5_d.test.cpp
+  - name: test/aoj/grl
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/grl/grl_1_b.test.cpp
+      title: test/aoj/grl/grl_1_b.test.cpp
   - name: test/library_checker/data_structure
     pages:
     - icon: ':heavy_check_mark:'
@@ -218,13 +228,13 @@ data:
       title: test/library_checker/tree/tree_diameter.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_186.test.cpp
       title: test/yukicoder/yuki_186.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2087.test.cpp
       title: test/yukicoder/yuki_2087.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2119.test.cpp
       title: test/yukicoder/yuki_2119.test.cpp
 layout: toppage
