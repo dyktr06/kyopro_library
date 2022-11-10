@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 /*  
     TreeLibrary(G, root): 木 G に対する根を root 様々なものを求める構造体
@@ -122,16 +120,3 @@ struct TreeLibrary{
         return getDist(u, a) + getDist(a, v) == getDist(u, v);
     }
 };
-
-// example (典型90 003)
-int main(){
-    int n; cin >> n;
-    vector<vector<int>> G(n);
-    for(int i = 0; i < n - 1; i++){
-        int a, b; cin >> a >> b; a--; b--;
-        G[a].push_back(b);
-        G[b].push_back(a);
-    }
-    TreeLibrary t(G);
-    cout << t.diam + 1 << "\n";
-}

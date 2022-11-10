@@ -18,7 +18,7 @@ int main(){
         if(i % 2 == 0){
             ans = 2 * m1[i / 2] - 1;
         }else{
-            ans = m2[i] / 2;
+            ans = m2[i] / 2 * 2;
         }
         if(i >= 1) cout << " ";
         cout << ans;

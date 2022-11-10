@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // Rho::rabin_miller(N) : N が素数かどうかを判定します。(N <= 2^64 なら必ず成功します) O(log N)
 // Rho::factorial(N) : N について素因数分解をします。O(N^(1/4))
@@ -96,21 +94,5 @@ namespace Rho{
             ret = tmp;
         }
         return ret;
-    }
-}
-
-// example (Factorize (Library Checker))
-int main(){
-    int q; cin >> q;
-    while(q--){
-        long long a; cin >> a;
-        vector<unsigned long long> factor = Rho::factorize(a);
-        sort(factor.begin(), factor.end());
-        int n = factor.size();
-        cout << n;
-        for(int i = 0; i < n; i++){
-            cout << " " << factor[i];
-        }
-        cout << "\n";
     }
 }

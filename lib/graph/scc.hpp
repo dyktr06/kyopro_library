@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // 隣接リストに対して強連結成分分解を行います : O(E + V)
 template <typename T>
@@ -65,24 +63,3 @@ struct SCC{
         return result;
     }
 };
-
-int n, m;
-vector<vector<int>> G;
-
-// example
-int main(){
-    cin >> n >> m;
-    G.resize(n);
-    for(int i = 0; i < m; i++){
-        int a, b; cin >> a >> b; a--; b--;
-        G[a].push_back(b);
-    }
-    SCC<int> scc(G);
-    vector<vector<int>> v = scc.get();
-    for(auto s : v){
-        for(auto x : s){
-            cout << x << " ";
-        }
-        cout << "\n";
-    }
-}
