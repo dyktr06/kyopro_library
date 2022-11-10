@@ -9,7 +9,7 @@ int main(){
     BinaryIndexedTree2D<long long> BIT(1002, 1002);
     for(int i = 0; i < n; i++){
         int x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;
-        BIT.imos(x1, y1, x2, y2, 1);
+        BIT.imos(x1, y1, x2 - 1, y2 - 1, 1);
     }
     long long ans = 0;
     for(int i = 0; i <= 1000; i++){
