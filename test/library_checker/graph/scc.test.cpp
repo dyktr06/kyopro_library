@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#include "../../../lib/graph/graph-input.hpp"
 #include "../../../lib/graph/scc.hpp"
 
 int n, m;
@@ -9,11 +10,7 @@ vector<vector<int>> G;
 
 int main(){
     cin >> n >> m;
-    G.resize(n);
-    for(int i = 0; i < m; i++){
-        int a, b; cin >> a >> b;
-        G[a].push_back(b);
-    }
+    inGraph(G, n, m);
     SCC<int> scc(G);
     vector<vector<int>> v = scc.get();
     cout << (int) v.size() << "\n";
