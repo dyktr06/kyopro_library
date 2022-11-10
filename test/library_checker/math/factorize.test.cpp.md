@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/rho.hpp
     title: lib/math/rho.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/factorize
@@ -64,14 +64,14 @@ data:
     \                    z *= x;\n                }\n            }\n            ret\
     \ = tmp;\n        }\n        return ret;\n    }\n}\n#line 6 \"test/library_checker/math/factorize.test.cpp\"\
     \n\nint main(){\n    int q; cin >> q;\n    while(q--){\n        long long a; cin\
-    \ >> a;\n        vector<unsigned long> factor = Rho::factorize(a);\n        sort(factor.begin(),\
-    \ factor.end());\n        int n = factor.size();\n        cout << n;\n       \
-    \ for(int i = 0; i < n; i++){\n            cout << \" \" << factor[i];\n     \
-    \   }\n        cout << \"\\n\";\n    }\n}\n"
+    \ >> a;\n        vector<unsigned long long> factor = Rho::factorize(a);\n    \
+    \    sort(factor.begin(), factor.end());\n        int n = factor.size();\n   \
+    \     cout << n;\n        for(int i = 0; i < n; i++){\n            cout << \"\
+    \ \" << factor[i];\n        }\n        cout << \"\\n\";\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/factorize\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#include \"../../../lib/math/rho.hpp\"\n\nint main(){\n\
     \    int q; cin >> q;\n    while(q--){\n        long long a; cin >> a;\n     \
-    \   vector<unsigned long> factor = Rho::factorize(a);\n        sort(factor.begin(),\
+    \   vector<unsigned long long> factor = Rho::factorize(a);\n        sort(factor.begin(),\
     \ factor.end());\n        int n = factor.size();\n        cout << n;\n       \
     \ for(int i = 0; i < n; i++){\n            cout << \" \" << factor[i];\n     \
     \   }\n        cout << \"\\n\";\n    }\n}"
@@ -80,8 +80,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/math/factorize.test.cpp
   requiredBy: []
-  timestamp: '2022-11-10 09:23:38+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-10 10:41:26+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/math/factorize.test.cpp
 layout: document

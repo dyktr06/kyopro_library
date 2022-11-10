@@ -58,9 +58,9 @@ data:
     - icon: ':warning:'
       path: lib/graph/dfs.cpp
       title: lib/graph/dfs.cpp
-    - icon: ':warning:'
-      path: lib/graph/dijkstra.cpp
-      title: lib/graph/dijkstra.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/dijkstra.hpp
+      title: lib/graph/dijkstra.hpp
     - icon: ':warning:'
       path: lib/graph/graph-input.cpp
       title: lib/graph/graph-input.cpp
@@ -99,16 +99,16 @@ data:
     - icon: ':warning:'
       path: lib/math/fraction.cpp
       title: lib/math/fraction.cpp
-    - icon: ':warning:'
-      path: lib/math/matrix.cpp
-      title: lib/math/matrix.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/math/matrix.hpp
+      title: lib/math/matrix.hpp
     - icon: ':warning:'
       path: lib/math/modcalc.cpp
       title: lib/math/modcalc.cpp
     - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: lib/math/modint.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: lib/math/rho.hpp
     - icon: ':warning:'
@@ -182,11 +182,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/scc.test.cpp
       title: test/library_checker/graph/scc.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/shortest_path.test.cpp
+      title: test/library_checker/graph/shortest_path.test.cpp
   - name: test/library_checker/math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/factorize.test.cpp
       title: test/library_checker/math/factorize.test.cpp
+  - name: test/library_checker/matrix
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/matrix/matrix_product.test.cpp
+      title: test/library_checker/matrix/matrix_product.test.cpp
   - name: test/library_checker/string
     pages:
     - icon: ':heavy_check_mark:'
@@ -200,5 +208,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/lca.test.cpp
       title: test/library_checker/tree/lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/tree/tree_diameter.test.cpp
+      title: test/library_checker/tree/tree_diameter.test.cpp
 layout: toppage
 ---
