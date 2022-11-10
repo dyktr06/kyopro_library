@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"lib/graph/topologocal_sort.hpp\"\n\n// \u30C8\u30DD\u30ED\
+  bundledCode: "#line 2 \"lib/graph/topological_sort.hpp\"\n\n// \u30C8\u30DD\u30ED\
     \u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\u3067\u8F9E\u66F8\u9806\u6700\u5C0F\u306E\
     \u3082\u306E\u3092\u6C42\u3081\u307E\u3059: O(E + VlogV)\ntemplate <typename T>\n\
     vector<T> topological_sort(const vector<vector<T>> &G){\n    int siz = (int) G.size();\n\
@@ -37,16 +37,16 @@ data:
     \ return res;\n}"
   dependsOn: []
   isVerificationFile: false
-  path: lib/graph/topologocal_sort.hpp
+  path: lib/graph/topological_sort.hpp
   requiredBy: []
-  timestamp: '2022-11-11 03:58:03+09:00'
+  timestamp: '2022-11-11 04:34:30+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/grl/grl_4_b.test.cpp
-documentation_of: lib/graph/topologocal_sort.hpp
+documentation_of: lib/graph/topological_sort.hpp
 layout: document
 redirect_from:
-- /library/lib/graph/topologocal_sort.hpp
-- /library/lib/graph/topologocal_sort.hpp.html
-title: lib/graph/topologocal_sort.hpp
+- /library/lib/graph/topological_sort.hpp
+- /library/lib/graph/topological_sort.hpp.html
+title: lib/graph/topological_sort.hpp
 ---

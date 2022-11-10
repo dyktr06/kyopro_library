@@ -10,8 +10,8 @@ data:
       path: lib/data_structure/binary_indexed_tree_2d.hpp
       title: lib/data_structure/binary_indexed_tree_2d.hpp
     - icon: ':warning:'
-      path: lib/data_structure/convexhulltrick.cpp
-      title: lib/data_structure/convexhulltrick.cpp
+      path: lib/data_structure/convexhulltrick.hpp
+      title: lib/data_structure/convexhulltrick.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/deswag.hpp
       title: lib/data_structure/deswag.hpp
@@ -41,15 +41,15 @@ data:
       title: lib/data_structure/union_find.hpp
   - name: lib/dp
     pages:
-    - icon: ':warning:'
-      path: lib/dp/LCS.cpp
-      title: lib/dp/LCS.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/dp/LCS.hpp
+      title: lib/dp/LCS.hpp
     - icon: ':heavy_check_mark:'
       path: lib/dp/LIS.hpp
       title: lib/dp/LIS.hpp
-    - icon: ':warning:'
-      path: lib/dp/substring.cpp
-      title: lib/dp/substring.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/dp/substring.hpp
+      title: lib/dp/substring.hpp
   - name: lib/graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -71,8 +71,8 @@ data:
       path: lib/graph/scc.hpp
       title: lib/graph/scc.hpp
     - icon: ':x:'
-      path: lib/graph/topologocal_sort.hpp
-      title: lib/graph/topologocal_sort.hpp
+      path: lib/graph/topological_sort.hpp
+      title: lib/graph/topological_sort.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/tree.hpp
       title: lib/graph/tree.hpp
@@ -157,6 +157,9 @@ data:
   - name: test/aoj/alds1
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/aoj/alds1/alds1_10_c.test.cpp
+      title: test/aoj/alds1/alds1_10_c.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/alds1/alds1_14_b.test.cpp
       title: test/aoj/alds1/alds1_14_b.test.cpp
     - icon: ':heavy_check_mark:'
@@ -212,6 +215,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/dp/longest_increasing_subsequence.test.cpp
       title: test/library_checker/dp/longest_increasing_subsequence.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/dp/number_of_subsequences.test.cpp
+      title: test/library_checker/dp/number_of_subsequences.test.cpp
   - name: test/library_checker/graph
     pages:
     - icon: ':heavy_check_mark:'
