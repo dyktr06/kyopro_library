@@ -55,9 +55,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/bellman_ford.hpp
       title: lib/graph/bellman_ford.hpp
-    - icon: ':warning:'
-      path: lib/graph/dfs.cpp
-      title: lib/graph/dfs.cpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: lib/graph/dijkstra.hpp
