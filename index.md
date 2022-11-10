@@ -58,13 +58,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: lib/graph/dijkstra.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/graph-input.hpp
       title: lib/graph/graph-input.hpp
     - icon: ':warning:'
       path: lib/graph/grid-bfs.cpp
       title: lib/graph/grid-bfs.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/scc.hpp
       title: lib/graph/scc.hpp
     - icon: ':warning:'
@@ -91,11 +91,11 @@ data:
       path: lib/math/crt.hpp
       title: lib/math/crt.hpp
     - icon: ':warning:'
-      path: lib/math/divisor-prime.cpp
-      title: lib/math/divisor-prime.cpp
+      path: lib/math/divisor-prime.hpp
+      title: lib/math/divisor-prime.hpp
     - icon: ':warning:'
-      path: lib/math/fraction.cpp
-      title: lib/math/fraction.cpp
+      path: lib/math/fraction.hpp
+      title: lib/math/fraction.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: lib/math/matrix.hpp
@@ -214,7 +214,7 @@ data:
       title: test/library_checker/dp/number_of_subsequences.test.cpp
   - name: test/library_checker/graph
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/scc.test.cpp
       title: test/library_checker/graph/scc.test.cpp
     - icon: ':heavy_check_mark:'
