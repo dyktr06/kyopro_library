@@ -1,13 +1,8 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-int n, m;
-vector<vector<array<long long, 2>>> G;
+#pragma once
 
 // ダイクストラ法 : O(ElogV)
 template <typename T>
-vector<long long> dijkstra(T x){
+vector<long long> dijkstra(const vector<vector<array<long long, 2>>> &G, T x){
     const long long INF = 0x1fffffffffffffff;
     vector<long long> cost((int) G.size(), INF);
     using P = pair<long long, long long>;
@@ -30,7 +25,7 @@ vector<long long> dijkstra(T x){
 }
 
 // s から t への最短パスを求めます : O(ElogV)
-pair<long long, vector<pair<int, int>>> shortestPath(int s, int t){
+pair<long long, vector<pair<int, int>>> shortestPath(const vector<vector<array<long long, 2>>> &G, int s, int t){
     const long long INF = 0x1fffffffffffffff;
     vector<long long> cost((int) G.size(), INF);
     vector<int> par((int) G.size(), -1);
@@ -65,18 +60,4 @@ pair<long long, vector<pair<int, int>>> shortestPath(int s, int t){
     reverse(path.begin(), path.end());
 
     return {cost[t], path};
-}
-
-// example
-int main(){
-    cin >> n >> m;
-    G = vector<vector<array<long long, 2>>>(n);
-
-    for(int i = 0; i < m; i++){
-        int a, b, c;
-        cin >> a >> b >> c;
-        a--, b--;
-        G[a].push_back({b, c});
-        G[b].push_back({a, c});
-    }
 }

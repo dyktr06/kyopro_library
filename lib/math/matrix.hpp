@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // 行列 ... ここでは、vector<vector<long long>> の二次元配列で定義されます。
 
