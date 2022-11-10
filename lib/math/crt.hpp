@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // CRT::extGCD(a, b, x, y) : ax + by = gcd(a, b) となる x, y を求めます : O(log a)
 // CRT::ChineseRem(b, m) : 中国剰余定理、返り値を (r, m) とすると解は x ≡ r (mod. m)、解なしの場合は (0, -1) を返します
@@ -29,23 +27,5 @@ namespace CRT{
         r %= M;
         if(r < 0) r += M;
         return {r, M};
-    }
-}
-
-// example (中華風 (Easy) (yukicoder))
-int main(){
-    vector<long long> b(3), m(3);
-    int cnt = 0;
-    for(int i = 0; i < 3; i++){
-        cin >> b[i] >> m[i];
-        if(b[i] == 0) cnt++;
-    }
-    pair<long long, long long> p = CRT::ChineseRem(b, m);
-    if(p.second == -1){
-        cout << -1 << endl;
-    }else if(cnt == 3){
-        cout << p.second << endl;
-    }else{
-        cout << p.first << endl;
     }
 }

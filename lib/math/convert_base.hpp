@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // 10進数での x を b 進数に変換します。: O(logx)
 template<typename T>
@@ -18,12 +16,4 @@ string convert_base(T x, T b) {
     if(res.empty()) res = '0';
     reverse(res.begin(), res.end());
     return res;
-}
-
-// example (ABC234C)
-int main(){
-    long long k; cin >> k;
-    string s = convert_base(k, 2LL);
-    s = regex_replace(s, regex("1"), "2");
-    cout << s << "\n";
 }
