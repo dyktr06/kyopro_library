@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../../lib/graph/topologocal_sort.hpp"
+#include "../../../lib/graph/topological_sort.hpp"
 
 int main(){
     int n, m; cin >> n >> m;

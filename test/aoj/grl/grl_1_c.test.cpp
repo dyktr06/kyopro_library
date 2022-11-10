@@ -19,7 +19,13 @@ int main(){
         d[a][b] = c;
     }
 
-    warshall_floyd(d, n);
+    warshall_floyd(d, INF);
+    for(int i = 0; i < n; i++){
+        if(d[i][i] < 0){
+            cout << "NEGATIVE CYCLE" << "\n";
+            return 0;
+        }
+    }
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
             if(j >= 1) cout << " ";

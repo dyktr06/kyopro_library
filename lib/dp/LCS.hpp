@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // 文字列 s と文字列 t の最長共通部分列を求めます : O(|s||t|)
 string LCS(const string &s, const string &t){
@@ -31,10 +29,4 @@ string LCS(const string &s, const string &t){
     }
     reverse(res.begin(), res.end());
     return res;
-}
-
-// example (EDPC-F)
-int main(){
-    string s, t; cin >> s >> t;
-    cout << LCS(s, t) << "\n";
 }
