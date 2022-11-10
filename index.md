@@ -58,16 +58,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: lib/graph/dijkstra.hpp
-    - icon: ':warning:'
-      path: lib/graph/graph-input.cpp
-      title: lib/graph/graph-input.cpp
+    - icon: ':x:'
+      path: lib/graph/graph-input.hpp
+      title: lib/graph/graph-input.hpp
     - icon: ':warning:'
       path: lib/graph/grid-bfs.cpp
       title: lib/graph/grid-bfs.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/graph/scc.hpp
       title: lib/graph/scc.hpp
-    - icon: ':x:'
+    - icon: ':warning:'
       path: lib/graph/topological_sort.hpp
       title: lib/graph/topological_sort.hpp
     - icon: ':heavy_check_mark:'
@@ -79,11 +79,11 @@ data:
   - name: lib/math
     pages:
     - icon: ':warning:'
-      path: lib/math/baby-step giant-step.cpp
-      title: lib/math/baby-step giant-step.cpp
+      path: lib/math/baby-step_giant-step.hpp
+      title: lib/math/baby-step_giant-step.hpp
     - icon: ':warning:'
-      path: lib/math/bit.cpp
-      title: lib/math/bit.cpp
+      path: lib/math/bit.hpp
+      title: lib/math/bit.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: lib/math/convert_base.hpp
@@ -123,8 +123,8 @@ data:
       path: lib/others/exhaustive_search.hpp
       title: lib/others/exhaustive_search.hpp
     - icon: ':warning:'
-      path: lib/others/others.cpp
-      title: lib/others/others.cpp
+      path: lib/others/others.hpp
+      title: lib/others/others.hpp
     - icon: ':warning:'
       path: lib/others/random.cpp
       title: lib/others/random.cpp
@@ -178,9 +178,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/grl/grl_1_c.test.cpp
       title: test/aoj/grl/grl_1_c.test.cpp
-    - icon: ':x:'
-      path: test/aoj/grl/grl_4_b.test.cpp
-      title: test/aoj/grl/grl_4_b.test.cpp
   - name: test/library_checker/data_structure
     pages:
     - icon: ':heavy_check_mark:'
@@ -217,7 +214,7 @@ data:
       title: test/library_checker/dp/number_of_subsequences.test.cpp
   - name: test/library_checker/graph
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/graph/scc.test.cpp
       title: test/library_checker/graph/scc.test.cpp
     - icon: ':heavy_check_mark:'
