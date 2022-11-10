@@ -87,12 +87,12 @@ data:
     - icon: ':warning:'
       path: lib/math/bit.cpp
       title: lib/math/bit.cpp
-    - icon: ':warning:'
-      path: lib/math/convert_base.cpp
-      title: lib/math/convert_base.cpp
-    - icon: ':warning:'
-      path: lib/math/crt.cpp
-      title: lib/math/crt.cpp
+    - icon: ':x:'
+      path: lib/math/convert_base.hpp
+      title: lib/math/convert_base.hpp
+    - icon: ':x:'
+      path: lib/math/crt.hpp
+      title: lib/math/crt.hpp
     - icon: ':warning:'
       path: lib/math/divisor-prime.cpp
       title: lib/math/divisor-prime.cpp
@@ -216,5 +216,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/tree_diameter.test.cpp
       title: test/library_checker/tree/tree_diameter.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':x:'
+      path: test/yukicoder/yuki_186.test.cpp
+      title: test/yukicoder/yuki_186.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/yuki_2087.test.cpp
+      title: test/yukicoder/yuki_2087.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/yuki_2119.test.cpp
+      title: test/yukicoder/yuki_2119.test.cpp
 layout: toppage
 ---
