@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // 約数を昇順にして配列にして出力します : O(√n)
 template <typename T>
