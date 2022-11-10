@@ -44,9 +44,9 @@ data:
     - icon: ':warning:'
       path: lib/dp/LCS.cpp
       title: lib/dp/LCS.cpp
-    - icon: ':warning:'
-      path: lib/dp/LIS.cpp
-      title: lib/dp/LIS.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/dp/LIS.hpp
+      title: lib/dp/LIS.hpp
     - icon: ':warning:'
       path: lib/dp/substring.cpp
       title: lib/dp/substring.cpp
@@ -177,6 +177,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/unionfind.test.cpp
       title: test/library_checker/data_structure/unionfind.test.cpp
+  - name: test/library_checker/dp
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/dp/longest_increasing_subsequence.test.cpp
+      title: test/library_checker/dp/longest_increasing_subsequence.test.cpp
   - name: test/library_checker/graph
     pages:
     - icon: ':heavy_check_mark:'

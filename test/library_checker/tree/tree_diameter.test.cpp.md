@@ -27,7 +27,7 @@ data:
     \            cost[to] = c + t;\n                q.emplace(cost[to], to);\n   \
     \         }\n        }\n    }\n    return cost;\n}\n\n// s \u304B\u3089 t \u3078\
     \u306E\u6700\u77ED\u30D1\u30B9\u3092\u6C42\u3081\u307E\u3059 : O(ElogV)\npair<long\
-    \ long, vector<pair<int, int>>> shortestPath(const vector<vector<array<long long,\
+    \ long, vector<pair<int, int>>> shortest_path(const vector<vector<array<long long,\
     \ 2>>> &G, int s, int t){\n    const long long INF = 0x1fffffffffffffff;\n   \
     \ vector<long long> cost((int) G.size(), INF);\n    vector<int> par((int) G.size(),\
     \ -1);\n    using P = pair<long long, long long>;\n    priority_queue<P, vector<P>,\
@@ -48,7 +48,7 @@ data:
     \ >= mx1){\n            mx1 = cost[i];\n            s = i;\n        }\n    }\n\
     \    vector<long long> cost2 = dijkstra(G, s);\n    for(int i = 0; i < n; i++){\n\
     \        if(cost2[i] >= mx2){\n            mx2 = cost2[i];\n            t = i;\n\
-    \        }\n    }\n    pair<long long, vector<pair<int, int>>> p = shortestPath(G,\
+    \        }\n    }\n    pair<long long, vector<pair<int, int>>> p = shortest_path(G,\
     \ s, t);\n    vector<int> e;\n    for(auto [u, v] : p.second){\n        if(!e.size()\
     \ || e.back() != u){\n            e.push_back(u);\n        }\n        e.push_back(v);\n\
     \    }\n    cout << p.first << \" \" << (int) e.size() << \"\\n\";\n    for(auto\
@@ -63,7 +63,7 @@ data:
     \ >= mx1){\n            mx1 = cost[i];\n            s = i;\n        }\n    }\n\
     \    vector<long long> cost2 = dijkstra(G, s);\n    for(int i = 0; i < n; i++){\n\
     \        if(cost2[i] >= mx2){\n            mx2 = cost2[i];\n            t = i;\n\
-    \        }\n    }\n    pair<long long, vector<pair<int, int>>> p = shortestPath(G,\
+    \        }\n    }\n    pair<long long, vector<pair<int, int>>> p = shortest_path(G,\
     \ s, t);\n    vector<int> e;\n    for(auto [u, v] : p.second){\n        if(!e.size()\
     \ || e.back() != u){\n            e.push_back(u);\n        }\n        e.push_back(v);\n\
     \    }\n    cout << p.first << \" \" << (int) e.size() << \"\\n\";\n    for(auto\
@@ -73,7 +73,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2022-11-10 10:41:26+09:00'
+  timestamp: '2022-11-11 02:13:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/tree/tree_diameter.test.cpp
