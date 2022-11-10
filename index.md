@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: lib/data_structure
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/binary_indexed_tree.hpp
       title: lib/data_structure/binary_indexed_tree.hpp
     - icon: ':warning:'
@@ -15,9 +15,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/deswag.hpp
       title: lib/data_structure/deswag.hpp
-    - icon: ':warning:'
-      path: lib/data_structure/double_ended_priority_queue.cpp
-      title: lib/data_structure/double_ended_priority_queue.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/double_ended_priority_queue.hpp
+      title: lib/data_structure/double_ended_priority_queue.hpp
     - icon: ':warning:'
       path: lib/data_structure/dynamic_binary_indexed_tree.cpp
       title: lib/data_structure/dynamic_binary_indexed_tree.cpp
@@ -67,15 +67,15 @@ data:
     - icon: ':warning:'
       path: lib/graph/grid-bfs.cpp
       title: lib/graph/grid-bfs.cpp
-    - icon: ':warning:'
-      path: lib/graph/scc.cpp
-      title: lib/graph/scc.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/scc.hpp
+      title: lib/graph/scc.hpp
     - icon: ':warning:'
       path: lib/graph/topologocal_sort.cpp
       title: lib/graph/topologocal_sort.cpp
-    - icon: ':warning:'
-      path: lib/graph/tree.cpp
-      title: lib/graph/tree.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/tree.hpp
+      title: lib/graph/tree.hpp
     - icon: ':warning:'
       path: lib/graph/warshall_floyd.cpp
       title: lib/graph/warshall_floyd.cpp
@@ -108,9 +108,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: lib/math/modint.hpp
-    - icon: ':warning:'
-      path: lib/math/rho.cpp
-      title: lib/math/rho.cpp
+    - icon: ':x:'
+      path: lib/math/rho.hpp
+      title: lib/math/rho.hpp
     - icon: ':warning:'
       path: lib/math/utils.cpp
       title: lib/math/utils.cpp
@@ -136,7 +136,7 @@ data:
     - icon: ':warning:'
       path: lib/string/calc-next.hpp
       title: lib/string/calc-next.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/string/manacher.hpp
       title: lib/string/manacher.hpp
     - icon: ':warning:'
@@ -160,6 +160,12 @@ data:
       path: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
+      title: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/point_add_range_sum.test.cpp
+      title: test/library_checker/data_structure/point_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
@@ -171,13 +177,28 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/unionfind.test.cpp
       title: test/library_checker/data_structure/unionfind.test.cpp
-  - name: test/library_checker/string
+  - name: test/library_checker/graph
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/scc.test.cpp
+      title: test/library_checker/graph/scc.test.cpp
+  - name: test/library_checker/math
     pages:
     - icon: ':x:'
+      path: test/library_checker/math/factorize.test.cpp
+      title: test/library_checker/math/factorize.test.cpp
+  - name: test/library_checker/string
+    pages:
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/string/enumerate_palindromes.test.cpp
       title: test/library_checker/string/enumerate_palindromes.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/z_algorithm.test.cpp
       title: test/library_checker/string/z_algorithm.test.cpp
+  - name: test/library_checker/tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/tree/lca.test.cpp
+      title: test/library_checker/tree/lca.test.cpp
 layout: toppage
 ---

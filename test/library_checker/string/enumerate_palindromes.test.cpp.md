@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/string/manacher.hpp
     title: lib/string/manacher.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/enumerate_palindromes
@@ -31,8 +31,8 @@ data:
     \ n - 1) t += '$';\n    }\n    vector<int> m1 = manacher(s), m2 = manacher(t);\n\
     \    for(int i = 0; i < 2 * n - 1; i++){\n        int ans;\n        if(i % 2 ==\
     \ 0){\n            ans = 2 * m1[i / 2] - 1;\n        }else{\n            ans =\
-    \ m2[i] / 2;\n        }\n        if(i >= 1) cout << \" \";\n        cout << ans;\n\
-    \    }\n    cout << \"\\n\";\n}\n"
+    \ m2[i] / 2 * 2;\n        }\n        if(i >= 1) cout << \" \";\n        cout <<\
+    \ ans;\n    }\n    cout << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/string/manacher.hpp\"\
     \n\nint main(){\n    string s; cin >> s;\n    int n = s.size();\n    string t\
@@ -40,15 +40,15 @@ data:
     \ n - 1) t += '$';\n    }\n    vector<int> m1 = manacher(s), m2 = manacher(t);\n\
     \    for(int i = 0; i < 2 * n - 1; i++){\n        int ans;\n        if(i % 2 ==\
     \ 0){\n            ans = 2 * m1[i / 2] - 1;\n        }else{\n            ans =\
-    \ m2[i] / 2;\n        }\n        if(i >= 1) cout << \" \";\n        cout << ans;\n\
-    \    }\n    cout << \"\\n\";\n}"
+    \ m2[i] / 2 * 2;\n        }\n        if(i >= 1) cout << \" \";\n        cout <<\
+    \ ans;\n    }\n    cout << \"\\n\";\n}"
   dependsOn:
   - lib/string/manacher.hpp
   isVerificationFile: true
   path: test/library_checker/string/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2022-11-10 08:53:48+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-10 09:23:38+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/string/enumerate_palindromes.test.cpp
 layout: document
