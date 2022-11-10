@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // mod. m での x^n を計算します : O(logn)
 template <typename T>

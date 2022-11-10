@@ -1,10 +1,8 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // トポロジカルソートで辞書順最小のものを求めます: O(E + VlogV)
 template <typename T>
-vector<T> topological_sort(vector<vector<T>> G){
+vector<T> topological_sort(const vector<vector<T>> &G){
     int siz = (int) G.size();
     vector<int> indegree(siz);
     for(int i = 0; i < siz; i++){
@@ -33,21 +31,4 @@ vector<T> topological_sort(vector<vector<T>> G){
         }
     }
     return res;
-}
-
-int n, m;
-vector<vector<int>> G;
-
-// example
-int main(){
-    cin >> n >> m;
-    G.resize(n);
-    for(int i = 0; i < m; i++){
-        int a, b; cin >> a >> b; a--; b--;
-        G[a].push_back(b);
-    }
-    vector<int> tsort = topological_sort(G);
-    for(auto x : tsort){
-        cout << x << " ";
-    }
 }

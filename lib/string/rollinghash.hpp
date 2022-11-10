@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 /* 
     RollingHash(s, base) : 文字列 s についてのハッシュテーブルを構築します。O(n)
@@ -9,10 +7,10 @@ using namespace std;
     LCP(b, l1, r1, l2, r2) 区間 [l1, r1) と ハッシュテーブルが b となる区間 [l2, r2) の文字列の最長接頭辞を求めます。 O(logN)
 */
 struct RollingHash{
-    vector<unsigned long> hashed, power;
-    static constexpr unsigned long mod = (1uL << 61) - 1;
+    vector<unsigned long long> hashed, power;
+    static constexpr unsigned long long mod = (1uL << 61) - 1;
 	
-    unsigned long mul(__int128_t a, __int128_t b) const {
+    unsigned long long mul(__int128_t a, __int128_t b) const {
 		__int128_t t = a * b;
 		t = (t >> 61) + (t & mod);
 		
@@ -32,14 +30,14 @@ struct RollingHash{
         }
     }
 
-    unsigned long get(int l, int r) const {
-        unsigned long ret = hashed[r] + mod - mul(hashed[l], power[r - l]);
+    unsigned long long get(int l, int r) const {
+        unsigned long long ret = hashed[r] + mod - mul(hashed[l], power[r - l]);
         if(ret >= mod) ret -= mod;
         return ret;
     }
 
-    unsigned long connect(unsigned h1, int h2, int h2len) const {
-        unsigned long ret = mul(h1, power[h2len]) + h2;
+    unsigned long long connect(unsigned h1, int h2, int h2len) const {
+        unsigned long long ret = mul(h1, power[h2len]) + h2;
         if(ret >= mod) ret -= mod;
         return ret;
     }
@@ -55,23 +53,3 @@ struct RollingHash{
         return low;
     }
 };
-
-// example(ABC141E)
-int main(){
-    int n; cin >> n;
-    string s; cin >> s;
-    int ans = 0;
-    RollingHash rh(s);
-    for(int l1 = 0; l1 < n; l1++){
-        for(int l2 = l1 + 1; l2 < n; l2++){
-            while(l1 + ans < l2 && l2 + ans < n){
-                if(rh.get(l1, l1 + ans + 1) == rh.get(l2, l2 + ans + 1)){
-                    ans++;
-                }else{
-                    break;
-                }
-            }
-        }
-    }
-    cout << ans << "\n";
-}

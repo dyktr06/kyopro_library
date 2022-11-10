@@ -1,10 +1,8 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // aの部分集合の和の組み合わせをすべて列挙します。: O(2^N)
 template<typename T>
-vector<long long> getSumOfSubsets(T a){
+vector<long long> sum_subsets(T a){
     vector<long long> res;
     int n = a.size();
     for(int bit = 0; bit < (1 << n); bit++){

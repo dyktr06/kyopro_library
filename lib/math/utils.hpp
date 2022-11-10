@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // aからbまでの和をもとめます : O(1)
 template <typename T>

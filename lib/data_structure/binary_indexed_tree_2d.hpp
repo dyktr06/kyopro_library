@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 /* 
     BinaryIndexedTree2D<T>(h, w) : BIT2Dをサイズh*wで構築
@@ -50,22 +48,3 @@ struct BinaryIndexedTree2D{
         return sum(x2, y2) - sum(x2, y1 - 1) - sum(x1 - 1, y2) + sum(x1 - 1, y1 - 1);
     }
 };
-
-//example (MMA004-5)
-int main(){
-    int n, a, b; cin >> n >> a >> b;
-    BinaryIndexedTree2D<long long> BIT(n, n);
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            long long v; cin >> v;
-            BIT.add(i, j, v);
-        }
-    }
-    long long ans = 0;
-    for(int i = 0; i < n - a + 1; i++){
-        for(int j = 0; j < n - b + 1; j++){
-            ans = max(ans, BIT.sum(i, j, i + a - 1, j + b - 1));
-        }
-    }
-    cout << ans << "\n";
-}
