@@ -32,7 +32,7 @@ int main(){
             t = i;
         }
     }
-    pair<long long, vector<pair<int, int>>> p = shortestPath(G, s, t);
+    pair<long long, vector<pair<int, int>>> p = shortest_path(G, s, t);
     vector<int> e;
     for(auto [u, v] : p.second){
         if(!e.size() || e.back() != u){

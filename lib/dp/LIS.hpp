@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 // 配列 a の最長増加部分列の長さを求めます : O(NlogN)
 
@@ -21,7 +19,7 @@ int LIS(vector<T> a,  bool is_strong = true){
 
 // 配列 a の最長増加部分列を構築します。 : O(NlogN)
 template <typename T>
-vector<int> getLIS(vector<T> a,  bool is_strong = true){
+vector<int> construct_LIS(vector<T> a,  bool is_strong = true){
     const long long INF = 0x1fffffffffffffff;
     int n = (int) a.size();
     vector<long long> dp(n, INF);
@@ -48,14 +46,4 @@ vector<int> getLIS(vector<T> a,  bool is_strong = true){
     }
     reverse(res.begin(), res.end());
     return res;
-}
-
-// example
-int main(){
-    int n; cin >> n;
-    vector<long long> a(n);
-    for(int i = 0; i < n; i++){
-        cin >> a[i];
-    }
-    cout << LIS(a) << endl;
 }

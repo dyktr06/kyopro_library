@@ -25,7 +25,7 @@ vector<long long> dijkstra(const vector<vector<array<long long, 2>>> &G, T x){
 }
 
 // s から t への最短パスを求めます : O(ElogV)
-pair<long long, vector<pair<int, int>>> shortestPath(const vector<vector<array<long long, 2>>> &G, int s, int t){
+pair<long long, vector<pair<int, int>>> shortest_path(const vector<vector<array<long long, 2>>> &G, int s, int t){
     const long long INF = 0x1fffffffffffffff;
     vector<long long> cost((int) G.size(), INF);
     vector<int> par((int) G.size(), -1);

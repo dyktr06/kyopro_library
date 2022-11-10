@@ -15,7 +15,7 @@ int main(){
         int a, b, c; cin >> a >> b >> c;
         G[a].push_back({b, c});
     }
-    pair<long long, vector<pair<int, int>>> p = shortestPath(G, s, t);
+    pair<long long, vector<pair<int, int>>> p = shortest_path(G, s, t);
     if(p.first == -1){
         cout << -1 << "\n";
     }else{
