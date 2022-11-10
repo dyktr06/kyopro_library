@@ -6,9 +6,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/binary_indexed_tree.hpp
       title: lib/data_structure/binary_indexed_tree.hpp
-    - icon: ':warning:'
-      path: lib/data_structure/binary_indexed_tree_2d.cpp
-      title: lib/data_structure/binary_indexed_tree_2d.cpp
+    - icon: ':x:'
+      path: lib/data_structure/binary_indexed_tree_2d.hpp
+      title: lib/data_structure/binary_indexed_tree_2d.hpp
     - icon: ':warning:'
       path: lib/data_structure/convexhulltrick.cpp
       title: lib/data_structure/convexhulltrick.cpp
@@ -21,9 +21,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/dynamic_binary_indexed_tree.hpp
       title: lib/data_structure/dynamic_binary_indexed_tree.hpp
-    - icon: ':warning:'
-      path: lib/data_structure/dynamic_binary_indexed_tree_2d.cpp
-      title: lib/data_structure/dynamic_binary_indexed_tree_2d.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
+      title: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
     - icon: ':warning:'
       path: lib/data_structure/imos_linear.cpp
       title: lib/data_structure/imos_linear.cpp
@@ -70,15 +70,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/scc.hpp
       title: lib/graph/scc.hpp
-    - icon: ':warning:'
-      path: lib/graph/topologocal_sort.cpp
-      title: lib/graph/topologocal_sort.cpp
+    - icon: ':x:'
+      path: lib/graph/topologocal_sort.hpp
+      title: lib/graph/topologocal_sort.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/tree.hpp
       title: lib/graph/tree.hpp
-    - icon: ':warning:'
-      path: lib/graph/warshall_floyd.cpp
-      title: lib/graph/warshall_floyd.cpp
+    - icon: ':x:'
+      path: lib/graph/warshall_floyd.hpp
+      title: lib/graph/warshall_floyd.hpp
   - name: lib/math
     pages:
     - icon: ':warning:'
@@ -103,8 +103,8 @@ data:
       path: lib/math/matrix.hpp
       title: lib/math/matrix.hpp
     - icon: ':warning:'
-      path: lib/math/modcalc.cpp
-      title: lib/math/modcalc.cpp
+      path: lib/math/modcalc.hpp
+      title: lib/math/modcalc.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: lib/math/modint.hpp
@@ -112,19 +112,19 @@ data:
       path: lib/math/rho.hpp
       title: lib/math/rho.hpp
     - icon: ':warning:'
-      path: lib/math/utils.cpp
-      title: lib/math/utils.cpp
+      path: lib/math/utils.hpp
+      title: lib/math/utils.hpp
   - name: lib/others
     pages:
-    - icon: ':warning:'
-      path: lib/others/bit-search.cpp
-      title: lib/others/bit-search.cpp
     - icon: ':heavy_check_mark:'
       path: lib/others/compression.hpp
       title: lib/others/compression.hpp
     - icon: ':warning:'
       path: lib/others/compression_old.hpp
       title: lib/others/compression_old.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/others/exhaustive_search.hpp
+      title: lib/others/exhaustive_search.hpp
     - icon: ':warning:'
       path: lib/others/others.cpp
       title: lib/others/others.cpp
@@ -142,9 +142,9 @@ data:
     - icon: ':warning:'
       path: lib/string/permutation.cpp
       title: lib/string/permutation.cpp
-    - icon: ':warning:'
-      path: lib/string/rollinghash.cpp
-      title: lib/string/rollinghash.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/string/rollinghash.hpp
+      title: lib/string/rollinghash.hpp
     - icon: ':heavy_check_mark:'
       path: lib/string/z_algorithm.hpp
       title: lib/string/z_algorithm.hpp
@@ -157,13 +157,30 @@ data:
   - name: test/aoj/alds1
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/aoj/alds1/alds1_14_b.test.cpp
+      title: test/aoj/alds1/alds1_14_b.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/alds1/alds1_5_a.test.cpp
+      title: test/aoj/alds1/alds1_5_a.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/alds1/alds1_5_d.test.cpp
       title: test/aoj/alds1/alds1_5_d.test.cpp
+  - name: test/aoj/dsl
+    pages:
+    - icon: ':x:'
+      path: test/aoj/dsl/dsl_5_b.test.cpp
+      title: test/aoj/dsl/dsl_5_b.test.cpp
   - name: test/aoj/grl
     pages:
     - icon: ':heavy_check_mark:'
       path: test/aoj/grl/grl_1_b.test.cpp
       title: test/aoj/grl/grl_1_b.test.cpp
+    - icon: ':x:'
+      path: test/aoj/grl/grl_1_c.test.cpp
+      title: test/aoj/grl/grl_1_c.test.cpp
+    - icon: ':x:'
+      path: test/aoj/grl/grl_4_b.test.cpp
+      title: test/aoj/grl/grl_4_b.test.cpp
   - name: test/library_checker/data_structure
     pages:
     - icon: ':heavy_check_mark:'
@@ -175,6 +192,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_add_range_sum.test.cpp
       title: test/library_checker/data_structure/point_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
+      title: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp

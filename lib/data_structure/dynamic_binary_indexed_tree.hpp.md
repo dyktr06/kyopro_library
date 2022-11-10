@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
+    title: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/alds1/alds1_5_d.test.cpp
     title: test/aoj/alds1/alds1_5_d.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
+    title: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -59,11 +65,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/dynamic_binary_indexed_tree.hpp
-  requiredBy: []
+  requiredBy:
+  - lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
   timestamp: '2022-11-11 02:51:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/alds1/alds1_5_d.test.cpp
+  - test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
 documentation_of: lib/data_structure/dynamic_binary_indexed_tree.hpp
 layout: document
 redirect_from:
