@@ -28,18 +28,19 @@ data:
     \ m) + m - 1) % m * modinv(r - 1, m) % m;\n}\n\n// mod. m \u3067\u306E\u4E8C\u9805\
     \u4FC2\u6570\u306A\u3069\u3092\u9AD8\u901F\u3067\u8A08\u7B97\u3057\u307E\u3059\
     \ : O(N)\nstruct Combination{\n    vector<long long> memo, memoinv, inv;\n   \
-    \ long long mod;\n\n    Combination(int N, long long m) : memo(N + 1), memoinv(N\
-    \ + 1), inv(N + 1){\n        mod = m;\n        memo[0] = memo[1] = 1;\n      \
-    \  memoinv[0] = memoinv[1] = 1;\n        inv[1] = 1;\n        for(int i = 2; i\
-    \ <= N; i++){\n            memo[i] = memo[i - 1] * i % mod;\n            inv[i]\
-    \ = mod - inv[mod % i] * (m / i) % mod;\n            memoinv[i] = memoinv[i -\
-    \ 1] * inv[i] % mod;\n        }\n    }\n\n    long long fact(long long n){\n \
-    \       return memo[n];\n    }\n\n    long long factinv(long long n){\n      \
-    \  return memoinv[n];\n    }\n\n    long long ncr(long long n, long long r){\n\
-    \        if(n < r || r < 0) return 0;\n        return (memo[n] * memoinv[r] %\
-    \ mod) * memoinv[n - r] % mod;\n    }\n\n    long long npr(long long n, long long\
-    \ r){\n        if(n < r || r < 0) return 0;\n        return (memo[n] % mod) *\
-    \ memoinv[n - r] % mod;\n    }\n};\n"
+    \ const long long mod;\n    Combination(const int &N, const long long &m) : memo(N\
+    \ + 1), memoinv(N + 1), inv(N + 1), mod(m){\n        memo[0] = memo[1] = 1;\n\
+    \        memoinv[0] = memoinv[1] = 1;\n        inv[1] = 1;\n        for(int i\
+    \ = 2; i <= N; ++i){\n            memo[i] = memo[i - 1] * i % mod;\n         \
+    \   inv[i] = mod - inv[mod % i] * (m / i) % mod;\n            memoinv[i] = memoinv[i\
+    \ - 1] * inv[i] % mod;\n        }\n    }\n    inline long long fact(const long\
+    \ long &n) const {\n        return memo[n];\n    }\n    inline long long factinv(const\
+    \ long long &n) const {\n        return memoinv[n];\n    }\n    inline long long\
+    \ ncr(const long long &n, const long long &r) const {\n        if(n < r || r <\
+    \ 0) return 0;\n        return (memo[n] * memoinv[r] % mod) * memoinv[n - r] %\
+    \ mod;\n    }\n    inline long long npr(const long long &n, const long long &r)\
+    \ const {\n        if(n < r || r < 0) return 0;\n        return (memo[n] % mod)\
+    \ * memoinv[n - r] % mod;\n    }\n};\n"
   code: "#pragma once\n\n// mod. m \u3067\u306E x^n \u3092\u8A08\u7B97\u3057\u307E\
     \u3059 : O(logn)\ntemplate <typename T>\nT modpow(T x, T n, const T &m){\n   \
     \ T ret = 1 % m;\n    x %= m;\n    while(n > 0){\n        if(n & 1) (ret *= x)\
@@ -59,23 +60,24 @@ data:
     \ a * n % m;\n    }\n    return a * (modpow(r, n, m) + m - 1) % m * modinv(r -\
     \ 1, m) % m;\n}\n\n// mod. m \u3067\u306E\u4E8C\u9805\u4FC2\u6570\u306A\u3069\u3092\
     \u9AD8\u901F\u3067\u8A08\u7B97\u3057\u307E\u3059 : O(N)\nstruct Combination{\n\
-    \    vector<long long> memo, memoinv, inv;\n    long long mod;\n\n    Combination(int\
-    \ N, long long m) : memo(N + 1), memoinv(N + 1), inv(N + 1){\n        mod = m;\n\
+    \    vector<long long> memo, memoinv, inv;\n    const long long mod;\n    Combination(const\
+    \ int &N, const long long &m) : memo(N + 1), memoinv(N + 1), inv(N + 1), mod(m){\n\
     \        memo[0] = memo[1] = 1;\n        memoinv[0] = memoinv[1] = 1;\n      \
-    \  inv[1] = 1;\n        for(int i = 2; i <= N; i++){\n            memo[i] = memo[i\
+    \  inv[1] = 1;\n        for(int i = 2; i <= N; ++i){\n            memo[i] = memo[i\
     \ - 1] * i % mod;\n            inv[i] = mod - inv[mod % i] * (m / i) % mod;\n\
-    \            memoinv[i] = memoinv[i - 1] * inv[i] % mod;\n        }\n    }\n\n\
-    \    long long fact(long long n){\n        return memo[n];\n    }\n\n    long\
-    \ long factinv(long long n){\n        return memoinv[n];\n    }\n\n    long long\
-    \ ncr(long long n, long long r){\n        if(n < r || r < 0) return 0;\n     \
-    \   return (memo[n] * memoinv[r] % mod) * memoinv[n - r] % mod;\n    }\n\n   \
-    \ long long npr(long long n, long long r){\n        if(n < r || r < 0) return\
-    \ 0;\n        return (memo[n] % mod) * memoinv[n - r] % mod;\n    }\n};\n"
+    \            memoinv[i] = memoinv[i - 1] * inv[i] % mod;\n        }\n    }\n \
+    \   inline long long fact(const long long &n) const {\n        return memo[n];\n\
+    \    }\n    inline long long factinv(const long long &n) const {\n        return\
+    \ memoinv[n];\n    }\n    inline long long ncr(const long long &n, const long\
+    \ long &r) const {\n        if(n < r || r < 0) return 0;\n        return (memo[n]\
+    \ * memoinv[r] % mod) * memoinv[n - r] % mod;\n    }\n    inline long long npr(const\
+    \ long long &n, const long long &r) const {\n        if(n < r || r < 0) return\
+    \ 0;\n        return (memo[n] % mod) * memoinv[n - r] % mod;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/modcalc.hpp
   requiredBy: []
-  timestamp: '2022-11-11 03:58:03+09:00'
+  timestamp: '2022-11-12 15:37:05+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/modcalc.hpp

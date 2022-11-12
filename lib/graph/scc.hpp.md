@@ -15,8 +15,8 @@ data:
     \u306B\u5BFE\u3057\u3066\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\u3092\u884C\
     \u3044\u307E\u3059 : O(E + V)\ntemplate <typename T>\nstruct SCC{\n    int siz;\n\
     \    vector<vector<T>> G1, G2;\n    vector<int> check;\n    vector<int> memo;\n\
-    \    vector<T> s;\n    vector<vector<T>> result;\n \n    SCC(vector<vector<T>>\
-    \ G) : G2((int) G.size()), check((int) G.size()){\n        siz = (int) G.size();\n\
+    \    vector<T> s;\n    vector<vector<T>> result;\n \n    SCC(const vector<vector<T>>\
+    \ &G) : G2((int) G.size()), check((int) G.size()){\n        siz = (int) G.size();\n\
     \        G1 = G;\n        for(int i = 0; i < siz; i++){\n            for(auto\
     \ x : G1[i]){\n                G2[x].emplace_back(i);\n            }\n       \
     \ }\n \n        for(int i = 0; i < siz; i++){\n            if(!check[i]){\n  \
@@ -36,11 +36,11 @@ data:
     \u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\u3092\u884C\u3044\u307E\u3059 : O(E\
     \ + V)\ntemplate <typename T>\nstruct SCC{\n    int siz;\n    vector<vector<T>>\
     \ G1, G2;\n    vector<int> check;\n    vector<int> memo;\n    vector<T> s;\n \
-    \   vector<vector<T>> result;\n \n    SCC(vector<vector<T>> G) : G2((int) G.size()),\
-    \ check((int) G.size()){\n        siz = (int) G.size();\n        G1 = G;\n   \
-    \     for(int i = 0; i < siz; i++){\n            for(auto x : G1[i]){\n      \
-    \          G2[x].emplace_back(i);\n            }\n        }\n \n        for(int\
-    \ i = 0; i < siz; i++){\n            if(!check[i]){\n                dfs(i);\n\
+    \   vector<vector<T>> result;\n \n    SCC(const vector<vector<T>> &G) : G2((int)\
+    \ G.size()), check((int) G.size()){\n        siz = (int) G.size();\n        G1\
+    \ = G;\n        for(int i = 0; i < siz; i++){\n            for(auto x : G1[i]){\n\
+    \                G2[x].emplace_back(i);\n            }\n        }\n \n       \
+    \ for(int i = 0; i < siz; i++){\n            if(!check[i]){\n                dfs(i);\n\
     \            }\n        }\n        reverse(memo.begin(), memo.end());\n \n   \
     \     for(int i = 0; i < siz; i++) check[i] = 0;\n        for(auto x : memo){\n\
     \            if(!check[x]){\n                s = {};\n                dfs2(x);\n\
@@ -56,7 +56,7 @@ data:
   isVerificationFile: false
   path: lib/graph/scc.hpp
   requiredBy: []
-  timestamp: '2022-11-10 09:23:38+09:00'
+  timestamp: '2022-11-12 15:37:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/scc.test.cpp

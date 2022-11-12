@@ -29,8 +29,8 @@ data:
     \u89E3\u3092\u884C\u3044\u307E\u3059 : O(E + V)\ntemplate <typename T>\nstruct\
     \ SCC{\n    int siz;\n    vector<vector<T>> G1, G2;\n    vector<int> check;\n\
     \    vector<int> memo;\n    vector<T> s;\n    vector<vector<T>> result;\n \n \
-    \   SCC(vector<vector<T>> G) : G2((int) G.size()), check((int) G.size()){\n  \
-    \      siz = (int) G.size();\n        G1 = G;\n        for(int i = 0; i < siz;\
+    \   SCC(const vector<vector<T>> &G) : G2((int) G.size()), check((int) G.size()){\n\
+    \        siz = (int) G.size();\n        G1 = G;\n        for(int i = 0; i < siz;\
     \ i++){\n            for(auto x : G1[i]){\n                G2[x].emplace_back(i);\n\
     \            }\n        }\n \n        for(int i = 0; i < siz; i++){\n        \
     \    if(!check[i]){\n                dfs(i);\n            }\n        }\n     \
@@ -63,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/scc.test.cpp
   requiredBy: []
-  timestamp: '2022-11-11 07:14:09+09:00'
+  timestamp: '2022-11-12 15:37:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/scc.test.cpp
