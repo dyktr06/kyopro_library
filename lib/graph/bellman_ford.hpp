@@ -2,7 +2,7 @@
 
 // ベルマンフォード法 : O(VE)
 template <typename T>
-vector<long long> bellman_ford(vector<T> E, int n, int x){
+vector<long long> bellman_ford(const vector<T> &E, const int &n, const int &x){
     const long long INF = 0x1fffffffffffffff;
     vector<long long> cost(n, INF);
     cost[x] = 0;

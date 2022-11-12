@@ -10,7 +10,7 @@ struct SCC{
     vector<T> s;
     vector<vector<T>> result;
  
-    SCC(vector<vector<T>> G) : G2((int) G.size()), check((int) G.size()){
+    SCC(const vector<vector<T>> &G) : G2((int) G.size()), check((int) G.size()){
         siz = (int) G.size();
         G1 = G;
         for(int i = 0; i < siz; i++){

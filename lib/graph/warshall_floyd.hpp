@@ -4,7 +4,7 @@
     ワ―シャルフロイド法で全頂点間の最短距離を求めます : (O(n^3))
 */
 template <typename T>
-void warshall_floyd(vector<vector<T>> &d, T INF) {
+void warshall_floyd(vector<vector<T>> &d, const T &INF) {
     int n = d.size();
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
