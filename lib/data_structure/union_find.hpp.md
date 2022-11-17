@@ -24,7 +24,7 @@ data:
     \u53D6\u5F97\u3057\u307E\u3059\u3002\n*/\n\n// Union-Find \u6728\u306E\u5B9F\u88C5\
     \nstruct UnionFind {\n    vector<int> par;\n    vector<int> siz;\n    vector<int>\
     \ edg;\n\n    UnionFind(int N) : par(N), siz(N), edg(N) {\n        for(int i =\
-    \ 0; i < N; i++){\n            par[i] = i;\n            siz[i] = 1;\n        \
+    \ 0; i < N; ++i){\n            par[i] = i;\n            siz[i] = 1;\n        \
     \    edg[i] = 0;\n        }\n    }\n\n    int root(int x) {\n        if (par[x]\
     \ == x) return x;\n        return par[x] = root(par[x]);\n    }\n\n    void unite(int\
     \ x, int y) {\n        int rx = root(x);\n        int ry = root(y);\n        if\
@@ -46,7 +46,7 @@ data:
     \u3044\u308B\u8FBA\u306E\u672C\u6570\u3092\u53D6\u5F97\u3057\u307E\u3059\u3002\
     \n*/\n\n// Union-Find \u6728\u306E\u5B9F\u88C5\nstruct UnionFind {\n    vector<int>\
     \ par;\n    vector<int> siz;\n    vector<int> edg;\n\n    UnionFind(int N) : par(N),\
-    \ siz(N), edg(N) {\n        for(int i = 0; i < N; i++){\n            par[i] =\
+    \ siz(N), edg(N) {\n        for(int i = 0; i < N; ++i){\n            par[i] =\
     \ i;\n            siz[i] = 1;\n            edg[i] = 0;\n        }\n    }\n\n \
     \   int root(int x) {\n        if (par[x] == x) return x;\n        return par[x]\
     \ = root(par[x]);\n    }\n\n    void unite(int x, int y) {\n        int rx = root(x);\n\
@@ -60,7 +60,7 @@ data:
   isVerificationFile: false
   path: lib/data_structure/union_find.hpp
   requiredBy: []
-  timestamp: '2022-11-10 02:54:46+09:00'
+  timestamp: '2022-11-18 02:29:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/unionfind.test.cpp

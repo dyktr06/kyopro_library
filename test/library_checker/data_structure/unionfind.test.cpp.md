@@ -29,7 +29,7 @@ data:
     \u6570\u3092\u53D6\u5F97\u3057\u307E\u3059\u3002\n*/\n\n// Union-Find \u6728\u306E\
     \u5B9F\u88C5\nstruct UnionFind {\n    vector<int> par;\n    vector<int> siz;\n\
     \    vector<int> edg;\n\n    UnionFind(int N) : par(N), siz(N), edg(N) {\n   \
-    \     for(int i = 0; i < N; i++){\n            par[i] = i;\n            siz[i]\
+    \     for(int i = 0; i < N; ++i){\n            par[i] = i;\n            siz[i]\
     \ = 1;\n            edg[i] = 0;\n        }\n    }\n\n    int root(int x) {\n \
     \       if (par[x] == x) return x;\n        return par[x] = root(par[x]);\n  \
     \  }\n\n    void unite(int x, int y) {\n        int rx = root(x);\n        int\
@@ -56,7 +56,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2022-11-10 02:54:46+09:00'
+  timestamp: '2022-11-18 02:29:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/unionfind.test.cpp

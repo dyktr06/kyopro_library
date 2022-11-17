@@ -9,6 +9,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/binary_indexed_tree_2d.hpp
       title: lib/data_structure/binary_indexed_tree_2d.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/binary_trie.hpp
+      title: lib/data_structure/binary_trie.hpp
     - icon: ':warning:'
       path: lib/data_structure/convexhulltrick.hpp
       title: lib/data_structure/convexhulltrick.hpp
@@ -24,12 +27,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
       title: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/dynamic_union_find.hpp
+      title: lib/data_structure/dynamic_union_find.hpp
     - icon: ':warning:'
       path: lib/data_structure/imos_linear.cpp
       title: lib/data_structure/imos_linear.cpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/mo.hpp
       title: lib/data_structure/mo.hpp
+    - icon: ':warning:'
+      path: lib/data_structure/partly_persistent_union_find.hpp
+      title: lib/data_structure/partly_persistent_union_find.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree.hpp
       title: lib/data_structure/segment_tree.hpp
@@ -39,6 +48,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/union_find.hpp
       title: lib/data_structure/union_find.hpp
+    - icon: ':warning:'
+      path: lib/data_structure/weighted_union_find.hpp
+      title: lib/data_structure/weighted_union_find.hpp
   - name: lib/dp
     pages:
     - icon: ':heavy_check_mark:'
@@ -196,6 +208,9 @@ data:
       path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/set_xor_min.test.cpp
+      title: test/library_checker/data_structure/set_xor_min.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_range_frequency.test.cpp
       title: test/library_checker/data_structure/static_range_frequency.test.cpp
     - icon: ':heavy_check_mark:'
@@ -204,6 +219,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/unionfind.test.cpp
       title: test/library_checker/data_structure/unionfind.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/unionfind_1.test.cpp
+      title: test/library_checker/data_structure/unionfind_1.test.cpp
   - name: test/library_checker/dp
     pages:
     - icon: ':heavy_check_mark:'
