@@ -17,7 +17,7 @@ struct UnionFind {
     vector<int> edg;
 
     UnionFind(int N) : par(N), siz(N), edg(N) {
-        for(int i = 0; i < N; i++){
+        for(int i = 0; i < N; ++i){
             par[i] = i;
             siz[i] = 1;
             edg[i] = 0;
