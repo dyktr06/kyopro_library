@@ -74,6 +74,18 @@ private:
         }
     }
 
+    pair<T, vector<int>&> max_element_(Node *n, const int &bit_idx) {
+        if(bit_idx == -1){
+            return pair<T, vector<int>&>(0, n->accept);
+        }
+        if(n->nxt[~(lazy >> bit_idx) & 1]->exist){
+            auto ret = max_element_(n->nxt[~(lazy >> bit_idx) & 1], bit_idx - 1);
+            ret.first |= T(1) << bit_idx;
+            return ret;
+        }
+        return max_element_(n->nxt[(lazy >> bit_idx) & 1], bit_idx - 1);
+    }
+
     pair<T, vector<int>&> min_element_(Node *n, const int &bit_idx){
         if(bit_idx == -1){
             return pair<T, vector<int>&>(0, n->accept);
@@ -85,6 +97,36 @@ private:
 
         auto ret = min_element_(n->nxt[~(lazy >> bit_idx) & 1], bit_idx - 1);
         ret.first |= T(1) << bit_idx;
+        return ret;
+    }
+
+    pair<T, vector<int>&> kth_element_(Node *n, const int &k, const int &bit_idx){
+        if(bit_idx == -1){
+            return pair<T, vector<int>&>(0, n->accept);
+        }
+
+        int ex0 = n->nxt[(lazy >> bit_idx) & 1]->exist;
+        if(ex0 < k){
+            auto ret = get_kth_(n->nxt[~(lazy >> bit_idx) & 1], k - ex0, bit_idx - 1);
+            ret.first |= T(1) << bit_idx;
+            return ret;
+        }
+        return get_kth_(n->nxt[(lazy >> bit_idx) & 1], k, bit_idx - 1);
+    }
+
+    int count_less_(Node *n, const T &x, const int &bit_idx) {
+        if(bit_idx == -1){
+            return 0;
+        }
+
+        int ret = 0;
+        bool f = (lazy >> bit_idx) & 1;
+        if((x >> bit_idx & 1) && n->nxt[f]){
+            ret += n->nxt[f]->exist;
+        }
+        if(n->nxt[f ^ (x >> bit_idx & 1)]){
+            ret += count_less_(n->nxt[f ^ (x >> bit_idx & 1)], x, bit_idx - 1);
+        }
         return ret;
     }
 
@@ -101,8 +143,20 @@ public:
         return find_(x, root, MAX_LOG);
     }
 
+    pair<T, vector<int>&> max_element(){
+        return max_element_(root, MAX_LOG);
+    }
+
     pair<T, vector<int>&> min_element(){
         return min_element_(root, MAX_LOG);
+    }
+
+    pair<T, vector<int>&> kth_element(const int &k){
+        return kth_element_(root, k, MAX_LOG);
+    }
+
+    int count_less(const T &x){
+        return count_less_(root, x, MAX_LOG);
     }
 
     size_t size() const {
