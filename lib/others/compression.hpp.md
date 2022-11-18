@@ -7,8 +7,14 @@ data:
     path: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
     title: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/range_kth_smallest.test.cpp
+    title: test/library_checker/data_structure/range_kth_smallest.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/static_range_frequency.test.cpp
     title: test/library_checker/data_structure/static_range_frequency.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
+    title: test/library_checker/data_structure/static_range_inversions_query.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -51,6 +57,8 @@ data:
   timestamp: '2022-11-10 02:54:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/data_structure/range_kth_smallest.test.cpp
+  - test/library_checker/data_structure/static_range_inversions_query.test.cpp
   - test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
   - test/library_checker/data_structure/static_range_frequency.test.cpp
 documentation_of: lib/others/compression.hpp

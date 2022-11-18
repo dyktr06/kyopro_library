@@ -208,11 +208,17 @@ data:
       path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/range_kth_smallest.test.cpp
+      title: test/library_checker/data_structure/range_kth_smallest.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/set_xor_min.test.cpp
       title: test/library_checker/data_structure/set_xor_min.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_range_frequency.test.cpp
       title: test/library_checker/data_structure/static_range_frequency.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
+      title: test/library_checker/data_structure/static_range_inversions_query.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_rmq.test.cpp
       title: test/library_checker/data_structure/static_rmq.test.cpp

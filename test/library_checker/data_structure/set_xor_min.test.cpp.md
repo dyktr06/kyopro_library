@@ -45,28 +45,51 @@ data:
     \ n->accept);\n        }\n        if(((lazy >> bit_idx) & 1) == ((x >> bit_idx)\
     \ & 1)){\n            return find_(x, n->nxt[0], bit_idx - 1);\n        }else{\n\
     \            return find_(x, n->nxt[1], bit_idx - 1);\n        }\n    }\n\n  \
-    \  pair<T, vector<int>&> min_element_(Node *n, const int &bit_idx){\n        if(bit_idx\
-    \ == -1){\n            return pair<T, vector<int>&>(0, n->accept);\n        }\n\
-    \n        if(n->nxt[(lazy >> bit_idx) & 1]->exist){\n            return min_element_(n->nxt[(lazy\
-    \ >> bit_idx) & 1], bit_idx - 1);\n        }\n\n        auto ret = min_element_(n->nxt[~(lazy\
-    \ >> bit_idx) & 1], bit_idx - 1);\n        ret.first |= T(1) << bit_idx;\n   \
-    \     return ret;\n    }\n\npublic:\n    void insert(const T &x, const int &id\
-    \ = -1){\n        root = insert_(x, id, root, MAX_LOG);\n    }\n\n    void erase(const\
-    \ T &x, const int &id = -1){ \n        root = erase_(x, id, root, MAX_LOG);\n\
-    \    }\n\n    pair<int, vector<int>&> find(const T &x){\n        return find_(x,\
-    \ root, MAX_LOG);\n    }\n\n    pair<T, vector<int>&> min_element(){\n       \
-    \ return min_element_(root, MAX_LOG);\n    }\n\n    size_t size() const {\n  \
-    \      if(root->exist <= 0){\n            return 0;\n        }\n        return\
-    \ root->exist;\n    }\n\n    bool empty() const {\n        return size() == 0;\n\
-    \    }\n\n    void operate_xor(const T &x){\n        lazy ^= x;\n    }\n};\n#line\
-    \ 6 \"test/library_checker/data_structure/set_xor_min.test.cpp\"\n\nint main(){\n\
-    \    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int q; cin >>\
-    \ q;\n    BinaryTrie<int, 29, 1 << 24> bt;\n    while(q--){\n        int t, x;\
-    \ cin >> t >> x;\n        if(t == 0){\n            if(bt.find(x).first == 0){\n\
-    \                bt.insert(x);\n            }\n        }else if(t == 1){\n   \
-    \         if(bt.find(x).first > 0){\n                bt.erase(x);\n          \
-    \  }\n        }else{\n            bt.operate_xor(x);\n            cout << bt.min_element().first\
-    \ << \"\\n\";\n            bt.operate_xor(x);\n        }\n    }\n}\n"
+    \  pair<T, vector<int>&> max_element_(Node *n, const int &bit_idx) {\n       \
+    \ if(bit_idx == -1){\n            return pair<T, vector<int>&>(0, n->accept);\n\
+    \        }\n        if(n->nxt[~(lazy >> bit_idx) & 1]->exist){\n            auto\
+    \ ret = max_element_(n->nxt[~(lazy >> bit_idx) & 1], bit_idx - 1);\n         \
+    \   ret.first |= T(1) << bit_idx;\n            return ret;\n        }\n      \
+    \  return max_element_(n->nxt[(lazy >> bit_idx) & 1], bit_idx - 1);\n    }\n\n\
+    \    pair<T, vector<int>&> min_element_(Node *n, const int &bit_idx){\n      \
+    \  if(bit_idx == -1){\n            return pair<T, vector<int>&>(0, n->accept);\n\
+    \        }\n\n        if(n->nxt[(lazy >> bit_idx) & 1]->exist){\n            return\
+    \ min_element_(n->nxt[(lazy >> bit_idx) & 1], bit_idx - 1);\n        }\n\n   \
+    \     auto ret = min_element_(n->nxt[~(lazy >> bit_idx) & 1], bit_idx - 1);\n\
+    \        ret.first |= T(1) << bit_idx;\n        return ret;\n    }\n\n    pair<T,\
+    \ vector<int>&> kth_element_(Node *n, const int &k, const int &bit_idx){\n   \
+    \     if(bit_idx == -1){\n            return pair<T, vector<int>&>(0, n->accept);\n\
+    \        }\n\n        int ex0 = n->nxt[(lazy >> bit_idx) & 1]->exist;\n      \
+    \  if(ex0 < k){\n            auto ret = get_kth_(n->nxt[~(lazy >> bit_idx) & 1],\
+    \ k - ex0, bit_idx - 1);\n            ret.first |= T(1) << bit_idx;\n        \
+    \    return ret;\n        }\n        return get_kth_(n->nxt[(lazy >> bit_idx)\
+    \ & 1], k, bit_idx - 1);\n    }\n\n    int count_less_(Node *n, const T &x, const\
+    \ int &bit_idx) {\n        if(bit_idx == -1){\n            return 0;\n       \
+    \ }\n\n        int ret = 0;\n        bool f = (lazy >> bit_idx) & 1;\n       \
+    \ if((x >> bit_idx & 1) && n->nxt[f]){\n            ret += n->nxt[f]->exist;\n\
+    \        }\n        if(n->nxt[f ^ (x >> bit_idx & 1)]){\n            ret += count_less_(n->nxt[f\
+    \ ^ (x >> bit_idx & 1)], x, bit_idx - 1);\n        }\n        return ret;\n  \
+    \  }\n\npublic:\n    void insert(const T &x, const int &id = -1){\n        root\
+    \ = insert_(x, id, root, MAX_LOG);\n    }\n\n    void erase(const T &x, const\
+    \ int &id = -1){ \n        root = erase_(x, id, root, MAX_LOG);\n    }\n\n   \
+    \ pair<int, vector<int>&> find(const T &x){\n        return find_(x, root, MAX_LOG);\n\
+    \    }\n\n    pair<T, vector<int>&> max_element(){\n        return max_element_(root,\
+    \ MAX_LOG);\n    }\n\n    pair<T, vector<int>&> min_element(){\n        return\
+    \ min_element_(root, MAX_LOG);\n    }\n\n    pair<T, vector<int>&> kth_element(const\
+    \ int &k){\n        return kth_element_(root, k, MAX_LOG);\n    }\n\n    int count_less(const\
+    \ T &x){\n        return count_less_(root, x, MAX_LOG);\n    }\n\n    size_t size()\
+    \ const {\n        if(root->exist <= 0){\n            return 0;\n        }\n \
+    \       return root->exist;\n    }\n\n    bool empty() const {\n        return\
+    \ size() == 0;\n    }\n\n    void operate_xor(const T &x){\n        lazy ^= x;\n\
+    \    }\n};\n#line 6 \"test/library_checker/data_structure/set_xor_min.test.cpp\"\
+    \n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n \
+    \   int q; cin >> q;\n    BinaryTrie<int, 29, 1 << 24> bt;\n    while(q--){\n\
+    \        int t, x; cin >> t >> x;\n        if(t == 0){\n            if(bt.find(x).first\
+    \ == 0){\n                bt.insert(x);\n            }\n        }else if(t ==\
+    \ 1){\n            if(bt.find(x).first > 0){\n                bt.erase(x);\n \
+    \           }\n        }else{\n            bt.operate_xor(x);\n            cout\
+    \ << bt.min_element().first << \"\\n\";\n            bt.operate_xor(x);\n    \
+    \    }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/set_xor_min\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/data_structure/binary_trie.hpp\"\
     \n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n \
@@ -82,7 +105,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/set_xor_min.test.cpp
   requiredBy: []
-  timestamp: '2022-11-18 02:29:48+09:00'
+  timestamp: '2022-11-18 17:58:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/set_xor_min.test.cpp
