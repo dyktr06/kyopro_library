@@ -40,6 +40,15 @@ data:
       path: lib/data_structure/partly_persistent_union_find.hpp
       title: lib/data_structure/partly_persistent_union_find.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/data_structure/persistent_array.hpp
+      title: lib/data_structure/persistent_array.hpp
+    - icon: ':warning:'
+      path: lib/data_structure/persistent_stack.hpp
+      title: lib/data_structure/persistent_stack.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/persistent_union_find.hpp
+      title: lib/data_structure/persistent_union_find.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree.hpp
       title: lib/data_structure/segment_tree.hpp
     - icon: ':heavy_check_mark:'
@@ -198,6 +207,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
       title: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/persistent_unionfind.test.cpp
+      title: test/library_checker/data_structure/persistent_unionfind.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_add_range_sum.test.cpp
       title: test/library_checker/data_structure/point_add_range_sum.test.cpp
