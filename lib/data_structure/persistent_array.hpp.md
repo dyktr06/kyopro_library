@@ -3,9 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: lib/data_structure/persistent_queue.hpp
+    title: lib/data_structure/persistent_queue.hpp
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/persistent_union_find.hpp
     title: lib/data_structure/persistent_union_find.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/persistent_queue.test.cpp
+    title: test/library_checker/data_structure/persistent_queue.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/persistent_unionfind.test.cpp
     title: test/library_checker/data_structure/persistent_unionfind.test.cpp
@@ -47,10 +53,12 @@ data:
   path: lib/data_structure/persistent_array.hpp
   requiredBy:
   - lib/data_structure/persistent_union_find.hpp
+  - lib/data_structure/persistent_queue.hpp
   timestamp: '2022-11-23 22:11:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/persistent_unionfind.test.cpp
+  - test/library_checker/data_structure/persistent_queue.test.cpp
 documentation_of: lib/data_structure/persistent_array.hpp
 layout: document
 redirect_from:

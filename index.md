@@ -42,6 +42,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/persistent_array.hpp
       title: lib/data_structure/persistent_array.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/persistent_queue.hpp
+      title: lib/data_structure/persistent_queue.hpp
     - icon: ':warning:'
       path: lib/data_structure/persistent_stack.hpp
       title: lib/data_structure/persistent_stack.hpp
@@ -207,6 +210,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
       title: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/persistent_queue.test.cpp
+      title: test/library_checker/data_structure/persistent_queue.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/persistent_unionfind.test.cpp
       title: test/library_checker/data_structure/persistent_unionfind.test.cpp
