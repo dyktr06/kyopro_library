@@ -8,6 +8,7 @@
 "test/aoj/grl/grl_1_c.test.cpp": "2022-11-12 15:37:05 +0900",
 "test/library_checker/data_structure/deque_operate_all_composite.test.cpp": "2022-11-10 02:54:46 +0900",
 "test/library_checker/data_structure/double_ended_priority_queue.test.cpp": "2022-11-10 09:23:38 +0900",
+"test/library_checker/data_structure/persistent_queue.test.cpp": "2022-11-24 03:14:54 +0900",
 "test/library_checker/data_structure/persistent_unionfind.test.cpp": "2022-11-23 22:11:22 +0900",
 "test/library_checker/data_structure/point_add_range_sum.test.cpp": "2022-11-10 09:23:38 +0900",
 "test/library_checker/data_structure/point_add_rectangle_sum.test.cpp": "2022-11-11 03:58:03 +0900",
