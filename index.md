@@ -16,6 +16,9 @@ data:
       path: lib/data_structure/convexhulltrick.hpp
       title: lib/data_structure/convexhulltrick.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/data_structure/cumulative_sum_2d.hpp
+      title: lib/data_structure/cumulative_sum_2d.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/deswag.hpp
       title: lib/data_structure/deswag.hpp
     - icon: ':heavy_check_mark:'
@@ -60,7 +63,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/union_find.hpp
       title: lib/data_structure/union_find.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/weighted_union_find.hpp
       title: lib/data_structure/weighted_union_find.hpp
   - name: lib/dp
@@ -192,8 +195,14 @@ data:
   - name: test/aoj/dsl
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/aoj/dsl/dsl_1_b.test.cpp
+      title: test/aoj/dsl/dsl_1_b.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/dsl/dsl_5_b.test.cpp
       title: test/aoj/dsl/dsl_5_b.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/dsl/dsl_5_b_cs2d.test.cpp
+      title: test/aoj/dsl/dsl_5_b_cs2d.test.cpp
   - name: test/aoj/grl
     pages:
     - icon: ':heavy_check_mark:'
