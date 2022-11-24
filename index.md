@@ -31,6 +31,9 @@ data:
       path: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
       title: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/data_structure/dynamic_li_chao_tree.hpp
+      title: lib/data_structure/dynamic_li_chao_tree.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/dynamic_union_find.hpp
       title: lib/data_structure/dynamic_union_find.hpp
     - icon: ':warning:'
@@ -177,6 +180,11 @@ data:
     - icon: ':warning:'
       path: lib/template.cpp
       title: lib/template.cpp
+  - name: test/library_checker/data_structure
+    pages:
+    - icon: ':warning:'
+      path: test/library_checker/data_structure/line_add_get_min.test copy.cpp
+      title: test/library_checker/data_structure/line_add_get_min.test copy.cpp
   verificationCategories:
   - name: test/aoj/alds1
     pages:
@@ -237,6 +245,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_kth_smallest.test.cpp
       title: test/library_checker/data_structure/range_kth_smallest.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/segment_add_get_min.test.cpp
+      title: test/library_checker/data_structure/segment_add_get_min.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/set_xor_min.test.cpp
       title: test/library_checker/data_structure/set_xor_min.test.cpp
