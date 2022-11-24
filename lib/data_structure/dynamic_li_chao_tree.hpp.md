@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/library_checker/data_structure/line_add_get_min.test copy.cpp
-    title: test/library_checker/data_structure/line_add_get_min.test copy.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/line_add_get_min.test.cpp
+    title: test/library_checker/data_structure/line_add_get_min.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/segment_add_get_min.test.cpp
     title: test/library_checker/data_structure/segment_add_get_min.test.cpp
@@ -96,12 +96,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/dynamic_li_chao_tree.hpp
-  requiredBy:
-  - test/library_checker/data_structure/line_add_get_min.test copy.cpp
+  requiredBy: []
   timestamp: '2022-11-24 22:28:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/segment_add_get_min.test.cpp
+  - test/library_checker/data_structure/line_add_get_min.test.cpp
 documentation_of: lib/data_structure/dynamic_li_chao_tree.hpp
 layout: document
 redirect_from:

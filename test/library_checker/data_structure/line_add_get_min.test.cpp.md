@@ -8,13 +8,15 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/line_add_get_min
     links:
     - https://judge.yosupo.jp/problem/line_add_get_min
-  bundledCode: "#line 1 \"test/library_checker/data_structure/line_add_get_min.test\
-    \ copy.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/line_add_get_min\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/dynamic_li_chao_tree.hpp\"\
+  bundledCode: "#line 1 \"test/library_checker/data_structure/line_add_get_min.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/line_add_get_min\"\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/dynamic_li_chao_tree.hpp\"\
     \n\ntemplate<typename T, T x_low, T x_high, T id>\nstruct DynamicLiChaoTree{\n\
     \    struct Line{\n        T a, b;\n\n        Line(T _a, T _b) : a(_a), b(_b)\
     \ {}\n\n        inline T get(T x) const {\n            return a * x + b;\n   \
@@ -53,15 +55,14 @@ data:
     \    }\n\n    void add_segment(const T &l, const T &r, const T &a, const T &b){\n\
     \        Line x(a, b);\n        root = add_segment_(root, x, l, r - 1, x_low,\
     \ x_high, x.get(x_low), x.get(x_high));\n    }\n\n    T query(const T &x) const\
-    \ {\n        return query_(root, x_low, x_high, x);\n    }\n};\n#line 6 \"test/library_checker/data_structure/line_add_get_min.test\
-    \ copy.cpp\"\n\nconst long long INF = 0x1fffffffffffffff;\n\nint main(){\n   \
-    \ int n, q; cin >> n >> q;\n    const long long P = 1e9;\n    DynamicLiChaoTree<long\
-    \ long, -P, P, INF> lct;\n    for(int i = 0; i < n; i++){\n        long long a,\
-    \ b; cin >> a >> b;\n        lct.add_line(a, b);\n    }\n    while(q--){\n   \
-    \     int t; cin >> t;\n        if(t == 0){\n            long long a, b; cin >>\
-    \ a >> b;\n            lct.add_line(a, b);\n        }else{\n            long long\
-    \ p; cin >> p;\n            cout << lct.query(p) << \"\\n\";\n        }\n    }\n\
-    }\n"
+    \ {\n        return query_(root, x_low, x_high, x);\n    }\n};\n#line 6 \"test/library_checker/data_structure/line_add_get_min.test.cpp\"\
+    \n\nconst long long INF = 0x1fffffffffffffff;\n\nint main(){\n    int n, q; cin\
+    \ >> n >> q;\n    const long long P = 1e9;\n    DynamicLiChaoTree<long long, -P,\
+    \ P, INF> lct;\n    for(int i = 0; i < n; i++){\n        long long a, b; cin >>\
+    \ a >> b;\n        lct.add_line(a, b);\n    }\n    while(q--){\n        int t;\
+    \ cin >> t;\n        if(t == 0){\n            long long a, b; cin >> a >> b;\n\
+    \            lct.add_line(a, b);\n        }else{\n            long long p; cin\
+    \ >> p;\n            cout << lct.query(p) << \"\\n\";\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/line_add_get_min\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/data_structure/dynamic_li_chao_tree.hpp\"\
     \n\nconst long long INF = 0x1fffffffffffffff;\n\nint main(){\n    int n, q; cin\
@@ -73,16 +74,16 @@ data:
     \ >> p;\n            cout << lct.query(p) << \"\\n\";\n        }\n    }\n}"
   dependsOn:
   - lib/data_structure/dynamic_li_chao_tree.hpp
-  isVerificationFile: false
-  path: test/library_checker/data_structure/line_add_get_min.test copy.cpp
+  isVerificationFile: true
+  path: test/library_checker/data_structure/line_add_get_min.test.cpp
   requiredBy: []
-  timestamp: '2022-11-24 22:28:41+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2022-11-24 23:20:40+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/data_structure/line_add_get_min.test copy.cpp
+documentation_of: test/library_checker/data_structure/line_add_get_min.test.cpp
 layout: document
 redirect_from:
-- /library/test/library_checker/data_structure/line_add_get_min.test copy.cpp
-- /library/test/library_checker/data_structure/line_add_get_min.test copy.cpp.html
-title: test/library_checker/data_structure/line_add_get_min.test copy.cpp
+- /verify/test/library_checker/data_structure/line_add_get_min.test.cpp
+- /verify/test/library_checker/data_structure/line_add_get_min.test.cpp.html
+title: test/library_checker/data_structure/line_add_get_min.test.cpp
 ---

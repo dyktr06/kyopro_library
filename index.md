@@ -58,6 +58,9 @@ data:
       path: lib/data_structure/persistent_union_find.hpp
       title: lib/data_structure/persistent_union_find.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/data_structure/range_tree.hpp
+      title: lib/data_structure/range_tree.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree.hpp
       title: lib/data_structure/segment_tree.hpp
     - icon: ':heavy_check_mark:'
@@ -180,11 +183,6 @@ data:
     - icon: ':warning:'
       path: lib/template.cpp
       title: lib/template.cpp
-  - name: test/library_checker/data_structure
-    pages:
-    - icon: ':warning:'
-      path: test/library_checker/data_structure/line_add_get_min.test copy.cpp
-      title: test/library_checker/data_structure/line_add_get_min.test copy.cpp
   verificationCategories:
   - name: test/aoj/alds1
     pages:
@@ -228,6 +226,9 @@ data:
       path: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
       title: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/line_add_get_min.test.cpp
+      title: test/library_checker/data_structure/line_add_get_min.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/persistent_queue.test.cpp
       title: test/library_checker/data_structure/persistent_queue.test.cpp
     - icon: ':heavy_check_mark:'
@@ -245,6 +246,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_kth_smallest.test.cpp
       title: test/library_checker/data_structure/range_kth_smallest.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/rectangle_sum.test.cpp
+      title: test/library_checker/data_structure/rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/segment_add_get_min.test.cpp
       title: test/library_checker/data_structure/segment_add_get_min.test.cpp
