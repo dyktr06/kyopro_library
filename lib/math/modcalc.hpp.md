@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/yuki_117.test.cpp
+    title: test/yukicoder/yuki_117.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/math/modcalc.hpp\"\n\n// mod. m \u3067\u306E x^n \u3092\
@@ -40,7 +43,9 @@ data:
     \ 0) return 0;\n        return (memo[n] * memoinv[r] % mod) * memoinv[n - r] %\
     \ mod;\n    }\n    inline long long npr(const long long &n, const long long &r)\
     \ const {\n        if(n < r || r < 0) return 0;\n        return (memo[n] % mod)\
-    \ * memoinv[n - r] % mod;\n    }\n};\n"
+    \ * memoinv[n - r] % mod;\n    }\n    inline long long nhr(const long long &n,\
+    \ const long long &r) const {\n        if(n == 0 && r == 0) return 1;\n      \
+    \  return ncr(n + r - 1, r);\n    }\n};\n"
   code: "#pragma once\n\n// mod. m \u3067\u306E x^n \u3092\u8A08\u7B97\u3057\u307E\
     \u3059 : O(logn)\ntemplate <typename T>\nT modpow(T x, T n, const T &m){\n   \
     \ T ret = 1 % m;\n    x %= m;\n    while(n > 0){\n        if(n & 1) (ret *= x)\
@@ -72,14 +77,17 @@ data:
     \ long &r) const {\n        if(n < r || r < 0) return 0;\n        return (memo[n]\
     \ * memoinv[r] % mod) * memoinv[n - r] % mod;\n    }\n    inline long long npr(const\
     \ long long &n, const long long &r) const {\n        if(n < r || r < 0) return\
-    \ 0;\n        return (memo[n] % mod) * memoinv[n - r] % mod;\n    }\n};"
+    \ 0;\n        return (memo[n] % mod) * memoinv[n - r] % mod;\n    }\n    inline\
+    \ long long nhr(const long long &n, const long long &r) const {\n        if(n\
+    \ == 0 && r == 0) return 1;\n        return ncr(n + r - 1, r);\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/modcalc.hpp
   requiredBy: []
-  timestamp: '2022-11-12 15:37:05+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2022-12-10 16:41:31+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/yuki_117.test.cpp
 documentation_of: lib/math/modcalc.hpp
 layout: document
 redirect_from:

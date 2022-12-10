@@ -132,7 +132,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: lib/math/matrix.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: lib/math/modcalc.hpp
     - icon: ':heavy_check_mark:'
@@ -314,6 +314,9 @@ data:
       title: test/library_checker/tree/tree_diameter.test.cpp
   - name: test/yukicoder
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/yuki_117.test.cpp
+      title: test/yukicoder/yuki_117.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_186.test.cpp
       title: test/yukicoder/yuki_186.test.cpp
