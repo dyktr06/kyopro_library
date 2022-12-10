@@ -74,4 +74,8 @@ struct Combination{
         if(n < r || r < 0) return 0;
         return (memo[n] % mod) * memoinv[n - r] % mod;
     }
+    inline long long nhr(const long long &n, const long long &r) const {
+        if(n == 0 && r == 0) return 1;
+        return ncr(n + r - 1, r);
+    }
 };
