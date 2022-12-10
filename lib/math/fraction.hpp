@@ -23,4 +23,5 @@ struct fraction{
     inline fraction operator-(const fraction &other) const { return fraction(p * other.q - q * other.p, q * other.q); }
     inline fraction operator*(const fraction &other) const { return fraction(p * other.p, q * other.q); }
     inline fraction operator/(const fraction &other) const { return fraction(p * other.q, q * other.p); }
+    friend inline ostream& operator<<(ostream& os, const fraction& x) noexcept { return os << x.p << "/" << x.q; }
 };
