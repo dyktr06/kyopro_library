@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/yuki_2078.test.cpp
+    title: test/yukicoder/yuki_2078.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/convexhulltrick.hpp\"\n\n// \u3042\u308B\
@@ -50,8 +53,9 @@ data:
   path: lib/data_structure/convexhulltrick.hpp
   requiredBy: []
   timestamp: '2022-11-11 04:34:30+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/yuki_2078.test.cpp
 documentation_of: lib/data_structure/convexhulltrick.hpp
 layout: document
 redirect_from:

@@ -12,7 +12,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/binary_trie.hpp
       title: lib/data_structure/binary_trie.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/convexhulltrick.hpp
       title: lib/data_structure/convexhulltrick.hpp
     - icon: ':heavy_check_mark:'
@@ -42,7 +42,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/mo.hpp
       title: lib/data_structure/mo.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/partly_persistent_union_find.hpp
       title: lib/data_structure/partly_persistent_union_find.hpp
     - icon: ':heavy_check_mark:'
@@ -318,10 +318,16 @@ data:
       path: test/yukicoder/yuki_186.test.cpp
       title: test/yukicoder/yuki_186.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yukicoder/yuki_2078.test.cpp
+      title: test/yukicoder/yuki_2078.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2087.test.cpp
       title: test/yukicoder/yuki_2087.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2119.test.cpp
       title: test/yukicoder/yuki_2119.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/yuki_416.test.cpp
+      title: test/yukicoder/yuki_416.test.cpp
 layout: toppage
 ---

@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/yuki_416.test.cpp
+    title: test/yukicoder/yuki_416.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/partly_persistent_union_find.hpp\"\n\n\
@@ -72,8 +75,9 @@ data:
   path: lib/data_structure/partly_persistent_union_find.hpp
   requiredBy: []
   timestamp: '2022-11-18 02:29:36+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/yuki_416.test.cpp
 documentation_of: lib/data_structure/partly_persistent_union_find.hpp
 layout: document
 redirect_from:
