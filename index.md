@@ -126,7 +126,7 @@ data:
     - icon: ':warning:'
       path: lib/math/divisor-prime.hpp
       title: lib/math/divisor-prime.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
       title: lib/math/fraction.hpp
     - icon: ':heavy_check_mark:'
@@ -317,6 +317,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_117.test.cpp
       title: test/yukicoder/yuki_117.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/yuki_1464.test.cpp
+      title: test/yukicoder/yuki_1464.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_186.test.cpp
       title: test/yukicoder/yuki_186.test.cpp
