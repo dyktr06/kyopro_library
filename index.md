@@ -37,6 +37,9 @@ data:
       path: lib/data_structure/dynamic_union_find.hpp
       title: lib/data_structure/dynamic_union_find.hpp
     - icon: ':warning:'
+      path: lib/data_structure/grid_unionfind.hpp
+      title: lib/data_structure/grid_unionfind.hpp
+    - icon: ':warning:'
       path: lib/data_structure/imos_linear.cpp
       title: lib/data_structure/imos_linear.cpp
     - icon: ':heavy_check_mark:'

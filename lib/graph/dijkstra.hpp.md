@@ -69,8 +69,8 @@ data:
   timestamp: '2022-11-11 02:13:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/tree/tree_diameter.test.cpp
   - test/library_checker/graph/shortest_path.test.cpp
+  - test/library_checker/tree/tree_diameter.test.cpp
 documentation_of: lib/graph/dijkstra.hpp
 layout: document
 redirect_from:
