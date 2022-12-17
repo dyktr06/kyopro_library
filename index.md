@@ -142,6 +142,9 @@ data:
       path: lib/math/modint.hpp
       title: lib/math/modint.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/math/prime-sieve.hpp
+      title: lib/math/prime-sieve.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: lib/math/rho.hpp
     - icon: ':warning:'
@@ -291,6 +294,9 @@ data:
       title: test/library_checker/graph/shortest_path.test.cpp
   - name: test/library_checker/math
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/math/enumerate_primes.test.cpp
+      title: test/library_checker/math/enumerate_primes.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/factorize.test.cpp
       title: test/library_checker/math/factorize.test.cpp
