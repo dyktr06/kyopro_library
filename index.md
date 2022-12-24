@@ -114,7 +114,7 @@ data:
       title: lib/graph/warshall_floyd.hpp
   - name: lib/math
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/baby-step_giant-step.hpp
       title: lib/math/baby-step_giant-step.hpp
     - icon: ':warning:'
@@ -294,6 +294,9 @@ data:
       title: test/library_checker/graph/shortest_path.test.cpp
   - name: test/library_checker/math
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/math/discrete_logarithm_mod.test.cpp
+      title: test/library_checker/math/discrete_logarithm_mod.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/enumerate_primes.test.cpp
       title: test/library_checker/math/enumerate_primes.test.cpp
