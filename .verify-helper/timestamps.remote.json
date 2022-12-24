@@ -29,6 +29,7 @@
 "test/library_checker/dp/number_of_subsequences.test.cpp": "2022-11-11 04:34:30 +0900",
 "test/library_checker/graph/scc.test.cpp": "2022-11-12 15:37:05 +0900",
 "test/library_checker/graph/shortest_path.test.cpp": "2022-11-11 02:13:48 +0900",
+"test/library_checker/math/discrete_logarithm_mod.test.cpp": "2022-12-24 18:31:15 +0900",
 "test/library_checker/math/enumerate_primes.test.cpp": "2022-12-17 18:00:30 +0900",
 "test/library_checker/math/factorize.test.cpp": "2022-11-10 10:41:26 +0900",
 "test/library_checker/matrix/matrix_product.test.cpp": "2022-11-10 10:41:26 +0900",
