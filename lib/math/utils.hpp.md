@@ -26,7 +26,11 @@ data:
     \ return -1;\n    if(a >= 0 && b > 0){\n        return a % b;\n    }else if(a\
     \ < 0 && b > 0){\n        return ((a % b) + b) % b;\n    }else if(a >= 0 && b\
     \ < 0){\n        return a % b;\n    }else{\n        return (abs(b) - abs(a % b))\
-    \ % b;\n    }\n}\n"
+    \ % b;\n    }\n}\n\n// x \u306E\u90E8\u5206\u96C6\u5408\u3092\u5217\u6319\u3057\
+    \u307E\u3059\u3002\ntemplate <typename T>\nvector<T> getSubmask(T x){\n    vector<T>\
+    \ submask;\n    for(T i = x; ; i = (i - 1) & x){ \n        submask.push_back(i);\n\
+    \        if(i == 0) break;\n    }\n    sort(submask.begin(), submask.end());\n\
+    \    return submask;\n}\n"
   code: "#pragma once\n\n// a\u304B\u3089b\u307E\u3067\u306E\u548C\u3092\u3082\u3068\
     \u3081\u307E\u3059 : O(1)\ntemplate <typename T>\nlong long sum(T a, T b){\n \
     \   long long res = ((b - a + 1) * (a + b)) / 2;\n    return res;\n}\n\n// x^n\u3092\
@@ -44,12 +48,16 @@ data:
     \ T>\nT getReminder(T a, T b){\n    if(b == 0) return -1;\n    if(a >= 0 && b\
     \ > 0){\n        return a % b;\n    }else if(a < 0 && b > 0){\n        return\
     \ ((a % b) + b) % b;\n    }else if(a >= 0 && b < 0){\n        return a % b;\n\
-    \    }else{\n        return (abs(b) - abs(a % b)) % b;\n    }\n}"
+    \    }else{\n        return (abs(b) - abs(a % b)) % b;\n    }\n}\n\n// x \u306E\
+    \u90E8\u5206\u96C6\u5408\u3092\u5217\u6319\u3057\u307E\u3059\u3002\ntemplate <typename\
+    \ T>\nvector<T> getSubmask(T x){\n    vector<T> submask;\n    for(T i = x; ; i\
+    \ = (i - 1) & x){ \n        submask.push_back(i);\n        if(i == 0) break;\n\
+    \    }\n    sort(submask.begin(), submask.end());\n    return submask;\n}"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/utils.hpp
   requiredBy: []
-  timestamp: '2022-11-11 03:58:03+09:00'
+  timestamp: '2022-12-25 05:08:28+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/utils.hpp

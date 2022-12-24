@@ -117,9 +117,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/baby-step_giant-step.hpp
       title: lib/math/baby-step_giant-step.hpp
-    - icon: ':warning:'
-      path: lib/math/bit.hpp
-      title: lib/math/bit.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/math/binarybasis.hpp
+      title: lib/math/binarybasis.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: lib/math/convert_base.hpp
@@ -332,6 +332,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_1464.test.cpp
       title: test/yukicoder/yuki_1464.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/yuki_184.test.cpp
+      title: test/yukicoder/yuki_184.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_186.test.cpp
       title: test/yukicoder/yuki_186.test.cpp
