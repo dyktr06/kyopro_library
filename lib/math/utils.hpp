@@ -48,3 +48,15 @@ T getReminder(T a, T b){
         return (abs(b) - abs(a % b)) % b;
     }
 }
+
+// x の部分集合を列挙します。
+template <typename T>
+vector<T> getSubmask(T x){
+    vector<T> submask;
+    for(T i = x; ; i = (i - 1) & x){ 
+        submask.push_back(i);
+        if(i == 0) break;
+    }
+    sort(submask.begin(), submask.end());
+    return submask;
+}
