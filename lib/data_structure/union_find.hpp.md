@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/graph/manhattanMST.hpp
+    title: lib/graph/manhattanMST.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/unionfind.test.cpp
     title: test/library_checker/data_structure/unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/manhattanmst].test.cpp
+    title: test/library_checker/graph/manhattanmst].test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -59,10 +65,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/union_find.hpp
-  requiredBy: []
+  requiredBy:
+  - lib/graph/manhattanMST.hpp
   timestamp: '2022-11-18 02:29:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/graph/manhattanmst].test.cpp
   - test/library_checker/data_structure/unionfind.test.cpp
 documentation_of: lib/data_structure/union_find.hpp
 layout: document

@@ -101,6 +101,9 @@ data:
       path: lib/graph/grid-bfs.cpp
       title: lib/graph/grid-bfs.cpp
     - icon: ':heavy_check_mark:'
+      path: lib/graph/manhattanMST.hpp
+      title: lib/graph/manhattanMST.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/graph/scc.hpp
       title: lib/graph/scc.hpp
     - icon: ':warning:'
@@ -286,6 +289,9 @@ data:
       title: test/library_checker/dp/number_of_subsequences.test.cpp
   - name: test/library_checker/graph
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/manhattanmst].test.cpp
+      title: test/library_checker/graph/manhattanmst].test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/scc.test.cpp
       title: test/library_checker/graph/scc.test.cpp
