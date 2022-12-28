@@ -337,8 +337,14 @@ data:
   - name: test/library_checker/tree
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/tree/jump_on_tree.test.cpp
+      title: test/library_checker/tree/jump_on_tree.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/lca.test.cpp
       title: test/library_checker/tree/lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/tree/lca_hl.test.cpp
+      title: test/library_checker/tree/lca_hl.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/tree_diameter.test.cpp
       title: test/library_checker/tree/tree_diameter.test.cpp
