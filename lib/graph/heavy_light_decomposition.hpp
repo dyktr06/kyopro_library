@@ -6,7 +6,10 @@
     add_edge(u, v) : 頂点 u から 頂点 v に無向辺を追加します。: O(1)
     build() : 重軽分解を行います。: O(V log V)
     get(a) : a の重軽分解後の index を返します。: O(1)
+    la(a, k): a から根に向かって k 移動した頂点を求めます。: O(log V)
     lca(a, b): a と b の LCA を求めます。: O(log V)
+    dist(a, b): a, b の距離を求めます。: O(log V)
+    jump(from, to, k): from から to に向かって k 移動した頂点を求めます。: O(log V)
     subtree_query(a, f): a の部分木 f を処理します。: O(log V)
     path_query(a, b, f): a と b のパスに対して f を処理します。: O(log^2 V)
     path_noncommutative_query(a, b, f, f2): a と b のパスに対して非可換な場合の f を処理します。(反転させた関数を f2 に渡します): O(log^2 V)
@@ -19,7 +22,7 @@
 class HeavyLightDecomposition{
     int V;
     vector<vector<int>> G;
-    vector<int> stsize, parent, pathtop, in, out;
+    vector<int> stsize, parent, pathtop, depth, in, reverse_in, out;
     int root;
 
 private:
@@ -41,6 +44,7 @@ private:
 
     void buildPath(int curr, int prev, int &t){
         in[curr] = t++;
+        reverse_in[in[curr]] = curr;
         for(int v : G[curr]){
             if(v == prev) continue;
             
@@ -49,6 +53,7 @@ private:
             }else{
                 pathtop[v] = v;
             }
+            depth[v] = depth[curr] + 1;
             buildPath(v, curr, t);
         }
         out[curr] = t;
@@ -56,7 +61,7 @@ private:
 
 public:
     HeavyLightDecomposition(int node_size) : V(node_size), G(V), stsize(V, 0), parent(V, -1),
-    pathtop(V, -1), in(V, -1), out(V, -1){}
+    pathtop(V, -1), depth(V, 0), in(V, -1), reverse_in(V, -1), out(V, -1){}
 
     void add_edge(int u, int v){
         G[u].push_back(v);
@@ -75,6 +80,15 @@ public:
         return in[a];
     }
 
+    int la(int a, int k) {
+        while(true){
+            int u = pathtop[a];
+            if(in[a] - k >= in[u]) return reverse_in[in[a] - k];
+            k -= in[a] - in[u] + 1;
+            a = parent[u];
+        }
+    }
+
     int lca(int a, int b){
         int pa = pathtop[a], pb = pathtop[b];
         while(pathtop[a] != pathtop[b]){
@@ -86,6 +100,18 @@ public:
         }
         if(in[a] > in[b]) swap(a, b);
         return a;
+    }
+
+    int dist(int a, int b){ return depth[a] + depth[b] - 2 * depth[lca(a, b)]; }
+
+    int jump(int from, int to, int k) {
+        if(!k) return from;
+        int l = lca(from, to);
+        int d = dist(from, to);
+        if(d < k) return -1;
+        if(depth[from] - depth[l] >= k) return la(from, k);
+        k -= depth[from] - depth[l];
+        return la(to, depth[to] - depth[l] - k);
     }
 
     void subtree_query(int a, const function<void(int, int)> &func){
