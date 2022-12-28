@@ -101,6 +101,9 @@ data:
       path: lib/graph/grid-bfs.cpp
       title: lib/graph/grid-bfs.cpp
     - icon: ':heavy_check_mark:'
+      path: lib/graph/heavy_light_decomposition.hpp
+      title: lib/graph/heavy_light_decomposition.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/graph/manhattanMST.hpp
       title: lib/graph/manhattanMST.hpp
     - icon: ':heavy_check_mark:'
@@ -279,6 +282,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/unionfind_1.test.cpp
       title: test/library_checker/data_structure/unionfind_1.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
+      title: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
+      title: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
+      title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - name: test/library_checker/dp
     pages:
     - icon: ':heavy_check_mark:'
