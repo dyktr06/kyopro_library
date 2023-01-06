@@ -253,6 +253,9 @@ data:
       path: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
       title: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
+      title: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
