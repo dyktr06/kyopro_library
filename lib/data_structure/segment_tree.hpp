@@ -1,12 +1,10 @@
 #pragma once
 
-/* 
-    SegTree<X>(n,fx,ex) : モノイド(集合 X, 二項演算 fx, 単位元 ex)についてサイズnで構築します。
-    set(int i, X x), build() : i 番目の要素を x にセット。まとめてセグ木を構築します。O(n)
-    get(i,x) : i 番目の要素を取得します。O(1)
-    update(i,x) : i 番目の要素を x に更新します。O(log(n))
-    query(a,b) : [a, b) の全てにfxを作用させた値を取得します。O(log(n))
-*/
+/**
+ * @brief Segment Tree
+ * @docs docs/data_structure/segment_tree.md
+ */
+
 template <typename X>
 struct SegTree{
     using FX = function<X(X, X)>; // X•X -> X となる関数の型

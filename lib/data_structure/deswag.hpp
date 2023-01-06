@@ -1,13 +1,9 @@
 #pragma once
 
-/* 
-    DESWAG<T>(op) : 両端SWAG を構築します。
-    fold() : 要素全てに op を適用させた値を計算します。: O(1)
-    push_front(x) : x を先頭に追加します。: O(1)
-    push_back(x) : x を末尾に追加します。: O(1)
-    pop_front() : x を先頭から削除します。: 償却 O(1)
-    pop_back() : x を末尾から削除します。: 償却 O(1)
-*/
+/**
+ * @brief DESWAG
+ * @docs docs/data_structure/deswag.md
+ */
 
 template <typename T>
 struct DESWAG{
