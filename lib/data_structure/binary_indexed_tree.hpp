@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Binary Indexed Tree
+ * @docs docs/data_structure/binary_indexed_tree.md
+ */
+
 template <typename T>
 struct BinaryIndexedTree{
     int N;
