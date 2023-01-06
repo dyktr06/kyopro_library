@@ -5,7 +5,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/binary_indexed_tree.hpp
-      title: lib/data_structure/binary_indexed_tree.hpp
+      title: Binary Indexed Tree
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/binary_indexed_tree_2d.hpp
       title: lib/data_structure/binary_indexed_tree_2d.hpp

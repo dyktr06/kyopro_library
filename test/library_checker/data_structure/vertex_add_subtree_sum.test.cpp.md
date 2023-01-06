@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/binary_indexed_tree.hpp
-    title: lib/data_structure/binary_indexed_tree.hpp
+    title: Binary Indexed Tree
   - icon: ':heavy_check_mark:'
     path: lib/graph/heavy_light_decomposition.hpp
     title: lib/graph/heavy_light_decomposition.hpp
@@ -20,7 +20,8 @@ data:
   bundledCode: "#line 1 \"test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/binary_indexed_tree.hpp\"\
-    \n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
+    \n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
+    \ */\n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
     \ BIT;\n    BinaryIndexedTree(const int &N): N(N), BIT(N + 1, 0){\n    }\n\n \
     \   T get(int i){\n        return sum(i + 1) - sum(i);\n    }\n\n    void add(int\
     \ i, T x){\n        i++;\n        while(i <= N){\n            BIT[i] += x;\n \
@@ -139,7 +140,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-01-06 15:20:35+09:00'
+  timestamp: '2023-01-06 15:34:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
