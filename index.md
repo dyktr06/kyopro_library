@@ -20,7 +20,7 @@ data:
       title: lib/data_structure/cumulative_sum_2d.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/deswag.hpp
-      title: lib/data_structure/deswag.hpp
+      title: DESWAG
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/double_ended_priority_queue.hpp
       title: lib/data_structure/double_ended_priority_queue.hpp
@@ -65,13 +65,13 @@ data:
       title: lib/data_structure/range_tree.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree.hpp
-      title: lib/data_structure/segment_tree.hpp
+      title: Segment Tree
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/swag.hpp
       title: lib/data_structure/swag.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/union_find.hpp
-      title: lib/data_structure/union_find.hpp
+      title: Union Find
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/weighted_union_find.hpp
       title: lib/data_structure/weighted_union_find.hpp

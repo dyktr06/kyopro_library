@@ -10,19 +10,14 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/data_structure/deswag.md
+    document_title: DESWAG
     links: []
-  bundledCode: "#line 2 \"lib/data_structure/deswag.hpp\"\n\n/* \n    DESWAG<T>(op)\
-    \ : \u4E21\u7AEFSWAG \u3092\u69CB\u7BC9\u3057\u307E\u3059\u3002\n    fold() :\
-    \ \u8981\u7D20\u5168\u3066\u306B op \u3092\u9069\u7528\u3055\u305B\u305F\u5024\
-    \u3092\u8A08\u7B97\u3057\u307E\u3059\u3002: O(1)\n    push_front(x) : x \u3092\
-    \u5148\u982D\u306B\u8FFD\u52A0\u3057\u307E\u3059\u3002: O(1)\n    push_back(x)\
-    \ : x \u3092\u672B\u5C3E\u306B\u8FFD\u52A0\u3057\u307E\u3059\u3002: O(1)\n   \
-    \ pop_front() : x \u3092\u5148\u982D\u304B\u3089\u524A\u9664\u3057\u307E\u3059\
-    \u3002: \u511F\u5374 O(1)\n    pop_back() : x \u3092\u672B\u5C3E\u304B\u3089\u524A\
-    \u9664\u3057\u307E\u3059\u3002: \u511F\u5374 O(1)\n*/\n\ntemplate <typename T>\n\
-    struct DESWAG{\n    using Op = function<T(T, T)>;\n\nprivate:\n    struct node{\n\
-    \    public:\n        T val, sum;\n        node(const T &val, const T &sum) :\
-    \ val(val), sum(sum) {}\n    };\n\n    Op op;\n    stack<node> front_stack, back_stack,\
+  bundledCode: "#line 2 \"lib/data_structure/deswag.hpp\"\n\n/**\n * @brief DESWAG\n\
+    \ * @docs docs/data_structure/deswag.md\n */\n\ntemplate <typename T>\nstruct\
+    \ DESWAG{\n    using Op = function<T(T, T)>;\n\nprivate:\n    struct node{\n \
+    \   public:\n        T val, sum;\n        node(const T &val, const T &sum) : val(val),\
+    \ sum(sum) {}\n    };\n\n    Op op;\n    stack<node> front_stack, back_stack,\
     \ temp_stack;\n\npublic:\n    DESWAG(const Op &op = Op()) : op(op), front_stack(),\
     \ back_stack(), temp_stack() {}\n\n    bool empty(){\n        return front_stack.empty()\
     \ && back_stack.empty();\n    }\n\n    size_t size(){\n        return front_stack.size()\
@@ -62,16 +57,9 @@ data:
     \                    front_stack.emplace(temp_stack.top().val, s);\n         \
     \           temp_stack.pop();\n                }\n            }\n        }\n \
     \       back_stack.pop();\n    }\n};\n"
-  code: "#pragma once\n\n/* \n    DESWAG<T>(op) : \u4E21\u7AEFSWAG \u3092\u69CB\u7BC9\
-    \u3057\u307E\u3059\u3002\n    fold() : \u8981\u7D20\u5168\u3066\u306B op \u3092\
-    \u9069\u7528\u3055\u305B\u305F\u5024\u3092\u8A08\u7B97\u3057\u307E\u3059\u3002\
-    : O(1)\n    push_front(x) : x \u3092\u5148\u982D\u306B\u8FFD\u52A0\u3057\u307E\
-    \u3059\u3002: O(1)\n    push_back(x) : x \u3092\u672B\u5C3E\u306B\u8FFD\u52A0\u3057\
-    \u307E\u3059\u3002: O(1)\n    pop_front() : x \u3092\u5148\u982D\u304B\u3089\u524A\
-    \u9664\u3057\u307E\u3059\u3002: \u511F\u5374 O(1)\n    pop_back() : x \u3092\u672B\
-    \u5C3E\u304B\u3089\u524A\u9664\u3057\u307E\u3059\u3002: \u511F\u5374 O(1)\n*/\n\
-    \ntemplate <typename T>\nstruct DESWAG{\n    using Op = function<T(T, T)>;\n\n\
-    private:\n    struct node{\n    public:\n        T val, sum;\n        node(const\
+  code: "#pragma once\n\n/**\n * @brief DESWAG\n * @docs docs/data_structure/deswag.md\n\
+    \ */\n\ntemplate <typename T>\nstruct DESWAG{\n    using Op = function<T(T, T)>;\n\
+    \nprivate:\n    struct node{\n    public:\n        T val, sum;\n        node(const\
     \ T &val, const T &sum) : val(val), sum(sum) {}\n    };\n\n    Op op;\n    stack<node>\
     \ front_stack, back_stack, temp_stack;\n\npublic:\n    DESWAG(const Op &op = Op())\
     \ : op(op), front_stack(), back_stack(), temp_stack() {}\n\n    bool empty(){\n\
@@ -116,7 +104,7 @@ data:
   isVerificationFile: false
   path: lib/data_structure/deswag.hpp
   requiredBy: []
-  timestamp: '2022-11-10 02:54:46+09:00'
+  timestamp: '2023-01-06 16:06:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/deque_operate_all_composite.test.cpp
@@ -125,5 +113,23 @@ layout: document
 redirect_from:
 - /library/lib/data_structure/deswag.hpp
 - /library/lib/data_structure/deswag.hpp.html
-title: lib/data_structure/deswag.hpp
+title: DESWAG
 ---
+## DESWAG
+
+#### 使い方
+
+- `DESWAG<T>(op)`: 両端 SWAG を構築します。
+- `fold()`: 要素全てに op を適用させた値を計算します。
+- `push_front(x)`: x を先頭に追加します。
+- `push_back(x)`: x を末尾に追加します。
+- `pop_front()`: x を先頭から削除します。
+- `pop_back()`: x を末尾から削除します。
+
+#### 計算量
+
+- `fold()`: $\mathrm{O}(1)$
+- `push_front(x)`: $\mathrm{O}(1)$
+- `push_back(x)`: $\mathrm{O}(1)$
+- `pop_front()`: 償却 $\mathrm{O}(1)$
+- `pop_back()`: 償却 $\mathrm{O}(1)$
