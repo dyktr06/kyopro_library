@@ -32,14 +32,14 @@ data:
     \   if(hashed[i + 1] >= mod) hashed[i + 1] -= mod;\n        }\n    }\n\n    unsigned\
     \ long long get(int l, int r) const {\n        unsigned long long ret = hashed[r]\
     \ + mod - mul(hashed[l], power[r - l]);\n        if(ret >= mod) ret -= mod;\n\
-    \        return ret;\n    }\n\n    unsigned long long connect(unsigned h1, int\
-    \ h2, int h2len) const {\n        unsigned long long ret = mul(h1, power[h2len])\
-    \ + h2;\n        if(ret >= mod) ret -= mod;\n        return ret;\n    }\n\n  \
-    \  int LCP(const RollingHash &b, int l1, int r1, int l2, int r2){\n        int\
-    \ len = min(r1 - l1, r2 - l2);\n        int low = -1, high = len + 1;\n      \
-    \  while(high - low > 1){\n            int mid = (low + high) / 2;\n         \
-    \   if(get(l1, l1 + mid) == b.get(l2, l2 + mid)) low = mid;\n            else\
-    \ high = mid;\n        }\n        return low;\n    }\n};\n"
+    \        return ret;\n    }\n\n    unsigned long long connect(unsigned long long\
+    \ h1, unsigned long long h2, int h2len) const {\n        unsigned long long ret\
+    \ = mul(h1, power[h2len]) + h2;\n        if(ret >= mod) ret -= mod;\n        return\
+    \ ret;\n    }\n\n    int LCP(const RollingHash &b, int l1, int r1, int l2, int\
+    \ r2){\n        int len = min(r1 - l1, r2 - l2);\n        int low = -1, high =\
+    \ len + 1;\n        while(high - low > 1){\n            int mid = (low + high)\
+    \ / 2;\n            if(get(l1, l1 + mid) == b.get(l2, l2 + mid)) low = mid;\n\
+    \            else high = mid;\n        }\n        return low;\n    }\n};\n"
   code: "#pragma once\n\n/* \n    RollingHash(s, base) : \u6587\u5B57\u5217 s \u306B\
     \u3064\u3044\u3066\u306E\u30CF\u30C3\u30B7\u30E5\u30C6\u30FC\u30D6\u30EB\u3092\
     \u69CB\u7BC9\u3057\u307E\u3059\u3002O(n)\n    get(l, r) : [l, r) \u306E\u30CF\u30C3\
@@ -61,19 +61,19 @@ data:
     \ + 1] >= mod) hashed[i + 1] -= mod;\n        }\n    }\n\n    unsigned long long\
     \ get(int l, int r) const {\n        unsigned long long ret = hashed[r] + mod\
     \ - mul(hashed[l], power[r - l]);\n        if(ret >= mod) ret -= mod;\n      \
-    \  return ret;\n    }\n\n    unsigned long long connect(unsigned h1, int h2, int\
-    \ h2len) const {\n        unsigned long long ret = mul(h1, power[h2len]) + h2;\n\
-    \        if(ret >= mod) ret -= mod;\n        return ret;\n    }\n\n    int LCP(const\
-    \ RollingHash &b, int l1, int r1, int l2, int r2){\n        int len = min(r1 -\
-    \ l1, r2 - l2);\n        int low = -1, high = len + 1;\n        while(high - low\
-    \ > 1){\n            int mid = (low + high) / 2;\n            if(get(l1, l1 +\
-    \ mid) == b.get(l2, l2 + mid)) low = mid;\n            else high = mid;\n    \
-    \    }\n        return low;\n    }\n};"
+    \  return ret;\n    }\n\n    unsigned long long connect(unsigned long long h1,\
+    \ unsigned long long h2, int h2len) const {\n        unsigned long long ret =\
+    \ mul(h1, power[h2len]) + h2;\n        if(ret >= mod) ret -= mod;\n        return\
+    \ ret;\n    }\n\n    int LCP(const RollingHash &b, int l1, int r1, int l2, int\
+    \ r2){\n        int len = min(r1 - l1, r2 - l2);\n        int low = -1, high =\
+    \ len + 1;\n        while(high - low > 1){\n            int mid = (low + high)\
+    \ / 2;\n            if(get(l1, l1 + mid) == b.get(l2, l2 + mid)) low = mid;\n\
+    \            else high = mid;\n        }\n        return low;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: lib/string/rollinghash.hpp
   requiredBy: []
-  timestamp: '2022-11-11 03:58:03+09:00'
+  timestamp: '2023-01-08 06:07:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/alds1/alds1_14_b.test.cpp

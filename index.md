@@ -74,7 +74,7 @@ data:
       title: Union Find
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/weighted_union_find.hpp
-      title: lib/data_structure/weighted_union_find.hpp
+      title: Weighted Union Find
   - name: lib/dp
     pages:
     - icon: ':heavy_check_mark:'
