@@ -1,13 +1,9 @@
 #pragma once
 
-/* 
-    WeightedUnionFind(n) : Union-Find 木をサイズnで構築
-    計算量 : O(a(n)) -> アッカーマンの逆関数
-    root(x) : 集合 x の根を取得します。
-    unite(x, y) : 集合 x と y を併合します。
-    same(x, y) : 集合 x と 集合 y が等しいかどうかを判定します。
-    size(x) : x を含む集合の大きさを取得します。
-*/
+/**
+ * @brief Weighted Union Find
+ * @docs docs/data_structure/weighted_union_find.md
+ */
 
 template <typename T>
 struct WeightedUnionFind{
