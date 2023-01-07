@@ -36,7 +36,7 @@ struct RollingHash{
         return ret;
     }
 
-    unsigned long long connect(unsigned h1, int h2, int h2len) const {
+    unsigned long long connect(unsigned long long h1, unsigned long long h2, int h2len) const {
         unsigned long long ret = mul(h1, power[h2len]) + h2;
         if(ret >= mod) ret -= mod;
         return ret;
