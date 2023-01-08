@@ -180,16 +180,16 @@ data:
       title: lib/string/calc-next.hpp
     - icon: ':heavy_check_mark:'
       path: lib/string/manacher.hpp
-      title: lib/string/manacher.hpp
+      title: Manacher
     - icon: ':warning:'
       path: lib/string/permutation.cpp
       title: lib/string/permutation.cpp
     - icon: ':heavy_check_mark:'
       path: lib/string/rollinghash.hpp
-      title: lib/string/rollinghash.hpp
+      title: Rolling Hash
     - icon: ':heavy_check_mark:'
       path: lib/string/z_algorithm.hpp
-      title: lib/string/z_algorithm.hpp
+      title: Z Algorithm
   - name: lib
     pages:
     - icon: ':warning:'

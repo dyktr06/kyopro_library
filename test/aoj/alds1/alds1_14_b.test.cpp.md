@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/string/rollinghash.hpp
-    title: lib/string/rollinghash.hpp
+    title: Rolling Hash
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -17,21 +17,13 @@ data:
   bundledCode: "#line 1 \"test/aoj/alds1/alds1_14_b.test.cpp\"\n#define PROBLEM \"\
     https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/string/rollinghash.hpp\"\
-    \n\n/* \n    RollingHash(s, base) : \u6587\u5B57\u5217 s \u306B\u3064\u3044\u3066\
-    \u306E\u30CF\u30C3\u30B7\u30E5\u30C6\u30FC\u30D6\u30EB\u3092\u69CB\u7BC9\u3057\
-    \u307E\u3059\u3002O(n)\n    get(l, r) : [l, r) \u306E\u30CF\u30C3\u30B7\u30E5\u5024\
-    \u3092\u53D6\u5F97\u3057\u307E\u3059\u3002O(1) \n    connect(h1, h2, h2len) :\
-    \ \u30CF\u30C3\u30B7\u30E5\u5024 h1 \u3068\u9577\u3055 h2len \u306E\u30CF\u30C3\
-    \u30B7\u30E5\u5024 h2 \u3092\u7D50\u5408\u3057\u307E\u3059\u3002\n    LCP(b, l1,\
-    \ r1, l2, r2) \u533A\u9593 [l1, r1) \u3068 \u30CF\u30C3\u30B7\u30E5\u30C6\u30FC\
-    \u30D6\u30EB\u304C b \u3068\u306A\u308B\u533A\u9593 [l2, r2) \u306E\u6587\u5B57\
-    \u5217\u306E\u6700\u9577\u63A5\u982D\u8F9E\u3092\u6C42\u3081\u307E\u3059\u3002\
-    \ O(logN)\n*/\nstruct RollingHash{\n    vector<unsigned long long> hashed, power;\n\
-    \    static constexpr unsigned long long mod = (1uL << 61) - 1;\n\t\n    unsigned\
-    \ long long mul(__int128_t a, __int128_t b) const {\n\t\t__int128_t t = a * b;\n\
-    \t\tt = (t >> 61) + (t & mod);\n\t\t\n\t\tif(t >= mod) return t - mod;\n\t\treturn\
-    \ t;\n\t}\n\n    RollingHash(const string &s, unsigned base = 10007){\n      \
-    \  int siz = (int) s.size();\n        hashed.assign(siz + 1, 0);\n        power.assign(siz\
+    \n\n/**\n * @brief Rolling Hash\n * @docs docs/string/rollinghash.md\n */\n\n\
+    struct RollingHash{\n    vector<unsigned long long> hashed, power;\n    static\
+    \ constexpr unsigned long long mod = (1uL << 61) - 1;\n\t\n    unsigned long long\
+    \ mul(__int128_t a, __int128_t b) const {\n\t\t__int128_t t = a * b;\n\t\tt =\
+    \ (t >> 61) + (t & mod);\n\t\t\n\t\tif(t >= mod) return t - mod;\n\t\treturn t;\n\
+    \t}\n\n    RollingHash(const string &s, unsigned base = 10007){\n        int siz\
+    \ = (int) s.size();\n        hashed.assign(siz + 1, 0);\n        power.assign(siz\
     \ + 1, 0);\n        power[0] = 1;\n        for(int i = 0; i < siz; i++){\n   \
     \         power[i + 1] = mul(power[i], base);\n            hashed[i + 1] = mul(hashed[i],\
     \ base) + s[i];\n            if(hashed[i + 1] >= mod) hashed[i + 1] -= mod;\n\
@@ -61,7 +53,7 @@ data:
   isVerificationFile: true
   path: test/aoj/alds1/alds1_14_b.test.cpp
   requiredBy: []
-  timestamp: '2023-01-08 06:07:16+09:00'
+  timestamp: '2023-01-09 04:41:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/alds1/alds1_14_b.test.cpp
