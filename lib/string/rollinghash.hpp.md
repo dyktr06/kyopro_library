@@ -81,7 +81,7 @@ title: Rolling Hash
 
 #### 計算量
 
-- `RollingHash(s, base)`: $\mathrm{O}(|S|)$
+- `RollingHash(s, base)`: $\mathrm{O}(\lvert S\lvert)$
 - `get(l, r)`: $\mathrm{O}(1)$
 - `connect(h1, h2, h2len)`: $\mathrm{O}(1)$
-- `LCP(b, l1, r1, l2, r2)`: $\mathrm{O}(\log |S|)$
+- `LCP(b, l1, r1, l2, r2)`: $\mathrm{O}(\log \lvert S\lvert)$
