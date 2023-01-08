@@ -1,6 +1,10 @@
 #pragma once
 
-// それぞれの i (1 <= i <= |S|) について、S[i] を中心とする最長回文の半径を求めます。 : O(|S|) 
+/**
+ * @brief Manacher
+ * @docs docs/string/manacher.md
+ */
+
 template <typename T>
 vector<int> manacher(const T &s){
     int n = s.size();

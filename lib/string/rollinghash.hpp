@@ -1,11 +1,10 @@
 #pragma once
 
-/* 
-    RollingHash(s, base) : 文字列 s についてのハッシュテーブルを構築します。O(n)
-    get(l, r) : [l, r) のハッシュ値を取得します。O(1) 
-    connect(h1, h2, h2len) : ハッシュ値 h1 と長さ h2len のハッシュ値 h2 を結合します。
-    LCP(b, l1, r1, l2, r2) 区間 [l1, r1) と ハッシュテーブルが b となる区間 [l2, r2) の文字列の最長接頭辞を求めます。 O(logN)
-*/
+/**
+ * @brief Rolling Hash
+ * @docs docs/string/rollinghash.md
+ */
+
 struct RollingHash{
     vector<unsigned long long> hashed, power;
     static constexpr unsigned long long mod = (1uL << 61) - 1;

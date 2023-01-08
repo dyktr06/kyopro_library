@@ -1,6 +1,10 @@
 #pragma once
 
-// それぞれの i (1 <= i <= |S|) について、S[1] + S[2] + ... と S[i] + S[i + 1] + ... の最長共通接頭辞の長さ を求めます。 : O(|S|) 
+/**
+ * @brief Z Algorithm
+ * @docs docs/string/z_algorithm.md
+ */
+
 template <typename T>
 vector<int> z_algorithm(const T &s) {
     int n = s.size();
