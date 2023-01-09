@@ -20,28 +20,28 @@ data:
     \n\n/**\n * @brief Rolling Hash\n * @docs docs/string/rollinghash.md\n */\n\n\
     struct RollingHash{\n    vector<unsigned long long> hashed, power;\n    static\
     \ constexpr unsigned long long mod = (1uL << 61) - 1;\n\t\n    unsigned long long\
-    \ mul(__int128_t a, __int128_t b) const {\n\t\t__int128_t t = a * b;\n\t\tt =\
-    \ (t >> 61) + (t & mod);\n\t\t\n\t\tif(t >= mod) return t - mod;\n\t\treturn t;\n\
-    \t}\n\n    RollingHash(const string &s, unsigned base = 10007){\n        int siz\
-    \ = (int) s.size();\n        hashed.assign(siz + 1, 0);\n        power.assign(siz\
-    \ + 1, 0);\n        power[0] = 1;\n        for(int i = 0; i < siz; i++){\n   \
-    \         power[i + 1] = mul(power[i], base);\n            hashed[i + 1] = mul(hashed[i],\
-    \ base) + s[i];\n            if(hashed[i + 1] >= mod) hashed[i + 1] -= mod;\n\
-    \        }\n    }\n\n    unsigned long long get(int l, int r) const {\n      \
-    \  unsigned long long ret = hashed[r] + mod - mul(hashed[l], power[r - l]);\n\
-    \        if(ret >= mod) ret -= mod;\n        return ret;\n    }\n\n    unsigned\
-    \ long long connect(unsigned long long h1, unsigned long long h2, int h2len) const\
-    \ {\n        unsigned long long ret = mul(h1, power[h2len]) + h2;\n        if(ret\
-    \ >= mod) ret -= mod;\n        return ret;\n    }\n\n    int LCP(const RollingHash\
-    \ &b, int l1, int r1, int l2, int r2){\n        int len = min(r1 - l1, r2 - l2);\n\
-    \        int low = -1, high = len + 1;\n        while(high - low > 1){\n     \
-    \       int mid = (low + high) / 2;\n            if(get(l1, l1 + mid) == b.get(l2,\
-    \ l2 + mid)) low = mid;\n            else high = mid;\n        }\n        return\
-    \ low;\n    }\n};\n#line 6 \"test/aoj/alds1/alds1_14_b.test.cpp\"\n\nint main(){\n\
-    \    string t, p; cin >> t >> p;\n    int n = t.size(), m = p.size();\n    RollingHash\
-    \ rh(t), rh2(p);\n    for(int i = 0; i + m <= n; i++){\n        if(rh.get(i, i\
-    \ + m) == rh2.get(0, m)){\n            cout << i << \"\\n\";\n        }\n    }\n\
-    }\n"
+    \ mul(unsigned long long a, unsigned long long b) const {\n\t\t__int128_t t =\
+    \ (__int128_t) a * b;\n\t\tt = (t >> 61) + (t & mod);\n\t\t\n\t\tif(t >= mod)\
+    \ return t - mod;\n\t\treturn t;\n\t}\n\n    RollingHash(const string &s, unsigned\
+    \ base = 10007){\n        int siz = (int) s.size();\n        hashed.assign(siz\
+    \ + 1, 0);\n        power.assign(siz + 1, 0);\n        power[0] = 1;\n       \
+    \ for(int i = 0; i < siz; i++){\n            power[i + 1] = mul(power[i], base);\n\
+    \            hashed[i + 1] = mul(hashed[i], base) + s[i];\n            if(hashed[i\
+    \ + 1] >= mod) hashed[i + 1] -= mod;\n        }\n    }\n\n    unsigned long long\
+    \ get(int l, int r) const {\n        unsigned long long ret = hashed[r] + mod\
+    \ - mul(hashed[l], power[r - l]);\n        if(ret >= mod) ret -= mod;\n      \
+    \  return ret;\n    }\n\n    unsigned long long connect(unsigned long long h1,\
+    \ unsigned long long h2, int h2len) const {\n        unsigned long long ret =\
+    \ mul(h1, power[h2len]) + h2;\n        if(ret >= mod) ret -= mod;\n        return\
+    \ ret;\n    }\n\n    int LCP(const RollingHash &b, int l1, int r1, int l2, int\
+    \ r2){\n        int len = min(r1 - l1, r2 - l2);\n        int low = -1, high =\
+    \ len + 1;\n        while(high - low > 1){\n            int mid = (low + high)\
+    \ / 2;\n            if(get(l1, l1 + mid) == b.get(l2, l2 + mid)) low = mid;\n\
+    \            else high = mid;\n        }\n        return low;\n    }\n};\n#line\
+    \ 6 \"test/aoj/alds1/alds1_14_b.test.cpp\"\n\nint main(){\n    string t, p; cin\
+    \ >> t >> p;\n    int n = t.size(), m = p.size();\n    RollingHash rh(t), rh2(p);\n\
+    \    for(int i = 0; i + m <= n; i++){\n        if(rh.get(i, i + m) == rh2.get(0,\
+    \ m)){\n            cout << i << \"\\n\";\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/string/rollinghash.hpp\"\
     \n\nint main(){\n    string t, p; cin >> t >> p;\n    int n = t.size(), m = p.size();\n\
@@ -53,7 +53,7 @@ data:
   isVerificationFile: true
   path: test/aoj/alds1/alds1_14_b.test.cpp
   requiredBy: []
-  timestamp: '2023-01-09 04:41:47+09:00'
+  timestamp: '2023-01-09 22:00:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/alds1/alds1_14_b.test.cpp
