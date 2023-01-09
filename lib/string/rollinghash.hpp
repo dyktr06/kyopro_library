@@ -9,8 +9,8 @@ struct RollingHash{
     vector<unsigned long long> hashed, power;
     static constexpr unsigned long long mod = (1uL << 61) - 1;
 	
-    unsigned long long mul(__int128_t a, __int128_t b) const {
-		__int128_t t = a * b;
+    unsigned long long mul(unsigned long long a, unsigned long long b) const {
+		__int128_t t = (__int128_t) a * b;
 		t = (t >> 61) + (t & mod);
 		
 		if(t >= mod) return t - mod;
