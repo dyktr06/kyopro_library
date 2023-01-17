@@ -150,7 +150,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/prime-sieve.hpp
       title: lib/math/prime-sieve.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
     - icon: ':warning:'
@@ -377,7 +377,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_416.test.cpp
       title: test/yukicoder/yuki_416.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_888.test.cpp
       title: test/yukicoder/yuki_888.test.cpp
 layout: toppage

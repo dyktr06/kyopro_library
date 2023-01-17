@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/rho.hpp
     title: Pollard's Rho
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/888
@@ -58,19 +58,20 @@ data:
     \        for(int j = 0; j < cnt; ++j){\n                    z *= x;\n        \
     \            ret.push_back(z);\n                }\n            }\n        }\n\
     \        return ret;\n    }\n}\n#line 6 \"test/yukicoder/yuki_888.test.cpp\"\n\
-    \nint main(){\n    int n; cin >> n;\n    long long ans = 0;\n    for(auto x :\
-    \ Rho::divisor(n)){\n        ans += x;\n    }\n    cout << ans << \"\\n\";\n}\n"
+    \nint main(){\n    long long n; cin >> n;\n    long long ans = 0;\n    for(auto\
+    \ x : Rho::divisor(n)){\n        ans += x;\n    }\n    cout << ans << \"\\n\"\
+    ;\n}\n"
   code: "#define PROBLEM \"https://yukicoder.me/problems/no/888\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#include \"../../lib/math/rho.hpp\"\n\nint main(){\n \
-    \   int n; cin >> n;\n    long long ans = 0;\n    for(auto x : Rho::divisor(n)){\n\
+    \   long long n; cin >> n;\n    long long ans = 0;\n    for(auto x : Rho::divisor(n)){\n\
     \        ans += x;\n    }\n    cout << ans << \"\\n\";\n}"
   dependsOn:
   - lib/math/rho.hpp
   isVerificationFile: true
   path: test/yukicoder/yuki_888.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 06:27:45+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-01-18 06:35:04+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_888.test.cpp
 layout: document
