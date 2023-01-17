@@ -1,8 +1,9 @@
 #pragma once
 
-// Rho::rabin_miller(N) : N が素数かどうかを判定します。(N <= 2^64 なら必ず成功します) O(log N)
-// Rho::factorial(N) : N について素因数分解をします。O(N^(1/4))
-// Rho::divisor(N) : N の約数を列挙します。O(N^(1/4) log N)
+/**
+ * @brief Pollard's Rho
+ * @docs docs/math/rho.md
+ */
 
 namespace Rho{
     unsigned long long mul(unsigned long long a, unsigned long long b, const unsigned long long mod) {
@@ -83,15 +84,14 @@ namespace Rho{
         }
         vector<unsigned long long> ret = {1};
         for(auto [x, cnt] : countFactor){
-            vector<unsigned long long> tmp;
-            for(auto y : ret){
-                unsigned long long z = y;
-                for(int i = 0; i < cnt + 1; i++){
-                    tmp.push_back(z);
+            int n = ret.size();
+            for(int i = 0; i < n; ++i){
+                unsigned long long z = ret[i];
+                for(int j = 0; j < cnt; ++j){
                     z *= x;
+                    ret.push_back(z);
                 }
             }
-            ret = tmp;
         }
         return ret;
     }

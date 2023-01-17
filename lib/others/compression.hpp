@@ -27,6 +27,10 @@ struct compress{
         return lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();
     }
 
+    T inv(const T& x){
+        return sorted[x];
+    }
+
     size_t size() const{
         return sorted.size();
     }
