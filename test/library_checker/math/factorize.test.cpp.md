@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/rho.hpp
-    title: lib/math/rho.hpp
+    title: Pollard's Rho
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -16,32 +16,27 @@ data:
     - https://judge.yosupo.jp/problem/factorize
   bundledCode: "#line 1 \"test/library_checker/math/factorize.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/factorize\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 2 \"lib/math/rho.hpp\"\n\n// Rho::rabin_miller(N)\
-    \ : N \u304C\u7D20\u6570\u304B\u3069\u3046\u304B\u3092\u5224\u5B9A\u3057\u307E\
-    \u3059\u3002(N <= 2^64 \u306A\u3089\u5FC5\u305A\u6210\u529F\u3057\u307E\u3059\
-    ) O(log N)\n// Rho::factorial(N) : N \u306B\u3064\u3044\u3066\u7D20\u56E0\u6570\
-    \u5206\u89E3\u3092\u3057\u307E\u3059\u3002O(N^(1/4))\n// Rho::divisor(N) : N \u306E\
-    \u7D04\u6570\u3092\u5217\u6319\u3057\u307E\u3059\u3002O(N^(1/4) log N)\n\nnamespace\
-    \ Rho{\n    unsigned long long mul(unsigned long long a, unsigned long long b,\
-    \ const unsigned long long mod) {\n        long long ret = a * b - mod * (unsigned\
-    \ long long)(1.0L / mod * a * b);\n        return ret + mod * (ret < 0) - mod\
-    \ * (ret >= (long long) mod);\n    }\n\n    bool rabin_miller(unsigned long long\
-    \ n){\n        switch(n){\n            case 0: // fall-through\n            case\
-    \ 1: return false;\n            case 2: return true;\n        }\n\n        if(n\
-    \ % 2 == 0) return false;\n        vector<long long> A = {2, 325, 9375, 28178,\
-    \ 450775, 9780504, 1795265022};\n        unsigned long long s = 0, d = n - 1;\n\
-    \        while(d % 2 == 0){\n            s++;\n            d >>= 1;\n        }\n\
-    \n        auto modpow = [](unsigned long long x, unsigned long long e, const unsigned\
-    \ long long mod) -> unsigned long long {\n            unsigned long long ret =\
-    \ 1 % mod;\n            x %= mod;\n            while(e > 0){\n               \
-    \ if(e & 1) ret = mul(ret, x, mod);\n                x = mul(x, x, mod);\n   \
-    \             e >>= 1;\n            }\n            return ret;\n        };\n\n\
-    \        for(auto a : A){\n            if(a % n == 0) return true;\n         \
-    \   unsigned long long t, x = modpow(a, d, n);\n            if(x != 1){\n    \
-    \            for(t = 0; t < s; ++t){\n                    if(x == n - 1) break;\n\
-    \                    x = mul(x, x, n);\n                }\n                if(t\
-    \ == s) return false;\n            }\n        }\n        return true;\n    }\n\
-    \n    mt19937_64 rng(chrono::system_clock::now().time_since_epoch().count());\n\
+    using namespace std;\n\n#line 2 \"lib/math/rho.hpp\"\n\n/**\n * @brief Pollard's\
+    \ Rho\n * @docs docs/math/rho.md\n */\n\nnamespace Rho{\n    unsigned long long\
+    \ mul(unsigned long long a, unsigned long long b, const unsigned long long mod)\
+    \ {\n        long long ret = a * b - mod * (unsigned long long)(1.0L / mod * a\
+    \ * b);\n        return ret + mod * (ret < 0) - mod * (ret >= (long long) mod);\n\
+    \    }\n\n    bool rabin_miller(unsigned long long n){\n        switch(n){\n \
+    \           case 0: // fall-through\n            case 1: return false;\n     \
+    \       case 2: return true;\n        }\n\n        if(n % 2 == 0) return false;\n\
+    \        vector<long long> A = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};\n\
+    \        unsigned long long s = 0, d = n - 1;\n        while(d % 2 == 0){\n  \
+    \          s++;\n            d >>= 1;\n        }\n\n        auto modpow = [](unsigned\
+    \ long long x, unsigned long long e, const unsigned long long mod) -> unsigned\
+    \ long long {\n            unsigned long long ret = 1 % mod;\n            x %=\
+    \ mod;\n            while(e > 0){\n                if(e & 1) ret = mul(ret, x,\
+    \ mod);\n                x = mul(x, x, mod);\n                e >>= 1;\n     \
+    \       }\n            return ret;\n        };\n\n        for(auto a : A){\n \
+    \           if(a % n == 0) return true;\n            unsigned long long t, x =\
+    \ modpow(a, d, n);\n            if(x != 1){\n                for(t = 0; t < s;\
+    \ ++t){\n                    if(x == n - 1) break;\n                    x = mul(x,\
+    \ x, n);\n                }\n                if(t == s) return false;\n      \
+    \      }\n        }\n        return true;\n    }\n\n    mt19937_64 rng(chrono::system_clock::now().time_since_epoch().count());\n\
     \    unsigned long long FindFactor(unsigned long long n) {\n        if(n == 1\
     \ || rabin_miller(n)) return n;\n        if(n % 2 == 0) return 2;\n        unsigned\
     \ long long c = 1, x = 0, y = 0, t = 0, prod = 2, x0 = 1, q;\n        auto f =\
@@ -58,11 +53,11 @@ data:
     \       map<unsigned long long, int> countFactor;\n        for(auto x : factor){\n\
     \            if(countFactor.count(x) == 0) countFactor[x] = 0;\n            countFactor[x]++;\n\
     \        }\n        vector<unsigned long long> ret = {1};\n        for(auto [x,\
-    \ cnt] : countFactor){\n            vector<unsigned long long> tmp;\n        \
-    \    for(auto y : ret){\n                unsigned long long z = y;\n         \
-    \       for(int i = 0; i < cnt + 1; i++){\n                    tmp.push_back(z);\n\
-    \                    z *= x;\n                }\n            }\n            ret\
-    \ = tmp;\n        }\n        return ret;\n    }\n}\n#line 6 \"test/library_checker/math/factorize.test.cpp\"\
+    \ cnt] : countFactor){\n            int n = ret.size();\n            for(int i\
+    \ = 0; i < n; ++i){\n                unsigned long long z = ret[i];\n        \
+    \        for(int j = 0; j < cnt; ++j){\n                    z *= x;\n        \
+    \            ret.push_back(z);\n                }\n            }\n        }\n\
+    \        return ret;\n    }\n}\n#line 6 \"test/library_checker/math/factorize.test.cpp\"\
     \n\nint main(){\n    int q; cin >> q;\n    while(q--){\n        long long a; cin\
     \ >> a;\n        vector<unsigned long long> factor = Rho::factorize(a);\n    \
     \    sort(factor.begin(), factor.end());\n        int n = factor.size();\n   \
@@ -80,7 +75,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/math/factorize.test.cpp
   requiredBy: []
-  timestamp: '2022-11-10 10:41:26+09:00'
+  timestamp: '2023-01-18 06:27:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/math/factorize.test.cpp

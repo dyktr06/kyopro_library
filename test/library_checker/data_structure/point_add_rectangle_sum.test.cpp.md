@@ -74,9 +74,10 @@ data:
     \ sorted.end()), sorted.end());\n        for(int i = 0; i < n; i++){\n       \
     \     compressed[i] = lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();\n\
     \        }\n    }\n\n    int get(const T& x) const{\n        return lower_bound(sorted.begin(),\
-    \ sorted.end(), x) - sorted.begin();\n    }\n\n    size_t size() const{\n    \
-    \    return sorted.size();\n    }\n\n    vector<T> getCompressed() const{\n  \
-    \      return compressed;\n    }\n};\n#line 7 \"test/library_checker/data_structure/point_add_rectangle_sum.test.cpp\"\
+    \ sorted.end(), x) - sorted.begin();\n    }\n\n    T inv(const T& x){\n      \
+    \  return sorted[x];\n    }\n\n    size_t size() const{\n        return sorted.size();\n\
+    \    }\n\n    vector<T> getCompressed() const{\n        return compressed;\n \
+    \   }\n};\n#line 7 \"test/library_checker/data_structure/point_add_rectangle_sum.test.cpp\"\
     \n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n \
     \   int n, q; cin >> n >> q;\n    vector<int> xl, yl;\n    vector<tuple<int, int,\
     \ int>> point;\n    vector<tuple<int, int, int, int, int>> query;\n    for(int\
@@ -122,7 +123,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-11-11 03:58:03+09:00'
+  timestamp: '2023-01-18 06:27:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp

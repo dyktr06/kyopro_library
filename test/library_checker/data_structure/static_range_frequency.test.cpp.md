@@ -53,9 +53,10 @@ data:
     \       for(int i = 0; i < n; i++){\n            compressed[i] = lower_bound(sorted.begin(),\
     \ sorted.end(), vec[i]) - sorted.begin();\n        }\n    }\n\n    int get(const\
     \ T& x) const{\n        return lower_bound(sorted.begin(), sorted.end(), x) -\
-    \ sorted.begin();\n    }\n\n    size_t size() const{\n        return sorted.size();\n\
-    \    }\n\n    vector<T> getCompressed() const{\n        return compressed;\n \
-    \   }\n};\n#line 7 \"test/library_checker/data_structure/static_range_frequency.test.cpp\"\
+    \ sorted.begin();\n    }\n\n    T inv(const T& x){\n        return sorted[x];\n\
+    \    }\n\n    size_t size() const{\n        return sorted.size();\n    }\n\n \
+    \   vector<T> getCompressed() const{\n        return compressed;\n    }\n};\n\
+    #line 7 \"test/library_checker/data_structure/static_range_frequency.test.cpp\"\
     \n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n \
     \   int n, q; cin >> n >> q;\n    vector<int> a;\n    vector<int> c(n);\n    for(int\
     \ i = 0; i < n; i++){\n        cin >> c[i];\n        a.push_back(c[i]);\n    }\n\
@@ -87,7 +88,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_frequency.test.cpp
   requiredBy: []
-  timestamp: '2022-11-10 02:54:46+09:00'
+  timestamp: '2023-01-18 06:27:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_frequency.test.cpp
