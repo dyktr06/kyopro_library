@@ -2,9 +2,10 @@
 
 #include "../data_structure/union_find.hpp"
 
-/*
-    二次元平面上の N 個 の頂点におけるマンハッタン距離での最小全域木を求めます。
-*/
+/**
+ * @brief Manhattan MST
+ * @docs docs/graph/manhattanMST.md
+ */
 
 template <typename T>
 vector<pair<int, int>> manhattanMST(vector<T> x, vector<T> y){
