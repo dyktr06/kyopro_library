@@ -9,7 +9,7 @@ data:
     title: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
   - icon: ':heavy_check_mark:'
     path: lib/others/compression.hpp
-    title: lib/others/compression.hpp
+    title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -62,11 +62,8 @@ data:
     \            if(x1 < x2){\n                res += (*bit[x2]).sum(y1, y2);\n  \
     \              x2 -= x2 & -x2;\n            }else{\n                res -= (*bit[x1]).sum(y1,\
     \ y2);\n                x1 -= x1 & -x1;\n            }\n        }\n        return\
-    \ res;\n    }\n};\n#line 2 \"lib/others/compression.hpp\"\n\n/* \n    compress<T>(vec)\
-    \ : vec \u3092\u5EA7\u6A19\u5727\u7E2E\u3057\u307E\u3059\u3002O(NlogN)\n    get(x)\
-    \ : x \u306E\u5EA7\u6A19\u5727\u7E2E\u5F8C\u306E\u5024\u3092\u53D6\u5F97\u3057\
-    \u307E\u3059\u3002O(log(n))\n    getCompressed() : \u5EA7\u6A19\u5727\u7E2E\u5F8C\
-    \u306E\u914D\u5217\u3092\u53D6\u5F97\u3057\u307E\u3059\u3002 O(n)\n*/\n\ntemplate\
+    \ res;\n    }\n};\n#line 2 \"lib/others/compression.hpp\"\n\n/**\n * @brief Compression\
+    \ (\u5EA7\u6A19\u5727\u7E2E)\n * @docs docs/others/compression.md\n */\n\ntemplate\
     \ <typename T>\nstruct compress{\n    vector<T> sorted, compressed;\n\n    compress(const\
     \ vector<T>& vec){\n        int n = vec.size();\n        compressed.resize(n);\n\
     \        for(T x : vec){\n            sorted.push_back(x);\n        }\n      \
@@ -123,7 +120,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 06:27:45+09:00'
+  timestamp: '2023-01-23 00:47:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp

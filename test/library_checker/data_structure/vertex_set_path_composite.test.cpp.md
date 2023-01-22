@@ -9,7 +9,7 @@ data:
     title: lib/graph/heavy_light_decomposition.hpp
   - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
-    title: lib/math/modint.hpp
+    title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -112,10 +112,11 @@ data:
     \ function<void(int, int)> &func, const function<void(int, int)> &func2){\n  \
     \      int l = lca(a, b);\n        path_query(a, l, func2, false, true);\n   \
     \     path_query(l, b, func, true, false);\n    }\n};\n#line 2 \"lib/math/modint.hpp\"\
-    \n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n    constexpr\
-    \ ModInt(const long long &_val = 0) noexcept : val(_val) {\n        normalize();\n\
-    \    }\n    void normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n\
-    \    }\n    inline ModInt& operator+=(const ModInt& rhs) noexcept {\n        if(val\
+    \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
+    \ long Modulus>\nstruct ModInt{\n    long long val;\n    constexpr ModInt(const\
+    \ long long &_val = 0) noexcept : val(_val) {\n        normalize();\n    }\n \
+    \   void normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n  \
+    \  }\n    inline ModInt& operator+=(const ModInt& rhs) noexcept {\n        if(val\
     \ += rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n\
     \    inline ModInt& operator-=(const ModInt& rhs) noexcept {\n        if(val -=\
     \ rhs.val, val < 0) val += Modulus;\n        return *this;\n    }\n    inline\
@@ -193,7 +194,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2023-01-06 16:06:42+09:00'
+  timestamp: '2023-01-23 00:47:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/vertex_set_path_composite.test.cpp

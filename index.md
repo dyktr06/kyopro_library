@@ -146,7 +146,7 @@ data:
       title: lib/math/modcalc.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
-      title: lib/math/modint.hpp
+      title: ModInt
     - icon: ':heavy_check_mark:'
       path: lib/math/prime-sieve.hpp
       title: lib/math/prime-sieve.hpp
@@ -160,10 +160,10 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: lib/others/compression.hpp
-      title: lib/others/compression.hpp
+      title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
     - icon: ':heavy_check_mark:'
       path: lib/others/exhaustive_search.hpp
-      title: lib/others/exhaustive_search.hpp
+      title: "Exhaustive Search (bit \u5168\u63A2\u7D22)"
     - icon: ':warning:'
       path: lib/others/others.hpp
       title: lib/others/others.hpp
@@ -174,7 +174,7 @@ data:
     pages:
     - icon: ':warning:'
       path: lib/string/calc-next.hpp
-      title: lib/string/calc-next.hpp
+      title: calc-next
     - icon: ':heavy_check_mark:'
       path: lib/string/manacher.hpp
       title: Manacher
@@ -379,3 +379,6 @@ data:
       title: test/yukicoder/yuki_888.test.cpp
 layout: toppage
 ---
+競技プログラミング用のライブラリです。
+
+明らかに整備されていないものはバグっている可能性が高いです。
