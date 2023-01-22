@@ -1,8 +1,10 @@
 #pragma once
 
-/*
-    分数(p/q) の構造体
-*/
+/**
+ * @brief Fraction
+ * @docs docs/math/fraction.md
+ */
+
 struct fraction{
     long long p, q; // long long or __int128_t
     fraction(long long P = 0, long long Q = 1): p(P), q(Q){

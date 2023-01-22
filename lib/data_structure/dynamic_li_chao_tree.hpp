@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Dynamic Li Chao Tree
+ * @docs docs/data_structure/dynamic_li_chao_tree.md
+ */
+
 template<typename T, T x_low, T x_high, T id>
 struct DynamicLiChaoTree{
     struct Line{

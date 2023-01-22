@@ -1,11 +1,9 @@
 #pragma once
 
-/* 
-    SWAG<T>(op) : SWAG を構築します。
-    fold() : 要素全てに op を適用させた値を計算します。: O(1)
-    push(x) : x を末尾に追加します。: O(1)
-    pop() : x を先頭から削除します。: 償却 O(1)
-*/
+/**
+ * @brief SWAG
+ * @docs docs/data_structure/swag.md
+ */
 
 template <typename T>
 struct SWAG{

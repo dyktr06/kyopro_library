@@ -1,8 +1,10 @@
 #pragma once
 
-// ある x に対し、直線集合の中で最小値をとるような直線の値を求めます。
-// 追加される直線の傾きが単調増加、計算する最小値の座標が単調増加である必要があります。
-// N本の直線追加 : O(N)、Q回のクエリ : O(Q)
+/**
+ * @brief Convex Hull Trick
+ * @docs docs/data_structure/convexhulltrick.md
+ */
+
 template <typename T>
 struct ConvexHullTrick{
     deque<pair<T, T>> deq;

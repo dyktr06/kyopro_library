@@ -6,5 +6,5 @@ using namespace std;
 
 int main(){
     int n, m; cin >> n >> m;
-    cout << convert_base(m, n) << "\n";
+    cout << convertBase(m, n) << "\n";
 }

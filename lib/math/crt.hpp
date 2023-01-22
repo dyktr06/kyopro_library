@@ -1,7 +1,10 @@
 #pragma once
 
-// CRT::extGCD(a, b, x, y) : ax + by = gcd(a, b) となる x, y を求めます : O(log a)
-// CRT::ChineseRem(b, m) : 中国剰余定理、返り値を (r, m) とすると解は x ≡ r (mod. m)、解なしの場合は (0, -1) を返します
+/**
+ * @brief Chinese Remainder Theorem (中国剰余定理)
+ * @docs docs/math/crt.md
+ */
+
 namespace CRT{
     long long extGCD(long long a, long long b, long long &x, long long &y){
         if(b == 0){
@@ -14,7 +17,7 @@ namespace CRT{
         return d;
     }
 
-    pair<long long, long long> ChineseRem(const vector<long long> &b, const vector<long long> &m) {
+    pair<long long, long long> chineseRem(const vector<long long> &b, const vector<long long> &m) {
         long long r = 0, M = 1;
         for(int i = 0; i < (int) b.size(); i++){
             long long p, q;

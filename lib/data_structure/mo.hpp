@@ -26,7 +26,7 @@ struct Mo{
             return (ablock & 1) ? lr[a].second > lr[b].second : lr[a].second < lr[b].second;
         });
         int l = 0, r = 0;
-        for(auto k : ord){
+        for(const auto &k : ord){
             while(l > lr[k].first) add_left(--l);
             while(r < lr[k].second) add_right(r++);
             while(l < lr[k].first) erase_left(l++);

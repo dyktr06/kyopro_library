@@ -11,7 +11,7 @@ int main(){
         cin >> b[i] >> m[i];
         if(b[i] == 0) cnt++;
     }
-    pair<long long, long long> p = CRT::ChineseRem(b, m);
+    pair<long long, long long> p = CRT::chineseRem(b, m);
     if(p.second == -1){
         cout << -1 << "\n";
     }else if(cnt == 3){

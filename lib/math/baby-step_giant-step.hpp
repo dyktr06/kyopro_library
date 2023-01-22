@@ -1,8 +1,9 @@
 #pragma once
 
-/*
-    x^k ≡ y (mod m) となる最小の非負整数 k を求めます : O(√M)
-*/
+/**
+ * @brief Baby-step giant-step
+ * @docs docs/math/baby-step_giant-step.md
+ */
 
 long long babyStepGiantStep(long long x, long long y, long long m){
     auto inv = [](long long a, long long m) -> long long {

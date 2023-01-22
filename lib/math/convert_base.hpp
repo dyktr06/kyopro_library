@@ -1,8 +1,12 @@
 #pragma once
 
-// 10進数での x を b 進数に変換します。: O(logx)
+/**
+ * @brief Convert Base
+ * @docs docs/math/convert_base.md
+ */
+
 template<typename T>
-string convert_base(T x, T b) {
+string convertBase(T x, T b) {
     string res;
     T t = 1, k = abs(b);
     while(x){
