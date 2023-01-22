@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: lib/graph/manhattanMST.hpp
-    title: lib/graph/manhattanMST.hpp
+    title: Manhattan MST
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/unionfind.test.cpp

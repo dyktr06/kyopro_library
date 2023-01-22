@@ -6,7 +6,7 @@ data:
     title: Union Find
   - icon: ':heavy_check_mark:'
     path: lib/graph/manhattanMST.hpp
-    title: lib/graph/manhattanMST.hpp
+    title: Manhattan MST
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -32,10 +32,8 @@ data:
     \n    bool same(int x, int y){\n        int rx = root(x);\n        int ry = root(y);\n\
     \        return rx == ry;\n    }\n\n    long long size(int x){\n        return\
     \ siz[root(x)];\n    }\n\n    long long edge(int x){\n        return edg[root(x)];\n\
-    \    }\n};\n#line 4 \"lib/graph/manhattanMST.hpp\"\n\n/*\n    \u4E8C\u6B21\u5143\
-    \u5E73\u9762\u4E0A\u306E N \u500B \u306E\u9802\u70B9\u306B\u304A\u3051\u308B\u30DE\
-    \u30F3\u30CF\u30C3\u30BF\u30F3\u8DDD\u96E2\u3067\u306E\u6700\u5C0F\u5168\u57DF\
-    \u6728\u3092\u6C42\u3081\u307E\u3059\u3002\n*/\n\ntemplate <typename T>\nvector<pair<int,\
+    \    }\n};\n#line 4 \"lib/graph/manhattanMST.hpp\"\n\n/**\n * @brief Manhattan\
+    \ MST\n * @docs docs/graph/manhattanMST.md\n */\n\ntemplate <typename T>\nvector<pair<int,\
     \ int>> manhattanMST(vector<T> x, vector<T> y){\n    int n = x.size();\n    vector<tuple<T,\
     \ int, int>> edge;\n    edge.reserve(4 * n);\n    vector<int> idx(n);\n    iota(idx.begin(),\
     \ idx.end(), 0);\n    for(int s = 0; s < 2; ++s){\n        for(int t = 0; t <\
@@ -73,7 +71,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/manhattanmst].test.cpp
   requiredBy: []
-  timestamp: '2023-01-06 16:06:42+09:00'
+  timestamp: '2023-01-23 01:08:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/manhattanmst].test.cpp

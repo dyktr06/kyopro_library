@@ -93,7 +93,7 @@ data:
       title: lib/graph/bellman_ford.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
-      title: lib/graph/dijkstra.hpp
+      title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/graph-input.hpp
       title: lib/graph/graph-input.hpp
@@ -105,7 +105,7 @@ data:
       title: lib/graph/heavy_light_decomposition.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/manhattanMST.hpp
-      title: lib/graph/manhattanMST.hpp
+      title: Manhattan MST
     - icon: ':heavy_check_mark:'
       path: lib/graph/scc.hpp
       title: lib/graph/scc.hpp
@@ -382,3 +382,5 @@ layout: toppage
 競技プログラミング用のライブラリです。
 
 明らかに整備されていないものはバグっている可能性が高いです。
+
+各アルゴリズムの概要はメモも兼ねています。

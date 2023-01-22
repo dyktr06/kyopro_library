@@ -13,6 +13,8 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/graph/manhattanMST.md
+    document_title: Manhattan MST
     links: []
   bundledCode: "#line 2 \"lib/graph/manhattanMST.hpp\"\n\n#line 2 \"lib/data_structure/union_find.hpp\"\
     \n\n/**\n * @brief Union Find\n * @docs docs/data_structure/union_find.md\n */\n\
@@ -27,10 +29,8 @@ data:
     \n    bool same(int x, int y){\n        int rx = root(x);\n        int ry = root(y);\n\
     \        return rx == ry;\n    }\n\n    long long size(int x){\n        return\
     \ siz[root(x)];\n    }\n\n    long long edge(int x){\n        return edg[root(x)];\n\
-    \    }\n};\n#line 4 \"lib/graph/manhattanMST.hpp\"\n\n/*\n    \u4E8C\u6B21\u5143\
-    \u5E73\u9762\u4E0A\u306E N \u500B \u306E\u9802\u70B9\u306B\u304A\u3051\u308B\u30DE\
-    \u30F3\u30CF\u30C3\u30BF\u30F3\u8DDD\u96E2\u3067\u306E\u6700\u5C0F\u5168\u57DF\
-    \u6728\u3092\u6C42\u3081\u307E\u3059\u3002\n*/\n\ntemplate <typename T>\nvector<pair<int,\
+    \    }\n};\n#line 4 \"lib/graph/manhattanMST.hpp\"\n\n/**\n * @brief Manhattan\
+    \ MST\n * @docs docs/graph/manhattanMST.md\n */\n\ntemplate <typename T>\nvector<pair<int,\
     \ int>> manhattanMST(vector<T> x, vector<T> y){\n    int n = x.size();\n    vector<tuple<T,\
     \ int, int>> edge;\n    edge.reserve(4 * n);\n    vector<int> idx(n);\n    iota(idx.begin(),\
     \ idx.end(), 0);\n    for(int s = 0; s < 2; ++s){\n        for(int t = 0; t <\
@@ -48,14 +48,12 @@ data:
     \ 1);\n    for(const auto& [c, i, j] : edge){\n        if(!dsu.same(i, j)){\n\
     \            used.emplace_back(i, j);\n            dsu.unite(i, j);\n        }\n\
     \    }\n    return used;\n}\n"
-  code: "#pragma once\n\n#include \"../data_structure/union_find.hpp\"\n\n/*\n   \
-    \ \u4E8C\u6B21\u5143\u5E73\u9762\u4E0A\u306E N \u500B \u306E\u9802\u70B9\u306B\
-    \u304A\u3051\u308B\u30DE\u30F3\u30CF\u30C3\u30BF\u30F3\u8DDD\u96E2\u3067\u306E\
-    \u6700\u5C0F\u5168\u57DF\u6728\u3092\u6C42\u3081\u307E\u3059\u3002\n*/\n\ntemplate\
-    \ <typename T>\nvector<pair<int, int>> manhattanMST(vector<T> x, vector<T> y){\n\
-    \    int n = x.size();\n    vector<tuple<T, int, int>> edge;\n    edge.reserve(4\
-    \ * n);\n    vector<int> idx(n);\n    iota(idx.begin(), idx.end(), 0);\n    for(int\
-    \ s = 0; s < 2; ++s){\n        for(int t = 0; t < 2; ++t){\n            sort(idx.begin(),\
+  code: "#pragma once\n\n#include \"../data_structure/union_find.hpp\"\n\n/**\n *\
+    \ @brief Manhattan MST\n * @docs docs/graph/manhattanMST.md\n */\n\ntemplate <typename\
+    \ T>\nvector<pair<int, int>> manhattanMST(vector<T> x, vector<T> y){\n    int\
+    \ n = x.size();\n    vector<tuple<T, int, int>> edge;\n    edge.reserve(4 * n);\n\
+    \    vector<int> idx(n);\n    iota(idx.begin(), idx.end(), 0);\n    for(int s\
+    \ = 0; s < 2; ++s){\n        for(int t = 0; t < 2; ++t){\n            sort(idx.begin(),\
     \ idx.end(), [&](const int i, const int j) {\n                return x[i] + y[i]\
     \ < x[j] + y[j];\n            });\n            map<T, int, greater<>> map;\n \
     \           for(const int i : idx){\n                for(auto iter = map.lower_bound(y[i]);\
@@ -74,7 +72,7 @@ data:
   isVerificationFile: false
   path: lib/graph/manhattanMST.hpp
   requiredBy: []
-  timestamp: '2023-01-06 16:06:42+09:00'
+  timestamp: '2023-01-23 01:08:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/manhattanmst].test.cpp
@@ -83,5 +81,16 @@ layout: document
 redirect_from:
 - /library/lib/graph/manhattanMST.hpp
 - /library/lib/graph/manhattanMST.hpp.html
-title: lib/graph/manhattanMST.hpp
+title: Manhattan MST
 ---
+## Manhattan MST
+
+#### 概要
+
+二次元平面上の N 個 の頂点におけるマンハッタン距離での最小全域木を求めます。
+
+(マンハッタン距離において最も近い 2 点を探したいときなどに使えます。)
+
+#### 計算量
+
+- $\mathrm{O}(N log N)$
