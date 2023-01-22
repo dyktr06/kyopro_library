@@ -14,7 +14,7 @@ data:
       title: lib/data_structure/binary_trie.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/convexhulltrick.hpp
-      title: lib/data_structure/convexhulltrick.hpp
+      title: Convex Hull Trick
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/cumulative_sum_2d.hpp
       title: lib/data_structure/cumulative_sum_2d.hpp
@@ -32,7 +32,7 @@ data:
       title: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/dynamic_li_chao_tree.hpp
-      title: lib/data_structure/dynamic_li_chao_tree.hpp
+      title: Dynamic Li Chao Tree
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/dynamic_union_find.hpp
       title: lib/data_structure/dynamic_union_find.hpp
@@ -68,7 +68,7 @@ data:
       title: Segment Tree
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/swag.hpp
-      title: lib/data_structure/swag.hpp
+      title: SWAG
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/union_find.hpp
       title: Union Find
@@ -122,22 +122,22 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: lib/math/baby-step_giant-step.hpp
-      title: lib/math/baby-step_giant-step.hpp
+      title: Baby-step giant-step
     - icon: ':heavy_check_mark:'
       path: lib/math/binarybasis.hpp
       title: lib/math/binarybasis.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
-      title: lib/math/convert_base.hpp
+      title: Convert Base
     - icon: ':heavy_check_mark:'
       path: lib/math/crt.hpp
-      title: lib/math/crt.hpp
+      title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':warning:'
       path: lib/math/divisor-prime.hpp
       title: lib/math/divisor-prime.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
-      title: lib/math/fraction.hpp
+      title: Fraction
     - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: lib/math/matrix.hpp
@@ -161,9 +161,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/others/compression.hpp
       title: lib/others/compression.hpp
-    - icon: ':warning:'
-      path: lib/others/compression_old.hpp
-      title: lib/others/compression_old.hpp
     - icon: ':heavy_check_mark:'
       path: lib/others/exhaustive_search.hpp
       title: lib/others/exhaustive_search.hpp

@@ -10,10 +10,11 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/math/baby-step_giant-step.md
+    document_title: Baby-step giant-step
     links: []
-  bundledCode: "#line 2 \"lib/math/baby-step_giant-step.hpp\"\n\n/*\n    x^k \u2261\
-    \ y (mod m) \u3068\u306A\u308B\u6700\u5C0F\u306E\u975E\u8CA0\u6574\u6570 k \u3092\
-    \u6C42\u3081\u307E\u3059 : O(\u221AM)\n*/\n\nlong long babyStepGiantStep(long\
+  bundledCode: "#line 2 \"lib/math/baby-step_giant-step.hpp\"\n\n/**\n * @brief Baby-step\
+    \ giant-step\n * @docs docs/math/baby-step_giant-step.md\n */\n\nlong long babyStepGiantStep(long\
     \ long x, long long y, long long m){\n    auto inv = [](long long a, long long\
     \ m) -> long long {\n        long long b = m, u = 1, v = 0;\n        while(b){\n\
     \            long long t = a / b;\n            a -= t * b; swap(a, b);\n     \
@@ -30,15 +31,14 @@ data:
     \ long long u = inv(z, m);\n    for(int i = 1; i <= sq; i++){\n        (y *= u)\
     \ %= m;\n        if(mp.count(y) != 0) return offset + mp[y] + i * sq;\n    }\n\
     \    return -1;\n}\n"
-  code: "#pragma once\n\n/*\n    x^k \u2261 y (mod m) \u3068\u306A\u308B\u6700\u5C0F\
-    \u306E\u975E\u8CA0\u6574\u6570 k \u3092\u6C42\u3081\u307E\u3059 : O(\u221AM)\n\
-    */\n\nlong long babyStepGiantStep(long long x, long long y, long long m){\n  \
-    \  auto inv = [](long long a, long long m) -> long long {\n        long long b\
-    \ = m, u = 1, v = 0;\n        while(b){\n            long long t = a / b;\n  \
-    \          a -= t * b; swap(a, b);\n            u -= t * v; swap(u, v);\n    \
-    \    }\n        u %= m;\n        if (u < 0) u += m;\n        return u;\n    };\n\
-    \n    if((x %= m) < 0) x += m;\n    if((y %= m) < 0) y += m;\n\n    long long\
-    \ offset, g, r = 1 % m;\n    for(offset = 0; (g = gcd(x, m)) > 1; ++offset){\n\
+  code: "#pragma once\n\n/**\n * @brief Baby-step giant-step\n * @docs docs/math/baby-step_giant-step.md\n\
+    \ */\n\nlong long babyStepGiantStep(long long x, long long y, long long m){\n\
+    \    auto inv = [](long long a, long long m) -> long long {\n        long long\
+    \ b = m, u = 1, v = 0;\n        while(b){\n            long long t = a / b;\n\
+    \            a -= t * b; swap(a, b);\n            u -= t * v; swap(u, v);\n  \
+    \      }\n        u %= m;\n        if (u < 0) u += m;\n        return u;\n   \
+    \ };\n\n    if((x %= m) < 0) x += m;\n    if((y %= m) < 0) y += m;\n\n    long\
+    \ long offset, g, r = 1 % m;\n    for(offset = 0; (g = gcd(x, m)) > 1; ++offset){\n\
     \        if(y % g){\n            if(r == y) return offset;\n            return\
     \ -1;\n        }\n        y /= g;\n        m /= g;\n        (r *= (x / g)) %=\
     \ m;\n    }\n\n    if(m == 1) return offset;\n    (y *= inv(r, m)) %= m;\n   \
@@ -52,7 +52,7 @@ data:
   isVerificationFile: false
   path: lib/math/baby-step_giant-step.hpp
   requiredBy: []
-  timestamp: '2022-12-24 18:31:15+09:00'
+  timestamp: '2023-01-22 11:23:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/discrete_logarithm_mod.test.cpp
@@ -61,5 +61,14 @@ layout: document
 redirect_from:
 - /library/lib/math/baby-step_giant-step.hpp
 - /library/lib/math/baby-step_giant-step.hpp.html
-title: lib/math/baby-step_giant-step.hpp
+title: Baby-step giant-step
 ---
+## Baby-step giant-step
+
+#### 概要
+
+$x^k ≡ y (mod. m)$ となる最小の非負整数 $k$ を求めます。
+
+#### 計算量
+
+- $\mathrm{O}(\sqrt m)$

@@ -38,7 +38,7 @@ data:
     \            if(ablock != bblock){\n                return ablock < bblock;\n\
     \            }\n            return (ablock & 1) ? lr[a].second > lr[b].second\
     \ : lr[a].second < lr[b].second;\n        });\n        int l = 0, r = 0;\n   \
-    \     for(auto k : ord){\n            while(l > lr[k].first) add_left(--l);\n\
+    \     for(const auto &k : ord){\n            while(l > lr[k].first) add_left(--l);\n\
     \            while(r < lr[k].second) add_right(r++);\n            while(l < lr[k].first)\
     \ erase_left(l++);\n            while(r > lr[k].second) erase_right(--r);\n  \
     \          out(k);\n        }\n    }\n\n    template <typename A, typename E,\
@@ -114,7 +114,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/range_kth_smallest.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 06:27:45+09:00'
+  timestamp: '2023-01-22 11:23:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/range_kth_smallest.test.cpp

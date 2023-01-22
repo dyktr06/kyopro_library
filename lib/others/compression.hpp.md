@@ -58,9 +58,9 @@ data:
   timestamp: '2023-01-18 06:27:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/data_structure/static_range_inversions_query.test.cpp
   - test/library_checker/data_structure/range_kth_smallest.test.cpp
   - test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
-  - test/library_checker/data_structure/static_range_inversions_query.test.cpp
   - test/library_checker/data_structure/static_range_frequency.test.cpp
 documentation_of: lib/others/compression.hpp
 layout: document

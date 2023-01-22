@@ -92,8 +92,8 @@ data:
   timestamp: '2022-11-10 02:54:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - test/library_checker/data_structure/queue_operate_all_composite.test.cpp
+  - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
 documentation_of: lib/math/modint.hpp
 layout: document
 redirect_from:

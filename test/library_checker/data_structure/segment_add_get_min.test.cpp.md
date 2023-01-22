@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/dynamic_li_chao_tree.hpp
-    title: lib/data_structure/dynamic_li_chao_tree.hpp
+    title: Dynamic Li Chao Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -17,7 +17,8 @@ data:
   bundledCode: "#line 1 \"test/library_checker/data_structure/segment_add_get_min.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/segment_add_get_min\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/dynamic_li_chao_tree.hpp\"\
-    \n\ntemplate<typename T, T x_low, T x_high, T id>\nstruct DynamicLiChaoTree{\n\
+    \n\n/**\n * @brief Dynamic Li Chao Tree\n * @docs docs/data_structure/dynamic_li_chao_tree.md\n\
+    \ */\n\ntemplate<typename T, T x_low, T x_high, T id>\nstruct DynamicLiChaoTree{\n\
     \    struct Line{\n        T a, b;\n\n        Line(T _a, T _b) : a(_a), b(_b)\
     \ {}\n\n        inline T get(T x) const {\n            return a * x + b;\n   \
     \     }\n    };\n\n    struct Node{\n        Line x;\n        Node *l, *r;\n\n\
@@ -81,7 +82,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/segment_add_get_min.test.cpp
   requiredBy: []
-  timestamp: '2022-11-24 22:28:41+09:00'
+  timestamp: '2023-01-22 11:23:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/segment_add_get_min.test.cpp
