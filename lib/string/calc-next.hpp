@@ -1,6 +1,10 @@
 #pragma once
 
-// 文字列 s において、ある地点からある文字が次にどの地点に出てくるかを計算します。: O(|S|)
+/**
+ * @brief calc-next
+ * @docs docs/string/calc-next.md
+ */
+
 vector<vector<int>> calc_next(const string &s) {
     int n = (int) s.size();
 

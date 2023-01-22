@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief ModInt
+ * @docs docs/math/modint.md
+ */
+
 template <long long Modulus>
 struct ModInt{
     long long val;

@@ -1,6 +1,10 @@
 #pragma once
 
-// aの部分集合の和の組み合わせをすべて列挙します。: O(2^N)
+/**
+ * @brief Exhaustive Search (bit 全探索)
+ * @docs docs/others/exhaustive_search.md
+ */
+
 template<typename T>
 vector<long long> sum_subsets(T a){
     vector<long long> res;
