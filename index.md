@@ -79,13 +79,13 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: lib/dp/LCS.hpp
-      title: lib/dp/LCS.hpp
+      title: Longest Common Subsequence
     - icon: ':heavy_check_mark:'
       path: lib/dp/LIS.hpp
-      title: lib/dp/LIS.hpp
+      title: Longest Increasing Subsequence
     - icon: ':heavy_check_mark:'
       path: lib/dp/substring.hpp
-      title: lib/dp/substring.hpp
+      title: Count Substrings
   - name: lib/graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -143,7 +143,7 @@ data:
       title: Fraction
     - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
-      title: lib/math/matrix.hpp
+      title: Matrix
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: lib/math/modcalc.hpp
