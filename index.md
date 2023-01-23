@@ -90,7 +90,8 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: lib/graph/bellman_ford.hpp
-      title: lib/graph/bellman_ford.hpp
+      title: "Bellman-Ford Algorithm (\u30D9\u30EB\u30DE\u30F3-\u30D5\u30A9\u30FC\u30C9\
+        \u6CD5)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
@@ -102,22 +103,24 @@ data:
       title: lib/graph/grid-bfs.cpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/heavy_light_decomposition.hpp
-      title: lib/graph/heavy_light_decomposition.hpp
+      title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/manhattanMST.hpp
       title: Manhattan MST
     - icon: ':heavy_check_mark:'
       path: lib/graph/scc.hpp
-      title: lib/graph/scc.hpp
+      title: "Strongly Connected Component (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
+        )"
     - icon: ':warning:'
       path: lib/graph/topological_sort.hpp
-      title: lib/graph/topological_sort.hpp
+      title: Topological Sort
     - icon: ':heavy_check_mark:'
       path: lib/graph/tree.hpp
       title: lib/graph/tree.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/warshall_floyd.hpp
-      title: lib/graph/warshall_floyd.hpp
+      title: "Floyd-Warshall Algorithm (\u30EF\u30FC\u30B7\u30E3\u30EB\u30D5\u30ED\
+        \u30A4\u30C9\u6CD5)"
   - name: lib/math
     pages:
     - icon: ':heavy_check_mark:'
