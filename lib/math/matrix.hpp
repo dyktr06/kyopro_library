@@ -1,8 +1,10 @@
 #pragma once
 
-// 行列 ... ここでは、vector<vector<long long>> の二次元配列で定義されます。
+/**
+ * @brief Matrix
+ * @docs docs/math/matrix.md
+ */
 
-// 行列の累乗 (mod. m) を計算します。: O(N^3 log n)
 vector<vector<long long>> matrixpow(vector<vector<long long>> a, long long n, long long m){
 
     int siz = a.size();

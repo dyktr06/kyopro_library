@@ -1,8 +1,10 @@
 #pragma once
 
-/*
-    文字列 s における、連続しない部分文字列の種類を m で割った余りを返します。(空文字列を含む) O(|S|)
-*/
+/**
+ * @brief Count Substrings
+ * @docs docs/dp/substring.md
+ */
+
 long long substrings(const string &s, const long long &m){
     int n = (int) s.size();
 
@@ -29,9 +31,6 @@ long long substrings(const string &s, const long long &m){
     return res;
 }
 
-/*
-    s における、連続しない部分文字列の種類を m で割った余りを返します。O(|S| log |S|)
-*/
 template <typename T>
 long long subsequences(const vector<T> &s, const long long &m){
     int n = (int) s.size();

@@ -1,6 +1,10 @@
 #pragma once
 
-// 文字列 s と文字列 t の最長共通部分列を求めます : O(|s||t|)
+/**
+ * @brief Longest Common Subsequence
+ * @docs docs/dp/LCS.md
+ */
+
 string LCS(const string &s, const string &t){
     int n = s.size(), m = t.size();
     vector<vector<int>> memo(n + 1, vector<int>(m + 1));

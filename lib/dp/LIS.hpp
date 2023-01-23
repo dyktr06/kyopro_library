@@ -1,9 +1,9 @@
 #pragma once
 
-// 配列 a の最長増加部分列の長さを求めます : O(NlogN)
-
-// dp[i] : = 長さが i の増加部分列として最後尾の要素のとりうる最小値
-// is_strong = false のとき、同じ値が連続することを許す
+/**
+ * @brief Longest Increasing Subsequence
+ * @docs docs/dp/LIS.md
+ */
 
 template <typename T>
 int LIS(vector<T> a,  bool is_strong = true){
@@ -17,7 +17,6 @@ int LIS(vector<T> a,  bool is_strong = true){
     return lower_bound(dp.begin(), dp.end(), INF) - dp.begin();
 }
 
-// 配列 a の最長増加部分列を構築します。 : O(NlogN)
 template <typename T>
 vector<int> construct_LIS(vector<T> a,  bool is_strong = true){
     const long long INF = 0x1fffffffffffffff;
