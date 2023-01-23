@@ -1,6 +1,10 @@
 #pragma once
 
-// トポロジカルソートで辞書順最小のものを求めます: O(E + VlogV)
+/**
+ * @brief Topological Sort
+ * @docs docs/graph/topological_sort.md
+ */
+
 template <typename T>
 vector<T> topological_sort(const vector<vector<T>> &G){
     int siz = (int) G.size();

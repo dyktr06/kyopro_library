@@ -1,23 +1,9 @@
 #pragma once
 
-/* 
-    木に対して重軽分解を行います。
-    HeavyLightDecomposition(node_size) : コンストラクタ
-    add_edge(u, v) : 頂点 u から 頂点 v に無向辺を追加します。: O(1)
-    build() : 重軽分解を行います。: O(V log V)
-    get(a) : a の重軽分解後の index を返します。: O(1)
-    la(a, k): a から根に向かって k 移動した頂点を求めます。: O(log V)
-    lca(a, b): a と b の LCA を求めます。: O(log V)
-    dist(a, b): a, b の距離を求めます。: O(log V)
-    jump(from, to, k): from から to に向かって k 移動した頂点を求めます。: O(log V)
-    subtree_query(a, f): a の部分木 f を処理します。: O(log V)
-    path_query(a, b, f): a と b のパスに対して f を処理します。: O(log^2 V)
-    path_noncommutative_query(a, b, f, f2): a と b のパスに対して非可換な場合の f を処理します。(反転させた関数を f2 に渡します): O(log^2 V)
-
-    パスクエリの例
-    // ex) hl.path_query(q, r, [&](int l, int r){ seg.range(l, r, s); })
-    // ex) hl.query(q, r, [&](int l, int r){ ans += seg.query(l, r); })
-*/
+/**
+ * @brief Heavy Light Decomposition (重軽分解)
+ * @docs docs/graph/heavy_light_decomposition.md
+ */
 
 class HeavyLightDecomposition{
     int V;

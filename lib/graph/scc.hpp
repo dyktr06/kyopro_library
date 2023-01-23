@@ -1,6 +1,10 @@
 #pragma once
 
-// 隣接リストに対して強連結成分分解を行います : O(E + V)
+/**
+ * @brief Strongly Connected Component (強連結成分分解)
+ * @docs docs/graph/scc.md
+ */
+
 template <typename T>
 struct SCC{
     int siz;

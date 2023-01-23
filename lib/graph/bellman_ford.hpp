@@ -1,6 +1,10 @@
 #pragma once
 
-// ベルマンフォード法 : O(VE)
+/**
+ * @brief Bellman-Ford Algorithm (ベルマン-フォード法)
+ * @docs docs/graph/bellman_ford.md
+ */
+
 template <typename T>
 vector<long long> bellman_ford(const vector<T> &E, const int &n, const int &x){
     const long long INF = 0x1fffffffffffffff;

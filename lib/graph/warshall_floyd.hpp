@@ -1,8 +1,10 @@
 #pragma once
 
-/*
-    ワ―シャルフロイド法で全頂点間の最短距離を求めます : (O(n^3))
-*/
+/**
+ * @brief Floyd-Warshall Algorithm (ワーシャルフロイド法)
+ * @docs docs/graph/warshall_floyd.md
+ */
+
 template <typename T>
 void warshall_floyd(vector<vector<T>> &d, const T &INF) {
     int n = d.size();
