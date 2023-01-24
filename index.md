@@ -128,31 +128,37 @@ data:
       title: Baby-step giant-step
     - icon: ':heavy_check_mark:'
       path: lib/math/binarybasis.hpp
-      title: lib/math/binarybasis.hpp
+      title: Binary Basis
+    - icon: ':heavy_check_mark:'
+      path: lib/math/combination.hpp
+      title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: Convert Base
     - icon: ':heavy_check_mark:'
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-    - icon: ':warning:'
-      path: lib/math/divisor-prime.hpp
-      title: lib/math/divisor-prime.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
       title: Fraction
     - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: Matrix
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: lib/math/modcalc.hpp
-      title: lib/math/modcalc.hpp
+      title: Mod Calculation
     - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
+    - icon: ':warning:'
+      path: lib/math/prime-factor.hpp
+      title: Smallest Prime Factor
     - icon: ':heavy_check_mark:'
       path: lib/math/prime-sieve.hpp
-      title: lib/math/prime-sieve.hpp
+      title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
+    - icon: ':warning:'
+      path: lib/math/prime.hpp
+      title: "\u7D20\u6570\u5224\u5B9A\u3001\u7D04\u6570\u5217\u6319"
     - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
