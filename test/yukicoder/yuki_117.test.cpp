@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../lib/math/modcalc.hpp"
+#include "../../lib/math/combination.hpp"
 
 const long long MOD = 1000000007;
 

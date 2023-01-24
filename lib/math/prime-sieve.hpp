@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Prime Sieve (エラトステネスの篩)
+ * @docs docs/math/prime-sieve.md
+ */
+
 template <typename T>
 struct PrimeSieve{
     int n, half;
