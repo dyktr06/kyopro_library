@@ -7,15 +7,12 @@
 
 struct RollingHash{
     vector<unsigned long long> hashed, power;
-    static constexpr unsigned long long mod = (1uL << 61) - 1;
+    const unsigned long long mod = (1uLL << 61) - 1;
 	
     unsigned long long mul(unsigned long long a, unsigned long long b) const {
-		__int128_t t = (__int128_t) a * b;
-		t = (t >> 61) + (t & mod);
-		
-		if(t >= mod) return t - mod;
-		return t;
-	}
+        long long ret = a * b - mod * (unsigned long long)(1.0L / mod * a * b);
+        return ret + mod * (ret < 0) - mod * (ret >= (long long) mod);
+    }
 
     RollingHash(const string &s, unsigned base = 10007){
         int siz = (int) s.size();

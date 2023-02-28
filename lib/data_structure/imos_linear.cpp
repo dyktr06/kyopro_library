@@ -15,8 +15,8 @@ struct imos_linear{
     imos_linear(int N) : N(N){ init(); }
 
     void init(){
-        imos1.resize(N);
-        imos0.resize(N);
+        imos1.resize(N + 1);
+        imos0.resize(N + 1);
     }
 
     // [l, r) に wX + v を加算 
