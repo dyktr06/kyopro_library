@@ -60,8 +60,8 @@ data:
   timestamp: '2023-01-06 16:06:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - test/library_checker/data_structure/static_rmq.test.cpp
+  - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
 documentation_of: lib/data_structure/segment_tree.hpp
 layout: document
 redirect_from:

@@ -15,42 +15,42 @@ data:
     links: []
   bundledCode: "#line 2 \"lib/string/rollinghash.hpp\"\n\n/**\n * @brief Rolling Hash\n\
     \ * @docs docs/string/rollinghash.md\n */\n\nstruct RollingHash{\n    vector<unsigned\
-    \ long long> hashed, power;\n    static constexpr unsigned long long mod = (1uL\
-    \ << 61) - 1;\n\t\n    unsigned long long mul(unsigned long long a, unsigned long\
-    \ long b) const {\n\t\t__int128_t t = (__int128_t) a * b;\n\t\tt = (t >> 61) +\
-    \ (t & mod);\n\t\t\n\t\tif(t >= mod) return t - mod;\n\t\treturn t;\n\t}\n\n \
-    \   RollingHash(const string &s, unsigned base = 10007){\n        int siz = (int)\
-    \ s.size();\n        hashed.assign(siz + 1, 0);\n        power.assign(siz + 1,\
-    \ 0);\n        power[0] = 1;\n        for(int i = 0; i < siz; i++){\n        \
-    \    power[i + 1] = mul(power[i], base);\n            hashed[i + 1] = mul(hashed[i],\
-    \ base) + s[i];\n            if(hashed[i + 1] >= mod) hashed[i + 1] -= mod;\n\
-    \        }\n    }\n\n    unsigned long long get(int l, int r) const {\n      \
-    \  unsigned long long ret = hashed[r] + mod - mul(hashed[l], power[r - l]);\n\
-    \        if(ret >= mod) ret -= mod;\n        return ret;\n    }\n\n    unsigned\
-    \ long long connect(unsigned long long h1, unsigned long long h2, int h2len) const\
-    \ {\n        unsigned long long ret = mul(h1, power[h2len]) + h2;\n        if(ret\
-    \ >= mod) ret -= mod;\n        return ret;\n    }\n\n    int LCP(const RollingHash\
-    \ &b, int l1, int r1, int l2, int r2){\n        int len = min(r1 - l1, r2 - l2);\n\
-    \        int low = -1, high = len + 1;\n        while(high - low > 1){\n     \
-    \       int mid = (low + high) / 2;\n            if(get(l1, l1 + mid) == b.get(l2,\
-    \ l2 + mid)) low = mid;\n            else high = mid;\n        }\n        return\
-    \ low;\n    }\n};\n"
+    \ long long> hashed, power;\n    const unsigned long long mod = (1uLL << 61) -\
+    \ 1;\n\t\n    unsigned long long mul(unsigned long long a, unsigned long long\
+    \ b) const {\n        long long ret = a * b - mod * (unsigned long long)(1.0L\
+    \ / mod * a * b);\n        return ret + mod * (ret < 0) - mod * (ret >= (long\
+    \ long) mod);\n    }\n\n    RollingHash(const string &s, unsigned base = 10007){\n\
+    \        int siz = (int) s.size();\n        hashed.assign(siz + 1, 0);\n     \
+    \   power.assign(siz + 1, 0);\n        power[0] = 1;\n        for(int i = 0; i\
+    \ < siz; i++){\n            power[i + 1] = mul(power[i], base);\n            hashed[i\
+    \ + 1] = mul(hashed[i], base) + s[i];\n            if(hashed[i + 1] >= mod) hashed[i\
+    \ + 1] -= mod;\n        }\n    }\n\n    unsigned long long get(int l, int r) const\
+    \ {\n        unsigned long long ret = hashed[r] + mod - mul(hashed[l], power[r\
+    \ - l]);\n        if(ret >= mod) ret -= mod;\n        return ret;\n    }\n\n \
+    \   unsigned long long connect(unsigned long long h1, unsigned long long h2, int\
+    \ h2len) const {\n        unsigned long long ret = mul(h1, power[h2len]) + h2;\n\
+    \        if(ret >= mod) ret -= mod;\n        return ret;\n    }\n\n    int LCP(const\
+    \ RollingHash &b, int l1, int r1, int l2, int r2){\n        int len = min(r1 -\
+    \ l1, r2 - l2);\n        int low = -1, high = len + 1;\n        while(high - low\
+    \ > 1){\n            int mid = (low + high) / 2;\n            if(get(l1, l1 +\
+    \ mid) == b.get(l2, l2 + mid)) low = mid;\n            else high = mid;\n    \
+    \    }\n        return low;\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Rolling Hash\n * @docs docs/string/rollinghash.md\n\
     \ */\n\nstruct RollingHash{\n    vector<unsigned long long> hashed, power;\n \
-    \   static constexpr unsigned long long mod = (1uL << 61) - 1;\n\t\n    unsigned\
-    \ long long mul(unsigned long long a, unsigned long long b) const {\n\t\t__int128_t\
-    \ t = (__int128_t) a * b;\n\t\tt = (t >> 61) + (t & mod);\n\t\t\n\t\tif(t >= mod)\
-    \ return t - mod;\n\t\treturn t;\n\t}\n\n    RollingHash(const string &s, unsigned\
-    \ base = 10007){\n        int siz = (int) s.size();\n        hashed.assign(siz\
-    \ + 1, 0);\n        power.assign(siz + 1, 0);\n        power[0] = 1;\n       \
-    \ for(int i = 0; i < siz; i++){\n            power[i + 1] = mul(power[i], base);\n\
-    \            hashed[i + 1] = mul(hashed[i], base) + s[i];\n            if(hashed[i\
-    \ + 1] >= mod) hashed[i + 1] -= mod;\n        }\n    }\n\n    unsigned long long\
-    \ get(int l, int r) const {\n        unsigned long long ret = hashed[r] + mod\
-    \ - mul(hashed[l], power[r - l]);\n        if(ret >= mod) ret -= mod;\n      \
-    \  return ret;\n    }\n\n    unsigned long long connect(unsigned long long h1,\
-    \ unsigned long long h2, int h2len) const {\n        unsigned long long ret =\
-    \ mul(h1, power[h2len]) + h2;\n        if(ret >= mod) ret -= mod;\n        return\
+    \   const unsigned long long mod = (1uLL << 61) - 1;\n\t\n    unsigned long long\
+    \ mul(unsigned long long a, unsigned long long b) const {\n        long long ret\
+    \ = a * b - mod * (unsigned long long)(1.0L / mod * a * b);\n        return ret\
+    \ + mod * (ret < 0) - mod * (ret >= (long long) mod);\n    }\n\n    RollingHash(const\
+    \ string &s, unsigned base = 10007){\n        int siz = (int) s.size();\n    \
+    \    hashed.assign(siz + 1, 0);\n        power.assign(siz + 1, 0);\n        power[0]\
+    \ = 1;\n        for(int i = 0; i < siz; i++){\n            power[i + 1] = mul(power[i],\
+    \ base);\n            hashed[i + 1] = mul(hashed[i], base) + s[i];\n         \
+    \   if(hashed[i + 1] >= mod) hashed[i + 1] -= mod;\n        }\n    }\n\n    unsigned\
+    \ long long get(int l, int r) const {\n        unsigned long long ret = hashed[r]\
+    \ + mod - mul(hashed[l], power[r - l]);\n        if(ret >= mod) ret -= mod;\n\
+    \        return ret;\n    }\n\n    unsigned long long connect(unsigned long long\
+    \ h1, unsigned long long h2, int h2len) const {\n        unsigned long long ret\
+    \ = mul(h1, power[h2len]) + h2;\n        if(ret >= mod) ret -= mod;\n        return\
     \ ret;\n    }\n\n    int LCP(const RollingHash &b, int l1, int r1, int l2, int\
     \ r2){\n        int len = min(r1 - l1, r2 - l2);\n        int low = -1, high =\
     \ len + 1;\n        while(high - low > 1){\n            int mid = (low + high)\
@@ -60,7 +60,7 @@ data:
   isVerificationFile: false
   path: lib/string/rollinghash.hpp
   requiredBy: []
-  timestamp: '2023-01-09 22:00:40+09:00'
+  timestamp: '2023-03-01 02:13:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/alds1/alds1_14_b.test.cpp
