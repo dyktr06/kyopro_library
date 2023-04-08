@@ -66,7 +66,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree.hpp
       title: Segment Tree
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree_beats.hpp
       title: lib/data_structure/segment_tree_beats.hpp
     - icon: ':heavy_check_mark:'
@@ -204,11 +204,6 @@ data:
     - icon: ':warning:'
       path: lib/template.cpp
       title: lib/template.cpp
-  - name: test/library_checker/data_structure
-    pages:
-    - icon: ':warning:'
-      path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp
-      title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp
   verificationCategories:
   - name: test/aoj/alds1
     pages:
@@ -272,6 +267,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
+      title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_kth_smallest.test.cpp
       title: test/library_checker/data_structure/range_kth_smallest.test.cpp

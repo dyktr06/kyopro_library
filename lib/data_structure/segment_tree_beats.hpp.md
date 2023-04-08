@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp
-    title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp
-  _extendedVerifiedWith: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
+    title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/segment_tree_beats.hpp\"\n\ntemplate<typename\
@@ -236,11 +236,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/segment_tree_beats.hpp
-  requiredBy:
-  - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp
+  requiredBy: []
   timestamp: '2023-03-01 02:13:31+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
 documentation_of: lib/data_structure/segment_tree_beats.hpp
 layout: document
 redirect_from:

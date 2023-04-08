@@ -53,8 +53,8 @@ data:
   timestamp: '2023-01-06 16:06:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/data_structure/unionfind.test.cpp
   - test/library_checker/graph/manhattanmst].test.cpp
+  - test/library_checker/data_structure/unionfind.test.cpp
 documentation_of: lib/data_structure/union_find.hpp
 layout: document
 redirect_from:

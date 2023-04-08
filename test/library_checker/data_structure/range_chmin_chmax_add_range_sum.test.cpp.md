@@ -1,18 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/segment_tree_beats.hpp
     title: lib/data_structure/segment_tree_beats.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
     links:
     - https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
-  bundledCode: "#line 1 \"test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp\"\
+  bundledCode: "#line 1 \"test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/segment_tree_beats.hpp\"\
     \n\ntemplate<typename T, T INF>\nstruct SegmentTreeBeats{\n    int n, n0;\n  \
@@ -124,7 +126,7 @@ data:
     \ query\n    T query_min(int a, int b){\n        return _query_min(a, b, 0, 0,\
     \ n0);\n    }\n\n    // range sum query\n    T query_sum(int a, int b){\n    \
     \    return _query_sum(a, b, 0, 0, n0);\n    }\n\n    T get(int x){\n        return\
-    \ _query_sum(x, x + 1, 0, 0, n0);\n    }\n};\n#line 6 \"test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp\"\
+    \ _query_sum(x, x + 1, 0, 0, n0);\n    }\n};\n#line 6 \"test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp\"\
     \n\nconst long long INF = 1LL << 60;\n\nint main(){\n    cin.tie(nullptr);\n \
     \   ios::sync_with_stdio(false);\n\n    int n, q; cin >> n >> q;\n    vector<long\
     \ long> a(n);\n    for(int i = 0; i < n; i++){\n        cin >> a[i];\n    }\n\
@@ -151,16 +153,16 @@ data:
     n\";\n        }\n    }\n}"
   dependsOn:
   - lib/data_structure/segment_tree_beats.hpp
-  isVerificationFile: false
-  path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp
+  isVerificationFile: true
+  path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-03-01 02:13:31+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2023-04-09 03:29:16+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp
+documentation_of: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
 layout: document
 redirect_from:
-- /library/test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp
-- /library/test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp.html
-title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.cpp
+- /verify/test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
+- /verify/test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp.html
+title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
 ---
