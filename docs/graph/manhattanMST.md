@@ -8,4 +8,4 @@
 
 #### 計算量
 
-- $\mathrm{O}(N log N)$
+- $\mathrm{O}(N \log N)$
