@@ -27,35 +27,34 @@ data:
     \ */\n\ntemplate <typename X>\nstruct SegTree{\n    using FX = function<X(X, X)>;\
     \ // X\u2022X -> X \u3068\u306A\u308B\u95A2\u6570\u306E\u578B\n    int n;\n  \
     \  FX fx;\n    const X ex;\n    vector<X> dat;\n\n    SegTree(int n_, FX fx_,\
-    \ X ex_) : n(), fx(fx_), ex(ex_), dat(n_ * 4, ex_){\n        int x = 1;\n    \
-    \    while(n_ > x){\n            x *= 2;\n        }\n        n = x;\n    }\n\n\
-    \    X get(int i){\n        return dat[i + n - 1];\n    }\n    \n    void set(int\
-    \ i, X x){ dat[i + n - 1] = x; }\n\n    void build(){\n        for(int k = n -\
-    \ 2; k >= 0; k--) dat[k] = fx(dat[2 * k + 1], dat[2 * k + 2]);\n    }\n\n    void\
-    \ update(int i, X x){\n        i += n - 1;\n        dat[i] = x;\n        while(i\
-    \ > 0){\n            i = (i - 1) / 2;  // parent\n            dat[i] = fx(dat[i\
-    \ * 2 + 1], dat[i * 2 + 2]);\n        }\n    }\n\n    X query(int a, int b){ return\
-    \ query_sub(a, b, 0, 0, n); }\n\n    X query_sub(int a, int b, int k, int l, int\
-    \ r){\n        if(r <= a || b <= l){\n            return ex;\n        }else if(a\
-    \ <= l && r <= b){\n            return dat[k];\n        }else{\n            X\
-    \ vl = query_sub(a, b, k * 2 + 1, l, (l + r) / 2);\n            X vr = query_sub(a,\
-    \ b, k * 2 + 2, (l + r) / 2, r);\n            return fx(vl, vr);\n        }\n\
-    \    }\n};\n#line 2 \"lib/graph/heavy_light_decomposition.hpp\"\n\n/**\n * @brief\
-    \ Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)\n * @docs docs/graph/heavy_light_decomposition.md\n\
-    \ */\n\nclass HeavyLightDecomposition{\n    int V;\n    vector<vector<int>> G;\n\
-    \    vector<int> stsize, parent, pathtop, depth, in, reverse_in, out;\n    int\
-    \ root;\n\nprivate:\n    // Subtree Size\n    void buildStsize(int curr, int prev){\n\
-    \        stsize[curr] = 1, parent[curr] = prev;\n        for(int &v : G[curr]){\n\
-    \            if(v == prev){\n                if(v == G[curr].back()) break;\n\
-    \                else swap(v, G[curr].back());\n            }\n            buildStsize(v,\
-    \ curr);\n            stsize[curr] += stsize[v];\n            if(stsize[v] > stsize[G[curr][0]]){\n\
-    \                swap(v, G[curr][0]);\n            }\n        }\n    }\n\n   \
-    \ void buildPath(int curr, int prev, int &t){\n        in[curr] = t++;\n     \
-    \   reverse_in[in[curr]] = curr;\n        for(int v : G[curr]){\n            if(v\
-    \ == prev) continue;\n            \n            if(v == G[curr][0]){\n       \
-    \         pathtop[v] = pathtop[curr];\n            }else{\n                pathtop[v]\
-    \ = v;\n            }\n            depth[v] = depth[curr] + 1;\n            buildPath(v,\
-    \ curr, t);\n        }\n        out[curr] = t;\n    }\n\npublic:\n    HeavyLightDecomposition(int\
+    \ X ex_) : n(), fx(fx_), ex(ex_){\n        int x = 1;\n        while(n_ > x){\n\
+    \            x *= 2;\n        }\n        n = x;\n        dat.assign(n * 2, ex);\n\
+    \    }\n\n    X get(int i){\n        return dat[i + n];\n    }\n    \n    void\
+    \ set(int i, X x){ dat[i + n] = x; }\n\n    void build(){\n        for(int k =\
+    \ n - 1; k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);\n    }\n\n    void\
+    \ update(int i, X x){\n        i += n;\n        dat[i] = x;\n        while(i >\
+    \ 0){\n            i >>= 1;  // parent\n            dat[i] = fx(dat[i * 2], dat[i\
+    \ * 2 + 1]);\n        }\n    }\n\n    X query(int a, int b){\n        X vl = ex;\n\
+    \        X vr = ex;\n        int l = a + n;\n        int r = b + n;\n        while(l\
+    \ < r){\n            if(l & 1) vl = fx(vl, dat[l++]);\n            if(r & 1) vr\
+    \ = fx(dat[--r], vr);\n            l >>= 1;\n            r >>= 1;\n        }\n\
+    \        return fx(vl, vr);\n    }\n};\n#line 2 \"lib/graph/heavy_light_decomposition.hpp\"\
+    \n\n/**\n * @brief Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)\n * @docs\
+    \ docs/graph/heavy_light_decomposition.md\n */\n\nclass HeavyLightDecomposition{\n\
+    \    int V;\n    vector<vector<int>> G;\n    vector<int> stsize, parent, pathtop,\
+    \ depth, in, reverse_in, out;\n    int root;\n\nprivate:\n    // Subtree Size\n\
+    \    void buildStsize(int curr, int prev){\n        stsize[curr] = 1, parent[curr]\
+    \ = prev;\n        for(int &v : G[curr]){\n            if(v == prev){\n      \
+    \          if(v == G[curr].back()) break;\n                else swap(v, G[curr].back());\n\
+    \            }\n            buildStsize(v, curr);\n            stsize[curr] +=\
+    \ stsize[v];\n            if(stsize[v] > stsize[G[curr][0]]){\n              \
+    \  swap(v, G[curr][0]);\n            }\n        }\n    }\n\n    void buildPath(int\
+    \ curr, int prev, int &t){\n        in[curr] = t++;\n        reverse_in[in[curr]]\
+    \ = curr;\n        for(int v : G[curr]){\n            if(v == prev) continue;\n\
+    \            \n            if(v == G[curr][0]){\n                pathtop[v] =\
+    \ pathtop[curr];\n            }else{\n                pathtop[v] = v;\n      \
+    \      }\n            depth[v] = depth[curr] + 1;\n            buildPath(v, curr,\
+    \ t);\n        }\n        out[curr] = t;\n    }\n\npublic:\n    HeavyLightDecomposition(int\
     \ node_size) : V(node_size), G(V), stsize(V, 0), parent(V, -1),\n    pathtop(V,\
     \ -1), depth(V, 0), in(V, -1), reverse_in(V, -1), out(V, -1){}\n\n    void add_edge(int\
     \ u, int v){\n        G[u].push_back(v);\n        G[v].push_back(u);\n    }\n\n\
@@ -173,7 +172,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2023-01-23 11:19:29+09:00'
+  timestamp: '2023-04-13 08:33:52+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/vertex_set_path_composite.test.cpp

@@ -21,43 +21,39 @@ data:
     \ <typename X>\nstruct SegTree{\n    using FX = function<X(X, X)>; // X\u2022\
     X -> X \u3068\u306A\u308B\u95A2\u6570\u306E\u578B\n    int n;\n    FX fx;\n  \
     \  const X ex;\n    vector<X> dat;\n\n    SegTree(int n_, FX fx_, X ex_) : n(),\
-    \ fx(fx_), ex(ex_), dat(n_ * 4, ex_){\n        int x = 1;\n        while(n_ >\
-    \ x){\n            x *= 2;\n        }\n        n = x;\n    }\n\n    X get(int\
-    \ i){\n        return dat[i + n - 1];\n    }\n    \n    void set(int i, X x){\
-    \ dat[i + n - 1] = x; }\n\n    void build(){\n        for(int k = n - 2; k >=\
-    \ 0; k--) dat[k] = fx(dat[2 * k + 1], dat[2 * k + 2]);\n    }\n\n    void update(int\
-    \ i, X x){\n        i += n - 1;\n        dat[i] = x;\n        while(i > 0){\n\
-    \            i = (i - 1) / 2;  // parent\n            dat[i] = fx(dat[i * 2 +\
-    \ 1], dat[i * 2 + 2]);\n        }\n    }\n\n    X query(int a, int b){ return\
-    \ query_sub(a, b, 0, 0, n); }\n\n    X query_sub(int a, int b, int k, int l, int\
-    \ r){\n        if(r <= a || b <= l){\n            return ex;\n        }else if(a\
-    \ <= l && r <= b){\n            return dat[k];\n        }else{\n            X\
-    \ vl = query_sub(a, b, k * 2 + 1, l, (l + r) / 2);\n            X vr = query_sub(a,\
-    \ b, k * 2 + 2, (l + r) / 2, r);\n            return fx(vl, vr);\n        }\n\
-    \    }\n};\n"
+    \ fx(fx_), ex(ex_){\n        int x = 1;\n        while(n_ > x){\n            x\
+    \ *= 2;\n        }\n        n = x;\n        dat.assign(n * 2, ex);\n    }\n\n\
+    \    X get(int i){\n        return dat[i + n];\n    }\n    \n    void set(int\
+    \ i, X x){ dat[i + n] = x; }\n\n    void build(){\n        for(int k = n - 1;\
+    \ k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);\n    }\n\n    void update(int\
+    \ i, X x){\n        i += n;\n        dat[i] = x;\n        while(i > 0){\n    \
+    \        i >>= 1;  // parent\n            dat[i] = fx(dat[i * 2], dat[i * 2 +\
+    \ 1]);\n        }\n    }\n\n    X query(int a, int b){\n        X vl = ex;\n \
+    \       X vr = ex;\n        int l = a + n;\n        int r = b + n;\n        while(l\
+    \ < r){\n            if(l & 1) vl = fx(vl, dat[l++]);\n            if(r & 1) vr\
+    \ = fx(dat[--r], vr);\n            l >>= 1;\n            r >>= 1;\n        }\n\
+    \        return fx(vl, vr);\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Segment Tree\n * @docs docs/data_structure/segment_tree.md\n\
     \ */\n\ntemplate <typename X>\nstruct SegTree{\n    using FX = function<X(X, X)>;\
     \ // X\u2022X -> X \u3068\u306A\u308B\u95A2\u6570\u306E\u578B\n    int n;\n  \
     \  FX fx;\n    const X ex;\n    vector<X> dat;\n\n    SegTree(int n_, FX fx_,\
-    \ X ex_) : n(), fx(fx_), ex(ex_), dat(n_ * 4, ex_){\n        int x = 1;\n    \
-    \    while(n_ > x){\n            x *= 2;\n        }\n        n = x;\n    }\n\n\
-    \    X get(int i){\n        return dat[i + n - 1];\n    }\n    \n    void set(int\
-    \ i, X x){ dat[i + n - 1] = x; }\n\n    void build(){\n        for(int k = n -\
-    \ 2; k >= 0; k--) dat[k] = fx(dat[2 * k + 1], dat[2 * k + 2]);\n    }\n\n    void\
-    \ update(int i, X x){\n        i += n - 1;\n        dat[i] = x;\n        while(i\
-    \ > 0){\n            i = (i - 1) / 2;  // parent\n            dat[i] = fx(dat[i\
-    \ * 2 + 1], dat[i * 2 + 2]);\n        }\n    }\n\n    X query(int a, int b){ return\
-    \ query_sub(a, b, 0, 0, n); }\n\n    X query_sub(int a, int b, int k, int l, int\
-    \ r){\n        if(r <= a || b <= l){\n            return ex;\n        }else if(a\
-    \ <= l && r <= b){\n            return dat[k];\n        }else{\n            X\
-    \ vl = query_sub(a, b, k * 2 + 1, l, (l + r) / 2);\n            X vr = query_sub(a,\
-    \ b, k * 2 + 2, (l + r) / 2, r);\n            return fx(vl, vr);\n        }\n\
-    \    }\n};"
+    \ X ex_) : n(), fx(fx_), ex(ex_){\n        int x = 1;\n        while(n_ > x){\n\
+    \            x *= 2;\n        }\n        n = x;\n        dat.assign(n * 2, ex);\n\
+    \    }\n\n    X get(int i){\n        return dat[i + n];\n    }\n    \n    void\
+    \ set(int i, X x){ dat[i + n] = x; }\n\n    void build(){\n        for(int k =\
+    \ n - 1; k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);\n    }\n\n    void\
+    \ update(int i, X x){\n        i += n;\n        dat[i] = x;\n        while(i >\
+    \ 0){\n            i >>= 1;  // parent\n            dat[i] = fx(dat[i * 2], dat[i\
+    \ * 2 + 1]);\n        }\n    }\n\n    X query(int a, int b){\n        X vl = ex;\n\
+    \        X vr = ex;\n        int l = a + n;\n        int r = b + n;\n        while(l\
+    \ < r){\n            if(l & 1) vl = fx(vl, dat[l++]);\n            if(r & 1) vr\
+    \ = fx(dat[--r], vr);\n            l >>= 1;\n            r >>= 1;\n        }\n\
+    \        return fx(vl, vr);\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-01-06 16:06:42+09:00'
+  timestamp: '2023-04-13 08:33:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/static_rmq.test.cpp
