@@ -13,44 +13,45 @@ struct SegTree{
     const X ex;
     vector<X> dat;
 
-    SegTree(int n_, FX fx_, X ex_) : n(), fx(fx_), ex(ex_), dat(n_ * 4, ex_){
+    SegTree(int n_, FX fx_, X ex_) : n(), fx(fx_), ex(ex_){
         int x = 1;
         while(n_ > x){
             x *= 2;
         }
         n = x;
+        dat.assign(n * 2, ex);
     }
 
     X get(int i){
-        return dat[i + n - 1];
+        return dat[i + n];
     }
     
-    void set(int i, X x){ dat[i + n - 1] = x; }
+    void set(int i, X x){ dat[i + n] = x; }
 
     void build(){
-        for(int k = n - 2; k >= 0; k--) dat[k] = fx(dat[2 * k + 1], dat[2 * k + 2]);
+        for(int k = n - 1; k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);
     }
 
     void update(int i, X x){
-        i += n - 1;
+        i += n;
         dat[i] = x;
         while(i > 0){
-            i = (i - 1) / 2;  // parent
-            dat[i] = fx(dat[i * 2 + 1], dat[i * 2 + 2]);
+            i >>= 1;  // parent
+            dat[i] = fx(dat[i * 2], dat[i * 2 + 1]);
         }
     }
 
-    X query(int a, int b){ return query_sub(a, b, 0, 0, n); }
-
-    X query_sub(int a, int b, int k, int l, int r){
-        if(r <= a || b <= l){
-            return ex;
-        }else if(a <= l && r <= b){
-            return dat[k];
-        }else{
-            X vl = query_sub(a, b, k * 2 + 1, l, (l + r) / 2);
-            X vr = query_sub(a, b, k * 2 + 2, (l + r) / 2, r);
-            return fx(vl, vr);
+    X query(int a, int b){
+        X vl = ex;
+        X vr = ex;
+        int l = a + n;
+        int r = b + n;
+        while(l < r){
+            if(l & 1) vl = fx(vl, dat[l++]);
+            if(r & 1) vr = fx(dat[--r], vr);
+            l >>= 1;
+            r >>= 1;
         }
+        return fx(vl, vr);
     }
 };
