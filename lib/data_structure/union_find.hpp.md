@@ -75,6 +75,7 @@ title: Union Find
 
 #### 計算量
 
+- `UnionFind(N)`: $\mathrm{O}(N)$
 - `root(x)`: 償却 $\alpha(N)$ (アッカーマンの逆関数)
 - `unite(x, y)`: 償却 $\alpha(N)$
 - `same(x, y)`: 償却 $\alpha(N)$

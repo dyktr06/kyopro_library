@@ -37,8 +37,8 @@ data:
     \      if(cost[to] > c + t){\n                par[to] = at;\n                cost[to]\
     \ = c + t;\n                q.emplace(cost[to], to);\n            }\n        }\n\
     \    }\n\n    if(cost[t] == INF){\n        return {-1, {}};\n    }\n    vector<pair<int,\
-    \ int>> path;\n    int now = t;\n    while(par[now] != -1){\n        path.push_back({par[now],\
-    \ now});\n        now = par[now];\n    }\n    reverse(path.begin(), path.end());\n\
+    \ int>> path;\n    int now = t;\n    while(par[now] != -1){\n        path.emplace_back(par[now],\
+    \ now);\n        now = par[now];\n    }\n    reverse(path.begin(), path.end());\n\
     \n    return {cost[t], path};\n}\n"
   code: "#pragma once\n\n/**\n * @brief Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\
     \u30C8\u30E9\u6CD5)\n * @docs docs/graph/dijkstra.md\n */\n\ntemplate <typename\
@@ -60,14 +60,14 @@ data:
     \      if(cost[to] > c + t){\n                par[to] = at;\n                cost[to]\
     \ = c + t;\n                q.emplace(cost[to], to);\n            }\n        }\n\
     \    }\n\n    if(cost[t] == INF){\n        return {-1, {}};\n    }\n    vector<pair<int,\
-    \ int>> path;\n    int now = t;\n    while(par[now] != -1){\n        path.push_back({par[now],\
-    \ now});\n        now = par[now];\n    }\n    reverse(path.begin(), path.end());\n\
+    \ int>> path;\n    int now = t;\n    while(par[now] != -1){\n        path.emplace_back(par[now],\
+    \ now);\n        now = par[now];\n    }\n    reverse(path.begin(), path.end());\n\
     \n    return {cost[t], path};\n}"
   dependsOn: []
   isVerificationFile: false
   path: lib/graph/dijkstra.hpp
   requiredBy: []
-  timestamp: '2023-01-23 11:19:29+09:00'
+  timestamp: '2023-04-16 17:55:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/shortest_path.test.cpp

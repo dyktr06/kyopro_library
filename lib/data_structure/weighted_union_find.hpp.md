@@ -80,6 +80,7 @@ title: Weighted Union Find
 
 #### 計算量
 
+- `WeightedUnionFind(N)`: $\mathrm{O}(N)$
 - `root(x)`: $\mathrm{O}(\log N)$
 - `diff(x, y)`: $\mathrm{O}(\log N)$
 - `unite(x, y, w)`: $\mathrm{O}(\log N)$

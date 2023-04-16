@@ -36,8 +36,8 @@ data:
     \      if(cost[to] > c + t){\n                par[to] = at;\n                cost[to]\
     \ = c + t;\n                q.emplace(cost[to], to);\n            }\n        }\n\
     \    }\n\n    if(cost[t] == INF){\n        return {-1, {}};\n    }\n    vector<pair<int,\
-    \ int>> path;\n    int now = t;\n    while(par[now] != -1){\n        path.push_back({par[now],\
-    \ now});\n        now = par[now];\n    }\n    reverse(path.begin(), path.end());\n\
+    \ int>> path;\n    int now = t;\n    while(par[now] != -1){\n        path.emplace_back(par[now],\
+    \ now);\n        now = par[now];\n    }\n    reverse(path.begin(), path.end());\n\
     \n    return {cost[t], path};\n}\n#line 6 \"test/library_checker/tree/tree_diameter.test.cpp\"\
     \n\nvector<vector<array<long long, 2>>> G;\n\nint n, m;\n\nint main(){\n    cin\
     \ >> n;\n    G.resize(n);\n    for(int i = 0; i < n - 1; i++){\n        int a,\
@@ -72,7 +72,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2023-01-23 11:19:29+09:00'
+  timestamp: '2023-04-16 17:55:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/tree/tree_diameter.test.cpp
