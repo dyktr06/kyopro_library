@@ -13,11 +13,11 @@ struct compress{
         int n = vec.size();
         compressed.resize(n);
         for(T x : vec){
-            sorted.push_back(x);
+            sorted.emplace_back(x);
         }
         sort(sorted.begin(), sorted.end());
         sorted.erase(unique(sorted.begin(), sorted.end()), sorted.end());
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < n; ++i){
             compressed[i] = lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();
         }
     }
@@ -26,7 +26,7 @@ struct compress{
         return lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();
     }
 
-    T inv(const T& x){
+    T inv(const T& x) const{
         return sorted[x];
     }
 
