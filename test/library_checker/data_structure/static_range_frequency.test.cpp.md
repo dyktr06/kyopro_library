@@ -44,15 +44,15 @@ data:
     \n\n/**\n * @brief Compression (\u5EA7\u6A19\u5727\u7E2E)\n * @docs docs/others/compression.md\n\
     \ */\n\ntemplate <typename T>\nstruct compress{\n    vector<T> sorted, compressed;\n\
     \n    compress(const vector<T>& vec){\n        int n = vec.size();\n        compressed.resize(n);\n\
-    \        for(T x : vec){\n            sorted.push_back(x);\n        }\n      \
-    \  sort(sorted.begin(), sorted.end());\n        sorted.erase(unique(sorted.begin(),\
-    \ sorted.end()), sorted.end());\n        for(int i = 0; i < n; i++){\n       \
+    \        for(T x : vec){\n            sorted.emplace_back(x);\n        }\n   \
+    \     sort(sorted.begin(), sorted.end());\n        sorted.erase(unique(sorted.begin(),\
+    \ sorted.end()), sorted.end());\n        for(int i = 0; i < n; ++i){\n       \
     \     compressed[i] = lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();\n\
     \        }\n    }\n\n    int get(const T& x) const{\n        return lower_bound(sorted.begin(),\
-    \ sorted.end(), x) - sorted.begin();\n    }\n\n    T inv(const T& x){\n      \
-    \  return sorted[x];\n    }\n\n    size_t size() const{\n        return sorted.size();\n\
-    \    }\n\n    vector<T> getCompressed() const{\n        return compressed;\n \
-    \   }\n};\n#line 7 \"test/library_checker/data_structure/static_range_frequency.test.cpp\"\
+    \ sorted.end(), x) - sorted.begin();\n    }\n\n    T inv(const T& x) const{\n\
+    \        return sorted[x];\n    }\n\n    size_t size() const{\n        return\
+    \ sorted.size();\n    }\n\n    vector<T> getCompressed() const{\n        return\
+    \ compressed;\n    }\n};\n#line 7 \"test/library_checker/data_structure/static_range_frequency.test.cpp\"\
     \n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n \
     \   int n, q; cin >> n >> q;\n    vector<int> a;\n    vector<int> c(n);\n    for(int\
     \ i = 0; i < n; i++){\n        cin >> c[i];\n        a.push_back(c[i]);\n    }\n\
@@ -84,7 +84,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_frequency.test.cpp
   requiredBy: []
-  timestamp: '2023-01-23 00:47:05+09:00'
+  timestamp: '2023-04-18 00:03:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_frequency.test.cpp
