@@ -96,6 +96,9 @@ data:
       title: "Bellman-Ford Algorithm (\u30D9\u30EB\u30DE\u30F3-\u30D5\u30A9\u30FC\u30C9\
         \u6CD5)"
     - icon: ':heavy_check_mark:'
+      path: lib/graph/cartesian_tree.hpp
+      title: lib/graph/cartesian_tree.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
     - icon: ':heavy_check_mark:'
@@ -316,6 +319,9 @@ data:
       title: test/library_checker/dp/number_of_subsequences.test.cpp
   - name: test/library_checker/graph
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/cartesian_tree.test.cpp
+      title: test/library_checker/graph/cartesian_tree.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/manhattanmst].test.cpp
       title: test/library_checker/graph/manhattanmst].test.cpp
