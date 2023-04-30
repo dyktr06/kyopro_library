@@ -48,7 +48,7 @@ struct BinaryBasis{
         for(auto z : basis){
             y = min(y, y ^ z);
         }
-        return y > 0;
+        return y == 0;
     }
 
     T kth_element(const long long &k){
