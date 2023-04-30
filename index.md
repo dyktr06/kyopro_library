@@ -1,6 +1,23 @@
 ---
 data:
   libraryCategories:
+  - name: lib/convolution
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/convolution/bitwise_and_convolution.hpp
+      title: lib/convolution/bitwise_and_convolution.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/convolution/bitwise_xor_convolution.hpp
+      title: lib/convolution/bitwise_xor_convolution.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/convolution/fast_walsh_hadamard_transform.hpp
+      title: lib/convolution/fast_walsh_hadamard_transform.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/convolution/karatsuba_algorithm.hpp
+      title: lib/convolution/karatsuba_algorithm.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/convolution/superset_zeta_moebius_transform.hpp
+      title: lib/convolution/superset_zeta_moebius_transform.hpp
   - name: lib/data_structure
     pages:
     - icon: ':heavy_check_mark:'
@@ -168,7 +185,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/utils.hpp
       title: lib/math/utils.hpp
   - name: lib/others
@@ -241,6 +258,17 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/grl/grl_1_c.test.cpp
       title: test/aoj/grl/grl_1_c.test.cpp
+  - name: test/library_checker/convolution
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
+      title: test/library_checker/convolution/bitwise_and_convolution.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
+      title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/convolution/convolution_mod_2_64.test.cpp
+      title: test/library_checker/convolution/convolution_mod_2_64.test.cpp
   - name: test/library_checker/data_structure
     pages:
     - icon: ':heavy_check_mark:'

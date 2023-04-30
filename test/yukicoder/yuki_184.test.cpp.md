@@ -29,7 +29,7 @@ data:
     \ ++i){\n            for(int j = 0; j < i; ++j){\n                basis[i] = min(basis[i],\
     \ basis[i] ^ basis[j]);\n            }\n        }\n    }\n\n    bool exist(const\
     \ T &x){\n        T y = x;\n        for(auto z : basis){\n            y = min(y,\
-    \ y ^ z);\n        }\n        return y > 0;\n    }\n\n    T kth_element(const\
+    \ y ^ z);\n        }\n        return y == 0;\n    }\n\n    T kth_element(const\
     \ long long &k){\n        T res = 0;\n        for(int i = 0; i < (int) basis.size();\
     \ ++i){\n            if(k & (1LL << i)){\n                res ^= basis[i];\n \
     \           }\n        }\n        return res;\n    }\n\n    size_t size(){\n \
@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_184.test.cpp
   requiredBy: []
-  timestamp: '2023-01-25 06:41:59+09:00'
+  timestamp: '2023-05-01 02:14:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_184.test.cpp

@@ -66,9 +66,9 @@ data:
   timestamp: '2023-01-22 11:23:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/data_structure/range_kth_smallest.test.cpp
   - test/library_checker/data_structure/static_range_inversions_query.test.cpp
   - test/library_checker/data_structure/static_range_frequency.test.cpp
-  - test/library_checker/data_structure/range_kth_smallest.test.cpp
 documentation_of: lib/data_structure/mo.hpp
 layout: document
 redirect_from:

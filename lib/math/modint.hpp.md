@@ -4,6 +4,12 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
+    title: test/library_checker/convolution/bitwise_and_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
+    title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
     title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -95,8 +101,10 @@ data:
   timestamp: '2023-01-23 00:47:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/data_structure/queue_operate_all_composite.test.cpp
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
+  - test/library_checker/data_structure/queue_operate_all_composite.test.cpp
+  - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
+  - test/library_checker/convolution/bitwise_and_convolution.test.cpp
 documentation_of: lib/math/modint.hpp
 layout: document
 redirect_from:
