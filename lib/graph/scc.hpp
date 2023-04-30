@@ -17,7 +17,7 @@ struct SCC{
     SCC(const vector<vector<T>> &G) : G_reverse((int) G.size()), check((int) G.size()){
         siz = (int) G.size();
         for(int i = 0; i < siz; ++i){
-            for(auto x : G[i]){
+            for(const auto &x : G[i]){
                 G_reverse[x].emplace_back(i);
             }
         }
@@ -30,11 +30,10 @@ struct SCC{
         reverse(memo.begin(), memo.end());
  
         for(int i = 0; i < siz; ++i) check[i] = false;
-        for(auto x : memo){
+        for(const auto &x : memo){
             if(!check[x]){
                 s = {};
                 dfs2(G_reverse, x);
-                sort(s.rbegin(), s.rend());
                 result.emplace_back(s);
             }
         }
@@ -42,7 +41,7 @@ struct SCC{
  
     void dfs(const vector<vector<T>> &G, int curr){
         check[curr] = true;
-        for(auto x : G[curr]){
+        for(const auto &x : G[curr]){
             if(check[x]){
                 continue;
             }
@@ -54,7 +53,7 @@ struct SCC{
     void dfs2(const vector<vector<T>> &G, int curr){
         s.emplace_back(curr);
         check[curr] = true;
-        for(auto x : G[curr]){
+        for(const auto &x : G[curr]){
             if(check[x]){
                 continue;
             }
@@ -62,7 +61,7 @@ struct SCC{
         }
     }
  
-    vector<vector<T>> get(){
+    vector<vector<T>> get() const {
         return result;
     }
 };
