@@ -4,6 +4,8 @@ template <typename T>
 vector<T> karatsuba_algorithm(vector<T> &a, vector<T> &b){
     const int n = (int) a.size();
     const int h = n >> 1;
+    assert(a.size() == b.size());
+    assert((n & (n - 1)) == 0);
     if(n <= 64){
         vector<T> res(2 * n - 1);
         for(int i = 0; i < n; ++i){
