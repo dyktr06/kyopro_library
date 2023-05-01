@@ -18,25 +18,25 @@ data:
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod_2_64\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/convolution/karatsuba_algorithm.hpp\"\
     \n\ntemplate <typename T>\nvector<T> karatsuba_algorithm(vector<T> &a, vector<T>\
-    \ &b){\n    const int n = (int) a.size();\n    const int h = n >> 1;\n    if(n\
-    \ <= 64){\n        vector<T> res(2 * n - 1);\n        for(int i = 0; i < n; ++i){\n\
-    \            for(int j = 0; j < n; ++j){\n                res[i + j] += a[i] *\
-    \ b[j];\n            }\n        }\n        return res;\n    }\n    vector<T> p(h),\
-    \ q(h), r(h), s(h), t(h), u(h);\n    for(int i = 0; i < h; ++i){\n        p[i]\
-    \ = a[i + h];\n        q[i] = a[i];\n        r[i] = b[i + h];\n        s[i] =\
-    \ b[i];\n        t[i] = p[i] + q[i];\n        u[i] = r[i] + s[i];\n    }\n   \
-    \ p = karatsuba_algorithm(p, r);\n    q = karatsuba_algorithm(q, s);\n    t =\
-    \ karatsuba_algorithm(t, u);\n    vector<T> res(2 * n - 1, 0);\n    for(int i\
-    \ = 0; i < n - 1; ++i){\n        res[i] += q[i];\n        res[i + h] += t[i] -\
-    \ p[i] - q[i];\n        res[i + n] += p[i];\n    }\n    return res;\n}\n#line\
-    \ 6 \"test/library_checker/convolution/convolution_mod_2_64.test.cpp\"\n\nint\
-    \ main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    \n   \
-    \ int n, m; cin >> n >> m;\n    vector<unsigned long long> a(n), b(m);\n    for(int\
-    \ i = 0; i < n; i++){\n        cin >> a[i];\n    }\n    for(int i = 0; i < m;\
-    \ i++){\n        cin >> b[i];\n    }\n    int k = 1;\n    while(k < max(n, m)){\n\
-    \        k *= 2;\n    }\n    a.resize(k), b.resize(k);\n    vector<unsigned long\
-    \ long> c = karatsuba_algorithm(a, b);\n    for(int i = 0; i < n + m - 1; i++){\n\
-    \        cout << c[i] << \" \\n\"[i == n + m - 1];\n    }\n}\n"
+    \ &b){\n    const int n = (int) a.size();\n    const int h = n >> 1;\n    assert(a.size()\
+    \ == b.size());\n    assert((n & (n - 1)) == 0);\n    if(n <= 64){\n        vector<T>\
+    \ res(2 * n - 1);\n        for(int i = 0; i < n; ++i){\n            for(int j\
+    \ = 0; j < n; ++j){\n                res[i + j] += a[i] * b[j];\n            }\n\
+    \        }\n        return res;\n    }\n    vector<T> p(h), q(h), r(h), s(h),\
+    \ t(h), u(h);\n    for(int i = 0; i < h; ++i){\n        p[i] = a[i + h];\n   \
+    \     q[i] = a[i];\n        r[i] = b[i + h];\n        s[i] = b[i];\n        t[i]\
+    \ = p[i] + q[i];\n        u[i] = r[i] + s[i];\n    }\n    p = karatsuba_algorithm(p,\
+    \ r);\n    q = karatsuba_algorithm(q, s);\n    t = karatsuba_algorithm(t, u);\n\
+    \    vector<T> res(2 * n - 1, 0);\n    for(int i = 0; i < n - 1; ++i){\n     \
+    \   res[i] += q[i];\n        res[i + h] += t[i] - p[i] - q[i];\n        res[i\
+    \ + n] += p[i];\n    }\n    return res;\n}\n#line 6 \"test/library_checker/convolution/convolution_mod_2_64.test.cpp\"\
+    \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n   \
+    \ \n    int n, m; cin >> n >> m;\n    vector<unsigned long long> a(n), b(m);\n\
+    \    for(int i = 0; i < n; i++){\n        cin >> a[i];\n    }\n    for(int i =\
+    \ 0; i < m; i++){\n        cin >> b[i];\n    }\n    int k = 1;\n    while(k <\
+    \ max(n, m)){\n        k *= 2;\n    }\n    a.resize(k), b.resize(k);\n    vector<unsigned\
+    \ long long> c = karatsuba_algorithm(a, b);\n    for(int i = 0; i < n + m - 1;\
+    \ i++){\n        cout << c[i] << \" \\n\"[i == n + m - 1];\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod_2_64\"\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/convolution/karatsuba_algorithm.hpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n   \
@@ -51,7 +51,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/convolution_mod_2_64.test.cpp
   requiredBy: []
-  timestamp: '2023-05-01 02:14:19+09:00'
+  timestamp: '2023-05-01 10:48:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution/convolution_mod_2_64.test.cpp
