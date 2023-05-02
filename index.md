@@ -164,13 +164,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
       title: Fraction
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/math/matrix.hpp
       title: Matrix
     - icon: ':warning:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -224,6 +224,14 @@ data:
     - icon: ':warning:'
       path: lib/template.cpp
       title: lib/template.cpp
+  - name: test/library_checker/matrix
+    pages:
+    - icon: ':warning:'
+      path: test/library_checker/matrix/inverse_matrix.cpp
+      title: test/library_checker/matrix/inverse_matrix.cpp
+    - icon: ':warning:'
+      path: test/library_checker/matrix/matrix_det.cpp
+      title: test/library_checker/matrix/matrix_det.cpp
   verificationCategories:
   - name: test/aoj/alds1
     pages:
@@ -372,7 +380,7 @@ data:
       title: test/library_checker/math/factorize.test.cpp
   - name: test/library_checker/matrix
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/matrix/matrix_product.test.cpp
       title: test/library_checker/matrix/matrix_product.test.cpp
   - name: test/library_checker/string

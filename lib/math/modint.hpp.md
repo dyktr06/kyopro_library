@@ -1,7 +1,13 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/library_checker/matrix/inverse_matrix.cpp
+    title: test/library_checker/matrix/inverse_matrix.cpp
+  - icon: ':warning:'
+    path: test/library_checker/matrix/matrix_det.cpp
+    title: test/library_checker/matrix/matrix_det.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
@@ -15,9 +21,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
     title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/library_checker/matrix/matrix_product.test.cpp
+    title: test/library_checker/matrix/matrix_product.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
@@ -97,12 +106,15 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/math/modint.hpp
-  requiredBy: []
+  requiredBy:
+  - test/library_checker/matrix/inverse_matrix.cpp
+  - test/library_checker/matrix/matrix_det.cpp
   timestamp: '2023-01-23 00:47:05+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - test/library_checker/data_structure/queue_operate_all_composite.test.cpp
+  - test/library_checker/matrix/matrix_product.test.cpp
   - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
   - test/library_checker/convolution/bitwise_and_convolution.test.cpp
 documentation_of: lib/math/modint.hpp
