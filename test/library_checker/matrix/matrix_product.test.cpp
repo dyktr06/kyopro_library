@@ -2,14 +2,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#include "../../../lib/math/modint.hpp"
 #include "../../../lib/math/matrix.hpp"
 
-const long long MOD = 998244353;
+using mint = ModInt<998244353>;
 
 int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n, m, k; cin >> n >> m >> k;
-    vector<vector<long long>> a(n, vector<long long>(m));
-    vector<vector<long long>> b(m, vector<long long>(k));
+    Matrix<mint> a(n, m), b(m, k);
+    int scan;
     for(int i = 0; i < n; i++){
         for(int j = 0; j < m; j++){
             cin >> a[i][j];
@@ -20,12 +24,6 @@ int main(){
             cin >> b[i][j];
         }
     }
-    vector<vector<long long>> c = mul(a, b, MOD);
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < k; j++){
-            if(j >= 1) cout << " ";
-            cout << c[i][j];
-        }
-        cout << "\n";
-    }
+    a *= b;
+    cout << a;
 }
