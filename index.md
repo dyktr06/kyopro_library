@@ -164,13 +164,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
       title: Fraction
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: Matrix
     - icon: ':warning:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -380,7 +380,7 @@ data:
       title: test/library_checker/math/factorize.test.cpp
   - name: test/library_checker/matrix
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/matrix_product.test.cpp
       title: test/library_checker/matrix/matrix_product.test.cpp
   - name: test/library_checker/string

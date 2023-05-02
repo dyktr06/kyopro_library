@@ -21,12 +21,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
     title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/matrix_product.test.cpp
     title: test/library_checker/matrix/matrix_product.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
@@ -110,7 +110,7 @@ data:
   - test/library_checker/matrix/inverse_matrix.cpp
   - test/library_checker/matrix/matrix_det.cpp
   timestamp: '2023-01-23 00:47:05+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - test/library_checker/data_structure/queue_operate_all_composite.test.cpp

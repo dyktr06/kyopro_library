@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/superset_zeta_moebius_transform.hpp
     title: lib/convolution/superset_zeta_moebius_transform.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   - icon: ':heavy_check_mark:'
