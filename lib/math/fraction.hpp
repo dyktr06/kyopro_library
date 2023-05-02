@@ -28,5 +28,26 @@ struct fraction{
     inline fraction operator-(const fraction &other) const { return fraction(p * other.q - q * other.p, q * other.q); }
     inline fraction operator*(const fraction &other) const { return fraction(p * other.p, q * other.q); }
     inline fraction operator/(const fraction &other) const { return fraction(p * other.q, q * other.p); }
+    inline fraction& operator+=(const fraction& rhs) noexcept {
+        *this = *this + rhs;
+        return *this;
+    }
+    inline fraction& operator-=(const fraction& rhs) noexcept {
+        *this = *this - rhs;
+        return *this;
+    }
+    inline fraction& operator*=(const fraction& rhs) noexcept {
+        *this = *this * rhs;
+        return *this;
+    }
+    inline fraction& operator/=(const fraction& rhs) noexcept {
+        *this = *this / rhs;
+        return *this;
+    }
+    friend inline istream& operator>>(istream& is, fraction& x) noexcept {
+        is >> x.p;
+        x.q = 1;
+        return is;
+    }
     friend inline ostream& operator<<(ostream& os, const fraction& x) noexcept { return os << x.p << "/" << x.q; }
 };
