@@ -18,6 +18,9 @@ struct fraction{
     inline bool operator==(const fraction &other) const {
         return p * other.q == other.p * q;
     }
+    inline bool operator!=(const fraction &other) const {
+        return p * other.q != other.p * q;
+    }
     inline bool operator<(const fraction &other) const {
         return p * other.q < other.p * q;
     }
