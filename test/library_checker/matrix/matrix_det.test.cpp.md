@@ -11,12 +11,14 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/matrix_det
     links:
-    - https://judge.yosupo.jp/problem/inverse_matrix
-  bundledCode: "#line 1 \"test/library_checker/matrix/inverse_matrix.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/inverse_matrix\"\n#include <bits/stdc++.h>\n\
+    - https://judge.yosupo.jp/problem/matrix_det
+  bundledCode: "#line 1 \"test/library_checker/matrix/matrix_det.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#line 2 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n\
     \ * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\nstruct ModInt{\n\
     \    long long val;\n    constexpr ModInt(const long long &_val = 0) noexcept\
@@ -115,33 +117,31 @@ data:
     \ 90 degrees clockwise\n    Matrix rotate() const {\n        Matrix res(m, n),\
     \ a = *this;\n        for(int i = 0; i < m; ++i){\n            for(int j = 0;\
     \ j < n; ++j){\n                res[i][j] = a[n - j - 1][i];\n            }\n\
-    \        }\n        return res;\n    }\n};\n#line 7 \"test/library_checker/matrix/inverse_matrix.cpp\"\
+    \        }\n        return res;\n    }\n};\n#line 7 \"test/library_checker/matrix/matrix_det.test.cpp\"\
     \n\nusing mint = ModInt<998244353>;\n\nint main(){\n    ios::sync_with_stdio(false);\n\
     \    cin.tie(nullptr);\n\n    int n; cin >> n;\n    Matrix<mint> a(n, n);\n  \
     \  for(int i = 0; i < n; i++){\n        for(int j = 0; j < n; j++){\n        \
-    \    cin >> a[i][j];\n        }\n    }\n    try{\n        a = a.inv();\n     \
-    \   cout << a;\n    }\n    catch(...){\n        cout << -1 << endl;\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inverse_matrix\"\n#include\
+    \    cin >> a[i][j];\n        }\n    }\n    cout << a.det() << \"\\n\";\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/modint.hpp\"\
     \n#include \"../../../lib/math/matrix.hpp\"\n\nusing mint = ModInt<998244353>;\n\
     \nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n   \
     \ int n; cin >> n;\n    Matrix<mint> a(n, n);\n    for(int i = 0; i < n; i++){\n\
     \        for(int j = 0; j < n; j++){\n            cin >> a[i][j];\n        }\n\
-    \    }\n    try{\n        a = a.inv();\n        cout << a;\n    }\n    catch(...){\n\
-    \        cout << -1 << endl;\n    }\n}"
+    \    }\n    cout << a.det() << \"\\n\";\n}"
   dependsOn:
   - lib/math/modint.hpp
   - lib/math/matrix.hpp
-  isVerificationFile: false
-  path: test/library_checker/matrix/inverse_matrix.cpp
+  isVerificationFile: true
+  path: test/library_checker/matrix/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2023-05-02 19:10:28+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2023-05-02 19:14:16+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/matrix/inverse_matrix.cpp
+documentation_of: test/library_checker/matrix/matrix_det.test.cpp
 layout: document
 redirect_from:
-- /library/test/library_checker/matrix/inverse_matrix.cpp
-- /library/test/library_checker/matrix/inverse_matrix.cpp.html
-title: test/library_checker/matrix/inverse_matrix.cpp
+- /verify/test/library_checker/matrix/matrix_det.test.cpp
+- /verify/test/library_checker/matrix/matrix_det.test.cpp.html
+title: test/library_checker/matrix/matrix_det.test.cpp
 ---

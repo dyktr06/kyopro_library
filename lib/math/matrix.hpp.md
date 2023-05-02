@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/library_checker/matrix/inverse_matrix.cpp
-    title: test/library_checker/matrix/inverse_matrix.cpp
-  - icon: ':warning:'
-    path: test/library_checker/matrix/matrix_det.cpp
-    title: test/library_checker/matrix/matrix_det.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/matrix/inverse_matrix.test.cpp
+    title: test/library_checker/matrix/inverse_matrix.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/matrix/matrix_det.test.cpp
+    title: test/library_checker/matrix/matrix_det.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/matrix_product.test.cpp
     title: test/library_checker/matrix/matrix_product.test.cpp
@@ -149,12 +149,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/math/matrix.hpp
-  requiredBy:
-  - test/library_checker/matrix/inverse_matrix.cpp
-  - test/library_checker/matrix/matrix_det.cpp
+  requiredBy: []
   timestamp: '2023-05-02 19:10:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/matrix/matrix_det.test.cpp
+  - test/library_checker/matrix/inverse_matrix.test.cpp
   - test/library_checker/matrix/matrix_product.test.cpp
 documentation_of: lib/math/matrix.hpp
 layout: document

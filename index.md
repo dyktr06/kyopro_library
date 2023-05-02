@@ -224,14 +224,6 @@ data:
     - icon: ':warning:'
       path: lib/template.cpp
       title: lib/template.cpp
-  - name: test/library_checker/matrix
-    pages:
-    - icon: ':warning:'
-      path: test/library_checker/matrix/inverse_matrix.cpp
-      title: test/library_checker/matrix/inverse_matrix.cpp
-    - icon: ':warning:'
-      path: test/library_checker/matrix/matrix_det.cpp
-      title: test/library_checker/matrix/matrix_det.cpp
   verificationCategories:
   - name: test/aoj/alds1
     pages:
@@ -380,6 +372,12 @@ data:
       title: test/library_checker/math/factorize.test.cpp
   - name: test/library_checker/matrix
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/matrix/inverse_matrix.test.cpp
+      title: test/library_checker/matrix/inverse_matrix.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/matrix/matrix_det.test.cpp
+      title: test/library_checker/matrix/matrix_det.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/matrix_product.test.cpp
       title: test/library_checker/matrix/matrix_product.test.cpp
