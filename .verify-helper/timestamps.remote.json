@@ -39,6 +39,7 @@
 "test/library_checker/graph/manhattanmst].test.cpp": "2023-01-23 01:08:39 +0900",
 "test/library_checker/graph/scc.test.cpp": "2023-05-01 02:14:42 +0900",
 "test/library_checker/graph/shortest_path.test.cpp": "2023-04-16 17:55:44 +0900",
+"test/library_checker/math/binomial_coefficient_prime_mod.test.cpp": "2023-05-04 20:09:33 +0900",
 "test/library_checker/math/discrete_logarithm_mod.test.cpp": "2023-01-22 11:23:05 +0900",
 "test/library_checker/math/enumerate_primes.test.cpp": "2023-01-25 06:41:59 +0900",
 "test/library_checker/math/factorize.test.cpp": "2023-01-18 06:27:45 +0900",
