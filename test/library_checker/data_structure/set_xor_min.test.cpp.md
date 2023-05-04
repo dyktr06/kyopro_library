@@ -60,13 +60,13 @@ data:
     \ vector<int>&> kth_element_(Node *n, const int &k, const int &bit_idx){\n   \
     \     if(bit_idx == -1){\n            return pair<T, vector<int>&>(0, n->accept);\n\
     \        }\n\n        int ex0 = n->nxt[(lazy >> bit_idx) & 1]->exist;\n      \
-    \  if(ex0 < k){\n            auto ret = get_kth_(n->nxt[~(lazy >> bit_idx) & 1],\
-    \ k - ex0, bit_idx - 1);\n            ret.first |= T(1) << bit_idx;\n        \
-    \    return ret;\n        }\n        return get_kth_(n->nxt[(lazy >> bit_idx)\
-    \ & 1], k, bit_idx - 1);\n    }\n\n    int count_less_(Node *n, const T &x, const\
-    \ int &bit_idx) {\n        if(bit_idx == -1){\n            return 0;\n       \
-    \ }\n\n        int ret = 0;\n        bool f = (lazy >> bit_idx) & 1;\n       \
-    \ if((x >> bit_idx & 1) && n->nxt[f]){\n            ret += n->nxt[f]->exist;\n\
+    \  if(ex0 < k){\n            auto ret = kth_element_(n->nxt[~(lazy >> bit_idx)\
+    \ & 1], k - ex0, bit_idx - 1);\n            ret.first |= T(1) << bit_idx;\n  \
+    \          return ret;\n        }\n        return kth_element_(n->nxt[(lazy >>\
+    \ bit_idx) & 1], k, bit_idx - 1);\n    }\n\n    int count_less_(Node *n, const\
+    \ T &x, const int &bit_idx) {\n        if(bit_idx == -1){\n            return\
+    \ 0;\n        }\n\n        int ret = 0;\n        bool f = (lazy >> bit_idx) &\
+    \ 1;\n        if((x >> bit_idx & 1) && n->nxt[f]){\n            ret += n->nxt[f]->exist;\n\
     \        }\n        if(n->nxt[f ^ (x >> bit_idx & 1)]){\n            ret += count_less_(n->nxt[f\
     \ ^ (x >> bit_idx & 1)], x, bit_idx - 1);\n        }\n        return ret;\n  \
     \  }\n\npublic:\n    void insert(const T &x, const int &id = -1){\n        root\
@@ -105,7 +105,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/set_xor_min.test.cpp
   requiredBy: []
-  timestamp: '2022-11-18 17:58:19+09:00'
+  timestamp: '2023-05-04 19:58:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/set_xor_min.test.cpp
