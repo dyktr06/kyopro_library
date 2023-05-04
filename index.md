@@ -362,6 +362,9 @@ data:
   - name: test/library_checker/math
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
+      title: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/discrete_logarithm_mod.test.cpp
       title: test/library_checker/math/discrete_logarithm_mod.test.cpp
     - icon: ':heavy_check_mark:'
