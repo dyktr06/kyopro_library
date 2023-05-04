@@ -107,11 +107,11 @@ private:
 
         int ex0 = n->nxt[(lazy >> bit_idx) & 1]->exist;
         if(ex0 < k){
-            auto ret = get_kth_(n->nxt[~(lazy >> bit_idx) & 1], k - ex0, bit_idx - 1);
+            auto ret = kth_element_(n->nxt[~(lazy >> bit_idx) & 1], k - ex0, bit_idx - 1);
             ret.first |= T(1) << bit_idx;
             return ret;
         }
-        return get_kth_(n->nxt[(lazy >> bit_idx) & 1], k, bit_idx - 1);
+        return kth_element_(n->nxt[(lazy >> bit_idx) & 1], k, bit_idx - 1);
     }
 
     int count_less_(Node *n, const T &x, const int &bit_idx) {
