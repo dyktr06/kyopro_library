@@ -7,6 +7,9 @@ data:
     path: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
     title: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
+    title: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_117.test.cpp
     title: test/yukicoder/yuki_117.test.cpp
   _isVerificationFailed: false
@@ -60,6 +63,7 @@ data:
   verifiedWith:
   - test/yukicoder/yuki_117.test.cpp
   - test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
+  - test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
 documentation_of: lib/math/combination.hpp
 layout: document
 redirect_from:

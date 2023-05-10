@@ -53,6 +53,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/dynamic_union_find.hpp
       title: lib/data_structure/dynamic_union_find.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/dynamic_weighted_union_find.hpp
+      title: lib/data_structure/dynamic_weighted_union_find.hpp
     - icon: ':warning:'
       path: lib/data_structure/grid_unionfind.hpp
       title: lib/data_structure/grid_unionfind.hpp
@@ -146,6 +149,9 @@ data:
         \u30A4\u30C9\u6CD5)"
   - name: lib/math
     pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/math/arbitrary_modint.hpp
+      title: lib/math/arbitrary_modint.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/baby-step_giant-step.hpp
       title: Baby-step giant-step
@@ -244,6 +250,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/dsl/dsl_1_b.test.cpp
       title: test/aoj/dsl/dsl_1_b.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/dsl/dsl_1_b_1.test.cpp
+      title: test/aoj/dsl/dsl_1_b_1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/dsl/dsl_5_b.test.cpp
       title: test/aoj/dsl/dsl_5_b.test.cpp
@@ -364,6 +373,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
       title: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
+      title: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/discrete_logarithm_mod.test.cpp
       title: test/library_checker/math/discrete_logarithm_mod.test.cpp
