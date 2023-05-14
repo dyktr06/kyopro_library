@@ -44,6 +44,7 @@
 "test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp": "2023-05-10 12:48:56 +0900",
 "test/library_checker/math/discrete_logarithm_mod.test.cpp": "2023-01-22 11:23:05 +0900",
 "test/library_checker/math/enumerate_primes.test.cpp": "2023-01-25 06:41:59 +0900",
+"test/library_checker/math/enumerate_quotients.test.cpp": "2023-05-14 14:52:40 +0900",
 "test/library_checker/math/factorize.test.cpp": "2023-01-18 06:27:45 +0900",
 "test/library_checker/matrix/inverse_matrix.test.cpp": "2023-05-02 19:14:16 +0900",
 "test/library_checker/matrix/matrix_det.test.cpp": "2023-05-02 19:14:16 +0900",
