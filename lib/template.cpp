@@ -12,9 +12,10 @@ using namespace atcoder;
 #define rep(...) overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)
 
 #define rrep(i,n) for(int i = (int)(n) - 1; i >= 0; --i)
-#define ALL(a) a.begin(), a.end()
-#define Sort(a) sort(a.begin(), a.end())
-#define RSort(a) sort(a.rbegin(), a.rend())
+#define ALL(a) (a).begin(), (a).end()
+#define Sort(a) (sort((a).begin(), (a).end()))
+#define RSort(a) (sort((a).rbegin(), (a).rend()))
+#define UNIQUE(a) (a.erase(unique((a).begin(), (a).end()), (a).end()))
 
 typedef long long int ll;
 typedef unsigned long long ul;
