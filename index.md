@@ -168,6 +168,9 @@ data:
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':heavy_check_mark:'
+      path: lib/math/enumerate_quotients.hpp
+      title: lib/math/enumerate_quotients.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
       title: Fraction
     - icon: ':heavy_check_mark:'
@@ -382,6 +385,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/enumerate_primes.test.cpp
       title: test/library_checker/math/enumerate_primes.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/math/enumerate_quotients.test.cpp
+      title: test/library_checker/math/enumerate_quotients.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/factorize.test.cpp
       title: test/library_checker/math/factorize.test.cpp

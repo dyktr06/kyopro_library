@@ -153,9 +153,9 @@ data:
   timestamp: '2023-05-02 19:10:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/matrix/matrix_det.test.cpp
   - test/library_checker/matrix/inverse_matrix.test.cpp
   - test/library_checker/matrix/matrix_product.test.cpp
+  - test/library_checker/matrix/matrix_det.test.cpp
 documentation_of: lib/math/matrix.hpp
 layout: document
 redirect_from:

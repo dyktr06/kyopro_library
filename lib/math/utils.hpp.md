@@ -66,8 +66,8 @@ data:
   timestamp: '2022-12-25 05:08:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
   - test/library_checker/convolution/bitwise_and_convolution.test.cpp
+  - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
 documentation_of: lib/math/utils.hpp
 layout: document
 redirect_from:
