@@ -68,4 +68,8 @@ struct BinaryIndexedTree{
             return v;
         }
     }
+
+    T operator [](int i) const {
+        return sum(i, i + 1);
+    }
 };

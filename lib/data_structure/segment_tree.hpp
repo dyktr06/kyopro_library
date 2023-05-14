@@ -22,7 +22,7 @@ struct SegTree{
         dat.assign(n * 2, ex);
     }
 
-    X get(int i){
+    X get(int i) const {
         return dat[i + n];
     }
     
@@ -53,5 +53,9 @@ struct SegTree{
             r >>= 1;
         }
         return fx(vl, vr);
+    }
+    
+    X operator [](int i) const {
+        return dat[i + n];
     }
 };
