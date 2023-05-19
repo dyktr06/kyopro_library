@@ -37,7 +37,7 @@ struct WeightedUnionFind{
         return weight(y) - weight(x);
     }
 
-    void unite(const int &x, const int &y, T &w){
+    void unite(const int &x, const int &y, T w){
         w += weight(x);
         w -= weight(y);
 
