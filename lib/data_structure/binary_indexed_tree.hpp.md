@@ -45,7 +45,8 @@ data:
     \    while(r <= N) r = r << 1;\n            for(int len = r; len > 0; len = len\
     \ >> 1){\n                if(v + len <= N && BIT[v + len] <= x){\n           \
     \         x -= BIT[v + len];\n                    v += len;\n                }\n\
-    \            }\n            return v;\n        }\n    }\n};\n"
+    \            }\n            return v;\n        }\n    }\n\n    T operator [](int\
+    \ i) const {\n        return sum(i, i + 1);\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
     \ */\n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
     \ BIT;\n    BinaryIndexedTree(const int &N): N(N), BIT(N + 1, 0){\n    }\n\n \
@@ -65,12 +66,13 @@ data:
     \    while(r <= N) r = r << 1;\n            for(int len = r; len > 0; len = len\
     \ >> 1){\n                if(v + len <= N && BIT[v + len] <= x){\n           \
     \         x -= BIT[v + len];\n                    v += len;\n                }\n\
-    \            }\n            return v;\n        }\n    }\n};\n"
+    \            }\n            return v;\n        }\n    }\n\n    T operator [](int\
+    \ i) const {\n        return sum(i, i + 1);\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/binary_indexed_tree.hpp
   requiredBy: []
-  timestamp: '2023-01-06 15:34:37+09:00'
+  timestamp: '2023-05-14 15:04:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/vertex_add_path_sum.test.cpp

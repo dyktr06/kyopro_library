@@ -391,6 +391,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/factorize.test.cpp
       title: test/library_checker/math/factorize.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/math/primarity_test.test.cpp
+      title: test/library_checker/math/primarity_test.test.cpp
   - name: test/library_checker/matrix
     pages:
     - icon: ':heavy_check_mark:'

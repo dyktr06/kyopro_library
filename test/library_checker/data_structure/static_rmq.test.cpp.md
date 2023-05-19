@@ -23,7 +23,7 @@ data:
     \  const X ex;\n    vector<X> dat;\n\n    SegTree(int n_, FX fx_, X ex_) : n(),\
     \ fx(fx_), ex(ex_){\n        int x = 1;\n        while(n_ > x){\n            x\
     \ *= 2;\n        }\n        n = x;\n        dat.assign(n * 2, ex);\n    }\n\n\
-    \    X get(int i){\n        return dat[i + n];\n    }\n    \n    void set(int\
+    \    X get(int i) const {\n        return dat[i + n];\n    }\n    \n    void set(int\
     \ i, X x){ dat[i + n] = x; }\n\n    void build(){\n        for(int k = n - 1;\
     \ k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);\n    }\n\n    void update(int\
     \ i, X x){\n        i += n;\n        dat[i] = x;\n        while(i > 0){\n    \
@@ -32,7 +32,8 @@ data:
     \       X vr = ex;\n        int l = a + n;\n        int r = b + n;\n        while(l\
     \ < r){\n            if(l & 1) vl = fx(vl, dat[l++]);\n            if(r & 1) vr\
     \ = fx(dat[--r], vr);\n            l >>= 1;\n            r >>= 1;\n        }\n\
-    \        return fx(vl, vr);\n    }\n};\n#line 6 \"test/library_checker/data_structure/static_rmq.test.cpp\"\
+    \        return fx(vl, vr);\n    }\n    \n    X operator [](int i) const {\n \
+    \       return dat[i + n];\n    }\n};\n#line 6 \"test/library_checker/data_structure/static_rmq.test.cpp\"\
     \n\nconst long long INF = 0x1fffffffffffffff;\n\nint main(){\n    int n, q; cin\
     \ >> n >> q;\n    auto fx = [](long long x1, long long x2) -> long long { return\
     \ min(x1, x2); };\n    long long ex = INF;\n    SegTree<long long> rmq(n, fx,\
@@ -52,7 +53,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_rmq.test.cpp
   requiredBy: []
-  timestamp: '2023-04-13 08:33:52+09:00'
+  timestamp: '2023-05-14 15:04:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_rmq.test.cpp

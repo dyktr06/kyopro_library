@@ -63,7 +63,8 @@ data:
     \    while(r <= N) r = r << 1;\n            for(int len = r; len > 0; len = len\
     \ >> 1){\n                if(v + len <= N && BIT[v + len] <= x){\n           \
     \         x -= BIT[v + len];\n                    v += len;\n                }\n\
-    \            }\n            return v;\n        }\n    }\n};\n#line 2 \"lib/others/compression.hpp\"\
+    \            }\n            return v;\n        }\n    }\n\n    T operator [](int\
+    \ i) const {\n        return sum(i, i + 1);\n    }\n};\n#line 2 \"lib/others/compression.hpp\"\
     \n\n/**\n * @brief Compression (\u5EA7\u6A19\u5727\u7E2E)\n * @docs docs/others/compression.md\n\
     \ */\n\ntemplate <typename T>\nstruct compress{\n    vector<T> sorted, compressed;\n\
     \n    compress(const vector<T>& vec){\n        int n = vec.size();\n        compressed.resize(n);\n\
@@ -117,7 +118,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2023-04-18 00:03:39+09:00'
+  timestamp: '2023-05-14 15:04:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_inversions_query.test.cpp

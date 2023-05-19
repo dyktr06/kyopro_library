@@ -27,8 +27,8 @@ data:
     \        return par[x] = rx;\n    }\n\n    T weight(const int &x){\n        root(x);\n\
     \        return diff_weight[x];\n    }\n\n    T diff(const int &x, const int &y){\n\
     \        return weight(y) - weight(x);\n    }\n\n    void unite(const int &x,\
-    \ const int &y, T &w){\n        w += weight(x);\n        w -= weight(y);\n\n \
-    \       int rx = root(x);\n        int ry = root(y);\n        if(rx == ry) return;\n\
+    \ const int &y, T w){\n        w += weight(x);\n        w -= weight(y);\n\n  \
+    \      int rx = root(x);\n        int ry = root(y);\n        if(rx == ry) return;\n\
     \n        if(rank[rx] < rank[ry]){\n            swap(rx, ry);\n            w =\
     \ -w;\n        }\n\n        par[ry] = rx;\n        siz[rx] += siz[ry];\n     \
     \   diff_weight[ry] = w;\n        if(rank[rx] == rank[ry]) ++rank[rx];\n    }\n\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: true
   path: test/aoj/dsl/dsl_1_b.test.cpp
   requiredBy: []
-  timestamp: '2023-01-08 06:07:33+09:00'
+  timestamp: '2023-05-19 15:08:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/dsl/dsl_1_b.test.cpp

@@ -39,7 +39,8 @@ data:
     \    while(r <= N) r = r << 1;\n            for(int len = r; len > 0; len = len\
     \ >> 1){\n                if(v + len <= N && BIT[v + len] <= x){\n           \
     \         x -= BIT[v + len];\n                    v += len;\n                }\n\
-    \            }\n            return v;\n        }\n    }\n};\n#line 2 \"lib/graph/heavy_light_decomposition.hpp\"\
+    \            }\n            return v;\n        }\n    }\n\n    T operator [](int\
+    \ i) const {\n        return sum(i, i + 1);\n    }\n};\n#line 2 \"lib/graph/heavy_light_decomposition.hpp\"\
     \n\n/**\n * @brief Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)\n * @docs\
     \ docs/graph/heavy_light_decomposition.md\n */\n\nclass HeavyLightDecomposition{\n\
     \    int V;\n    vector<vector<int>> G;\n    vector<int> stsize, parent, pathtop,\
@@ -120,7 +121,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-01-23 11:19:29+09:00'
+  timestamp: '2023-05-14 15:04:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp

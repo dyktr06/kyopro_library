@@ -7,6 +7,9 @@ data:
     path: test/library_checker/math/factorize.test.cpp
     title: test/library_checker/math/factorize.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/math/primarity_test.test.cpp
+    title: test/library_checker/math/primarity_test.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_888.test.cpp
     title: test/yukicoder/yuki_888.test.cpp
   _isVerificationFailed: false
@@ -109,6 +112,7 @@ data:
   verifiedWith:
   - test/yukicoder/yuki_888.test.cpp
   - test/library_checker/math/factorize.test.cpp
+  - test/library_checker/math/primarity_test.test.cpp
 documentation_of: lib/math/rho.hpp
 layout: document
 redirect_from:

@@ -36,7 +36,8 @@ data:
     \    while(r <= N) r = r << 1;\n            for(int len = r; len > 0; len = len\
     \ >> 1){\n                if(v + len <= N && BIT[v + len] <= x){\n           \
     \         x -= BIT[v + len];\n                    v += len;\n                }\n\
-    \            }\n            return v;\n        }\n    }\n};\n#line 6 \"test/library_checker/data_structure/point_add_range_sum.test.cpp\"\
+    \            }\n            return v;\n        }\n    }\n\n    T operator [](int\
+    \ i) const {\n        return sum(i, i + 1);\n    }\n};\n#line 6 \"test/library_checker/data_structure/point_add_range_sum.test.cpp\"\
     \n\nint main(){\n    int n, q; cin >> n >> q;\n    BinaryIndexedTree<long long>\
     \ BIT(n);\n    for(int i = 0; i < n; i++){\n        int a; cin >> a;\n       \
     \ BIT.add(i, a);\n    }\n    while(q--){\n        int t; cin >> t;\n        if(t\
@@ -56,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-01-06 15:34:37+09:00'
+  timestamp: '2023-05-14 15:04:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/point_add_range_sum.test.cpp
