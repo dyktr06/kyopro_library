@@ -43,7 +43,25 @@ data:
     \        return res;\n    }\n\n    inline bool same(const int &x, const int &y,\
     \ node t){\n        return root(x, t) == root(y, t);\n    }\n\n    inline int\
     \ size(const int &x, node t){\n        return -data.get(root(x, t), t);\n    }\n\
-    };\n"
+    };\n\nstruct PersistentUnionFindv2{\n    int n;\n    PersistentArray<int> data;\n\
+    \    using node = PersistentArray<int>::Node*;\n\n    PersistentUnionFindv2()\
+    \ {}\n\n    node init(const int &_n){\n        n = _n;\n        node res = data.get_root();\n\
+    \        for(int i = 0; i < n; ++i){\n            data.destructive_set(i, -1,\
+    \ res);\n            data.destructive_set(i + n, 0, res);\n        }\n       \
+    \ return res;\n    }\n\n    pair<bool, node> unite(const int &x, const int &y,\
+    \ node t){\n        int rx = root(x, t), ry = root(y, t);\n        if(rx == ry){\n\
+    \            node res = data.set(rx + n, edge(rx, t) + 1, t);\n            return\
+    \ {false, res};\n        }\n\n        if(data.get(ry, t) < data.get(rx, t)) swap(rx,\
+    \ ry);\n\n        node res = data.set(rx, data.get(rx, t) + data.get(ry, t), t);\n\
+    \        res = data.set(ry, rx, res);\n        res = data.set(rx + n, data.get(rx\
+    \ + n, t) + data.get(ry + n, t) + 1, res);\n        return {true, res};\n    }\n\
+    \n    int root(const int &x, node t){\n        if(data.get(x, t) < 0){\n     \
+    \       return x;\n        }\n        int res = root(data.get(x, t), t);\n   \
+    \     return res;\n    }\n\n    inline bool same(const int &x, const int &y, node\
+    \ t){\n        return root(x, t) == root(y, t);\n    }\n\n    inline int size(const\
+    \ int &x, node t){\n        return -data.get(root(x, t), t);\n    }\n\n    inline\
+    \ int edge(const int &x, node t){\n        return data.get(root(x, t) + n, t);\n\
+    \    }\n};\n"
   code: "#pragma once\n\n#include \"../data_structure/persistent_array.hpp\"\n\nstruct\
     \ PersistentUnionFind{\n    PersistentArray<int> data;\n    using node = PersistentArray<int>::Node*;\n\
     \n    PersistentUnionFind() {}\n\n    node init(const int &n){\n        node res\
@@ -58,13 +76,31 @@ data:
     \        return res;\n    }\n\n    inline bool same(const int &x, const int &y,\
     \ node t){\n        return root(x, t) == root(y, t);\n    }\n\n    inline int\
     \ size(const int &x, node t){\n        return -data.get(root(x, t), t);\n    }\n\
-    };"
+    };\n\nstruct PersistentUnionFindv2{\n    int n;\n    PersistentArray<int> data;\n\
+    \    using node = PersistentArray<int>::Node*;\n\n    PersistentUnionFindv2()\
+    \ {}\n\n    node init(const int &_n){\n        n = _n;\n        node res = data.get_root();\n\
+    \        for(int i = 0; i < n; ++i){\n            data.destructive_set(i, -1,\
+    \ res);\n            data.destructive_set(i + n, 0, res);\n        }\n       \
+    \ return res;\n    }\n\n    pair<bool, node> unite(const int &x, const int &y,\
+    \ node t){\n        int rx = root(x, t), ry = root(y, t);\n        if(rx == ry){\n\
+    \            node res = data.set(rx + n, edge(rx, t) + 1, t);\n            return\
+    \ {false, res};\n        }\n\n        if(data.get(ry, t) < data.get(rx, t)) swap(rx,\
+    \ ry);\n\n        node res = data.set(rx, data.get(rx, t) + data.get(ry, t), t);\n\
+    \        res = data.set(ry, rx, res);\n        res = data.set(rx + n, data.get(rx\
+    \ + n, t) + data.get(ry + n, t) + 1, res);\n        return {true, res};\n    }\n\
+    \n    int root(const int &x, node t){\n        if(data.get(x, t) < 0){\n     \
+    \       return x;\n        }\n        int res = root(data.get(x, t), t);\n   \
+    \     return res;\n    }\n\n    inline bool same(const int &x, const int &y, node\
+    \ t){\n        return root(x, t) == root(y, t);\n    }\n\n    inline int size(const\
+    \ int &x, node t){\n        return -data.get(root(x, t), t);\n    }\n\n    inline\
+    \ int edge(const int &x, node t){\n        return data.get(root(x, t) + n, t);\n\
+    \    }\n};"
   dependsOn:
   - lib/data_structure/persistent_array.hpp
   isVerificationFile: false
   path: lib/data_structure/persistent_union_find.hpp
   requiredBy: []
-  timestamp: '2022-11-23 22:11:22+09:00'
+  timestamp: '2023-05-21 04:04:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/persistent_unionfind.test.cpp

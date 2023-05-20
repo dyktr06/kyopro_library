@@ -51,17 +51,18 @@ data:
     \ & 1]->exist){\n            return min_element_(n->nxt[(lazy >> bit_idx) & 1],\
     \ bit_idx - 1);\n        }\n\n        auto ret = min_element_(n->nxt[~(lazy >>\
     \ bit_idx) & 1], bit_idx - 1);\n        ret.first |= T(1) << bit_idx;\n      \
-    \  return ret;\n    }\n\n    pair<T, vector<int>&> kth_element_(Node *n, const\
-    \ int &k, const int &bit_idx){\n        if(bit_idx == -1){\n            return\
-    \ pair<T, vector<int>&>(0, n->accept);\n        }\n\n        int ex0 = n->nxt[(lazy\
-    \ >> bit_idx) & 1]->exist;\n        if(ex0 < k){\n            auto ret = kth_element_(n->nxt[~(lazy\
-    \ >> bit_idx) & 1], k - ex0, bit_idx - 1);\n            ret.first |= T(1) << bit_idx;\n\
-    \            return ret;\n        }\n        return kth_element_(n->nxt[(lazy\
-    \ >> bit_idx) & 1], k, bit_idx - 1);\n    }\n\n    int count_less_(Node *n, const\
-    \ T &x, const int &bit_idx) {\n        if(bit_idx == -1){\n            return\
-    \ 0;\n        }\n\n        int ret = 0;\n        bool f = (lazy >> bit_idx) &\
-    \ 1;\n        if((x >> bit_idx & 1) && n->nxt[f]){\n            ret += n->nxt[f]->exist;\n\
-    \        }\n        if(n->nxt[f ^ (x >> bit_idx & 1)]){\n            ret += count_less_(n->nxt[f\
+    \  return ret;\n    }\n\n    // 1-indexed, minimum-kth\n    pair<T, vector<int>&>\
+    \ kth_element_(Node *n, const int &k, const int &bit_idx){\n        if(bit_idx\
+    \ == -1){\n            return pair<T, vector<int>&>(0, n->accept);\n        }\n\
+    \n        int ex0 = n->nxt[(lazy >> bit_idx) & 1]->exist;\n        if(ex0 < k){\n\
+    \            auto ret = kth_element_(n->nxt[~(lazy >> bit_idx) & 1], k - ex0,\
+    \ bit_idx - 1);\n            ret.first |= T(1) << bit_idx;\n            return\
+    \ ret;\n        }\n        return kth_element_(n->nxt[(lazy >> bit_idx) & 1],\
+    \ k, bit_idx - 1);\n    }\n\n    int count_less_(Node *n, const T &x, const int\
+    \ &bit_idx) {\n        if(bit_idx == -1){\n            return 0;\n        }\n\n\
+    \        int ret = 0;\n        bool f = (lazy >> bit_idx) & 1;\n        if((x\
+    \ >> bit_idx & 1) && n->nxt[f]){\n            ret += n->nxt[f]->exist;\n     \
+    \   }\n        if(n->nxt[f ^ (x >> bit_idx & 1)]){\n            ret += count_less_(n->nxt[f\
     \ ^ (x >> bit_idx & 1)], x, bit_idx - 1);\n        }\n        return ret;\n  \
     \  }\n\npublic:\n    void insert(const T &x, const int &id = -1){\n        root\
     \ = insert_(x, id, root, MAX_LOG);\n    }\n\n    void erase(const T &x, const\
@@ -116,17 +117,18 @@ data:
     \ & 1]->exist){\n            return min_element_(n->nxt[(lazy >> bit_idx) & 1],\
     \ bit_idx - 1);\n        }\n\n        auto ret = min_element_(n->nxt[~(lazy >>\
     \ bit_idx) & 1], bit_idx - 1);\n        ret.first |= T(1) << bit_idx;\n      \
-    \  return ret;\n    }\n\n    pair<T, vector<int>&> kth_element_(Node *n, const\
-    \ int &k, const int &bit_idx){\n        if(bit_idx == -1){\n            return\
-    \ pair<T, vector<int>&>(0, n->accept);\n        }\n\n        int ex0 = n->nxt[(lazy\
-    \ >> bit_idx) & 1]->exist;\n        if(ex0 < k){\n            auto ret = kth_element_(n->nxt[~(lazy\
-    \ >> bit_idx) & 1], k - ex0, bit_idx - 1);\n            ret.first |= T(1) << bit_idx;\n\
-    \            return ret;\n        }\n        return kth_element_(n->nxt[(lazy\
-    \ >> bit_idx) & 1], k, bit_idx - 1);\n    }\n\n    int count_less_(Node *n, const\
-    \ T &x, const int &bit_idx) {\n        if(bit_idx == -1){\n            return\
-    \ 0;\n        }\n\n        int ret = 0;\n        bool f = (lazy >> bit_idx) &\
-    \ 1;\n        if((x >> bit_idx & 1) && n->nxt[f]){\n            ret += n->nxt[f]->exist;\n\
-    \        }\n        if(n->nxt[f ^ (x >> bit_idx & 1)]){\n            ret += count_less_(n->nxt[f\
+    \  return ret;\n    }\n\n    // 1-indexed, minimum-kth\n    pair<T, vector<int>&>\
+    \ kth_element_(Node *n, const int &k, const int &bit_idx){\n        if(bit_idx\
+    \ == -1){\n            return pair<T, vector<int>&>(0, n->accept);\n        }\n\
+    \n        int ex0 = n->nxt[(lazy >> bit_idx) & 1]->exist;\n        if(ex0 < k){\n\
+    \            auto ret = kth_element_(n->nxt[~(lazy >> bit_idx) & 1], k - ex0,\
+    \ bit_idx - 1);\n            ret.first |= T(1) << bit_idx;\n            return\
+    \ ret;\n        }\n        return kth_element_(n->nxt[(lazy >> bit_idx) & 1],\
+    \ k, bit_idx - 1);\n    }\n\n    int count_less_(Node *n, const T &x, const int\
+    \ &bit_idx) {\n        if(bit_idx == -1){\n            return 0;\n        }\n\n\
+    \        int ret = 0;\n        bool f = (lazy >> bit_idx) & 1;\n        if((x\
+    \ >> bit_idx & 1) && n->nxt[f]){\n            ret += n->nxt[f]->exist;\n     \
+    \   }\n        if(n->nxt[f ^ (x >> bit_idx & 1)]){\n            ret += count_less_(n->nxt[f\
     \ ^ (x >> bit_idx & 1)], x, bit_idx - 1);\n        }\n        return ret;\n  \
     \  }\n\npublic:\n    void insert(const T &x, const int &id = -1){\n        root\
     \ = insert_(x, id, root, MAX_LOG);\n    }\n\n    void erase(const T &x, const\
@@ -145,7 +147,7 @@ data:
   isVerificationFile: false
   path: lib/data_structure/binary_trie.hpp
   requiredBy: []
-  timestamp: '2023-05-04 19:58:59+09:00'
+  timestamp: '2023-05-21 04:04:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/set_xor_min.test.cpp
