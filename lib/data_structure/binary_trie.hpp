@@ -100,6 +100,7 @@ private:
         return ret;
     }
 
+    // 1-indexed, minimum-kth
     pair<T, vector<int>&> kth_element_(Node *n, const int &k, const int &bit_idx){
         if(bit_idx == -1){
             return pair<T, vector<int>&>(0, n->accept);
