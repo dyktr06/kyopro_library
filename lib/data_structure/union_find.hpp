@@ -7,19 +7,17 @@
 
 struct UnionFind{
     vector<int> par;
-    vector<int> siz;
     vector<int> edg;
 
-    UnionFind(int N) : par(N), siz(N), edg(N){
+    UnionFind(int N) : par(N), edg(N){
         for(int i = 0; i < N; ++i){
-            par[i] = i;
-            siz[i] = 1;
+            par[i] = -1;
             edg[i] = 0;
         }
     }
 
     int root(int x){
-        if(par[x] == x) return x;
+        if(par[x] < 0) return x;
         return par[x] = root(par[x]);
     }
 
@@ -30,8 +28,8 @@ struct UnionFind{
             edg[rx]++;
             return;
         }
+        par[ry] = par[rx] + par[ry];
         par[rx] = ry;
-        siz[ry] += siz[rx];
         edg[ry] += edg[rx] + 1;
     }
 
@@ -42,7 +40,7 @@ struct UnionFind{
     }
 
     long long size(int x){
-        return siz[root(x)];
+        return -par[root(x)];
     }
 
     long long edge(int x){
