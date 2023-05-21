@@ -363,8 +363,8 @@ data:
       path: test/library_checker/graph/cartesian_tree.test.cpp
       title: test/library_checker/graph/cartesian_tree.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/library_checker/graph/manhattanmst].test.cpp
-      title: test/library_checker/graph/manhattanmst].test.cpp
+      path: test/library_checker/graph/manhattanmst.test.cpp
+      title: test/library_checker/graph/manhattanmst.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/scc.test.cpp
       title: test/library_checker/graph/scc.test.cpp
