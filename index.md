@@ -89,7 +89,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree_beats.hpp
       title: lib/data_structure/segment_tree_beats.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/slope_trick.hpp
       title: lib/data_structure/slope_trick.hpp
     - icon: ':heavy_check_mark:'
@@ -236,11 +236,6 @@ data:
     - icon: ':warning:'
       path: lib/template.cpp
       title: lib/template.cpp
-  - name: test/yukicoder
-    pages:
-    - icon: ':warning:'
-      path: test/yukicoder/yuki_2304_test.cpp
-      title: test/yukicoder/yuki_2304_test.cpp
   verificationCategories:
   - name: test/aoj/alds1
     pages:
@@ -458,6 +453,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2119.test.cpp
       title: test/yukicoder/yuki_2119.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/yuki_2304.test.cpp
+      title: test/yukicoder/yuki_2304.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_416.test.cpp
       title: test/yukicoder/yuki_416.test.cpp

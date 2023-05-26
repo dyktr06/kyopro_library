@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/yukicoder/yuki_2304_test.cpp
-    title: test/yukicoder/yuki_2304_test.cpp
-  _extendedVerifiedWith: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/yuki_2304.test.cpp
+    title: test/yukicoder/yuki_2304.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/slope_trick.hpp\"\n\nstruct SlopeTrick{\n\
@@ -105,11 +105,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/slope_trick.hpp
-  requiredBy:
-  - test/yukicoder/yuki_2304_test.cpp
+  requiredBy: []
   timestamp: '2023-05-26 19:46:12+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/yuki_2304.test.cpp
 documentation_of: lib/data_structure/slope_trick.hpp
 layout: document
 redirect_from:
