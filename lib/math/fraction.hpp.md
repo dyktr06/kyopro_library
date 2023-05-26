@@ -23,9 +23,12 @@ data:
     \ const {\n        return p * other.q != other.p * q;\n    }\n    inline bool\
     \ operator<(const fraction &other) const {\n        return p * other.q < other.p\
     \ * q;\n    }\n    inline bool operator<=(const fraction &other) const {\n   \
-    \     return p * other.q <= other.p * q;\n    }\n    inline fraction operator+(const\
-    \ fraction &other) const { return fraction(p * other.q + q * other.p, q * other.q);\
-    \ }\n    inline fraction operator-(const fraction &other) const { return fraction(p\
+    \     return p * other.q <= other.p * q;\n    }\n    inline bool operator>(const\
+    \ fraction &other) const {\n        return p * other.q > other.p * q;\n    }\n\
+    \    inline bool operator>=(const fraction &other) const {\n        return p *\
+    \ other.q >= other.p * q;\n    }\n    inline fraction operator+(const fraction\
+    \ &other) const { return fraction(p * other.q + q * other.p, q * other.q); }\n\
+    \    inline fraction operator-(const fraction &other) const { return fraction(p\
     \ * other.q - q * other.p, q * other.q); }\n    inline fraction operator*(const\
     \ fraction &other) const { return fraction(p * other.p, q * other.q); }\n    inline\
     \ fraction operator/(const fraction &other) const { return fraction(p * other.q,\
@@ -49,27 +52,29 @@ data:
     \ other.q != other.p * q;\n    }\n    inline bool operator<(const fraction &other)\
     \ const {\n        return p * other.q < other.p * q;\n    }\n    inline bool operator<=(const\
     \ fraction &other) const {\n        return p * other.q <= other.p * q;\n    }\n\
-    \    inline fraction operator+(const fraction &other) const { return fraction(p\
-    \ * other.q + q * other.p, q * other.q); }\n    inline fraction operator-(const\
-    \ fraction &other) const { return fraction(p * other.q - q * other.p, q * other.q);\
-    \ }\n    inline fraction operator*(const fraction &other) const { return fraction(p\
-    \ * other.p, q * other.q); }\n    inline fraction operator/(const fraction &other)\
-    \ const { return fraction(p * other.q, q * other.p); }\n    inline fraction& operator+=(const\
-    \ fraction& rhs) noexcept {\n        *this = *this + rhs;\n        return *this;\n\
-    \    }\n    inline fraction& operator-=(const fraction& rhs) noexcept {\n    \
-    \    *this = *this - rhs;\n        return *this;\n    }\n    inline fraction&\
-    \ operator*=(const fraction& rhs) noexcept {\n        *this = *this * rhs;\n \
-    \       return *this;\n    }\n    inline fraction& operator/=(const fraction&\
-    \ rhs) noexcept {\n        *this = *this / rhs;\n        return *this;\n    }\n\
-    \    friend inline istream& operator>>(istream& is, fraction& x) noexcept {\n\
-    \        is >> x.p;\n        x.q = 1;\n        return is;\n    }\n    friend inline\
-    \ ostream& operator<<(ostream& os, const fraction& x) noexcept { return os <<\
-    \ x.p << \"/\" << x.q; }\n};"
+    \    inline bool operator>(const fraction &other) const {\n        return p *\
+    \ other.q > other.p * q;\n    }\n    inline bool operator>=(const fraction &other)\
+    \ const {\n        return p * other.q >= other.p * q;\n    }\n    inline fraction\
+    \ operator+(const fraction &other) const { return fraction(p * other.q + q * other.p,\
+    \ q * other.q); }\n    inline fraction operator-(const fraction &other) const\
+    \ { return fraction(p * other.q - q * other.p, q * other.q); }\n    inline fraction\
+    \ operator*(const fraction &other) const { return fraction(p * other.p, q * other.q);\
+    \ }\n    inline fraction operator/(const fraction &other) const { return fraction(p\
+    \ * other.q, q * other.p); }\n    inline fraction& operator+=(const fraction&\
+    \ rhs) noexcept {\n        *this = *this + rhs;\n        return *this;\n    }\n\
+    \    inline fraction& operator-=(const fraction& rhs) noexcept {\n        *this\
+    \ = *this - rhs;\n        return *this;\n    }\n    inline fraction& operator*=(const\
+    \ fraction& rhs) noexcept {\n        *this = *this * rhs;\n        return *this;\n\
+    \    }\n    inline fraction& operator/=(const fraction& rhs) noexcept {\n    \
+    \    *this = *this / rhs;\n        return *this;\n    }\n    friend inline istream&\
+    \ operator>>(istream& is, fraction& x) noexcept {\n        is >> x.p;\n      \
+    \  x.q = 1;\n        return is;\n    }\n    friend inline ostream& operator<<(ostream&\
+    \ os, const fraction& x) noexcept { return os << x.p << \"/\" << x.q; }\n};"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/fraction.hpp
   requiredBy: []
-  timestamp: '2023-05-02 19:05:56+09:00'
+  timestamp: '2023-05-26 19:46:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_1464.test.cpp

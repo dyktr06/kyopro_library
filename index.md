@@ -89,6 +89,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree_beats.hpp
       title: lib/data_structure/segment_tree_beats.hpp
+    - icon: ':warning:'
+      path: lib/data_structure/slope_trick.hpp
+      title: lib/data_structure/slope_trick.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/swag.hpp
       title: SWAG
@@ -233,6 +236,11 @@ data:
     - icon: ':warning:'
       path: lib/template.cpp
       title: lib/template.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':warning:'
+      path: test/yukicoder/yuki_2304_test.cpp
+      title: test/yukicoder/yuki_2304_test.cpp
   verificationCategories:
   - name: test/aoj/alds1
     pages:
