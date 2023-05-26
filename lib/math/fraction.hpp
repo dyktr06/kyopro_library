@@ -27,6 +27,12 @@ struct fraction{
     inline bool operator<=(const fraction &other) const {
         return p * other.q <= other.p * q;
     }
+    inline bool operator>(const fraction &other) const {
+        return p * other.q > other.p * q;
+    }
+    inline bool operator>=(const fraction &other) const {
+        return p * other.q >= other.p * q;
+    }
     inline fraction operator+(const fraction &other) const { return fraction(p * other.q + q * other.p, q * other.q); }
     inline fraction operator-(const fraction &other) const { return fraction(p * other.q - q * other.p, q * other.q); }
     inline fraction operator*(const fraction &other) const { return fraction(p * other.p, q * other.q); }
