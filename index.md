@@ -112,6 +112,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/dp/substring.hpp
       title: Count Substrings
+  - name: lib/geometry
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/geometry/geometry.hpp
+      title: lib/geometry/geometry.hpp
   - name: lib/graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -136,6 +141,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/manhattanMST.hpp
       title: Manhattan MST
+    - icon: ':warning:'
+      path: lib/graph/reachable_query.hpp
+      title: lib/graph/reachable_query.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/scc.hpp
       title: "Strongly Connected Component (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
@@ -251,6 +259,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/alds1/alds1_5_d.test.cpp
       title: test/aoj/alds1/alds1_5_d.test.cpp
+  - name: test/aoj/cgl
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/cgl/cgl_3_a.test.cpp
+      title: test/aoj/cgl/cgl_3_a.test.cpp
   - name: test/aoj/dsl
     pages:
     - icon: ':heavy_check_mark:'
@@ -360,6 +373,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/dp/number_of_subsequences.test.cpp
       title: test/library_checker/dp/number_of_subsequences.test.cpp
+  - name: test/library_checker/geometry
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/geometry/sort_points_by_argument.test.cpp
+      title: test/library_checker/geometry/sort_points_by_argument.test.cpp
   - name: test/library_checker/graph
     pages:
     - icon: ':heavy_check_mark:'

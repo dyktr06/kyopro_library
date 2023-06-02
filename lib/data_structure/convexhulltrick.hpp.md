@@ -20,9 +20,9 @@ data:
     \ T> line2, pair<T, T> line3){\n        return (line2.first - line1.first) * (line3.second\
     \ - line2.second) >= (line2.second - line1.second) * (line3.first - line2.first);\n\
     \    }\n\n    T f(pair<T, T> line, T x){\n        return line.first * x + line.second;\n\
-    \    }\n\n    void add(T a, T b){\n        pair<T, T> p = {a, b};\n        while((int)\
-    \ deq.size() >= 2 && check(deq.at((int) deq.size() - 2), deq.at((int) deq.size()\
-    \ - 1), p)){\n            deq.pop_back();\n        }\n        deq.push_back(p);\n\
+    \    }\n\n    // ax + b\n    void add(T a, T b){\n        pair<T, T> p = {a, b};\n\
+    \        while((int) deq.size() >= 2 && check(deq.at((int) deq.size() - 2), deq.at((int)\
+    \ deq.size() - 1), p)){\n            deq.pop_back();\n        }\n        deq.push_back(p);\n\
     \    }\n\n    T query(T x){\n        while((int) deq.size() >= 2 && f(deq.at(0),\
     \ x) >= f(deq.at(1), x)){\n            deq.pop_front();\n        }\n        return\
     \ f(deq.at(0), x);\n    }\n};\n"
@@ -32,17 +32,17 @@ data:
     \ pair<T, T> line2, pair<T, T> line3){\n        return (line2.first - line1.first)\
     \ * (line3.second - line2.second) >= (line2.second - line1.second) * (line3.first\
     \ - line2.first);\n    }\n\n    T f(pair<T, T> line, T x){\n        return line.first\
-    \ * x + line.second;\n    }\n\n    void add(T a, T b){\n        pair<T, T> p =\
-    \ {a, b};\n        while((int) deq.size() >= 2 && check(deq.at((int) deq.size()\
-    \ - 2), deq.at((int) deq.size() - 1), p)){\n            deq.pop_back();\n    \
-    \    }\n        deq.push_back(p);\n    }\n\n    T query(T x){\n        while((int)\
+    \ * x + line.second;\n    }\n\n    // ax + b\n    void add(T a, T b){\n      \
+    \  pair<T, T> p = {a, b};\n        while((int) deq.size() >= 2 && check(deq.at((int)\
+    \ deq.size() - 2), deq.at((int) deq.size() - 1), p)){\n            deq.pop_back();\n\
+    \        }\n        deq.push_back(p);\n    }\n\n    T query(T x){\n        while((int)\
     \ deq.size() >= 2 && f(deq.at(0), x) >= f(deq.at(1), x)){\n            deq.pop_front();\n\
     \        }\n        return f(deq.at(0), x);\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/convexhulltrick.hpp
   requiredBy: []
-  timestamp: '2023-01-22 11:23:05+09:00'
+  timestamp: '2023-06-03 02:38:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_2078.test.cpp

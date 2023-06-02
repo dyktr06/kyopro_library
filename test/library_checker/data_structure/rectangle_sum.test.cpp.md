@@ -47,12 +47,12 @@ data:
     \ i & -i;\n        }\n    }\n\n    T sum(S x, S y) const {\n        T ret = T();\n\
     \        int a = id(x);\n        while(a > 0){\n            ret += bit[a].sum(id(a,\
     \ y));\n            a -= a & -a;\n        }\n        return ret;\n    }\n\n  \
-    \  T sum(S xl, S yl, S xr, S yr) const {\n        T ret = T();\n        int a\
-    \ = id(xl), b = id(xr);\n        while(a != b) {\n            if(a < b){\n   \
-    \             ret += bit[b].sum(id(b, yl), id(b, yr));\n                b -= b\
-    \ & -b;\n            }else{\n                ret -= bit[a].sum(id(a, yl), id(a,\
-    \ yr));\n                a -= a & -a;\n            }\n        }\n        return\
-    \ ret;\n    }\n};\n#line 6 \"test/library_checker/data_structure/rectangle_sum.test.cpp\"\
+    \  // [(xl, yl), (xr, yr))\n    T sum(S xl, S yl, S xr, S yr) const {\n      \
+    \  T ret = T();\n        int a = id(xl), b = id(xr);\n        while(a != b) {\n\
+    \            if(a < b){\n                ret += bit[b].sum(id(b, yl), id(b, yr));\n\
+    \                b -= b & -b;\n            }else{\n                ret -= bit[a].sum(id(a,\
+    \ yl), id(a, yr));\n                a -= a & -a;\n            }\n        }\n \
+    \       return ret;\n    }\n};\n#line 6 \"test/library_checker/data_structure/rectangle_sum.test.cpp\"\
     \n\nint main(){\n    int n, q; cin >> n >> q;\n    RangeTree<int, long long> tree;\n\
     \    vector<int> x(n), y(n);\n    vector<long long> w(n);\n    for(int i = 0;\
     \ i < n; i++){\n        cin >> x[i] >> y[i] >> w[i];\n        tree.add_point(x[i],\
@@ -72,7 +72,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/rectangle_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-11-24 23:19:01+09:00'
+  timestamp: '2023-06-03 01:53:02+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/rectangle_sum.test.cpp
