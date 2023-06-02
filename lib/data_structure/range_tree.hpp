@@ -101,6 +101,7 @@ struct RangeTree{
         return ret;
     }
 
+    // [(xl, yl), (xr, yr))
     T sum(S xl, S yl, S xr, S yr) const {
         T ret = T();
         int a = id(xl), b = id(xr);

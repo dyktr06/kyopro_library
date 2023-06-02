@@ -26,6 +26,7 @@ struct RollingHash{
         }
     }
 
+    // [l, r)
     unsigned long long get(int l, int r) const {
         unsigned long long ret = hashed[r] + mod - mul(hashed[l], power[r - l]);
         if(ret >= mod) ret -= mod;
