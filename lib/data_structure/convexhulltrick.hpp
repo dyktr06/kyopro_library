@@ -20,6 +20,7 @@ struct ConvexHullTrick{
         return line.first * x + line.second;
     }
 
+    // ax + b
     void add(T a, T b){
         pair<T, T> p = {a, b};
         while((int) deq.size() >= 2 && check(deq.at((int) deq.size() - 2), deq.at((int) deq.size() - 1), p)){
