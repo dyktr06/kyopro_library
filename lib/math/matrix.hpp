@@ -103,10 +103,10 @@ struct Matrix{
         Matrix res = e(n), a = *this;
         while(r > 0){
             if(r & 1) res *= a;
-            if(r == 1) return res;
-            res *= res;
+            a *= a;
             r >>= 1;
         }
+        return res;
     }
     T det() const {
         Matrix a = *this;
