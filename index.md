@@ -57,6 +57,9 @@ data:
       path: lib/data_structure/dynamic_weighted_union_find.hpp
       title: lib/data_structure/dynamic_weighted_union_find.hpp
     - icon: ':warning:'
+      path: lib/data_structure/fast_deque.hpp
+      title: lib/data_structure/fast_deque.hpp
+    - icon: ':warning:'
       path: lib/data_structure/grid_unionfind.hpp
       title: lib/data_structure/grid_unionfind.hpp
     - icon: ':warning:'
