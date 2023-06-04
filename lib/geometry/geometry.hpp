@@ -106,33 +106,36 @@ namespace Geometry{
         return res;
     }
 
-    // 点が領域内部: 1, 境界上: 2, 外部: 0
+    // 点が領域外部: 0, 内部: 1, 境界上: 2
     int inCcwConvex(Point p, const vector<Point> &points) {
         const int n = points.size();
-        Point g = (points[0] + points[n / 3] + points[n * 2 / 3]);
-        p *= 3;
-        if(g == p) return 1;
-        Point gp = p - g;
+        T cr1 = cross(points[1] - points[0], p - points[0]);
+        T cr2 = cross(points[n - 1] - points[0], p - points[0]);
+        if(cr1 < 0 || 0 < cr2){
+            return 0;
+        }
 
-        int l = 0, r = n;
-        while(abs(r - l) > 1) {
+        int l = 1, r = n - 1;
+        while(abs(r - l) > 1){
             int mid = (l + r) / 2;
-            Point gl = points[l];
-            gl *= 3, gl -= g;
-            Point gm = points[mid];
-            gm *= 3, gm -= g;
-            if(cross(gl, gm) > 0) {
-                if(cross(gl, gp) >= 0 && cross(gm, gp) <= 0) r = mid;
-                else l = mid;
+            if(cross(p - points[0], points[mid] - points[0]) >= 0){
+                r = mid;
             }else{
-                if(cross(gl, gp) <= 0 && cross(gm, gp) >= 0) l = mid;
-                else r = mid;
+                l = mid;
             }
         }
-        r %= n;
-        Point pl = points[l], pr = points[r];
-        pl *= 3, pr *= 3;
-        T cr = cross(pl - p, pr - p);
-        return (cr == 0) ? 2 : cr < 0 ? 0 : 1;
+
+        T cr = cross(points[l] - p, points[r] - p);
+        if(cr == 0){
+            return 2;
+        }else if(cr > 0){
+            if(cr1 == 0 || cr2 == 0){
+                return 2;
+            }else{
+                return 1;
+            }
+        }else{
+            return 0;
+        }
     }
 }
