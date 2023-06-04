@@ -1,15 +1,16 @@
 #pragma once
 
 namespace Geometry{
-    inline constexpr int type(long long x, long long y){
+    using T = long long;
+    inline constexpr int type(T x, T y){
         if(!x && !y) return 0;
         if(y < 0 || (y == 0 && x > 0)) return -1;
         return 1;
     }
 
     struct Point{
-        long long x, y;
-        Point(long long X = 0, long long Y = 0) : x(X), y(Y){}
+        T x, y;
+        Point(T X = 0, T Y = 0) : x(X), y(Y){}
 
         inline bool operator==(const Point &other) const {
             return ((x == other.x) && (y == other.y));
@@ -33,19 +34,33 @@ namespace Geometry{
         inline Point operator-(const Point &p) const { return Point(x - p.x, y - p.y); }
         inline Point &operator+=(const Point &p) { return x += p.x, y += p.y, *this; }
         inline Point &operator-=(const Point &p) { return x -= p.x, y -= p.y, *this; }
-        inline long long operator*(const Point &p) const { return x * p.x + y * p.y; }
-        inline Point &operator*=(const long long &k) { return x *= k, y *= k, *this; }
-        inline Point operator*(const long long &k) { return (*this *= k); }
+        inline T operator*(const Point &p) const { return x * p.x + y * p.y; }
+        inline Point &operator*=(const T &k) { return x *= k, y *= k, *this; }
+        inline Point operator*(const T &k) { return (*this *= k); }
+        // floor
+        inline Point &operator/=(const T &k) { return x /= k, y /= k, *this; }
+        inline Point operator/(const T &k) { return (*this /= k); }
+
         friend inline ostream& operator<<(ostream& os, const Point& p) noexcept { return os << p.x << " " << p.y; }
     };
 
-    long long cross(const Point &p, const Point &q){
+    T cross(const Point &p, const Point &q){
         return p.x * q.y - p.y * q.x; 
     }
 
-    long long polygonArea(const vector<Point> &points){
-        long long res = 0;
+    T dot(const Point &p, const Point &q){
+        return p.x * q.x + p.y * q.y; 
+    }
+
+    // 2乗
+    T dist(const Point &p, const Point &q){
+        return (p.x - q.x) * (p.x - q.x) + (p.y - q.y) * (p.y - q.y);
+    }
+
+    // 2倍
+    T polygonArea(const vector<Point> &points){
         const int n = points.size();
+        T res = 0;
         for(int i = 0; i < n - 1; i++){
             res += cross(points[i], points[i + 1]);
         }
@@ -89,5 +104,35 @@ namespace Geometry{
             res.push_back(U[i]);
         }
         return res;
+    }
+
+    // 点が領域内部: 1, 境界上: 2, 外部: 0
+    int inCcwConvex(Point p, const vector<Point> &points) {
+        const int n = points.size();
+        Point g = (points[0] + points[n / 3] + points[n * 2 / 3]);
+        p *= 3;
+        if(g == p) return 1;
+        Point gp = p - g;
+
+        int l = 0, r = n;
+        while(abs(r - l) > 1) {
+            int mid = (l + r) / 2;
+            Point gl = points[l];
+            gl *= 3, gl -= g;
+            Point gm = points[mid];
+            gm *= 3, gm -= g;
+            if(cross(gl, gm) > 0) {
+                if(cross(gl, gp) >= 0 && cross(gm, gp) <= 0) r = mid;
+                else l = mid;
+            }else{
+                if(cross(gl, gp) <= 0 && cross(gm, gp) >= 0) l = mid;
+                else r = mid;
+            }
+        }
+        r %= n;
+        Point pl = points[l], pr = points[r];
+        pl *= 3, pr *= 3;
+        T cr = cross(pl - p, pr - p);
+        return (cr == 0) ? 2 : cr < 0 ? 0 : 1;
     }
 }
