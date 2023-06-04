@@ -148,6 +148,9 @@ data:
       path: lib/graph/reachable_query.hpp
       title: lib/graph/reachable_query.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/graph/rerooting.hpp
+      title: lib/graph/rerooting.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/graph/scc.hpp
       title: "Strongly Connected Component (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
@@ -451,6 +454,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/tree_diameter.test.cpp
       title: test/library_checker/tree/tree_diameter.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/tree/tree_path_composite_sum.test.cpp
+      title: test/library_checker/tree/tree_path_composite_sum.test.cpp
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'

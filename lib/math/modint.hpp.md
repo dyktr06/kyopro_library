@@ -24,6 +24,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/matrix_product.test.cpp
     title: test/library_checker/matrix/matrix_product.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/tree/tree_path_composite_sum.test.cpp
+    title: test/library_checker/tree/tree_path_composite_sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -115,6 +118,7 @@ data:
   - test/library_checker/matrix/matrix_product.test.cpp
   - test/library_checker/matrix/matrix_det.test.cpp
   - test/library_checker/matrix/inverse_matrix.test.cpp
+  - test/library_checker/tree/tree_path_composite_sum.test.cpp
   - test/library_checker/data_structure/queue_operate_all_composite.test.cpp
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
 documentation_of: lib/math/modint.hpp
