@@ -13,7 +13,7 @@ struct SegTree{
     const X ex;
     vector<X> dat;
 
-    SegTree(int n_, FX fx_, X ex_) : n(), fx(fx_), ex(ex_){
+    SegTree(int n_, const FX &fx_, const X &ex_) : n(), fx(fx_), ex(ex_){
         int x = 1;
         while(n_ > x){
             x *= 2;
