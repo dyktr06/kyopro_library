@@ -64,20 +64,19 @@ data:
     \      j--;\n            }\n            U.push_back(points[i]);\n        }\n\n\
     \        res = L;\n        for(int i = 1; i < (int) U.size() - 1; i++){\n    \
     \        res.push_back(U[i]);\n        }\n        return res;\n    }\n\n    //\
-    \ \u70B9\u304C\u9818\u57DF\u5185\u90E8: 1, \u5883\u754C\u4E0A: 2, \u5916\u90E8\
-    : 0\n    int inCcwConvex(Point p, const vector<Point> &points) {\n        const\
-    \ int n = points.size();\n        Point g = (points[0] + points[n / 3] + points[n\
-    \ * 2 / 3]);\n        p *= 3;\n        if(g == p) return 1;\n        Point gp\
-    \ = p - g;\n\n        int l = 0, r = n;\n        while(abs(r - l) > 1) {\n   \
-    \         int mid = (l + r) / 2;\n            Point gl = points[l];\n        \
-    \    gl *= 3, gl -= g;\n            Point gm = points[mid];\n            gm *=\
-    \ 3, gm -= g;\n            if(cross(gl, gm) > 0) {\n                if(cross(gl,\
-    \ gp) >= 0 && cross(gm, gp) <= 0) r = mid;\n                else l = mid;\n  \
-    \          }else{\n                if(cross(gl, gp) <= 0 && cross(gm, gp) >= 0)\
-    \ l = mid;\n                else r = mid;\n            }\n        }\n        r\
-    \ %= n;\n        Point pl = points[l], pr = points[r];\n        pl *= 3, pr *=\
-    \ 3;\n        T cr = cross(pl - p, pr - p);\n        return (cr == 0) ? 2 : cr\
-    \ < 0 ? 0 : 1;\n    }\n}\n#line 6 \"test/aoj/cgl/cgl_3_a.test.cpp\"\n\nint main(){\n\
+    \ \u70B9\u304C\u9818\u57DF\u5916\u90E8: 0, \u5185\u90E8: 1, \u5883\u754C\u4E0A\
+    : 2\n    int inCcwConvex(Point p, const vector<Point> &points) {\n        const\
+    \ int n = points.size();\n        T cr1 = cross(points[1] - points[0], p - points[0]);\n\
+    \        T cr2 = cross(points[n - 1] - points[0], p - points[0]);\n        if(cr1\
+    \ < 0 || 0 < cr2){\n            return 0;\n        }\n\n        int l = 1, r =\
+    \ n - 1;\n        while(abs(r - l) > 1){\n            int mid = (l + r) / 2;\n\
+    \            if(cross(p - points[0], points[mid] - points[0]) >= 0){\n       \
+    \         r = mid;\n            }else{\n                l = mid;\n           \
+    \ }\n        }\n\n        T cr = cross(points[l] - p, points[r] - p);\n      \
+    \  if(cr == 0){\n            return 2;\n        }else if(cr > 0){\n          \
+    \  if(cr1 == 0 || cr2 == 0){\n                return 2;\n            }else{\n\
+    \                return 1;\n            }\n        }else{\n            return\
+    \ 0;\n        }\n    }\n}\n#line 6 \"test/aoj/cgl/cgl_3_a.test.cpp\"\n\nint main(){\n\
     \    int n; cin >> n;\n    vector<Geometry::Point> xy(n);\n    for(int i = 0;\
     \ i < n; i++){\n        int x, y; cin >> x >> y;\n        xy[i] = Geometry::Point(x,\
     \ y);\n    }\n    long double ans = Geometry::polygonArea(xy);\n    ans /= 2;\n\
@@ -93,7 +92,7 @@ data:
   isVerificationFile: true
   path: test/aoj/cgl/cgl_3_a.test.cpp
   requiredBy: []
-  timestamp: '2023-06-05 06:59:08+09:00'
+  timestamp: '2023-06-05 07:20:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/cgl/cgl_3_a.test.cpp
