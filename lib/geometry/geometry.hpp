@@ -21,11 +21,13 @@ namespace Geometry{
         inline bool operator<(const Point &other) const {
             int L = type(x, y), R = type(other.x, other.y);
             if(L != R) return L < R;
+            if(x * other.y == other.x * y) return abs(x + y) < abs(other.x + other.y);
             return x * other.y > other.x * y;
         }
         inline bool operator>(const Point &other) const {
             int L = type(x, y), R = type(other.x, other.y);
             if(L != R) return L > R;
+            if(x * other.y == other.x * y) return abs(x + y) > abs(other.x + other.y);
             return x * other.y < other.x * y;
         }
         inline Point operator+() const noexcept { return *this; }
@@ -44,6 +46,12 @@ namespace Geometry{
         friend inline ostream& operator<<(ostream& os, const Point& p) noexcept { return os << p.x << " " << p.y; }
     };
 
+    bool angle_equal(const Point &p, const Point &q){
+        int L = type(p.x, p.y), R = type(q.x, q.y);
+        if(L != R) return false;
+        return p.x * q.y == q.x * p.y;
+    }
+    
     T cross(const Point &p, const Point &q){
         return p.x * q.y - p.y * q.x; 
     }
