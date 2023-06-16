@@ -390,6 +390,9 @@ data:
       path: test/library_checker/graph/cartesian_tree.test.cpp
       title: test/library_checker/graph/cartesian_tree.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/cycle_detection_undirected.test.cpp
+      title: test/library_checker/graph/cycle_detection_undirected.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/manhattanmst.test.cpp
       title: test/library_checker/graph/manhattanmst.test.cpp
     - icon: ':heavy_check_mark:'
