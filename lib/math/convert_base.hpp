@@ -6,7 +6,7 @@
  */
 
 template<typename T>
-string convertBase(T x, T b) {
+string convertBase(T x, int b) {
     string res;
     T t = 1, k = abs(b);
     while(x){
