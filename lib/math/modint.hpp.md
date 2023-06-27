@@ -115,11 +115,11 @@ data:
   verifiedWith:
   - test/library_checker/convolution/bitwise_and_convolution.test.cpp
   - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
-  - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-  - test/library_checker/data_structure/queue_operate_all_composite.test.cpp
+  - test/library_checker/matrix/inverse_matrix.test.cpp
   - test/library_checker/matrix/matrix_product.test.cpp
   - test/library_checker/matrix/matrix_det.test.cpp
-  - test/library_checker/matrix/inverse_matrix.test.cpp
+  - test/library_checker/data_structure/queue_operate_all_composite.test.cpp
+  - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - test/library_checker/tree/tree_path_composite_sum.test.cpp
 documentation_of: lib/math/modint.hpp
 layout: document

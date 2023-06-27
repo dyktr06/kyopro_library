@@ -101,27 +101,31 @@ data:
     \ b;\n    }\n    Matrix pow(long long r) const {\n        if(r == 0) return e(n);\n\
     \        if(r < 0) return inv().pow(-r);\n        Matrix res = e(n), a = *this;\n\
     \        while(r > 0){\n            if(r & 1) res *= a;\n            a *= a;\n\
-    \            r >>= 1;\n        }\n        return res;\n    }\n    T det() const\
-    \ {\n        Matrix a = *this;\n        T res = 1;\n        for(int i = 0; i <\
-    \ n; ++i){\n            if(a[i][i] == 0){\n                for(int j = i + 1;\
-    \ j < n; ++j){\n                    if(a[j][i] != 0){\n                      \
-    \  for(int k = i; k < n; ++k){\n                            swap(a[i][k], a[j][k]);\n\
-    \                        }\n                        res = -res;\n            \
-    \            break;\n                    }\n                }\n            }\n\
-    \            if(a[i][i] == 0) return 0;\n            res *= a[i][i];\n       \
-    \     const T x = T{1} / a[i][i];\n            for(int k = i; k < n; ++k){\n \
-    \               a[i][k] *= x;\n            }\n            for(int j = i + 1; j\
-    \ < n; ++j){\n                const T x = a[j][i];\n                for(int k\
-    \ = i; k < n; ++k){\n                    a[j][k] -= a[i][k] * x;\n           \
-    \     }\n            }\n        }\n        return res;\n    }\n    // Rotate 90\
-    \ degrees clockwise\n    Matrix rotate() const {\n        Matrix res(m, n), a\
-    \ = *this;\n        for(int i = 0; i < m; ++i){\n            for(int j = 0; j\
-    \ < n; ++j){\n                res[i][j] = a[n - j - 1][i];\n            }\n  \
-    \      }\n        return res;\n    }\n};\n#line 7 \"test/library_checker/matrix/matrix_det.test.cpp\"\
-    \n\nusing mint = ModInt<998244353>;\n\nint main(){\n    ios::sync_with_stdio(false);\n\
-    \    cin.tie(nullptr);\n\n    int n; cin >> n;\n    Matrix<mint> a(n, n);\n  \
-    \  for(int i = 0; i < n; i++){\n        for(int j = 0; j < n; j++){\n        \
-    \    cin >> a[i][j];\n        }\n    }\n    cout << a.det() << \"\\n\";\n}\n"
+    \            r >>= 1;\n        }\n        return res;\n    }\n    Matrix pow2(string\
+    \ &r) const {\n        if(r == \"0\") return e(n);\n        Matrix res = e(n),\
+    \ a = *this;\n        int siz = r.size();\n        for(int i = siz - 1; i >= 0;\
+    \ i--){\n            if(r[i] == '1') res *= a;\n            a *= a;\n        }\n\
+    \        return res;\n    }\n    T det() const {\n        Matrix a = *this;\n\
+    \        T res = 1;\n        for(int i = 0; i < n; ++i){\n            if(a[i][i]\
+    \ == 0){\n                for(int j = i + 1; j < n; ++j){\n                  \
+    \  if(a[j][i] != 0){\n                        for(int k = i; k < n; ++k){\n  \
+    \                          swap(a[i][k], a[j][k]);\n                        }\n\
+    \                        res = -res;\n                        break;\n       \
+    \             }\n                }\n            }\n            if(a[i][i] == 0)\
+    \ return 0;\n            res *= a[i][i];\n            const T x = T{1} / a[i][i];\n\
+    \            for(int k = i; k < n; ++k){\n                a[i][k] *= x;\n    \
+    \        }\n            for(int j = i + 1; j < n; ++j){\n                const\
+    \ T x = a[j][i];\n                for(int k = i; k < n; ++k){\n              \
+    \      a[j][k] -= a[i][k] * x;\n                }\n            }\n        }\n\
+    \        return res;\n    }\n    // Rotate 90 degrees clockwise\n    Matrix rotate()\
+    \ const {\n        Matrix res(m, n), a = *this;\n        for(int i = 0; i < m;\
+    \ ++i){\n            for(int j = 0; j < n; ++j){\n                res[i][j] =\
+    \ a[n - j - 1][i];\n            }\n        }\n        return res;\n    }\n};\n\
+    #line 7 \"test/library_checker/matrix/matrix_det.test.cpp\"\n\nusing mint = ModInt<998244353>;\n\
+    \nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n   \
+    \ int n; cin >> n;\n    Matrix<mint> a(n, n);\n    for(int i = 0; i < n; i++){\n\
+    \        for(int j = 0; j < n; j++){\n            cin >> a[i][j];\n        }\n\
+    \    }\n    cout << a.det() << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/modint.hpp\"\
     \n#include \"../../../lib/math/matrix.hpp\"\n\nusing mint = ModInt<998244353>;\n\
@@ -135,7 +139,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/matrix/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2023-06-03 01:53:17+09:00'
+  timestamp: '2023-06-28 01:14:42+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/matrix/matrix_det.test.cpp
