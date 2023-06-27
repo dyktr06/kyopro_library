@@ -108,6 +108,16 @@ struct Matrix{
         }
         return res;
     }
+    Matrix pow2(string &r) const {
+        if(r == "0") return e(n);
+        Matrix res = e(n), a = *this;
+        int siz = r.size();
+        for(int i = siz - 1; i >= 0; i--){
+            if(r[i] == '1') res *= a;
+            a *= a;
+        }
+        return res;
+    }
     T det() const {
         Matrix a = *this;
         T res = 1;
