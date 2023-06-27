@@ -3,28 +3,29 @@
 struct GridUnionFind{
     struct UnionFind{
         vector<int> par;
-        vector<int> siz;
 
         UnionFind(){}
 
         void init(int N){
-            par.resize(N), siz.resize(N);
+            par.resize(N);
             for(int i = 0; i < N; ++i){
-                par[i] = i;
-                siz[i] = 1;
+                par[i] = -1;
             }
         }
 
-        int root(int x) {
-            if (par[x] == x) return x;
+        int root(int x){
+            if(par[x] < 0) return x;
             return par[x] = root(par[x]);
         }
 
-        void unite(int x, int y) {
+        void unite(int x, int y){
             int rx = root(x);
             int ry = root(y);
+            if(rx == ry){
+                return;
+            }
+            par[ry] = par[rx] + par[ry];
             par[rx] = ry;
-            siz[ry] += siz[rx];
         }
 
         bool same(int x, int y){
@@ -34,15 +35,19 @@ struct GridUnionFind{
         }
 
         long long size(int x){
-            return siz[root(x)];
+            return -par[root(x)];
         }
     };
 
     vector<string> grid;
     int h, w;
     UnionFind uf;
-    vector<int> dx = {0, 1};
-    vector<int> dy = {1, 0};
+    char empty = '$';
+
+    GridUnionFind(int _h, int _w) : h(_h), w(_w){
+        grid = vector<string>(h, string(w, empty));
+        uf.init(h * w);
+    }
 
     GridUnionFind(vector<string> &s){
         grid = s;
@@ -59,12 +64,16 @@ struct GridUnionFind{
     }
 
     void build(){
+        vector<pair<int, int>> d = {
+            {0, 1},
+            {1, 0}
+        };
         for(int i = 0; i < h; i++){
             for(int j = 0; j < w; j++){
-                for(int k = 0; k < 2; k++){
-                    int tx = i + dx[k], ty = j + dy[k];
-                    if(clamp(tx, 0, h - 1) == tx && clamp(ty, 0, w - 1) == ty){
-                        if(grid[i][j] == grid[tx][ty]){
+                for(auto &[dx, dy] : d){
+                    int tx = i + dx, ty = j + dy;
+                    if(check(tx, ty)){
+                        if(grid[i][j] == grid[tx][ty] && grid[i][j] != empty){
                             uf.unite(id(i, j), id(tx, ty));
                         }
                     }
@@ -83,6 +92,28 @@ struct GridUnionFind{
             return false;
         }
         return uf.same(id(x1, y1), id(x2, y2));
+    }
+
+    void update(int x, int y, char c){
+        if(!check(x, y) || grid[x][y] != empty){
+            return;
+        }
+
+        vector<pair<int, int>> d = {
+            {-1, 0},
+            {1, 0},
+            {0, -1},
+            {0, 1}
+        };
+        grid[x][y] = c;
+        for(auto &[dx, dy] : d){
+            int tx = x + dx, ty = y + dy;
+            if(check(tx, ty)){
+                if(grid[x][y] == grid[tx][ty] && grid[x][y] != empty){
+                    uf.unite(id(x, y), id(tx, ty));
+                }
+            }
+        }
     }
 
     long long size(int x, int y){
