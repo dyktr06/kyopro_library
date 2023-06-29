@@ -107,17 +107,17 @@ struct BigInt{
         if (!res.val.empty()) res.sign = -res.sign;
         return res;
     }
-	inline bool operator<(const BigInt& rhs) const {
+    inline bool operator<(const BigInt& rhs) const {
         if(sign != rhs.sign) return sign < rhs.sign;
-		if(val.size() != rhs.val.size()) return sign * val.size() < rhs.sign * rhs.val.size();
-		for(int i = (int) val.size() - 1; i >= 0; --i){
-			if(val[i] != rhs.val[i]) return sign * val[i] < rhs.sign * rhs.val[i];
-		}
-		return false;
-	}
-	inline bool operator>(const BigInt& rhs) const { return rhs < (*this); }
-	inline bool operator<=(const BigInt& rhs) const { return !((*this) > rhs); }
-	inline bool operator>=(const BigInt& rhs) const { return !((*this) < rhs); }
+        if(val.size() != rhs.val.size()) return sign * val.size() < rhs.sign * rhs.val.size();
+        for(int i = (int) val.size() - 1; i >= 0; --i){
+            if(val[i] != rhs.val[i]) return sign * val[i] < rhs.sign * rhs.val[i];
+        }
+        return false;
+    }
+    inline bool operator>(const BigInt& rhs) const { return rhs < (*this); }
+    inline bool operator<=(const BigInt& rhs) const { return !((*this) > rhs); }
+    inline bool operator>=(const BigInt& rhs) const { return !((*this) < rhs); }
     friend inline BigInt operator+(const BigInt& lhs, const BigInt& rhs) noexcept { return BigInt(lhs) += rhs; }
     friend inline BigInt operator-(const BigInt& lhs, const BigInt& rhs) noexcept { return BigInt(lhs) -= rhs; }
     friend inline bool operator==(const BigInt& lhs, const BigInt& rhs) noexcept { return lhs.val == rhs.val; }
