@@ -173,6 +173,9 @@ data:
       path: lib/math/baby-step_giant-step.hpp
       title: Baby-step giant-step
     - icon: ':heavy_check_mark:'
+      path: lib/math/bigint.hpp
+      title: lib/math/bigint.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/math/binarybasis.hpp
       title: Binary Basis
     - icon: ':heavy_check_mark:'
@@ -435,6 +438,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/matrix_product.test.cpp
       title: test/library_checker/matrix/matrix_product.test.cpp
+  - name: test/library_checker/sample
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/sample/many_aplusb_128bit.test.cpp
+      title: test/library_checker/sample/many_aplusb_128bit.test.cpp
   - name: test/library_checker/string
     pages:
     - icon: ':heavy_check_mark:'

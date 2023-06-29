@@ -61,9 +61,9 @@ data:
   timestamp: '2023-01-25 06:41:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/yuki_117.test.cpp
-  - test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
   - test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
+  - test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
+  - test/yukicoder/yuki_117.test.cpp
 documentation_of: lib/math/combination.hpp
 layout: document
 redirect_from:
