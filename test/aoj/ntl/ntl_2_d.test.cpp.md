@@ -18,30 +18,31 @@ data:
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/bigint.hpp\"\
     \n\ntemplate <long long base = 1000000LL, int digit = 6>\nstruct BigInt{\n   \
     \ int sign = 1;\n    vector<long long> val;\n\n    constexpr BigInt(const long\
-    \ long _val = 0) noexcept {\n        if(_val != 0) val.assign(1, _val);\n    \
-    \    if(_val < 0) sign = -1;\n    }\n    constexpr BigInt(const vector<long long>\
-    \ &_val) noexcept : val(_val) {}\n    constexpr BigInt(const string &s) noexcept\
-    \ {\n        stoi(s);\n    }\n\nprivate:\n    void normalize(){\n        while(!val.empty()\
-    \ && val.back() == 0) val.pop_back();\n        if(val.empty()) sign = 1;\n   \
-    \ }\n    vector<long long> karatsuba_algorithm(vector<long long> &a, vector<long\
-    \ long> &b){\n        const int n = (int) a.size();\n        const int h = n >>\
-    \ 1;\n        assert(a.size() == b.size());\n        assert((n & (n - 1)) == 0);\n\
-    \        if(n <= 64){\n            vector<long long> res(2 * n - 1);\n       \
-    \     for(int i = 0; i < n; ++i){\n                for(int j = 0; j < n; ++j){\n\
-    \                    res[i + j] += a[i] * b[j];\n                }\n         \
-    \   }\n            return res;\n        }\n        vector<long long> p(h), q(h),\
-    \ r(h), s(h), t(h), u(h);\n        for(int i = 0; i < h; ++i){\n            p[i]\
-    \ = a[i + h];\n            q[i] = a[i];\n            r[i] = b[i + h];\n      \
-    \      s[i] = b[i];\n            t[i] = p[i] + q[i];\n            u[i] = r[i]\
-    \ + s[i];\n        }\n        p = karatsuba_algorithm(p, r);\n        q = karatsuba_algorithm(q,\
-    \ s);\n        t = karatsuba_algorithm(t, u);\n        vector<long long> res(2\
-    \ * n - 1, 0);\n        for(int i = 0; i < n - 1; ++i){\n            res[i] +=\
-    \ q[i];\n            res[i + h] += t[i] - p[i] - q[i];\n            res[i + n]\
-    \ += p[i];\n        }\n        return res;\n    }\n\n    pair<BigInt, BigInt>\
-    \ divide_naive(const BigInt& rhs) const {\n        assert(!rhs.val.empty());\n\
-    \        const int k = base / (rhs.val.back() + 1);\n        const BigInt dividend\
-    \ = (sign == 1 ? *this : -(*this)) * k;\n        const BigInt divisor = (rhs.sign\
-    \ == 1 ? rhs : -rhs) * k;\n        BigInt quo, rem = 0;\n        quo.val.resize(dividend.val.size());\n\
+    \ long _val = 0) noexcept {\n        if(_val != 0){\n            val.assign(1,\
+    \ abs(_val));\n            shift();\n        }\n        if(_val < 0) sign = -1;\n\
+    \    }\n    constexpr BigInt(const vector<long long> &_val) noexcept : val(_val)\
+    \ {}\n    constexpr BigInt(const string &s) noexcept {\n        stoi(s);\n   \
+    \ }\n\nprivate:\n    void normalize(){\n        while(!val.empty() && val.back()\
+    \ == 0) val.pop_back();\n        if(val.empty()) sign = 1;\n    }\n    vector<long\
+    \ long> karatsuba_algorithm(vector<long long> &a, vector<long long> &b){\n   \
+    \     const int n = (int) a.size();\n        const int h = n >> 1;\n        assert(a.size()\
+    \ == b.size());\n        assert((n & (n - 1)) == 0);\n        if(n <= 64){\n \
+    \           vector<long long> res(2 * n - 1);\n            for(int i = 0; i <\
+    \ n; ++i){\n                for(int j = 0; j < n; ++j){\n                    res[i\
+    \ + j] += a[i] * b[j];\n                }\n            }\n            return res;\n\
+    \        }\n        vector<long long> p(h), q(h), r(h), s(h), t(h), u(h);\n  \
+    \      for(int i = 0; i < h; ++i){\n            p[i] = a[i + h];\n           \
+    \ q[i] = a[i];\n            r[i] = b[i + h];\n            s[i] = b[i];\n     \
+    \       t[i] = p[i] + q[i];\n            u[i] = r[i] + s[i];\n        }\n    \
+    \    p = karatsuba_algorithm(p, r);\n        q = karatsuba_algorithm(q, s);\n\
+    \        t = karatsuba_algorithm(t, u);\n        vector<long long> res(2 * n -\
+    \ 1, 0);\n        for(int i = 0; i < n - 1; ++i){\n            res[i] += q[i];\n\
+    \            res[i + h] += t[i] - p[i] - q[i];\n            res[i + n] += p[i];\n\
+    \        }\n        return res;\n    }\n\n    pair<BigInt, BigInt> divide_naive(const\
+    \ BigInt& rhs) const {\n        assert(!rhs.val.empty());\n        const int k\
+    \ = base / (rhs.val.back() + 1);\n        const BigInt dividend = (sign == 1 ?\
+    \ *this : -(*this)) * k;\n        const BigInt divisor = (rhs.sign == 1 ? rhs\
+    \ : -rhs) * k;\n        BigInt quo, rem = 0;\n        quo.val.resize(dividend.val.size());\n\
     \        const int n = divisor.val.size();\n        for(int i = (int) dividend.val.size()\
     \ - 1; i >= 0; --i){\n            rem.val.emplace(rem.val.begin(), dividend.val[i]);\n\
     \            quo.val[i] = ((n < (int) rem.val.size() ? rem.val[n] * base : 0)\
@@ -103,7 +104,7 @@ data:
     \   val[i] += rhs.val[i];\n        }\n        return (*this).shift();\n    }\n\
     \    inline BigInt& operator-=(const BigInt& rhs) noexcept {\n        if(rhs.val.empty())\
     \ return *this;\n        if(sign != rhs.sign) return *this += -rhs;\n        if((sign\
-    \ == 1 ? *this : -*this) < (rhs.sign == 1 ? rhs : -rhs)){\n            return\
+    \ == 1 ? *this : -(*this)) < (rhs.sign == 1 ? rhs : -rhs)){\n            return\
     \ *this = -(rhs - *this);\n        }\n        for(int i = 0; i < (int) rhs.val.size();\
     \ ++i){\n            val[i] -= rhs.val[i];\n        }\n        \n        shift();\n\
     \        normalize();\n        return *this;\n    }\n    // Karatsuba Algorithm\
@@ -171,7 +172,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ntl/ntl_2_d.test.cpp
   requiredBy: []
-  timestamp: '2023-06-30 17:02:14+09:00'
+  timestamp: '2023-06-30 17:30:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ntl/ntl_2_d.test.cpp
