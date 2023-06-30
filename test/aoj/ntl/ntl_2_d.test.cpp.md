@@ -6,23 +6,22 @@ data:
     title: lib/math/bigint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/many_aplusb_128bit
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_D
     links:
-    - https://judge.yosupo.jp/problem/many_aplusb_128bit
-  bundledCode: "#line 1 \"test/library_checker/sample/many_aplusb_128bit.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/many_aplusb_128bit\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/bigint.hpp\"\n\n\
-    template <long long base = 1000000LL, int digit = 6>\nstruct BigInt{\n    int\
-    \ sign = 1;\n    vector<long long> val;\n\n    constexpr BigInt(const long long\
-    \ _val = 0) noexcept {\n        if(_val != 0) val.assign(1, _val);\n        if(_val\
-    \ < 0) sign = -1;\n    }\n    constexpr BigInt(const vector<long long> &_val)\
-    \ noexcept : val(_val) {}\n    constexpr BigInt(const string &s) noexcept {\n\
-    \        stoi(s);\n    }\n\nprivate:\n    void normalize(){\n        while(!val.empty()\
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_D
+  bundledCode: "#line 1 \"test/aoj/ntl/ntl_2_d.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_D\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/bigint.hpp\"\
+    \n\ntemplate <long long base = 1000000LL, int digit = 6>\nstruct BigInt{\n   \
+    \ int sign = 1;\n    vector<long long> val;\n\n    constexpr BigInt(const long\
+    \ long _val = 0) noexcept {\n        if(_val != 0) val.assign(1, _val);\n    \
+    \    if(_val < 0) sign = -1;\n    }\n    constexpr BigInt(const vector<long long>\
+    \ &_val) noexcept : val(_val) {}\n    constexpr BigInt(const string &s) noexcept\
+    \ {\n        stoi(s);\n    }\n\nprivate:\n    void normalize(){\n        while(!val.empty()\
     \ && val.back() == 0) val.pop_back();\n        if(val.empty()) sign = 1;\n   \
     \ }\n    vector<long long> karatsuba_algorithm(vector<long long> &a, vector<long\
     \ long> &b){\n        const int n = (int) a.size();\n        const int h = n >>\
@@ -161,27 +160,24 @@ data:
     \ istream& operator>>(istream& is, BigInt& x) noexcept {\n        string s;\n\
     \        is >> s;\n        x.stoi(s);\n        return is;\n    }\n    friend inline\
     \ ostream& operator<<(ostream& os, const BigInt& x) noexcept { return os << x.itos();\
-    \ }\n};\n#line 6 \"test/library_checker/sample/many_aplusb_128bit.test.cpp\"\n\
-    \nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n   \
-    \ int t; cin >> t;\n    while(t--){\n        BigInt a, b; cin >> a >> b;\n   \
-    \     cout << a + b << \"\\n\";\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/many_aplusb_128bit\"\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/bigint.hpp\"\
-    \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
-    \   int t; cin >> t;\n    while(t--){\n        BigInt a, b; cin >> a >> b;\n \
-    \       cout << a + b << \"\\n\";\n    }\n}"
+    \ }\n};\n#line 6 \"test/aoj/ntl/ntl_2_d.test.cpp\"\n\nint main(){\n    BigInt\
+    \ a, b; cin >> a >> b;\n    cout << a / b << \"\\n\";\n}\n"
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_D\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/bigint.hpp\"\
+    \n\nint main(){\n    BigInt a, b; cin >> a >> b;\n    cout << a / b << \"\\n\"\
+    ;\n}"
   dependsOn:
   - lib/math/bigint.hpp
   isVerificationFile: true
-  path: test/library_checker/sample/many_aplusb_128bit.test.cpp
+  path: test/aoj/ntl/ntl_2_d.test.cpp
   requiredBy: []
   timestamp: '2023-06-30 16:50:05+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/sample/many_aplusb_128bit.test.cpp
+documentation_of: test/aoj/ntl/ntl_2_d.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/sample/many_aplusb_128bit.test.cpp
-- /verify/test/library_checker/sample/many_aplusb_128bit.test.cpp.html
-title: test/library_checker/sample/many_aplusb_128bit.test.cpp
+- /verify/test/aoj/ntl/ntl_2_d.test.cpp
+- /verify/test/aoj/ntl/ntl_2_d.test.cpp.html
+title: test/aoj/ntl/ntl_2_d.test.cpp
 ---
