@@ -6,7 +6,10 @@ struct BigInt{
     vector<long long> val;
 
     constexpr BigInt(const long long _val = 0) noexcept {
-        if(_val != 0) val.assign(1, _val);
+        if(_val != 0){
+            val.assign(1, abs(_val));
+            shift();
+        }
         if(_val < 0) sign = -1;
     }
     constexpr BigInt(const vector<long long> &_val) noexcept : val(_val) {}
@@ -194,7 +197,7 @@ public:
     inline BigInt& operator-=(const BigInt& rhs) noexcept {
         if(rhs.val.empty()) return *this;
         if(sign != rhs.sign) return *this += -rhs;
-        if((sign == 1 ? *this : -*this) < (rhs.sign == 1 ? rhs : -rhs)){
+        if((sign == 1 ? *this : -(*this)) < (rhs.sign == 1 ? rhs : -rhs)){
             return *this = -(rhs - *this);
         }
         for(int i = 0; i < (int) rhs.val.size(); ++i){
