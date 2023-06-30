@@ -228,15 +228,15 @@ public:
     inline BigInt& operator/=(const BigInt& rhst) noexcept {
         assert(!rhst.val.empty());
         if(val.empty()) return *this;
+        if((int) val.size() <= 32 && (int) rhst.val.size() <= 32){
+            return *this = divide_naive(rhst).first;
+        }
 
         BigInt rhs = rhst;
         int mulsign = sign * rhs.sign;
         sign = 1, rhs.sign = 1;
         if(*this < rhs){
             return *this = BigInt();
-        }
-        if((int) val.size() <= 32 && (int) rhs.val.size() <= 32){
-            return *this = divide_naive(rhs).first;
         }
 
         *this = divide_newton(rhs).first;
