@@ -172,7 +172,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/baby-step_giant-step.hpp
       title: Baby-step giant-step
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/bigint.hpp
       title: lib/math/bigint.hpp
     - icon: ':heavy_check_mark:'
@@ -306,7 +306,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ntl/ntl_2_c.test.cpp
       title: test/aoj/ntl/ntl_2_c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ntl/ntl_2_d.test.cpp
       title: test/aoj/ntl/ntl_2_d.test.cpp
     - icon: ':heavy_check_mark:'

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/bigint.hpp
     title: lib/math/bigint.hpp
   _extendedRequiredBy: []
@@ -116,35 +116,35 @@ data:
     \      val = karatsuba_algorithm(val, rhsval);\n\n        shift();\n        normalize();\n\
     \        return *this;\n    }\n    // Newton method\n    inline BigInt& operator/=(const\
     \ BigInt& rhst) noexcept {\n        assert(!rhst.val.empty());\n        if(val.empty())\
-    \ return *this;\n\n        BigInt rhs = rhst;\n        int mulsign = sign * rhs.sign;\n\
-    \        sign = 1, rhs.sign = 1;\n        if(*this < rhs){\n            return\
-    \ *this = BigInt();\n        }\n        if((int) val.size() <= 32 && (int) rhs.val.size()\
-    \ <= 32){\n            return *this = divide_naive(rhs).first;\n        }\n\n\
-    \        *this = divide_newton(rhs).first;\n        sign = mulsign;\n        normalize();\n\
-    \        return *this;\n    }\n    inline BigInt& operator%=(const BigInt& rhs)\
-    \ noexcept {\n        assert(!rhs.val.empty());\n        return *this = *this\
-    \ - (*this / rhs) * rhs;\n    }\n    inline BigInt& operator++() { return *this\
-    \ += 1; }\n    inline BigInt operator++(int) {\n        const BigInt res = *this;\n\
-    \        ++(*this);\n        return res;\n    }\n    inline BigInt& operator--()\
-    \ { return *this -= 1; }\n    inline BigInt operator--(int) {\n        const BigInt\
-    \ res = *this;\n        --(*this);\n        return res;\n    }\n    inline BigInt\
-    \ operator+() const { return *this; }\n    inline BigInt operator-() const {\n\
-    \        BigInt res = *this;\n        if (!res.val.empty()) res.sign = -res.sign;\n\
-    \        return res;\n    }\n    inline BigInt& operator<<=(const unsigned int\
-    \ rhs){\n        if(val.back() >= 1 || (int) val.size() >= 2){\n            vector<long\
-    \ long> tmp(rhs, 0);\n            val.insert(val.begin(), tmp.begin(), tmp.end());\n\
-    \        }\n        return *this;\n    }\n    inline BigInt& operator>>=(const\
-    \ unsigned int rhs){\n        if(rhs == 0) return *this;\n        if(rhs > val.size())\
-    \ val = {0};\n        else val = vector<long long>(val.begin() + rhs, val.end());\
-    \ \n        return *this;\n    }\n    inline bool operator<(const BigInt& rhs)\
-    \ const {\n        if(sign != rhs.sign) return sign < rhs.sign;\n        if(val.size()\
-    \ != rhs.val.size()) return sign * val.size() < rhs.sign * rhs.val.size();\n \
-    \       for(int i = (int) val.size() - 1; i >= 0; --i){\n            if(val[i]\
-    \ != rhs.val[i]) return sign * val[i] < rhs.sign * rhs.val[i];\n        }\n  \
-    \      return false;\n    }\n    inline bool operator>(const BigInt& rhs) const\
-    \ { return rhs < (*this); }\n    inline bool operator<=(const BigInt& rhs) const\
-    \ { return !((*this) > rhs); }\n    inline bool operator>=(const BigInt& rhs)\
-    \ const { return !((*this) < rhs); }\n    friend inline BigInt operator+(const\
+    \ return *this;\n        if((int) val.size() <= 32 && (int) rhst.val.size() <=\
+    \ 32){\n            return *this = divide_naive(rhst).first;\n        }\n\n  \
+    \      BigInt rhs = rhst;\n        int mulsign = sign * rhs.sign;\n        sign\
+    \ = 1, rhs.sign = 1;\n        if(*this < rhs){\n            return *this = BigInt();\n\
+    \        }\n\n        *this = divide_newton(rhs).first;\n        sign = mulsign;\n\
+    \        normalize();\n        return *this;\n    }\n    inline BigInt& operator%=(const\
+    \ BigInt& rhs) noexcept {\n        assert(!rhs.val.empty());\n        return *this\
+    \ = *this - (*this / rhs) * rhs;\n    }\n    inline BigInt& operator++() { return\
+    \ *this += 1; }\n    inline BigInt operator++(int) {\n        const BigInt res\
+    \ = *this;\n        ++(*this);\n        return res;\n    }\n    inline BigInt&\
+    \ operator--() { return *this -= 1; }\n    inline BigInt operator--(int) {\n \
+    \       const BigInt res = *this;\n        --(*this);\n        return res;\n \
+    \   }\n    inline BigInt operator+() const { return *this; }\n    inline BigInt\
+    \ operator-() const {\n        BigInt res = *this;\n        if (!res.val.empty())\
+    \ res.sign = -res.sign;\n        return res;\n    }\n    inline BigInt& operator<<=(const\
+    \ unsigned int rhs){\n        if(val.back() >= 1 || (int) val.size() >= 2){\n\
+    \            vector<long long> tmp(rhs, 0);\n            val.insert(val.begin(),\
+    \ tmp.begin(), tmp.end());\n        }\n        return *this;\n    }\n    inline\
+    \ BigInt& operator>>=(const unsigned int rhs){\n        if(rhs == 0) return *this;\n\
+    \        if(rhs > val.size()) val = {0};\n        else val = vector<long long>(val.begin()\
+    \ + rhs, val.end()); \n        return *this;\n    }\n    inline bool operator<(const\
+    \ BigInt& rhs) const {\n        if(sign != rhs.sign) return sign < rhs.sign;\n\
+    \        if(val.size() != rhs.val.size()) return sign * val.size() < rhs.sign\
+    \ * rhs.val.size();\n        for(int i = (int) val.size() - 1; i >= 0; --i){\n\
+    \            if(val[i] != rhs.val[i]) return sign * val[i] < rhs.sign * rhs.val[i];\n\
+    \        }\n        return false;\n    }\n    inline bool operator>(const BigInt&\
+    \ rhs) const { return rhs < (*this); }\n    inline bool operator<=(const BigInt&\
+    \ rhs) const { return !((*this) > rhs); }\n    inline bool operator>=(const BigInt&\
+    \ rhs) const { return !((*this) < rhs); }\n    friend inline BigInt operator+(const\
     \ BigInt& lhs, const BigInt& rhs) noexcept { return BigInt(lhs) += rhs; }\n  \
     \  friend inline BigInt operator-(const BigInt& lhs, const BigInt& rhs) noexcept\
     \ { return BigInt(lhs) -= rhs; }\n    friend inline BigInt operator*(const BigInt&\
@@ -175,7 +175,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/sample/many_aplusb_128bit.test.cpp
   requiredBy: []
-  timestamp: '2023-06-30 16:50:05+09:00'
+  timestamp: '2023-06-30 17:02:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/sample/many_aplusb_128bit.test.cpp
