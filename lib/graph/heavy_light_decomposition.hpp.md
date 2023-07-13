@@ -137,8 +137,8 @@ data:
   - test/library_checker/tree/jump_on_tree.test.cpp
   - test/library_checker/tree/lca_hl.test.cpp
   - test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
-  - test/library_checker/data_structure/vertex_add_path_sum.test.cpp
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
+  - test/library_checker/data_structure/vertex_add_path_sum.test.cpp
 documentation_of: lib/graph/heavy_light_decomposition.hpp
 layout: document
 redirect_from:

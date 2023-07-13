@@ -36,7 +36,15 @@ data:
     \      if(n < r || r < 0) return 0;\n        return (memo[n] % mod) * memoinv[n\
     \ - r] % mod;\n    }\n    inline long long nhr(const long long &n, const long\
     \ long &r) const {\n        if(n == 0 && r == 0) return 1;\n        return ncr(n\
-    \ + r - 1, r);\n    }\n};\n"
+    \ + r - 1, r);\n    }\n};\n\nstruct CombinationByPascal{\n    vector<vector<long\
+    \ long>> memo;\n    const long long mod;\n    CombinationByPascal(const int &N,\
+    \ const long long &m) : mod(m){\n        memo.assign(N + 1, vector<long long>(N\
+    \ + 1));\n        memo[0][0] = 1;\n        for(int i = 1; i <= N; ++i){\n    \
+    \        memo[i][0] = 1;\n            for(int j = 1; j <= N; ++j){\n         \
+    \       memo[i][j] = (memo[i - 1][j - 1] + memo[i - 1][j]);\n                if(memo[i][j]\
+    \ >= mod) memo[i][j] -= mod;\n            }\n        }\n    }\n    inline long\
+    \ long ncr(const int &n, const int &r) const {\n        if(n < r || r < 0) return\
+    \ 0;\n        return memo[n][r];\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Combination (\u4E8C\u9805\u4FC2\u6570)\n *\
     \ @docs docs/math/combination.md\n */\n\nstruct Combination{\n    vector<long\
     \ long> memo, memoinv, inv;\n    const long long mod;\n    Combination(const int\
@@ -53,17 +61,26 @@ data:
     \ long long &n, const long long &r) const {\n        if(n < r || r < 0) return\
     \ 0;\n        return (memo[n] % mod) * memoinv[n - r] % mod;\n    }\n    inline\
     \ long long nhr(const long long &n, const long long &r) const {\n        if(n\
-    \ == 0 && r == 0) return 1;\n        return ncr(n + r - 1, r);\n    }\n};"
+    \ == 0 && r == 0) return 1;\n        return ncr(n + r - 1, r);\n    }\n};\n\n\
+    struct CombinationByPascal{\n    vector<vector<long long>> memo;\n    const long\
+    \ long mod;\n    CombinationByPascal(const int &N, const long long &m) : mod(m){\n\
+    \        memo.assign(N + 1, vector<long long>(N + 1));\n        memo[0][0] = 1;\n\
+    \        for(int i = 1; i <= N; ++i){\n            memo[i][0] = 1;\n         \
+    \   for(int j = 1; j <= N; ++j){\n                memo[i][j] = (memo[i - 1][j\
+    \ - 1] + memo[i - 1][j]);\n                if(memo[i][j] >= mod) memo[i][j] -=\
+    \ mod;\n            }\n        }\n    }\n    inline long long ncr(const int &n,\
+    \ const int &r) const {\n        if(n < r || r < 0) return 0;\n        return\
+    \ memo[n][r];\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/combination.hpp
   requiredBy: []
-  timestamp: '2023-01-25 06:41:59+09:00'
+  timestamp: '2023-07-14 01:49:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yukicoder/yuki_117.test.cpp
   - test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
   - test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
-  - test/yukicoder/yuki_117.test.cpp
 documentation_of: lib/math/combination.hpp
 layout: document
 redirect_from:

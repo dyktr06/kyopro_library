@@ -329,13 +329,13 @@ data:
   timestamp: '2023-06-30 17:30:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/sample/many_aplusb_128bit.test.cpp
-  - test/aoj/ntl/ntl_2_d.test.cpp
-  - test/aoj/ntl/ntl_2_a.test.cpp
   - test/aoj/ntl/ntl_2_f.test.cpp
+  - test/aoj/ntl/ntl_2_b.test.cpp
   - test/aoj/ntl/ntl_2_e.test.cpp
   - test/aoj/ntl/ntl_2_c.test.cpp
-  - test/aoj/ntl/ntl_2_b.test.cpp
+  - test/aoj/ntl/ntl_2_a.test.cpp
+  - test/aoj/ntl/ntl_2_d.test.cpp
+  - test/library_checker/sample/many_aplusb_128bit.test.cpp
 documentation_of: lib/math/bigint.hpp
 layout: document
 redirect_from:

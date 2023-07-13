@@ -32,7 +32,15 @@ data:
     \ const {\n        if(n < r || r < 0) return 0;\n        return (memo[n] % mod)\
     \ * memoinv[n - r] % mod;\n    }\n    inline long long nhr(const long long &n,\
     \ const long long &r) const {\n        if(n == 0 && r == 0) return 1;\n      \
-    \  return ncr(n + r - 1, r);\n    }\n};\n#line 6 \"test/yukicoder/yuki_117.test.cpp\"\
+    \  return ncr(n + r - 1, r);\n    }\n};\n\nstruct CombinationByPascal{\n    vector<vector<long\
+    \ long>> memo;\n    const long long mod;\n    CombinationByPascal(const int &N,\
+    \ const long long &m) : mod(m){\n        memo.assign(N + 1, vector<long long>(N\
+    \ + 1));\n        memo[0][0] = 1;\n        for(int i = 1; i <= N; ++i){\n    \
+    \        memo[i][0] = 1;\n            for(int j = 1; j <= N; ++j){\n         \
+    \       memo[i][j] = (memo[i - 1][j - 1] + memo[i - 1][j]);\n                if(memo[i][j]\
+    \ >= mod) memo[i][j] -= mod;\n            }\n        }\n    }\n    inline long\
+    \ long ncr(const int &n, const int &r) const {\n        if(n < r || r < 0) return\
+    \ 0;\n        return memo[n][r];\n    }\n};\n#line 6 \"test/yukicoder/yuki_117.test.cpp\"\
     \n\nconst long long MOD = 1000000007;\n\nint main(){\n    int t; cin >> t;\n \
     \   Combination comb(2000000, MOD);\n\n    while(t--){\n        char s[10];\n\
     \        int n, k;\n        scanf(\"%1s(%d,%d)\", s, &n, &k);\n\t\tlong long ans\
@@ -52,7 +60,7 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_117.test.cpp
   requiredBy: []
-  timestamp: '2023-01-25 06:41:59+09:00'
+  timestamp: '2023-07-14 01:49:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_117.test.cpp
