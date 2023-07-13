@@ -37,3 +37,23 @@ struct Combination{
         return ncr(n + r - 1, r);
     }
 };
+
+struct CombinationByPascal{
+    vector<vector<long long>> memo;
+    const long long mod;
+    CombinationByPascal(const int &N, const long long &m) : mod(m){
+        memo.assign(N + 1, vector<long long>(N + 1));
+        memo[0][0] = 1;
+        for(int i = 1; i <= N; ++i){
+            memo[i][0] = 1;
+            for(int j = 1; j <= N; ++j){
+                memo[i][j] = (memo[i - 1][j - 1] + memo[i - 1][j]);
+                if(memo[i][j] >= mod) memo[i][j] -= mod;
+            }
+        }
+    }
+    inline long long ncr(const int &n, const int &r) const {
+        if(n < r || r < 0) return 0;
+        return memo[n][r];
+    }
+};
