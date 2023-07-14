@@ -126,12 +126,18 @@ data:
       path: lib/graph/bellman_ford.hpp
       title: "Bellman-Ford Algorithm (\u30D9\u30EB\u30DE\u30F3-\u30D5\u30A9\u30FC\u30C9\
         \u6CD5)"
+    - icon: ':warning:'
+      path: lib/graph/bipartite_matching.hpp
+      title: lib/graph/bipartite_matching.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/cartesian_tree.hpp
       title: lib/graph/cartesian_tree.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/dinic.hpp
+      title: lib/graph/dinic.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/graph-input.hpp
       title: lib/graph/graph-input.hpp
@@ -409,6 +415,9 @@ data:
       title: test/library_checker/geometry/sort_points_by_argument.test.cpp
   - name: test/library_checker/graph
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/bipartitematching.test.cpp
+      title: test/library_checker/graph/bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/cartesian_tree.test.cpp
       title: test/library_checker/graph/cartesian_tree.test.cpp
