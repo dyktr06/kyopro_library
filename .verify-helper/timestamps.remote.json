@@ -44,6 +44,7 @@
 "test/library_checker/dp/longest_increasing_subsequence.test.cpp": "2023-01-23 12:51:32 +0900",
 "test/library_checker/dp/number_of_subsequences.test.cpp": "2023-01-23 12:51:32 +0900",
 "test/library_checker/geometry/sort_points_by_argument.test.cpp": "2023-06-17 04:14:46 +0900",
+"test/library_checker/graph/bipartitematching.test.cpp": "2023-07-14 17:26:01 +0900",
 "test/library_checker/graph/cartesian_tree.test.cpp": "2023-04-20 13:12:21 +0900",
 "test/library_checker/graph/cycle_detection_undirected.test.cpp": "2023-06-17 04:14:59 +0900",
 "test/library_checker/graph/manhattanmst.test.cpp": "2023-05-21 17:12:20 +0900",
