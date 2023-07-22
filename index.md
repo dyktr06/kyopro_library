@@ -232,6 +232,9 @@ data:
       path: lib/others/exhaustive_search.hpp
       title: "Exhaustive Search (bit \u5168\u63A2\u7D22)"
     - icon: ':warning:'
+      path: lib/others/maximum_rectangle.hpp
+      title: lib/others/maximum_rectangle.hpp
+    - icon: ':warning:'
       path: lib/others/others.hpp
       title: lib/others/others.hpp
     - icon: ':warning:'
