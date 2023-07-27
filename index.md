@@ -95,6 +95,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/slope_trick.hpp
       title: lib/data_structure/slope_trick.hpp
+    - icon: ':warning:'
+      path: lib/data_structure/square_division.hpp
+      title: lib/data_structure/square_division.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/swag.hpp
       title: SWAG
