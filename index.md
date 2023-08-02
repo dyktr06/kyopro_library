@@ -83,6 +83,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/persistent_union_find.hpp
       title: lib/data_structure/persistent_union_find.hpp
+    - icon: ':warning:'
+      path: lib/data_structure/priority_set.hpp
+      title: lib/data_structure/priority_set.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/range_tree.hpp
       title: lib/data_structure/range_tree.hpp
