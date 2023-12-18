@@ -11,14 +11,12 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/inverse_matrix
     links:
-    - https://judge.yosupo.jp/problem/inverse_matrix
-  bundledCode: "#line 1 \"test/library_checker/matrix/inverse_matrix.test.cpp\"\n\
-    #define PROBLEM \"https://judge.yosupo.jp/problem/inverse_matrix\"\n#include <bits/stdc++.h>\n\
+    - https://judge.yosupo.jp/problem/pow_of_matrix
+  bundledCode: "#line 1 \"test/library_checker/matrix/pow_of_matrix.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/pow_of_matrix\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#line 2 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n\
     \ * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\nstruct ModInt{\n\
     \    long long val;\n    constexpr ModInt(const long long _val = 0) noexcept :\
@@ -124,33 +122,33 @@ data:
     \ const {\n        Matrix res(m, n), a = *this;\n        for(int i = 0; i < m;\
     \ ++i){\n            for(int j = 0; j < n; ++j){\n                res[i][j] =\
     \ a[n - j - 1][i];\n            }\n        }\n        return res;\n    }\n};\n\
-    #line 7 \"test/library_checker/matrix/inverse_matrix.test.cpp\"\n\nusing mint\
-    \ = ModInt<998244353>;\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
-    \n    int n; cin >> n;\n    Matrix<mint> a(n, n);\n    for(int i = 0; i < n; i++){\n\
-    \        for(int j = 0; j < n; j++){\n            cin >> a[i][j];\n        }\n\
-    \    }\n    try{\n        a = a.inv();\n        cout << a;\n    }\n    catch(...){\n\
-    \        cout << -1 << endl;\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inverse_matrix\"\n#include\
+    #line 7 \"test/library_checker/matrix/pow_of_matrix.cpp\"\n\nusing mint = ModInt<998244353>;\n\
+    \nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout\
+    \ << fixed << setprecision(20);\n\n    long long n, k; cin >> n >> k;\n    Matrix<mint>\
+    \ mat(n, n);\n    for(int i = 0; i < n; i++){\n        for(int j = 0; j < n; j++){\n\
+    \            cin >> mat[i][j];\n        }\n    }\n    cout << mat.pow(k) << endl;\n\
+    }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_matrix\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/modint.hpp\"\
     \n#include \"../../../lib/math/matrix.hpp\"\n\nusing mint = ModInt<998244353>;\n\
-    \nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n   \
-    \ int n; cin >> n;\n    Matrix<mint> a(n, n);\n    for(int i = 0; i < n; i++){\n\
-    \        for(int j = 0; j < n; j++){\n            cin >> a[i][j];\n        }\n\
-    \    }\n    try{\n        a = a.inv();\n        cout << a;\n    }\n    catch(...){\n\
-    \        cout << -1 << endl;\n    }\n}"
+    \nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout\
+    \ << fixed << setprecision(20);\n\n    long long n, k; cin >> n >> k;\n    Matrix<mint>\
+    \ mat(n, n);\n    for(int i = 0; i < n; i++){\n        for(int j = 0; j < n; j++){\n\
+    \            cin >> mat[i][j];\n        }\n    }\n    cout << mat.pow(k) << endl;\n\
+    }"
   dependsOn:
   - lib/math/modint.hpp
   - lib/math/matrix.hpp
-  isVerificationFile: true
-  path: test/library_checker/matrix/inverse_matrix.test.cpp
+  isVerificationFile: false
+  path: test/library_checker/matrix/pow_of_matrix.cpp
   requiredBy: []
-  timestamp: '2023-12-18 11:09:03+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-12-18 11:10:00+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/library_checker/matrix/inverse_matrix.test.cpp
+documentation_of: test/library_checker/matrix/pow_of_matrix.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/matrix/inverse_matrix.test.cpp
-- /verify/test/library_checker/matrix/inverse_matrix.test.cpp.html
-title: test/library_checker/matrix/inverse_matrix.test.cpp
+- /library/test/library_checker/matrix/pow_of_matrix.cpp
+- /library/test/library_checker/matrix/pow_of_matrix.cpp.html
+title: test/library_checker/matrix/pow_of_matrix.cpp
 ---

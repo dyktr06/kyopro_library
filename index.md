@@ -226,6 +226,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
+    - icon: ':warning:'
+      path: lib/math/stern_brocot_tree.hpp
+      title: lib/math/stern_brocot_tree.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/utils.hpp
       title: lib/math/utils.hpp
@@ -246,6 +249,9 @@ data:
     - icon: ':warning:'
       path: lib/others/random.cpp
       title: lib/others/random.cpp
+    - icon: ':warning:'
+      path: lib/others/val_range.hpp
+      title: lib/others/val_range.hpp
   - name: lib/string
     pages:
     - icon: ':warning:'
@@ -268,6 +274,11 @@ data:
     - icon: ':warning:'
       path: lib/template.cpp
       title: lib/template.cpp
+  - name: test/library_checker/matrix
+    pages:
+    - icon: ':warning:'
+      path: test/library_checker/matrix/pow_of_matrix.cpp
+      title: test/library_checker/matrix/pow_of_matrix.cpp
   verificationCategories:
   - name: test/aoj/alds1
     pages:

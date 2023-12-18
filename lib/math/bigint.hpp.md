@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: lib/math/stern_brocot_tree.hpp
+    title: lib/math/stern_brocot_tree.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ntl/ntl_2_a.test.cpp
@@ -325,16 +328,17 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/math/bigint.hpp
-  requiredBy: []
+  requiredBy:
+  - lib/math/stern_brocot_tree.hpp
   timestamp: '2023-06-30 17:30:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/ntl/ntl_2_f.test.cpp
-  - test/aoj/ntl/ntl_2_b.test.cpp
-  - test/aoj/ntl/ntl_2_e.test.cpp
-  - test/aoj/ntl/ntl_2_c.test.cpp
   - test/aoj/ntl/ntl_2_a.test.cpp
+  - test/aoj/ntl/ntl_2_e.test.cpp
+  - test/aoj/ntl/ntl_2_f.test.cpp
+  - test/aoj/ntl/ntl_2_c.test.cpp
   - test/aoj/ntl/ntl_2_d.test.cpp
+  - test/aoj/ntl/ntl_2_b.test.cpp
   - test/library_checker/sample/many_aplusb_128bit.test.cpp
 documentation_of: lib/math/bigint.hpp
 layout: document

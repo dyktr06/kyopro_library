@@ -18,8 +18,8 @@ data:
     \u548C\u3092\u3082\u3068\u3081\u307E\u3059 : O(1)\ntemplate <typename T>\nlong\
     \ long sum(T a, T b){\n    long long res = ((b - a + 1) * (a + b)) / 2;\n    return\
     \ res;\n}\n\n// x^n\u3092\u3082\u3068\u3081\u307E\u3059 : O(logN)\ntemplate <typename\
-    \ T>\nT intpow(T x, T n){\n    T ret = 1;\n    while(n > 0) {\n        if(n &\
-    \ 1) (ret *= x);\n        (x *= x);\n        n >>= 1;\n    }\n    return ret;\n\
+    \ T>\nT intpow(T x, int n){\n    T ret = 1;\n    while(n > 0) {\n        if(n\
+    \ & 1) (ret *= x);\n        (x *= x);\n        n >>= 1;\n    }\n    return ret;\n\
     }\n\n// \u521D\u9805 a, \u516C\u5DEE d, \u9805\u6570 n \u306E\u7B49\u5DEE\u6570\
     \u5217\u306E\u548C\u3092\u8A08\u7B97\u3057\u307E\u3059 : O(1)\ntemplate <typename\
     \ T>\nT arithmeticsum(T a, T d, T n){\n    return n * (a * 2 + (n - 1) * d) /\
@@ -41,8 +41,8 @@ data:
     \u3081\u307E\u3059 : O(1)\ntemplate <typename T>\nlong long sum(T a, T b){\n \
     \   long long res = ((b - a + 1) * (a + b)) / 2;\n    return res;\n}\n\n// x^n\u3092\
     \u3082\u3068\u3081\u307E\u3059 : O(logN)\ntemplate <typename T>\nT intpow(T x,\
-    \ T n){\n    T ret = 1;\n    while(n > 0) {\n        if(n & 1) (ret *= x);\n \
-    \       (x *= x);\n        n >>= 1;\n    }\n    return ret;\n}\n\n// \u521D\u9805\
+    \ int n){\n    T ret = 1;\n    while(n > 0) {\n        if(n & 1) (ret *= x);\n\
+    \        (x *= x);\n        n >>= 1;\n    }\n    return ret;\n}\n\n// \u521D\u9805\
     \ a, \u516C\u5DEE d, \u9805\u6570 n \u306E\u7B49\u5DEE\u6570\u5217\u306E\u548C\
     \u3092\u8A08\u7B97\u3057\u307E\u3059 : O(1)\ntemplate <typename T>\nT arithmeticsum(T\
     \ a, T d, T n){\n    return n * (a * 2 + (n - 1) * d) / 2;\n}\n\n// \u521D\u9805\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: false
   path: lib/math/utils.hpp
   requiredBy: []
-  timestamp: '2022-12-25 05:08:28+09:00'
+  timestamp: '2023-10-27 17:53:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
