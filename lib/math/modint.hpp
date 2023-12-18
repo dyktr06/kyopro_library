@@ -8,7 +8,7 @@
 template <long long Modulus>
 struct ModInt{
     long long val;
-    constexpr ModInt(const long long &_val = 0) noexcept : val(_val) {
+    constexpr ModInt(const long long _val = 0) noexcept : val(_val) {
         normalize();
     }
     void normalize(){
@@ -50,7 +50,17 @@ struct ModInt{
     }
     inline ModInt operator-() const noexcept { return (Modulus - val) % Modulus; }
     inline ModInt inv(void) const { return inv(val); }
-    ModInt inv(const long long& n) const {
+    ModInt pow(long long n){
+        assert(0 <= n);
+        ModInt x = *this, r = 1;
+        while(n){
+            if(n & 1) r *= x;
+            x *= x;
+            n >>= 1;
+        }
+        return r;
+    }
+    ModInt inv(const long long n) const {
         long long a = n, b = Modulus, u = 1, v = 0;
         while(b){
             long long t = a / b;
