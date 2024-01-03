@@ -153,6 +153,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/heavy_light_decomposition.hpp
       title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
+    - icon: ':warning:'
+      path: lib/graph/interval_graph.hpp
+      title: lib/graph/interval_graph.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/manhattanMST.hpp
       title: Manhattan MST
@@ -396,6 +399,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/set_xor_min.test.cpp
       title: test/library_checker/data_structure/set_xor_min.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/static_range_count_distinct.test.cpp
+      title: test/library_checker/data_structure/static_range_count_distinct.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_range_frequency.test.cpp
       title: test/library_checker/data_structure/static_range_frequency.test.cpp
