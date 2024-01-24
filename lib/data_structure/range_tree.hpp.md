@@ -7,6 +7,9 @@ data:
     path: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
     title: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/rectangle_add_point_get.test.cpp
+    title: test/library_checker/data_structure/rectangle_add_point_get.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/rectangle_sum.test.cpp
     title: test/library_checker/data_structure/rectangle_sum.test.cpp
   _isVerificationFailed: false
@@ -94,6 +97,7 @@ data:
   timestamp: '2023-06-03 01:53:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/data_structure/rectangle_add_point_get.test.cpp
   - test/library_checker/data_structure/rectangle_sum.test.cpp
   - test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
 documentation_of: lib/data_structure/range_tree.hpp

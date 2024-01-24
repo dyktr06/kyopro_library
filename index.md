@@ -98,6 +98,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/slope_trick.hpp
       title: lib/data_structure/slope_trick.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/sparse_table.hpp
+      title: lib/data_structure/sparse_table.hpp
     - icon: ':warning:'
       path: lib/data_structure/square_division.hpp
       title: lib/data_structure/square_division.hpp
@@ -218,6 +221,9 @@ data:
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
+      path: lib/math/pow_sum.hpp
+      title: lib/math/pow_sum.hpp
+    - icon: ':warning:'
       path: lib/math/prime-factor.hpp
       title: Smallest Prime Factor
     - icon: ':heavy_check_mark:'
@@ -226,7 +232,7 @@ data:
     - icon: ':warning:'
       path: lib/math/prime.hpp
       title: "\u7D20\u6570\u5224\u5B9A\u3001\u7D04\u6570\u5217\u6319"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/primitive_root.hpp
       title: lib/math/primitive_root.hpp
     - icon: ':heavy_check_mark:'
@@ -252,9 +258,9 @@ data:
     - icon: ':warning:'
       path: lib/others/others.hpp
       title: lib/others/others.hpp
-    - icon: ':warning:'
-      path: lib/others/random.cpp
-      title: lib/others/random.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/others/random.hpp
+      title: lib/others/random.hpp
     - icon: ':warning:'
       path: lib/others/val_range.hpp
       title: lib/others/val_range.hpp
@@ -394,6 +400,9 @@ data:
       path: test/library_checker/data_structure/range_kth_smallest.test.cpp
       title: test/library_checker/data_structure/range_kth_smallest.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/rectangle_add_point_get.test.cpp
+      title: test/library_checker/data_structure/rectangle_add_point_get.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/rectangle_sum.test.cpp
       title: test/library_checker/data_structure/rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
@@ -412,8 +421,14 @@ data:
       path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
       title: test/library_checker/data_structure/static_range_inversions_query.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/static_range_mode_query.test.cpp
+      title: test/library_checker/data_structure/static_range_mode_query.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_rmq.test.cpp
       title: test/library_checker/data_structure/static_rmq.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/static_rmq_1.test.cpp
+      title: test/library_checker/data_structure/static_rmq_1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/unionfind.test.cpp
       title: test/library_checker/data_structure/unionfind.test.cpp
@@ -485,7 +500,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/primarity_test.test.cpp
       title: test/library_checker/math/primarity_test.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/primitive_root.test.cpp
       title: test/library_checker/math/primitive_root.test.cpp
   - name: test/library_checker/matrix

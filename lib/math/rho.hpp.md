@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/math/primitive_root.hpp
+    title: lib/math/primitive_root.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/math/factorize.test.cpp
@@ -9,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/math/primarity_test.test.cpp
     title: test/library_checker/math/primarity_test.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/math/primitive_root.test.cpp
+    title: test/library_checker/math/primitive_root.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_888.test.cpp
     title: test/yukicoder/yuki_888.test.cpp
@@ -106,10 +112,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/math/rho.hpp
-  requiredBy: []
+  requiredBy:
+  - lib/math/primitive_root.hpp
   timestamp: '2023-01-18 06:27:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/math/primitive_root.test.cpp
   - test/library_checker/math/primarity_test.test.cpp
   - test/library_checker/math/factorize.test.cpp
   - test/yukicoder/yuki_888.test.cpp

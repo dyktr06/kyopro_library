@@ -18,6 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
     title: test/library_checker/data_structure/static_range_inversions_query.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/static_range_mode_query.test.cpp
+    title: test/library_checker/data_structure/static_range_mode_query.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -58,6 +61,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/static_range_count_distinct.test.cpp
+  - test/library_checker/data_structure/static_range_mode_query.test.cpp
   - test/library_checker/data_structure/range_kth_smallest.test.cpp
   - test/library_checker/data_structure/static_range_inversions_query.test.cpp
   - test/library_checker/data_structure/static_range_frequency.test.cpp
