@@ -15,6 +15,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/manhattanmst.test.cpp
     title: test/library_checker/graph/manhattanmst.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/minimum_spanning_tree.test.cpp
+    title: test/library_checker/graph/minimum_spanning_tree.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -56,6 +59,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/unionfind.test.cpp
+  - test/library_checker/graph/minimum_spanning_tree.test.cpp
   - test/library_checker/graph/manhattanmst.test.cpp
   - test/library_checker/graph/cycle_detection_undirected.test.cpp
 documentation_of: lib/data_structure/union_find.hpp
