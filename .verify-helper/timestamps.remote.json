@@ -65,6 +65,7 @@
 "test/library_checker/matrix/inverse_matrix.test.cpp": "2023-12-18 11:09:03 +0900",
 "test/library_checker/matrix/matrix_det.test.cpp": "2023-12-18 11:09:03 +0900",
 "test/library_checker/matrix/matrix_product.test.cpp": "2023-12-18 11:09:03 +0900",
+"test/library_checker/matrix/pow_of_matrix.test.cpp": "2024-01-24 14:13:51 +0900",
 "test/library_checker/sample/many_aplusb_128bit.test.cpp": "2023-06-30 17:30:27 +0900",
 "test/library_checker/string/enumerate_palindromes.test.cpp": "2023-01-09 04:41:47 +0900",
 "test/library_checker/string/z_algorithm.test.cpp": "2023-01-09 04:41:47 +0900",
