@@ -286,11 +286,6 @@ data:
     - icon: ':warning:'
       path: lib/template.cpp
       title: lib/template.cpp
-  - name: test/library_checker/matrix
-    pages:
-    - icon: ':warning:'
-      path: test/library_checker/matrix/pow_of_matrix.cpp
-      title: test/library_checker/matrix/pow_of_matrix.cpp
   verificationCategories:
   - name: test/aoj/alds1
     pages:
@@ -514,6 +509,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/matrix_product.test.cpp
       title: test/library_checker/matrix/matrix_product.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/matrix/pow_of_matrix.test.cpp
+      title: test/library_checker/matrix/pow_of_matrix.test.cpp
   - name: test/library_checker/sample
     pages:
     - icon: ':heavy_check_mark:'
