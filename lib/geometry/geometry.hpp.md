@@ -7,6 +7,9 @@ data:
     path: test/aoj/cgl/cgl_3_a.test.cpp
     title: test/aoj/cgl/cgl_3_a.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/geometry/count_points_in_triangle.test.cpp
+    title: test/library_checker/geometry/count_points_in_triangle.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/sort_points_by_argument.test.cpp
     title: test/library_checker/geometry/sort_points_by_argument.test.cpp
   _isVerificationFailed: false
@@ -155,6 +158,7 @@ data:
   verifiedWith:
   - test/aoj/cgl/cgl_3_a.test.cpp
   - test/library_checker/geometry/sort_points_by_argument.test.cpp
+  - test/library_checker/geometry/count_points_in_triangle.test.cpp
 documentation_of: lib/geometry/geometry.hpp
 layout: document
 redirect_from:
