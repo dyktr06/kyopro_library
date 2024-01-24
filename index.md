@@ -226,6 +226,9 @@ data:
     - icon: ':warning:'
       path: lib/math/prime.hpp
       title: "\u7D20\u6570\u5224\u5B9A\u3001\u7D04\u6570\u5217\u6319"
+    - icon: ':warning:'
+      path: lib/math/primitive_root.hpp
+      title: lib/math/primitive_root.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
@@ -482,6 +485,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/primarity_test.test.cpp
       title: test/library_checker/math/primarity_test.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/math/primitive_root.test.cpp
+      title: test/library_checker/math/primitive_root.test.cpp
   - name: test/library_checker/matrix
     pages:
     - icon: ':heavy_check_mark:'
