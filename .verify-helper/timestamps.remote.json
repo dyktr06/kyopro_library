@@ -58,6 +58,7 @@
 "test/library_checker/math/enumerate_quotients.test.cpp": "2023-05-14 14:52:40 +0900",
 "test/library_checker/math/factorize.test.cpp": "2023-01-18 06:27:45 +0900",
 "test/library_checker/math/primarity_test.test.cpp": "2023-05-19 15:09:06 +0900",
+"test/library_checker/math/primitive_root.test.cpp": "2024-01-24 14:02:37 +0900",
 "test/library_checker/matrix/inverse_matrix.test.cpp": "2023-12-18 11:09:03 +0900",
 "test/library_checker/matrix/matrix_det.test.cpp": "2023-12-18 11:09:03 +0900",
 "test/library_checker/matrix/matrix_product.test.cpp": "2023-12-18 11:09:03 +0900",
