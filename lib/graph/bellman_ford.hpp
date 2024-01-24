@@ -16,9 +16,13 @@ vector<long long> bellman_ford(const vector<T> &E, const int &n, const int &x){
             cost[to] = min(cost[to], cost[from] + t);
         }
     }
-    for(auto [from, to, t] : E){
-        if(cost[from] == INF) continue;
-        if(cost[from] + t < cost[to]) return vector<long long>();
+    for(int i = 0; i < n - 1; i++){
+        for(auto [from, to, t] : E){
+            if(cost[from] == INF) continue;
+            if(cost[from] + t < cost[to]){
+                cost[to] = -INF;
+            }
+        }
     }
     return cost;
 }

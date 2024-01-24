@@ -19,7 +19,13 @@ int main(){
     }
     
     vector<long long> ans = bellman_ford(E, n, r);
-    if(ans.empty()){
+    bool is_ncycle = false;
+    for(int i = 0; i < n; i++){
+        if(ans[i] <= -0x1fffffffffffffff){
+            is_ncycle = true;
+        }
+    }
+    if(is_ncycle){
         cout << "NEGATIVE CYCLE" << "\n";
     }else{
         for(int i = 0; i < n; i++){
