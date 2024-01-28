@@ -156,9 +156,9 @@ data:
   timestamp: '2023-06-17 04:14:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/cgl/cgl_3_a.test.cpp
   - test/library_checker/geometry/sort_points_by_argument.test.cpp
   - test/library_checker/geometry/count_points_in_triangle.test.cpp
+  - test/aoj/cgl/cgl_3_a.test.cpp
 documentation_of: lib/geometry/geometry.hpp
 layout: document
 redirect_from:

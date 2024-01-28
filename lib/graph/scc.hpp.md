@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/cycle_detection.test.cpp
+    title: test/library_checker/graph/cycle_detection.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/scc.test.cpp
     title: test/library_checker/graph/scc.test.cpp
   _isVerificationFailed: false
@@ -65,6 +68,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/scc.test.cpp
+  - test/library_checker/graph/cycle_detection.test.cpp
 documentation_of: lib/graph/scc.hpp
 layout: document
 redirect_from:

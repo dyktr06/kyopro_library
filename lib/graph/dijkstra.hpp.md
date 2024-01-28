@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/cycle_detection.test.cpp
+    title: test/library_checker/graph/cycle_detection.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/cycle_detection_undirected.test.cpp
     title: test/library_checker/graph/cycle_detection_undirected.test.cpp
   - icon: ':heavy_check_mark:'
@@ -76,6 +79,7 @@ data:
   - test/library_checker/tree/tree_diameter.test.cpp
   - test/library_checker/graph/shortest_path.test.cpp
   - test/library_checker/graph/cycle_detection_undirected.test.cpp
+  - test/library_checker/graph/cycle_detection.test.cpp
 documentation_of: lib/graph/dijkstra.hpp
 layout: document
 redirect_from:
