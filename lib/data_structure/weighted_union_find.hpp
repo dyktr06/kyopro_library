@@ -10,7 +10,7 @@ struct WeightedUnionFind{
     vector<int> par, rank, siz;
     vector<T> diff_weight;
 
-    WeightedUnionFind(const int &N, const T &e = 0) : par(N), rank(N), siz(N), diff_weight(N){
+    WeightedUnionFind(const int N, const T &e = 0) : par(N), rank(N), siz(N), diff_weight(N){
         for(int i = 0; i < N; ++i){
             par[i] = i;
             rank[i] = 0;
@@ -19,7 +19,7 @@ struct WeightedUnionFind{
         }
     }
 
-    int root(const int &x){
+    int root(const int x){
         if(par[x] == x){
             return x;
         }
@@ -28,16 +28,16 @@ struct WeightedUnionFind{
         return par[x] = rx;
     }
 
-    T weight(const int &x){
+    T weight(const int x){
         root(x);
         return diff_weight[x];
     }
 
-    T diff(const int &x, const int &y){
+    T diff(const int x, const int y){
         return weight(y) - weight(x);
     }
 
-    void unite(const int &x, const int &y, T w){
+    void unite(const int x, const int y, T w){
         w += weight(x);
         w -= weight(y);
 
@@ -56,13 +56,13 @@ struct WeightedUnionFind{
         if(rank[rx] == rank[ry]) ++rank[rx];
     }
 
-    bool same(const int &x, const int &y){
+    bool same(const int x, const int y){
         int rx = root(x);
         int ry = root(y);
         return rx == ry;
     }
 
-    int size(const int &x){
+    int size(const int x){
         return siz[root(x)];
     }
 };

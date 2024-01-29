@@ -5,11 +5,11 @@ struct Mo{
     int n;
     vector<pair<int, int>> lr;
 
-    Mo(const int &n) : n(n) {}
+    Mo(const int n) : n(n) {}
 
     /* [l, r) */
-    void add(const int &l,  const int &r){
-        lr.push_back({l, r});
+    void add(const int l, const int r){
+        lr.emplace_back(l, r);
     }
 
     template <typename AL, typename AR, typename EL, typename ER, typename O>

@@ -7,7 +7,7 @@ struct SparseTable{
     vector<vector<T>> _table;
     vector<int> _log2;
 
-    SparseTable(const vector<T>& v, FX fx_) : op(fx_){
+    SparseTable(const vector<T> &v, FX fx_) : op(fx_){
         const int n = v.size();
         _log2.assign(n + 1, 0);
         for (int i = 2; i <= n; i++) _log2[i] = _log2[i >> 1] + 1;

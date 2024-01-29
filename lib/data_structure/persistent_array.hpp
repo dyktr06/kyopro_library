@@ -14,7 +14,7 @@ struct PersistentArray{
         return root;
     }
 
-    void destructive_set(const int &i, const T &val, Node *&t){
+    void destructive_set(const int i, const T &val, Node *&t){
         if(!t) t = new Node();
         if(i == 0){
             t->data = val;
@@ -23,7 +23,7 @@ struct PersistentArray{
         }
     }
 
-    Node *set(const int &i, const T &val, Node *&t){
+    Node *set(const int i, const T &val, Node *&t){
         Node *res = new Node();
         if(t){
             memcpy(res->ch, t->ch, sizeof(t->ch));
@@ -37,7 +37,7 @@ struct PersistentArray{
         return res;
     }
 
-    T get(const int &i, Node *t){
+    T get(const int i, Node *t){
         if(!t) return T();
         if(i == 0){
             return t->data;

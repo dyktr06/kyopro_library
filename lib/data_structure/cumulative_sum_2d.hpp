@@ -12,7 +12,7 @@ template <typename T>
 struct CumulativeSum2D{
     vector<vector<T>> data;
 
-    CumulativeSum2D(const int &H, const int &W) : data(H + 3, vector<T>(W + 3, 0)) {}
+    CumulativeSum2D(const int H, const int W) : data(H + 3, vector<T>(W + 3, 0)) {}
 
     void add(int i, int j, const T &z){
         ++i, ++j;
@@ -20,7 +20,7 @@ struct CumulativeSum2D{
         data[i][j] += z;
     }
 
-    void imos(const int &i1, const int &j1, const int &i2, const int &j2, const T &z = 1) {
+    void imos(const int i1, const int j1, const int i2, const int j2, const T &z = 1) {
         add(i1, j1, z);
         add(i1, j2, -z);
         add(i2, j1, -z);
@@ -35,11 +35,11 @@ struct CumulativeSum2D{
         }
     }
 
-    inline T imos_get(const int &i, const int &j) const{
+    inline T imos_get(const int i, const int j) const{
         return data[i + 1][j + 1];
     }
 
-    inline T sum(const int &i1, const int &j1, const int &i2, const int &j2) const {
+    inline T sum(const int i1, const int j1, const int i2, const int j2) const {
         return (data[i2][j2] - data[i1][j2] - data[i2][j1] + data[i1][j1]);
     }
 };

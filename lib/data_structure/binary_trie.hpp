@@ -20,7 +20,7 @@ struct BinaryTrie{
         nil->nxt[0] = nil->nxt[1] = root = nil;
     }
 
-    Node *_new(const int &exist_ = 0, const int &id = -1){
+    Node *_new(const int exist_ = 0, const int id = -1){
         pool[pid].nxt[0] = pool[pid].nxt[1] = nil;
         pool[pid].exist = exist_;
         if(id != -1) pool[pid].accept.push_back(id);
@@ -35,7 +35,7 @@ struct BinaryTrie{
     }
 
 private:
-    Node *insert_(const T &x, const int &id, Node *n, const int &bit_idx){
+    Node *insert_(const T &x, const int id, Node *n, const int bit_idx){
         if(bit_idx == -1) {
             if(n == nil){
                 return _new(1, id);
@@ -51,7 +51,7 @@ private:
         }
     }
 
-    Node *erase_(const T &x, const int &id, Node *n, const int &bit_idx){
+    Node *erase_(const T &x, const int id, Node *n, const int bit_idx){
         if(bit_idx == -1){
             n->exist--;
             return n;
@@ -63,7 +63,7 @@ private:
         }
     }
 
-    pair<int, vector<int>&> find_(const T &x, Node *n, const int &bit_idx){
+    pair<int, vector<int>&> find_(const T &x, Node *n, const int bit_idx){
         if(bit_idx == -1){
             return pair<int, vector<int>&>(n->exist, n->accept);
         }
@@ -74,7 +74,7 @@ private:
         }
     }
 
-    pair<T, vector<int>&> max_element_(Node *n, const int &bit_idx) {
+    pair<T, vector<int>&> max_element_(Node *n, const int bit_idx) {
         if(bit_idx == -1){
             return pair<T, vector<int>&>(0, n->accept);
         }
@@ -86,7 +86,7 @@ private:
         return max_element_(n->nxt[(lazy >> bit_idx) & 1], bit_idx - 1);
     }
 
-    pair<T, vector<int>&> min_element_(Node *n, const int &bit_idx){
+    pair<T, vector<int>&> min_element_(Node *n, const int bit_idx){
         if(bit_idx == -1){
             return pair<T, vector<int>&>(0, n->accept);
         }
@@ -101,7 +101,7 @@ private:
     }
 
     // 1-indexed, minimum-kth
-    pair<T, vector<int>&> kth_element_(Node *n, const int &k, const int &bit_idx){
+    pair<T, vector<int>&> kth_element_(Node *n, const int k, const int bit_idx){
         if(bit_idx == -1){
             return pair<T, vector<int>&>(0, n->accept);
         }
@@ -115,7 +115,7 @@ private:
         return kth_element_(n->nxt[(lazy >> bit_idx) & 1], k, bit_idx - 1);
     }
 
-    int count_less_(Node *n, const T &x, const int &bit_idx) {
+    int count_less_(Node *n, const T &x, const int bit_idx) {
         if(bit_idx == -1){
             return 0;
         }
@@ -132,11 +132,11 @@ private:
     }
 
 public:
-    void insert(const T &x, const int &id = -1){
+    void insert(const T &x, const int id = -1){
         root = insert_(x, id, root, MAX_LOG);
     }
 
-    void erase(const T &x, const int &id = -1){ 
+    void erase(const T &x, const int id = -1){ 
         root = erase_(x, id, root, MAX_LOG);
     }
 
@@ -152,7 +152,7 @@ public:
         return min_element_(root, MAX_LOG);
     }
 
-    pair<T, vector<int>&> kth_element(const int &k){
+    pair<T, vector<int>&> kth_element(const int k){
         return kth_element_(root, k, MAX_LOG);
     }
 

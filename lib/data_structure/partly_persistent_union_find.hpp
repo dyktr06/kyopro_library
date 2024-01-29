@@ -15,7 +15,7 @@ struct PersistentUnionFind{
     vector<vector<pair<int, int>>> num;
     const int INF = 1 << 30;
 
-    PersistentUnionFind(const int &N) : par(N), rank(N), time(N), num(N){
+    PersistentUnionFind(const int N) : par(N), rank(N), time(N), num(N){
         now = 0;
         for(int i = 0; i < N; ++i){
             par[i] = i;
@@ -25,12 +25,12 @@ struct PersistentUnionFind{
         fill(time.begin(), time.begin() + N, INF);
     }
 
-    int root(const int &x, const int &t){
+    int root(const int x, const int t){
         if(t < time[x]) return x;
         return root(par[x], t);
     }
 
-    void unite(const int &x, const int &y){
+    void unite(const int x, const int y){
         ++now;
 
         int rx = root(x, now);
@@ -45,13 +45,13 @@ struct PersistentUnionFind{
         if(rank[rx] == rank[ry]) ++rank[rx];
     }
 
-    bool same(const int &x, const int &y, const int &t){
+    bool same(const int x, const int y, const int t){
         int rx = root(x, t);
         int ry = root(y, t);
         return rx == ry;
     }
 
-    int size(const int &x, const int &t){
+    int size(const int x, const int t){
         int rx = root(x, t);
 
         int ok = 0, ng = num[rx].size();

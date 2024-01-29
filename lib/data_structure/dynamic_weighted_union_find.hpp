@@ -16,7 +16,7 @@ struct DynamicWeightedUnionFind{
         diff_weight[x] = e;
     }
 
-    int root(const int &x){
+    int root(const int x){
         if(par.find(x) == par.end()){
             init(x);
         }
@@ -28,16 +28,16 @@ struct DynamicWeightedUnionFind{
         return par[x] = rx;
     }
 
-    T weight(const int &x){
+    T weight(const int x){
         root(x);
         return diff_weight[x];
     }
 
-    T diff(const int &x, const int &y){
+    T diff(const int x, const int y){
         return weight(y) - weight(x);
     }
 
-    void unite(const int &x, const int &y, T w){
+    void unite(const int x, const int y, T w){
         if(par.find(x) == par.end()){
             init(x);
         }
@@ -62,13 +62,13 @@ struct DynamicWeightedUnionFind{
         if(rank[rx] == rank[ry]) ++rank[rx];
     }
 
-    bool same(const int &x, const int &y){
+    bool same(const int x, const int y){
         int rx = root(x);
         int ry = root(y);
         return rx == ry;
     }
 
-    int size(const int &x){
+    int size(const int x){
         return siz[root(x)];
     }
 };

@@ -26,13 +26,13 @@ struct SegTree{
         return dat[i + n];
     }
     
-    void set(int i, X x){ dat[i + n] = x; }
+    void set(int i, const X &x){ dat[i + n] = x; }
 
     void build(){
         for(int k = n - 1; k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);
     }
 
-    void update(int i, X x){
+    void update(int i, const X &x){
         i += n;
         dat[i] = x;
         while(i > 0){

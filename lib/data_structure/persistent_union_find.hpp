@@ -8,7 +8,7 @@ struct PersistentUnionFind{
 
     PersistentUnionFind() {}
 
-    node init(const int &n){
+    node init(const int n){
         node res = data.get_root();
         for(int i = 0; i < n; ++i){
             data.destructive_set(i, -1, res);
@@ -16,7 +16,7 @@ struct PersistentUnionFind{
         return res;
     }
 
-    pair<bool, node> unite(const int &x, const int &y, node t){
+    pair<bool, node> unite(const int x, const int y, node t){
         int rx = root(x, t), ry = root(y, t);
         if(rx == ry) return {false, t};
 
@@ -27,7 +27,7 @@ struct PersistentUnionFind{
         return {true, res};
     }
 
-    int root(const int &x, node t){
+    int root(const int x, node t){
         if(data.get(x, t) < 0){
             return x;
         }
@@ -35,11 +35,11 @@ struct PersistentUnionFind{
         return res;
     }
 
-    inline bool same(const int &x, const int &y, node t){
+    inline bool same(const int x, const int y, node t){
         return root(x, t) == root(y, t);
     }
 
-    inline int size(const int &x, node t){
+    inline int size(const int x, node t){
         return -data.get(root(x, t), t);
     }
 };
@@ -61,7 +61,7 @@ struct PersistentUnionFindv2{
         return res;
     }
 
-    pair<bool, node> unite(const int &x, const int &y, node t){
+    pair<bool, node> unite(const int x, const int y, node t){
         int rx = root(x, t), ry = root(y, t);
         if(rx == ry){
             node res = data.set(rx + n, edge(rx, t) + 1, t);
@@ -76,7 +76,7 @@ struct PersistentUnionFindv2{
         return {true, res};
     }
 
-    int root(const int &x, node t){
+    int root(const int x, node t){
         if(data.get(x, t) < 0){
             return x;
         }
@@ -84,15 +84,15 @@ struct PersistentUnionFindv2{
         return res;
     }
 
-    inline bool same(const int &x, const int &y, node t){
+    inline bool same(const int x, const int y, node t){
         return root(x, t) == root(y, t);
     }
 
-    inline int size(const int &x, node t){
+    inline int size(const int x, node t){
         return -data.get(root(x, t), t);
     }
 
-    inline int edge(const int &x, node t){
+    inline int edge(const int x, node t){
         return data.get(root(x, t) + n, t);
     }
 };
