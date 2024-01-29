@@ -24,16 +24,16 @@ data:
     \ X &ex_) : n(), fx(fx_), ex(ex_){\n        int x = 1;\n        while(n_ > x){\n\
     \            x *= 2;\n        }\n        n = x;\n        dat.assign(n * 2, ex);\n\
     \    }\n\n    X get(int i) const {\n        return dat[i + n];\n    }\n    \n\
-    \    void set(int i, X x){ dat[i + n] = x; }\n\n    void build(){\n        for(int\
-    \ k = n - 1; k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);\n    }\n\n\
-    \    void update(int i, X x){\n        i += n;\n        dat[i] = x;\n        while(i\
-    \ > 0){\n            i >>= 1;  // parent\n            dat[i] = fx(dat[i * 2],\
-    \ dat[i * 2 + 1]);\n        }\n    }\n\n    X query(int a, int b){\n        X\
-    \ vl = ex;\n        X vr = ex;\n        int l = a + n;\n        int r = b + n;\n\
-    \        while(l < r){\n            if(l & 1) vl = fx(vl, dat[l++]);\n       \
-    \     if(r & 1) vr = fx(dat[--r], vr);\n            l >>= 1;\n            r >>=\
-    \ 1;\n        }\n        return fx(vl, vr);\n    }\n    \n    X operator [](int\
-    \ i) const {\n        return dat[i + n];\n    }\n};\n"
+    \    void set(int i, const X &x){ dat[i + n] = x; }\n\n    void build(){\n   \
+    \     for(int k = n - 1; k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);\n\
+    \    }\n\n    void update(int i, const X &x){\n        i += n;\n        dat[i]\
+    \ = x;\n        while(i > 0){\n            i >>= 1;  // parent\n            dat[i]\
+    \ = fx(dat[i * 2], dat[i * 2 + 1]);\n        }\n    }\n\n    X query(int a, int\
+    \ b){\n        X vl = ex;\n        X vr = ex;\n        int l = a + n;\n      \
+    \  int r = b + n;\n        while(l < r){\n            if(l & 1) vl = fx(vl, dat[l++]);\n\
+    \            if(r & 1) vr = fx(dat[--r], vr);\n            l >>= 1;\n        \
+    \    r >>= 1;\n        }\n        return fx(vl, vr);\n    }\n    \n    X operator\
+    \ [](int i) const {\n        return dat[i + n];\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Segment Tree\n * @docs docs/data_structure/segment_tree.md\n\
     \ */\n\ntemplate <typename X>\nstruct SegTree{\n    using FX = function<X(X, X)>;\
     \ // X\u2022X -> X \u3068\u306A\u308B\u95A2\u6570\u306E\u578B\n    int n;\n  \
@@ -41,11 +41,11 @@ data:
     \ &fx_, const X &ex_) : n(), fx(fx_), ex(ex_){\n        int x = 1;\n        while(n_\
     \ > x){\n            x *= 2;\n        }\n        n = x;\n        dat.assign(n\
     \ * 2, ex);\n    }\n\n    X get(int i) const {\n        return dat[i + n];\n \
-    \   }\n    \n    void set(int i, X x){ dat[i + n] = x; }\n\n    void build(){\n\
+    \   }\n    \n    void set(int i, const X &x){ dat[i + n] = x; }\n\n    void build(){\n\
     \        for(int k = n - 1; k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);\n\
-    \    }\n\n    void update(int i, X x){\n        i += n;\n        dat[i] = x;\n\
-    \        while(i > 0){\n            i >>= 1;  // parent\n            dat[i] =\
-    \ fx(dat[i * 2], dat[i * 2 + 1]);\n        }\n    }\n\n    X query(int a, int\
+    \    }\n\n    void update(int i, const X &x){\n        i += n;\n        dat[i]\
+    \ = x;\n        while(i > 0){\n            i >>= 1;  // parent\n            dat[i]\
+    \ = fx(dat[i * 2], dat[i * 2 + 1]);\n        }\n    }\n\n    X query(int a, int\
     \ b){\n        X vl = ex;\n        X vr = ex;\n        int l = a + n;\n      \
     \  int r = b + n;\n        while(l < r){\n            if(l & 1) vl = fx(vl, dat[l++]);\n\
     \            if(r & 1) vr = fx(dat[--r], vr);\n            l >>= 1;\n        \
@@ -55,7 +55,7 @@ data:
   isVerificationFile: false
   path: lib/data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-06-04 22:37:34+09:00'
+  timestamp: '2024-01-29 20:46:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp

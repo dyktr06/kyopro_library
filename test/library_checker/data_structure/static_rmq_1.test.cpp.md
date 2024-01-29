@@ -19,7 +19,7 @@ data:
     using namespace std;\n\n#line 2 \"lib/data_structure/sparse_table.hpp\"\n\ntemplate\
     \ <class T>\nstruct SparseTable{\n    using FX = function<T(T, T)>;\n    FX op;\n\
     \    vector<vector<T>> _table;\n    vector<int> _log2;\n\n    SparseTable(const\
-    \ vector<T>& v, FX fx_) : op(fx_){\n        const int n = v.size();\n        _log2.assign(n\
+    \ vector<T> &v, FX fx_) : op(fx_){\n        const int n = v.size();\n        _log2.assign(n\
     \ + 1, 0);\n        for (int i = 2; i <= n; i++) _log2[i] = _log2[i >> 1] + 1;\n\
     \        _table.assign(_log2[n] + 1, vector<T>(n));\n        for (int i = 0; i\
     \ < n; i++) _table[0][i] = v[i];\n        for (int k = 1; k <= _log2[n]; k++)\
@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_rmq_1.test.cpp
   requiredBy: []
-  timestamp: '2024-01-24 14:10:22+09:00'
+  timestamp: '2024-01-29 20:46:52+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_rmq_1.test.cpp

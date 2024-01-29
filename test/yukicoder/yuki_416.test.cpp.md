@@ -27,21 +27,21 @@ data:
     \u96C6\u5408\u306E\u5927\u304D\u3055\u3092\u53D6\u5F97\u3057\u307E\u3059\u3002\
     \n*/\n\nstruct PersistentUnionFind{\n    int now;\n    vector<int> par, rank,\
     \ time;\n    vector<vector<pair<int, int>>> num;\n    const int INF = 1 << 30;\n\
-    \n    PersistentUnionFind(const int &N) : par(N), rank(N), time(N), num(N){\n\
-    \        now = 0;\n        for(int i = 0; i < N; ++i){\n            par[i] = i;\n\
+    \n    PersistentUnionFind(const int N) : par(N), rank(N), time(N), num(N){\n \
+    \       now = 0;\n        for(int i = 0; i < N; ++i){\n            par[i] = i;\n\
     \            num[i].emplace_back(0, 1);\n        }\n        fill(rank.begin(),\
     \ rank.begin() + N, 0);\n        fill(time.begin(), time.begin() + N, INF);\n\
-    \    }\n\n    int root(const int &x, const int &t){\n        if(t < time[x]) return\
-    \ x;\n        return root(par[x], t);\n    }\n\n    void unite(const int &x, const\
-    \ int &y){\n        ++now;\n\n        int rx = root(x, now);\n        int ry =\
+    \    }\n\n    int root(const int x, const int t){\n        if(t < time[x]) return\
+    \ x;\n        return root(par[x], t);\n    }\n\n    void unite(const int x, const\
+    \ int y){\n        ++now;\n\n        int rx = root(x, now);\n        int ry =\
     \ root(y, now);\n        if(rx == ry) return;\n\n        if(rank[rx] < rank[ry])\
     \ swap(rx, ry);\n        num[rx].emplace_back(now, size(rx, now) + size(ry, now));\n\
     \n        par[ry] = rx;\n        time[ry] = now;\n        if(rank[rx] == rank[ry])\
-    \ ++rank[rx];\n    }\n\n    bool same(const int &x, const int &y, const int &t){\n\
+    \ ++rank[rx];\n    }\n\n    bool same(const int x, const int y, const int t){\n\
     \        int rx = root(x, t);\n        int ry = root(y, t);\n        return rx\
-    \ == ry;\n    }\n\n    int size(const int &x, const int &t){\n        int rx =\
-    \ root(x, t);\n\n        int ok = 0, ng = num[rx].size();\n        while(abs(ok\
-    \ - ng) > 1){\n            int mid = (ok + ng) / 2;\n            if(num[rx][mid].first\
+    \ == ry;\n    }\n\n    int size(const int x, const int t){\n        int rx = root(x,\
+    \ t);\n\n        int ok = 0, ng = num[rx].size();\n        while(abs(ok - ng)\
+    \ > 1){\n            int mid = (ok + ng) / 2;\n            if(num[rx][mid].first\
     \ <= t){\n                ok = mid;\n            }else{\n                ng =\
     \ mid;\n            }\n        }\n        return num[rx][ok].second;\n    }\n\
     };\n#line 6 \"test/yukicoder/yuki_416.test.cpp\"\n\nint main(){\n    int n, m,\
@@ -83,7 +83,7 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_416.test.cpp
   requiredBy: []
-  timestamp: '2022-12-09 18:41:16+09:00'
+  timestamp: '2024-01-29 20:46:52+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_416.test.cpp
