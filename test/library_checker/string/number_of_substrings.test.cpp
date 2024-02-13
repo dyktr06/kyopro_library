@@ -12,7 +12,7 @@ int main(){
     long long n = s.size();
     SuffixArray sa(s);
     LCPArray la(sa);
-    long long ans = n * (n - 1) / 2;
+    long long ans = n * (n + 1) / 2;
     for(auto x : la.LCP){
         ans -= x;
     }
