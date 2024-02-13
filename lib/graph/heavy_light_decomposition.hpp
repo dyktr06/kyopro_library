@@ -6,6 +6,7 @@
  */
 
 class HeavyLightDecomposition{
+protected:
     int V;
     vector<vector<int>> G;
     vector<int> stsize, parent, pathtop, depth, in, reverse_in, out;
