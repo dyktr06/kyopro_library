@@ -284,6 +284,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/string/rolling_hash.hpp
       title: Rolling Hash
+    - icon: ':question:'
+      path: lib/string/suffix_array.hpp
+      title: lib/string/suffix_array.hpp
     - icon: ':heavy_check_mark:'
       path: lib/string/z_algorithm.hpp
       title: Z Algorithm
@@ -546,6 +549,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/enumerate_palindromes.test.cpp
       title: test/library_checker/string/enumerate_palindromes.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/string/number_of_substrings.test.cpp
+      title: test/library_checker/string/number_of_substrings.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/string/suffixarray.test.cpp
+      title: test/library_checker/string/suffixarray.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/z_algorithm.test.cpp
       title: test/library_checker/string/z_algorithm.test.cpp
