@@ -10,14 +10,14 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/string/rollinghash.md
+    _deprecated_at_docs: docs/string/rolling_hash.md
     document_title: Rolling Hash
     links: []
-  bundledCode: "#line 2 \"lib/string/rollinghash.hpp\"\n\n/**\n * @brief Rolling Hash\n\
-    \ * @docs docs/string/rollinghash.md\n */\n\nstruct RollingHash{\n    vector<unsigned\
-    \ long long> hashed, power;\n    const unsigned long long mod = (1uLL << 61) -\
-    \ 1;\n\t\n    unsigned long long mul(unsigned long long a, unsigned long long\
-    \ b) const {\n        long long ret = a * b - mod * (unsigned long long)(1.0L\
+  bundledCode: "#line 2 \"lib/string/rolling_hash.hpp\"\n\n/**\n * @brief Rolling\
+    \ Hash\n * @docs docs/string/rolling_hash.md\n */\n\nstruct RollingHash{\n   \
+    \ vector<unsigned long long> hashed, power;\n    const unsigned long long mod\
+    \ = (1uLL << 61) - 1;\n\t\n    unsigned long long mul(unsigned long long a, unsigned\
+    \ long long b) const {\n        long long ret = a * b - mod * (unsigned long long)(1.0L\
     \ / mod * a * b);\n        return ret + mod * (ret < 0) - mod * (ret >= (long\
     \ long) mod);\n    }\n\n    RollingHash(const string &s, unsigned base = 10007){\n\
     \        int siz = (int) s.size();\n        hashed.assign(siz + 1, 0);\n     \
@@ -35,7 +35,7 @@ data:
     \  while(high - low > 1){\n            int mid = (low + high) / 2;\n         \
     \   if(get(l1, l1 + mid) == b.get(l2, l2 + mid)) low = mid;\n            else\
     \ high = mid;\n        }\n        return low;\n    }\n};\n"
-  code: "#pragma once\n\n/**\n * @brief Rolling Hash\n * @docs docs/string/rollinghash.md\n\
+  code: "#pragma once\n\n/**\n * @brief Rolling Hash\n * @docs docs/string/rolling_hash.md\n\
     \ */\n\nstruct RollingHash{\n    vector<unsigned long long> hashed, power;\n \
     \   const unsigned long long mod = (1uLL << 61) - 1;\n\t\n    unsigned long long\
     \ mul(unsigned long long a, unsigned long long b) const {\n        long long ret\
@@ -59,17 +59,17 @@ data:
     \   }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: lib/string/rollinghash.hpp
+  path: lib/string/rolling_hash.hpp
   requiredBy: []
-  timestamp: '2023-06-03 01:53:02+09:00'
+  timestamp: '2024-02-14 05:31:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/alds1/alds1_14_b.test.cpp
-documentation_of: lib/string/rollinghash.hpp
+documentation_of: lib/string/rolling_hash.hpp
 layout: document
 redirect_from:
-- /library/lib/string/rollinghash.hpp
-- /library/lib/string/rollinghash.hpp.html
+- /library/lib/string/rolling_hash.hpp
+- /library/lib/string/rolling_hash.hpp.html
 title: Rolling Hash
 ---
 ## Rolling Hash

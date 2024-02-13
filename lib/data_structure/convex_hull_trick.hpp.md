@@ -10,11 +10,11 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/data_structure/convexhulltrick.md
+    _deprecated_at_docs: docs/data_structure/convex_hull_trick.md
     document_title: Convex Hull Trick
     links: []
-  bundledCode: "#line 2 \"lib/data_structure/convexhulltrick.hpp\"\n\n/**\n * @brief\
-    \ Convex Hull Trick\n * @docs docs/data_structure/convexhulltrick.md\n */\n\n\
+  bundledCode: "#line 2 \"lib/data_structure/convex_hull_trick.hpp\"\n\n/**\n * @brief\
+    \ Convex Hull Trick\n * @docs docs/data_structure/convex_hull_trick.md\n */\n\n\
     template <typename T>\nstruct ConvexHullTrick{\n    deque<pair<T, T>> deq;\n\n\
     \    ConvexHullTrick(): deq(){\n    }\n\n    bool check(pair<T, T> line1, pair<T,\
     \ T> line2, pair<T, T> line3){\n        return (line2.first - line1.first) * (line3.second\
@@ -26,7 +26,7 @@ data:
     \    }\n\n    T query(T x){\n        while((int) deq.size() >= 2 && f(deq.at(0),\
     \ x) >= f(deq.at(1), x)){\n            deq.pop_front();\n        }\n        return\
     \ f(deq.at(0), x);\n    }\n};\n"
-  code: "#pragma once\n\n/**\n * @brief Convex Hull Trick\n * @docs docs/data_structure/convexhulltrick.md\n\
+  code: "#pragma once\n\n/**\n * @brief Convex Hull Trick\n * @docs docs/data_structure/convex_hull_trick.md\n\
     \ */\n\ntemplate <typename T>\nstruct ConvexHullTrick{\n    deque<pair<T, T>>\
     \ deq;\n\n    ConvexHullTrick(): deq(){\n    }\n\n    bool check(pair<T, T> line1,\
     \ pair<T, T> line2, pair<T, T> line3){\n        return (line2.first - line1.first)\
@@ -40,17 +40,17 @@ data:
     \        }\n        return f(deq.at(0), x);\n    }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: lib/data_structure/convexhulltrick.hpp
+  path: lib/data_structure/convex_hull_trick.hpp
   requiredBy: []
-  timestamp: '2023-06-03 02:38:35+09:00'
+  timestamp: '2024-02-14 05:31:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_2078.test.cpp
-documentation_of: lib/data_structure/convexhulltrick.hpp
+documentation_of: lib/data_structure/convex_hull_trick.hpp
 layout: document
 redirect_from:
-- /library/lib/data_structure/convexhulltrick.hpp
-- /library/lib/data_structure/convexhulltrick.hpp.html
+- /library/lib/data_structure/convex_hull_trick.hpp
+- /library/lib/data_structure/convex_hull_trick.hpp.html
 title: Convex Hull Trick
 ---
 ## Convex Hull Trick

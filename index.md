@@ -30,7 +30,7 @@ data:
       path: lib/data_structure/binary_trie.hpp
       title: lib/data_structure/binary_trie.hpp
     - icon: ':heavy_check_mark:'
-      path: lib/data_structure/convexhulltrick.hpp
+      path: lib/data_structure/convex_hull_trick.hpp
       title: Convex Hull Trick
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/cumulative_sum_2d.hpp
@@ -273,7 +273,7 @@ data:
   - name: lib/string
     pages:
     - icon: ':warning:'
-      path: lib/string/calc-next.hpp
+      path: lib/string/calc_next.hpp
       title: calc-next
     - icon: ':heavy_check_mark:'
       path: lib/string/manacher.hpp
@@ -282,7 +282,7 @@ data:
       path: lib/string/permutation.cpp
       title: lib/string/permutation.cpp
     - icon: ':heavy_check_mark:'
-      path: lib/string/rollinghash.hpp
+      path: lib/string/rolling_hash.hpp
       title: Rolling Hash
     - icon: ':heavy_check_mark:'
       path: lib/string/z_algorithm.hpp

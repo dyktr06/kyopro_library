@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: lib/string/rollinghash.hpp
+    path: lib/string/rolling_hash.hpp
     title: Rolling Hash
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -16,8 +16,8 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
   bundledCode: "#line 1 \"test/aoj/alds1/alds1_14_b.test.cpp\"\n#define PROBLEM \"\
     https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/string/rollinghash.hpp\"\
-    \n\n/**\n * @brief Rolling Hash\n * @docs docs/string/rollinghash.md\n */\n\n\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/string/rolling_hash.hpp\"\
+    \n\n/**\n * @brief Rolling Hash\n * @docs docs/string/rolling_hash.md\n */\n\n\
     struct RollingHash{\n    vector<unsigned long long> hashed, power;\n    const\
     \ unsigned long long mod = (1uLL << 61) - 1;\n\t\n    unsigned long long mul(unsigned\
     \ long long a, unsigned long long b) const {\n        long long ret = a * b -\
@@ -44,17 +44,17 @@ data:
     \ + m) == rh2.get(0, m)){\n            cout << i << \"\\n\";\n        }\n    }\n\
     }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/string/rollinghash.hpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/string/rolling_hash.hpp\"\
     \n\nint main(){\n    string t, p; cin >> t >> p;\n    int n = t.size(), m = p.size();\n\
     \    RollingHash rh(t), rh2(p);\n    for(int i = 0; i + m <= n; i++){\n      \
     \  if(rh.get(i, i + m) == rh2.get(0, m)){\n            cout << i << \"\\n\";\n\
     \        }\n    }\n}"
   dependsOn:
-  - lib/string/rollinghash.hpp
+  - lib/string/rolling_hash.hpp
   isVerificationFile: true
   path: test/aoj/alds1/alds1_14_b.test.cpp
   requiredBy: []
-  timestamp: '2023-06-03 01:53:02+09:00'
+  timestamp: '2024-02-14 05:31:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/alds1/alds1_14_b.test.cpp
