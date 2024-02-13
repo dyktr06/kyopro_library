@@ -2,7 +2,7 @@
 
 /**
  * @brief Rolling Hash
- * @docs docs/string/rollinghash.md
+ * @docs docs/string/rolling_hash.md
  */
 
 struct RollingHash{

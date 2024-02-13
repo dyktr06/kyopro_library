@@ -2,7 +2,7 @@
 
 /**
  * @brief calc-next
- * @docs docs/string/calc-next.md
+ * @docs docs/string/calc_next.md
  */
 
 vector<vector<int>> calc_next(const string &s) {

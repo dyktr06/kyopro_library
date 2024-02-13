@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../lib/data_structure/convexhulltrick.hpp"
+#include "../../lib/data_structure/convex_hull_trick.hpp"
 
 int main(){
     int t; cin >> t;

@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../../lib/string/rollinghash.hpp"
+#include "../../../lib/string/rolling_hash.hpp"
 
 int main(){
     string t, p; cin >> t >> p;

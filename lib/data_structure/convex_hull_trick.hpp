@@ -2,7 +2,7 @@
 
 /**
  * @brief Convex Hull Trick
- * @docs docs/data_structure/convexhulltrick.md
+ * @docs docs/data_structure/convex_hull_trick.md
  */
 
 template <typename T>
