@@ -42,9 +42,9 @@ data:
     \ [](int i) const {\n        return dat[i + n];\n    }\n};\n#line 2 \"lib/graph/heavy_light_decomposition.hpp\"\
     \n\n/**\n * @brief Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)\n * @docs\
     \ docs/graph/heavy_light_decomposition.md\n */\n\nclass HeavyLightDecomposition{\n\
-    \    int V;\n    vector<vector<int>> G;\n    vector<int> stsize, parent, pathtop,\
-    \ depth, in, reverse_in, out;\n    int root;\n\nprivate:\n    // Subtree Size\n\
-    \    void buildStsize(int curr, int prev){\n        stsize[curr] = 1, parent[curr]\
+    protected:\n    int V;\n    vector<vector<int>> G;\n    vector<int> stsize, parent,\
+    \ pathtop, depth, in, reverse_in, out;\n    int root;\n\nprivate:\n    // Subtree\
+    \ Size\n    void buildStsize(int curr, int prev){\n        stsize[curr] = 1, parent[curr]\
     \ = prev;\n        for(int &v : G[curr]){\n            if(v == prev){\n      \
     \          if(v == G[curr].back()) break;\n                else swap(v, G[curr].back());\n\
     \            }\n            buildStsize(v, curr);\n            stsize[curr] +=\
@@ -176,7 +176,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-01-29 20:46:52+09:00'
+  timestamp: '2024-02-14 05:01:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/vertex_set_path_composite.test.cpp

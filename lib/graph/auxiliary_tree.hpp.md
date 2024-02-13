@@ -7,17 +7,12 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _pathExtension: hpp
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/jump_on_tree
-    links:
-    - https://judge.yosupo.jp/problem/jump_on_tree
-  bundledCode: "#line 1 \"test/library_checker/tree/jump_on_tree.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/jump_on_tree\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 2 \"lib/graph/heavy_light_decomposition.hpp\"\n\n\
-    /**\n * @brief Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)\n * @docs\
+    links: []
+  bundledCode: "#line 2 \"lib/graph/auxiliary_tree.hpp\"\n\n#line 2 \"lib/graph/heavy_light_decomposition.hpp\"\
+    \n\n/**\n * @brief Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)\n * @docs\
     \ docs/graph/heavy_light_decomposition.md\n */\n\nclass HeavyLightDecomposition{\n\
     protected:\n    int V;\n    vector<vector<int>> G;\n    vector<int> stsize, parent,\
     \ pathtop, depth, in, reverse_in, out;\n    int root;\n\nprivate:\n    // Subtree\
@@ -67,33 +62,60 @@ data:
     \ v);\n        }\n    }\n\n    void path_noncommutative_query(int a, int b, const\
     \ function<void(int, int)> &func, const function<void(int, int)> &func2){\n  \
     \      int l = lca(a, b);\n        path_query(a, l, func2, false, true);\n   \
-    \     path_query(l, b, func, true, false);\n    }\n};\n#line 6 \"test/library_checker/tree/jump_on_tree.test.cpp\"\
-    \n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n   \
-    \ \n    int n, q;\n    cin >> n >> q;\n    HeavyLightDecomposition hl(n);\n  \
-    \  for(int i = 0; i < n - 1; i++){\n        int u, v; cin >> u >> v;\n       \
-    \ hl.add_edge(u, v);\n    }\n    hl.build();\n    while(q--){\n        int s,\
-    \ t, i; cin >> s >> t >> i;\n        cout << hl.jump(s, t, i) << \"\\n\";\n  \
-    \  }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/jump_on_tree\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/graph/heavy_light_decomposition.hpp\"\
-    \n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n   \
-    \ \n    int n, q;\n    cin >> n >> q;\n    HeavyLightDecomposition hl(n);\n  \
-    \  for(int i = 0; i < n - 1; i++){\n        int u, v; cin >> u >> v;\n       \
-    \ hl.add_edge(u, v);\n    }\n    hl.build();\n    while(q--){\n        int s,\
-    \ t, i; cin >> s >> t >> i;\n        cout << hl.jump(s, t, i) << \"\\n\";\n  \
-    \  }\n}"
+    \     path_query(l, b, func, true, false);\n    }\n};\n#line 4 \"lib/graph/auxiliary_tree.hpp\"\
+    \n\nstruct AuxiliaryTree : HeavyLightDecomposition{\n    using super = HeavyLightDecomposition;\n\
+    \nprivate:\n    void add_aux_edge(int u, int v){\n        T[u].emplace_back(v);\n\
+    \        T[v].emplace_back(u);\n    }\n\npublic:\n    vector<vector<int>> T;\n\
+    \    AuxiliaryTree(int n) : super(n), T(n){}\n    \n    void build(int _root =\
+    \ 0){\n        super::build(_root);\n    }\n\n    void query(vector<int> &vs){\n\
+    \        assert(!vs.empty());\n        sort(vs.begin(),vs.end(),\n           \
+    \ [&](int a, int b){ return in[a] < in[b]; });\n        vs.erase(unique(vs.begin(),\
+    \ vs.end()), vs.end());\n\n        int k = vs.size();\n        vector<int> st;\n\
+    \        st.emplace_back(vs[0]);\n        for(int i = 0; i + 1 < k; i++){\n  \
+    \          int p = lca(vs[i], vs[i + 1]);\n            if(p != vs[i]){\n     \
+    \           int l = st.back(); st.pop_back();\n                while(!st.empty()\
+    \ && depth[p] < depth[st.back()]){\n                    add_aux_edge(st.back(),\
+    \ l);\n                    l = st.back(); st.pop_back();\n                }\n\
+    \                if(st.empty() || st.back() != p){\n                    st.emplace_back(p);\n\
+    \                    vs.emplace_back(p);\n                }\n                add_aux_edge(p,\
+    \ l);\n            }\n            st.emplace_back(vs[i + 1]);\n        }\n\n \
+    \       while(st.size() > 1){\n            int c = st.back(); st.pop_back();\n\
+    \            add_aux_edge(st.back(), c);\n        }\n    }\n\n    void clear(const\
+    \ vector<int> &ws){\n        for(int w : ws){\n            T[w].clear();\n   \
+    \     }\n    }\n};\n"
+  code: "#pragma once\n\n#include \"../graph/heavy_light_decomposition.hpp\"\n\nstruct\
+    \ AuxiliaryTree : HeavyLightDecomposition{\n    using super = HeavyLightDecomposition;\n\
+    \nprivate:\n    void add_aux_edge(int u, int v){\n        T[u].emplace_back(v);\n\
+    \        T[v].emplace_back(u);\n    }\n\npublic:\n    vector<vector<int>> T;\n\
+    \    AuxiliaryTree(int n) : super(n), T(n){}\n    \n    void build(int _root =\
+    \ 0){\n        super::build(_root);\n    }\n\n    void query(vector<int> &vs){\n\
+    \        assert(!vs.empty());\n        sort(vs.begin(),vs.end(),\n           \
+    \ [&](int a, int b){ return in[a] < in[b]; });\n        vs.erase(unique(vs.begin(),\
+    \ vs.end()), vs.end());\n\n        int k = vs.size();\n        vector<int> st;\n\
+    \        st.emplace_back(vs[0]);\n        for(int i = 0; i + 1 < k; i++){\n  \
+    \          int p = lca(vs[i], vs[i + 1]);\n            if(p != vs[i]){\n     \
+    \           int l = st.back(); st.pop_back();\n                while(!st.empty()\
+    \ && depth[p] < depth[st.back()]){\n                    add_aux_edge(st.back(),\
+    \ l);\n                    l = st.back(); st.pop_back();\n                }\n\
+    \                if(st.empty() || st.back() != p){\n                    st.emplace_back(p);\n\
+    \                    vs.emplace_back(p);\n                }\n                add_aux_edge(p,\
+    \ l);\n            }\n            st.emplace_back(vs[i + 1]);\n        }\n\n \
+    \       while(st.size() > 1){\n            int c = st.back(); st.pop_back();\n\
+    \            add_aux_edge(st.back(), c);\n        }\n    }\n\n    void clear(const\
+    \ vector<int> &ws){\n        for(int w : ws){\n            T[w].clear();\n   \
+    \     }\n    }\n};\n"
   dependsOn:
   - lib/graph/heavy_light_decomposition.hpp
-  isVerificationFile: true
-  path: test/library_checker/tree/jump_on_tree.test.cpp
+  isVerificationFile: false
+  path: lib/graph/auxiliary_tree.hpp
   requiredBy: []
   timestamp: '2024-02-14 05:01:53+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/library_checker/tree/jump_on_tree.test.cpp
+documentation_of: lib/graph/auxiliary_tree.hpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/tree/jump_on_tree.test.cpp
-- /verify/test/library_checker/tree/jump_on_tree.test.cpp.html
-title: test/library_checker/tree/jump_on_tree.test.cpp
+- /library/lib/graph/auxiliary_tree.hpp
+- /library/lib/graph/auxiliary_tree.hpp.html
+title: lib/graph/auxiliary_tree.hpp
 ---

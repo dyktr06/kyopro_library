@@ -66,6 +66,9 @@ data:
       path: lib/data_structure/imos_linear.cpp
       title: lib/data_structure/imos_linear.cpp
     - icon: ':heavy_check_mark:'
+      path: lib/data_structure/lazy_segment_tree.hpp
+      title: lib/data_structure/lazy_segment_tree.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/mo.hpp
       title: lib/data_structure/mo.hpp
     - icon: ':heavy_check_mark:'
@@ -131,6 +134,9 @@ data:
       title: lib/geometry/geometry.hpp
   - name: lib/graph
     pages:
+    - icon: ':warning:'
+      path: lib/graph/auxiliary_tree.hpp
+      title: lib/graph/auxiliary_tree.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/bellman_ford.hpp
       title: "Bellman-Ford Algorithm (\u30D9\u30EB\u30DE\u30F3-\u30D5\u30A9\u30FC\u30C9\
@@ -389,11 +395,20 @@ data:
       path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/range_affine_point_get.test.cpp
+      title: test/library_checker/data_structure/range_affine_point_get.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
+      title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
       title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_kth_smallest.test.cpp
       title: test/library_checker/data_structure/range_kth_smallest.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/range_set_range_composite.test.cpp
+      title: test/library_checker/data_structure/range_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/rectangle_add_point_get.test.cpp
       title: test/library_checker/data_structure/rectangle_add_point_get.test.cpp

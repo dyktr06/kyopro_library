@@ -18,20 +18,21 @@ data:
     \ \"https://judge.yosupo.jp/problem/lca\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n\n#line 2 \"lib/graph/heavy_light_decomposition.hpp\"\n\n/**\n * @brief\
     \ Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)\n * @docs docs/graph/heavy_light_decomposition.md\n\
-    \ */\n\nclass HeavyLightDecomposition{\n    int V;\n    vector<vector<int>> G;\n\
-    \    vector<int> stsize, parent, pathtop, depth, in, reverse_in, out;\n    int\
-    \ root;\n\nprivate:\n    // Subtree Size\n    void buildStsize(int curr, int prev){\n\
-    \        stsize[curr] = 1, parent[curr] = prev;\n        for(int &v : G[curr]){\n\
-    \            if(v == prev){\n                if(v == G[curr].back()) break;\n\
-    \                else swap(v, G[curr].back());\n            }\n            buildStsize(v,\
-    \ curr);\n            stsize[curr] += stsize[v];\n            if(stsize[v] > stsize[G[curr][0]]){\n\
-    \                swap(v, G[curr][0]);\n            }\n        }\n    }\n\n   \
-    \ void buildPath(int curr, int prev, int &t){\n        in[curr] = t++;\n     \
-    \   reverse_in[in[curr]] = curr;\n        for(int v : G[curr]){\n            if(v\
-    \ == prev) continue;\n            \n            if(v == G[curr][0]){\n       \
-    \         pathtop[v] = pathtop[curr];\n            }else{\n                pathtop[v]\
-    \ = v;\n            }\n            depth[v] = depth[curr] + 1;\n            buildPath(v,\
-    \ curr, t);\n        }\n        out[curr] = t;\n    }\n\npublic:\n    HeavyLightDecomposition(int\
+    \ */\n\nclass HeavyLightDecomposition{\nprotected:\n    int V;\n    vector<vector<int>>\
+    \ G;\n    vector<int> stsize, parent, pathtop, depth, in, reverse_in, out;\n \
+    \   int root;\n\nprivate:\n    // Subtree Size\n    void buildStsize(int curr,\
+    \ int prev){\n        stsize[curr] = 1, parent[curr] = prev;\n        for(int\
+    \ &v : G[curr]){\n            if(v == prev){\n                if(v == G[curr].back())\
+    \ break;\n                else swap(v, G[curr].back());\n            }\n     \
+    \       buildStsize(v, curr);\n            stsize[curr] += stsize[v];\n      \
+    \      if(stsize[v] > stsize[G[curr][0]]){\n                swap(v, G[curr][0]);\n\
+    \            }\n        }\n    }\n\n    void buildPath(int curr, int prev, int\
+    \ &t){\n        in[curr] = t++;\n        reverse_in[in[curr]] = curr;\n      \
+    \  for(int v : G[curr]){\n            if(v == prev) continue;\n            \n\
+    \            if(v == G[curr][0]){\n                pathtop[v] = pathtop[curr];\n\
+    \            }else{\n                pathtop[v] = v;\n            }\n        \
+    \    depth[v] = depth[curr] + 1;\n            buildPath(v, curr, t);\n       \
+    \ }\n        out[curr] = t;\n    }\n\npublic:\n    HeavyLightDecomposition(int\
     \ node_size) : V(node_size), G(V), stsize(V, 0), parent(V, -1),\n    pathtop(V,\
     \ -1), depth(V, 0), in(V, -1), reverse_in(V, -1), out(V, -1){}\n\n    void add_edge(int\
     \ u, int v){\n        G[u].push_back(v);\n        G[v].push_back(u);\n    }\n\n\
@@ -84,7 +85,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/lca_hl.test.cpp
   requiredBy: []
-  timestamp: '2023-01-23 11:19:29+09:00'
+  timestamp: '2024-02-14 05:01:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/tree/lca_hl.test.cpp
