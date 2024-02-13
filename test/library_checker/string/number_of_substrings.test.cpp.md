@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/string/suffix_array.hpp
     title: lib/string/suffix_array.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/number_of_substrings
@@ -58,21 +58,21 @@ data:
     \ 6 \"test/library_checker/string/number_of_substrings.test.cpp\"\n\nint main(){\n\
     \    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n    string s; cin\
     \ >> s;\n    long long n = s.size();\n    SuffixArray sa(s);\n    LCPArray la(sa);\n\
-    \    long long ans = n * (n - 1) / 2;\n    for(auto x : la.LCP){\n        ans\
+    \    long long ans = n * (n + 1) / 2;\n    for(auto x : la.LCP){\n        ans\
     \ -= x;\n    }\n    cout << ans << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/number_of_substrings\"\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/string/suffix_array.hpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
     \   string s; cin >> s;\n    long long n = s.size();\n    SuffixArray sa(s);\n\
-    \    LCPArray la(sa);\n    long long ans = n * (n - 1) / 2;\n    for(auto x :\
+    \    LCPArray la(sa);\n    long long ans = n * (n + 1) / 2;\n    for(auto x :\
     \ la.LCP){\n        ans -= x;\n    }\n    cout << ans << \"\\n\";\n}\n"
   dependsOn:
   - lib/string/suffix_array.hpp
   isVerificationFile: true
   path: test/library_checker/string/number_of_substrings.test.cpp
   requiredBy: []
-  timestamp: '2024-02-14 05:37:09+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-02-14 05:45:45+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/string/number_of_substrings.test.cpp
 layout: document

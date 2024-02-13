@@ -284,7 +284,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/string/rolling_hash.hpp
       title: Rolling Hash
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/string/suffix_array.hpp
       title: lib/string/suffix_array.hpp
     - icon: ':heavy_check_mark:'
@@ -549,7 +549,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/enumerate_palindromes.test.cpp
       title: test/library_checker/string/enumerate_palindromes.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/string/number_of_substrings.test.cpp
       title: test/library_checker/string/number_of_substrings.test.cpp
     - icon: ':heavy_check_mark:'

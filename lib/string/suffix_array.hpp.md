@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/string/number_of_substrings.test.cpp
     title: test/library_checker/string/number_of_substrings.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/string/suffixarray.test.cpp
     title: test/library_checker/string/suffixarray.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/string/suffix_array.hpp\"\n\ntemplate <typename T>\n\
@@ -96,7 +96,7 @@ data:
   path: lib/string/suffix_array.hpp
   requiredBy: []
   timestamp: '2024-02-14 05:37:09+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/string/suffixarray.test.cpp
   - test/library_checker/string/number_of_substrings.test.cpp
