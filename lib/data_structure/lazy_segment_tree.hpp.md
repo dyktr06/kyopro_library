@@ -3,6 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
+    title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_affine_point_get.test.cpp
     title: test/library_checker/data_structure/range_affine_point_get.test.cpp
@@ -12,9 +15,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_set_range_composite.test.cpp
     title: test/library_checker/data_structure/range_set_range_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/lazy_segment_tree.hpp\"\n\ntemplate <class\
@@ -145,11 +148,12 @@ data:
   path: lib/data_structure/lazy_segment_tree.hpp
   requiredBy: []
   timestamp: '2024-02-14 05:01:36+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
+  - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
 documentation_of: lib/data_structure/lazy_segment_tree.hpp
 layout: document
 redirect_from:
