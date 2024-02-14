@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/lazy_segment_tree.hpp
     title: lib/data_structure/lazy_segment_tree.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/others/compression.hpp
     title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/area_of_union_of_rectangles
@@ -108,7 +108,7 @@ data:
     \ op, e, F, mapping, composition, id> seg(xs - 1);\n    for(int i = 0; i < xs\
     \ - 1; i++){\n        seg.update(i, {xc.inv(i + 1) - xc.inv(i), 0});\n    }\n\
     \    vector<vector<tuple<int, int, int>>> q(ys);\n    for(int i = 0; i < n; i++){\n\
-    \        int l_ = xc.compressed[2 * i], r_ = yc.compressed[2 * i + 1];\n     \
+    \        int l_ = xc.compressed[2 * i], r_ = xc.compressed[2 * i + 1];\n     \
     \   q[yc.compressed[2 * i]].emplace_back(l_, r_, 1);\n        q[yc.compressed[2\
     \ * i + 1]].emplace_back(l_, r_, -1);\n    }\n    long long ans = 0;\n    long\
     \ long xlen = xc.inv(xs - 1) - xc.inv(0);\n    for(int i = 0; i < ys - 1; i++){\n\
@@ -133,7 +133,7 @@ data:
     \    LazySegTree<S, op, e, F, mapping, composition, id> seg(xs - 1);\n    for(int\
     \ i = 0; i < xs - 1; i++){\n        seg.update(i, {xc.inv(i + 1) - xc.inv(i),\
     \ 0});\n    }\n    vector<vector<tuple<int, int, int>>> q(ys);\n    for(int i\
-    \ = 0; i < n; i++){\n        int l_ = xc.compressed[2 * i], r_ = yc.compressed[2\
+    \ = 0; i < n; i++){\n        int l_ = xc.compressed[2 * i], r_ = xc.compressed[2\
     \ * i + 1];\n        q[yc.compressed[2 * i]].emplace_back(l_, r_, 1);\n      \
     \  q[yc.compressed[2 * i + 1]].emplace_back(l_, r_, -1);\n    }\n    long long\
     \ ans = 0;\n    long long xlen = xc.inv(xs - 1) - xc.inv(0);\n    for(int i =\
@@ -147,8 +147,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   requiredBy: []
-  timestamp: '2024-02-14 21:11:46+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-02-14 21:24:20+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
 layout: document

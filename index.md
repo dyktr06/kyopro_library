@@ -65,7 +65,7 @@ data:
     - icon: ':warning:'
       path: lib/data_structure/imos_linear.cpp
       title: lib/data_structure/imos_linear.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/lazy_segment_tree.hpp
       title: lib/data_structure/lazy_segment_tree.hpp
     - icon: ':heavy_check_mark:'
@@ -252,7 +252,7 @@ data:
       title: lib/math/utils.hpp
   - name: lib/others
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/others/compression.hpp
       title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
     - icon: ':heavy_check_mark:'
@@ -370,7 +370,7 @@ data:
       title: test/library_checker/convolution/convolution_mod_2_64.test.cpp
   - name: test/library_checker/data_structure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
       title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
     - icon: ':heavy_check_mark:'

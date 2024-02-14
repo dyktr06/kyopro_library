@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/mo.hpp
     title: lib/data_structure/mo.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/others/compression.hpp
     title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
