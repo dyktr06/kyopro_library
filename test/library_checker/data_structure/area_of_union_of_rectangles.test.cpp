@@ -65,7 +65,7 @@ int main(){
     }
     vector<vector<tuple<int, int, int>>> q(ys);
     for(int i = 0; i < n; i++){
-        int l_ = xc.compressed[2 * i], r_ = yc.compressed[2 * i + 1];
+        int l_ = xc.compressed[2 * i], r_ = xc.compressed[2 * i + 1];
         q[yc.compressed[2 * i]].emplace_back(l_, r_, 1);
         q[yc.compressed[2 * i + 1]].emplace_back(l_, r_, -1);
     }
