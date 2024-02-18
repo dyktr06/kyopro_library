@@ -34,6 +34,9 @@ data:
     path: test/library_checker/matrix/matrix_product.test.cpp
     title: test/library_checker/matrix/matrix_product.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/matrix/matrix_rank.test.cpp
+    title: test/library_checker/matrix/matrix_rank.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/pow_of_matrix.test.cpp
     title: test/library_checker/matrix/pow_of_matrix.test.cpp
   - icon: ':heavy_check_mark:'
@@ -141,6 +144,7 @@ data:
   - test/library_checker/tree/tree_path_composite_sum.test.cpp
   - test/library_checker/matrix/pow_of_matrix.test.cpp
   - test/library_checker/matrix/inverse_matrix.test.cpp
+  - test/library_checker/matrix/matrix_rank.test.cpp
   - test/library_checker/matrix/matrix_det.test.cpp
   - test/library_checker/matrix/matrix_product.test.cpp
 documentation_of: lib/math/modint.hpp

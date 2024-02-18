@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/matrix_det
+    PROBLEM: https://judge.yosupo.jp/problem/matrix_rank
     links:
-    - https://judge.yosupo.jp/problem/matrix_det
-  bundledCode: "#line 1 \"test/library_checker/matrix/matrix_det.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n#include <bits/stdc++.h>\n\
+    - https://judge.yosupo.jp/problem/matrix_rank
+  bundledCode: "#line 1 \"test/library_checker/matrix/matrix_rank.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/matrix_rank\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#line 2 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n\
     \ * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\nstruct ModInt{\n\
     \    long long val;\n    constexpr ModInt(const long long _val = 0) noexcept :\
@@ -143,31 +143,32 @@ data:
     \    }\n    // Rotate 90 degrees clockwise\n    Matrix rotate() const {\n    \
     \    Matrix res(m, n), a = *this;\n        for(int i = 0; i < m; ++i){\n     \
     \       for(int j = 0; j < n; ++j){\n                res[i][j] = a[n - j - 1][i];\n\
-    \            }\n        }\n        return res;\n    }\n};\n#line 7 \"test/library_checker/matrix/matrix_det.test.cpp\"\
+    \            }\n        }\n        return res;\n    }\n};\n#line 7 \"test/library_checker/matrix/matrix_rank.test.cpp\"\
     \n\nusing mint = ModInt<998244353>;\n\nint main(){\n    ios::sync_with_stdio(false);\n\
-    \    cin.tie(nullptr);\n\n    int n; cin >> n;\n    Matrix<mint> a(n, n);\n  \
-    \  for(int i = 0; i < n; i++){\n        for(int j = 0; j < n; j++){\n        \
-    \    cin >> a[i][j];\n        }\n    }\n    cout << a.det() << \"\\n\";\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n#include\
+    \    cin.tie(nullptr);\n\n    int n, m; cin >> n >> m;\n    Matrix<mint> mat(n,\
+    \ m);\n    for(int i = 0; i < n; i++){\n        for(int j = 0; j < m; j++){\n\
+    \            cin >> mat[i][j];\n        }\n    }\n    cout << mat.rank(false)\
+    \ << \"\\n\"; \n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_rank\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/modint.hpp\"\
     \n#include \"../../../lib/math/matrix.hpp\"\n\nusing mint = ModInt<998244353>;\n\
     \nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n   \
-    \ int n; cin >> n;\n    Matrix<mint> a(n, n);\n    for(int i = 0; i < n; i++){\n\
-    \        for(int j = 0; j < n; j++){\n            cin >> a[i][j];\n        }\n\
-    \    }\n    cout << a.det() << \"\\n\";\n}"
+    \ int n, m; cin >> n >> m;\n    Matrix<mint> mat(n, m);\n    for(int i = 0; i\
+    \ < n; i++){\n        for(int j = 0; j < m; j++){\n            cin >> mat[i][j];\n\
+    \        }\n    }\n    cout << mat.rank(false) << \"\\n\"; \n}\n"
   dependsOn:
   - lib/math/modint.hpp
   - lib/math/matrix.hpp
   isVerificationFile: true
-  path: test/library_checker/matrix/matrix_det.test.cpp
+  path: test/library_checker/matrix/matrix_rank.test.cpp
   requiredBy: []
   timestamp: '2024-02-18 18:38:41+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/matrix/matrix_det.test.cpp
+documentation_of: test/library_checker/matrix/matrix_rank.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/matrix/matrix_det.test.cpp
-- /verify/test/library_checker/matrix/matrix_det.test.cpp.html
-title: test/library_checker/matrix/matrix_det.test.cpp
+- /verify/test/library_checker/matrix/matrix_rank.test.cpp
+- /verify/test/library_checker/matrix/matrix_rank.test.cpp.html
+title: test/library_checker/matrix/matrix_rank.test.cpp
 ---

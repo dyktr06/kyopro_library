@@ -120,17 +120,36 @@ data:
     \        }\n            for(int j = i + 1; j < n; ++j){\n                const\
     \ T x = a[j][i];\n                for(int k = i; k < n; ++k){\n              \
     \      a[j][k] -= a[i][k] * x;\n                }\n            }\n        }\n\
-    \        return res;\n    }\n    // Rotate 90 degrees clockwise\n    Matrix rotate()\
-    \ const {\n        Matrix res(m, n), a = *this;\n        for(int i = 0; i < m;\
-    \ ++i){\n            for(int j = 0; j < n; ++j){\n                res[i][j] =\
-    \ a[n - j - 1][i];\n            }\n        }\n        return res;\n    }\n};\n\
-    #line 7 \"test/library_checker/matrix/matrix_product.test.cpp\"\n\nusing mint\
-    \ = ModInt<998244353>;\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
-    \n    int n, m, k; cin >> n >> m >> k;\n    Matrix<mint> a(n, m), b(m, k);\n \
-    \   int scan;\n    for(int i = 0; i < n; i++){\n        for(int j = 0; j < m;\
-    \ j++){\n            cin >> a[i][j];\n        }\n    }\n    for(int i = 0; i <\
-    \ m; i++){\n        for(int j = 0; j < k; j++){\n            cin >> b[i][j];\n\
-    \        }\n    }\n    a *= b;\n    cout << a;\n}\n"
+    \        return res;\n    }\n    Matrix transpose() const {\n        Matrix res(m,\
+    \ n), a = *this;\n        for(int i = 0; i < n; ++i){\n            for(int j =\
+    \ 0; j < m; ++j){\n                res[j][i] = a[i][j];\n            }\n     \
+    \   }\n        return res;\n    }\n    Matrix gauss() const {\n        Matrix\
+    \ a = *this;\n        int r = 0;\n        for(int i = 0; i < m; ++i){\n      \
+    \      int pivot = -1;\n            for(int j = r; j < n; ++j){\n            \
+    \    if(a[j][i] != 0){\n                    pivot = j;\n                    break;\n\
+    \                }\n            }\n            if(pivot == -1) continue;\n   \
+    \         for(int j = 0; j < m; ++j){\n                swap(a[pivot][j], a[r][j]);\n\
+    \            }\n            const T s = a[r][i];\n            for(int j = i; j\
+    \ < m; ++j){\n                a[r][j] /= s;\n            }\n            for(int\
+    \ j = 0; j < n; ++j){\n                if(j == r) continue;\n                const\
+    \ T s = a[j][i];\n                if (s == 0) continue;\n                for(int\
+    \ k = i; k < m; ++k){\n                    a[j][k] -= a[r][k] * s;\n         \
+    \       }\n            }\n            ++r;\n        }\n        return a;\n   \
+    \ }\n    int rank(bool is_gaussed = false) const {\n        Matrix a = *this;\n\
+    \        if(!is_gaussed){\n            return (n >= m ? a : a.transpose()).gauss().rank(true);\n\
+    \        }\n        int r = 0;\n        for(int i = 0; i < n; ++i){\n        \
+    \    while(r < m && a[i][r] == 0) ++r;\n            if(r == m){\n            \
+    \    return i;\n            }\n            ++r;\n        }\n        return n;\n\
+    \    }\n    // Rotate 90 degrees clockwise\n    Matrix rotate() const {\n    \
+    \    Matrix res(m, n), a = *this;\n        for(int i = 0; i < m; ++i){\n     \
+    \       for(int j = 0; j < n; ++j){\n                res[i][j] = a[n - j - 1][i];\n\
+    \            }\n        }\n        return res;\n    }\n};\n#line 7 \"test/library_checker/matrix/matrix_product.test.cpp\"\
+    \n\nusing mint = ModInt<998244353>;\n\nint main(){\n    ios::sync_with_stdio(false);\n\
+    \    cin.tie(nullptr);\n\n    int n, m, k; cin >> n >> m >> k;\n    Matrix<mint>\
+    \ a(n, m), b(m, k);\n    int scan;\n    for(int i = 0; i < n; i++){\n        for(int\
+    \ j = 0; j < m; j++){\n            cin >> a[i][j];\n        }\n    }\n    for(int\
+    \ i = 0; i < m; i++){\n        for(int j = 0; j < k; j++){\n            cin >>\
+    \ b[i][j];\n        }\n    }\n    a *= b;\n    cout << a;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/modint.hpp\"\
     \n#include \"../../../lib/math/matrix.hpp\"\n\nusing mint = ModInt<998244353>;\n\
@@ -146,7 +165,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/matrix/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2023-12-18 11:09:03+09:00'
+  timestamp: '2024-02-18 18:38:41+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/matrix/matrix_product.test.cpp

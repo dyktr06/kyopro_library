@@ -13,6 +13,9 @@ data:
     path: test/library_checker/matrix/matrix_product.test.cpp
     title: test/library_checker/matrix/matrix_product.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/matrix/matrix_rank.test.cpp
+    title: test/library_checker/matrix/matrix_rank.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/pow_of_matrix.test.cpp
     title: test/library_checker/matrix/pow_of_matrix.test.cpp
   _isVerificationFailed: false
@@ -84,11 +87,30 @@ data:
     \                a[i][k] *= x;\n            }\n            for(int j = i + 1;\
     \ j < n; ++j){\n                const T x = a[j][i];\n                for(int\
     \ k = i; k < n; ++k){\n                    a[j][k] -= a[i][k] * x;\n         \
-    \       }\n            }\n        }\n        return res;\n    }\n    // Rotate\
-    \ 90 degrees clockwise\n    Matrix rotate() const {\n        Matrix res(m, n),\
-    \ a = *this;\n        for(int i = 0; i < m; ++i){\n            for(int j = 0;\
-    \ j < n; ++j){\n                res[i][j] = a[n - j - 1][i];\n            }\n\
-    \        }\n        return res;\n    }\n};\n"
+    \       }\n            }\n        }\n        return res;\n    }\n    Matrix transpose()\
+    \ const {\n        Matrix res(m, n), a = *this;\n        for(int i = 0; i < n;\
+    \ ++i){\n            for(int j = 0; j < m; ++j){\n                res[j][i] =\
+    \ a[i][j];\n            }\n        }\n        return res;\n    }\n    Matrix gauss()\
+    \ const {\n        Matrix a = *this;\n        int r = 0;\n        for(int i =\
+    \ 0; i < m; ++i){\n            int pivot = -1;\n            for(int j = r; j <\
+    \ n; ++j){\n                if(a[j][i] != 0){\n                    pivot = j;\n\
+    \                    break;\n                }\n            }\n            if(pivot\
+    \ == -1) continue;\n            for(int j = 0; j < m; ++j){\n                swap(a[pivot][j],\
+    \ a[r][j]);\n            }\n            const T s = a[r][i];\n            for(int\
+    \ j = i; j < m; ++j){\n                a[r][j] /= s;\n            }\n        \
+    \    for(int j = 0; j < n; ++j){\n                if(j == r) continue;\n     \
+    \           const T s = a[j][i];\n                if (s == 0) continue;\n    \
+    \            for(int k = i; k < m; ++k){\n                    a[j][k] -= a[r][k]\
+    \ * s;\n                }\n            }\n            ++r;\n        }\n      \
+    \  return a;\n    }\n    int rank(bool is_gaussed = false) const {\n        Matrix\
+    \ a = *this;\n        if(!is_gaussed){\n            return (n >= m ? a : a.transpose()).gauss().rank(true);\n\
+    \        }\n        int r = 0;\n        for(int i = 0; i < n; ++i){\n        \
+    \    while(r < m && a[i][r] == 0) ++r;\n            if(r == m){\n            \
+    \    return i;\n            }\n            ++r;\n        }\n        return n;\n\
+    \    }\n    // Rotate 90 degrees clockwise\n    Matrix rotate() const {\n    \
+    \    Matrix res(m, n), a = *this;\n        for(int i = 0; i < m; ++i){\n     \
+    \       for(int j = 0; j < n; ++j){\n                res[i][j] = a[n - j - 1][i];\n\
+    \            }\n        }\n        return res;\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Matrix\n * @docs docs/math/matrix.md\n */\n\
     \ntemplate <typename T>\nstruct Matrix{\n    int n, m;\n    vector<T> val;\n \
     \   Matrix(int _n, int _m): n(_n), m(_m), val(_n * _m){}\n    Matrix(const vector<vector<T>>&\
@@ -151,19 +173,40 @@ data:
     \        }\n            for(int j = i + 1; j < n; ++j){\n                const\
     \ T x = a[j][i];\n                for(int k = i; k < n; ++k){\n              \
     \      a[j][k] -= a[i][k] * x;\n                }\n            }\n        }\n\
-    \        return res;\n    }\n    // Rotate 90 degrees clockwise\n    Matrix rotate()\
-    \ const {\n        Matrix res(m, n), a = *this;\n        for(int i = 0; i < m;\
-    \ ++i){\n            for(int j = 0; j < n; ++j){\n                res[i][j] =\
-    \ a[n - j - 1][i];\n            }\n        }\n        return res;\n    }\n};"
+    \        return res;\n    }\n    Matrix transpose() const {\n        Matrix res(m,\
+    \ n), a = *this;\n        for(int i = 0; i < n; ++i){\n            for(int j =\
+    \ 0; j < m; ++j){\n                res[j][i] = a[i][j];\n            }\n     \
+    \   }\n        return res;\n    }\n    Matrix gauss() const {\n        Matrix\
+    \ a = *this;\n        int r = 0;\n        for(int i = 0; i < m; ++i){\n      \
+    \      int pivot = -1;\n            for(int j = r; j < n; ++j){\n            \
+    \    if(a[j][i] != 0){\n                    pivot = j;\n                    break;\n\
+    \                }\n            }\n            if(pivot == -1) continue;\n   \
+    \         for(int j = 0; j < m; ++j){\n                swap(a[pivot][j], a[r][j]);\n\
+    \            }\n            const T s = a[r][i];\n            for(int j = i; j\
+    \ < m; ++j){\n                a[r][j] /= s;\n            }\n            for(int\
+    \ j = 0; j < n; ++j){\n                if(j == r) continue;\n                const\
+    \ T s = a[j][i];\n                if (s == 0) continue;\n                for(int\
+    \ k = i; k < m; ++k){\n                    a[j][k] -= a[r][k] * s;\n         \
+    \       }\n            }\n            ++r;\n        }\n        return a;\n   \
+    \ }\n    int rank(bool is_gaussed = false) const {\n        Matrix a = *this;\n\
+    \        if(!is_gaussed){\n            return (n >= m ? a : a.transpose()).gauss().rank(true);\n\
+    \        }\n        int r = 0;\n        for(int i = 0; i < n; ++i){\n        \
+    \    while(r < m && a[i][r] == 0) ++r;\n            if(r == m){\n            \
+    \    return i;\n            }\n            ++r;\n        }\n        return n;\n\
+    \    }\n    // Rotate 90 degrees clockwise\n    Matrix rotate() const {\n    \
+    \    Matrix res(m, n), a = *this;\n        for(int i = 0; i < m; ++i){\n     \
+    \       for(int j = 0; j < n; ++j){\n                res[i][j] = a[n - j - 1][i];\n\
+    \            }\n        }\n        return res;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/matrix.hpp
   requiredBy: []
-  timestamp: '2023-06-28 01:14:42+09:00'
+  timestamp: '2024-02-18 18:38:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/matrix/pow_of_matrix.test.cpp
   - test/library_checker/matrix/inverse_matrix.test.cpp
+  - test/library_checker/matrix/matrix_rank.test.cpp
   - test/library_checker/matrix/matrix_det.test.cpp
   - test/library_checker/matrix/matrix_product.test.cpp
 documentation_of: lib/math/matrix.hpp

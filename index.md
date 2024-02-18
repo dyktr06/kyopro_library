@@ -540,6 +540,9 @@ data:
       path: test/library_checker/matrix/matrix_product.test.cpp
       title: test/library_checker/matrix/matrix_product.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/matrix/matrix_rank.test.cpp
+      title: test/library_checker/matrix/matrix_rank.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/pow_of_matrix.test.cpp
       title: test/library_checker/matrix/pow_of_matrix.test.cpp
   - name: test/library_checker/sample
