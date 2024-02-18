@@ -148,6 +148,61 @@ struct Matrix{
         }
         return res;
     }
+    Matrix transpose() const {
+        Matrix res(m, n), a = *this;
+        for(int i = 0; i < n; ++i){
+            for(int j = 0; j < m; ++j){
+                res[j][i] = a[i][j];
+            }
+        }
+        return res;
+    }
+    Matrix gauss() const {
+        Matrix a = *this;
+        int r = 0;
+        for(int i = 0; i < m; ++i){
+            int pivot = -1;
+            for(int j = r; j < n; ++j){
+                if(a[j][i] != 0){
+                    pivot = j;
+                    break;
+                }
+            }
+            if(pivot == -1) continue;
+            for(int j = 0; j < m; ++j){
+                swap(a[pivot][j], a[r][j]);
+            }
+            const T s = a[r][i];
+            for(int j = i; j < m; ++j){
+                a[r][j] /= s;
+            }
+            for(int j = 0; j < n; ++j){
+                if(j == r) continue;
+                const T s = a[j][i];
+                if (s == 0) continue;
+                for(int k = i; k < m; ++k){
+                    a[j][k] -= a[r][k] * s;
+                }
+            }
+            ++r;
+        }
+        return a;
+    }
+    int rank(bool is_gaussed = false) const {
+        Matrix a = *this;
+        if(!is_gaussed){
+            return (n >= m ? a : a.transpose()).gauss().rank(true);
+        }
+        int r = 0;
+        for(int i = 0; i < n; ++i){
+            while(r < m && a[i][r] == 0) ++r;
+            if(r == m){
+                return i;
+            }
+            ++r;
+        }
+        return n;
+    }
     // Rotate 90 degrees clockwise
     Matrix rotate() const {
         Matrix res(m, n), a = *this;
