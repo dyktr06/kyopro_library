@@ -36,7 +36,7 @@ namespace modcalc{
     T modarithmeticsum(T a, T d, T n, T m){
         T m2 = m * 2;
         a %= m2, n %= m2, d %= m2;
-        T b = (n - 1) * d % m2;
+        T b = (n + m2 - 1) * d % m2;
         return ((n * (a * 2 + b) % m2) / 2) % m;
     }
 
