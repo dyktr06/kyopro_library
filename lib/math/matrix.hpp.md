@@ -205,10 +205,10 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/matrix/pow_of_matrix.test.cpp
-  - test/library_checker/matrix/inverse_matrix.test.cpp
-  - test/library_checker/matrix/matrix_rank.test.cpp
-  - test/library_checker/matrix/matrix_det.test.cpp
   - test/library_checker/matrix/matrix_product.test.cpp
+  - test/library_checker/matrix/inverse_matrix.test.cpp
+  - test/library_checker/matrix/matrix_det.test.cpp
+  - test/library_checker/matrix/matrix_rank.test.cpp
 documentation_of: lib/math/matrix.hpp
 layout: document
 redirect_from:

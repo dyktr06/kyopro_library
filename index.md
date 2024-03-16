@@ -87,6 +87,9 @@ data:
       path: lib/data_structure/persistent_union_find.hpp
       title: lib/data_structure/persistent_union_find.hpp
     - icon: ':warning:'
+      path: lib/data_structure/priority_queue.hpp
+      title: lib/data_structure/priority_queue.hpp
+    - icon: ':warning:'
       path: lib/data_structure/priority_set.hpp
       title: lib/data_structure/priority_set.hpp
     - icon: ':heavy_check_mark:'
