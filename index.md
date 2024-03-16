@@ -184,9 +184,9 @@ data:
     - icon: ':warning:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
-    - icon: ':heavy_check_mark:'
-      path: lib/graph/tree.hpp
-      title: lib/graph/tree.hpp
+    - icon: ':warning:'
+      path: lib/graph/tree_diameter.hpp
+      title: lib/graph/tree_diameter.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/warshall_floyd.hpp
       title: "Floyd-Warshall Algorithm (\u30EF\u30FC\u30B7\u30E3\u30EB\u30D5\u30ED\
@@ -273,6 +273,9 @@ data:
     - icon: ':warning:'
       path: lib/others/val_range.hpp
       title: lib/others/val_range.hpp
+    - icon: ':warning:'
+      path: lib/others/zorbrist_hash.hpp
+      title: lib/others/zorbrist_hash.hpp
   - name: lib/string
     pages:
     - icon: ':warning:'
@@ -572,7 +575,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/jump_on_tree.test.cpp
       title: test/library_checker/tree/jump_on_tree.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/tree/lca.test.cpp
       title: test/library_checker/tree/lca.test.cpp
     - icon: ':heavy_check_mark:'
