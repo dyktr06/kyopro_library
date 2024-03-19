@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/math/rational_approximation.test.cpp
     title: test/library_checker/math/rational_approximation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_1464.test.cpp
     title: test/yukicoder/yuki_1464.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/fraction.md
     document_title: Fraction
@@ -81,7 +81,7 @@ data:
   requiredBy:
   - lib/math/stern_brocot_tree.hpp
   timestamp: '2024-03-20 02:40:02+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/rational_approximation.test.cpp
   - test/yukicoder/yuki_1464.test.cpp

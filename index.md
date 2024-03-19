@@ -217,7 +217,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/enumerate_quotients.hpp
       title: lib/math/enumerate_quotients.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
       title: Fraction
     - icon: ':heavy_check_mark:'
@@ -595,7 +595,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_117.test.cpp
       title: test/yukicoder/yuki_117.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_1464.test.cpp
       title: test/yukicoder/yuki_1464.test.cpp
     - icon: ':heavy_check_mark:'
