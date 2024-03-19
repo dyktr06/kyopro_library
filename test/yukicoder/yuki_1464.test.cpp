@@ -7,6 +7,6 @@ using namespace std;
 int main(){
     long double x; cin >> x;
     long long n = x * 100000000 + 0.1;
-    fraction f = fraction(n, 100000000);
+    fraction<long long> f(n, 100000000);
     cout << f << endl;
 }
