@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/graph/cartesian_tree.test.cpp
-    title: test/library_checker/graph/cartesian_tree.test.cpp
+    path: test/library_checker/tree/cartesian_tree.test.cpp
+    title: test/library_checker/tree/cartesian_tree.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -39,7 +39,7 @@ data:
   timestamp: '2023-04-20 13:12:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/graph/cartesian_tree.test.cpp
+  - test/library_checker/tree/cartesian_tree.test.cpp
 documentation_of: lib/graph/cartesian_tree.hpp
 layout: document
 redirect_from:

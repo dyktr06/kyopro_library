@@ -488,9 +488,6 @@ data:
       path: test/library_checker/graph/bipartitematching.test.cpp
       title: test/library_checker/graph/bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/library_checker/graph/cartesian_tree.test.cpp
-      title: test/library_checker/graph/cartesian_tree.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/cycle_detection.test.cpp
       title: test/library_checker/graph/cycle_detection.test.cpp
     - icon: ':heavy_check_mark:'
@@ -576,11 +573,11 @@ data:
   - name: test/library_checker/tree
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/tree/cartesian_tree.test.cpp
+      title: test/library_checker/tree/cartesian_tree.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/jump_on_tree.test.cpp
       title: test/library_checker/tree/jump_on_tree.test.cpp
-    - icon: ':x:'
-      path: test/library_checker/tree/lca.test.cpp
-      title: test/library_checker/tree/lca.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/lca_hl.test.cpp
       title: test/library_checker/tree/lca_hl.test.cpp
