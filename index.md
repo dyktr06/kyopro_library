@@ -217,7 +217,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/enumerate_quotients.hpp
       title: lib/math/enumerate_quotients.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/fraction.hpp
       title: Fraction
     - icon: ':heavy_check_mark:'
@@ -247,7 +247,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/stern_brocot_tree.hpp
       title: lib/math/stern_brocot_tree.hpp
     - icon: ':heavy_check_mark:'
@@ -534,6 +534,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/primitive_root.test.cpp
       title: test/library_checker/math/primitive_root.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/math/rational_approximation.test.cpp
+      title: test/library_checker/math/rational_approximation.test.cpp
   - name: test/library_checker/matrix
     pages:
     - icon: ':heavy_check_mark:'
@@ -592,7 +595,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_117.test.cpp
       title: test/yukicoder/yuki_117.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/yuki_1464.test.cpp
       title: test/yukicoder/yuki_1464.test.cpp
     - icon: ':heavy_check_mark:'

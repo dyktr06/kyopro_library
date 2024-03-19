@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: lib/math/stern_brocot_tree.hpp
-    title: lib/math/stern_brocot_tree.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ntl/ntl_2_a.test.cpp
@@ -328,8 +325,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/math/bigint.hpp
-  requiredBy:
-  - lib/math/stern_brocot_tree.hpp
+  requiredBy: []
   timestamp: '2023-06-30 17:30:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
