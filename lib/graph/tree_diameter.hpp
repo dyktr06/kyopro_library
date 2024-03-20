@@ -1,9 +1,9 @@
 #pragma once
 
-/*  
-    diameter(): 直径の長さを求めます。
-    endpoint(): 直径の端の頂点を求めます。
-*/
+/**
+ * @brief Tree Diameter (木の直径)
+ * @docs docs/graph/tree_diameter.md
+ */
 
 struct TreeDiamiter{
     using Graph = vector<vector<int>>;

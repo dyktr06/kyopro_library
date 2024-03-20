@@ -1,7 +1,7 @@
 #pragma once
 
 /**
- * @brief Convert Base
+ * @brief Convert Base (進数変換)
  * @docs docs/math/convert_base.md
  */
 

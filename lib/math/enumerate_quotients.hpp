@@ -1,7 +1,7 @@
 #pragma once
 
 /**
- * @brief Primitive Root (原子根)
+ * @brief Enumerate Quotients (商列挙)
  * @docs docs/math/enumerate_quotients.md
  */
 

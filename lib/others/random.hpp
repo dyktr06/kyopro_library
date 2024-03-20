@@ -10,12 +10,12 @@ struct RandomNumber{
     uniform_int_distribution<long long> p;
     mt19937_64 rnd;
 
-	RandomNumber(long long l = 0, long long r = 0){
+    RandomNumber(long long l = 0, long long r = 0){
         rnd = mt19937_64(seed);
         p = uniform_int_distribution<long long>(l, r);
     }
 
-	long long get(){
+    long long get(){
         return p(rnd);
     }
 };
