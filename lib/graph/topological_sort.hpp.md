@@ -5,13 +5,10 @@ data:
   - icon: ':warning:'
     path: lib/graph/reachable_query.hpp
     title: lib/graph/reachable_query.hpp
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/aoj/grl/grl_4_b.test.cpp
-    title: test/aoj/grl/grl_4_b.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/graph/topological_sort.md
     document_title: Topological Sort
@@ -44,9 +41,8 @@ data:
   requiredBy:
   - lib/graph/reachable_query.hpp
   timestamp: '2023-01-23 11:19:29+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/aoj/grl/grl_4_b.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: lib/graph/topological_sort.hpp
 layout: document
 redirect_from:

@@ -181,7 +181,7 @@ data:
       path: lib/graph/scc.hpp
       title: "Strongly Connected Component (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
-    - icon: ':x:'
+    - icon: ':warning:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
     - icon: ':warning:'
@@ -263,16 +263,16 @@ data:
       title: "Exhaustive Search (bit \u5168\u63A2\u7D22)"
     - icon: ':warning:'
       path: lib/others/maximum_rectangle.hpp
-      title: lib/others/maximum_rectangle.hpp
+      title: "Maximum Rectangle (\u6700\u5927\u9577\u65B9\u5F62)"
     - icon: ':warning:'
       path: lib/others/others.hpp
       title: lib/others/others.hpp
     - icon: ':heavy_check_mark:'
       path: lib/others/random.hpp
-      title: lib/others/random.hpp
+      title: "Random (\u4E71\u6570\u751F\u6210)"
     - icon: ':warning:'
       path: lib/others/val_range.hpp
-      title: lib/others/val_range.hpp
+      title: val_range
     - icon: ':warning:'
       path: lib/others/zorbrist_hash.hpp
       title: lib/others/zorbrist_hash.hpp
@@ -343,9 +343,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/grl/grl_1_c.test.cpp
       title: test/aoj/grl/grl_1_c.test.cpp
-    - icon: ':x:'
-      path: test/aoj/grl/grl_4_b.test.cpp
-      title: test/aoj/grl/grl_4_b.test.cpp
   - name: test/aoj/ntl
     pages:
     - icon: ':heavy_check_mark:'

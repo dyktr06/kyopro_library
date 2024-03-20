@@ -9,7 +9,7 @@ data:
     title: Pollard's Rho
   - icon: ':heavy_check_mark:'
     path: lib/others/random.hpp
-    title: lib/others/random.hpp
+    title: "Random (\u4E71\u6570\u751F\u6210)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -64,9 +64,9 @@ data:
     \ = 0; i < n; ++i){\n                unsigned long long z = ret[i];\n        \
     \        for(int j = 0; j < cnt; ++j){\n                    z *= x;\n        \
     \            ret.push_back(z);\n                }\n            }\n        }\n\
-    \        return ret;\n    }\n}\n#line 2 \"lib/others/random.hpp\"\n\n#line 4 \"\
-    lib/others/random.hpp\"\n\nusing namespace std;\n\nstruct RandomNumber{\n    int64_t\
-    \ seed = chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count();\n\
+    \        return ret;\n    }\n}\n#line 2 \"lib/others/random.hpp\"\n\n/**\n * @brief\
+    \ Random (\u4E71\u6570\u751F\u6210)\n * @docs docs/others/random.md\n */\n\nstruct\
+    \ RandomNumber{\n    int64_t seed = chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count();\n\
     \    uniform_int_distribution<long long> p;\n    mt19937_64 rnd;\n\n\tRandomNumber(long\
     \ long l = 0, long long r = 0){\n        rnd = mt19937_64(seed);\n        p =\
     \ uniform_int_distribution<long long>(l, r);\n    }\n\n\tlong long get(){\n  \
@@ -96,7 +96,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/math/primitive_root.test.cpp
   requiredBy: []
-  timestamp: '2024-01-24 14:02:37+09:00'
+  timestamp: '2024-03-21 03:03:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/math/primitive_root.test.cpp
