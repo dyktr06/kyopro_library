@@ -65,11 +65,11 @@ data:
     \        return ret;\n    }\n}\n#line 2 \"lib/others/random.hpp\"\n\n/**\n * @brief\
     \ Random (\u4E71\u6570\u751F\u6210)\n * @docs docs/others/random.md\n */\n\nstruct\
     \ RandomNumber{\n    int64_t seed = chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count();\n\
-    \    uniform_int_distribution<long long> p;\n    mt19937_64 rnd;\n\n\tRandomNumber(long\
+    \    uniform_int_distribution<long long> p;\n    mt19937_64 rnd;\n\n    RandomNumber(long\
     \ long l = 0, long long r = 0){\n        rnd = mt19937_64(seed);\n        p =\
-    \ uniform_int_distribution<long long>(l, r);\n    }\n\n\tlong long get(){\n  \
-    \      return p(rnd);\n    }\n};\n#line 10 \"lib/math/primitive_root.hpp\"\n\n\
-    long long primitiveRoot(long long p){\n    auto modpow = [](__int128_t x, long\
+    \ uniform_int_distribution<long long>(l, r);\n    }\n\n    long long get(){\n\
+    \        return p(rnd);\n    }\n};\n#line 10 \"lib/math/primitive_root.hpp\"\n\
+    \nlong long primitiveRoot(long long p){\n    auto modpow = [](__int128_t x, long\
     \ long n, const long long &m){\n        __int128_t ret = 1 % m;\n        x %=\
     \ m;\n        while(n > 0){\n            if(n & 1) (ret *= x) %= m;\n        \
     \    (x *= x) %= m;\n            n >>= 1;\n        }\n        return ret;\n  \
@@ -97,7 +97,7 @@ data:
   isVerificationFile: false
   path: lib/math/primitive_root.hpp
   requiredBy: []
-  timestamp: '2024-03-21 03:54:24+09:00'
+  timestamp: '2024-03-21 04:22:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/primitive_root.test.cpp

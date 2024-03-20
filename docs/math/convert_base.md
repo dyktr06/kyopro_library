@@ -1,4 +1,4 @@
-## Convert Base
+## Convert Base (進数変換)
 
 #### 概要
 

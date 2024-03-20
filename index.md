@@ -186,7 +186,7 @@ data:
       title: Topological Sort
     - icon: ':warning:'
       path: lib/graph/tree_diameter.hpp
-      title: lib/graph/tree_diameter.hpp
+      title: "Tree Diameter (\u6728\u306E\u76F4\u5F84)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/warshall_floyd.hpp
       title: "Floyd-Warshall Algorithm (\u30EF\u30FC\u30B7\u30E3\u30EB\u30D5\u30ED\
@@ -210,13 +210,13 @@ data:
       title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
-      title: Convert Base
+      title: "Convert Base (\u9032\u6570\u5909\u63DB)"
     - icon: ':heavy_check_mark:'
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':heavy_check_mark:'
       path: lib/math/enumerate_quotients.hpp
-      title: "Primitive Root (\u539F\u5B50\u6839)"
+      title: "Enumerate Quotients (\u5546\u5217\u6319)"
     - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
       title: Fraction

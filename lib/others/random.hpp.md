@@ -19,22 +19,22 @@ data:
   bundledCode: "#line 2 \"lib/others/random.hpp\"\n\n/**\n * @brief Random (\u4E71\
     \u6570\u751F\u6210)\n * @docs docs/others/random.md\n */\n\nstruct RandomNumber{\n\
     \    int64_t seed = chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count();\n\
-    \    uniform_int_distribution<long long> p;\n    mt19937_64 rnd;\n\n\tRandomNumber(long\
+    \    uniform_int_distribution<long long> p;\n    mt19937_64 rnd;\n\n    RandomNumber(long\
     \ long l = 0, long long r = 0){\n        rnd = mt19937_64(seed);\n        p =\
-    \ uniform_int_distribution<long long>(l, r);\n    }\n\n\tlong long get(){\n  \
-    \      return p(rnd);\n    }\n};\n"
+    \ uniform_int_distribution<long long>(l, r);\n    }\n\n    long long get(){\n\
+    \        return p(rnd);\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Random (\u4E71\u6570\u751F\u6210)\n * @docs\
     \ docs/others/random.md\n */\n\nstruct RandomNumber{\n    int64_t seed = chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count();\n\
-    \    uniform_int_distribution<long long> p;\n    mt19937_64 rnd;\n\n\tRandomNumber(long\
+    \    uniform_int_distribution<long long> p;\n    mt19937_64 rnd;\n\n    RandomNumber(long\
     \ long l = 0, long long r = 0){\n        rnd = mt19937_64(seed);\n        p =\
-    \ uniform_int_distribution<long long>(l, r);\n    }\n\n\tlong long get(){\n  \
-    \      return p(rnd);\n    }\n};\n"
+    \ uniform_int_distribution<long long>(l, r);\n    }\n\n    long long get(){\n\
+    \        return p(rnd);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/others/random.hpp
   requiredBy:
   - lib/math/primitive_root.hpp
-  timestamp: '2024-03-21 03:03:00+09:00'
+  timestamp: '2024-03-21 04:22:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/primitive_root.test.cpp

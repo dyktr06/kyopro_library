@@ -11,17 +11,17 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/enumerate_quotients.md
-    document_title: "Primitive Root (\u539F\u5B50\u6839)"
+    document_title: "Enumerate Quotients (\u5546\u5217\u6319)"
     links: []
-  bundledCode: "#line 2 \"lib/math/enumerate_quotients.hpp\"\n\n/**\n * @brief Primitive\
-    \ Root (\u539F\u5B50\u6839)\n * @docs docs/math/enumerate_quotients.md\n */\n\n\
-    template <typename T>\nvector<tuple<T, T, T>> enumerate_quotients(const T &n){\n\
-    \    vector<tuple<T, T, T>> res;\n    for(T l = 1; l <= n;){\n        const T\
-    \ quotient = n / l;\n        const T r = n / quotient + 1;\n\n        // [l, r)\n\
-    \        res.emplace_back(l, r, quotient);\n        l = r;\n    }\n    return\
-    \ res;\n}\n"
-  code: "#pragma once\n\n/**\n * @brief Primitive Root (\u539F\u5B50\u6839)\n * @docs\
-    \ docs/math/enumerate_quotients.md\n */\n\ntemplate <typename T>\nvector<tuple<T,\
+  bundledCode: "#line 2 \"lib/math/enumerate_quotients.hpp\"\n\n/**\n * @brief Enumerate\
+    \ Quotients (\u5546\u5217\u6319)\n * @docs docs/math/enumerate_quotients.md\n\
+    \ */\n\ntemplate <typename T>\nvector<tuple<T, T, T>> enumerate_quotients(const\
+    \ T &n){\n    vector<tuple<T, T, T>> res;\n    for(T l = 1; l <= n;){\n      \
+    \  const T quotient = n / l;\n        const T r = n / quotient + 1;\n\n      \
+    \  // [l, r)\n        res.emplace_back(l, r, quotient);\n        l = r;\n    }\n\
+    \    return res;\n}\n"
+  code: "#pragma once\n\n/**\n * @brief Enumerate Quotients (\u5546\u5217\u6319)\n\
+    \ * @docs docs/math/enumerate_quotients.md\n */\n\ntemplate <typename T>\nvector<tuple<T,\
     \ T, T>> enumerate_quotients(const T &n){\n    vector<tuple<T, T, T>> res;\n \
     \   for(T l = 1; l <= n;){\n        const T quotient = n / l;\n        const T\
     \ r = n / quotient + 1;\n\n        // [l, r)\n        res.emplace_back(l, r, quotient);\n\
@@ -30,7 +30,7 @@ data:
   isVerificationFile: false
   path: lib/math/enumerate_quotients.hpp
   requiredBy: []
-  timestamp: '2024-03-21 03:54:24+09:00'
+  timestamp: '2024-03-21 04:22:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/enumerate_quotients.test.cpp
@@ -39,7 +39,7 @@ layout: document
 redirect_from:
 - /library/lib/math/enumerate_quotients.hpp
 - /library/lib/math/enumerate_quotients.hpp.html
-title: "Primitive Root (\u539F\u5B50\u6839)"
+title: "Enumerate Quotients (\u5546\u5217\u6319)"
 ---
 ## Enumerate Quotients (商列挙)
 

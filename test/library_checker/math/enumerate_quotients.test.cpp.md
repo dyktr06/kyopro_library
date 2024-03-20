@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/math/enumerate_quotients.hpp
-    title: "Primitive Root (\u539F\u5B50\u6839)"
+    title: "Enumerate Quotients (\u5546\u5217\u6319)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -17,7 +17,7 @@ data:
   bundledCode: "#line 1 \"test/library_checker/math/enumerate_quotients.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_quotients\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/enumerate_quotients.hpp\"\
-    \n\n/**\n * @brief Primitive Root (\u539F\u5B50\u6839)\n * @docs docs/math/enumerate_quotients.md\n\
+    \n\n/**\n * @brief Enumerate Quotients (\u5546\u5217\u6319)\n * @docs docs/math/enumerate_quotients.md\n\
     \ */\n\ntemplate <typename T>\nvector<tuple<T, T, T>> enumerate_quotients(const\
     \ T &n){\n    vector<tuple<T, T, T>> res;\n    for(T l = 1; l <= n;){\n      \
     \  const T quotient = n / l;\n        const T r = n / quotient + 1;\n\n      \
@@ -38,7 +38,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/math/enumerate_quotients.test.cpp
   requiredBy: []
-  timestamp: '2024-03-21 03:54:24+09:00'
+  timestamp: '2024-03-21 04:22:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/math/enumerate_quotients.test.cpp
