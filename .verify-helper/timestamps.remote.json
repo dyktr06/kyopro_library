@@ -84,6 +84,7 @@
 "test/library_checker/tree/lca_hl.test.cpp": "2024-02-14 05:01:53 +0900",
 "test/library_checker/tree/tree_diameter.test.cpp": "2023-04-16 17:55:44 +0900",
 "test/library_checker/tree/tree_path_composite_sum.test.cpp": "2023-12-18 11:09:03 +0900",
+"test/yukicoder/yuki_1008.test.cpp": "2024-03-21 02:13:17 +0900",
 "test/yukicoder/yuki_117.test.cpp": "2023-07-14 01:49:58 +0900",
 "test/yukicoder/yuki_1464.test.cpp": "2024-03-20 02:46:12 +0900",
 "test/yukicoder/yuki_184.test.cpp": "2023-05-01 02:14:55 +0900",
