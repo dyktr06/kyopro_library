@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief val_range
+ * @docs docs/others/val_range.md
+ */
+
 // 0-indexed, (l, i], [i, r)
 template<typename T>
 pair<vector<int>, vector<int>> val_range(const vector<T> &v, bool is_min){

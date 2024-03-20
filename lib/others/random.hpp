@@ -1,8 +1,9 @@
 #pragma once
 
-#include <bits/stdc++.h>
-
-using namespace std;
+/**
+ * @brief Random (乱数生成)
+ * @docs docs/others/random.md
+ */
 
 struct RandomNumber{
     int64_t seed = chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count();
