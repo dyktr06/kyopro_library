@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Primitive Root (原子根)
+ * @docs docs/math/primitive_root.md
+ */
+
 #include "../math/rho.hpp"
 #include "../others/random.hpp"
 

@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Primitive Root (原子根)
+ * @docs docs/math/enumerate_quotients.md
+ */
+
 template <typename T>
 vector<tuple<T, T, T>> enumerate_quotients(const T &n){
     vector<tuple<T, T, T>> res;

@@ -1,9 +1,14 @@
 #pragma once
 
+/**
+ * @brief Rational Approximation (有理数近似)
+ * @docs docs/math/rational_approximation.md
+ */
+
 #include "../math/fraction.hpp"
 
 template <typename T>
-pair<fraction<T>, fraction<T>> SternBrocot(T n, fraction<T> p){
+pair<fraction<T>, fraction<T>> rationalApproximation(T n, fraction<T> p){
     fraction<T> a(0, 1), b(1, 0);
     fraction<T> x(0, 1), y(1, 0);
     bool ok_left = true, ok_right = true;

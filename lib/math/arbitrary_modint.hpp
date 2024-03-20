@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Arbitrary Modint
+ * @docs docs/math/arbitrary_modint.md
+ */
+
 struct ModInt{
     long long val;
     ModInt(const long long &_val = 0) noexcept : val(_val) {

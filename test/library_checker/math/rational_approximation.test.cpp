@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../../lib/math/stern_brocot_tree.hpp"
+#include "../../../lib/math/rational_approximation.hpp"
 
 int main(){
     ios::sync_with_stdio(false);
@@ -12,7 +12,7 @@ int main(){
     while(T--){
         long long n, x, y; cin >> n >> x >> y;
         fraction<long long> f(x, y);
-        auto [l, r] = SternBrocot(n, f);
+        auto [l, r] = rationalApproximation(n, f);
         if(f == l) r = l;
         cout << l.p << " " << l.q << " " << r.p << " " << r.q << "\n";
     }

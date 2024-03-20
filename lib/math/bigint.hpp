@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief BigInt (多倍長整数)
+ * @docs docs/math/bigint.md
+ */
+
 template <long long base = 1000000LL, int digit = 6>
 struct BigInt{
     int sign = 1;
