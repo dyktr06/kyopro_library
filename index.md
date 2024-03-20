@@ -195,13 +195,13 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: lib/math/arbitrary_modint.hpp
-      title: lib/math/arbitrary_modint.hpp
+      title: Arbitrary Modint
     - icon: ':heavy_check_mark:'
       path: lib/math/baby-step_giant-step.hpp
       title: Baby-step giant-step
     - icon: ':heavy_check_mark:'
       path: lib/math/bigint.hpp
-      title: lib/math/bigint.hpp
+      title: "BigInt (\u591A\u500D\u9577\u6574\u6570)"
     - icon: ':heavy_check_mark:'
       path: lib/math/binarybasis.hpp
       title: Binary Basis
@@ -216,7 +216,7 @@ data:
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':heavy_check_mark:'
       path: lib/math/enumerate_quotients.hpp
-      title: lib/math/enumerate_quotients.hpp
+      title: "Primitive Root (\u539F\u5B50\u6839)"
     - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
       title: Fraction
@@ -243,13 +243,13 @@ data:
       title: "\u7D20\u6570\u5224\u5B9A\u3001\u7D04\u6570\u5217\u6319"
     - icon: ':heavy_check_mark:'
       path: lib/math/primitive_root.hpp
-      title: lib/math/primitive_root.hpp
+      title: "Primitive Root (\u539F\u5B50\u6839)"
+    - icon: ':heavy_check_mark:'
+      path: lib/math/rational_approximation.hpp
+      title: "Rational Approximation (\u6709\u7406\u6570\u8FD1\u4F3C)"
     - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
-    - icon: ':heavy_check_mark:'
-      path: lib/math/stern_brocot_tree.hpp
-      title: lib/math/stern_brocot_tree.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/utils.hpp
       title: lib/math/utils.hpp

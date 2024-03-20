@@ -10,8 +10,11 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/math/arbitrary_modint.md
+    document_title: Arbitrary Modint
     links: []
-  bundledCode: "#line 2 \"lib/math/arbitrary_modint.hpp\"\n\nstruct ModInt{\n    long\
+  bundledCode: "#line 2 \"lib/math/arbitrary_modint.hpp\"\n\n/**\n * @brief Arbitrary\
+    \ Modint\n * @docs docs/math/arbitrary_modint.md\n */\n\nstruct ModInt{\n    long\
     \ long val;\n    ModInt(const long long &_val = 0) noexcept : val(_val) {\n  \
     \      normalize();\n    }\n    static long long &Modulus(){\n        static long\
     \ long mod = 0;\n        return mod;\n    }\n    static void setMod(const int\
@@ -49,11 +52,12 @@ data:
     \ noexcept {\n        is >> x.val;\n        x.normalize();\n        return is;\n\
     \    }\n    friend inline ostream& operator<<(ostream& os, const ModInt& x) noexcept\
     \ { return os << x.val; }\n};\n"
-  code: "#pragma once\n\nstruct ModInt{\n    long long val;\n    ModInt(const long\
-    \ long &_val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    static\
-    \ long long &Modulus(){\n        static long long mod = 0;\n        return mod;\n\
-    \    }\n    static void setMod(const int &mod){\n        Modulus() = mod;\n  \
-    \  }\n    void normalize(){\n        val = (val % Modulus() + Modulus()) % Modulus();\n\
+  code: "#pragma once\n\n/**\n * @brief Arbitrary Modint\n * @docs docs/math/arbitrary_modint.md\n\
+    \ */\n\nstruct ModInt{\n    long long val;\n    ModInt(const long long &_val =\
+    \ 0) noexcept : val(_val) {\n        normalize();\n    }\n    static long long\
+    \ &Modulus(){\n        static long long mod = 0;\n        return mod;\n    }\n\
+    \    static void setMod(const int &mod){\n        Modulus() = mod;\n    }\n  \
+    \  void normalize(){\n        val = (val % Modulus() + Modulus()) % Modulus();\n\
     \    }\n    inline ModInt& operator+=(const ModInt& rhs) noexcept {\n        if(val\
     \ += rhs.val, val >= Modulus()) val -= Modulus();\n        return *this;\n   \
     \ }\n    inline ModInt& operator-=(const ModInt& rhs) noexcept {\n        if(val\
@@ -91,7 +95,7 @@ data:
   isVerificationFile: false
   path: lib/math/arbitrary_modint.hpp
   requiredBy: []
-  timestamp: '2023-05-10 12:48:56+09:00'
+  timestamp: '2024-03-21 03:54:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
@@ -100,5 +104,16 @@ layout: document
 redirect_from:
 - /library/lib/math/arbitrary_modint.hpp
 - /library/lib/math/arbitrary_modint.hpp.html
-title: lib/math/arbitrary_modint.hpp
+title: Arbitrary Modint
 ---
+## Arbitrary Modint
+
+#### 概要
+
+Modulus で割ったあまりの値を管理する構造体です。
+
+入力で Modulus が与えられる場合に使用できます。
+
+#### 使い方
+
+- `ModInt::setMod(m)`: Modulus を m に設定します。

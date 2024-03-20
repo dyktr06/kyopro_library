@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/math/bigint.hpp
-    title: lib/math/bigint.hpp
+    title: "BigInt (\u591A\u500D\u9577\u6574\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -17,35 +17,36 @@ data:
   bundledCode: "#line 1 \"test/library_checker/sample/many_aplusb_128bit.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/many_aplusb_128bit\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/bigint.hpp\"\n\n\
-    template <long long base = 1000000LL, int digit = 6>\nstruct BigInt{\n    int\
-    \ sign = 1;\n    vector<long long> val;\n\n    constexpr BigInt(const long long\
-    \ _val = 0) noexcept {\n        if(_val != 0){\n            val.assign(1, abs(_val));\n\
-    \            shift();\n        }\n        if(_val < 0) sign = -1;\n    }\n   \
-    \ constexpr BigInt(const vector<long long> &_val) noexcept : val(_val) {}\n  \
-    \  constexpr BigInt(const string &s) noexcept {\n        stoi(s);\n    }\n\nprivate:\n\
-    \    void normalize(){\n        while(!val.empty() && val.back() == 0) val.pop_back();\n\
-    \        if(val.empty()) sign = 1;\n    }\n    vector<long long> karatsuba_algorithm(vector<long\
-    \ long> &a, vector<long long> &b){\n        const int n = (int) a.size();\n  \
-    \      const int h = n >> 1;\n        assert(a.size() == b.size());\n        assert((n\
-    \ & (n - 1)) == 0);\n        if(n <= 64){\n            vector<long long> res(2\
-    \ * n - 1);\n            for(int i = 0; i < n; ++i){\n                for(int\
-    \ j = 0; j < n; ++j){\n                    res[i + j] += a[i] * b[j];\n      \
-    \          }\n            }\n            return res;\n        }\n        vector<long\
-    \ long> p(h), q(h), r(h), s(h), t(h), u(h);\n        for(int i = 0; i < h; ++i){\n\
-    \            p[i] = a[i + h];\n            q[i] = a[i];\n            r[i] = b[i\
-    \ + h];\n            s[i] = b[i];\n            t[i] = p[i] + q[i];\n         \
-    \   u[i] = r[i] + s[i];\n        }\n        p = karatsuba_algorithm(p, r);\n \
-    \       q = karatsuba_algorithm(q, s);\n        t = karatsuba_algorithm(t, u);\n\
-    \        vector<long long> res(2 * n - 1, 0);\n        for(int i = 0; i < n -\
-    \ 1; ++i){\n            res[i] += q[i];\n            res[i + h] += t[i] - p[i]\
-    \ - q[i];\n            res[i + n] += p[i];\n        }\n        return res;\n \
-    \   }\n\n    pair<BigInt, BigInt> divide_naive(const BigInt& rhs) const {\n  \
-    \      assert(!rhs.val.empty());\n        const int k = base / (rhs.val.back()\
-    \ + 1);\n        const BigInt dividend = (sign == 1 ? *this : -(*this)) * k;\n\
-    \        const BigInt divisor = (rhs.sign == 1 ? rhs : -rhs) * k;\n        BigInt\
-    \ quo, rem = 0;\n        quo.val.resize(dividend.val.size());\n        const int\
-    \ n = divisor.val.size();\n        for(int i = (int) dividend.val.size() - 1;\
-    \ i >= 0; --i){\n            rem.val.emplace(rem.val.begin(), dividend.val[i]);\n\
+    /**\n * @brief BigInt (\u591A\u500D\u9577\u6574\u6570)\n * @docs docs/math/bigint.md\n\
+    \ */\n\ntemplate <long long base = 1000000LL, int digit = 6>\nstruct BigInt{\n\
+    \    int sign = 1;\n    vector<long long> val;\n\n    constexpr BigInt(const long\
+    \ long _val = 0) noexcept {\n        if(_val != 0){\n            val.assign(1,\
+    \ abs(_val));\n            shift();\n        }\n        if(_val < 0) sign = -1;\n\
+    \    }\n    constexpr BigInt(const vector<long long> &_val) noexcept : val(_val)\
+    \ {}\n    constexpr BigInt(const string &s) noexcept {\n        stoi(s);\n   \
+    \ }\n\nprivate:\n    void normalize(){\n        while(!val.empty() && val.back()\
+    \ == 0) val.pop_back();\n        if(val.empty()) sign = 1;\n    }\n    vector<long\
+    \ long> karatsuba_algorithm(vector<long long> &a, vector<long long> &b){\n   \
+    \     const int n = (int) a.size();\n        const int h = n >> 1;\n        assert(a.size()\
+    \ == b.size());\n        assert((n & (n - 1)) == 0);\n        if(n <= 64){\n \
+    \           vector<long long> res(2 * n - 1);\n            for(int i = 0; i <\
+    \ n; ++i){\n                for(int j = 0; j < n; ++j){\n                    res[i\
+    \ + j] += a[i] * b[j];\n                }\n            }\n            return res;\n\
+    \        }\n        vector<long long> p(h), q(h), r(h), s(h), t(h), u(h);\n  \
+    \      for(int i = 0; i < h; ++i){\n            p[i] = a[i + h];\n           \
+    \ q[i] = a[i];\n            r[i] = b[i + h];\n            s[i] = b[i];\n     \
+    \       t[i] = p[i] + q[i];\n            u[i] = r[i] + s[i];\n        }\n    \
+    \    p = karatsuba_algorithm(p, r);\n        q = karatsuba_algorithm(q, s);\n\
+    \        t = karatsuba_algorithm(t, u);\n        vector<long long> res(2 * n -\
+    \ 1, 0);\n        for(int i = 0; i < n - 1; ++i){\n            res[i] += q[i];\n\
+    \            res[i + h] += t[i] - p[i] - q[i];\n            res[i + n] += p[i];\n\
+    \        }\n        return res;\n    }\n\n    pair<BigInt, BigInt> divide_naive(const\
+    \ BigInt& rhs) const {\n        assert(!rhs.val.empty());\n        const int k\
+    \ = base / (rhs.val.back() + 1);\n        const BigInt dividend = (sign == 1 ?\
+    \ *this : -(*this)) * k;\n        const BigInt divisor = (rhs.sign == 1 ? rhs\
+    \ : -rhs) * k;\n        BigInt quo, rem = 0;\n        quo.val.resize(dividend.val.size());\n\
+    \        const int n = divisor.val.size();\n        for(int i = (int) dividend.val.size()\
+    \ - 1; i >= 0; --i){\n            rem.val.emplace(rem.val.begin(), dividend.val[i]);\n\
     \            quo.val[i] = ((n < (int) rem.val.size() ? rem.val[n] * base : 0)\
     \ + ((n - 1) < (int) rem.val.size() ? rem.val[n - 1] : 0)) / divisor.val.back();\n\
     \            rem -= divisor * quo.val[i];\n            while (rem.sign == -1)\
@@ -176,7 +177,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/sample/many_aplusb_128bit.test.cpp
   requiredBy: []
-  timestamp: '2023-06-30 17:30:27+09:00'
+  timestamp: '2024-03-21 03:54:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/sample/many_aplusb_128bit.test.cpp

@@ -179,7 +179,7 @@ title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
 
 #### 計算量
 
-頂点数を $V$ とする。
+頂点数を $V$ とします。
 - `HeavyLightDecomposition(node_size)`: $\mathrm{O}(V)$
 - `add_edge(u, v)`: $\mathrm{O}(1)$
 - `build()`: $\mathrm{O}(V \log V)$
@@ -188,6 +188,8 @@ title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
 - `lca(a, b)`: $\mathrm{O}(\log V)$
 - `dist(a, b)`: $\mathrm{O}(\log V)$
 - `jump(from, to, k)`: $\mathrm{O}(\log V)$
-- `subtree_query(a, f)`: $\mathrm{O}(\log V)$
-- `path_query(a, b, f)`: $\mathrm{O}(\log^2 V)$
-- `path_noncommutative_query(a, b, f, f2)`: $\mathrm{O}(\log^2 V)$
+- `subtree_query(a, f)`: $\mathrm{O}(1)$
+- `path_query(a, b, f)`: $\mathrm{O}(\log V)$
+- `path_noncommutative_query(a, b, f, f2)`: $\mathrm{O}(\log V)$
+
+subtree_query, path_query, path_noncommutative_query については、$f$ の計算量が $\mathrm{O}(f(n))$ である場合には実際の計算量は $\mathrm{O}(f(n))$ 倍になります。

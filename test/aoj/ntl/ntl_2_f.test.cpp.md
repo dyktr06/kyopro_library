@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/math/bigint.hpp
-    title: lib/math/bigint.hpp
+    title: "BigInt (\u591A\u500D\u9577\u6574\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -16,8 +16,9 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F
   bundledCode: "#line 1 \"test/aoj/ntl/ntl_2_f.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/bigint.hpp\"\
-    \n\ntemplate <long long base = 1000000LL, int digit = 6>\nstruct BigInt{\n   \
-    \ int sign = 1;\n    vector<long long> val;\n\n    constexpr BigInt(const long\
+    \n\n/**\n * @brief BigInt (\u591A\u500D\u9577\u6574\u6570)\n * @docs docs/math/bigint.md\n\
+    \ */\n\ntemplate <long long base = 1000000LL, int digit = 6>\nstruct BigInt{\n\
+    \    int sign = 1;\n    vector<long long> val;\n\n    constexpr BigInt(const long\
     \ long _val = 0) noexcept {\n        if(_val != 0){\n            val.assign(1,\
     \ abs(_val));\n            shift();\n        }\n        if(_val < 0) sign = -1;\n\
     \    }\n    constexpr BigInt(const vector<long long> &_val) noexcept : val(_val)\
@@ -172,7 +173,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ntl/ntl_2_f.test.cpp
   requiredBy: []
-  timestamp: '2023-06-30 17:30:27+09:00'
+  timestamp: '2024-03-21 03:54:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ntl/ntl_2_f.test.cpp

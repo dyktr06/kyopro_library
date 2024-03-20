@@ -3,8 +3,8 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: lib/math/stern_brocot_tree.hpp
-    title: lib/math/stern_brocot_tree.hpp
+    path: lib/math/rational_approximation.hpp
+    title: "Rational Approximation (\u6709\u7406\u6570\u8FD1\u4F3C)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/math/rational_approximation.test.cpp
@@ -79,7 +79,7 @@ data:
   isVerificationFile: false
   path: lib/math/fraction.hpp
   requiredBy:
-  - lib/math/stern_brocot_tree.hpp
+  - lib/math/rational_approximation.hpp
   timestamp: '2024-03-20 02:40:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

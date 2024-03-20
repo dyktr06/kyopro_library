@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/math/primitive_root.hpp
-    title: lib/math/primitive_root.hpp
+    title: "Primitive Root (\u539F\u5B50\u6839)"
   - icon: ':heavy_check_mark:'
     path: lib/math/rho.hpp
     title: Pollard's Rho
@@ -22,28 +22,29 @@ data:
     - https://judge.yosupo.jp/problem/primitive_root
   bundledCode: "#line 1 \"test/library_checker/math/primitive_root.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/primitive_root\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 2 \"lib/math/primitive_root.hpp\"\n\n#line 2 \"\
-    lib/math/rho.hpp\"\n\n/**\n * @brief Pollard's Rho\n * @docs docs/math/rho.md\n\
-    \ */\n\nnamespace Rho{\n    unsigned long long mul(unsigned long long a, unsigned\
-    \ long long b, const unsigned long long mod) {\n        long long ret = a * b\
-    \ - mod * (unsigned long long)(1.0L / mod * a * b);\n        return ret + mod\
-    \ * (ret < 0) - mod * (ret >= (long long) mod);\n    }\n\n    bool rabin_miller(unsigned\
-    \ long long n){\n        switch(n){\n            case 0: // fall-through\n   \
-    \         case 1: return false;\n            case 2: return true;\n        }\n\
-    \n        if(n % 2 == 0) return false;\n        vector<long long> A = {2, 325,\
-    \ 9375, 28178, 450775, 9780504, 1795265022};\n        unsigned long long s = 0,\
-    \ d = n - 1;\n        while(d % 2 == 0){\n            s++;\n            d >>=\
-    \ 1;\n        }\n\n        auto modpow = [](unsigned long long x, unsigned long\
-    \ long e, const unsigned long long mod) -> unsigned long long {\n            unsigned\
-    \ long long ret = 1 % mod;\n            x %= mod;\n            while(e > 0){\n\
-    \                if(e & 1) ret = mul(ret, x, mod);\n                x = mul(x,\
-    \ x, mod);\n                e >>= 1;\n            }\n            return ret;\n\
-    \        };\n\n        for(auto a : A){\n            if(a % n == 0) return true;\n\
-    \            unsigned long long t, x = modpow(a, d, n);\n            if(x != 1){\n\
-    \                for(t = 0; t < s; ++t){\n                    if(x == n - 1) break;\n\
-    \                    x = mul(x, x, n);\n                }\n                if(t\
-    \ == s) return false;\n            }\n        }\n        return true;\n    }\n\
-    \n    mt19937_64 rng(chrono::system_clock::now().time_since_epoch().count());\n\
+    using namespace std;\n\n#line 2 \"lib/math/primitive_root.hpp\"\n\n/**\n * @brief\
+    \ Primitive Root (\u539F\u5B50\u6839)\n * @docs docs/math/primitive_root.md\n\
+    \ */\n\n#line 2 \"lib/math/rho.hpp\"\n\n/**\n * @brief Pollard's Rho\n * @docs\
+    \ docs/math/rho.md\n */\n\nnamespace Rho{\n    unsigned long long mul(unsigned\
+    \ long long a, unsigned long long b, const unsigned long long mod) {\n       \
+    \ long long ret = a * b - mod * (unsigned long long)(1.0L / mod * a * b);\n  \
+    \      return ret + mod * (ret < 0) - mod * (ret >= (long long) mod);\n    }\n\
+    \n    bool rabin_miller(unsigned long long n){\n        switch(n){\n         \
+    \   case 0: // fall-through\n            case 1: return false;\n            case\
+    \ 2: return true;\n        }\n\n        if(n % 2 == 0) return false;\n       \
+    \ vector<long long> A = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};\n\
+    \        unsigned long long s = 0, d = n - 1;\n        while(d % 2 == 0){\n  \
+    \          s++;\n            d >>= 1;\n        }\n\n        auto modpow = [](unsigned\
+    \ long long x, unsigned long long e, const unsigned long long mod) -> unsigned\
+    \ long long {\n            unsigned long long ret = 1 % mod;\n            x %=\
+    \ mod;\n            while(e > 0){\n                if(e & 1) ret = mul(ret, x,\
+    \ mod);\n                x = mul(x, x, mod);\n                e >>= 1;\n     \
+    \       }\n            return ret;\n        };\n\n        for(auto a : A){\n \
+    \           if(a % n == 0) return true;\n            unsigned long long t, x =\
+    \ modpow(a, d, n);\n            if(x != 1){\n                for(t = 0; t < s;\
+    \ ++t){\n                    if(x == n - 1) break;\n                    x = mul(x,\
+    \ x, n);\n                }\n                if(t == s) return false;\n      \
+    \      }\n        }\n        return true;\n    }\n\n    mt19937_64 rng(chrono::system_clock::now().time_since_epoch().count());\n\
     \    unsigned long long FindFactor(unsigned long long n) {\n        if(n == 1\
     \ || rabin_miller(n)) return n;\n        if(n % 2 == 0) return 2;\n        unsigned\
     \ long long c = 1, x = 0, y = 0, t = 0, prod = 2, x0 = 1, q;\n        auto f =\
@@ -70,7 +71,7 @@ data:
     \    uniform_int_distribution<long long> p;\n    mt19937_64 rnd;\n\n\tRandomNumber(long\
     \ long l = 0, long long r = 0){\n        rnd = mt19937_64(seed);\n        p =\
     \ uniform_int_distribution<long long>(l, r);\n    }\n\n\tlong long get(){\n  \
-    \      return p(rnd);\n    }\n};\n#line 5 \"lib/math/primitive_root.hpp\"\n\n\
+    \      return p(rnd);\n    }\n};\n#line 10 \"lib/math/primitive_root.hpp\"\n\n\
     long long primitiveRoot(long long p){\n    auto modpow = [](__int128_t x, long\
     \ long n, const long long &m){\n        __int128_t ret = 1 % m;\n        x %=\
     \ m;\n        while(n > 0){\n            if(n & 1) (ret *= x) %= m;\n        \
@@ -96,7 +97,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/math/primitive_root.test.cpp
   requiredBy: []
-  timestamp: '2024-03-21 03:03:00+09:00'
+  timestamp: '2024-03-21 03:54:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/math/primitive_root.test.cpp

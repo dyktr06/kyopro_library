@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: lib/math/primitive_root.hpp
-    title: lib/math/primitive_root.hpp
+    title: "Primitive Root (\u539F\u5B50\u6839)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/math/primitive_root.test.cpp
