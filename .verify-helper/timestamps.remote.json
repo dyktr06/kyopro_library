@@ -93,5 +93,6 @@
 "test/yukicoder/yuki_2119.test.cpp": "2023-01-22 11:23:05 +0900",
 "test/yukicoder/yuki_2304.test.cpp": "2023-05-26 20:11:07 +0900",
 "test/yukicoder/yuki_416.test.cpp": "2024-01-29 20:46:52 +0900",
-"test/yukicoder/yuki_888.test.cpp": "2023-01-18 06:35:04 +0900"
+"test/yukicoder/yuki_888.test.cpp": "2023-01-18 06:35:04 +0900",
+"test/yukicoder/yuki_901.test.cpp": "2024-03-21 01:04:22 +0900"
 }
