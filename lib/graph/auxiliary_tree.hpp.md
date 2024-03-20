@@ -5,10 +5,13 @@ data:
     path: lib/graph/heavy_light_decomposition.hpp
     title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/yuki_901.test.cpp
+    title: test/yukicoder/yuki_901.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/graph/auxiliary_tree.hpp\"\n\n#line 2 \"lib/graph/heavy_light_decomposition.hpp\"\
@@ -110,8 +113,9 @@ data:
   path: lib/graph/auxiliary_tree.hpp
   requiredBy: []
   timestamp: '2024-02-14 05:01:53+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/yuki_901.test.cpp
 documentation_of: lib/graph/auxiliary_tree.hpp
 layout: document
 redirect_from:

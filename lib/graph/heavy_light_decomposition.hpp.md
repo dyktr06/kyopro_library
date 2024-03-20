@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/auxiliary_tree.hpp
     title: lib/graph/auxiliary_tree.hpp
   _extendedVerifiedWith:
@@ -21,6 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/lca_hl.test.cpp
     title: test/library_checker/tree/lca_hl.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/yuki_901.test.cpp
+    title: test/yukicoder/yuki_901.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -144,6 +147,7 @@ data:
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - test/library_checker/tree/lca_hl.test.cpp
   - test/library_checker/tree/jump_on_tree.test.cpp
+  - test/yukicoder/yuki_901.test.cpp
 documentation_of: lib/graph/heavy_light_decomposition.hpp
 layout: document
 redirect_from:

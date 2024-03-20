@@ -137,7 +137,7 @@ data:
       title: lib/geometry/geometry.hpp
   - name: lib/graph
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/auxiliary_tree.hpp
       title: lib/graph/auxiliary_tree.hpp
     - icon: ':heavy_check_mark:'
@@ -619,6 +619,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_888.test.cpp
       title: test/yukicoder/yuki_888.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/yuki_901.test.cpp
+      title: test/yukicoder/yuki_901.test.cpp
 layout: toppage
 ---
 競技プログラミング用のライブラリです。
