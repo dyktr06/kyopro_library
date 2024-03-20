@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 /* 
     imos_linear<T>(n) : サイズnで構築
@@ -30,7 +28,7 @@ struct imos_linear{
     }
 
     void build(){
-        for(int i = 0; i < N - 1; i++){
+        for(int i = 0; i < N; i++){
             imos1[i + 1] += imos1[i];
             imos0[i] += imos1[i];
             imos0[i + 1] += imos0[i];
@@ -41,33 +39,3 @@ struct imos_linear{
         return imos0[i];
     }
 };
-
-// example (ABC268E)
-int main(){
-    int n; cin >> n;
-    vector<int> p(n);
-    for(int i = 0; i < n; i++){
-        cin >> p[i];
-    }
-
-    imos_linear<long long> imos(n * 2 + 1);
-
-    int m = (n + 1) / 2, v = n / 2;
-    for(int i = 0; i < n; i++){
-        int l = (p[i] - i + n) % n;
-        imos.add(l, l + m, 0, 1);
-        imos.add(l + m, l + n, v, -1);
-    }
-    imos.build();
-
-    vector<long long> res(n);
-    for(int i = 0; i < 2 * n + 1; i++){
-        res[i % n] += imos[i];
-    }
-
-    long long ans = 1LL << 60;
-    for(int i = 0; i < n; i++){
-        ans = min(ans, res[i]);
-    }
-    cout << ans << "\n";
-}
