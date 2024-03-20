@@ -62,9 +62,9 @@ data:
     - icon: ':warning:'
       path: lib/data_structure/grid_unionfind.hpp
       title: lib/data_structure/grid_unionfind.hpp
-    - icon: ':warning:'
-      path: lib/data_structure/imos_linear.cpp
-      title: lib/data_structure/imos_linear.cpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/imos_linear.hpp
+      title: lib/data_structure/imos_linear.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/lazy_segment_tree.hpp
       title: lib/data_structure/lazy_segment_tree.hpp
@@ -589,6 +589,9 @@ data:
       title: test/library_checker/tree/tree_path_composite_sum.test.cpp
   - name: test/yukicoder
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/yuki_1008.test.cpp
+      title: test/yukicoder/yuki_1008.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_117.test.cpp
       title: test/yukicoder/yuki_117.test.cpp
