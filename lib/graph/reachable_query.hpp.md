@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: lib/graph/topological_sort.hpp
     title: Topological Sort
   _extendedRequiredBy: []

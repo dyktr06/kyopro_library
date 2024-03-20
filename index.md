@@ -181,7 +181,7 @@ data:
       path: lib/graph/scc.hpp
       title: "Strongly Connected Component (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
     - icon: ':warning:'
@@ -343,6 +343,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/grl/grl_1_c.test.cpp
       title: test/aoj/grl/grl_1_c.test.cpp
+    - icon: ':x:'
+      path: test/aoj/grl/grl_4_b.test.cpp
+      title: test/aoj/grl/grl_4_b.test.cpp
   - name: test/aoj/ntl
     pages:
     - icon: ':heavy_check_mark:'
