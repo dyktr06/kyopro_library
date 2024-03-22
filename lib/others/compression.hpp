@@ -7,7 +7,8 @@
 
 template <typename T>
 struct compress{
-    vector<T> sorted, compressed;
+    vector<T> sorted;
+    vector<int> compressed;
 
     compress(const vector<T>& vec){
         int n = vec.size();
@@ -26,7 +27,7 @@ struct compress{
         return lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();
     }
 
-    T inv(const T& x) const{
+    T inv(const int x) const{
         return sorted[x];
     }
 
