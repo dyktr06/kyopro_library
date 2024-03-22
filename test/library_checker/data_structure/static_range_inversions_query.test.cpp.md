@@ -66,14 +66,14 @@ data:
     \            }\n            return v;\n        }\n    }\n\n    T operator [](int\
     \ i) const {\n        return sum(i, i + 1);\n    }\n};\n#line 2 \"lib/others/compression.hpp\"\
     \n\n/**\n * @brief Compression (\u5EA7\u6A19\u5727\u7E2E)\n * @docs docs/others/compression.md\n\
-    \ */\n\ntemplate <typename T>\nstruct compress{\n    vector<T> sorted, compressed;\n\
-    \n    compress(const vector<T>& vec){\n        int n = vec.size();\n        compressed.resize(n);\n\
-    \        for(T x : vec){\n            sorted.emplace_back(x);\n        }\n   \
-    \     sort(sorted.begin(), sorted.end());\n        sorted.erase(unique(sorted.begin(),\
+    \ */\n\ntemplate <typename T>\nstruct compress{\n    vector<T> sorted;\n    vector<int>\
+    \ compressed;\n\n    compress(const vector<T>& vec){\n        int n = vec.size();\n\
+    \        compressed.resize(n);\n        for(T x : vec){\n            sorted.emplace_back(x);\n\
+    \        }\n        sort(sorted.begin(), sorted.end());\n        sorted.erase(unique(sorted.begin(),\
     \ sorted.end()), sorted.end());\n        for(int i = 0; i < n; ++i){\n       \
     \     compressed[i] = lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();\n\
     \        }\n    }\n\n    int get(const T& x) const{\n        return lower_bound(sorted.begin(),\
-    \ sorted.end(), x) - sorted.begin();\n    }\n\n    T inv(const T& x) const{\n\
+    \ sorted.end(), x) - sorted.begin();\n    }\n\n    T inv(const int x) const{\n\
     \        return sorted[x];\n    }\n\n    size_t size() const{\n        return\
     \ sorted.size();\n    }\n\n    vector<T> getCompressed() const{\n        return\
     \ compressed;\n    }\n};\n#line 8 \"test/library_checker/data_structure/static_range_inversions_query.test.cpp\"\
@@ -118,7 +118,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2024-01-29 20:46:52+09:00'
+  timestamp: '2024-03-22 23:33:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_inversions_query.test.cpp
