@@ -89,8 +89,8 @@ data:
     \ long>(quo.val.begin() + val.size(), quo.val.end());\n        BigInt mul = quo\
     \ * rhs;\n        while(mul + rhs <= (*this)){\n            quo += BigInt(1);\n\
     \            mul += rhs;\n        }\n        BigInt rem = *this - quo * rhs;\n\
-    \        return {quo, rem};\n    }\n\npublic:\n    void stoi(string &s){\n   \
-    \     if(s == \"0\") return;\n        int n = s.size(), idx = 0;\n        if(s[0]\
+    \        return {quo, rem};\n    }\n\npublic:\n    void stoi(const string &s){\n\
+    \        if(s == \"0\") return;\n        int n = s.size(), idx = 0;\n        if(s[0]\
     \ == '-'){\n            n -= 1;\n            sign = -1;\n            idx = 1;\n\
     \        }\n        int len = (n + digit - 1) / digit, rem = n % digit;\n    \
     \    if(rem == 0) rem += digit;\n        val.resize(len);\n        for(int i =\
@@ -237,8 +237,8 @@ data:
     \ long>(quo.val.begin() + val.size(), quo.val.end());\n        BigInt mul = quo\
     \ * rhs;\n        while(mul + rhs <= (*this)){\n            quo += BigInt(1);\n\
     \            mul += rhs;\n        }\n        BigInt rem = *this - quo * rhs;\n\
-    \        return {quo, rem};\n    }\n\npublic:\n    void stoi(string &s){\n   \
-    \     if(s == \"0\") return;\n        int n = s.size(), idx = 0;\n        if(s[0]\
+    \        return {quo, rem};\n    }\n\npublic:\n    void stoi(const string &s){\n\
+    \        if(s == \"0\") return;\n        int n = s.size(), idx = 0;\n        if(s[0]\
     \ == '-'){\n            n -= 1;\n            sign = -1;\n            idx = 1;\n\
     \        }\n        int len = (n + digit - 1) / digit, rem = n % digit;\n    \
     \    if(rem == 0) rem += digit;\n        val.resize(len);\n        for(int i =\
@@ -331,7 +331,7 @@ data:
   isVerificationFile: false
   path: lib/math/bigint.hpp
   requiredBy: []
-  timestamp: '2024-03-21 03:54:24+09:00'
+  timestamp: '2024-04-01 01:58:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ntl/ntl_2_f.test.cpp

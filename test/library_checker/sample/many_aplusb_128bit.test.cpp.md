@@ -74,8 +74,8 @@ data:
     \ long>(quo.val.begin() + val.size(), quo.val.end());\n        BigInt mul = quo\
     \ * rhs;\n        while(mul + rhs <= (*this)){\n            quo += BigInt(1);\n\
     \            mul += rhs;\n        }\n        BigInt rem = *this - quo * rhs;\n\
-    \        return {quo, rem};\n    }\n\npublic:\n    void stoi(string &s){\n   \
-    \     if(s == \"0\") return;\n        int n = s.size(), idx = 0;\n        if(s[0]\
+    \        return {quo, rem};\n    }\n\npublic:\n    void stoi(const string &s){\n\
+    \        if(s == \"0\") return;\n        int n = s.size(), idx = 0;\n        if(s[0]\
     \ == '-'){\n            n -= 1;\n            sign = -1;\n            idx = 1;\n\
     \        }\n        int len = (n + digit - 1) / digit, rem = n % digit;\n    \
     \    if(rem == 0) rem += digit;\n        val.resize(len);\n        for(int i =\

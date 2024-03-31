@@ -16,25 +16,26 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
   bundledCode: "#line 1 \"test/aoj/cgl/cgl_3_a.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/geometry/geometry.hpp\"\
-    \n\nnamespace Geometry{\n    using T = long long;\n    inline constexpr int type(T\
-    \ x, T y){\n        if(!x && !y) return 0;\n        if(y < 0 || (y == 0 && x >\
-    \ 0)) return -1;\n        return 1;\n    }\n\n    struct Point{\n        T x,\
-    \ y;\n        Point(T X = 0, T Y = 0) : x(X), y(Y){}\n\n        inline bool operator==(const\
-    \ Point &other) const {\n            return ((x == other.x) && (y == other.y));\n\
-    \        }\n        inline bool operator!=(const Point &other) const {\n     \
-    \       return ((x != other.x) || (y != other.y));\n        }\n        inline\
-    \ bool operator<(const Point &other) const {\n            int L = type(x, y),\
-    \ R = type(other.x, other.y);\n            if(L != R) return L < R;\n        \
-    \    if(x * other.y == other.x * y) return abs(x + y) < abs(other.x + other.y);\n\
-    \            return x * other.y > other.x * y;\n        }\n        inline bool\
-    \ operator>(const Point &other) const {\n            int L = type(x, y), R = type(other.x,\
-    \ other.y);\n            if(L != R) return L > R;\n            if(x * other.y\
-    \ == other.x * y) return abs(x + y) > abs(other.x + other.y);\n            return\
-    \ x * other.y < other.x * y;\n        }\n        inline Point operator+() const\
-    \ noexcept { return *this; }\n        inline Point operator-() const noexcept\
-    \ { return Point(-x, -y); }\n        inline Point operator+(const Point &p) const\
-    \ { return Point(x + p.x, y + p.y); }\n        inline Point operator-(const Point\
-    \ &p) const { return Point(x - p.x, y - p.y); }\n        inline Point &operator+=(const\
+    \n\nnamespace Geometry{\n    using T = long double;\n    inline constexpr int\
+    \ type(T x, T y){\n        if(!x && !y) return 0;\n        if(y < 0 || (y == 0\
+    \ && x > 0)) return -1;\n        return 1;\n    }\n\n    T abs(T x){\n       \
+    \ if(x < 0) return -x;\n        return x;\n    }\n\n    struct Point{\n      \
+    \  T x, y;\n        Point(T X = 0, T Y = 0) : x(X), y(Y){}\n\n        inline bool\
+    \ operator==(const Point &other) const {\n            return ((x == other.x) &&\
+    \ (y == other.y));\n        }\n        inline bool operator!=(const Point &other)\
+    \ const {\n            return ((x != other.x) || (y != other.y));\n        }\n\
+    \        inline bool operator<(const Point &other) const {\n            int L\
+    \ = type(x, y), R = type(other.x, other.y);\n            if(L != R) return L <\
+    \ R;\n            if(x * other.y == other.x * y) return abs(x + y) < abs(other.x\
+    \ + other.y);\n            return x * other.y > other.x * y;\n        }\n    \
+    \    inline bool operator>(const Point &other) const {\n            int L = type(x,\
+    \ y), R = type(other.x, other.y);\n            if(L != R) return L > R;\n    \
+    \        if(x * other.y == other.x * y) return abs(x + y) > abs(other.x + other.y);\n\
+    \            return x * other.y < other.x * y;\n        }\n        inline Point\
+    \ operator+() const noexcept { return *this; }\n        inline Point operator-()\
+    \ const noexcept { return Point(-x, -y); }\n        inline Point operator+(const\
+    \ Point &p) const { return Point(x + p.x, y + p.y); }\n        inline Point operator-(const\
+    \ Point &p) const { return Point(x - p.x, y - p.y); }\n        inline Point &operator+=(const\
     \ Point &p) { return x += p.x, y += p.y, *this; }\n        inline Point &operator-=(const\
     \ Point &p) { return x -= p.x, y -= p.y, *this; }\n        inline T operator*(const\
     \ Point &p) const { return x * p.x + y * p.y; }\n        inline Point &operator*=(const\
@@ -45,17 +46,22 @@ data:
     \ os, const Point& p) noexcept { return os << p.x << \" \" << p.y; }\n    };\n\
     \n    bool angle_equal(const Point &p, const Point &q){\n        int L = type(p.x,\
     \ p.y), R = type(q.x, q.y);\n        if(L != R) return false;\n        return\
-    \ p.x * q.y == q.x * p.y;\n    }\n    \n    T cross(const Point &p, const Point\
-    \ &q){\n        return p.x * q.y - p.y * q.x; \n    }\n\n    T dot(const Point\
-    \ &p, const Point &q){\n        return p.x * q.x + p.y * q.y; \n    }\n\n    //\
-    \ 2\u4E57\n    T dist(const Point &p, const Point &q){\n        return (p.x -\
-    \ q.x) * (p.x - q.x) + (p.y - q.y) * (p.y - q.y);\n    }\n\n    // 2\u500D\n \
-    \   T polygonArea(const vector<Point> &points){\n        const int n = points.size();\n\
-    \        T res = 0;\n        for(int i = 0; i < n - 1; i++){\n            res\
-    \ += cross(points[i], points[i + 1]);\n        }\n        res += cross(points[n\
-    \ - 1], points[0]);\n        return res;\n    }\n\n    vector<Point> convexHull(vector<Point>\
-    \ points){\n        const int n = points.size();\n        if(n <= 2){\n      \
-    \      return points;\n        }\n        vector<Point> U, L, res;\n        sort(points.begin(),\
+    \ p.x * q.y == q.x * p.y;\n    }\n    \n    long double rad2deg(long double rad){\n\
+    \        return rad * (long double) 180 / acos(-1);\n    }\n\n    long double\
+    \ deg2rad(long double deg){\n        return deg * acosl(-1) / (long double) 180;\n\
+    \    }\n\n    Point rotate(Point &p, long double deg){\n        complex<T> comp(p.x,\
+    \ p.y);\n        comp *= exp(complex<T>( .0, deg2rad(deg)));\n        return Point(comp.real(),\
+    \ comp.imag());\n    }\n\n    T cross(const Point &p, const Point &q){\n     \
+    \   return p.x * q.y - p.y * q.x; \n    }\n\n    T dot(const Point &p, const Point\
+    \ &q){\n        return p.x * q.x + p.y * q.y; \n    }\n\n    // 2\u4E57\n    T\
+    \ dist(const Point &p, const Point &q){\n        return (p.x - q.x) * (p.x - q.x)\
+    \ + (p.y - q.y) * (p.y - q.y);\n    }\n\n    // 2\u500D\n    T polygonArea(const\
+    \ vector<Point> &points){\n        const int n = points.size();\n        T res\
+    \ = 0;\n        for(int i = 0; i < n - 1; i++){\n            res += cross(points[i],\
+    \ points[i + 1]);\n        }\n        res += cross(points[n - 1], points[0]);\n\
+    \        return res;\n    }\n\n    vector<Point> convexHull(vector<Point> points){\n\
+    \        const int n = points.size();\n        if(n <= 2){\n            return\
+    \ points;\n        }\n        vector<Point> U, L, res;\n        sort(points.begin(),\
     \ points.end(), [](Point p, Point q){\n            return (p.x == q.x ? p.x <\
     \ q.x : p.y < q.y);\n        });\n\n        // lower \n        for(int i = 0;\
     \ i < n; i++){\n            int j = L.size();\n            // \u50BE\u304D\u3067\

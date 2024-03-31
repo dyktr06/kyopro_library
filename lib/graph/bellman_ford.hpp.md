@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/grl/grl_1_b.test.cpp
     title: test/aoj/grl/grl_1_b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/yuki_2712.test.cpp
+    title: test/yukicoder/yuki_2712.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -44,6 +47,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/grl/grl_1_b.test.cpp
+  - test/yukicoder/yuki_2712.test.cpp
 documentation_of: lib/graph/bellman_ford.hpp
 layout: document
 redirect_from:
