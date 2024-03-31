@@ -129,7 +129,7 @@ private:
     }
 
 public:
-    void stoi(string &s){
+    void stoi(const string &s){
         if(s == "0") return;
         int n = s.size(), idx = 0;
         if(s[0] == '-'){

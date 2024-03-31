@@ -1,11 +1,16 @@
 #pragma once
 
 namespace Geometry{
-    using T = long long;
+    using T = long double;
     inline constexpr int type(T x, T y){
         if(!x && !y) return 0;
         if(y < 0 || (y == 0 && x > 0)) return -1;
         return 1;
+    }
+
+    T abs(T x){
+        if(x < 0) return -x;
+        return x;
     }
 
     struct Point{
@@ -52,6 +57,20 @@ namespace Geometry{
         return p.x * q.y == q.x * p.y;
     }
     
+    long double rad2deg(long double rad){
+        return rad * (long double) 180 / acos(-1);
+    }
+
+    long double deg2rad(long double deg){
+        return deg * acosl(-1) / (long double) 180;
+    }
+
+    Point rotate(Point &p, long double deg){
+        complex<T> comp(p.x, p.y);
+        comp *= exp(complex<T>( .0, deg2rad(deg)));
+        return Point(comp.real(), comp.imag());
+    }
+
     T cross(const Point &p, const Point &q){
         return p.x * q.y - p.y * q.x; 
     }
