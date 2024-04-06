@@ -132,7 +132,7 @@ data:
       title: Count Substrings
   - name: lib/geometry
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/geometry/geometry.hpp
       title: lib/geometry/geometry.hpp
   - name: lib/graph
@@ -479,7 +479,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/geometry/count_points_in_triangle.test.cpp
       title: test/library_checker/geometry/count_points_in_triangle.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/geometry/sort_points_by_argument.test.cpp
       title: test/library_checker/geometry/sort_points_by_argument.test.cpp
   - name: test/library_checker/graph

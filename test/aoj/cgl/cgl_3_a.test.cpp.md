@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/geometry/geometry.hpp
     title: lib/geometry/geometry.hpp
   _extendedRequiredBy: []
@@ -102,7 +102,7 @@ data:
   isVerificationFile: true
   path: test/aoj/cgl/cgl_3_a.test.cpp
   requiredBy: []
-  timestamp: '2023-06-17 04:14:46+09:00'
+  timestamp: '2024-04-01 01:58:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/cgl/cgl_3_a.test.cpp
