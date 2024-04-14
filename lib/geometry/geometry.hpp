@@ -1,7 +1,7 @@
 #pragma once
 
 namespace Geometry{
-    using T = long double;
+    using T = long long;
     inline constexpr int type(T x, T y){
         if(!x && !y) return 0;
         if(y < 0 || (y == 0 && x > 0)) return -1;
