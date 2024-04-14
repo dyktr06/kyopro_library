@@ -28,9 +28,9 @@ struct UnionFind{
             edg[rx]++;
             return;
         }
-        par[ry] = par[rx] + par[ry];
-        par[rx] = ry;
-        edg[ry] += edg[rx] + 1;
+        par[rx] = par[rx] + par[ry];
+        par[ry] = rx;
+        edg[rx] += edg[ry] + 1;
     }
 
     bool same(int x, int y){
