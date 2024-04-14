@@ -9,16 +9,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/count_points_in_triangle.test.cpp
     title: test/library_checker/geometry/count_points_in_triangle.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/sort_points_by_argument.test.cpp
     title: test/library_checker/geometry/sort_points_by_argument.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/geometry/geometry.hpp\"\n\nnamespace Geometry{\n   \
-    \ using T = long double;\n    inline constexpr int type(T x, T y){\n        if(!x\
+    \ using T = long long;\n    inline constexpr int type(T x, T y){\n        if(!x\
     \ && !y) return 0;\n        if(y < 0 || (y == 0 && x > 0)) return -1;\n      \
     \  return 1;\n    }\n\n    T abs(T x){\n        if(x < 0) return -x;\n       \
     \ return x;\n    }\n\n    struct Point{\n        T x, y;\n        Point(T X =\
@@ -89,7 +89,7 @@ data:
     \  if(cr1 == 0 || cr2 == 0){\n                return 2;\n            }else{\n\
     \                return 1;\n            }\n        }else{\n            return\
     \ 0;\n        }\n    }\n}\n"
-  code: "#pragma once\n\nnamespace Geometry{\n    using T = long double;\n    inline\
+  code: "#pragma once\n\nnamespace Geometry{\n    using T = long long;\n    inline\
     \ constexpr int type(T x, T y){\n        if(!x && !y) return 0;\n        if(y\
     \ < 0 || (y == 0 && x > 0)) return -1;\n        return 1;\n    }\n\n    T abs(T\
     \ x){\n        if(x < 0) return -x;\n        return x;\n    }\n\n    struct Point{\n\
@@ -164,12 +164,12 @@ data:
   isVerificationFile: false
   path: lib/geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2024-04-01 01:58:29+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-04-14 15:18:04+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/cgl/cgl_3_a.test.cpp
-  - test/library_checker/geometry/sort_points_by_argument.test.cpp
   - test/library_checker/geometry/count_points_in_triangle.test.cpp
+  - test/library_checker/geometry/sort_points_by_argument.test.cpp
 documentation_of: lib/geometry/geometry.hpp
 layout: document
 redirect_from:

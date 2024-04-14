@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/geometry/geometry.hpp
     title: lib/geometry/geometry.hpp
   _extendedRequiredBy: []
@@ -16,26 +16,26 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
   bundledCode: "#line 1 \"test/aoj/cgl/cgl_3_a.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/geometry/geometry.hpp\"\
-    \n\nnamespace Geometry{\n    using T = long double;\n    inline constexpr int\
-    \ type(T x, T y){\n        if(!x && !y) return 0;\n        if(y < 0 || (y == 0\
-    \ && x > 0)) return -1;\n        return 1;\n    }\n\n    T abs(T x){\n       \
-    \ if(x < 0) return -x;\n        return x;\n    }\n\n    struct Point{\n      \
-    \  T x, y;\n        Point(T X = 0, T Y = 0) : x(X), y(Y){}\n\n        inline bool\
-    \ operator==(const Point &other) const {\n            return ((x == other.x) &&\
-    \ (y == other.y));\n        }\n        inline bool operator!=(const Point &other)\
-    \ const {\n            return ((x != other.x) || (y != other.y));\n        }\n\
-    \        inline bool operator<(const Point &other) const {\n            int L\
-    \ = type(x, y), R = type(other.x, other.y);\n            if(L != R) return L <\
-    \ R;\n            if(x * other.y == other.x * y) return abs(x + y) < abs(other.x\
-    \ + other.y);\n            return x * other.y > other.x * y;\n        }\n    \
-    \    inline bool operator>(const Point &other) const {\n            int L = type(x,\
-    \ y), R = type(other.x, other.y);\n            if(L != R) return L > R;\n    \
-    \        if(x * other.y == other.x * y) return abs(x + y) > abs(other.x + other.y);\n\
-    \            return x * other.y < other.x * y;\n        }\n        inline Point\
-    \ operator+() const noexcept { return *this; }\n        inline Point operator-()\
-    \ const noexcept { return Point(-x, -y); }\n        inline Point operator+(const\
-    \ Point &p) const { return Point(x + p.x, y + p.y); }\n        inline Point operator-(const\
-    \ Point &p) const { return Point(x - p.x, y - p.y); }\n        inline Point &operator+=(const\
+    \n\nnamespace Geometry{\n    using T = long long;\n    inline constexpr int type(T\
+    \ x, T y){\n        if(!x && !y) return 0;\n        if(y < 0 || (y == 0 && x >\
+    \ 0)) return -1;\n        return 1;\n    }\n\n    T abs(T x){\n        if(x <\
+    \ 0) return -x;\n        return x;\n    }\n\n    struct Point{\n        T x, y;\n\
+    \        Point(T X = 0, T Y = 0) : x(X), y(Y){}\n\n        inline bool operator==(const\
+    \ Point &other) const {\n            return ((x == other.x) && (y == other.y));\n\
+    \        }\n        inline bool operator!=(const Point &other) const {\n     \
+    \       return ((x != other.x) || (y != other.y));\n        }\n        inline\
+    \ bool operator<(const Point &other) const {\n            int L = type(x, y),\
+    \ R = type(other.x, other.y);\n            if(L != R) return L < R;\n        \
+    \    if(x * other.y == other.x * y) return abs(x + y) < abs(other.x + other.y);\n\
+    \            return x * other.y > other.x * y;\n        }\n        inline bool\
+    \ operator>(const Point &other) const {\n            int L = type(x, y), R = type(other.x,\
+    \ other.y);\n            if(L != R) return L > R;\n            if(x * other.y\
+    \ == other.x * y) return abs(x + y) > abs(other.x + other.y);\n            return\
+    \ x * other.y < other.x * y;\n        }\n        inline Point operator+() const\
+    \ noexcept { return *this; }\n        inline Point operator-() const noexcept\
+    \ { return Point(-x, -y); }\n        inline Point operator+(const Point &p) const\
+    \ { return Point(x + p.x, y + p.y); }\n        inline Point operator-(const Point\
+    \ &p) const { return Point(x - p.x, y - p.y); }\n        inline Point &operator+=(const\
     \ Point &p) { return x += p.x, y += p.y, *this; }\n        inline Point &operator-=(const\
     \ Point &p) { return x -= p.x, y -= p.y, *this; }\n        inline T operator*(const\
     \ Point &p) const { return x * p.x + y * p.y; }\n        inline Point &operator*=(const\
@@ -102,7 +102,7 @@ data:
   isVerificationFile: true
   path: test/aoj/cgl/cgl_3_a.test.cpp
   requiredBy: []
-  timestamp: '2024-04-01 01:58:29+09:00'
+  timestamp: '2024-04-14 15:18:04+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/cgl/cgl_3_a.test.cpp

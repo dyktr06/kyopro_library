@@ -24,8 +24,8 @@ data:
     \       if(par[x] < 0) return x;\n        return par[x] = root(par[x]);\n    }\n\
     \n    void unite(int x, int y){\n        int rx = root(x);\n        int ry = root(y);\n\
     \        if(rx == ry){\n            edg[rx]++;\n            return;\n        }\n\
-    \        par[ry] = par[rx] + par[ry];\n        par[rx] = ry;\n        edg[ry]\
-    \ += edg[rx] + 1;\n    }\n\n    bool same(int x, int y){\n        int rx = root(x);\n\
+    \        par[rx] = par[rx] + par[ry];\n        par[ry] = rx;\n        edg[rx]\
+    \ += edg[ry] + 1;\n    }\n\n    bool same(int x, int y){\n        int rx = root(x);\n\
     \        int ry = root(y);\n        return rx == ry;\n    }\n\n    long long size(int\
     \ x){\n        return -par[root(x)];\n    }\n\n    long long edge(int x){\n  \
     \      return edg[root(x)];\n    }\n};\n#line 6 \"test/library_checker/graph/minimum_spanning_tree.test.cpp\"\
@@ -60,7 +60,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/minimum_spanning_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-01-24 14:26:14+09:00'
+  timestamp: '2024-04-14 15:18:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/minimum_spanning_tree.test.cpp
