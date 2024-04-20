@@ -28,7 +28,7 @@ struct UnionFind{
             edg[rx]++;
             return;
         }
-        if(-par[x] < -par[y]) swap(x, y);
+        if(-par[rx] < -par[ry]) swap(rx, ry);
         par[rx] = par[rx] + par[ry];
         par[ry] = rx;
         edg[rx] += edg[ry] + 1;
