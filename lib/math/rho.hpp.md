@@ -117,10 +117,10 @@ data:
   timestamp: '2023-01-18 06:27:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/math/primitive_root.test.cpp
-  - test/library_checker/math/primarity_test.test.cpp
-  - test/library_checker/math/factorize.test.cpp
   - test/yukicoder/yuki_888.test.cpp
+  - test/library_checker/math/factorize.test.cpp
+  - test/library_checker/math/primarity_test.test.cpp
+  - test/library_checker/math/primitive_root.test.cpp
 documentation_of: lib/math/rho.hpp
 layout: document
 redirect_from:
@@ -140,4 +140,4 @@ title: Pollard's Rho
 
 - `Rho::rabin_miller(N)`: $\mathrm{O}(\log N)$
 - `Rho::factorize(N)`: $\mathrm{O}(N^{1/4})$
-- `Rho::divisor(N)`: $\mathrm{O}(N^{1/4} \log N)$
+- `Rho::divisor(N)`: $\mathrm{O}(N^{1/4} + d)$ ($d$ は約数の個数)

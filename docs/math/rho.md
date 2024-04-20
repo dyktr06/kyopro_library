@@ -10,4 +10,4 @@
 
 - `Rho::rabin_miller(N)`: $\mathrm{O}(\log N)$
 - `Rho::factorize(N)`: $\mathrm{O}(N^{1/4})$
-- `Rho::divisor(N)`: $\mathrm{O}(N^{1/4} \log N)$
+- `Rho::divisor(N)`: $\mathrm{O}(N^{1/4} + d)$ ($d$ は約数の個数)

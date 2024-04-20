@@ -46,8 +46,8 @@ data:
   timestamp: '2024-01-24 14:03:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/grl/grl_1_b.test.cpp
   - test/yukicoder/yuki_2712.test.cpp
+  - test/aoj/grl/grl_1_b.test.cpp
 documentation_of: lib/graph/bellman_ford.hpp
 layout: document
 redirect_from:

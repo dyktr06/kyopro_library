@@ -151,9 +151,9 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
+  - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
-  - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
 documentation_of: lib/data_structure/lazy_segment_tree.hpp
 layout: document
 redirect_from:
