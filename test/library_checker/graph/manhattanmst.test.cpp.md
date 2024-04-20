@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/union_find.hpp
     title: Union Find
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/manhattanMST.hpp
     title: Manhattan MST
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/manhattanmst
@@ -26,18 +26,18 @@ data:
     \ = -1;\n            edg[i] = 0;\n        }\n    }\n\n    int root(int x){\n \
     \       if(par[x] < 0) return x;\n        return par[x] = root(par[x]);\n    }\n\
     \n    int unite(int x, int y){\n        int rx = root(x);\n        int ry = root(y);\n\
-    \        if(rx == ry){\n            edg[rx]++;\n            return;\n        }\n\
-    \        if(-par[x] < -par[y]) swap(x, y);\n        par[rx] = par[rx] + par[ry];\n\
-    \        par[ry] = rx;\n        edg[rx] += edg[ry] + 1;\n        return rx;\n\
-    \    }\n\n    bool same(int x, int y){\n        int rx = root(x);\n        int\
-    \ ry = root(y);\n        return rx == ry;\n    }\n\n    long long size(int x){\n\
-    \        return -par[root(x)];\n    }\n\n    long long edge(int x){\n        return\
-    \ edg[root(x)];\n    }\n};\n#line 4 \"lib/graph/manhattanMST.hpp\"\n\n/**\n *\
-    \ @brief Manhattan MST\n * @docs docs/graph/manhattanMST.md\n */\n\ntemplate <typename\
-    \ T>\nvector<pair<int, int>> manhattanMST(vector<T> x, vector<T> y){\n    int\
-    \ n = x.size();\n    vector<tuple<T, int, int>> edge;\n    edge.reserve(4 * n);\n\
-    \    vector<int> idx(n);\n    iota(idx.begin(), idx.end(), 0);\n    for(int s\
-    \ = 0; s < 2; ++s){\n        for(int t = 0; t < 2; ++t){\n            sort(idx.begin(),\
+    \        if(rx == ry){\n            edg[rx]++;\n            return rx;\n     \
+    \   }\n        if(-par[rx] < -par[ry]) swap(rx, ry);\n        par[rx] = par[rx]\
+    \ + par[ry];\n        par[ry] = rx;\n        edg[rx] += edg[ry] + 1;\n       \
+    \ return rx;\n    }\n\n    bool same(int x, int y){\n        int rx = root(x);\n\
+    \        int ry = root(y);\n        return rx == ry;\n    }\n\n    long long size(int\
+    \ x){\n        return -par[root(x)];\n    }\n\n    long long edge(int x){\n  \
+    \      return edg[root(x)];\n    }\n};\n#line 4 \"lib/graph/manhattanMST.hpp\"\
+    \n\n/**\n * @brief Manhattan MST\n * @docs docs/graph/manhattanMST.md\n */\n\n\
+    template <typename T>\nvector<pair<int, int>> manhattanMST(vector<T> x, vector<T>\
+    \ y){\n    int n = x.size();\n    vector<tuple<T, int, int>> edge;\n    edge.reserve(4\
+    \ * n);\n    vector<int> idx(n);\n    iota(idx.begin(), idx.end(), 0);\n    for(int\
+    \ s = 0; s < 2; ++s){\n        for(int t = 0; t < 2; ++t){\n            sort(idx.begin(),\
     \ idx.end(), [&](const int i, const int j) {\n                return x[i] + y[i]\
     \ < x[j] + y[j];\n            });\n            map<T, int, greater<>> map;\n \
     \           for(const int i : idx){\n                for(auto iter = map.lower_bound(y[i]);\
@@ -71,8 +71,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/manhattanmst.test.cpp
   requiredBy: []
-  timestamp: '2024-04-21 00:08:38+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-04-21 00:12:50+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/manhattanmst.test.cpp
 layout: document

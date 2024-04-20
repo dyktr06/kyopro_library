@@ -2,25 +2,25 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/manhattanMST.hpp
     title: Manhattan MST
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/unionfind.test.cpp
     title: test/library_checker/data_structure/unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/cycle_detection_undirected.test.cpp
     title: test/library_checker/graph/cycle_detection_undirected.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/manhattanmst.test.cpp
     title: test/library_checker/graph/manhattanmst.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/minimum_spanning_tree.test.cpp
     title: test/library_checker/graph/minimum_spanning_tree.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/union_find.md
     document_title: Union Find
@@ -32,33 +32,33 @@ data:
     \         edg[i] = 0;\n        }\n    }\n\n    int root(int x){\n        if(par[x]\
     \ < 0) return x;\n        return par[x] = root(par[x]);\n    }\n\n    int unite(int\
     \ x, int y){\n        int rx = root(x);\n        int ry = root(y);\n        if(rx\
-    \ == ry){\n            edg[rx]++;\n            return;\n        }\n        if(-par[x]\
-    \ < -par[y]) swap(x, y);\n        par[rx] = par[rx] + par[ry];\n        par[ry]\
-    \ = rx;\n        edg[rx] += edg[ry] + 1;\n        return rx;\n    }\n\n    bool\
-    \ same(int x, int y){\n        int rx = root(x);\n        int ry = root(y);\n\
-    \        return rx == ry;\n    }\n\n    long long size(int x){\n        return\
-    \ -par[root(x)];\n    }\n\n    long long edge(int x){\n        return edg[root(x)];\n\
-    \    }\n};\n"
+    \ == ry){\n            edg[rx]++;\n            return rx;\n        }\n       \
+    \ if(-par[rx] < -par[ry]) swap(rx, ry);\n        par[rx] = par[rx] + par[ry];\n\
+    \        par[ry] = rx;\n        edg[rx] += edg[ry] + 1;\n        return rx;\n\
+    \    }\n\n    bool same(int x, int y){\n        int rx = root(x);\n        int\
+    \ ry = root(y);\n        return rx == ry;\n    }\n\n    long long size(int x){\n\
+    \        return -par[root(x)];\n    }\n\n    long long edge(int x){\n        return\
+    \ edg[root(x)];\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Union Find\n * @docs docs/data_structure/union_find.md\n\
     \ */\n\nstruct UnionFind{\n    vector<int> par;\n    vector<int> edg;\n\n    UnionFind(int\
     \ N) : par(N), edg(N){\n        for(int i = 0; i < N; ++i){\n            par[i]\
     \ = -1;\n            edg[i] = 0;\n        }\n    }\n\n    int root(int x){\n \
     \       if(par[x] < 0) return x;\n        return par[x] = root(par[x]);\n    }\n\
     \n    int unite(int x, int y){\n        int rx = root(x);\n        int ry = root(y);\n\
-    \        if(rx == ry){\n            edg[rx]++;\n            return;\n        }\n\
-    \        if(-par[x] < -par[y]) swap(x, y);\n        par[rx] = par[rx] + par[ry];\n\
-    \        par[ry] = rx;\n        edg[rx] += edg[ry] + 1;\n        return rx;\n\
-    \    }\n\n    bool same(int x, int y){\n        int rx = root(x);\n        int\
-    \ ry = root(y);\n        return rx == ry;\n    }\n\n    long long size(int x){\n\
-    \        return -par[root(x)];\n    }\n\n    long long edge(int x){\n        return\
-    \ edg[root(x)];\n    }\n};\n"
+    \        if(rx == ry){\n            edg[rx]++;\n            return rx;\n     \
+    \   }\n        if(-par[rx] < -par[ry]) swap(rx, ry);\n        par[rx] = par[rx]\
+    \ + par[ry];\n        par[ry] = rx;\n        edg[rx] += edg[ry] + 1;\n       \
+    \ return rx;\n    }\n\n    bool same(int x, int y){\n        int rx = root(x);\n\
+    \        int ry = root(y);\n        return rx == ry;\n    }\n\n    long long size(int\
+    \ x){\n        return -par[root(x)];\n    }\n\n    long long edge(int x){\n  \
+    \      return edg[root(x)];\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/union_find.hpp
   requiredBy:
   - lib/graph/manhattanMST.hpp
-  timestamp: '2024-04-21 00:08:38+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-04-21 00:12:50+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/cycle_detection_undirected.test.cpp
   - test/library_checker/graph/manhattanmst.test.cpp
