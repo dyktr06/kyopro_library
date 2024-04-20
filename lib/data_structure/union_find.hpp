@@ -21,16 +21,18 @@ struct UnionFind{
         return par[x] = root(par[x]);
     }
 
-    void unite(int x, int y){
+    int unite(int x, int y){
         int rx = root(x);
         int ry = root(y);
         if(rx == ry){
             edg[rx]++;
             return;
         }
+        if(-par[x] < -par[y]) swap(x, y);
         par[rx] = par[rx] + par[ry];
         par[ry] = rx;
         edg[rx] += edg[ry] + 1;
+        return rx;
     }
 
     bool same(int x, int y){
