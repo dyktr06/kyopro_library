@@ -221,6 +221,9 @@ data:
       path: lib/math/fraction.hpp
       title: Fraction
     - icon: ':heavy_check_mark:'
+      path: lib/math/kth_root_integer.hpp
+      title: lib/math/kth_root_integer.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: Matrix
     - icon: ':warning:'
@@ -525,6 +528,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/factorize.test.cpp
       title: test/library_checker/math/factorize.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/math/kth_root_integer.test.cpp
+      title: test/library_checker/math/kth_root_integer.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/primarity_test.test.cpp
       title: test/library_checker/math/primarity_test.test.cpp
