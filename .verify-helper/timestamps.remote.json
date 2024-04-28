@@ -66,6 +66,7 @@
 "test/library_checker/math/enumerate_primes.test.cpp": "2023-01-25 06:41:59 +0900",
 "test/library_checker/math/enumerate_quotients.test.cpp": "2024-03-21 04:22:00 +0900",
 "test/library_checker/math/factorize.test.cpp": "2023-01-18 06:27:45 +0900",
+"test/library_checker/math/kth_root_integer.test.cpp": "2024-04-29 04:13:12 +0900",
 "test/library_checker/math/primarity_test.test.cpp": "2023-05-19 15:09:06 +0900",
 "test/library_checker/math/primitive_root.test.cpp": "2024-03-21 04:22:00 +0900",
 "test/library_checker/math/rational_approximation.test.cpp": "2024-03-21 03:54:24 +0900",
