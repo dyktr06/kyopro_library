@@ -61,14 +61,15 @@ data:
     \ = 0;\n        for(int i = 0; i < n - 1; i++){\n            res += cross(points[i],\
     \ points[i + 1]);\n        }\n        res += cross(points[n - 1], points[0]);\n\
     \        return res;\n    }\n\n    vector<Point> convexHull(vector<Point> points){\n\
-    \        const int n = points.size();\n        if(n <= 2){\n            return\
-    \ points;\n        }\n        vector<Point> U, L, res;\n        sort(points.begin(),\
-    \ points.end(), [](Point p, Point q){\n            return (p.x == q.x ? p.x <\
-    \ q.x : p.y < q.y);\n        });\n\n        // lower \n        for(int i = 0;\
-    \ i < n; i++){\n            int j = L.size();\n            // \u50BE\u304D\u3067\
-    \u5DE6\u56DE\u308A\u304B\u3092\u30C1\u30A7\u30C3\u30AF\n            while(j >=\
-    \ 2 && cross(L[j - 1] - L[j - 2], points[i] - L[j - 2]) <= 0){\n             \
-    \   L.pop_back();\n                j--;\n            }\n            L.push_back(points[i]);\n\
+    \        vector<Point> U, L, res;\n        sort(points.begin(), points.end(),\
+    \ [](Point p, Point q){\n            return (p.x != q.x ? p.x < q.x : p.y < q.y);\n\
+    \        });\n        points.erase(unique(points.begin(), points.end()), points.end());\n\
+    \        const int n = points.size();\n        if((int) points.size() <= 2){\n\
+    \            return points;\n        }\n        \n        // lower \n        for(int\
+    \ i = 0; i < n; i++){\n            int j = L.size();\n            // \u50BE\u304D\
+    \u3067\u5DE6\u56DE\u308A\u304B\u3092\u30C1\u30A7\u30C3\u30AF\n            while(j\
+    \ >= 2 && cross(L[j - 1] - L[j - 2], points[i] - L[j - 2]) <= 0){\n          \
+    \      L.pop_back();\n                j--;\n            }\n            L.push_back(points[i]);\n\
     \        }\n\n        // upper\n        for(int i = n - 1; i >= 0; i--){\n   \
     \         int j = U.size();\n            while(j >= 2 && cross(U[j - 1] - U[j\
     \ - 2], points[i] - U[j - 2]) <= 0){\n                U.pop_back();\n        \
@@ -103,7 +104,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/geometry/sort_points_by_argument.test.cpp
   requiredBy: []
-  timestamp: '2024-04-14 15:18:04+09:00'
+  timestamp: '2024-04-29 04:15:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/geometry/sort_points_by_argument.test.cpp

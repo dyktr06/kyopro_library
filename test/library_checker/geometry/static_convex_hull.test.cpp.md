@@ -11,12 +11,12 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/count_points_in_triangle
+    PROBLEM: https://judge.yosupo.jp/problem/static_convex_hull
     links:
-    - https://judge.yosupo.jp/problem/count_points_in_triangle
-  bundledCode: "#line 1 \"test/library_checker/geometry/count_points_in_triangle.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/count_points_in_triangle\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/geometry/geometry.hpp\"\
+    - https://judge.yosupo.jp/problem/static_convex_hull
+  bundledCode: "#line 1 \"test/library_checker/geometry/static_convex_hull.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/static_convex_hull\"\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/geometry/geometry.hpp\"\
     \n\nnamespace Geometry{\n    using T = long long;\n    inline constexpr int type(T\
     \ x, T y){\n        if(!x && !y) return 0;\n        if(y < 0 || (y == 0 && x >\
     \ 0)) return -1;\n        return 1;\n    }\n\n    T abs(T x){\n        if(x <\
@@ -88,49 +88,33 @@ data:
     \  if(cr == 0){\n            return 2;\n        }else if(cr > 0){\n          \
     \  if(cr1 == 0 || cr2 == 0){\n                return 2;\n            }else{\n\
     \                return 1;\n            }\n        }else{\n            return\
-    \ 0;\n        }\n    }\n}\n#line 6 \"test/library_checker/geometry/count_points_in_triangle.test.cpp\"\
+    \ 0;\n        }\n    }\n}\n#line 6 \"test/library_checker/geometry/static_convex_hull.test.cpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
-    \   int n; cin >> n;\n    vector<Geometry::Point> d(n);\n    for(int i = 0; i\
-    \ < n; i++){\n        cin >> d[i].x >> d[i].y;\n    }\n    int m; cin >> m;\n\
-    \    vector<Geometry::Point> e(m);\n    for(int i = 0; i < m; i++){\n        cin\
-    \ >> e[i].x >> e[i].y;\n    }\n    int q; cin >> q;\n    while(q--){\n       \
-    \ int a, b, c; cin >> a >> b >> c;\n        vector<Geometry::Point> conv = Geometry::convexHull({d[a],\
-    \ d[b], d[c]});\n        if((int) conv.size() <= 2){\n            cout << 0 <<\
-    \ \"\\n\";\n            continue;\n        }\n        int ans = 0;\n        for(int\
-    \ i = 0; i < m; i++){\n            if(Geometry::cross(conv[1] - conv[0], e[i]\
-    \ - conv[0]) <= 0){\n                continue;\n            }\n            if(Geometry::cross(conv[2]\
-    \ - conv[1], e[i] - conv[1]) <= 0){\n                continue;\n            }\n\
-    \            if(Geometry::cross(conv[0] - conv[2], e[i] - conv[2]) <= 0){\n  \
-    \              continue;\n            }\n            ans++;\n        }\n     \
-    \   cout << ans << \"\\n\";\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/count_points_in_triangle\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/geometry/geometry.hpp\"\
+    \   int T; cin >> T;\n    while(T--){\n        int n; cin >> n;\n        vector<Geometry::Point>\
+    \ p(n);\n        for(int i = 0; i < n; i++){\n            cin >> p[i].x >> p[i].y;\n\
+    \        }\n        vector<Geometry::Point> ch = Geometry::convexHull(p);\n  \
+    \      cout << (int) ch.size() << \"\\n\";\n        for(auto q : ch){\n      \
+    \      cout << q.x << \" \" << q.y << \"\\n\";\n        }\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_convex_hull\"\n\
+    #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/geometry/geometry.hpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
-    \   int n; cin >> n;\n    vector<Geometry::Point> d(n);\n    for(int i = 0; i\
-    \ < n; i++){\n        cin >> d[i].x >> d[i].y;\n    }\n    int m; cin >> m;\n\
-    \    vector<Geometry::Point> e(m);\n    for(int i = 0; i < m; i++){\n        cin\
-    \ >> e[i].x >> e[i].y;\n    }\n    int q; cin >> q;\n    while(q--){\n       \
-    \ int a, b, c; cin >> a >> b >> c;\n        vector<Geometry::Point> conv = Geometry::convexHull({d[a],\
-    \ d[b], d[c]});\n        if((int) conv.size() <= 2){\n            cout << 0 <<\
-    \ \"\\n\";\n            continue;\n        }\n        int ans = 0;\n        for(int\
-    \ i = 0; i < m; i++){\n            if(Geometry::cross(conv[1] - conv[0], e[i]\
-    \ - conv[0]) <= 0){\n                continue;\n            }\n            if(Geometry::cross(conv[2]\
-    \ - conv[1], e[i] - conv[1]) <= 0){\n                continue;\n            }\n\
-    \            if(Geometry::cross(conv[0] - conv[2], e[i] - conv[2]) <= 0){\n  \
-    \              continue;\n            }\n            ans++;\n        }\n     \
-    \   cout << ans << \"\\n\";\n    }\n}"
+    \   int T; cin >> T;\n    while(T--){\n        int n; cin >> n;\n        vector<Geometry::Point>\
+    \ p(n);\n        for(int i = 0; i < n; i++){\n            cin >> p[i].x >> p[i].y;\n\
+    \        }\n        vector<Geometry::Point> ch = Geometry::convexHull(p);\n  \
+    \      cout << (int) ch.size() << \"\\n\";\n        for(auto q : ch){\n      \
+    \      cout << q.x << \" \" << q.y << \"\\n\";\n        }\n    }\n}\n"
   dependsOn:
   - lib/geometry/geometry.hpp
   isVerificationFile: true
-  path: test/library_checker/geometry/count_points_in_triangle.test.cpp
+  path: test/library_checker/geometry/static_convex_hull.test.cpp
   requiredBy: []
   timestamp: '2024-04-29 04:15:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/geometry/count_points_in_triangle.test.cpp
+documentation_of: test/library_checker/geometry/static_convex_hull.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/geometry/count_points_in_triangle.test.cpp
-- /verify/test/library_checker/geometry/count_points_in_triangle.test.cpp.html
-title: test/library_checker/geometry/count_points_in_triangle.test.cpp
+- /verify/test/library_checker/geometry/static_convex_hull.test.cpp
+- /verify/test/library_checker/geometry/static_convex_hull.test.cpp.html
+title: test/library_checker/geometry/static_convex_hull.test.cpp
 ---

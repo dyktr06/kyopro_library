@@ -68,6 +68,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/lazy_segment_tree.hpp
       title: lib/data_structure/lazy_segment_tree.hpp
+    - icon: ':warning:'
+      path: lib/data_structure/mergeable_set.hpp
+      title: lib/data_structure/mergeable_set.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/mo.hpp
       title: lib/data_structure/mo.hpp
@@ -485,6 +488,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/geometry/sort_points_by_argument.test.cpp
       title: test/library_checker/geometry/sort_points_by_argument.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/geometry/static_convex_hull.test.cpp
+      title: test/library_checker/geometry/static_convex_hull.test.cpp
   - name: test/library_checker/graph
     pages:
     - icon: ':heavy_check_mark:'
