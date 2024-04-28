@@ -96,15 +96,16 @@ namespace Geometry{
     }
 
     vector<Point> convexHull(vector<Point> points){
-        const int n = points.size();
-        if(n <= 2){
-            return points;
-        }
         vector<Point> U, L, res;
         sort(points.begin(), points.end(), [](Point p, Point q){
-            return (p.x == q.x ? p.x < q.x : p.y < q.y);
+            return (p.x != q.x ? p.x < q.x : p.y < q.y);
         });
-
+        points.erase(unique(points.begin(), points.end()), points.end());
+        const int n = points.size();
+        if((int) points.size() <= 2){
+            return points;
+        }
+        
         // lower 
         for(int i = 0; i < n; i++){
             int j = L.size();
