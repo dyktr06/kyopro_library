@@ -68,7 +68,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/lazy_segment_tree.hpp
       title: lib/data_structure/lazy_segment_tree.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/mergeable_set.hpp
       title: lib/data_structure/mergeable_set.hpp
     - icon: ':heavy_check_mark:'
@@ -616,6 +616,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_186.test.cpp
       title: test/yukicoder/yuki_186.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/yuki_206.test.cpp
+      title: test/yukicoder/yuki_206.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2078.test.cpp
       title: test/yukicoder/yuki_2078.test.cpp
