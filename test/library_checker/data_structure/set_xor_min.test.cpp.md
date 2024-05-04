@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/binary_trie.hpp
     title: lib/data_structure/binary_trie.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/set_xor_min
@@ -33,33 +33,33 @@ data:
     \            n->exist++;\n            n->accept.push_back(id);\n            return\
     \ n;\n        }\n        if(((lazy >> bit_idx) & 1) == ((x >> bit_idx) & 1)){\n\
     \            return merge(insert_(x, id, n->nxt[0], bit_idx - 1), n->nxt[1]);\n\
-    \        }else{\n            return merge(n->nxt[0], insert_(x, id, n->nxt[1],\
+    \        } else{\n            return merge(n->nxt[0], insert_(x, id, n->nxt[1],\
     \ bit_idx - 1));\n        }\n    }\n\n    Node *erase_(const T &x, const int id,\
     \ Node *n, const int bit_idx){\n        if(bit_idx == -1){\n            n->exist--;\n\
     \            return n;\n        }\n        if(((lazy >> bit_idx) & 1) == ((x >>\
     \ bit_idx) & 1)){\n            return merge(erase_(x, id, n->nxt[0], bit_idx -\
-    \ 1), n->nxt[1]);\n        }else{\n            return merge(n->nxt[0], erase_(x,\
-    \ id, n->nxt[1], bit_idx - 1));\n        }\n    }\n\n    pair<int, vector<int>&>\
-    \ find_(const T &x, Node *n, const int bit_idx){\n        if(bit_idx == -1){\n\
-    \            return pair<int, vector<int>&>(n->exist, n->accept);\n        }\n\
+    \ 1), n->nxt[1]);\n        } else{\n            return merge(n->nxt[0], erase_(x,\
+    \ id, n->nxt[1], bit_idx - 1));\n        }\n    }\n\n    pair<int, vector<int>\
+    \ &> find_(const T &x, Node *n, const int bit_idx){\n        if(bit_idx == -1){\n\
+    \            return pair<int, vector<int> &>(n->exist, n->accept);\n        }\n\
     \        if(((lazy >> bit_idx) & 1) == ((x >> bit_idx) & 1)){\n            return\
-    \ find_(x, n->nxt[0], bit_idx - 1);\n        }else{\n            return find_(x,\
-    \ n->nxt[1], bit_idx - 1);\n        }\n    }\n\n    pair<T, vector<int>&> max_element_(Node\
+    \ find_(x, n->nxt[0], bit_idx - 1);\n        } else{\n            return find_(x,\
+    \ n->nxt[1], bit_idx - 1);\n        }\n    }\n\n    pair<T, vector<int> &> max_element_(Node\
     \ *n, const int bit_idx) {\n        if(bit_idx == -1){\n            return pair<T,\
-    \ vector<int>&>(0, n->accept);\n        }\n        if(n->nxt[~(lazy >> bit_idx)\
+    \ vector<int> &>(0, n->accept);\n        }\n        if(n->nxt[~(lazy >> bit_idx)\
     \ & 1]->exist){\n            auto ret = max_element_(n->nxt[~(lazy >> bit_idx)\
     \ & 1], bit_idx - 1);\n            ret.first |= T(1) << bit_idx;\n           \
     \ return ret;\n        }\n        return max_element_(n->nxt[(lazy >> bit_idx)\
-    \ & 1], bit_idx - 1);\n    }\n\n    pair<T, vector<int>&> min_element_(Node *n,\
+    \ & 1], bit_idx - 1);\n    }\n\n    pair<T, vector<int> &> min_element_(Node *n,\
     \ const int bit_idx){\n        if(bit_idx == -1){\n            return pair<T,\
-    \ vector<int>&>(0, n->accept);\n        }\n\n        if(n->nxt[(lazy >> bit_idx)\
+    \ vector<int> &>(0, n->accept);\n        }\n\n        if(n->nxt[(lazy >> bit_idx)\
     \ & 1]->exist){\n            return min_element_(n->nxt[(lazy >> bit_idx) & 1],\
     \ bit_idx - 1);\n        }\n\n        auto ret = min_element_(n->nxt[~(lazy >>\
     \ bit_idx) & 1], bit_idx - 1);\n        ret.first |= T(1) << bit_idx;\n      \
-    \  return ret;\n    }\n\n    // 1-indexed, minimum-kth\n    pair<T, vector<int>&>\
-    \ kth_element_(Node *n, const int k, const int bit_idx){\n        if(bit_idx ==\
-    \ -1){\n            return pair<T, vector<int>&>(0, n->accept);\n        }\n\n\
-    \        int ex0 = n->nxt[(lazy >> bit_idx) & 1]->exist;\n        if(ex0 < k){\n\
+    \  return ret;\n    }\n\n    // 1-indexed, minimum-kth\n    pair<T, vector<int>\
+    \ &> kth_element_(Node *n, const int k, const int bit_idx){\n        if(bit_idx\
+    \ == -1){\n            return pair<T, vector<int> &>(0, n->accept);\n        }\n\
+    \n        int ex0 = n->nxt[(lazy >> bit_idx) & 1]->exist;\n        if(ex0 < k){\n\
     \            auto ret = kth_element_(n->nxt[~(lazy >> bit_idx) & 1], k - ex0,\
     \ bit_idx - 1);\n            ret.first |= T(1) << bit_idx;\n            return\
     \ ret;\n        }\n        return kth_element_(n->nxt[(lazy >> bit_idx) & 1],\
@@ -71,11 +71,11 @@ data:
     \ ^ (x >> bit_idx & 1)], x, bit_idx - 1);\n        }\n        return ret;\n  \
     \  }\n\npublic:\n    void insert(const T &x, const int id = -1){\n        root\
     \ = insert_(x, id, root, MAX_LOG);\n    }\n\n    void erase(const T &x, const\
-    \ int id = -1){ \n        root = erase_(x, id, root, MAX_LOG);\n    }\n\n    pair<int,\
-    \ vector<int>&> find(const T &x){\n        return find_(x, root, MAX_LOG);\n \
-    \   }\n\n    pair<T, vector<int>&> max_element(){\n        return max_element_(root,\
-    \ MAX_LOG);\n    }\n\n    pair<T, vector<int>&> min_element(){\n        return\
-    \ min_element_(root, MAX_LOG);\n    }\n\n    pair<T, vector<int>&> kth_element(const\
+    \ int id = -1){\n        root = erase_(x, id, root, MAX_LOG);\n    }\n\n    pair<int,\
+    \ vector<int> &> find(const T &x){\n        return find_(x, root, MAX_LOG);\n\
+    \    }\n\n    pair<T, vector<int> &> max_element(){\n        return max_element_(root,\
+    \ MAX_LOG);\n    }\n\n    pair<T, vector<int> &> min_element(){\n        return\
+    \ min_element_(root, MAX_LOG);\n    }\n\n    pair<T, vector<int> &> kth_element(const\
     \ int k){\n        return kth_element_(root, k, MAX_LOG);\n    }\n\n    int count_less(const\
     \ T &x){\n        return count_less_(root, x, MAX_LOG);\n    }\n\n    size_t size()\
     \ const {\n        if(root->exist <= 0){\n            return 0;\n        }\n \
@@ -105,8 +105,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/set_xor_min.test.cpp
   requiredBy: []
-  timestamp: '2024-01-29 20:46:52+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/set_xor_min.test.cpp
 layout: document

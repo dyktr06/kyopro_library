@@ -49,7 +49,7 @@ data:
   isVerificationFile: false
   path: lib/graph/reachable_query.hpp
   requiredBy: []
-  timestamp: '2023-06-03 01:54:14+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/graph/reachable_query.hpp

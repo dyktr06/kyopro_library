@@ -19,7 +19,7 @@ data:
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/string/rolling_hash.hpp\"\
     \n\n/**\n * @brief Rolling Hash\n * @docs docs/string/rolling_hash.md\n */\n\n\
     struct RollingHash{\n    vector<unsigned long long> hashed, power;\n    const\
-    \ unsigned long long mod = (1uLL << 61) - 1;\n\t\n    unsigned long long mul(unsigned\
+    \ unsigned long long mod = (1uLL << 61) - 1;\n\n    unsigned long long mul(unsigned\
     \ long long a, unsigned long long b) const {\n        long long ret = a * b -\
     \ mod * (unsigned long long)(1.0L / mod * a * b);\n        return ret + mod *\
     \ (ret < 0) - mod * (ret >= (long long) mod);\n    }\n\n    RollingHash(const\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: true
   path: test/aoj/alds1/alds1_14_b.test.cpp
   requiredBy: []
-  timestamp: '2024-02-14 05:31:37+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/alds1/alds1_14_b.test.cpp

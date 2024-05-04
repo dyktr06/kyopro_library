@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/range_tree.hpp
     title: lib/data_structure/range_tree.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/rectangle_sum
@@ -37,7 +37,7 @@ data:
     \                j += j & -j;\n            }\n\n            sort(ys[i].begin(),\
     \ ys[i].end());\n            ys[i].erase(unique(ys[i].begin(), ys[i].end()), ys[i].end());\n\
     \            bit[i].init(ys[i].size());\n        }\n    }\n\n    int id(S x) const\
-    \ {\n        auto f = [](const P& a, const P& b){\n            return a.first\
+    \ {\n        auto f = [](const P &a, const P &b){\n            return a.first\
     \ < b.first;\n        };\n        return lower_bound(ps.begin(), ps.end(), make_pair(x,\
     \ S()), f) - ps.begin();\n    }\n\n    int id(int i, S y) const {\n        return\
     \ lower_bound(ys[i].begin(), ys[i].end(), y) - ys[i].begin();\n    }\n\n    void\
@@ -50,7 +50,7 @@ data:
     \  // [(xl, yl), (xr, yr))\n    T sum(S xl, S yl, S xr, S yr) const {\n      \
     \  T ret = T();\n        int a = id(xl), b = id(xr);\n        while(a != b) {\n\
     \            if(a < b){\n                ret += bit[b].sum(id(b, yl), id(b, yr));\n\
-    \                b -= b & -b;\n            }else{\n                ret -= bit[a].sum(id(a,\
+    \                b -= b & -b;\n            } else{\n                ret -= bit[a].sum(id(a,\
     \ yl), id(a, yr));\n                a -= a & -a;\n            }\n        }\n \
     \       return ret;\n    }\n};\n#line 6 \"test/library_checker/data_structure/rectangle_sum.test.cpp\"\
     \n\nint main(){\n    int n, q; cin >> n >> q;\n    RangeTree<int, long long> tree;\n\
@@ -72,8 +72,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/rectangle_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-06-03 01:53:02+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/rectangle_sum.test.cpp
 layout: document

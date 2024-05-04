@@ -3,56 +3,56 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/inverse_matrix.test.cpp
     title: test/library_checker/matrix/inverse_matrix.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/matrix_det.test.cpp
     title: test/library_checker/matrix/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/matrix_product.test.cpp
     title: test/library_checker/matrix/matrix_product.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/matrix_rank.test.cpp
     title: test/library_checker/matrix/matrix_rank.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/pow_of_matrix.test.cpp
     title: test/library_checker/matrix/pow_of_matrix.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/matrix.md
     document_title: Matrix
     links: []
   bundledCode: "#line 2 \"lib/math/matrix.hpp\"\n\n/**\n * @brief Matrix\n * @docs\
     \ docs/math/matrix.md\n */\n\ntemplate <typename T>\nstruct Matrix{\n    int n,\
-    \ m;\n    vector<T> val;\n    Matrix(int _n, int _m): n(_n), m(_m), val(_n * _m){}\n\
-    \    Matrix(const vector<vector<T>>& mat){\n        n = mat.size();\n        m\
+    \ m;\n    vector<T> val;\n    Matrix(int _n, int _m) : n(_n), m(_m), val(_n *_m){}\n\
+    \    Matrix(const vector<vector<T>> &mat){\n        n = mat.size();\n        m\
     \ = mat[0].size();\n        val.resize(n * m);\n        for(int i = 0; i < n;\
     \ ++i){\n            for(int j = 0; j < m; ++j){\n                val[i * m +\
     \ j] = mat[i][j];\n            }\n        }\n    }\n    static Matrix e(int _n){\n\
     \        Matrix res(_n, _n);\n        for(int i = 0; i < _n; ++i){\n         \
     \   res[i][i] = T{1};\n        }\n        return res;\n    }\n    auto operator[](int\
     \ i){ return val.begin() + i * m; }\n    auto operator[](int i) const { return\
-    \ val.begin() + i * m; }\n    inline Matrix& operator+=(const Matrix &rhs){\n\
+    \ val.begin() + i * m; }\n    inline Matrix &operator+=(const Matrix &rhs){\n\
     \        for(int i = 0; i < n * m; ++i){\n            val[i] += rhs[i];\n    \
-    \    }\n        return *this;\n    }\n    inline Matrix& operator-=(const Matrix\
+    \    }\n        return *this;\n    }\n    inline Matrix &operator-=(const Matrix\
     \ &rhs){\n        for(int i = 0; i < n * m; ++i){\n            val[i] -= rhs[i];\n\
     \        }\n        return *this;\n    }\n    inline Matrix operator*(const Matrix\
     \ &rhs){\n        assert(m == rhs.n);\n        const int l = rhs.m;\n        Matrix\
     \ res(n, l);\n        for(int i = 0; i < n; ++i){\n            for(int j = 0;\
     \ j < m; ++j){\n                for(int k = 0; k < l; ++k){\n                \
     \    res[i][k] += val[i * m + j] * rhs[j][k];\n                }\n           \
-    \ }\n        }\n        return res;\n    }\n    inline Matrix& operator*=(const\
+    \ }\n        }\n        return res;\n    }\n    inline Matrix &operator*=(const\
     \ Matrix &rhs){\n        return *this = *this * rhs;\n    }\n    friend inline\
-    \ Matrix operator+(const Matrix& lhs, const Matrix& rhs) noexcept { return Matrix(lhs)\
-    \ += rhs; }\n    friend inline Matrix operator-(const Matrix& lhs, const Matrix&\
-    \ rhs) noexcept { return Matrix(lhs) -= rhs; }\n    friend inline bool operator==(const\
-    \ Matrix& lhs, const Matrix& rhs) noexcept { return lhs.val == rhs.val; }\n  \
-    \  friend inline bool operator!=(const Matrix& lhs, const Matrix& rhs) noexcept\
-    \ { return lhs.val != rhs.val; }\n    friend inline ostream& operator<<(ostream&\
-    \ os, const Matrix& mat) noexcept {\n        const int _n = mat.n;\n        const\
+    \ Matrix operator+(const Matrix &lhs, const Matrix &rhs) noexcept { return Matrix(lhs)\
+    \ += rhs; }\n    friend inline Matrix operator-(const Matrix &lhs, const Matrix\
+    \ &rhs) noexcept { return Matrix(lhs) -= rhs; }\n    friend inline bool operator==(const\
+    \ Matrix &lhs, const Matrix &rhs) noexcept { return lhs.val == rhs.val; }\n  \
+    \  friend inline bool operator!=(const Matrix &lhs, const Matrix &rhs) noexcept\
+    \ { return lhs.val != rhs.val; }\n    friend inline ostream &operator<<(ostream\
+    \ &os, const Matrix &mat) noexcept {\n        const int _n = mat.n;\n        const\
     \ int _m = mat.m;\n        for(int i = 0; i < _n; ++i){\n            for(int j\
     \ = 0; j < _m; ++j){\n                os << mat[i][j] << \" \\n\"[j == _m - 1];\n\
     \            }\n        }\n        return os;\n    }\n    Matrix inv() const {\n\
@@ -99,8 +99,8 @@ data:
     \ a[r][j]);\n            }\n            const T s = a[r][i];\n            for(int\
     \ j = i; j < m; ++j){\n                a[r][j] /= s;\n            }\n        \
     \    for(int j = 0; j < n; ++j){\n                if(j == r) continue;\n     \
-    \           const T s = a[j][i];\n                if (s == 0) continue;\n    \
-    \            for(int k = i; k < m; ++k){\n                    a[j][k] -= a[r][k]\
+    \           const T s = a[j][i];\n                if(s == 0) continue;\n     \
+    \           for(int k = i; k < m; ++k){\n                    a[j][k] -= a[r][k]\
     \ * s;\n                }\n            }\n            ++r;\n        }\n      \
     \  return a;\n    }\n    int rank(bool is_gaussed = false) const {\n        Matrix\
     \ a = *this;\n        if(!is_gaussed){\n            return (n >= m ? a : a.transpose()).gauss().rank(true);\n\
@@ -113,31 +113,31 @@ data:
     \            }\n        }\n        return res;\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Matrix\n * @docs docs/math/matrix.md\n */\n\
     \ntemplate <typename T>\nstruct Matrix{\n    int n, m;\n    vector<T> val;\n \
-    \   Matrix(int _n, int _m): n(_n), m(_m), val(_n * _m){}\n    Matrix(const vector<vector<T>>&\
-    \ mat){\n        n = mat.size();\n        m = mat[0].size();\n        val.resize(n\
+    \   Matrix(int _n, int _m) : n(_n), m(_m), val(_n *_m){}\n    Matrix(const vector<vector<T>>\
+    \ &mat){\n        n = mat.size();\n        m = mat[0].size();\n        val.resize(n\
     \ * m);\n        for(int i = 0; i < n; ++i){\n            for(int j = 0; j < m;\
     \ ++j){\n                val[i * m + j] = mat[i][j];\n            }\n        }\n\
     \    }\n    static Matrix e(int _n){\n        Matrix res(_n, _n);\n        for(int\
     \ i = 0; i < _n; ++i){\n            res[i][i] = T{1};\n        }\n        return\
     \ res;\n    }\n    auto operator[](int i){ return val.begin() + i * m; }\n   \
-    \ auto operator[](int i) const { return val.begin() + i * m; }\n    inline Matrix&\
-    \ operator+=(const Matrix &rhs){\n        for(int i = 0; i < n * m; ++i){\n  \
-    \          val[i] += rhs[i];\n        }\n        return *this;\n    }\n    inline\
-    \ Matrix& operator-=(const Matrix &rhs){\n        for(int i = 0; i < n * m; ++i){\n\
+    \ auto operator[](int i) const { return val.begin() + i * m; }\n    inline Matrix\
+    \ &operator+=(const Matrix &rhs){\n        for(int i = 0; i < n * m; ++i){\n \
+    \           val[i] += rhs[i];\n        }\n        return *this;\n    }\n    inline\
+    \ Matrix &operator-=(const Matrix &rhs){\n        for(int i = 0; i < n * m; ++i){\n\
     \            val[i] -= rhs[i];\n        }\n        return *this;\n    }\n    inline\
     \ Matrix operator*(const Matrix &rhs){\n        assert(m == rhs.n);\n        const\
     \ int l = rhs.m;\n        Matrix res(n, l);\n        for(int i = 0; i < n; ++i){\n\
     \            for(int j = 0; j < m; ++j){\n                for(int k = 0; k < l;\
     \ ++k){\n                    res[i][k] += val[i * m + j] * rhs[j][k];\n      \
     \          }\n            }\n        }\n        return res;\n    }\n    inline\
-    \ Matrix& operator*=(const Matrix &rhs){\n        return *this = *this * rhs;\n\
-    \    }\n    friend inline Matrix operator+(const Matrix& lhs, const Matrix& rhs)\
+    \ Matrix &operator*=(const Matrix &rhs){\n        return *this = *this * rhs;\n\
+    \    }\n    friend inline Matrix operator+(const Matrix &lhs, const Matrix &rhs)\
     \ noexcept { return Matrix(lhs) += rhs; }\n    friend inline Matrix operator-(const\
-    \ Matrix& lhs, const Matrix& rhs) noexcept { return Matrix(lhs) -= rhs; }\n  \
-    \  friend inline bool operator==(const Matrix& lhs, const Matrix& rhs) noexcept\
-    \ { return lhs.val == rhs.val; }\n    friend inline bool operator!=(const Matrix&\
-    \ lhs, const Matrix& rhs) noexcept { return lhs.val != rhs.val; }\n    friend\
-    \ inline ostream& operator<<(ostream& os, const Matrix& mat) noexcept {\n    \
+    \ Matrix &lhs, const Matrix &rhs) noexcept { return Matrix(lhs) -= rhs; }\n  \
+    \  friend inline bool operator==(const Matrix &lhs, const Matrix &rhs) noexcept\
+    \ { return lhs.val == rhs.val; }\n    friend inline bool operator!=(const Matrix\
+    \ &lhs, const Matrix &rhs) noexcept { return lhs.val != rhs.val; }\n    friend\
+    \ inline ostream &operator<<(ostream &os, const Matrix &mat) noexcept {\n    \
     \    const int _n = mat.n;\n        const int _m = mat.m;\n        for(int i =\
     \ 0; i < _n; ++i){\n            for(int j = 0; j < _m; ++j){\n               \
     \ os << mat[i][j] << \" \\n\"[j == _m - 1];\n            }\n        }\n      \
@@ -185,7 +185,7 @@ data:
     \            }\n            const T s = a[r][i];\n            for(int j = i; j\
     \ < m; ++j){\n                a[r][j] /= s;\n            }\n            for(int\
     \ j = 0; j < n; ++j){\n                if(j == r) continue;\n                const\
-    \ T s = a[j][i];\n                if (s == 0) continue;\n                for(int\
+    \ T s = a[j][i];\n                if(s == 0) continue;\n                for(int\
     \ k = i; k < m; ++k){\n                    a[j][k] -= a[r][k] * s;\n         \
     \       }\n            }\n            ++r;\n        }\n        return a;\n   \
     \ }\n    int rank(bool is_gaussed = false) const {\n        Matrix a = *this;\n\
@@ -196,13 +196,13 @@ data:
     \    }\n    // Rotate 90 degrees clockwise\n    Matrix rotate() const {\n    \
     \    Matrix res(m, n), a = *this;\n        for(int i = 0; i < m; ++i){\n     \
     \       for(int j = 0; j < n; ++j){\n                res[i][j] = a[n - j - 1][i];\n\
-    \            }\n        }\n        return res;\n    }\n};"
+    \            }\n        }\n        return res;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/matrix.hpp
   requiredBy: []
-  timestamp: '2024-02-18 18:38:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/matrix/matrix_det.test.cpp
   - test/library_checker/matrix/matrix_product.test.cpp

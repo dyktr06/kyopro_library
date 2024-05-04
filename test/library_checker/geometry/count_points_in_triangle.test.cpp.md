@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/geometry/geometry.hpp
     title: lib/geometry/geometry.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/count_points_in_triangle
@@ -43,18 +43,18 @@ data:
     \ T &k) { return x *= k, y *= k, *this; }\n        inline Point operator*(const\
     \ T &k) { return (*this *= k); }\n        // floor\n        inline Point &operator/=(const\
     \ T &k) { return x /= k, y /= k, *this; }\n        inline Point operator/(const\
-    \ T &k) { return (*this /= k); }\n\n        friend inline ostream& operator<<(ostream&\
-    \ os, const Point& p) noexcept { return os << p.x << \" \" << p.y; }\n    };\n\
+    \ T &k) { return (*this /= k); }\n\n        friend inline ostream &operator<<(ostream\
+    \ &os, const Point &p) noexcept { return os << p.x << \" \" << p.y; }\n    };\n\
     \n    bool angle_equal(const Point &p, const Point &q){\n        int L = type(p.x,\
     \ p.y), R = type(q.x, q.y);\n        if(L != R) return false;\n        return\
-    \ p.x * q.y == q.x * p.y;\n    }\n    \n    long double rad2deg(long double rad){\n\
+    \ p.x * q.y == q.x * p.y;\n    }\n\n    long double rad2deg(long double rad){\n\
     \        return rad * (long double) 180 / acos(-1);\n    }\n\n    long double\
     \ deg2rad(long double deg){\n        return deg * acosl(-1) / (long double) 180;\n\
     \    }\n\n    Point rotate(Point &p, long double deg){\n        complex<T> comp(p.x,\
-    \ p.y);\n        comp *= exp(complex<T>( .0, deg2rad(deg)));\n        return Point(comp.real(),\
+    \ p.y);\n        comp *= exp(complex<T>(.0, deg2rad(deg)));\n        return Point(comp.real(),\
     \ comp.imag());\n    }\n\n    T cross(const Point &p, const Point &q){\n     \
-    \   return p.x * q.y - p.y * q.x; \n    }\n\n    T dot(const Point &p, const Point\
-    \ &q){\n        return p.x * q.x + p.y * q.y; \n    }\n\n    // 2\u4E57\n    T\
+    \   return p.x * q.y - p.y * q.x;\n    }\n\n    T dot(const Point &p, const Point\
+    \ &q){\n        return p.x * q.x + p.y * q.y;\n    }\n\n    // 2\u4E57\n    T\
     \ dist(const Point &p, const Point &q){\n        return (p.x - q.x) * (p.x - q.x)\
     \ + (p.y - q.y) * (p.y - q.y);\n    }\n\n    // 2\u500D\n    T polygonArea(const\
     \ vector<Point> &points){\n        const int n = points.size();\n        T res\
@@ -65,8 +65,8 @@ data:
     \ [](Point p, Point q){\n            return (p.x != q.x ? p.x < q.x : p.y < q.y);\n\
     \        });\n        points.erase(unique(points.begin(), points.end()), points.end());\n\
     \        const int n = points.size();\n        if((int) points.size() <= 2){\n\
-    \            return points;\n        }\n        \n        // lower \n        for(int\
-    \ i = 0; i < n; i++){\n            int j = L.size();\n            // \u50BE\u304D\
+    \            return points;\n        }\n\n        // lower\n        for(int i\
+    \ = 0; i < n; i++){\n            int j = L.size();\n            // \u50BE\u304D\
     \u3067\u5DE6\u56DE\u308A\u304B\u3092\u30C1\u30A7\u30C3\u30AF\n            while(j\
     \ >= 2 && cross(L[j - 1] - L[j - 2], points[i] - L[j - 2]) <= 0){\n          \
     \      L.pop_back();\n                j--;\n            }\n            L.push_back(points[i]);\n\
@@ -83,11 +83,11 @@ data:
     \ < 0 || 0 < cr2){\n            return 0;\n        }\n\n        int l = 1, r =\
     \ n - 1;\n        while(abs(r - l) > 1){\n            int mid = (l + r) / 2;\n\
     \            if(cross(p - points[0], points[mid] - points[0]) >= 0){\n       \
-    \         r = mid;\n            }else{\n                l = mid;\n           \
-    \ }\n        }\n\n        T cr = cross(points[l] - p, points[r] - p);\n      \
-    \  if(cr == 0){\n            return 2;\n        }else if(cr > 0){\n          \
-    \  if(cr1 == 0 || cr2 == 0){\n                return 2;\n            }else{\n\
-    \                return 1;\n            }\n        }else{\n            return\
+    \         r = mid;\n            } else{\n                l = mid;\n          \
+    \  }\n        }\n\n        T cr = cross(points[l] - p, points[r] - p);\n     \
+    \   if(cr == 0){\n            return 2;\n        } else if(cr > 0){\n        \
+    \    if(cr1 == 0 || cr2 == 0){\n                return 2;\n            } else{\n\
+    \                return 1;\n            }\n        } else{\n            return\
     \ 0;\n        }\n    }\n}\n#line 6 \"test/library_checker/geometry/count_points_in_triangle.test.cpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
     \   int n; cin >> n;\n    vector<Geometry::Point> d(n);\n    for(int i = 0; i\
@@ -124,8 +124,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/geometry/count_points_in_triangle.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 04:15:29+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/geometry/count_points_in_triangle.test.cpp
 layout: document

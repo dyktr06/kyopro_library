@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/deswag.hpp
     title: DESWAG
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/deque_operate_all_composite
@@ -26,20 +26,20 @@ data:
     \        return front_stack.empty() && back_stack.empty();\n    }\n\n    size_t\
     \ size(){\n        return front_stack.size() + back_stack.size();\n    }\n\n \
     \   T fold(){\n        if(front_stack.empty()){\n            return back_stack.top().sum;\n\
-    \        }else if(back_stack.empty()){\n            return front_stack.top().sum;\n\
-    \        }else{\n            return op(front_stack.top().sum, back_stack.top().sum);\n\
+    \        } else if(back_stack.empty()){\n            return front_stack.top().sum;\n\
+    \        } else{\n            return op(front_stack.top().sum, back_stack.top().sum);\n\
     \        }\n    }\n\n    void push_front(const T &x){\n        if(front_stack.empty()){\n\
-    \            front_stack.emplace(x, x);\n        }else{\n            T s = op(x,\
+    \            front_stack.emplace(x, x);\n        } else{\n            T s = op(x,\
     \ front_stack.top().sum);\n            front_stack.emplace(x, s);\n        }\n\
     \    }\n\n    void push_back(const T &x){\n        if(back_stack.empty()){\n \
-    \           back_stack.emplace(x, x);\n        }else{\n            T s = op(back_stack.top().sum,\
+    \           back_stack.emplace(x, x);\n        } else{\n            T s = op(back_stack.top().sum,\
     \ x);\n            back_stack.emplace(x, s);\n        }\n    }\n\n    void pop_front(){\n\
     \        if(front_stack.empty()){\n            int half = (back_stack.size() +\
     \ 1) / 2;\n            while(!back_stack.empty()){\n                if(back_stack.size()\
     \ == half){\n                    front_stack.emplace(back_stack.top().val, back_stack.top().val);\n\
-    \                }else if(back_stack.size() < half){\n                    T s\
+    \                } else if(back_stack.size() < half){\n                    T s\
     \ = op(back_stack.top().val, front_stack.top().sum);\n                    front_stack.emplace(back_stack.top().val,\
-    \ s);\n                }else{\n                    temp_stack.emplace(back_stack.top().val,\
+    \ s);\n                } else{\n                    temp_stack.emplace(back_stack.top().val,\
     \ back_stack.top().val);\n                }\n                back_stack.pop();\n\
     \            }\n            if(!temp_stack.empty()){\n                back_stack.emplace(temp_stack.top().val,\
     \ temp_stack.top().val);\n                temp_stack.pop();\n                while(!temp_stack.empty()){\n\
@@ -49,10 +49,10 @@ data:
     \     front_stack.pop();\n    }\n\n    void pop_back(){\n        if(back_stack.empty()){\n\
     \            int half = (front_stack.size() + 1) / 2;\n            while(!front_stack.empty()){\n\
     \                if(front_stack.size() == half){\n                    back_stack.emplace(front_stack.top().val,\
-    \ front_stack.top().val);\n                }else if(front_stack.size() < half){\n\
+    \ front_stack.top().val);\n                } else if(front_stack.size() < half){\n\
     \                    T s = op(back_stack.top().sum, front_stack.top().val);\n\
     \                    back_stack.emplace(front_stack.top().val, s);\n         \
-    \       }else{\n                    temp_stack.emplace(front_stack.top().val,\
+    \       } else{\n                    temp_stack.emplace(front_stack.top().val,\
     \ front_stack.top().val);\n                }\n                front_stack.pop();\n\
     \            }\n            if(!temp_stack.empty()){\n                front_stack.emplace(temp_stack.top().val,\
     \ temp_stack.top().val);\n                temp_stack.pop();\n                while(!temp_stack.empty()){\n\
@@ -95,8 +95,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2023-01-06 16:06:42+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
 layout: document

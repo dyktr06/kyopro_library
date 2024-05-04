@@ -3,18 +3,18 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
     title: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/rectangle_add_point_get.test.cpp
     title: test/library_checker/data_structure/rectangle_add_point_get.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/rectangle_sum.test.cpp
     title: test/library_checker/data_structure/rectangle_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/range_tree.hpp\"\n\ntemplate <typename\
@@ -38,7 +38,7 @@ data:
     \      j += j & -j;\n            }\n\n            sort(ys[i].begin(), ys[i].end());\n\
     \            ys[i].erase(unique(ys[i].begin(), ys[i].end()), ys[i].end());\n \
     \           bit[i].init(ys[i].size());\n        }\n    }\n\n    int id(S x) const\
-    \ {\n        auto f = [](const P& a, const P& b){\n            return a.first\
+    \ {\n        auto f = [](const P &a, const P &b){\n            return a.first\
     \ < b.first;\n        };\n        return lower_bound(ps.begin(), ps.end(), make_pair(x,\
     \ S()), f) - ps.begin();\n    }\n\n    int id(int i, S y) const {\n        return\
     \ lower_bound(ys[i].begin(), ys[i].end(), y) - ys[i].begin();\n    }\n\n    void\
@@ -51,7 +51,7 @@ data:
     \  // [(xl, yl), (xr, yr))\n    T sum(S xl, S yl, S xr, S yr) const {\n      \
     \  T ret = T();\n        int a = id(xl), b = id(xr);\n        while(a != b) {\n\
     \            if(a < b){\n                ret += bit[b].sum(id(b, yl), id(b, yr));\n\
-    \                b -= b & -b;\n            }else{\n                ret -= bit[a].sum(id(a,\
+    \                b -= b & -b;\n            } else{\n                ret -= bit[a].sum(id(a,\
     \ yl), id(a, yr));\n                a -= a & -a;\n            }\n        }\n \
     \       return ret;\n    }\n};\n"
   code: "#pragma once\n\ntemplate <typename S, typename T>\nstruct RangeTree{\n  \
@@ -74,8 +74,8 @@ data:
     \            ys[j].push_back(ps[i].second);\n                j += j & -j;\n  \
     \          }\n\n            sort(ys[i].begin(), ys[i].end());\n            ys[i].erase(unique(ys[i].begin(),\
     \ ys[i].end()), ys[i].end());\n            bit[i].init(ys[i].size());\n      \
-    \  }\n    }\n\n    int id(S x) const {\n        auto f = [](const P& a, const\
-    \ P& b){\n            return a.first < b.first;\n        };\n        return lower_bound(ps.begin(),\
+    \  }\n    }\n\n    int id(S x) const {\n        auto f = [](const P &a, const\
+    \ P &b){\n            return a.first < b.first;\n        };\n        return lower_bound(ps.begin(),\
     \ ps.end(), make_pair(x, S()), f) - ps.begin();\n    }\n\n    int id(int i, S\
     \ y) const {\n        return lower_bound(ys[i].begin(), ys[i].end(), y) - ys[i].begin();\n\
     \    }\n\n    void add(S x, S y, T a){\n        int i = lower_bound(ps.begin(),\
@@ -87,15 +87,15 @@ data:
     \        return ret;\n    }\n\n    // [(xl, yl), (xr, yr))\n    T sum(S xl, S\
     \ yl, S xr, S yr) const {\n        T ret = T();\n        int a = id(xl), b = id(xr);\n\
     \        while(a != b) {\n            if(a < b){\n                ret += bit[b].sum(id(b,\
-    \ yl), id(b, yr));\n                b -= b & -b;\n            }else{\n       \
-    \         ret -= bit[a].sum(id(a, yl), id(a, yr));\n                a -= a & -a;\n\
-    \            }\n        }\n        return ret;\n    }\n};"
+    \ yl), id(b, yr));\n                b -= b & -b;\n            } else{\n      \
+    \          ret -= bit[a].sum(id(a, yl), id(a, yr));\n                a -= a &\
+    \ -a;\n            }\n        }\n        return ret;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/range_tree.hpp
   requiredBy: []
-  timestamp: '2023-06-03 01:53:02+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
   - test/library_checker/data_structure/rectangle_add_point_get.test.cpp

@@ -12,7 +12,7 @@ data:
     links: []
   bundledCode: "#line 2 \"lib/others/maximum_rectangle.hpp\"\n\n/**\n * @brief Maximum\
     \ Rectangle (\u6700\u5927\u9577\u65B9\u5F62)\n * @docs docs/others/maximum_rectangle.md\n\
-    \ */\n\n// [(x1, y1), (x2, y2)] \nvector<tuple<int, int, int, int>> getMaximumRectangle(vector<vector<bool>>\
+    \ */\n\n // [(x1, y1), (x2, y2)]\nvector<tuple<int, int, int, int>> getMaximumRectangle(vector<vector<bool>>\
     \ &a){\n    vector<tuple<int, int, int, int>> res;\n    int n = a.size(), m =\
     \ a[0].size();\n    vector<int> max_row(m), sorted(m);\n    iota(sorted.begin(),\
     \ sorted.end(), 0);\n    for(int i = 0; i < n; ++i){\n        vector<bool> is_changed(m);\n\
@@ -31,8 +31,8 @@ data:
     \ {l, r};\n        }\n        swap(sorted, nsorted);\n    }\n    return res;\n\
     }\n"
   code: "#pragma once\n\n/**\n * @brief Maximum Rectangle (\u6700\u5927\u9577\u65B9\
-    \u5F62)\n * @docs docs/others/maximum_rectangle.md\n */\n\n// [(x1, y1), (x2,\
-    \ y2)] \nvector<tuple<int, int, int, int>> getMaximumRectangle(vector<vector<bool>>\
+    \u5F62)\n * @docs docs/others/maximum_rectangle.md\n */\n\n // [(x1, y1), (x2,\
+    \ y2)]\nvector<tuple<int, int, int, int>> getMaximumRectangle(vector<vector<bool>>\
     \ &a){\n    vector<tuple<int, int, int, int>> res;\n    int n = a.size(), m =\
     \ a[0].size();\n    vector<int> max_row(m), sorted(m);\n    iota(sorted.begin(),\
     \ sorted.end(), 0);\n    for(int i = 0; i < n; ++i){\n        vector<bool> is_changed(m);\n\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: false
   path: lib/others/maximum_rectangle.hpp
   requiredBy: []
-  timestamp: '2024-03-21 03:03:00+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/others/maximum_rectangle.hpp

@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/static_rmq.test.cpp
     title: test/library_checker/data_structure/static_rmq.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
     title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/data_structure/segment_tree.md
     document_title: Segment Tree
@@ -23,16 +23,16 @@ data:
     \  const X ex;\n    vector<X> dat;\n\n    SegTree(int n_, const FX &fx_, const\
     \ X &ex_) : n(), fx(fx_), ex(ex_){\n        int x = 1;\n        while(n_ > x){\n\
     \            x *= 2;\n        }\n        n = x;\n        dat.assign(n * 2, ex);\n\
-    \    }\n\n    X get(int i) const {\n        return dat[i + n];\n    }\n    \n\
-    \    void set(int i, const X &x){ dat[i + n] = x; }\n\n    void build(){\n   \
-    \     for(int k = n - 1; k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);\n\
-    \    }\n\n    void update(int i, const X &x){\n        i += n;\n        dat[i]\
-    \ = x;\n        while(i > 0){\n            i >>= 1;  // parent\n            dat[i]\
-    \ = fx(dat[i * 2], dat[i * 2 + 1]);\n        }\n    }\n\n    X query(int a, int\
-    \ b){\n        X vl = ex;\n        X vr = ex;\n        int l = a + n;\n      \
-    \  int r = b + n;\n        while(l < r){\n            if(l & 1) vl = fx(vl, dat[l++]);\n\
+    \    }\n\n    X get(int i) const {\n        return dat[i + n];\n    }\n\n    void\
+    \ set(int i, const X &x){ dat[i + n] = x; }\n\n    void build(){\n        for(int\
+    \ k = n - 1; k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);\n    }\n\n\
+    \    void update(int i, const X &x){\n        i += n;\n        dat[i] = x;\n \
+    \       while(i > 0){\n            i >>= 1;  // parent\n            dat[i] = fx(dat[i\
+    \ * 2], dat[i * 2 + 1]);\n        }\n    }\n\n    X query(int a, int b){\n   \
+    \     X vl = ex;\n        X vr = ex;\n        int l = a + n;\n        int r =\
+    \ b + n;\n        while(l < r){\n            if(l & 1) vl = fx(vl, dat[l++]);\n\
     \            if(r & 1) vr = fx(dat[--r], vr);\n            l >>= 1;\n        \
-    \    r >>= 1;\n        }\n        return fx(vl, vr);\n    }\n    \n    X operator\
+    \    r >>= 1;\n        }\n        return fx(vl, vr);\n    }\n\n    X operator\
     \ [](int i) const {\n        return dat[i + n];\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Segment Tree\n * @docs docs/data_structure/segment_tree.md\n\
     \ */\n\ntemplate <typename X>\nstruct SegTree{\n    using FX = function<X(X, X)>;\
@@ -41,7 +41,7 @@ data:
     \ &fx_, const X &ex_) : n(), fx(fx_), ex(ex_){\n        int x = 1;\n        while(n_\
     \ > x){\n            x *= 2;\n        }\n        n = x;\n        dat.assign(n\
     \ * 2, ex);\n    }\n\n    X get(int i) const {\n        return dat[i + n];\n \
-    \   }\n    \n    void set(int i, const X &x){ dat[i + n] = x; }\n\n    void build(){\n\
+    \   }\n\n    void set(int i, const X &x){ dat[i + n] = x; }\n\n    void build(){\n\
     \        for(int k = n - 1; k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);\n\
     \    }\n\n    void update(int i, const X &x){\n        i += n;\n        dat[i]\
     \ = x;\n        while(i > 0){\n            i >>= 1;  // parent\n            dat[i]\
@@ -49,14 +49,14 @@ data:
     \ b){\n        X vl = ex;\n        X vr = ex;\n        int l = a + n;\n      \
     \  int r = b + n;\n        while(l < r){\n            if(l & 1) vl = fx(vl, dat[l++]);\n\
     \            if(r & 1) vr = fx(dat[--r], vr);\n            l >>= 1;\n        \
-    \    r >>= 1;\n        }\n        return fx(vl, vr);\n    }\n    \n    X operator\
-    \ [](int i) const {\n        return dat[i + n];\n    }\n};"
+    \    r >>= 1;\n        }\n        return fx(vl, vr);\n    }\n\n    X operator\
+    \ [](int i) const {\n        return dat[i + n];\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2024-01-29 20:46:52+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - test/library_checker/data_structure/static_rmq.test.cpp

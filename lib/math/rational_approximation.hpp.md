@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/fraction.hpp
     title: Fraction
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/math/rational_approximation.test.cpp
     title: test/library_checker/math/rational_approximation.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/rational_approximation.md
     document_title: "Rational Approximation (\u6709\u7406\u6570\u8FD1\u4F3C)"
@@ -85,14 +85,14 @@ data:
     \                } else{\n                    ng = mid;\n                }\n \
     \           }\n            a = m;\n            if(m.p <= n && m.q <= n){\n   \
     \             x = m;\n            } else{\n                ok_right = false;\n\
-    \            }\n        }\n    }\n    return make_pair(x, y);\n}"
+    \            }\n        }\n    }\n    return make_pair(x, y);\n}\n"
   dependsOn:
   - lib/math/fraction.hpp
   isVerificationFile: false
   path: lib/math/rational_approximation.hpp
   requiredBy: []
-  timestamp: '2024-03-21 03:54:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/math/rational_approximation.test.cpp
 documentation_of: lib/math/rational_approximation.hpp

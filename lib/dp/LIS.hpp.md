@@ -3,29 +3,29 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/dp/longest_increasing_subsequence.test.cpp
     title: test/library_checker/dp/longest_increasing_subsequence.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/dp/LIS.md
     document_title: Longest Increasing Subsequence
     links: []
   bundledCode: "#line 2 \"lib/dp/LIS.hpp\"\n\n/**\n * @brief Longest Increasing Subsequence\n\
-    \ * @docs docs/dp/LIS.md\n */\n\ntemplate <typename T>\nint LIS(vector<T> a, \
-    \ bool is_strong = true){\n    const long long INF = 0x1fffffffffffffff;\n   \
-    \ int n = (int) a.size();\n    vector<long long> dp(n, INF);\n    for(int i =\
-    \ 0; i < n; ++i){\n        if (is_strong) *lower_bound(dp.begin(), dp.end(), a[i])\
-    \ = a[i];\n        else *upper_bound(dp.begin(), dp.end(), a[i]) = a[i];\n   \
-    \ }\n    return lower_bound(dp.begin(), dp.end(), INF) - dp.begin();\n}\n\ntemplate\
-    \ <typename T>\nvector<int> construct_LIS(vector<T> a,  bool is_strong = true){\n\
-    \    const long long INF = 0x1fffffffffffffff;\n    int n = (int) a.size();\n\
-    \    vector<long long> dp(n, INF);\n    vector<vector<int>> idx(n);\n    for(int\
-    \ i = 0; i < n; ++i){\n        if(is_strong){\n             auto iter = lower_bound(dp.begin(),\
+    \ * @docs docs/dp/LIS.md\n */\n\ntemplate <typename T>\nint LIS(vector<T> a, bool\
+    \ is_strong = true){\n    const long long INF = 0x1fffffffffffffff;\n    int n\
+    \ = (int) a.size();\n    vector<long long> dp(n, INF);\n    for(int i = 0; i <\
+    \ n; ++i){\n        if(is_strong) *lower_bound(dp.begin(), dp.end(), a[i]) = a[i];\n\
+    \        else *upper_bound(dp.begin(), dp.end(), a[i]) = a[i];\n    }\n    return\
+    \ lower_bound(dp.begin(), dp.end(), INF) - dp.begin();\n}\n\ntemplate <typename\
+    \ T>\nvector<int> construct_LIS(vector<T> a, bool is_strong = true){\n    const\
+    \ long long INF = 0x1fffffffffffffff;\n    int n = (int) a.size();\n    vector<long\
+    \ long> dp(n, INF);\n    vector<vector<int>> idx(n);\n    for(int i = 0; i < n;\
+    \ ++i){\n        if(is_strong){\n            auto iter = lower_bound(dp.begin(),\
     \ dp.end(), a[i]);\n            *iter = a[i];\n            idx[(int) (iter - dp.begin())].emplace_back(i);\n\
-    \        }else{\n            auto iter = upper_bound(dp.begin(), dp.end(), a[i]);\n\
+    \        } else{\n            auto iter = upper_bound(dp.begin(), dp.end(), a[i]);\n\
     \            *iter = a[i];\n            idx[(int) (iter - dp.begin())].emplace_back(i);\n\
     \        }\n    }\n    int k = lower_bound(dp.begin(), dp.end(), INF) - dp.begin();\n\
     \    vector<int> res;\n    int now = n;\n    for(int i = k - 1; i >= 0; --i){\n\
@@ -33,30 +33,30 @@ data:
     \ iter--;\n        now = *iter;\n        res.push_back(now);\n    }\n    reverse(res.begin(),\
     \ res.end());\n    return res;\n}\n"
   code: "#pragma once\n\n/**\n * @brief Longest Increasing Subsequence\n * @docs docs/dp/LIS.md\n\
-    \ */\n\ntemplate <typename T>\nint LIS(vector<T> a,  bool is_strong = true){\n\
+    \ */\n\ntemplate <typename T>\nint LIS(vector<T> a, bool is_strong = true){\n\
     \    const long long INF = 0x1fffffffffffffff;\n    int n = (int) a.size();\n\
-    \    vector<long long> dp(n, INF);\n    for(int i = 0; i < n; ++i){\n        if\
-    \ (is_strong) *lower_bound(dp.begin(), dp.end(), a[i]) = a[i];\n        else *upper_bound(dp.begin(),\
+    \    vector<long long> dp(n, INF);\n    for(int i = 0; i < n; ++i){\n        if(is_strong)\
+    \ *lower_bound(dp.begin(), dp.end(), a[i]) = a[i];\n        else *upper_bound(dp.begin(),\
     \ dp.end(), a[i]) = a[i];\n    }\n    return lower_bound(dp.begin(), dp.end(),\
     \ INF) - dp.begin();\n}\n\ntemplate <typename T>\nvector<int> construct_LIS(vector<T>\
-    \ a,  bool is_strong = true){\n    const long long INF = 0x1fffffffffffffff;\n\
+    \ a, bool is_strong = true){\n    const long long INF = 0x1fffffffffffffff;\n\
     \    int n = (int) a.size();\n    vector<long long> dp(n, INF);\n    vector<vector<int>>\
     \ idx(n);\n    for(int i = 0; i < n; ++i){\n        if(is_strong){\n         \
-    \    auto iter = lower_bound(dp.begin(), dp.end(), a[i]);\n            *iter =\
+    \   auto iter = lower_bound(dp.begin(), dp.end(), a[i]);\n            *iter =\
     \ a[i];\n            idx[(int) (iter - dp.begin())].emplace_back(i);\n       \
-    \ }else{\n            auto iter = upper_bound(dp.begin(), dp.end(), a[i]);\n \
-    \           *iter = a[i];\n            idx[(int) (iter - dp.begin())].emplace_back(i);\n\
+    \ } else{\n            auto iter = upper_bound(dp.begin(), dp.end(), a[i]);\n\
+    \            *iter = a[i];\n            idx[(int) (iter - dp.begin())].emplace_back(i);\n\
     \        }\n    }\n    int k = lower_bound(dp.begin(), dp.end(), INF) - dp.begin();\n\
     \    vector<int> res;\n    int now = n;\n    for(int i = k - 1; i >= 0; --i){\n\
     \        auto iter = upper_bound(idx[i].begin(), idx[i].end(), now);\n       \
     \ iter--;\n        now = *iter;\n        res.push_back(now);\n    }\n    reverse(res.begin(),\
-    \ res.end());\n    return res;\n}"
+    \ res.end());\n    return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/dp/LIS.hpp
   requiredBy: []
-  timestamp: '2023-01-23 12:51:32+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/dp/longest_increasing_subsequence.test.cpp
 documentation_of: lib/dp/LIS.hpp

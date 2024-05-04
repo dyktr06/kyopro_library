@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/partly_persistent_union_find.hpp
     title: lib/data_structure/partly_persistent_union_find.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/416
@@ -16,7 +16,7 @@ data:
     - https://yukicoder.me/problems/no/416
   bundledCode: "#line 1 \"test/yukicoder/yuki_416.test.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/416\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/partly_persistent_union_find.hpp\"\
-    \n\n/* \n    PersistentUnionFind(n) : \u90E8\u5206\u6C38\u7D9A Union-Find \u6728\
+    \n\n/*\n    PersistentUnionFind(n) : \u90E8\u5206\u6C38\u7D9A Union-Find \u6728\
     \u3092\u30B5\u30A4\u30BAn\u3067\u69CB\u7BC9\n    \u8A08\u7B97\u91CF : O(log(n))\n\
     \    root(x, t) : \u6642\u523B t \u306B\u304A\u3051\u308B\u96C6\u5408 x \u306E\
     \u6839\u3092\u53D6\u5F97\u3057\u307E\u3059\u3002\n    unite(x, y) : \u96C6\u5408\
@@ -42,7 +42,7 @@ data:
     \ == ry;\n    }\n\n    int size(const int x, const int t){\n        int rx = root(x,\
     \ t);\n\n        int ok = 0, ng = num[rx].size();\n        while(abs(ok - ng)\
     \ > 1){\n            int mid = (ok + ng) / 2;\n            if(num[rx][mid].first\
-    \ <= t){\n                ok = mid;\n            }else{\n                ng =\
+    \ <= t){\n                ok = mid;\n            } else{\n                ng =\
     \ mid;\n            }\n        }\n        return num[rx][ok].second;\n    }\n\
     };\n#line 6 \"test/yukicoder/yuki_416.test.cpp\"\n\nint main(){\n    int n, m,\
     \ q; cin >> n >> m >> q;\n    PersistentUnionFind tree(n);\n    vector<pair<int,\
@@ -83,8 +83,8 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_416.test.cpp
   requiredBy: []
-  timestamp: '2024-01-29 20:46:52+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_416.test.cpp
 layout: document

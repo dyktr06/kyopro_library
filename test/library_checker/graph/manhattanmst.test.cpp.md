@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/data_structure/union_find.hpp
     title: Union Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/graph/manhattanMST.hpp
     title: Manhattan MST
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/manhattanmst
@@ -48,7 +48,7 @@ data:
     \              map[y[i]] = i;\n            }\n            swap(x, y);\n      \
     \  }\n        for(int i = 0; i < n; ++i) {\n            x[i] *= -1;\n        }\n\
     \    }\n    sort(edge.begin(), edge.end());\n    UnionFind dsu(n);\n    vector<pair<int,\
-    \ int>> used;\n    used.reserve(n - 1);\n    for(const auto& [c, i, j] : edge){\n\
+    \ int>> used;\n    used.reserve(n - 1);\n    for(const auto &[c, i, j] : edge){\n\
     \        if(!dsu.same(i, j)){\n            used.emplace_back(i, j);\n        \
     \    dsu.unite(i, j);\n        }\n    }\n    return used;\n}\n#line 6 \"test/library_checker/graph/manhattanmst.test.cpp\"\
     \n\nint main(){\n    int n; cin >> n;\n    vector<int> x(n), y(n);\n    for(int\
@@ -71,8 +71,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/manhattanmst.test.cpp
   requiredBy: []
-  timestamp: '2024-04-21 00:12:50+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/graph/manhattanmst.test.cpp
 layout: document

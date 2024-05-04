@@ -28,12 +28,12 @@ data:
     \ n;\n    }\n\n    // [a, b)\n    void add_edge(int x, int a, int b){\n      \
     \  int l = a + n;\n        int r = b + n;\n        while(l < r){\n           \
     \ if(l & 1) G[x + n].push_back(l++);\n            if(r & 1) G[x + n].push_back(--r);\n\
-    \            l >>= 1;\n            r >>= 1;\n        }\n    }\n};"
+    \            l >>= 1;\n            r >>= 1;\n        }\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/graph/interval_graph.hpp
   requiredBy: []
-  timestamp: '2024-01-03 23:06:34+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/graph/interval_graph.hpp

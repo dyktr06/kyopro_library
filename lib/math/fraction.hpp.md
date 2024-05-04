@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/rational_approximation.hpp
     title: "Rational Approximation (\u6709\u7406\u6570\u8FD1\u4F3C)"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/math/rational_approximation.test.cpp
     title: test/library_checker/math/rational_approximation.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/yuki_1464.test.cpp
     title: test/yukicoder/yuki_1464.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/fraction.md
     document_title: Fraction
@@ -74,14 +74,14 @@ data:
     \    *this = *this / rhs;\n        return *this;\n    }\n    friend inline istream\
     \ &operator>>(istream &is, fraction &x) noexcept {\n        is >> x.p;\n     \
     \   x.q = 1;\n        return is;\n    }\n    friend inline ostream &operator<<(ostream\
-    \ &os, const fraction &x) noexcept { return os << x.p << \"/\" << x.q; }\n};"
+    \ &os, const fraction &x) noexcept { return os << x.p << \"/\" << x.q; }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/fraction.hpp
   requiredBy:
   - lib/math/rational_approximation.hpp
-  timestamp: '2024-03-20 02:40:02+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/yuki_1464.test.cpp
   - test/library_checker/math/rational_approximation.test.cpp

@@ -16,7 +16,7 @@ data:
     \ array(n);\n    iota(array.begin(), array.end(), 0);\n    vector<string> res;\n\
     \    do{\n        string t = \"\";\n        for(int i = 0; i < n; i++){\n    \
     \        t.push_back(s[array[i]]);\n        }\n        res.push_back(t);\n   \
-    \ }while(next_permutation(array.begin(), array.end()));\n    sort(res.begin(),\
+    \ } while(next_permutation(array.begin(), array.end()));\n    sort(res.begin(),\
     \ res.end());\n    res.erase(unique(res.begin(), res.end()), res.end());\n   \
     \ return res;\n}\n\n// example (ABC225A)\nint main(){\n    string s; cin >> s;\n\
     \    vector<string> p = getPermutation(s);\n    cout << (int) p.size() << \"\\\
@@ -28,16 +28,16 @@ data:
     \ &s){\n    int n = s.size();\n    vector<int> array(n);\n    iota(array.begin(),\
     \ array.end(), 0);\n    vector<string> res;\n    do{\n        string t = \"\"\
     ;\n        for(int i = 0; i < n; i++){\n            t.push_back(s[array[i]]);\n\
-    \        }\n        res.push_back(t);\n    }while(next_permutation(array.begin(),\
+    \        }\n        res.push_back(t);\n    } while(next_permutation(array.begin(),\
     \ array.end()));\n    sort(res.begin(), res.end());\n    res.erase(unique(res.begin(),\
     \ res.end()), res.end());\n    return res;\n}\n\n// example (ABC225A)\nint main(){\n\
     \    string s; cin >> s;\n    vector<string> p = getPermutation(s);\n    cout\
-    \ << (int) p.size() << \"\\n\";\n}"
+    \ << (int) p.size() << \"\\n\";\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/string/permutation.cpp
   requiredBy: []
-  timestamp: '2022-09-21 23:58:11+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/string/permutation.cpp

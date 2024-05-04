@@ -17,7 +17,7 @@ data:
   bundledCode: "#line 1 \"test/aoj/dsl/dsl_5_b_cs2d.test.cpp\"\n#define PROBLEM \"\
     https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_5_B\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/cumulative_sum_2d.hpp\"\
-    \n\n/* \n    CumulativeSum2D<T>(H, W) : CumulativeSum2D\u3092\u30B5\u30A4\u30BA\
+    \n\n/*\n    CumulativeSum2D<T>(H, W) : CumulativeSum2D\u3092\u30B5\u30A4\u30BA\
     \ H * W \u3067\u69CB\u7BC9\n    add(i, j, z) : (i, j) \u306B z \u3092\u52A0\u7B97\
     \u3057\u307E\u3059\u3002 O(1)\n    imos(i1, j1, i2, j2, v) : \u3044\u3082\u3059\
     \u6CD5\u306B\u304A\u3044\u3066\u3001[(i1, j1), (i2, j2) ) \u306B z \u3092\u52A0\
@@ -57,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/aoj/dsl/dsl_5_b_cs2d.test.cpp
   requiredBy: []
-  timestamp: '2024-01-29 20:46:52+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/dsl/dsl_5_b_cs2d.test.cpp

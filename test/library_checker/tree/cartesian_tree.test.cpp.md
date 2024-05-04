@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/graph/cartesian_tree.hpp
     title: lib/graph/cartesian_tree.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/cartesian_tree
@@ -25,7 +25,7 @@ data:
     \ = i;\n        }\n        if(!st.empty()){\n            par[i] = st.back();\n\
     \        }\n        st.emplace_back(i);\n    }\n    int root = -1;\n    for(int\
     \ i = 0; i < n; ++i){\n        if(par[i] != -1){\n            G[par[i]].emplace_back(i);\n\
-    \        }else{\n            root = i;\n        }\n    }\n    return make_pair(G,\
+    \        } else{\n            root = i;\n        }\n    }\n    return make_pair(G,\
     \ root);\n}\n#line 6 \"test/library_checker/tree/cartesian_tree.test.cpp\"\n\n\
     int main(){\n    int n; cin >> n;\n    vector<int> a(n);\n    for(int i = 0; i\
     \ < n; i++){\n        cin >> a[i];\n    }\n    pair<vector<vector<int>>, int>\
@@ -46,8 +46,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/cartesian_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-03-20 02:54:18+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/tree/cartesian_tree.test.cpp
 layout: document

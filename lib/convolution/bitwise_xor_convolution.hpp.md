@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/convolution/fast_walsh_hadamard_transform.hpp
     title: lib/convolution/fast_walsh_hadamard_transform.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
     title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/convolution/bitwise_xor_convolution.hpp\"\n\n#line 2\
@@ -35,14 +35,14 @@ data:
     \    assert((n & (n - 1)) == 0);\n    fast_walsh_hadamard_transform(f, false);\n\
     \    fast_walsh_hadamard_transform(g, false);\n    for(int i = 0; i < n; ++i){\n\
     \        f[i] *= g[i];\n    }\n    fast_walsh_hadamard_transform(f, true);\n \
-    \   return f;\n}"
+    \   return f;\n}\n"
   dependsOn:
   - lib/convolution/fast_walsh_hadamard_transform.hpp
   isVerificationFile: false
   path: lib/convolution/bitwise_xor_convolution.hpp
   requiredBy: []
-  timestamp: '2023-05-01 02:14:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
 documentation_of: lib/convolution/bitwise_xor_convolution.hpp

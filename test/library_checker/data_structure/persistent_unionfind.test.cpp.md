@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/persistent_array.hpp
     title: lib/data_structure/persistent_array.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/persistent_union_find.hpp
     title: lib/data_structure/persistent_union_find.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/persistent_unionfind
@@ -22,20 +22,20 @@ data:
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/persistent_union_find.hpp\"\
     \n\n#line 2 \"lib/data_structure/persistent_array.hpp\"\n\ntemplate<typename T>\n\
     struct PersistentArray{\n    struct Node{\n        T data;\n        Node *ch[20]\
-    \ = {};\n    };\n    Node *root = nullptr;\n\n    PersistentArray() {}\n    \n\
-    \    Node *get_root(){\n        return root;\n    }\n\n    void destructive_set(const\
+    \ = {};\n    };\n    Node *root = nullptr;\n\n    PersistentArray() {}\n\n   \
+    \ Node *get_root(){\n        return root;\n    }\n\n    void destructive_set(const\
     \ int i, const T &val, Node *&t){\n        if(!t) t = new Node();\n        if(i\
-    \ == 0){\n            t->data = val;\n        }else{\n            destructive_set(i\
+    \ == 0){\n            t->data = val;\n        } else{\n            destructive_set(i\
     \ / 20, val, t->ch[i % 20]);\n        }\n    }\n\n    Node *set(const int i, const\
     \ T &val, Node *&t){\n        Node *res = new Node();\n        if(t){\n      \
     \      memcpy(res->ch, t->ch, sizeof(t->ch));\n            res->data = t->data;\n\
-    \        }\n        if(i == 0){\n            res->data = val;\n        }else{\n\
+    \        }\n        if(i == 0){\n            res->data = val;\n        } else{\n\
     \            res->ch[i % 20] = set(i / 20, val, res->ch[i % 20]);\n        }\n\
     \        return res;\n    }\n\n    T get(const int i, Node *t){\n        if(!t)\
-    \ return T();\n        if(i == 0){\n            return t->data;\n        }else{\n\
+    \ return T();\n        if(i == 0){\n            return t->data;\n        } else{\n\
     \            return get(i / 20, t->ch[i % 20]);\n        }\n    }\n};\n#line 4\
     \ \"lib/data_structure/persistent_union_find.hpp\"\n\nstruct PersistentUnionFind{\n\
-    \    PersistentArray<int> data;\n    using node = PersistentArray<int>::Node*;\n\
+    \    PersistentArray<int> data;\n    using node = PersistentArray<int>::Node *;\n\
     \n    PersistentUnionFind() {}\n\n    node init(const int n){\n        node res\
     \ = data.get_root();\n        for(int i = 0; i < n; ++i){\n            data.destructive_set(i,\
     \ -1, res);\n        }\n        return res;\n    }\n\n    pair<bool, node> unite(const\
@@ -49,7 +49,7 @@ data:
     \ node t){\n        return root(x, t) == root(y, t);\n    }\n\n    inline int\
     \ size(const int x, node t){\n        return -data.get(root(x, t), t);\n    }\n\
     };\n\nstruct PersistentUnionFindv2{\n    int n;\n    PersistentArray<int> data;\n\
-    \    using node = PersistentArray<int>::Node*;\n\n    PersistentUnionFindv2()\
+    \    using node = PersistentArray<int>::Node *;\n\n    PersistentUnionFindv2()\
     \ {}\n\n    node init(const int &_n){\n        n = _n;\n        node res = data.get_root();\n\
     \        for(int i = 0; i < n; ++i){\n            data.destructive_set(i, -1,\
     \ res);\n            data.destructive_set(i + n, 0, res);\n        }\n       \
@@ -87,8 +87,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/persistent_unionfind.test.cpp
   requiredBy: []
-  timestamp: '2024-01-29 20:46:52+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/persistent_unionfind.test.cpp
 layout: document

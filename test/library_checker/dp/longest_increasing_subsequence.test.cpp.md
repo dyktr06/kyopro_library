@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/dp/LIS.hpp
     title: Longest Increasing Subsequence
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/longest_increasing_subsequence
@@ -18,17 +18,17 @@ data:
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/longest_increasing_subsequence\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/dp/LIS.hpp\"\
     \n\n/**\n * @brief Longest Increasing Subsequence\n * @docs docs/dp/LIS.md\n */\n\
-    \ntemplate <typename T>\nint LIS(vector<T> a,  bool is_strong = true){\n    const\
+    \ntemplate <typename T>\nint LIS(vector<T> a, bool is_strong = true){\n    const\
     \ long long INF = 0x1fffffffffffffff;\n    int n = (int) a.size();\n    vector<long\
-    \ long> dp(n, INF);\n    for(int i = 0; i < n; ++i){\n        if (is_strong) *lower_bound(dp.begin(),\
+    \ long> dp(n, INF);\n    for(int i = 0; i < n; ++i){\n        if(is_strong) *lower_bound(dp.begin(),\
     \ dp.end(), a[i]) = a[i];\n        else *upper_bound(dp.begin(), dp.end(), a[i])\
     \ = a[i];\n    }\n    return lower_bound(dp.begin(), dp.end(), INF) - dp.begin();\n\
-    }\n\ntemplate <typename T>\nvector<int> construct_LIS(vector<T> a,  bool is_strong\
+    }\n\ntemplate <typename T>\nvector<int> construct_LIS(vector<T> a, bool is_strong\
     \ = true){\n    const long long INF = 0x1fffffffffffffff;\n    int n = (int) a.size();\n\
     \    vector<long long> dp(n, INF);\n    vector<vector<int>> idx(n);\n    for(int\
-    \ i = 0; i < n; ++i){\n        if(is_strong){\n             auto iter = lower_bound(dp.begin(),\
+    \ i = 0; i < n; ++i){\n        if(is_strong){\n            auto iter = lower_bound(dp.begin(),\
     \ dp.end(), a[i]);\n            *iter = a[i];\n            idx[(int) (iter - dp.begin())].emplace_back(i);\n\
-    \        }else{\n            auto iter = upper_bound(dp.begin(), dp.end(), a[i]);\n\
+    \        } else{\n            auto iter = upper_bound(dp.begin(), dp.end(), a[i]);\n\
     \            *iter = a[i];\n            idx[(int) (iter - dp.begin())].emplace_back(i);\n\
     \        }\n    }\n    int k = lower_bound(dp.begin(), dp.end(), INF) - dp.begin();\n\
     \    vector<int> res;\n    int now = n;\n    for(int i = k - 1; i >= 0; --i){\n\
@@ -50,8 +50,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/dp/longest_increasing_subsequence.test.cpp
   requiredBy: []
-  timestamp: '2023-01-23 12:51:32+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/dp/longest_increasing_subsequence.test.cpp
 layout: document

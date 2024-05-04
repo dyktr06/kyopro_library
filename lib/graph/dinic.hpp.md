@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/bipartitematching.test.cpp
     title: test/library_checker/graph/bipartitematching.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/graph/dinic.hpp\"\n\ntemplate<typename T>\nstruct Dinic{\n\
@@ -57,13 +57,13 @@ data:
     \    T flow(int s, int t){\n        T flow = 0;\n        while(true){\n      \
     \      bfs(s, t);\n            if(level[t] < 0) return flow;\n            fill(iter.begin(),\
     \ iter.end(), 0);\n            T f;\n            while((f = dfs(s, t, numeric_limits<T>::max()))\
-    \ > 0){\n                flow += f;\n            }\n        }\n    }\n};"
+    \ > 0){\n                flow += f;\n            }\n        }\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/graph/dinic.hpp
   requiredBy: []
-  timestamp: '2023-07-14 17:26:01+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/graph/bipartitematching.test.cpp
 documentation_of: lib/graph/dinic.hpp

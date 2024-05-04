@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/math/enumerate_primes.test.cpp
     title: test/library_checker/math/enumerate_primes.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/prime-sieve.md
     document_title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\
@@ -41,13 +41,13 @@ data:
     \  sieve[j] = false;\n            }\n        }\n    }\n\n    bool isPrime(T x){\n\
     \        if(x == 2) return true;\n        if(x % 2 == 0) return false;\n     \
     \   return sieve[x / 2];\n    }\n\n    T getPrimeCount(){\n        return prime_list.size();\n\
-    \    }\n\n    T getKthPrime(int k){\n        return prime_list[k];\n    }\n};"
+    \    }\n\n    T getKthPrime(int k){\n        return prime_list[k];\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/prime-sieve.hpp
   requiredBy: []
-  timestamp: '2023-01-25 06:41:59+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/math/enumerate_primes.test.cpp
 documentation_of: lib/math/prime-sieve.hpp

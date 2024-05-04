@@ -3,18 +3,18 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
     title: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
     title: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/yuki_117.test.cpp
     title: test/yukicoder/yuki_117.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/combination.md
     document_title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
@@ -70,13 +70,13 @@ data:
     \ - 1] + memo[i - 1][j]);\n                if(memo[i][j] >= mod) memo[i][j] -=\
     \ mod;\n            }\n        }\n    }\n    inline long long ncr(const int &n,\
     \ const int &r) const {\n        if(n < r || r < 0) return 0;\n        return\
-    \ memo[n][r];\n    }\n};"
+    \ memo[n][r];\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/combination.hpp
   requiredBy: []
-  timestamp: '2023-07-14 01:49:58+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/yuki_117.test.cpp
   - test/library_checker/math/binomial_coefficient_prime_mod.test.cpp

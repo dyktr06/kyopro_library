@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/math/enumerate_quotients.test.cpp
     title: test/library_checker/math/enumerate_quotients.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/enumerate_quotients.md
     document_title: "Enumerate Quotients (\u5546\u5217\u6319)"
@@ -25,13 +25,13 @@ data:
     \ T, T>> enumerate_quotients(const T &n){\n    vector<tuple<T, T, T>> res;\n \
     \   for(T l = 1; l <= n;){\n        const T quotient = n / l;\n        const T\
     \ r = n / quotient + 1;\n\n        // [l, r)\n        res.emplace_back(l, r, quotient);\n\
-    \        l = r;\n    }\n    return res;\n}"
+    \        l = r;\n    }\n    return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/enumerate_quotients.hpp
   requiredBy: []
-  timestamp: '2024-03-21 04:22:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/math/enumerate_quotients.test.cpp
 documentation_of: lib/math/enumerate_quotients.hpp

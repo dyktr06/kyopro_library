@@ -28,12 +28,12 @@ data:
     \ T &INF) {\n    int n = d.size();\n    for(int i = 0; i < n; i++){\n        for(int\
     \ j = 0; j < n; j++){\n            for(int k = 0; k < n; k++){\n             \
     \   if(d[j][i] == INF || d[i][k] == INF) continue;\n                d[j][k] =\
-    \ min(d[j][k], d[j][i] + d[i][k]);\n            }\n        }\n    }\n}"
+    \ min(d[j][k], d[j][i] + d[i][k]);\n            }\n        }\n    }\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/graph/warshall_floyd.hpp
   requiredBy: []
-  timestamp: '2023-01-23 11:19:29+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/grl/grl_1_c.test.cpp

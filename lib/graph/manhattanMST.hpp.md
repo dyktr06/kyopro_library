@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/data_structure/union_find.hpp
     title: Union Find
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/manhattanmst.test.cpp
     title: test/library_checker/graph/manhattanmst.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/graph/manhattanMST.md
     document_title: Manhattan MST
@@ -45,7 +45,7 @@ data:
     \              map[y[i]] = i;\n            }\n            swap(x, y);\n      \
     \  }\n        for(int i = 0; i < n; ++i) {\n            x[i] *= -1;\n        }\n\
     \    }\n    sort(edge.begin(), edge.end());\n    UnionFind dsu(n);\n    vector<pair<int,\
-    \ int>> used;\n    used.reserve(n - 1);\n    for(const auto& [c, i, j] : edge){\n\
+    \ int>> used;\n    used.reserve(n - 1);\n    for(const auto &[c, i, j] : edge){\n\
     \        if(!dsu.same(i, j)){\n            used.emplace_back(i, j);\n        \
     \    dsu.unite(i, j);\n        }\n    }\n    return used;\n}\n"
   code: "#pragma once\n\n#include \"../data_structure/union_find.hpp\"\n\n/**\n *\
@@ -64,16 +64,16 @@ data:
     \              map[y[i]] = i;\n            }\n            swap(x, y);\n      \
     \  }\n        for(int i = 0; i < n; ++i) {\n            x[i] *= -1;\n        }\n\
     \    }\n    sort(edge.begin(), edge.end());\n    UnionFind dsu(n);\n    vector<pair<int,\
-    \ int>> used;\n    used.reserve(n - 1);\n    for(const auto& [c, i, j] : edge){\n\
+    \ int>> used;\n    used.reserve(n - 1);\n    for(const auto &[c, i, j] : edge){\n\
     \        if(!dsu.same(i, j)){\n            used.emplace_back(i, j);\n        \
-    \    dsu.unite(i, j);\n        }\n    }\n    return used;\n}"
+    \    dsu.unite(i, j);\n        }\n    }\n    return used;\n}\n"
   dependsOn:
   - lib/data_structure/union_find.hpp
   isVerificationFile: false
   path: lib/graph/manhattanMST.hpp
   requiredBy: []
-  timestamp: '2024-04-21 00:12:50+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/graph/manhattanmst.test.cpp
 documentation_of: lib/graph/manhattanMST.hpp

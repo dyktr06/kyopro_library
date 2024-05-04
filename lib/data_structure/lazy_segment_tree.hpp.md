@@ -3,21 +3,21 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
     title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/range_affine_point_get.test.cpp
     title: test/library_checker/data_structure/range_affine_point_get.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
     title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/range_set_range_composite.test.cpp
     title: test/library_checker/data_structure/range_set_range_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/lazy_segment_tree.hpp\"\n\ntemplate <class\
@@ -29,7 +29,7 @@ data:
     \ lz[k]);\n    }\n    void push(int k){\n        all_apply(2 * k, lz[k]);\n  \
     \      all_apply(2 * k + 1, lz[k]);\n        lz[k] = id();\n    }\n\npublic:\n\
     \    LazySegTree() : LazySegTree(0){}\n    LazySegTree(int n) : LazySegTree(vector<S>(n,\
-    \ e())){}\n    LazySegTree(const vector<S>& v) : _n(int(v.size())){\n        log\
+    \ e())){}\n    LazySegTree(const vector<S> &v) : _n(int(v.size())){\n        log\
     \ = 0;\n        size = 1;\n        while(size < _n) size <<= 1, log++;\n     \
     \   d = vector<S>(2 * size, e());\n        lz = vector<F>(size, id());\n     \
     \   for(int i = 0; i < _n; i++) d[size + i] = v[i];\n        for(int i = size\
@@ -90,7 +90,7 @@ data:
     \ lz[k] = composition(f, lz[k]);\n    }\n    void push(int k){\n        all_apply(2\
     \ * k, lz[k]);\n        all_apply(2 * k + 1, lz[k]);\n        lz[k] = id();\n\
     \    }\n\npublic:\n    LazySegTree() : LazySegTree(0){}\n    LazySegTree(int n)\
-    \ : LazySegTree(vector<S>(n, e())){}\n    LazySegTree(const vector<S>& v) : _n(int(v.size())){\n\
+    \ : LazySegTree(vector<S>(n, e())){}\n    LazySegTree(const vector<S> &v) : _n(int(v.size())){\n\
     \        log = 0;\n        size = 1;\n        while(size < _n) size <<= 1, log++;\n\
     \        d = vector<S>(2 * size, e());\n        lz = vector<F>(size, id());\n\
     \        for(int i = 0; i < _n; i++) d[size + i] = v[i];\n        for(int i =\
@@ -142,13 +142,13 @@ data:
     \     if(g(op(d[r], sm))){\n                        sm = op(d[r], sm);\n     \
     \                   r--;\n                    }\n                }\n         \
     \       return r + 1 - size;\n            }\n            sm = op(d[r], sm);\n\
-    \        } while((r & -r) != r);\n        return 0;\n    }\n};"
+    \        } while((r & -r) != r);\n        return 0;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2024-02-14 05:01:36+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
   - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp

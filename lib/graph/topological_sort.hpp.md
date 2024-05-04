@@ -34,13 +34,13 @@ data:
     \        int node = heap.top();\n        heap.pop();\n        res.push_back(node);\n\
     \        for(auto x : G[node]){\n            indegree[x]--;\n            if(indegree[x]\
     \ == 0){\n                heap.push(x);\n            }\n        }\n    }\n   \
-    \ return res;\n}"
+    \ return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/graph/topological_sort.hpp
   requiredBy:
   - lib/graph/reachable_query.hpp
-  timestamp: '2023-01-23 11:19:29+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/graph/topological_sort.hpp

@@ -44,12 +44,11 @@ data:
     \                f[i][j] = f[i - 1][j] + f[i][j - 1];\n            }\n       \
     \ }\n    }\n\n    Combination<T> comb(d);\n    vector<T> l(d + 1, 1), r(d + 1,\
     \ 1);\n    for(int i = 0; i < d; i++){\n        l[i + 1] = l[i] * (n - i);\n \
-    \       r[i + 1] = r[i] * (n - (d - i)); \n    }\n    T ans = 0;\n    for(int\
-    \ i = 0; i < d + 1; i++){\n        T s = f[i][1];\n        // mul(n - x_j) (j\
-    \ != i)\n        s *= l[i];\n        s *= r[d - i];\n        // i! * (d - i)!\
-    \ * (-1)^{d - i}\n        s *= comb.factinv(i);\n        s *= comb.factinv(d -\
-    \ i);\n        if((d - i) % 2) s *= -1;\n        ans += s;\n    }\n    return\
-    \ ans;\n}\n"
+    \       r[i + 1] = r[i] * (n - (d - i));\n    }\n    T ans = 0;\n    for(int i\
+    \ = 0; i < d + 1; i++){\n        T s = f[i][1];\n        // mul(n - x_j) (j !=\
+    \ i)\n        s *= l[i];\n        s *= r[d - i];\n        // i! * (d - i)! * (-1)^{d\
+    \ - i}\n        s *= comb.factinv(i);\n        s *= comb.factinv(d - i);\n   \
+    \     if((d - i) % 2) s *= -1;\n        ans += s;\n    }\n    return ans;\n}\n"
   code: "#pragma once\n\ntemplate <typename T>\nstruct Combination{\n    vector<T>\
     \ memo, memoinv, inv;\n    Combination(const int N) : memo(N + 1), memoinv(N +\
     \ 1), inv(N + 1){\n        T m = -1;\n        long long mod = (m.val + 1LL);\n\
@@ -85,17 +84,17 @@ data:
     \ > 0 && j > 0){\n                f[i][j] = f[i - 1][j] + f[i][j - 1];\n     \
     \       }\n        }\n    }\n\n    Combination<T> comb(d);\n    vector<T> l(d\
     \ + 1, 1), r(d + 1, 1);\n    for(int i = 0; i < d; i++){\n        l[i + 1] = l[i]\
-    \ * (n - i);\n        r[i + 1] = r[i] * (n - (d - i)); \n    }\n    T ans = 0;\n\
+    \ * (n - i);\n        r[i + 1] = r[i] * (n - (d - i));\n    }\n    T ans = 0;\n\
     \    for(int i = 0; i < d + 1; i++){\n        T s = f[i][1];\n        // mul(n\
     \ - x_j) (j != i)\n        s *= l[i];\n        s *= r[d - i];\n        // i! *\
     \ (d - i)! * (-1)^{d - i}\n        s *= comb.factinv(i);\n        s *= comb.factinv(d\
     \ - i);\n        if((d - i) % 2) s *= -1;\n        ans += s;\n    }\n    return\
-    \ ans;\n}"
+    \ ans;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/pow_sum.hpp
   requiredBy: []
-  timestamp: '2024-04-07 03:10:45+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/pow_sum.hpp

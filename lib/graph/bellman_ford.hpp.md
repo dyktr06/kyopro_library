@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/grl/grl_1_b.test.cpp
     title: test/aoj/grl/grl_1_b.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/yuki_2712.test.cpp
     title: test/yukicoder/yuki_2712.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/graph/bellman_ford.md
     document_title: "Bellman-Ford Algorithm (\u30D9\u30EB\u30DE\u30F3-\u30D5\u30A9\
@@ -38,13 +38,13 @@ data:
     \       }\n    }\n    for(int i = 0; i < n - 1; i++){\n        for(auto [from,\
     \ to, t] : E){\n            if(cost[from] == INF) continue;\n            if(cost[from]\
     \ + t < cost[to]){\n                cost[to] = -INF;\n            }\n        }\n\
-    \    }\n    return cost;\n}"
+    \    }\n    return cost;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/graph/bellman_ford.hpp
   requiredBy: []
-  timestamp: '2024-01-24 14:03:17+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/yuki_2712.test.cpp
   - test/aoj/grl/grl_1_b.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/data_structure/dynamic_binary_indexed_tree.hpp
     title: lib/data_structure/dynamic_binary_indexed_tree.hpp
   _extendedRequiredBy: []
@@ -17,16 +17,16 @@ data:
   bundledCode: "#line 1 \"test/aoj/alds1/alds1_5_d.test.cpp\"\n#define PROBLEM \"\
     https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/dynamic_binary_indexed_tree.hpp\"\
-    \n\n/* \n    DynamicBinaryIndexedTree<S, T>(n) : BIT\u3092\u30B5\u30A4\u30BAn\u3067\
+    \n\n/*\n    DynamicBinaryIndexedTree<S, T>(n) : BIT\u3092\u30B5\u30A4\u30BAn\u3067\
     \u69CB\u7BC9\n    add(i, x) : i \u756A\u76EE\u306E\u8981\u7D20\u306B\u52A0\u7B97\
     \u3057\u307E\u3059\u3002 O(log(n)^2)\n    sum(l, r) : [l, r) \u306E\u533A\u9593\
-    \u548C\u3092\u53D6\u5F97\u3057\u307E\u3059\u3002O(log(n)^2)\n    \n    (\u4EE5\
-    \u4E0B\u306E\u6A5F\u80FD\u3092\u4F7F\u3046\u306B\u306F\u30010 <= i < N \u306B\u304A\
-    \u3044\u3066\u3001A_i >= 0 \u3067\u3042\u308B\u5FC5\u8981\u304C\u3042\u308A\u307E\
-    \u3059\u3002)\n    lower_bound(x) : A_0 + A_1 + ... + A_y >= x \u3068\u306A\u308B\
-    \u6700\u5C0F\u306E y \u3092\u6C42\u3081\u307E\u3059\u3002O(log(n))\n*/\n\ntemplate\
-    \ <typename S, typename T>\nstruct DynamicBinaryIndexedTree{\n    S N;\n    unordered_map<S,\
-    \ T> data;\n    DynamicBinaryIndexedTree(S _N): N(_N + 1){\n    }\n\n    void\
+    \u548C\u3092\u53D6\u5F97\u3057\u307E\u3059\u3002O(log(n)^2)\n\n    (\u4EE5\u4E0B\
+    \u306E\u6A5F\u80FD\u3092\u4F7F\u3046\u306B\u306F\u30010 <= i < N \u306B\u304A\u3044\
+    \u3066\u3001A_i >= 0 \u3067\u3042\u308B\u5FC5\u8981\u304C\u3042\u308A\u307E\u3059\
+    \u3002)\n    lower_bound(x) : A_0 + A_1 + ... + A_y >= x \u3068\u306A\u308B\u6700\
+    \u5C0F\u306E y \u3092\u6C42\u3081\u307E\u3059\u3002O(log(n))\n*/\n\ntemplate <typename\
+    \ S, typename T>\nstruct DynamicBinaryIndexedTree{\n    S N;\n    unordered_map<S,\
+    \ T> data;\n    DynamicBinaryIndexedTree(S _N) : N(_N + 1){\n    }\n\n    void\
     \ add(S i, const T &x){\n        for(++i; i < N; i += i & -i) data[i] += x;\n\
     \    }\n\n    T sum(int i){\n        if(i < 0){\n            return 0;\n     \
     \   }\n        T ans = 0;\n        while(i > 0){\n            const auto iter\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: true
   path: test/aoj/alds1/alds1_5_d.test.cpp
   requiredBy: []
-  timestamp: '2022-11-11 02:51:16+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/alds1/alds1_5_d.test.cpp

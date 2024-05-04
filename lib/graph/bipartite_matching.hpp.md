@@ -36,12 +36,12 @@ data:
     \        int res = 0;\n        for(int i = 0; i < (int) G.size(); i++){\n    \
     \        if(alive[i] == 0) continue;\n            if(match[i] == -1){\n      \
     \          ++timestamp;\n                res += dfs(i);\n            }\n     \
-    \   }\n        return res;\n    }\n};"
+    \   }\n        return res;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/graph/bipartite_matching.hpp
   requiredBy: []
-  timestamp: '2023-07-14 17:26:30+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/graph/bipartite_matching.hpp

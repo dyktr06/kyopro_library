@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/yuki_2078.test.cpp
     title: test/yukicoder/yuki_2078.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/data_structure/convex_hull_trick.md
     document_title: Convex Hull Trick
@@ -16,7 +16,7 @@ data:
   bundledCode: "#line 2 \"lib/data_structure/convex_hull_trick.hpp\"\n\n/**\n * @brief\
     \ Convex Hull Trick\n * @docs docs/data_structure/convex_hull_trick.md\n */\n\n\
     template <typename T>\nstruct ConvexHullTrick{\n    deque<pair<T, T>> deq;\n\n\
-    \    ConvexHullTrick(): deq(){\n    }\n\n    bool check(pair<T, T> line1, pair<T,\
+    \    ConvexHullTrick() : deq(){\n    }\n\n    bool check(pair<T, T> line1, pair<T,\
     \ T> line2, pair<T, T> line3){\n        return (line2.first - line1.first) * (line3.second\
     \ - line2.second) >= (line2.second - line1.second) * (line3.first - line2.first);\n\
     \    }\n\n    T f(pair<T, T> line, T x){\n        return line.first * x + line.second;\n\
@@ -28,7 +28,7 @@ data:
     \ f(deq.at(0), x);\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Convex Hull Trick\n * @docs docs/data_structure/convex_hull_trick.md\n\
     \ */\n\ntemplate <typename T>\nstruct ConvexHullTrick{\n    deque<pair<T, T>>\
-    \ deq;\n\n    ConvexHullTrick(): deq(){\n    }\n\n    bool check(pair<T, T> line1,\
+    \ deq;\n\n    ConvexHullTrick() : deq(){\n    }\n\n    bool check(pair<T, T> line1,\
     \ pair<T, T> line2, pair<T, T> line3){\n        return (line2.first - line1.first)\
     \ * (line3.second - line2.second) >= (line2.second - line1.second) * (line3.first\
     \ - line2.first);\n    }\n\n    T f(pair<T, T> line, T x){\n        return line.first\
@@ -37,13 +37,13 @@ data:
     \ deq.size() - 2), deq.at((int) deq.size() - 1), p)){\n            deq.pop_back();\n\
     \        }\n        deq.push_back(p);\n    }\n\n    T query(T x){\n        while((int)\
     \ deq.size() >= 2 && f(deq.at(0), x) >= f(deq.at(1), x)){\n            deq.pop_front();\n\
-    \        }\n        return f(deq.at(0), x);\n    }\n};"
+    \        }\n        return f(deq.at(0), x);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/convex_hull_trick.hpp
   requiredBy: []
-  timestamp: '2024-02-14 05:31:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/yuki_2078.test.cpp
 documentation_of: lib/data_structure/convex_hull_trick.hpp

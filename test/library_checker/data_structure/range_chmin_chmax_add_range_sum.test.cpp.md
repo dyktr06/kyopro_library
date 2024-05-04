@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/segment_tree_beats.hpp
     title: lib/data_structure/segment_tree_beats.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
@@ -21,14 +21,14 @@ data:
     \  vector<T> max_v, smax_v, max_c;\n    vector<T> min_v, smin_v, min_c;\n    vector<T>\
     \ sum;\n    vector<T> len, ladd, lval;\n\n    void update_node_max(int k, T x)\
     \ {\n        sum[k] += (x - max_v[k]) * max_c[k];\n\n        if(max_v[k] == min_v[k]){\n\
-    \            max_v[k] = min_v[k] = x;\n        }else if(max_v[k] == smin_v[k]){\n\
-    \            max_v[k] = smin_v[k] = x;\n        }else{\n            max_v[k] =\
-    \ x;\n        }\n\n        if(lval[k] != INF && x < lval[k]){\n            lval[k]\
+    \            max_v[k] = min_v[k] = x;\n        } else if(max_v[k] == smin_v[k]){\n\
+    \            max_v[k] = smin_v[k] = x;\n        } else{\n            max_v[k]\
+    \ = x;\n        }\n\n        if(lval[k] != INF && x < lval[k]){\n            lval[k]\
     \ = x;\n        }\n    }\n\n    void update_node_min(int k, T x) {\n        sum[k]\
     \ += (x - min_v[k]) * min_c[k];\n\n        if(max_v[k] == min_v[k]){\n       \
-    \     max_v[k] = min_v[k] = x;\n        }else if(smax_v[k] == min_v[k]){\n   \
-    \         min_v[k] = smax_v[k] = x;\n        }else{\n            min_v[k] = x;\n\
-    \        }\n\n        if(lval[k] != INF && lval[k] < x){\n            lval[k]\
+    \     max_v[k] = min_v[k] = x;\n        } else if(smax_v[k] == min_v[k]){\n  \
+    \          min_v[k] = smax_v[k] = x;\n        } else{\n            min_v[k] =\
+    \ x;\n        }\n\n        if(lval[k] != INF && lval[k] < x){\n            lval[k]\
     \ = x;\n        }\n    }\n\n    void push(int k){\n        if(n0 - 1 <= k) return;\n\
     \n        if(lval[k] != INF){\n            updateall(2 * k + 1, lval[k]);\n  \
     \          updateall(2 * k + 2, lval[k]);\n            lval[k] = INF;\n      \
@@ -43,17 +43,17 @@ data:
     \ = sum[2 * k + 1] + sum[2 * k + 2];\n\n        if(max_v[2 * k + 1] < max_v[2\
     \ * k + 2]){\n            max_v[k] = max_v[2 * k + 2];\n            max_c[k] =\
     \ max_c[2 * k + 2];\n            smax_v[k] = max(max_v[2 * k + 1], smax_v[2 *\
-    \ k + 2]);\n        }else if(max_v[2 * k + 1] > max_v[2 * k + 2]){\n         \
-    \   max_v[k] = max_v[2 * k + 1];\n            max_c[k] = max_c[2 * k + 1];\n \
-    \           smax_v[k] = max(smax_v[2 * k + 1], max_v[2 * k + 2]);\n        }else{\n\
-    \            max_v[k] = max_v[2 * k + 1];\n            max_c[k] = max_c[2 * k\
-    \ + 1] + max_c[2 * k + 2];\n            smax_v[k] = max(smax_v[2 * k + 1], smax_v[2\
-    \ * k + 2]);\n        }\n\n        if(min_v[2 * k + 1] < min_v[2 * k + 2]){\n\
-    \            min_v[k] = min_v[2 * k + 1];\n            min_c[k] = min_c[2 * k\
-    \ + 1];\n            smin_v[k] = min(smin_v[2 * k + 1], min_v[2 * k + 2]);\n \
-    \       }else if(min_v[2 * k + 1] > min_v[2 * k + 2]){\n            min_v[k] =\
-    \ min_v[2 * k + 2];\n            min_c[k] = min_c[2 * k + 2];\n            smin_v[k]\
-    \ = min(min_v[2 * k + 1], smin_v[2 * k + 2]);\n        }else{\n            min_v[k]\
+    \ k + 2]);\n        } else if(max_v[2 * k + 1] > max_v[2 * k + 2]){\n        \
+    \    max_v[k] = max_v[2 * k + 1];\n            max_c[k] = max_c[2 * k + 1];\n\
+    \            smax_v[k] = max(smax_v[2 * k + 1], max_v[2 * k + 2]);\n        }\
+    \ else{\n            max_v[k] = max_v[2 * k + 1];\n            max_c[k] = max_c[2\
+    \ * k + 1] + max_c[2 * k + 2];\n            smax_v[k] = max(smax_v[2 * k + 1],\
+    \ smax_v[2 * k + 2]);\n        }\n\n        if(min_v[2 * k + 1] < min_v[2 * k\
+    \ + 2]){\n            min_v[k] = min_v[2 * k + 1];\n            min_c[k] = min_c[2\
+    \ * k + 1];\n            smin_v[k] = min(smin_v[2 * k + 1], min_v[2 * k + 2]);\n\
+    \        } else if(min_v[2 * k + 1] > min_v[2 * k + 2]){\n            min_v[k]\
+    \ = min_v[2 * k + 2];\n            min_c[k] = min_c[2 * k + 2];\n            smin_v[k]\
+    \ = min(min_v[2 * k + 1], smin_v[2 * k + 2]);\n        } else{\n            min_v[k]\
     \ = min_v[2 * k + 1];\n            min_c[k] = min_c[2 * k + 1] + min_c[2 * k +\
     \ 2];\n            smin_v[k] = min(smin_v[2 * k + 1], smin_v[2 * k + 2]);\n  \
     \      }\n    }\n\n    void _query_chmin(T x, int a, int b, int k, int l, int\
@@ -70,8 +70,8 @@ data:
     \  }\n\n    void addall(int k, T x) {\n        max_v[k] += x;\n        if(smax_v[k]\
     \ != -INF) smax_v[k] += x;\n        min_v[k] += x;\n        if(smin_v[k] != INF)\
     \ smin_v[k] += x;\n\n        sum[k] += len[k] * x;\n        if(lval[k] != INF){\n\
-    \            lval[k] += x;\n        }else{\n            ladd[k] += x;\n      \
-    \  }\n    }\n\n    void updateall(int k, T x) {\n        max_v[k] = x; smax_v[k]\
+    \            lval[k] += x;\n        } else{\n            ladd[k] += x;\n     \
+    \   }\n    }\n\n    void updateall(int k, T x) {\n        max_v[k] = x; smax_v[k]\
     \ = -INF;\n        min_v[k] = x; smin_v[k] = INF;\n        max_c[k] = min_c[k]\
     \ = len[k];\n\n        sum[k] = x * len[k];\n        lval[k] = x; ladd[k] = 0;\n\
     \    }\n\n    void _query_add(T x, int a, int b, int k, int l, int r) {\n    \
@@ -156,8 +156,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-04-09 03:29:16+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
 layout: document

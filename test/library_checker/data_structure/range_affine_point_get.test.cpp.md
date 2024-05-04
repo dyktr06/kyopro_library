@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/lazy_segment_tree.hpp
     title: lib/data_structure/lazy_segment_tree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_affine_point_get
@@ -24,17 +24,17 @@ data:
     \ long Modulus>\nstruct ModInt{\n    long long val;\n    constexpr ModInt(const\
     \ long long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n  \
     \  void normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n   \
-    \ }\n    inline ModInt& operator+=(const ModInt& rhs) noexcept {\n        if(val\
+    \ }\n    inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val\
     \ += rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n\
-    \    inline ModInt& operator-=(const ModInt& rhs) noexcept {\n        if(val -=\
+    \    inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -=\
     \ rhs.val, val < 0) val += Modulus;\n        return *this;\n    }\n    inline\
-    \ ModInt& operator*=(const ModInt& rhs) noexcept {\n        val = val * rhs.val\
-    \ % Modulus;\n        return *this;\n    }\n    inline ModInt& operator/=(const\
-    \ ModInt& rhs) noexcept {\n        val = val * inv(rhs.val).val % Modulus;\n \
-    \       return *this;\n    }\n    inline ModInt& operator++() noexcept {\n   \
+    \ ModInt &operator*=(const ModInt &rhs) noexcept {\n        val = val * rhs.val\
+    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator/=(const\
+    \ ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val % Modulus;\n \
+    \       return *this;\n    }\n    inline ModInt &operator++() noexcept {\n   \
     \     if(++val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
     \ inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n        if(++val\
-    \ >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline ModInt& operator--()\
+    \ >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline ModInt &operator--()\
     \ noexcept {\n        if(--val < 0) val += Modulus;\n        return *this;\n \
     \   }\n    inline ModInt operator--(int) noexcept {\n        ModInt t = val;\n\
     \        if(--val < 0) val += Modulus;\n        return t;\n    }\n    inline ModInt\
@@ -47,17 +47,17 @@ data:
     \        long long t = a / b;\n            a -= t * b; swap(a, b);\n         \
     \   u -= t * v; swap(u, v);\n        }\n        u %= Modulus;\n        if(u <\
     \ 0) u += Modulus;\n        return u;\n    }\n    friend inline ModInt operator+(const\
-    \ ModInt& lhs, const ModInt& rhs) noexcept { return ModInt(lhs) += rhs; }\n  \
-    \  friend inline ModInt operator-(const ModInt& lhs, const ModInt& rhs) noexcept\
-    \ { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const ModInt&\
-    \ lhs, const ModInt& rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend\
-    \ inline ModInt operator/(const ModInt& lhs, const ModInt& rhs) noexcept { return\
-    \ ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt& lhs,\
-    \ const ModInt& rhs) noexcept { return lhs.val == rhs.val; }\n    friend inline\
-    \ bool operator!=(const ModInt& lhs, const ModInt& rhs) noexcept { return lhs.val\
-    \ != rhs.val; }\n    friend inline istream& operator>>(istream& is, ModInt& x)\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n  \
+    \  friend inline ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend\
+    \ inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend inline\
+    \ bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val\
+    \ != rhs.val; }\n    friend inline istream &operator>>(istream &is, ModInt &x)\
     \ noexcept {\n        is >> x.val;\n        x.normalize();\n        return is;\n\
-    \    }\n    friend inline ostream& operator<<(ostream& os, const ModInt& x) noexcept\
+    \    }\n    friend inline ostream &operator<<(ostream &os, const ModInt &x) noexcept\
     \ { return os << x.val; }\n};\n#line 2 \"lib/data_structure/lazy_segment_tree.hpp\"\
     \n\ntemplate <class S,\n    S(*op)(S, S),\n    S(*e)(),\n    class F,\n    S(*mapping)(F,\
     \ S),\n    F(*composition)(F, F),\n    F(*id)()>\nstruct LazySegTree{\nprivate:\n\
@@ -67,7 +67,7 @@ data:
     \ lz[k]);\n    }\n    void push(int k){\n        all_apply(2 * k, lz[k]);\n  \
     \      all_apply(2 * k + 1, lz[k]);\n        lz[k] = id();\n    }\n\npublic:\n\
     \    LazySegTree() : LazySegTree(0){}\n    LazySegTree(int n) : LazySegTree(vector<S>(n,\
-    \ e())){}\n    LazySegTree(const vector<S>& v) : _n(int(v.size())){\n        log\
+    \ e())){}\n    LazySegTree(const vector<S> &v) : _n(int(v.size())){\n        log\
     \ = 0;\n        size = 1;\n        while(size < _n) size <<= 1, log++;\n     \
     \   d = vector<S>(2 * size, e());\n        lz = vector<F>(size, id());\n     \
     \   for(int i = 0; i < _n; i++) d[size + i] = v[i];\n        for(int i = size\
@@ -153,8 +153,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/range_affine_point_get.test.cpp
   requiredBy: []
-  timestamp: '2024-02-14 05:01:36+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/range_affine_point_get.test.cpp
 layout: document

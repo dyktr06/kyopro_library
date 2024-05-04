@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/convolution/convolution_mod_2_64.test.cpp
     title: test/library_checker/convolution/convolution_mod_2_64.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/convolution/karatsuba_algorithm.hpp\"\n\ntemplate <typename\
@@ -37,13 +37,13 @@ data:
     \ }\n    p = karatsuba_algorithm(p, r);\n    q = karatsuba_algorithm(q, s);\n\
     \    t = karatsuba_algorithm(t, u);\n    vector<T> res(2 * n - 1, 0);\n    for(int\
     \ i = 0; i < n - 1; ++i){\n        res[i] += q[i];\n        res[i + h] += t[i]\
-    \ - p[i] - q[i];\n        res[i + n] += p[i];\n    }\n    return res;\n}"
+    \ - p[i] - q[i];\n        res[i + n] += p[i];\n    }\n    return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/convolution/karatsuba_algorithm.hpp
   requiredBy: []
-  timestamp: '2023-05-01 10:48:26+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/convolution/convolution_mod_2_64.test.cpp
 documentation_of: lib/convolution/karatsuba_algorithm.hpp

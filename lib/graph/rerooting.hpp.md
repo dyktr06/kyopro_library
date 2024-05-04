@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/tree/tree_path_composite_sum.test.cpp
     title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/graph/rerooting.hpp\"\n\ntemplate<typename E, typename\
@@ -68,13 +68,13 @@ data:
     \ out.resize(n);\n        visited.assign(n, 0);\n        return dfs(root);\n \
     \   }\n\n    vector<V> reroot(){\n        reverse_edge.resize(n);\n        reverse_edge[root]\
     \ = e;\n        ans.resize(n);\n        bfs(root);\n        return ans;\n    }\n\
-    };"
+    };\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/graph/rerooting.hpp
   requiredBy: []
-  timestamp: '2023-06-04 21:30:03+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/tree/tree_path_composite_sum.test.cpp
 documentation_of: lib/graph/rerooting.hpp

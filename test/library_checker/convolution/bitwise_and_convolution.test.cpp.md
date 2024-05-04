@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/convolution/bitwise_and_convolution.hpp
     title: lib/convolution/bitwise_and_convolution.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/convolution/superset_zeta_moebius_transform.hpp
     title: lib/convolution/superset_zeta_moebius_transform.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/utils.hpp
     title: lib/math/utils.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/bitwise_and_convolution
@@ -44,18 +44,18 @@ data:
     \ * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\nstruct ModInt{\n\
     \    long long val;\n    constexpr ModInt(const long long _val = 0) noexcept :\
     \ val(_val) {\n        normalize();\n    }\n    void normalize(){\n        val\
-    \ = (val % Modulus + Modulus) % Modulus;\n    }\n    inline ModInt& operator+=(const\
-    \ ModInt& rhs) noexcept {\n        if(val += rhs.val, val >= Modulus) val -= Modulus;\n\
-    \        return *this;\n    }\n    inline ModInt& operator-=(const ModInt& rhs)\
+    \ = (val % Modulus + Modulus) % Modulus;\n    }\n    inline ModInt &operator+=(const\
+    \ ModInt &rhs) noexcept {\n        if(val += rhs.val, val >= Modulus) val -= Modulus;\n\
+    \        return *this;\n    }\n    inline ModInt &operator-=(const ModInt &rhs)\
     \ noexcept {\n        if(val -= rhs.val, val < 0) val += Modulus;\n        return\
-    \ *this;\n    }\n    inline ModInt& operator*=(const ModInt& rhs) noexcept {\n\
+    \ *this;\n    }\n    inline ModInt &operator*=(const ModInt &rhs) noexcept {\n\
     \        val = val * rhs.val % Modulus;\n        return *this;\n    }\n    inline\
-    \ ModInt& operator/=(const ModInt& rhs) noexcept {\n        val = val * inv(rhs.val).val\
-    \ % Modulus;\n        return *this;\n    }\n    inline ModInt& operator++() noexcept\
+    \ ModInt &operator/=(const ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val\
+    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator++() noexcept\
     \ {\n        if(++val >= Modulus) val -= Modulus;\n        return *this;\n   \
     \ }\n    inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n \
     \       if(++val >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline\
-    \ ModInt& operator--() noexcept {\n        if(--val < 0) val += Modulus;\n   \
+    \ ModInt &operator--() noexcept {\n        if(--val < 0) val += Modulus;\n   \
     \     return *this;\n    }\n    inline ModInt operator--(int) noexcept {\n   \
     \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
     \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
@@ -67,18 +67,18 @@ data:
     \   while(b){\n            long long t = a / b;\n            a -= t * b; swap(a,\
     \ b);\n            u -= t * v; swap(u, v);\n        }\n        u %= Modulus;\n\
     \        if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline\
-    \ ModInt operator+(const ModInt& lhs, const ModInt& rhs) noexcept { return ModInt(lhs)\
-    \ += rhs; }\n    friend inline ModInt operator-(const ModInt& lhs, const ModInt&\
-    \ rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
-    \ ModInt& lhs, const ModInt& rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
-    \  friend inline ModInt operator/(const ModInt& lhs, const ModInt& rhs) noexcept\
-    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt&\
-    \ lhs, const ModInt& rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
-    \ inline bool operator!=(const ModInt& lhs, const ModInt& rhs) noexcept { return\
-    \ lhs.val != rhs.val; }\n    friend inline istream& operator>>(istream& is, ModInt&\
-    \ x) noexcept {\n        is >> x.val;\n        x.normalize();\n        return\
-    \ is;\n    }\n    friend inline ostream& operator<<(ostream& os, const ModInt&\
-    \ x) noexcept { return os << x.val; }\n};\n#line 2 \"lib/math/utils.hpp\"\n\n\
+    \ ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
+    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
+    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ lhs.val != rhs.val; }\n    friend inline istream &operator>>(istream &is, ModInt\
+    \ &x) noexcept {\n        is >> x.val;\n        x.normalize();\n        return\
+    \ is;\n    }\n    friend inline ostream &operator<<(ostream &os, const ModInt\
+    \ &x) noexcept { return os << x.val; }\n};\n#line 2 \"lib/math/utils.hpp\"\n\n\
     // a\u304B\u3089b\u307E\u3067\u306E\u548C\u3092\u3082\u3068\u3081\u307E\u3059\
     \ : O(1)\ntemplate <typename T>\nlong long sum(T a, T b){\n    long long res =\
     \ ((b - a + 1) * (a + b)) / 2;\n    return res;\n}\n\n// x^n\u3092\u3082\u3068\
@@ -94,12 +94,12 @@ data:
     \ (intpow(r, n) - 1) / (r - 1);\n}\n\n// a \u3092 b \u3067\u5272\u3063\u305F\u6B63\
     \u306E\u3042\u307E\u308A\u3092\u6C42\u3081\u307E\u3059 : O(1)\ntemplate <typename\
     \ T>\nT getReminder(T a, T b){\n    if(b == 0) return -1;\n    if(a >= 0 && b\
-    \ > 0){\n        return a % b;\n    }else if(a < 0 && b > 0){\n        return\
-    \ ((a % b) + b) % b;\n    }else if(a >= 0 && b < 0){\n        return a % b;\n\
-    \    }else{\n        return (abs(b) - abs(a % b)) % b;\n    }\n}\n\n// x \u306E\
+    \ > 0){\n        return a % b;\n    } else if(a < 0 && b > 0){\n        return\
+    \ ((a % b) + b) % b;\n    } else if(a >= 0 && b < 0){\n        return a % b;\n\
+    \    } else{\n        return (abs(b) - abs(a % b)) % b;\n    }\n}\n\n// x \u306E\
     \u90E8\u5206\u96C6\u5408\u3092\u5217\u6319\u3057\u307E\u3059\u3002\ntemplate <typename\
     \ T>\nvector<T> getSubmask(T x){\n    vector<T> submask;\n    for(T i = x; ; i\
-    \ = (i - 1) & x){ \n        submask.push_back(i);\n        if(i == 0) break;\n\
+    \ = (i - 1) & x){\n        submask.push_back(i);\n        if(i == 0) break;\n\
     \    }\n    sort(submask.begin(), submask.end());\n    return submask;\n}\n#line\
     \ 8 \"test/library_checker/convolution/bitwise_and_convolution.test.cpp\"\n\n\
     using mint = ModInt<998244353>;\n\nint main(){\n    int n; cin >> n;\n    int\
@@ -125,8 +125,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
   requiredBy: []
-  timestamp: '2023-12-18 11:09:03+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/convolution/bitwise_and_convolution.test.cpp
 layout: document

@@ -2,25 +2,25 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/graph/manhattanMST.hpp
     title: Manhattan MST
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/unionfind.test.cpp
     title: test/library_checker/data_structure/unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/cycle_detection_undirected.test.cpp
     title: test/library_checker/graph/cycle_detection_undirected.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/manhattanmst.test.cpp
     title: test/library_checker/graph/manhattanmst.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/minimum_spanning_tree.test.cpp
     title: test/library_checker/graph/minimum_spanning_tree.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/data_structure/union_find.md
     document_title: Union Find
@@ -58,7 +58,7 @@ data:
   requiredBy:
   - lib/graph/manhattanMST.hpp
   timestamp: '2024-04-21 00:12:50+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/graph/cycle_detection_undirected.test.cpp
   - test/library_checker/graph/manhattanmst.test.cpp

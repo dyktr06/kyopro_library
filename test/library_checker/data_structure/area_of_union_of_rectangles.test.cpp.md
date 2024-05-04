@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/lazy_segment_tree.hpp
     title: lib/data_structure/lazy_segment_tree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/others/compression.hpp
     title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/area_of_union_of_rectangles
@@ -28,7 +28,7 @@ data:
     \ lz[k]);\n    }\n    void push(int k){\n        all_apply(2 * k, lz[k]);\n  \
     \      all_apply(2 * k + 1, lz[k]);\n        lz[k] = id();\n    }\n\npublic:\n\
     \    LazySegTree() : LazySegTree(0){}\n    LazySegTree(int n) : LazySegTree(vector<S>(n,\
-    \ e())){}\n    LazySegTree(const vector<S>& v) : _n(int(v.size())){\n        log\
+    \ e())){}\n    LazySegTree(const vector<S> &v) : _n(int(v.size())){\n        log\
     \ = 0;\n        size = 1;\n        while(size < _n) size <<= 1, log++;\n     \
     \   d = vector<S>(2 * size, e());\n        lz = vector<F>(size, id());\n     \
     \   for(int i = 0; i < _n; i++) d[size + i] = v[i];\n        for(int i = size\
@@ -83,12 +83,12 @@ data:
     \        } while((r & -r) != r);\n        return 0;\n    }\n};\n#line 2 \"lib/others/compression.hpp\"\
     \n\n/**\n * @brief Compression (\u5EA7\u6A19\u5727\u7E2E)\n * @docs docs/others/compression.md\n\
     \ */\n\ntemplate <typename T>\nstruct compress{\n    vector<T> sorted;\n    vector<int>\
-    \ compressed;\n\n    compress(const vector<T>& vec){\n        int n = vec.size();\n\
+    \ compressed;\n\n    compress(const vector<T> &vec){\n        int n = vec.size();\n\
     \        compressed.resize(n);\n        for(T x : vec){\n            sorted.emplace_back(x);\n\
     \        }\n        sort(sorted.begin(), sorted.end());\n        sorted.erase(unique(sorted.begin(),\
     \ sorted.end()), sorted.end());\n        for(int i = 0; i < n; ++i){\n       \
     \     compressed[i] = lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();\n\
-    \        }\n    }\n\n    int get(const T& x) const{\n        return lower_bound(sorted.begin(),\
+    \        }\n    }\n\n    int get(const T &x) const{\n        return lower_bound(sorted.begin(),\
     \ sorted.end(), x) - sorted.begin();\n    }\n\n    T inv(const int x) const{\n\
     \        return sorted[x];\n    }\n\n    size_t size() const{\n        return\
     \ sorted.size();\n    }\n\n    vector<T> getCompressed() const{\n        return\
@@ -147,8 +147,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   requiredBy: []
-  timestamp: '2024-03-22 23:33:17+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
 layout: document

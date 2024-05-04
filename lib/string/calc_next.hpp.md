@@ -26,12 +26,12 @@ data:
     \ = i;\n    }\n    return res;\n}\n\nvector<vector<int>> calc_prev(const string\
     \ &s) {\n    int n = (int) s.size();\n\n    vector<vector<int>> res(n + 1, vector<int>(26,\
     \ -1));\n\n    for(int i = 0; i < n; i++){\n        if(i >= 1) res[i] = res[i\
-    \ - 1];\n        res[i][s[i] - 'a'] = i;\n    }\n    return res;\n}"
+    \ - 1];\n        res[i][s[i] - 'a'] = i;\n    }\n    return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/string/calc_next.hpp
   requiredBy: []
-  timestamp: '2024-02-14 05:31:37+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/string/calc_next.hpp

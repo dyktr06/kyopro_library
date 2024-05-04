@@ -82,12 +82,12 @@ data:
     \ + dx, ty = y + dy;\n            if(check(tx, ty)){\n                if(grid[x][y]\
     \ == grid[tx][ty] && grid[x][y] != empty){\n                    uf.unite(id(x,\
     \ y), id(tx, ty));\n                }\n            }\n        }\n    }\n\n   \
-    \ long long size(int x, int y){\n        return uf.size(id(x, y));\n    }\n};"
+    \ long long size(int x, int y){\n        return uf.size(id(x, y));\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/grid_unionfind.hpp
   requiredBy: []
-  timestamp: '2023-06-28 01:14:53+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/data_structure/grid_unionfind.hpp

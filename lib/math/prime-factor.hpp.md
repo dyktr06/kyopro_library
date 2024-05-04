@@ -19,8 +19,8 @@ data:
     \     if(spf[j] == j){\n                        spf[j] = i;\n                \
     \    }\n                }\n            }\n        }\n    }\n\n    map<T, T> get(T\
     \ n){\n        map<T, T> m;\n        while(n != 1){\n            if(m.count(spf[n])\
-    \ == 0){\n                m[spf[n]] = 1;\n            }else{\n               \
-    \ m[spf[n]]++;\n            }\n            n /= spf[n];\n        }\n        return\
+    \ == 0){\n                m[spf[n]] = 1;\n            } else{\n              \
+    \  m[spf[n]]++;\n            }\n            n /= spf[n];\n        }\n        return\
     \ m;\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Smallest Prime Factor\n * @docs docs/math/prime-factor.md\n\
     \ */\n\ntemplate <typename T>\nstruct PrimeFactor{\n    vector<T> spf;\n    PrimeFactor(T\
@@ -31,13 +31,13 @@ data:
     \ = i;\n                    }\n                }\n            }\n        }\n \
     \   }\n\n    map<T, T> get(T n){\n        map<T, T> m;\n        while(n != 1){\n\
     \            if(m.count(spf[n]) == 0){\n                m[spf[n]] = 1;\n     \
-    \       }else{\n                m[spf[n]]++;\n            }\n            n /=\
-    \ spf[n];\n        }\n        return m;\n    }\n};"
+    \       } else{\n                m[spf[n]]++;\n            }\n            n /=\
+    \ spf[n];\n        }\n        return m;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/prime-factor.hpp
   requiredBy: []
-  timestamp: '2023-01-25 06:41:59+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/prime-factor.hpp

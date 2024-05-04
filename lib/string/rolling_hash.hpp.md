@@ -16,7 +16,7 @@ data:
   bundledCode: "#line 2 \"lib/string/rolling_hash.hpp\"\n\n/**\n * @brief Rolling\
     \ Hash\n * @docs docs/string/rolling_hash.md\n */\n\nstruct RollingHash{\n   \
     \ vector<unsigned long long> hashed, power;\n    const unsigned long long mod\
-    \ = (1uLL << 61) - 1;\n\t\n    unsigned long long mul(unsigned long long a, unsigned\
+    \ = (1uLL << 61) - 1;\n\n    unsigned long long mul(unsigned long long a, unsigned\
     \ long long b) const {\n        long long ret = a * b - mod * (unsigned long long)(1.0L\
     \ / mod * a * b);\n        return ret + mod * (ret < 0) - mod * (ret >= (long\
     \ long) mod);\n    }\n\n    RollingHash(const string &s, unsigned base = 10007){\n\
@@ -37,7 +37,7 @@ data:
     \ high = mid;\n        }\n        return low;\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Rolling Hash\n * @docs docs/string/rolling_hash.md\n\
     \ */\n\nstruct RollingHash{\n    vector<unsigned long long> hashed, power;\n \
-    \   const unsigned long long mod = (1uLL << 61) - 1;\n\t\n    unsigned long long\
+    \   const unsigned long long mod = (1uLL << 61) - 1;\n\n    unsigned long long\
     \ mul(unsigned long long a, unsigned long long b) const {\n        long long ret\
     \ = a * b - mod * (unsigned long long)(1.0L / mod * a * b);\n        return ret\
     \ + mod * (ret < 0) - mod * (ret >= (long long) mod);\n    }\n\n    RollingHash(const\
@@ -56,12 +56,12 @@ data:
     \ = -1, high = len + 1;\n        while(high - low > 1){\n            int mid =\
     \ (low + high) / 2;\n            if(get(l1, l1 + mid) == b.get(l2, l2 + mid))\
     \ low = mid;\n            else high = mid;\n        }\n        return low;\n \
-    \   }\n};"
+    \   }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/string/rolling_hash.hpp
   requiredBy: []
-  timestamp: '2024-02-14 05:31:37+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/alds1/alds1_14_b.test.cpp

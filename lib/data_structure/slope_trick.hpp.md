@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/yuki_2304.test.cpp
     title: test/yukicoder/yuki_2304.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/slope_trick.hpp\"\n\nstruct SlopeTrick{\n\
@@ -25,8 +25,8 @@ data:
     \    void popR(){ R.pop(); }\n\npublic:\n    SlopeTrick() : addL(0), addR(0),\
     \ min_y(0) {}\n\n    // return: x, f(x)\n    pair<long long, long long> get_min(){\n\
     \        long long x;\n        if(L.empty()){\n            if(R.empty()){\n  \
-    \              x = 0;\n            }else{\n                x = getR().x;\n   \
-    \         }\n        }else{\n            x = getL().x;\n        }\n        return\
+    \              x = 0;\n            } else{\n                x = getR().x;\n  \
+    \          }\n        } else{\n            x = getL().x;\n        }\n        return\
     \ make_pair(x, min_y);\n    }\n\n    void shift_L(long long a){\n        addL\
     \ += a;\n    }\n\n    void shift_R(long long a){\n        addR += a;\n    }\n\n\
     \    // f(x) <- f(x - a)\n    void shift_x(long long a){\n        addL += a, addR\
@@ -71,7 +71,7 @@ data:
     \ }\n\npublic:\n    SlopeTrick() : addL(0), addR(0), min_y(0) {}\n\n    // return:\
     \ x, f(x)\n    pair<long long, long long> get_min(){\n        long long x;\n \
     \       if(L.empty()){\n            if(R.empty()){\n                x = 0;\n \
-    \           }else{\n                x = getR().x;\n            }\n        }else{\n\
+    \           } else{\n                x = getR().x;\n            }\n        } else{\n\
     \            x = getL().x;\n        }\n        return make_pair(x, min_y);\n \
     \   }\n\n    void shift_L(long long a){\n        addL += a;\n    }\n\n    void\
     \ shift_R(long long a){\n        addR += a;\n    }\n\n    // f(x) <- f(x - a)\n\
@@ -101,13 +101,13 @@ data:
     \  y += (X - x) * C;\n            LL.pop();\n        }\n        auto RR{R};\n\
     \        while(!(RR.empty())){\n            auto [X, C] = RR.top();\n        \
     \    X += addR;\n            if(X > x) break;\n            y += (x - X) * C;\n\
-    \            RR.pop();\n        }\n        return y;\n    }\n};"
+    \            RR.pop();\n        }\n        return y;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/slope_trick.hpp
   requiredBy: []
-  timestamp: '2023-05-26 19:46:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/yuki_2304.test.cpp
 documentation_of: lib/data_structure/slope_trick.hpp

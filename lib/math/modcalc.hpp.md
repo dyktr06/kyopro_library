@@ -18,10 +18,10 @@ data:
     \  }\n\n    template <typename T>\n    T modinv(T a, T m){\n        T b = m, u\
     \ = 1, v = 0;\n        while(b){\n            T t = a / b;\n            a -= t\
     \ * b; swap(a, b);\n            u -= t * v; swap(u, v);\n        }\n        u\
-    \ %= m;\n        if (u < 0) u += m;\n        return u;\n    }\n\n    template\
-    \ <typename T>\n    T modarithmeticsum(T a, T d, T n, T m){\n        T m2 = m\
-    \ * 2;\n        a %= m2, n %= m2, d %= m2;\n        T b = (n + m2 - 1) * d % m2;\n\
-    \        return ((n * (a * 2 + b) % m2) / 2) % m;\n    }\n\n    template <typename\
+    \ %= m;\n        if(u < 0) u += m;\n        return u;\n    }\n\n    template <typename\
+    \ T>\n    T modarithmeticsum(T a, T d, T n, T m){\n        T m2 = m * 2;\n   \
+    \     a %= m2, n %= m2, d %= m2;\n        T b = (n + m2 - 1) * d % m2;\n     \
+    \   return ((n * (a * 2 + b) % m2) / 2) % m;\n    }\n\n    template <typename\
     \ T>\n    T modgeometricsum(T a, T r, T n, T m){\n        a %= m;\n        if(r\
     \ == 1){\n            n %= m;\n            return a * n % m;\n        }\n    \
     \    return a * (modpow(r, n, m) + m - 1) % m * modinv(r - 1, m) % m;\n    }\n\
@@ -39,7 +39,7 @@ data:
     \    n >>= 1;\n        }\n        return ret;\n    }\n\n    template <typename\
     \ T>\n    T modinv(T a, T m){\n        T b = m, u = 1, v = 0;\n        while(b){\n\
     \            T t = a / b;\n            a -= t * b; swap(a, b);\n            u\
-    \ -= t * v; swap(u, v);\n        }\n        u %= m;\n        if (u < 0) u += m;\n\
+    \ -= t * v; swap(u, v);\n        }\n        u %= m;\n        if(u < 0) u += m;\n\
     \        return u;\n    }\n\n    template <typename T>\n    T modarithmeticsum(T\
     \ a, T d, T n, T m){\n        T m2 = m * 2;\n        a %= m2, n %= m2, d %= m2;\n\
     \        T b = (n + m2 - 1) * d % m2;\n        return ((n * (a * 2 + b) % m2)\
@@ -53,12 +53,12 @@ data:
     \ n > 0; ++i){\n            if(n & 1){\n                (ret += x * modpow(r,\
     \ sum, m) % m) %= m;\n                sum |= 1LL << i;\n            }\n      \
     \      (x += x * modpow(r, 1LL << i, m) % m) %= m;\n            n >>= 1;\n   \
-    \     }\n        return a * ret % m;\n    }\n}"
+    \     }\n        return a * ret % m;\n    }\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/modcalc.hpp
   requiredBy: []
-  timestamp: '2024-03-17 05:01:56+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/modcalc.hpp

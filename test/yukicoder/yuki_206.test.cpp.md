@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/mergeable_set.hpp
     title: lib/data_structure/mergeable_set.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/206
@@ -57,46 +57,45 @@ data:
     \            tmp[x / 64] &= ~(1ULL << (x % 64));\n            }\n            for(int\
     \ i = 0; i < (int) bit[idx1].size(); i++){\n                if(tmp[i] != 0ULL){\n\
     \                    return false;\n                }\n            }\n       \
-    \     return true;\n        }\n        return (s[id1] == s[id2]);\n    }\n   \
-    \ \n    // return one of elements\n    int intersect(int id1, int id2){\n    \
-    \    if(isBlock[id2]) swap(id1, id2);\n        int ans = -1;\n        if(isBlock[id1]\
+    \     return true;\n        }\n        return (s[id1] == s[id2]);\n    }\n\n \
+    \   // return one of elements\n    int intersect(int id1, int id2){\n        if(isBlock[id2])\
+    \ swap(id1, id2);\n        int ans = -1;\n        if(isBlock[id1] && isBlock[id2]){\n\
+    \            int idx1 = idx[id1], idx2 = idx[id2];\n            for(int i = 0;\
+    \ i < (int) bit[idx1].size(); i++){\n                if(ans != -1) break;\n  \
+    \              if(!(bit[idx1][i] & bit[idx2][i])){\n                    continue;\n\
+    \                }\n                for(int k = 0; k < 64; k++){\n           \
+    \         unsigned long long flag1 = bit[idx1][i] & (1ULL << (k % 64)), flag2\
+    \ = bit[idx2][i] & (1ULL << (k % 64));\n                    if(flag1 && flag2){\n\
+    \                        ans = i * 64 + k;\n                        break;\n \
+    \                   }\n                }\n            }\n        } else if(isBlock[id1]\
+    \ && !isBlock[id2]){\n            int idx1 = idx[id1];\n            for(auto x\
+    \ : s[id2]){\n                if(bit[idx1][x / 64] & (1ULL << (x % 64))){\n  \
+    \                  ans = x;\n                    break;\n                }\n \
+    \           }\n        } else{\n            for(auto x : s[id1]){\n          \
+    \      seen[x] = true;\n            }\n            for(auto x : s[id2]){\n   \
+    \             if(seen[x]){\n                    ans = x;\n                   \
+    \ break;\n                }\n            }\n            for(auto x : s[id1]){\n\
+    \                seen[x] = false;\n            }\n        }\n        return ans;\n\
+    \    }\n\n    // size of intersect set\n    int intersectCount(int id1, int id2){\n\
+    \        if(isBlock[id2]) swap(id1, id2);\n        int ans = 0;\n        if(isBlock[id1]\
     \ && isBlock[id2]){\n            int idx1 = idx[id1], idx2 = idx[id2];\n     \
-    \       for(int i = 0; i < (int) bit[idx1].size(); i++){\n                if(ans\
-    \ != -1) break;\n                if(!(bit[idx1][i] & bit[idx2][i])){\n       \
-    \             continue;\n                }\n                for(int k = 0; k <\
-    \ 64; k++){\n                    unsigned long long flag1 = bit[idx1][i] & (1ULL\
-    \ << (k % 64)), flag2 = bit[idx2][i] & (1ULL << (k % 64));\n                 \
-    \   if(flag1 && flag2){\n                        ans = i * 64 + k;\n         \
-    \               break;\n                    }\n                }\n           \
-    \ }\n        } else if(isBlock[id1] && !isBlock[id2]){\n            int idx1 =\
-    \ idx[id1];\n            for(auto x : s[id2]){\n                if(bit[idx1][x\
-    \ / 64] & (1ULL << (x % 64))){\n                    ans = x;\n               \
-    \     break;\n                }\n            }\n        } else{\n            for(auto\
-    \ x : s[id1]){\n                seen[x] = true;\n            }\n            for(auto\
-    \ x : s[id2]){\n                if(seen[x]){\n                    ans = x;\n \
-    \                   break;\n                }\n            }\n            for(auto\
+    \       for(int i = 0; i < (int) bit[idx1].size(); i++){\n                ans\
+    \ += __builtin_popcountll(bit[idx1][i] & bit[idx2][i]);\n            }\n     \
+    \   } else if(isBlock[id1] && !isBlock[id2]){\n            int idx1 = idx[id1];\n\
+    \            for(auto x : s[id2]){\n                if(bit[idx1][x / 64] & (1ULL\
+    \ << (x % 64))){\n                    ans++;\n                }\n            }\n\
+    \        } else{\n            for(auto x : s[id1]){\n                seen[x] =\
+    \ true;\n            }\n            for(auto x : s[id2]){\n                if(seen[x]){\n\
+    \                    ans++;\n                }\n            }\n            for(auto\
     \ x : s[id1]){\n                seen[x] = false;\n            }\n        }\n \
-    \       return ans;\n    }\n\n    // size of intersect set\n    int intersectCount(int\
-    \ id1, int id2){\n        if(isBlock[id2]) swap(id1, id2);\n        int ans =\
-    \ 0;\n        if(isBlock[id1] && isBlock[id2]){\n            int idx1 = idx[id1],\
-    \ idx2 = idx[id2];\n            for(int i = 0; i < (int) bit[idx1].size(); i++){\n\
-    \                ans += __builtin_popcountll(bit[idx1][i] & bit[idx2][i]);\n \
-    \           }\n        } else if(isBlock[id1] && !isBlock[id2]){\n           \
-    \ int idx1 = idx[id1];\n            for(auto x : s[id2]){\n                if(bit[idx1][x\
-    \ / 64] & (1ULL << (x % 64))){\n                    ans++;\n                }\n\
-    \            }\n        } else{\n            for(auto x : s[id1]){\n         \
-    \       seen[x] = true;\n            }\n            for(auto x : s[id2]){\n  \
-    \              if(seen[x]){\n                    ans++;\n                }\n \
-    \           }\n            for(auto x : s[id1]){\n                seen[x] = false;\n\
-    \            }\n        }\n        return ans;\n    }\n};\n#line 6 \"test/yukicoder/yuki_206.test.cpp\"\
-    \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n   \
-    \ srand(time(NULL));\n\n    int l, m, n; cin >> l >> m >> n;\n    vector<int>\
-    \ a(l), b(m);\n    for(int i = 0; i < l; i++){\n        cin >> a[i];\n    }\n\
-    \    for(int i = 0; i < m; i++){\n        cin >> b[i];\n    }\n    int q; cin\
-    \ >> q;\n    MergeableSet<250> ms(2, n + q);\n    for(auto x : a) ms.insert(0,\
-    \ x);\n    for(auto x : b) ms.insert(1, x);\n    for(int i = 0; i < q; i++){\n\
-    \        cout << ms.intersectCount(0, 1) << \"\\n\";\n        ms.shift(1, 1);\n\
-    \    }\n}\n"
+    \       return ans;\n    }\n};\n#line 6 \"test/yukicoder/yuki_206.test.cpp\"\n\
+    \nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    srand(time(NULL));\n\
+    \n    int l, m, n; cin >> l >> m >> n;\n    vector<int> a(l), b(m);\n    for(int\
+    \ i = 0; i < l; i++){\n        cin >> a[i];\n    }\n    for(int i = 0; i < m;\
+    \ i++){\n        cin >> b[i];\n    }\n    int q; cin >> q;\n    MergeableSet<250>\
+    \ ms(2, n + q);\n    for(auto x : a) ms.insert(0, x);\n    for(auto x : b) ms.insert(1,\
+    \ x);\n    for(int i = 0; i < q; i++){\n        cout << ms.intersectCount(0, 1)\
+    \ << \"\\n\";\n        ms.shift(1, 1);\n    }\n}\n"
   code: "#define PROBLEM \"https://yukicoder.me/problems/no/206\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#include \"../../lib/data_structure/mergeable_set.hpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n   \
@@ -112,8 +111,8 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_206.test.cpp
   requiredBy: []
-  timestamp: '2024-04-30 05:18:54+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_206.test.cpp
 layout: document

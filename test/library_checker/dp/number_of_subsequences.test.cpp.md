@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/dp/substring.hpp
     title: Count Substrings
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/number_of_subsequences
@@ -29,9 +29,9 @@ data:
     template <typename T>\nlong long subsequences(const vector<T> &s, const long long\
     \ &m){\n    int n = (int) s.size();\n    map<T, int> mp;\n    vector<long long>\
     \ dp(n + 1);\n    dp[0] = 1;\n    for(int i = 0; i < n; i++){\n        if(mp.count(s[i])\
-    \ != 0){\n            dp[i + 1] = dp[i] * 2 + m - dp[mp[s[i]]];\n        }else{\n\
+    \ != 0){\n            dp[i + 1] = dp[i] * 2 + m - dp[mp[s[i]]];\n        } else{\n\
     \            dp[i + 1] = dp[i] * 2;\n        }\n        dp[i + 1] %= m;\n    \
-    \    mp[s[i]] = i; \n    }\n    return dp[n];\n}\n#line 6 \"test/library_checker/dp/number_of_subsequences.test.cpp\"\
+    \    mp[s[i]] = i;\n    }\n    return dp[n];\n}\n#line 6 \"test/library_checker/dp/number_of_subsequences.test.cpp\"\
     \n\nconstexpr long long MOD = 998244353;\n\nint main(){\n    int n; cin >> n;\n\
     \    vector<int> a(n);\n    for(int i = 0; i < n; i++){\n        cin >> a[i];\n\
     \    }\n    long long ans = subsequences(a, MOD) + MOD - 1;\n    ans %= MOD;\n\
@@ -47,8 +47,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/dp/number_of_subsequences.test.cpp
   requiredBy: []
-  timestamp: '2023-01-23 12:51:32+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/dp/number_of_subsequences.test.cpp
 layout: document

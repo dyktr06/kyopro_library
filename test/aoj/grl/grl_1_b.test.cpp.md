@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/graph/bellman_ford.hpp
     title: "Bellman-Ford Algorithm (\u30D9\u30EB\u30DE\u30F3-\u30D5\u30A9\u30FC\u30C9\
       \u6CD5)"
@@ -56,7 +56,7 @@ data:
   isVerificationFile: true
   path: test/aoj/grl/grl_1_b.test.cpp
   requiredBy: []
-  timestamp: '2024-01-24 14:03:17+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/grl/grl_1_b.test.cpp

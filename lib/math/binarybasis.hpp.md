@@ -3,19 +3,19 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/yuki_184.test.cpp
     title: test/yukicoder/yuki_184.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/binarybasis.md
     document_title: Binary Basis
     links: []
   bundledCode: "#line 2 \"lib/math/binarybasis.hpp\"\n\n/**\n * @brief Binary Basis\n\
     \ * @docs docs/math/binarybasis.md\n */\n\ntemplate <typename T>\nstruct BinaryBasis{\n\
-    \n    vector<T> basis, original;\n    BinaryBasis(const vector<T>& vec){\n   \
+    \n    vector<T> basis, original;\n    BinaryBasis(const vector<T> &vec){\n   \
     \     for(auto x : vec){\n            T y = x;\n            for(auto z : basis){\n\
     \                y = min(y, y ^ z);\n            }\n            if(y > 0){\n \
     \               basis.push_back(y);\n                original.push_back(x);\n\
@@ -34,7 +34,7 @@ data:
     \       return basis.size();\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Binary Basis\n * @docs docs/math/binarybasis.md\n\
     \ */\n\ntemplate <typename T>\nstruct BinaryBasis{\n\n    vector<T> basis, original;\n\
-    \    BinaryBasis(const vector<T>& vec){\n        for(auto x : vec){\n        \
+    \    BinaryBasis(const vector<T> &vec){\n        for(auto x : vec){\n        \
     \    T y = x;\n            for(auto z : basis){\n                y = min(y, y\
     \ ^ z);\n            }\n            if(y > 0){\n                basis.push_back(y);\n\
     \                original.push_back(x);\n            }\n        }\n        normalize();\n\
@@ -49,13 +49,13 @@ data:
     \ long long &k){\n        T res = 0;\n        for(int i = 0; i < (int) basis.size();\
     \ ++i){\n            if(k & (1LL << i)){\n                res ^= basis[i];\n \
     \           }\n        }\n        return res;\n    }\n\n    size_t size(){\n \
-    \       return basis.size();\n    }\n};"
+    \       return basis.size();\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/binarybasis.hpp
   requiredBy: []
-  timestamp: '2023-05-01 02:14:55+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/yuki_184.test.cpp
 documentation_of: lib/math/binarybasis.hpp

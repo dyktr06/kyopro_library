@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/data_structure/union_find.hpp
     title: Union Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/graph/dijkstra.hpp
     title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/cycle_detection_undirected
@@ -38,9 +38,9 @@ data:
     \ long> dijkstra(const vector<vector<array<long long, 2>>> &G, T x){\n    const\
     \ long long INF = 0x1fffffffffffffff;\n    vector<long long> cost((int) G.size(),\
     \ INF);\n    using P = pair<long long, long long>;\n    priority_queue<P, vector<P>,\
-    \ greater<>> q;\n    cost[x] = 0;\n    q.emplace(0, x);\n    \n    while(q.size()){\n\
+    \ greater<>> q;\n    cost[x] = 0;\n    q.emplace(0, x);\n\n    while(q.size()){\n\
     \        auto [c, at] = q.top();\n        q.pop();\n        if(c > cost[at]) continue;\n\
-    \        for(auto& [to, t] : G[at]){\n            if(cost[to] > c + t){\n    \
+    \        for(auto &[to, t] : G[at]){\n            if(cost[to] > c + t){\n    \
     \            cost[to] = c + t;\n                q.emplace(cost[to], to);\n   \
     \         }\n        }\n    }\n    return cost;\n}\n\npair<long long, vector<pair<int,\
     \ int>>> shortest_path(const vector<vector<array<long long, 2>>> &G, int s, int\
@@ -49,7 +49,7 @@ data:
     \ long, long long>;\n    priority_queue<P, vector<P>, greater<>> q;\n    cost[s]\
     \ = 0;\n    par[s] = -1;\n    q.emplace(0, s);\n\n    while(q.size()){\n     \
     \   auto [c, at] = q.top();\n        q.pop();\n        if(c > cost[at]) continue;\n\
-    \        for(auto& [to, t] : G[at]){\n            if(cost[to] > c + t){\n    \
+    \        for(auto &[to, t] : G[at]){\n            if(cost[to] > c + t){\n    \
     \            par[to] = at;\n                cost[to] = c + t;\n              \
     \  q.emplace(cost[to], to);\n            }\n        }\n    }\n\n    if(cost[t]\
     \ == INF){\n        return {-1, {}};\n    }\n    vector<pair<int, int>> path;\n\
@@ -95,8 +95,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/cycle_detection_undirected.test.cpp
   requiredBy: []
-  timestamp: '2024-04-21 00:12:50+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/graph/cycle_detection_undirected.test.cpp
 layout: document

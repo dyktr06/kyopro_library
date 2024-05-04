@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/yuki_2087.test.cpp
     title: test/yukicoder/yuki_2087.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/convert_base.md
     document_title: "Convert Base (\u9032\u6570\u5909\u63DB)"
@@ -26,13 +26,13 @@ data:
     \    T num = (x * t) % k;\n        if(num < 0) num += k;\n        res += num +\
     \ (num < 10 ? 48 : 87);\n        x -= num * t;\n        x /= k;\n        t *=\
     \ b / k;\n    }\n    if(res.empty()) res = '0';\n    reverse(res.begin(), res.end());\n\
-    \    return res;\n}"
+    \    return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/convert_base.hpp
   requiredBy: []
-  timestamp: '2024-03-21 04:22:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/yuki_2087.test.cpp
 documentation_of: lib/math/convert_base.hpp

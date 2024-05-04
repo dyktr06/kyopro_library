@@ -2,60 +2,60 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/persistent_queue.hpp
     title: lib/data_structure/persistent_queue.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/persistent_union_find.hpp
     title: lib/data_structure/persistent_union_find.hpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/persistent_queue.test.cpp
     title: test/library_checker/data_structure/persistent_queue.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/persistent_unionfind.test.cpp
     title: test/library_checker/data_structure/persistent_unionfind.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/persistent_array.hpp\"\n\ntemplate<typename\
     \ T>\nstruct PersistentArray{\n    struct Node{\n        T data;\n        Node\
     \ *ch[20] = {};\n    };\n    Node *root = nullptr;\n\n    PersistentArray() {}\n\
-    \    \n    Node *get_root(){\n        return root;\n    }\n\n    void destructive_set(const\
+    \n    Node *get_root(){\n        return root;\n    }\n\n    void destructive_set(const\
     \ int i, const T &val, Node *&t){\n        if(!t) t = new Node();\n        if(i\
-    \ == 0){\n            t->data = val;\n        }else{\n            destructive_set(i\
+    \ == 0){\n            t->data = val;\n        } else{\n            destructive_set(i\
     \ / 20, val, t->ch[i % 20]);\n        }\n    }\n\n    Node *set(const int i, const\
     \ T &val, Node *&t){\n        Node *res = new Node();\n        if(t){\n      \
     \      memcpy(res->ch, t->ch, sizeof(t->ch));\n            res->data = t->data;\n\
-    \        }\n        if(i == 0){\n            res->data = val;\n        }else{\n\
+    \        }\n        if(i == 0){\n            res->data = val;\n        } else{\n\
     \            res->ch[i % 20] = set(i / 20, val, res->ch[i % 20]);\n        }\n\
     \        return res;\n    }\n\n    T get(const int i, Node *t){\n        if(!t)\
-    \ return T();\n        if(i == 0){\n            return t->data;\n        }else{\n\
+    \ return T();\n        if(i == 0){\n            return t->data;\n        } else{\n\
     \            return get(i / 20, t->ch[i % 20]);\n        }\n    }\n};\n"
   code: "#pragma once\n\ntemplate<typename T>\nstruct PersistentArray{\n    struct\
     \ Node{\n        T data;\n        Node *ch[20] = {};\n    };\n    Node *root =\
-    \ nullptr;\n\n    PersistentArray() {}\n    \n    Node *get_root(){\n        return\
+    \ nullptr;\n\n    PersistentArray() {}\n\n    Node *get_root(){\n        return\
     \ root;\n    }\n\n    void destructive_set(const int i, const T &val, Node *&t){\n\
     \        if(!t) t = new Node();\n        if(i == 0){\n            t->data = val;\n\
-    \        }else{\n            destructive_set(i / 20, val, t->ch[i % 20]);\n  \
-    \      }\n    }\n\n    Node *set(const int i, const T &val, Node *&t){\n     \
-    \   Node *res = new Node();\n        if(t){\n            memcpy(res->ch, t->ch,\
+    \        } else{\n            destructive_set(i / 20, val, t->ch[i % 20]);\n \
+    \       }\n    }\n\n    Node *set(const int i, const T &val, Node *&t){\n    \
+    \    Node *res = new Node();\n        if(t){\n            memcpy(res->ch, t->ch,\
     \ sizeof(t->ch));\n            res->data = t->data;\n        }\n        if(i ==\
-    \ 0){\n            res->data = val;\n        }else{\n            res->ch[i % 20]\
-    \ = set(i / 20, val, res->ch[i % 20]);\n        }\n        return res;\n    }\n\
-    \n    T get(const int i, Node *t){\n        if(!t) return T();\n        if(i ==\
-    \ 0){\n            return t->data;\n        }else{\n            return get(i /\
-    \ 20, t->ch[i % 20]);\n        }\n    }\n};"
+    \ 0){\n            res->data = val;\n        } else{\n            res->ch[i %\
+    \ 20] = set(i / 20, val, res->ch[i % 20]);\n        }\n        return res;\n \
+    \   }\n\n    T get(const int i, Node *t){\n        if(!t) return T();\n      \
+    \  if(i == 0){\n            return t->data;\n        } else{\n            return\
+    \ get(i / 20, t->ch[i % 20]);\n        }\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/persistent_array.hpp
   requiredBy:
   - lib/data_structure/persistent_union_find.hpp
   - lib/data_structure/persistent_queue.hpp
-  timestamp: '2024-01-29 20:46:52+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/data_structure/persistent_queue.test.cpp
   - test/library_checker/data_structure/persistent_unionfind.test.cpp

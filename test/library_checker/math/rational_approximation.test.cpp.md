@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/fraction.hpp
     title: Fraction
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/rational_approximation.hpp
     title: "Rational Approximation (\u6709\u7406\u6570\u8FD1\u4F3C)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/rational_approximation
@@ -87,8 +87,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/math/rational_approximation.test.cpp
   requiredBy: []
-  timestamp: '2024-03-21 03:54:24+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/math/rational_approximation.test.cpp
 layout: document

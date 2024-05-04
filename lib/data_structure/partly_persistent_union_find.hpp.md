@@ -3,16 +3,16 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/yuki_416.test.cpp
     title: test/yukicoder/yuki_416.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/partly_persistent_union_find.hpp\"\n\n\
-    /* \n    PersistentUnionFind(n) : \u90E8\u5206\u6C38\u7D9A Union-Find \u6728\u3092\
+    /*\n    PersistentUnionFind(n) : \u90E8\u5206\u6C38\u7D9A Union-Find \u6728\u3092\
     \u30B5\u30A4\u30BAn\u3067\u69CB\u7BC9\n    \u8A08\u7B97\u91CF : O(log(n))\n  \
     \  root(x, t) : \u6642\u523B t \u306B\u304A\u3051\u308B\u96C6\u5408 x \u306E\u6839\
     \u3092\u53D6\u5F97\u3057\u307E\u3059\u3002\n    unite(x, y) : \u96C6\u5408 x \u3068\
@@ -38,10 +38,10 @@ data:
     \ == ry;\n    }\n\n    int size(const int x, const int t){\n        int rx = root(x,\
     \ t);\n\n        int ok = 0, ng = num[rx].size();\n        while(abs(ok - ng)\
     \ > 1){\n            int mid = (ok + ng) / 2;\n            if(num[rx][mid].first\
-    \ <= t){\n                ok = mid;\n            }else{\n                ng =\
+    \ <= t){\n                ok = mid;\n            } else{\n                ng =\
     \ mid;\n            }\n        }\n        return num[rx][ok].second;\n    }\n\
     };\n"
-  code: "#pragma once\n\n/* \n    PersistentUnionFind(n) : \u90E8\u5206\u6C38\u7D9A\
+  code: "#pragma once\n\n/*\n    PersistentUnionFind(n) : \u90E8\u5206\u6C38\u7D9A\
     \ Union-Find \u6728\u3092\u30B5\u30A4\u30BAn\u3067\u69CB\u7BC9\n    \u8A08\u7B97\
     \u91CF : O(log(n))\n    root(x, t) : \u6642\u523B t \u306B\u304A\u3051\u308B\u96C6\
     \u5408 x \u306E\u6839\u3092\u53D6\u5F97\u3057\u307E\u3059\u3002\n    unite(x,\
@@ -67,15 +67,15 @@ data:
     \ == ry;\n    }\n\n    int size(const int x, const int t){\n        int rx = root(x,\
     \ t);\n\n        int ok = 0, ng = num[rx].size();\n        while(abs(ok - ng)\
     \ > 1){\n            int mid = (ok + ng) / 2;\n            if(num[rx][mid].first\
-    \ <= t){\n                ok = mid;\n            }else{\n                ng =\
+    \ <= t){\n                ok = mid;\n            } else{\n                ng =\
     \ mid;\n            }\n        }\n        return num[rx][ok].second;\n    }\n\
-    };"
+    };\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/partly_persistent_union_find.hpp
   requiredBy: []
-  timestamp: '2024-01-29 20:46:52+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/yuki_416.test.cpp
 documentation_of: lib/data_structure/partly_persistent_union_find.hpp

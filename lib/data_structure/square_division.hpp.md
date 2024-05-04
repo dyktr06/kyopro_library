@@ -40,11 +40,11 @@ data:
     \ query(int l, int r){\n        int lb = (l + block - 1) / block, rb = r / block;\n\
     \        X res = ex;\n        if(rb - lb < 0){\n            for(int i = l; i <\
     \ r; i++){\n                res = fx(res, get(i));\n            }\n          \
-    \  return res;\n        }\n        \n        for(int i = l; i < lb * block; ++i){\n\
-    \            res = fx(res, get(i));\n        }\n        for(int i = lb; i < rb;\
+    \  return res;\n        }\n\n        for(int i = l; i < lb * block; ++i){\n  \
+    \          res = fx(res, get(i));\n        }\n        for(int i = lb; i < rb;\
     \ ++i){\n            res = fx(res, block_dat[i]);\n        }\n        for(int\
     \ i = rb * block; i < r; ++i){\n            res = fx(res, get(i));\n        }\n\
-    \        return res;\n    }\n    \n    X operator [](int i) const {\n        return\
+    \        return res;\n    }\n\n    X operator [](int i) const {\n        return\
     \ get(i);\n    }\n};\n"
   code: "#pragma once\n\ntemplate <typename X>\nstruct SquareDiv{\n    using FX =\
     \ function<X(X, X)>;\n    int n, bn;\n    const int block;\n    FX fx;\n    const\
@@ -78,17 +78,16 @@ data:
     \    int lb = (l + block - 1) / block, rb = r / block;\n        X res = ex;\n\
     \        if(rb - lb < 0){\n            for(int i = l; i < r; i++){\n         \
     \       res = fx(res, get(i));\n            }\n            return res;\n     \
-    \   }\n        \n        for(int i = l; i < lb * block; ++i){\n            res\
-    \ = fx(res, get(i));\n        }\n        for(int i = lb; i < rb; ++i){\n     \
-    \       res = fx(res, block_dat[i]);\n        }\n        for(int i = rb * block;\
-    \ i < r; ++i){\n            res = fx(res, get(i));\n        }\n        return\
-    \ res;\n    }\n    \n    X operator [](int i) const {\n        return get(i);\n\
-    \    }\n};"
+    \   }\n\n        for(int i = l; i < lb * block; ++i){\n            res = fx(res,\
+    \ get(i));\n        }\n        for(int i = lb; i < rb; ++i){\n            res\
+    \ = fx(res, block_dat[i]);\n        }\n        for(int i = rb * block; i < r;\
+    \ ++i){\n            res = fx(res, get(i));\n        }\n        return res;\n\
+    \    }\n\n    X operator [](int i) const {\n        return get(i);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/square_division.hpp
   requiredBy: []
-  timestamp: '2023-07-28 03:02:56+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/data_structure/square_division.hpp

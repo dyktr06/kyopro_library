@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/binarybasis.hpp
     title: Binary Basis
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/184
@@ -18,7 +18,7 @@ data:
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/binarybasis.hpp\"\
     \n\n/**\n * @brief Binary Basis\n * @docs docs/math/binarybasis.md\n */\n\ntemplate\
     \ <typename T>\nstruct BinaryBasis{\n\n    vector<T> basis, original;\n    BinaryBasis(const\
-    \ vector<T>& vec){\n        for(auto x : vec){\n            T y = x;\n       \
+    \ vector<T> &vec){\n        for(auto x : vec){\n            T y = x;\n       \
     \     for(auto z : basis){\n                y = min(y, y ^ z);\n            }\n\
     \            if(y > 0){\n                basis.push_back(y);\n               \
     \ original.push_back(x);\n            }\n        }\n        normalize();\n   \
@@ -47,8 +47,8 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_184.test.cpp
   requiredBy: []
-  timestamp: '2023-05-01 02:14:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_184.test.cpp
 layout: document

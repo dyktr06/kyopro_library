@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/binary_indexed_tree.hpp
     title: Binary Indexed Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/mo.hpp
     title: lib/data_structure/mo.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/others/compression.hpp
     title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -46,33 +46,33 @@ data:
     \ out);\n    }\n};\n#line 2 \"lib/data_structure/binary_indexed_tree.hpp\"\n\n\
     /**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
     \ */\n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
-    \ BIT;\n    BinaryIndexedTree(const int &N): N(N), BIT(N + 1, 0){\n    }\n\n \
-    \   T get(int i){\n        return sum(i + 1) - sum(i);\n    }\n\n    void add(int\
+    \ BIT;\n    BinaryIndexedTree(const int &N) : N(N), BIT(N + 1, 0){\n    }\n\n\
+    \    T get(int i){\n        return sum(i + 1) - sum(i);\n    }\n\n    void add(int\
     \ i, T x){\n        i++;\n        while(i <= N){\n            BIT[i] += x;\n \
     \           i += i & -i;\n        }\n    }\n\n    T sum(int i) const {\n     \
     \   T ans = 0;\n        while(i > 0){\n            ans += BIT[i];\n          \
     \  i -= i & -i;\n        }\n        return ans;\n    }\n\n    T sum(int L, int\
     \ R) const {\n        return sum(R) - sum(L);\n    }\n\n    int lower_bound(T\
-    \ x) const {\n        if(x <= 0){\n            return 0;\n        }else{\n   \
-    \         int v = 0, r = 1;\n            while(r < N) r = r << 1;\n          \
-    \  for(int len = r; len > 0; len = len >> 1){\n                if(v + len < N\
+    \ x) const {\n        if(x <= 0){\n            return 0;\n        } else{\n  \
+    \          int v = 0, r = 1;\n            while(r < N) r = r << 1;\n         \
+    \   for(int len = r; len > 0; len = len >> 1){\n                if(v + len < N\
     \ && BIT[v + len] < x){\n                    x -= BIT[v + len];\n            \
     \        v += len;\n                }\n            }\n            return v;\n\
     \        }\n    }\n\n    int upper_bound(T x) const {\n        if(x < 0){\n  \
-    \          return 0;\n        }else{\n            int v = 0, r = 1;\n        \
-    \    while(r <= N) r = r << 1;\n            for(int len = r; len > 0; len = len\
+    \          return 0;\n        } else{\n            int v = 0, r = 1;\n       \
+    \     while(r <= N) r = r << 1;\n            for(int len = r; len > 0; len = len\
     \ >> 1){\n                if(v + len <= N && BIT[v + len] <= x){\n           \
     \         x -= BIT[v + len];\n                    v += len;\n                }\n\
     \            }\n            return v;\n        }\n    }\n\n    T operator [](int\
     \ i) const {\n        return sum(i, i + 1);\n    }\n};\n#line 2 \"lib/others/compression.hpp\"\
     \n\n/**\n * @brief Compression (\u5EA7\u6A19\u5727\u7E2E)\n * @docs docs/others/compression.md\n\
     \ */\n\ntemplate <typename T>\nstruct compress{\n    vector<T> sorted;\n    vector<int>\
-    \ compressed;\n\n    compress(const vector<T>& vec){\n        int n = vec.size();\n\
+    \ compressed;\n\n    compress(const vector<T> &vec){\n        int n = vec.size();\n\
     \        compressed.resize(n);\n        for(T x : vec){\n            sorted.emplace_back(x);\n\
     \        }\n        sort(sorted.begin(), sorted.end());\n        sorted.erase(unique(sorted.begin(),\
     \ sorted.end()), sorted.end());\n        for(int i = 0; i < n; ++i){\n       \
     \     compressed[i] = lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();\n\
-    \        }\n    }\n\n    int get(const T& x) const{\n        return lower_bound(sorted.begin(),\
+    \        }\n    }\n\n    int get(const T &x) const{\n        return lower_bound(sorted.begin(),\
     \ sorted.end(), x) - sorted.begin();\n    }\n\n    T inv(const int x) const{\n\
     \        return sorted[x];\n    }\n\n    size_t size() const{\n        return\
     \ sorted.size();\n    }\n\n    vector<T> getCompressed() const{\n        return\
@@ -118,8 +118,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2024-03-22 23:33:17+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_inversions_query.test.cpp
 layout: document

@@ -16,7 +16,7 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_5_B
   bundledCode: "#line 1 \"test/aoj/dsl/dsl_5_b.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_5_B\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/binary_indexed_tree_2d.hpp\"\
-    \n\n/* \n    BinaryIndexedTree2D<T>(h, w) : BIT2D\u3092\u30B5\u30A4\u30BAh*w\u3067\
+    \n\n/*\n    BinaryIndexedTree2D<T>(h, w) : BIT2D\u3092\u30B5\u30A4\u30BAh*w\u3067\
     \u69CB\u7BC9\n    add(x, y, v) : (x, y) \u306B v \u3092\u52A0\u7B97\u3057\u307E\
     \u3059\u3002 O(log(H) * log(W))\n    imos(x1, y1, x2, y2, v) : \u3044\u3082\u3059\
     \u6CD5\u306B\u304A\u3044\u3066\u3001[(x1, y1), (x2, y2)] \u306B v \u3092\u52A0\
@@ -58,7 +58,7 @@ data:
   isVerificationFile: true
   path: test/aoj/dsl/dsl_5_b.test.cpp
   requiredBy: []
-  timestamp: '2024-01-29 20:46:52+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/dsl/dsl_5_b.test.cpp

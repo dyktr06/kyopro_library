@@ -3,24 +3,24 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/range_kth_smallest.test.cpp
     title: test/library_checker/data_structure/range_kth_smallest.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/static_range_count_distinct.test.cpp
     title: test/library_checker/data_structure/static_range_count_distinct.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/static_range_frequency.test.cpp
     title: test/library_checker/data_structure/static_range_frequency.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
     title: test/library_checker/data_structure/static_range_inversions_query.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/static_range_mode_query.test.cpp
     title: test/library_checker/data_structure/static_range_mode_query.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/mo.hpp\"\n\n// [0 , N) \u4E0A\u306E\u533A\
@@ -64,13 +64,13 @@ data:
     \ erase_left(l++);\n            while(r > lr[k].second) erase_right(--r);\n  \
     \          out(k);\n        }\n    }\n\n    template <typename A, typename E,\
     \ typename O>\n    void build(const A &add, const E &erase, const O &out){\n \
-    \       build(add, add, erase, erase, out);\n    }\n};"
+    \       build(add, add, erase, erase, out);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/mo.hpp
   requiredBy: []
-  timestamp: '2024-01-29 20:46:52+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-04 18:06:16+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/data_structure/range_kth_smallest.test.cpp
   - test/library_checker/data_structure/static_range_inversions_query.test.cpp

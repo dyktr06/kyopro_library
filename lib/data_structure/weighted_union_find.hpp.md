@@ -51,12 +51,12 @@ data:
     \ = w;\n        if(rank[rx] == rank[ry]) ++rank[rx];\n    }\n\n    bool same(const\
     \ int x, const int y){\n        int rx = root(x);\n        int ry = root(y);\n\
     \        return rx == ry;\n    }\n\n    int size(const int x){\n        return\
-    \ siz[root(x)];\n    }\n};"
+    \ siz[root(x)];\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/weighted_union_find.hpp
   requiredBy: []
-  timestamp: '2024-01-29 20:46:52+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/dsl/dsl_1_b.test.cpp

@@ -27,12 +27,12 @@ data:
     \    for(int bit = 0; bit < (1 << n); bit++){\n        long long sum = 0;\n  \
     \      for(int i = 0; i < n; i++){\n            int mask = 1 << i;\n         \
     \   if(bit & mask){\n                sum += a[i];\n            }\n        }\n\
-    \        res.emplace_back(sum);\n    }\n    return res;\n}"
+    \        res.emplace_back(sum);\n    }\n    return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/others/exhaustive_search.hpp
   requiredBy: []
-  timestamp: '2023-01-23 00:47:05+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/alds1/alds1_5_a.test.cpp
