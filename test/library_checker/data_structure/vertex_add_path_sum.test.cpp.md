@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/binary_indexed_tree.hpp
     title: Binary Indexed Tree
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/graph/heavy_light_decomposition.hpp
     title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/vertex_add_path_sum
@@ -20,7 +20,7 @@ data:
   bundledCode: "#line 1 \"test/library_checker/data_structure/vertex_add_path_sum.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/binary_indexed_tree.hpp\"\
-    \n\n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
+    \n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
     \ */\n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
     \ BIT;\n    BinaryIndexedTree(const int &N) : N(N), BIT(N + 1, 0){\n    }\n\n\
     \    T get(int i){\n        return sum(i + 1) - sum(i);\n    }\n\n    void add(int\
@@ -124,8 +124,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 19:03:38+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-05-04 19:31:48+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
 layout: document

@@ -12,21 +12,21 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
     title: test/library_checker/data_structure/static_range_inversions_query.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
     title: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
     title: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/binary_indexed_tree.md
     document_title: Binary Indexed Tree
     links: []
-  bundledCode: "#line 2 \"lib/data_structure/binary_indexed_tree.hpp\"\n\n\n/**\n\
-    \ * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
+  bundledCode: "#line 2 \"lib/data_structure/binary_indexed_tree.hpp\"\n\n/**\n *\
+    \ @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
     \ */\n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
     \ BIT;\n    BinaryIndexedTree(const int &N) : N(N), BIT(N + 1, 0){\n    }\n\n\
     \    T get(int i){\n        return sum(i + 1) - sum(i);\n    }\n\n    void add(int\
@@ -47,7 +47,7 @@ data:
     \         x -= BIT[v + len];\n                    v += len;\n                }\n\
     \            }\n            return v;\n        }\n    }\n\n    T operator [](int\
     \ i) const {\n        return sum(i, i + 1);\n    }\n};\n"
-  code: "#pragma once\n\n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
+  code: "#pragma once\n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
     \ */\n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
     \ BIT;\n    BinaryIndexedTree(const int &N) : N(N), BIT(N + 1, 0){\n    }\n\n\
     \    T get(int i){\n        return sum(i + 1) - sum(i);\n    }\n\n    void add(int\
@@ -72,8 +72,8 @@ data:
   isVerificationFile: false
   path: lib/data_structure/binary_indexed_tree.hpp
   requiredBy: []
-  timestamp: '2024-05-04 19:03:38+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-05-04 19:31:48+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/range_kth_smallest.test.cpp

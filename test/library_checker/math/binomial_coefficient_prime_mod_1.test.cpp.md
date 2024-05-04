@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: lib/math/arbitrary_modint.hpp
     title: Arbitrary Modint
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/math/combination.hpp
     title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
   _extendedRequiredBy: []

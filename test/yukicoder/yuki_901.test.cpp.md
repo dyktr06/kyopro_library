@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: lib/graph/auxiliary_tree.hpp
     title: lib/graph/auxiliary_tree.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/graph/heavy_light_decomposition.hpp
     title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
   _extendedRequiredBy: []

@@ -20,7 +20,7 @@ data:
       title: lib/convolution/superset_zeta_moebius_transform.hpp
   - name: lib/data_structure
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/binary_indexed_tree.hpp
       title: Binary Indexed Tree
     - icon: ':heavy_check_mark:'
@@ -50,7 +50,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/dynamic_li_chao_tree.hpp
       title: Dynamic Li Chao Tree
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/dynamic_union_find.hpp
       title: lib/data_structure/dynamic_union_find.hpp
     - icon: ':heavy_check_mark:'
@@ -98,7 +98,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/range_tree.hpp
       title: lib/data_structure/range_tree.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree.hpp
       title: Segment Tree
     - icon: ':heavy_check_mark:'
@@ -116,7 +116,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/swag.hpp
       title: SWAG
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/union_find.hpp
       title: Union Find
     - icon: ':heavy_check_mark:'
@@ -127,15 +127,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/dp/LCS.hpp
       title: Longest Common Subsequence
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/dp/LIS.hpp
       title: Longest Increasing Subsequence
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/dp/substring.hpp
       title: Count Substrings
   - name: lib/geometry
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/geometry/geometry.hpp
       title: lib/geometry/geometry.hpp
   - name: lib/graph
@@ -153,25 +153,25 @@ data:
     - icon: ':x:'
       path: lib/graph/cartesian_tree.hpp
       title: lib/graph/cartesian_tree.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/graph/dijkstra.hpp
       title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/dinic.hpp
       title: lib/graph/dinic.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/graph-input.hpp
       title: lib/graph/graph-input.hpp
     - icon: ':warning:'
       path: lib/graph/grid-bfs.cpp
       title: lib/graph/grid-bfs.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/graph/heavy_light_decomposition.hpp
       title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
     - icon: ':warning:'
       path: lib/graph/interval_graph.hpp
       title: lib/graph/interval_graph.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/manhattanMST.hpp
       title: Manhattan MST
     - icon: ':warning:'
@@ -180,7 +180,7 @@ data:
     - icon: ':x:'
       path: lib/graph/rerooting.hpp
       title: lib/graph/rerooting.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/scc.hpp
       title: "Strongly Connected Component (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
@@ -208,7 +208,7 @@ data:
     - icon: ':x:'
       path: lib/math/binarybasis.hpp
       title: Binary Basis
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/math/combination.hpp
       title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
     - icon: ':x:'
@@ -460,63 +460,63 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/unionfind.test.cpp
       title: test/library_checker/data_structure/unionfind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/unionfind_1.test.cpp
       title: test/library_checker/data_structure/unionfind_1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
       title: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
       title: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
       title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - name: test/library_checker/dp
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/dp/longest_increasing_subsequence.test.cpp
       title: test/library_checker/dp/longest_increasing_subsequence.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/dp/number_of_subsequences.test.cpp
       title: test/library_checker/dp/number_of_subsequences.test.cpp
   - name: test/library_checker/geometry
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/geometry/count_points_in_triangle.test.cpp
       title: test/library_checker/geometry/count_points_in_triangle.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/geometry/sort_points_by_argument.test.cpp
       title: test/library_checker/geometry/sort_points_by_argument.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/geometry/static_convex_hull.test.cpp
       title: test/library_checker/geometry/static_convex_hull.test.cpp
   - name: test/library_checker/graph
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/bipartitematching.test.cpp
       title: test/library_checker/graph/bipartitematching.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/cycle_detection.test.cpp
       title: test/library_checker/graph/cycle_detection.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/cycle_detection_undirected.test.cpp
       title: test/library_checker/graph/cycle_detection_undirected.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/manhattanmst.test.cpp
       title: test/library_checker/graph/manhattanmst.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/minimum_spanning_tree.test.cpp
       title: test/library_checker/graph/minimum_spanning_tree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/scc.test.cpp
       title: test/library_checker/graph/scc.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/shortest_path.test.cpp
       title: test/library_checker/graph/shortest_path.test.cpp
   - name: test/library_checker/math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
       title: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
     - icon: ':x:'

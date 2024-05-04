@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
     title: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: test/yukicoder/yuki_117.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/combination.md
     document_title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
@@ -76,7 +76,7 @@ data:
   path: lib/math/combination.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/yuki_117.test.cpp
   - test/library_checker/math/binomial_coefficient_prime_mod.test.cpp

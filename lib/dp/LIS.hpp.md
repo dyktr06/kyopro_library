@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/dp/longest_increasing_subsequence.test.cpp
     title: test/library_checker/dp/longest_increasing_subsequence.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/dp/LIS.md
     document_title: Longest Increasing Subsequence
@@ -56,7 +56,7 @@ data:
   path: lib/dp/LIS.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/dp/longest_increasing_subsequence.test.cpp
 documentation_of: lib/dp/LIS.hpp

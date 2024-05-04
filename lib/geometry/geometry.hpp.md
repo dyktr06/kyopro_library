@@ -6,18 +6,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/cgl/cgl_3_a.test.cpp
     title: test/aoj/cgl/cgl_3_a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/count_points_in_triangle.test.cpp
     title: test/library_checker/geometry/count_points_in_triangle.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/sort_points_by_argument.test.cpp
     title: test/library_checker/geometry/sort_points_by_argument.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/static_convex_hull.test.cpp
     title: test/library_checker/geometry/static_convex_hull.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/geometry/geometry.hpp\"\n\nnamespace Geometry{\n   \
@@ -170,7 +170,7 @@ data:
   path: lib/geometry/geometry.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/cgl/cgl_3_a.test.cpp
   - test/library_checker/geometry/static_convex_hull.test.cpp
