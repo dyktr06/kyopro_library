@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: lib/graph/rerooting.hpp
     title: lib/graph/rerooting.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []

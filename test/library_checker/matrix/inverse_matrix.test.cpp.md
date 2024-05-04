@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: lib/math/matrix.hpp
     title: Matrix
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []

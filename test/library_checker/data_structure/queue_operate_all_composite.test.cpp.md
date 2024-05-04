@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: lib/data_structure/swag.hpp
     title: SWAG
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []

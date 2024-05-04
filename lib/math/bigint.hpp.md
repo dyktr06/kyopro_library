@@ -12,13 +12,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ntl/ntl_2_c.test.cpp
     title: test/aoj/ntl/ntl_2_c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ntl/ntl_2_d.test.cpp
     title: test/aoj/ntl/ntl_2_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ntl/ntl_2_e.test.cpp
     title: test/aoj/ntl/ntl_2_e.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ntl/ntl_2_f.test.cpp
     title: test/aoj/ntl/ntl_2_f.test.cpp
   - icon: ':x:'

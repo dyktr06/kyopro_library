@@ -3,19 +3,19 @@ data:
   libraryCategories:
   - name: lib/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/bitwise_and_convolution.hpp
       title: lib/convolution/bitwise_and_convolution.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/bitwise_xor_convolution.hpp
       title: lib/convolution/bitwise_xor_convolution.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/fast_walsh_hadamard_transform.hpp
       title: lib/convolution/fast_walsh_hadamard_transform.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/karatsuba_algorithm.hpp
       title: lib/convolution/karatsuba_algorithm.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/superset_zeta_moebius_transform.hpp
       title: lib/convolution/superset_zeta_moebius_transform.hpp
   - name: lib/data_structure
@@ -35,10 +35,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/cumulative_sum_2d.hpp
       title: lib/data_structure/cumulative_sum_2d.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/deswag.hpp
       title: DESWAG
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/double_ended_priority_queue.hpp
       title: lib/data_structure/double_ended_priority_queue.hpp
     - icon: ':question:'
@@ -47,7 +47,7 @@ data:
     - icon: ':x:'
       path: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
       title: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/data_structure/dynamic_li_chao_tree.hpp
       title: Dynamic Li Chao Tree
     - icon: ':x:'
@@ -65,7 +65,7 @@ data:
     - icon: ':x:'
       path: lib/data_structure/imos_linear.hpp
       title: lib/data_structure/imos_linear.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/data_structure/lazy_segment_tree.hpp
       title: lib/data_structure/lazy_segment_tree.hpp
     - icon: ':x:'
@@ -77,10 +77,10 @@ data:
     - icon: ':x:'
       path: lib/data_structure/partly_persistent_union_find.hpp
       title: lib/data_structure/partly_persistent_union_find.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/data_structure/persistent_array.hpp
       title: lib/data_structure/persistent_array.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/persistent_queue.hpp
       title: lib/data_structure/persistent_queue.hpp
     - icon: ':warning:'
@@ -232,7 +232,7 @@ data:
     - icon: ':warning:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -256,12 +256,12 @@ data:
     - icon: ':x:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/utils.hpp
       title: lib/math/utils.hpp
   - name: lib/others
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/others/compression.hpp
       title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
     - icon: ':heavy_check_mark:'
@@ -360,41 +360,41 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ntl/ntl_2_c.test.cpp
       title: test/aoj/ntl/ntl_2_c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ntl/ntl_2_d.test.cpp
       title: test/aoj/ntl/ntl_2_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ntl/ntl_2_e.test.cpp
       title: test/aoj/ntl/ntl_2_e.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ntl/ntl_2_f.test.cpp
       title: test/aoj/ntl/ntl_2_f.test.cpp
   - name: test/library_checker/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
       title: test/library_checker/convolution/bitwise_and_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
       title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/convolution_mod_2_64.test.cpp
       title: test/library_checker/convolution/convolution_mod_2_64.test.cpp
   - name: test/library_checker/data_structure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
       title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
       title: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/line_add_get_min.test.cpp
       title: test/library_checker/data_structure/line_add_get_min.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/persistent_queue.test.cpp
       title: test/library_checker/data_structure/persistent_queue.test.cpp
     - icon: ':x:'

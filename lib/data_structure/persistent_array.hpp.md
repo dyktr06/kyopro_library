@@ -2,14 +2,14 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/persistent_queue.hpp
     title: lib/data_structure/persistent_queue.hpp
   - icon: ':x:'
     path: lib/data_structure/persistent_union_find.hpp
     title: lib/data_structure/persistent_union_find.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/persistent_queue.test.cpp
     title: test/library_checker/data_structure/persistent_queue.test.cpp
   - icon: ':x:'
@@ -17,7 +17,7 @@ data:
     title: test/library_checker/data_structure/persistent_unionfind.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/persistent_array.hpp\"\n\ntemplate<typename\
@@ -55,7 +55,7 @@ data:
   - lib/data_structure/persistent_union_find.hpp
   - lib/data_structure/persistent_queue.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/persistent_queue.test.cpp
   - test/library_checker/data_structure/persistent_unionfind.test.cpp

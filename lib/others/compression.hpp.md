@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
     title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - icon: ':x:'
@@ -26,7 +26,7 @@ data:
     title: test/library_checker/data_structure/static_range_mode_query.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/others/compression.md
     document_title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
@@ -61,7 +61,7 @@ data:
   path: lib/others/compression.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - test/library_checker/data_structure/range_kth_smallest.test.cpp
