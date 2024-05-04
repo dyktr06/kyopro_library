@@ -29,7 +29,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/binary_trie.hpp
       title: lib/data_structure/binary_trie.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/convex_hull_trick.hpp
       title: Convex Hull Trick
     - icon: ':heavy_check_mark:'
@@ -62,19 +62,19 @@ data:
     - icon: ':warning:'
       path: lib/data_structure/grid_unionfind.hpp
       title: lib/data_structure/grid_unionfind.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/imos_linear.hpp
       title: lib/data_structure/imos_linear.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/lazy_segment_tree.hpp
       title: lib/data_structure/lazy_segment_tree.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/mergeable_set.hpp
       title: lib/data_structure/mergeable_set.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/mo.hpp
       title: lib/data_structure/mo.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/partly_persistent_union_find.hpp
       title: lib/data_structure/partly_persistent_union_find.hpp
     - icon: ':heavy_check_mark:'
@@ -104,7 +104,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree_beats.hpp
       title: lib/data_structure/segment_tree_beats.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/slope_trick.hpp
       title: lib/data_structure/slope_trick.hpp
     - icon: ':heavy_check_mark:'
@@ -140,20 +140,20 @@ data:
       title: lib/geometry/geometry.hpp
   - name: lib/graph
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/auxiliary_tree.hpp
       title: lib/graph/auxiliary_tree.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/bellman_ford.hpp
       title: "Bellman-Ford Algorithm (\u30D9\u30EB\u30DE\u30F3-\u30D5\u30A9\u30FC\u30C9\
         \u6CD5)"
     - icon: ':warning:'
       path: lib/graph/bipartite_matching.hpp
       title: lib/graph/bipartite_matching.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/cartesian_tree.hpp
       title: lib/graph/cartesian_tree.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
     - icon: ':heavy_check_mark:'
@@ -165,7 +165,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/grid-bfs.cpp
       title: lib/graph/grid-bfs.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/heavy_light_decomposition.hpp
       title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
     - icon: ':warning:'
@@ -177,7 +177,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/reachable_query.hpp
       title: lib/graph/reachable_query.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/rerooting.hpp
       title: lib/graph/rerooting.hpp
     - icon: ':heavy_check_mark:'
@@ -205,22 +205,22 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/bigint.hpp
       title: "BigInt (\u591A\u500D\u9577\u6574\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/binarybasis.hpp
       title: Binary Basis
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/combination.hpp
       title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: "Convert Base (\u9032\u6570\u5909\u63DB)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':heavy_check_mark:'
       path: lib/math/enumerate_quotients.hpp
       title: "Enumerate Quotients (\u5546\u5217\u6319)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
       title: Fraction
     - icon: ':heavy_check_mark:'
@@ -232,7 +232,7 @@ data:
     - icon: ':warning:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -299,7 +299,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/string/suffix_array.hpp
       title: lib/string/suffix_array.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/string/z_algorithm.hpp
       title: Z Algorithm
   - name: lib
@@ -579,68 +579,68 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/suffixarray.test.cpp
       title: test/library_checker/string/suffixarray.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/string/z_algorithm.test.cpp
       title: test/library_checker/string/z_algorithm.test.cpp
   - name: test/library_checker/tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/cartesian_tree.test.cpp
       title: test/library_checker/tree/cartesian_tree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/jump_on_tree.test.cpp
       title: test/library_checker/tree/jump_on_tree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/lca_hl.test.cpp
       title: test/library_checker/tree/lca_hl.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/tree_diameter.test.cpp
       title: test/library_checker/tree/tree_diameter.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/tree_path_composite_sum.test.cpp
       title: test/library_checker/tree/tree_path_composite_sum.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_1008.test.cpp
       title: test/yukicoder/yuki_1008.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_117.test.cpp
       title: test/yukicoder/yuki_117.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_1464.test.cpp
       title: test/yukicoder/yuki_1464.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_184.test.cpp
       title: test/yukicoder/yuki_184.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_186.test.cpp
       title: test/yukicoder/yuki_186.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_206.test.cpp
       title: test/yukicoder/yuki_206.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2078.test.cpp
       title: test/yukicoder/yuki_2078.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2087.test.cpp
       title: test/yukicoder/yuki_2087.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2119.test.cpp
       title: test/yukicoder/yuki_2119.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2304.test.cpp
       title: test/yukicoder/yuki_2304.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2712.test.cpp
       title: test/yukicoder/yuki_2712.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_416.test.cpp
       title: test/yukicoder/yuki_416.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_888.test.cpp
       title: test/yukicoder/yuki_888.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_901.test.cpp
       title: test/yukicoder/yuki_901.test.cpp
 layout: toppage

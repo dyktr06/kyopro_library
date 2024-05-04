@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/auxiliary_tree.hpp
     title: lib/graph/auxiliary_tree.hpp
   _extendedVerifiedWith:
@@ -15,18 +15,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
     title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/jump_on_tree.test.cpp
     title: test/library_checker/tree/jump_on_tree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/lca_hl.test.cpp
     title: test/library_checker/tree/lca_hl.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_901.test.cpp
     title: test/yukicoder/yuki_901.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/heavy_light_decomposition.md
     document_title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
@@ -141,7 +141,7 @@ data:
   requiredBy:
   - lib/graph/auxiliary_tree.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_901.test.cpp
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp

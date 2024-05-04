@@ -44,7 +44,7 @@ data:
     \   }\n    }\n\n    template <typename A, typename E, typename O>\n    void build(const\
     \ A &add, const E &erase, const O &out){\n        build(add, add, erase, erase,\
     \ out);\n    }\n};\n#line 2 \"lib/data_structure/binary_indexed_tree.hpp\"\n\n\
-    \n/**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
+    /**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
     \ */\n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
     \ BIT;\n    BinaryIndexedTree(const int &N) : N(N), BIT(N + 1, 0){\n    }\n\n\
     \    T get(int i){\n        return sum(i + 1) - sum(i);\n    }\n\n    void add(int\
@@ -118,7 +118,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 19:45:57+09:00'
+  timestamp: '2024-05-04 20:00:04+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_inversions_query.test.cpp

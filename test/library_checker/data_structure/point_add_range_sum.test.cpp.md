@@ -17,7 +17,7 @@ data:
   bundledCode: "#line 1 \"test/library_checker/data_structure/point_add_range_sum.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/binary_indexed_tree.hpp\"\
-    \n\n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
+    \n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
     \ */\n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
     \ BIT;\n    BinaryIndexedTree(const int &N) : N(N), BIT(N + 1, 0){\n    }\n\n\
     \    T get(int i){\n        return sum(i + 1) - sum(i);\n    }\n\n    void add(int\
@@ -57,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 19:45:57+09:00'
+  timestamp: '2024-05-04 20:00:04+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/point_add_range_sum.test.cpp

@@ -39,12 +39,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/pow_of_matrix.test.cpp
     title: test/library_checker/matrix/pow_of_matrix.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/tree_path_composite_sum.test.cpp
     title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
@@ -132,7 +132,7 @@ data:
   path: lib/math/modint.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/convolution/bitwise_and_convolution.test.cpp
   - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
