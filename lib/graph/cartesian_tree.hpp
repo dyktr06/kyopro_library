@@ -25,7 +25,7 @@ pair<vector<vector<int>>, int> CartesianTree(vector<T> &a){
     for(int i = 0; i < n; ++i){
         if(par[i] != -1){
             G[par[i]].emplace_back(i);
-        }else{
+        } else{
             root = i;
         }
     }

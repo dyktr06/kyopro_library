@@ -14,14 +14,14 @@ private:
 public:
     vector<vector<int>> T;
     AuxiliaryTree(int n) : super(n), T(n){}
-    
+
     void build(int _root = 0){
         super::build(_root);
     }
 
     void query(vector<int> &vs){
         assert(!vs.empty());
-        sort(vs.begin(),vs.end(),
+        sort(vs.begin(), vs.end(),
             [&](int a, int b){ return in[a] < in[b]; });
         vs.erase(unique(vs.begin(), vs.end()), vs.end());
 

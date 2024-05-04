@@ -1,6 +1,6 @@
 #pragma once
 
-/* 
+/*
     imos_linear<T>(n) : サイズnで構築
     add(l, r, v, w) : [l, r) に wX + v を加算します。 O(1)
     build() : 加算された配列を構築します。O(n)
@@ -17,7 +17,7 @@ struct imos_linear{
         imos0.resize(N + 1);
     }
 
-    // [l, r) に wX + v を加算 
+    // [l, r) に wX + v を加算
     // imos[l] += v, imos[l + 1] += v + w, ...
     void add(int l, int r, T v, T w){
         l = clamp(l, 0, N), r = clamp(r, 0, N);
@@ -34,8 +34,8 @@ struct imos_linear{
             imos0[i + 1] += imos0[i];
         }
     }
-    
-    T & operator [](int i){
+
+    T &operator [](int i){
         return imos0[i];
     }
 };

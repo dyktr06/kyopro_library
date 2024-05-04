@@ -1,6 +1,6 @@
 #pragma once
 
-/* 
+/*
     PersistentUnionFind(n) : 部分永続 Union-Find 木をサイズnで構築
     計算量 : O(log(n))
     root(x, t) : 時刻 t における集合 x の根を取得します。
@@ -59,7 +59,7 @@ struct PersistentUnionFind{
             int mid = (ok + ng) / 2;
             if(num[rx][mid].first <= t){
                 ok = mid;
-            }else{
+            } else{
                 ng = mid;
             }
         }

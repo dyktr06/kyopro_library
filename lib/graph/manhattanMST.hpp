@@ -40,7 +40,7 @@ vector<pair<int, int>> manhattanMST(vector<T> x, vector<T> y){
     UnionFind dsu(n);
     vector<pair<int, int>> used;
     used.reserve(n - 1);
-    for(const auto& [c, i, j] : edge){
+    for(const auto &[c, i, j] : edge){
         if(!dsu.same(i, j)){
             used.emplace_back(i, j);
             dsu.unite(i, j);

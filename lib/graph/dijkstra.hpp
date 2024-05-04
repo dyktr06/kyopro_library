@@ -13,12 +13,12 @@ vector<long long> dijkstra(const vector<vector<array<long long, 2>>> &G, T x){
     priority_queue<P, vector<P>, greater<>> q;
     cost[x] = 0;
     q.emplace(0, x);
-    
+
     while(q.size()){
         auto [c, at] = q.top();
         q.pop();
         if(c > cost[at]) continue;
-        for(auto& [to, t] : G[at]){
+        for(auto &[to, t] : G[at]){
             if(cost[to] > c + t){
                 cost[to] = c + t;
                 q.emplace(cost[to], to);
@@ -42,7 +42,7 @@ pair<long long, vector<pair<int, int>>> shortest_path(const vector<vector<array<
         auto [c, at] = q.top();
         q.pop();
         if(c > cost[at]) continue;
-        for(auto& [to, t] : G[at]){
+        for(auto &[to, t] : G[at]){
             if(cost[to] > c + t){
                 par[to] = at;
                 cost[to] = c + t;

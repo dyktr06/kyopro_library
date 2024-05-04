@@ -4,7 +4,7 @@
     グラフの入力を簡略化
 */
 template<class T, class U>
-void inGraph(vector<vector<T>>& G, U n, U m, bool directed = true, bool zero_index = true){
+void inGraph(vector<vector<T>> &G, U n, U m, bool directed = true, bool zero_index = true){
     G.resize(n);
     for(int i = 0; i < m; i++){
         int a, b;

@@ -40,11 +40,11 @@ T getReminder(T a, T b){
     if(b == 0) return -1;
     if(a >= 0 && b > 0){
         return a % b;
-    }else if(a < 0 && b > 0){
+    } else if(a < 0 && b > 0){
         return ((a % b) + b) % b;
-    }else if(a >= 0 && b < 0){
+    } else if(a >= 0 && b < 0){
         return a % b;
-    }else{
+    } else{
         return (abs(b) - abs(a % b)) % b;
     }
 }
@@ -53,7 +53,7 @@ T getReminder(T a, T b){
 template <typename T>
 vector<T> getSubmask(T x){
     vector<T> submask;
-    for(T i = x; ; i = (i - 1) & x){ 
+    for(T i = x; ; i = (i - 1) & x){
         submask.push_back(i);
         if(i == 0) break;
     }

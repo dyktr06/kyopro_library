@@ -48,7 +48,7 @@ namespace Geometry{
         inline Point &operator/=(const T &k) { return x /= k, y /= k, *this; }
         inline Point operator/(const T &k) { return (*this /= k); }
 
-        friend inline ostream& operator<<(ostream& os, const Point& p) noexcept { return os << p.x << " " << p.y; }
+        friend inline ostream &operator<<(ostream &os, const Point &p) noexcept { return os << p.x << " " << p.y; }
     };
 
     bool angle_equal(const Point &p, const Point &q){
@@ -56,7 +56,7 @@ namespace Geometry{
         if(L != R) return false;
         return p.x * q.y == q.x * p.y;
     }
-    
+
     long double rad2deg(long double rad){
         return rad * (long double) 180 / acos(-1);
     }
@@ -67,16 +67,16 @@ namespace Geometry{
 
     Point rotate(Point &p, long double deg){
         complex<T> comp(p.x, p.y);
-        comp *= exp(complex<T>( .0, deg2rad(deg)));
+        comp *= exp(complex<T>(.0, deg2rad(deg)));
         return Point(comp.real(), comp.imag());
     }
 
     T cross(const Point &p, const Point &q){
-        return p.x * q.y - p.y * q.x; 
+        return p.x * q.y - p.y * q.x;
     }
 
     T dot(const Point &p, const Point &q){
-        return p.x * q.x + p.y * q.y; 
+        return p.x * q.x + p.y * q.y;
     }
 
     // 2乗
@@ -105,8 +105,8 @@ namespace Geometry{
         if((int) points.size() <= 2){
             return points;
         }
-        
-        // lower 
+
+        // lower
         for(int i = 0; i < n; i++){
             int j = L.size();
             // 傾きで左回りかをチェック
@@ -148,7 +148,7 @@ namespace Geometry{
             int mid = (l + r) / 2;
             if(cross(p - points[0], points[mid] - points[0]) >= 0){
                 r = mid;
-            }else{
+            } else{
                 l = mid;
             }
         }
@@ -156,13 +156,13 @@ namespace Geometry{
         T cr = cross(points[l] - p, points[r] - p);
         if(cr == 0){
             return 2;
-        }else if(cr > 0){
+        } else if(cr > 0){
             if(cr1 == 0 || cr2 == 0){
                 return 2;
-            }else{
+            } else{
                 return 1;
             }
-        }else{
+        } else{
             return 0;
         }
     }

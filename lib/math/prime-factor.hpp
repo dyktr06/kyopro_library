@@ -28,7 +28,7 @@ struct PrimeFactor{
         while(n != 1){
             if(m.count(spf[n]) == 0){
                 m[spf[n]] = 1;
-            }else{
+            } else{
                 m[spf[n]]++;
             }
             n /= spf[n];

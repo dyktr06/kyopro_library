@@ -71,7 +71,7 @@ struct RangeTree{
     }
 
     int id(S x) const {
-        auto f = [](const P& a, const P& b){
+        auto f = [](const P &a, const P &b){
             return a.first < b.first;
         };
         return lower_bound(ps.begin(), ps.end(), make_pair(x, S()), f) - ps.begin();
@@ -109,7 +109,7 @@ struct RangeTree{
             if(a < b){
                 ret += bit[b].sum(id(b, yl), id(b, yr));
                 b -= b & -b;
-            }else{
+            } else{
                 ret -= bit[a].sum(id(a, yl), id(a, yr));
                 a -= a & -a;
             }

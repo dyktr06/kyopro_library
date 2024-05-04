@@ -9,7 +9,7 @@ template <typename T>
 struct BinaryIndexedTree{
     int N;
     vector<T> BIT;
-    BinaryIndexedTree(const int &N): N(N), BIT(N + 1, 0){
+    BinaryIndexedTree(const int &N) : N(N), BIT(N + 1, 0){
     }
 
     T get(int i){
@@ -40,7 +40,7 @@ struct BinaryIndexedTree{
     int lower_bound(T x) const {
         if(x <= 0){
             return 0;
-        }else{
+        } else{
             int v = 0, r = 1;
             while(r < N) r = r << 1;
             for(int len = r; len > 0; len = len >> 1){
@@ -56,7 +56,7 @@ struct BinaryIndexedTree{
     int upper_bound(T x) const {
         if(x < 0){
             return 0;
-        }else{
+        } else{
             int v = 0, r = 1;
             while(r <= N) r = r << 1;
             for(int len = r; len > 0; len = len >> 1){

@@ -9,8 +9,8 @@ template <typename T>
 struct Matrix{
     int n, m;
     vector<T> val;
-    Matrix(int _n, int _m): n(_n), m(_m), val(_n * _m){}
-    Matrix(const vector<vector<T>>& mat){
+    Matrix(int _n, int _m) : n(_n), m(_m), val(_n *_m){}
+    Matrix(const vector<vector<T>> &mat){
         n = mat.size();
         m = mat[0].size();
         val.resize(n * m);
@@ -29,13 +29,13 @@ struct Matrix{
     }
     auto operator[](int i){ return val.begin() + i * m; }
     auto operator[](int i) const { return val.begin() + i * m; }
-    inline Matrix& operator+=(const Matrix &rhs){
+    inline Matrix &operator+=(const Matrix &rhs){
         for(int i = 0; i < n * m; ++i){
             val[i] += rhs[i];
         }
         return *this;
     }
-    inline Matrix& operator-=(const Matrix &rhs){
+    inline Matrix &operator-=(const Matrix &rhs){
         for(int i = 0; i < n * m; ++i){
             val[i] -= rhs[i];
         }
@@ -54,14 +54,14 @@ struct Matrix{
         }
         return res;
     }
-    inline Matrix& operator*=(const Matrix &rhs){
+    inline Matrix &operator*=(const Matrix &rhs){
         return *this = *this * rhs;
     }
-    friend inline Matrix operator+(const Matrix& lhs, const Matrix& rhs) noexcept { return Matrix(lhs) += rhs; }
-    friend inline Matrix operator-(const Matrix& lhs, const Matrix& rhs) noexcept { return Matrix(lhs) -= rhs; }
-    friend inline bool operator==(const Matrix& lhs, const Matrix& rhs) noexcept { return lhs.val == rhs.val; }
-    friend inline bool operator!=(const Matrix& lhs, const Matrix& rhs) noexcept { return lhs.val != rhs.val; }
-    friend inline ostream& operator<<(ostream& os, const Matrix& mat) noexcept {
+    friend inline Matrix operator+(const Matrix &lhs, const Matrix &rhs) noexcept { return Matrix(lhs) += rhs; }
+    friend inline Matrix operator-(const Matrix &lhs, const Matrix &rhs) noexcept { return Matrix(lhs) -= rhs; }
+    friend inline bool operator==(const Matrix &lhs, const Matrix &rhs) noexcept { return lhs.val == rhs.val; }
+    friend inline bool operator!=(const Matrix &lhs, const Matrix &rhs) noexcept { return lhs.val != rhs.val; }
+    friend inline ostream &operator<<(ostream &os, const Matrix &mat) noexcept {
         const int _n = mat.n;
         const int _m = mat.m;
         for(int i = 0; i < _n; ++i){
@@ -179,7 +179,7 @@ struct Matrix{
             for(int j = 0; j < n; ++j){
                 if(j == r) continue;
                 const T s = a[j][i];
-                if (s == 0) continue;
+                if(s == 0) continue;
                 for(int k = i; k < m; ++k){
                     a[j][k] -= a[r][k] * s;
                 }

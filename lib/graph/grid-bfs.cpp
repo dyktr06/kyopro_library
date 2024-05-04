@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
- 
+
 using namespace std;
 
 vector<int> dx = {0, 1, 0, -1};
@@ -12,7 +12,7 @@ vector<vector<int>> bfs(const vector<string> &s, int sx = 0, int sy = 0){
     deque<tuple<int, int, int>> dq;
     dq.push_back(make_tuple(0, sx, sy));
     vector<vector<int>> d(h, vector<int>(w, -1));
-    while (!dq.empty()){
+    while(!dq.empty()){
         int dd = get<0>(dq.front());
         int x = get<1>(dq.front());
         int y = get<2>(dq.front());

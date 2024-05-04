@@ -13,9 +13,9 @@ struct SegmentTreeBeats{
 
         if(max_v[k] == min_v[k]){
             max_v[k] = min_v[k] = x;
-        }else if(max_v[k] == smin_v[k]){
+        } else if(max_v[k] == smin_v[k]){
             max_v[k] = smin_v[k] = x;
-        }else{
+        } else{
             max_v[k] = x;
         }
 
@@ -29,9 +29,9 @@ struct SegmentTreeBeats{
 
         if(max_v[k] == min_v[k]){
             max_v[k] = min_v[k] = x;
-        }else if(smax_v[k] == min_v[k]){
+        } else if(smax_v[k] == min_v[k]){
             min_v[k] = smax_v[k] = x;
-        }else{
+        } else{
             min_v[k] = x;
         }
 
@@ -78,11 +78,11 @@ struct SegmentTreeBeats{
             max_v[k] = max_v[2 * k + 2];
             max_c[k] = max_c[2 * k + 2];
             smax_v[k] = max(max_v[2 * k + 1], smax_v[2 * k + 2]);
-        }else if(max_v[2 * k + 1] > max_v[2 * k + 2]){
+        } else if(max_v[2 * k + 1] > max_v[2 * k + 2]){
             max_v[k] = max_v[2 * k + 1];
             max_c[k] = max_c[2 * k + 1];
             smax_v[k] = max(smax_v[2 * k + 1], max_v[2 * k + 2]);
-        }else{
+        } else{
             max_v[k] = max_v[2 * k + 1];
             max_c[k] = max_c[2 * k + 1] + max_c[2 * k + 2];
             smax_v[k] = max(smax_v[2 * k + 1], smax_v[2 * k + 2]);
@@ -92,11 +92,11 @@ struct SegmentTreeBeats{
             min_v[k] = min_v[2 * k + 1];
             min_c[k] = min_c[2 * k + 1];
             smin_v[k] = min(smin_v[2 * k + 1], min_v[2 * k + 2]);
-        }else if(min_v[2 * k + 1] > min_v[2 * k + 2]){
+        } else if(min_v[2 * k + 1] > min_v[2 * k + 2]){
             min_v[k] = min_v[2 * k + 2];
             min_c[k] = min_c[2 * k + 2];
             smin_v[k] = min(min_v[2 * k + 1], smin_v[2 * k + 2]);
-        }else{
+        } else{
             min_v[k] = min_v[2 * k + 1];
             min_c[k] = min_c[2 * k + 1] + min_c[2 * k + 2];
             smin_v[k] = min(smin_v[2 * k + 1], smin_v[2 * k + 2]);
@@ -142,7 +142,7 @@ struct SegmentTreeBeats{
         sum[k] += len[k] * x;
         if(lval[k] != INF){
             lval[k] += x;
-        }else{
+        } else{
             ladd[k] += x;
         }
     }

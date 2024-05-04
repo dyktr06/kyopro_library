@@ -28,7 +28,7 @@ namespace modcalc{
             u -= t * v; swap(u, v);
         }
         u %= m;
-        if (u < 0) u += m;
+        if(u < 0) u += m;
         return u;
     }
 

@@ -40,11 +40,11 @@ long long subsequences(const vector<T> &s, const long long &m){
     for(int i = 0; i < n; i++){
         if(mp.count(s[i]) != 0){
             dp[i + 1] = dp[i] * 2 + m - dp[mp[s[i]]];
-        }else{
+        } else{
             dp[i + 1] = dp[i] * 2;
         }
         dp[i + 1] %= m;
-        mp[s[i]] = i; 
+        mp[s[i]] = i;
     }
     return dp[n];
 }

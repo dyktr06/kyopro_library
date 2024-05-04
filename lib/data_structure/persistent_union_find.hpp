@@ -4,7 +4,7 @@
 
 struct PersistentUnionFind{
     PersistentArray<int> data;
-    using node = PersistentArray<int>::Node*;
+    using node = PersistentArray<int>::Node *;
 
     PersistentUnionFind() {}
 
@@ -47,7 +47,7 @@ struct PersistentUnionFind{
 struct PersistentUnionFindv2{
     int n;
     PersistentArray<int> data;
-    using node = PersistentArray<int>::Node*;
+    using node = PersistentArray<int>::Node *;
 
     PersistentUnionFindv2() {}
 

@@ -10,7 +10,7 @@ struct compress{
     vector<T> sorted;
     vector<int> compressed;
 
-    compress(const vector<T>& vec){
+    compress(const vector<T> &vec){
         int n = vec.size();
         compressed.resize(n);
         for(T x : vec){
@@ -23,7 +23,7 @@ struct compress{
         }
     }
 
-    int get(const T& x) const{
+    int get(const T &x) const{
         return lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();
     }
 

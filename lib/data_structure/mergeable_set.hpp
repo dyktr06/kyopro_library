@@ -109,7 +109,7 @@ struct MergeableSet{
         }
         return (s[id1] == s[id2]);
     }
-    
+
     // return one of elements
     int intersect(int id1, int id2){
         if(isBlock[id2]) swap(id1, id2);

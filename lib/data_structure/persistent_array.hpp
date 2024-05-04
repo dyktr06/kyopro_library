@@ -9,7 +9,7 @@ struct PersistentArray{
     Node *root = nullptr;
 
     PersistentArray() {}
-    
+
     Node *get_root(){
         return root;
     }
@@ -18,7 +18,7 @@ struct PersistentArray{
         if(!t) t = new Node();
         if(i == 0){
             t->data = val;
-        }else{
+        } else{
             destructive_set(i / 20, val, t->ch[i % 20]);
         }
     }
@@ -31,7 +31,7 @@ struct PersistentArray{
         }
         if(i == 0){
             res->data = val;
-        }else{
+        } else{
             res->ch[i % 20] = set(i / 20, val, res->ch[i % 20]);
         }
         return res;
@@ -41,7 +41,7 @@ struct PersistentArray{
         if(!t) return T();
         if(i == 0){
             return t->data;
-        }else{
+        } else{
             return get(i / 20, t->ch[i % 20]);
         }
     }

@@ -27,7 +27,7 @@ private:
 public:
     LazySegTree() : LazySegTree(0){}
     LazySegTree(int n) : LazySegTree(vector<S>(n, e())){}
-    LazySegTree(const vector<S>& v) : _n(int(v.size())){
+    LazySegTree(const vector<S> &v) : _n(int(v.size())){
         log = 0;
         size = 1;
         while(size < _n) size <<= 1, log++;

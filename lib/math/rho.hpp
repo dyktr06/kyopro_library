@@ -13,9 +13,9 @@ namespace Rho{
 
     bool rabin_miller(unsigned long long n){
         switch(n){
-            case 0: // fall-through
-            case 1: return false;
-            case 2: return true;
+        case 0: // fall-through
+        case 1: return false;
+        case 2: return true;
         }
 
         if(n % 2 == 0) return false;
@@ -58,8 +58,8 @@ namespace Rho{
         unsigned long long c = 1, x = 0, y = 0, t = 0, prod = 2, x0 = 1, q;
         auto f = [&](unsigned long long X) { return mul(X, X, n) + c;};
 
-        while (t++ % 128 or __gcd(prod, n) == 1) {
-            if(x == y) c = rng() % (n-1) + 1, x = x0, y = f(x);
+        while(t++ % 128 or __gcd(prod, n) == 1) {
+            if(x == y) c = rng() % (n - 1) + 1, x = x0, y = f(x);
             if((q = mul(prod, max(x, y) - min(x, y), n))) prod = q;
             x = f(x), y = f(f(y));
         }

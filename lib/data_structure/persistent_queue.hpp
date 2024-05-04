@@ -5,7 +5,7 @@
 template<typename T>
 struct PersistentQueue{
     PersistentArray<T> data;
-    using node = typename PersistentArray<T>::Node*;
+    using node = typename PersistentArray<T>::Node *;
     vector<node> nodes;
     vector<int> front, back;
     int nxt = 1;
@@ -32,7 +32,7 @@ struct PersistentQueue{
         back[nxt] = back[t];
         return nxt++;
     }
-    
+
     int push(const T &x, const int t){
         nodes[nxt] = data.set(back[t], x, nodes[t]);
         front[nxt] = front[t];

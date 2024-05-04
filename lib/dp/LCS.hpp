@@ -12,7 +12,7 @@ string LCS(const string &s, const string &t){
         for(int j = 0; j < m; j++){
             if(s[i] == t[j]){
                 memo[i + 1][j + 1] = memo[i][j] + 1;
-            }else{
+            } else{
                 memo[i + 1][j + 1] = max(memo[i][j + 1], memo[i + 1][j]);
             }
         }
@@ -25,9 +25,9 @@ string LCS(const string &s, const string &t){
         if(s[i] == t[j]){
             res += s[i];
             i--; j--;
-        }else if(memo[i + 1][j + 1] == memo[i][j + 1]){
+        } else if(memo[i + 1][j + 1] == memo[i][j + 1]){
             i--;
-        }else if(memo[i + 1][j + 1] == memo[i + 1][j]){
+        } else if(memo[i + 1][j + 1] == memo[i + 1][j]){
             j--;
         }
     }

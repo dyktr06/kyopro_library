@@ -11,7 +11,7 @@ struct PriorityQueue{
             if(q.top() == removed_q.top()){
                 q.pop();
                 removed_q.pop();
-            }else{
+            } else{
                 break;
             }
         }
@@ -20,11 +20,11 @@ struct PriorityQueue{
     void push(const T &x){
         q.push(x);
     }
-    
+
     void erase(const T &x){
         removed_q.push(x);
     }
-    
+
     size_t size(){
         return q.size() - removed_q.size();
     }

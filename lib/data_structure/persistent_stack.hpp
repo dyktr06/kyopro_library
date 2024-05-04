@@ -28,7 +28,7 @@ struct PersistentStack{
     PersistentStack *pop() const {
         return next;
     }
-    
+
     PersistentStack *push(const T &x){
         return new PersistentStack(x, this);
     }

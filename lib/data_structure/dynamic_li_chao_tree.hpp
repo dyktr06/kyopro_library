@@ -38,10 +38,10 @@ private:
 
         if(t_l <= x_l && t_r <= x_r){
             return t;
-        }else if(t_l >= x_l && t_r >= x_r){
+        } else if(t_l >= x_l && t_r >= x_r){
             t->x = x;
             return t;
-        }else{
+        } else{
             T m = (l + r) / 2;
             if(m == r) --m;
             T t_m = t->x.get(m), x_m = x.get(m);
@@ -49,15 +49,15 @@ private:
                 swap(t->x, x);
                 if(t_l <= x_l){
                     t->l = add_line_(t->l, x, l, m, t_l, t_m);
-                }else{
+                } else{
                     t->r = add_line_(t->r, x, m + 1, r, t_m + x.a, t_r);
-                } 
-            }else{
+                }
+            } else{
                 if(x_l <= t_l){
                     t->l = add_line_(t->l, x, l, m, x_l, x_m);
-                }else{
+                } else{
                     t->r = add_line_(t->r, x, m + 1, r, x_m + x.a, x_r);
-                } 
+                }
             }
             return t;
         }
@@ -72,7 +72,7 @@ private:
         if(t){
             T t_l = t->x.get(l), t_r = t->x.get(r);
             if(t_l <= x_l && t_r <= x_r) return t;
-        }else{
+        } else{
             t = new Node(Line(0, id));
         }
 
@@ -91,7 +91,7 @@ private:
         if(m == r) --m;
         if(x_c <= m){
             return min(t->x.get(x_c), query_(t->l, l, m, x_c));
-        }else{
+        } else{
             return min(t->x.get(x_c), query_(t->r, m + 1, r, x_c));
         }
     }

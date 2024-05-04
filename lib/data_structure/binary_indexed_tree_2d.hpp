@@ -1,6 +1,6 @@
 #pragma once
 
-/* 
+/*
     BinaryIndexedTree2D<T>(h, w) : BIT2Dをサイズh*wで構築
     add(x, y, v) : (x, y) に v を加算します。 O(log(H) * log(W))
     imos(x1, y1, x2, y2, v) : いもす法において、[(x1, y1), (x2, y2)] に v を加算します。O(log(H) * log(W))

@@ -7,7 +7,7 @@ struct PrioritySet{
 
         compress(){}
 
-        void init(const vector<T>& vec){
+        void init(const vector<T> &vec){
             int n = vec.size();
             compressed.resize(n);
             for(T x : vec){
@@ -20,11 +20,11 @@ struct PrioritySet{
             }
         }
 
-        int get(const T& x) const{
+        int get(const T &x) const{
             return lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();
         }
 
-        T inv(const T& x) const{
+        T inv(const T &x) const{
             return sorted[x];
         }
 
@@ -75,7 +75,7 @@ struct PrioritySet{
         int lower_bound(T x) const {
             if(x <= 0){
                 return 0;
-            }else{
+            } else{
                 int v = 0, r = 1;
                 while(r < N) r = r << 1;
                 for(int len = r; len > 0; len = len >> 1){
@@ -91,7 +91,7 @@ struct PrioritySet{
         int upper_bound(T x) const {
             if(x < 0){
                 return 0;
-            }else{
+            } else{
                 int v = 0, r = 1;
                 while(r <= N) r = r << 1;
                 for(int len = r; len > 0; len = len >> 1){

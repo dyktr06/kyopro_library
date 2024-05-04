@@ -76,7 +76,7 @@ T pow_sum(long long n, long long k){
     vector<T> l(d + 1, 1), r(d + 1, 1);
     for(int i = 0; i < d; i++){
         l[i + 1] = l[i] * (n - i);
-        r[i + 1] = r[i] * (n - (d - i)); 
+        r[i + 1] = r[i] * (n - (d - i));
     }
     T ans = 0;
     for(int i = 0; i < d + 1; i++){

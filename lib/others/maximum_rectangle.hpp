@@ -5,7 +5,7 @@
  * @docs docs/others/maximum_rectangle.md
  */
 
-// [(x1, y1), (x2, y2)] 
+ // [(x1, y1), (x2, y2)]
 vector<tuple<int, int, int, int>> getMaximumRectangle(vector<vector<bool>> &a){
     vector<tuple<int, int, int, int>> res;
     int n = a.size(), m = a[0].size();

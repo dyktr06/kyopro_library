@@ -62,7 +62,7 @@ private:
         return res;
     }
 
-    pair<BigInt, BigInt> divide_naive(const BigInt& rhs) const {
+    pair<BigInt, BigInt> divide_naive(const BigInt &rhs) const {
         assert(!rhs.val.empty());
         const int k = base / (rhs.val.back() + 1);
         const BigInt dividend = (sign == 1 ? *this : -(*this)) * k;
@@ -74,7 +74,7 @@ private:
             rem.val.emplace(rem.val.begin(), dividend.val[i]);
             quo.val[i] = ((n < (int) rem.val.size() ? rem.val[n] * base : 0) + ((n - 1) < (int) rem.val.size() ? rem.val[n - 1] : 0)) / divisor.val.back();
             rem -= divisor * quo.val[i];
-            while (rem.sign == -1) {
+            while(rem.sign == -1) {
                 rem += divisor;
                 --quo.val[i];
             }
@@ -86,7 +86,7 @@ private:
         return {quo, rem / k};
     }
 
-    pair<BigInt, BigInt> divide_newton(const BigInt& rhs) const {
+    pair<BigInt, BigInt> divide_newton(const BigInt &rhs) const {
         assert(!rhs.val.empty());
         int preci = val.size() - rhs.val.size();
         BigInt t(1);
@@ -111,7 +111,7 @@ private:
                 t *= (BigInt(2) << (rhslim + lim)) - rb * t;
                 t.val = vector<long long>(t.val.begin() + lim + rhslim, t.val.end());
                 int next_lim = min(lim * 2 + 1, preci);
-                if (next_lim != lim) t <<= next_lim - lim;
+                if(next_lim != lim) t <<= next_lim - lim;
                 int next_rhslim = min(rhslim * 2 + 1, int(rhs.val.size()));
                 lim = next_lim;
                 rhslim = next_rhslim;
@@ -144,7 +144,7 @@ public:
             if(i == len - 1){
                 val[i] = stoll(s.substr(idx, rem));
                 idx += rem;
-            }else{
+            } else{
                 val[i] = stoll(s.substr(idx, digit));
                 idx += digit;
             }
@@ -158,24 +158,24 @@ public:
             if(val[i] > 0 && !flag){
                 res += to_string(val[i]);
                 flag = true;
-            }else if(flag){
+            } else if(flag){
                 string rem = to_string(val[i]);
                 res += string(digit - rem.size(), '0') + rem;
             }
         }
         return (res.empty() || res == "-") ? "0" : res;
     }
-    pair<BigInt, BigInt> divide_mod(const BigInt& rhs){
+    pair<BigInt, BigInt> divide_mod(const BigInt &rhs){
         assert(!rhs.val.empty());
         BigInt div = *this / rhs;
         return make_pair(div, *this - div * rhs);
     }
-    BigInt& shift(){
+    BigInt &shift(){
         for(int i = 0; i < (int) val.size() - 1; ++i){
             if(val[i] >= 0){
                 val[i + 1] += val[i] / base;
                 val[i] %= base;
-            }else{
+            } else{
                 long long x = (-val[i] + base - 1) / base;
                 val[i] += x * base;
                 val[i + 1] -= x;
@@ -187,8 +187,8 @@ public:
         }
         return *this;
     }
-    BigInt& operator=(const BigInt& x) = default;
-    inline BigInt& operator+=(const BigInt& rhs) noexcept {
+    BigInt &operator=(const BigInt &x) = default;
+    inline BigInt &operator+=(const BigInt &rhs) noexcept {
         if(rhs.val.empty()) return *this;
         if(sign != rhs.sign) return *this -= -rhs;
         if(val.size() < rhs.val.size()){
@@ -199,7 +199,7 @@ public:
         }
         return (*this).shift();
     }
-    inline BigInt& operator-=(const BigInt& rhs) noexcept {
+    inline BigInt &operator-=(const BigInt &rhs) noexcept {
         if(rhs.val.empty()) return *this;
         if(sign != rhs.sign) return *this += -rhs;
         if((sign == 1 ? *this : -(*this)) < (rhs.sign == 1 ? rhs : -rhs)){
@@ -208,13 +208,13 @@ public:
         for(int i = 0; i < (int) rhs.val.size(); ++i){
             val[i] -= rhs.val[i];
         }
-        
+
         shift();
         normalize();
         return *this;
     }
     // Karatsuba Algorithm (O(N^(1.58)))
-    inline BigInt& operator*=(const BigInt& rhs) noexcept {
+    inline BigInt &operator*=(const BigInt &rhs) noexcept {
         if(val.empty() || rhs.val.empty()){
             return *this = BigInt();
         }
@@ -233,7 +233,7 @@ public:
         return *this;
     }
     // Newton method
-    inline BigInt& operator/=(const BigInt& rhst) noexcept {
+    inline BigInt &operator/=(const BigInt &rhst) noexcept {
         assert(!rhst.val.empty());
         if(val.empty()) return *this;
         if((int) val.size() <= 32 && (int) rhst.val.size() <= 32){
@@ -252,17 +252,17 @@ public:
         normalize();
         return *this;
     }
-    inline BigInt& operator%=(const BigInt& rhs) noexcept {
+    inline BigInt &operator%=(const BigInt &rhs) noexcept {
         assert(!rhs.val.empty());
         return *this = *this - (*this / rhs) * rhs;
     }
-    inline BigInt& operator++() { return *this += 1; }
+    inline BigInt &operator++() { return *this += 1; }
     inline BigInt operator++(int) {
         const BigInt res = *this;
         ++(*this);
         return res;
     }
-    inline BigInt& operator--() { return *this -= 1; }
+    inline BigInt &operator--() { return *this -= 1; }
     inline BigInt operator--(int) {
         const BigInt res = *this;
         --(*this);
@@ -271,23 +271,23 @@ public:
     inline BigInt operator+() const { return *this; }
     inline BigInt operator-() const {
         BigInt res = *this;
-        if (!res.val.empty()) res.sign = -res.sign;
+        if(!res.val.empty()) res.sign = -res.sign;
         return res;
     }
-    inline BigInt& operator<<=(const unsigned int rhs){
+    inline BigInt &operator<<=(const unsigned int rhs){
         if(val.back() >= 1 || (int) val.size() >= 2){
             vector<long long> tmp(rhs, 0);
             val.insert(val.begin(), tmp.begin(), tmp.end());
         }
         return *this;
     }
-    inline BigInt& operator>>=(const unsigned int rhs){
+    inline BigInt &operator>>=(const unsigned int rhs){
         if(rhs == 0) return *this;
         if(rhs > val.size()) val = {0};
-        else val = vector<long long>(val.begin() + rhs, val.end()); 
+        else val = vector<long long>(val.begin() + rhs, val.end());
         return *this;
     }
-    inline bool operator<(const BigInt& rhs) const {
+    inline bool operator<(const BigInt &rhs) const {
         if(sign != rhs.sign) return sign < rhs.sign;
         if(val.size() != rhs.val.size()) return sign * val.size() < rhs.sign * rhs.val.size();
         for(int i = (int) val.size() - 1; i >= 0; --i){
@@ -295,23 +295,23 @@ public:
         }
         return false;
     }
-    inline bool operator>(const BigInt& rhs) const { return rhs < (*this); }
-    inline bool operator<=(const BigInt& rhs) const { return !((*this) > rhs); }
-    inline bool operator>=(const BigInt& rhs) const { return !((*this) < rhs); }
-    friend inline BigInt operator+(const BigInt& lhs, const BigInt& rhs) noexcept { return BigInt(lhs) += rhs; }
-    friend inline BigInt operator-(const BigInt& lhs, const BigInt& rhs) noexcept { return BigInt(lhs) -= rhs; }
-    friend inline BigInt operator*(const BigInt& lhs, const BigInt& rhs) noexcept { return BigInt(lhs) *= rhs; }
-    friend inline BigInt operator/(const BigInt& lhs, const BigInt& rhs) noexcept { return BigInt(lhs) /= rhs; }
-    friend inline BigInt operator%(const BigInt& lhs, const BigInt& rhs) noexcept { return BigInt(lhs) %= rhs; }
-    friend inline BigInt operator<<(const BigInt& lhs, const unsigned int rhs) noexcept { return BigInt(lhs) <<= rhs; }
-    friend inline BigInt operator>>(const BigInt& lhs, const unsigned int rhs) noexcept { return BigInt(lhs) >>= rhs; }
-    friend inline bool operator==(const BigInt& lhs, const BigInt& rhs) noexcept { return lhs.val == rhs.val; }
-    friend inline bool operator!=(const BigInt& lhs, const BigInt& rhs) noexcept { return lhs.val != rhs.val; }
-    friend inline istream& operator>>(istream& is, BigInt& x) noexcept {
+    inline bool operator>(const BigInt &rhs) const { return rhs < (*this); }
+    inline bool operator<=(const BigInt &rhs) const { return !((*this) > rhs); }
+    inline bool operator>=(const BigInt &rhs) const { return !((*this) < rhs); }
+    friend inline BigInt operator+(const BigInt &lhs, const BigInt &rhs) noexcept { return BigInt(lhs) += rhs; }
+    friend inline BigInt operator-(const BigInt &lhs, const BigInt &rhs) noexcept { return BigInt(lhs) -= rhs; }
+    friend inline BigInt operator*(const BigInt &lhs, const BigInt &rhs) noexcept { return BigInt(lhs) *= rhs; }
+    friend inline BigInt operator/(const BigInt &lhs, const BigInt &rhs) noexcept { return BigInt(lhs) /= rhs; }
+    friend inline BigInt operator%(const BigInt &lhs, const BigInt &rhs) noexcept { return BigInt(lhs) %= rhs; }
+    friend inline BigInt operator<<(const BigInt &lhs, const unsigned int rhs) noexcept { return BigInt(lhs) <<= rhs; }
+    friend inline BigInt operator>>(const BigInt &lhs, const unsigned int rhs) noexcept { return BigInt(lhs) >>= rhs; }
+    friend inline bool operator==(const BigInt &lhs, const BigInt &rhs) noexcept { return lhs.val == rhs.val; }
+    friend inline bool operator!=(const BigInt &lhs, const BigInt &rhs) noexcept { return lhs.val != rhs.val; }
+    friend inline istream &operator>>(istream &is, BigInt &x) noexcept {
         string s;
         is >> s;
         x.stoi(s);
         return is;
     }
-    friend inline ostream& operator<<(ostream& os, const BigInt& x) noexcept { return os << x.itos(); }
+    friend inline ostream &operator<<(ostream &os, const BigInt &x) noexcept { return os << x.itos(); }
 };

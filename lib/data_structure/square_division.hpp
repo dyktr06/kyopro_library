@@ -98,7 +98,7 @@ struct SquareDiv{
             }
             return res;
         }
-        
+
         for(int i = l; i < lb * block; ++i){
             res = fx(res, get(i));
         }
@@ -110,7 +110,7 @@ struct SquareDiv{
         }
         return res;
     }
-    
+
     X operator [](int i) const {
         return get(i);
     }

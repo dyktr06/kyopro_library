@@ -9,7 +9,7 @@ template <typename T>
 struct BinaryBasis{
 
     vector<T> basis, original;
-    BinaryBasis(const vector<T>& vec){
+    BinaryBasis(const vector<T> &vec){
         for(auto x : vec){
             T y = x;
             for(auto z : basis){

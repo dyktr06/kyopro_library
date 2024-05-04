@@ -14,7 +14,7 @@ vector<string> getPermutation(const string &s){
             t.push_back(s[array[i]]);
         }
         res.push_back(t);
-    }while(next_permutation(array.begin(), array.end()));
+    } while(next_permutation(array.begin(), array.end()));
     sort(res.begin(), res.end());
     res.erase(unique(res.begin(), res.end()), res.end());
     return res;

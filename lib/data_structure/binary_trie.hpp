@@ -46,7 +46,7 @@ private:
         }
         if(((lazy >> bit_idx) & 1) == ((x >> bit_idx) & 1)){
             return merge(insert_(x, id, n->nxt[0], bit_idx - 1), n->nxt[1]);
-        }else{
+        } else{
             return merge(n->nxt[0], insert_(x, id, n->nxt[1], bit_idx - 1));
         }
     }
@@ -58,25 +58,25 @@ private:
         }
         if(((lazy >> bit_idx) & 1) == ((x >> bit_idx) & 1)){
             return merge(erase_(x, id, n->nxt[0], bit_idx - 1), n->nxt[1]);
-        }else{
+        } else{
             return merge(n->nxt[0], erase_(x, id, n->nxt[1], bit_idx - 1));
         }
     }
 
-    pair<int, vector<int>&> find_(const T &x, Node *n, const int bit_idx){
+    pair<int, vector<int> &> find_(const T &x, Node *n, const int bit_idx){
         if(bit_idx == -1){
-            return pair<int, vector<int>&>(n->exist, n->accept);
+            return pair<int, vector<int> &>(n->exist, n->accept);
         }
         if(((lazy >> bit_idx) & 1) == ((x >> bit_idx) & 1)){
             return find_(x, n->nxt[0], bit_idx - 1);
-        }else{
+        } else{
             return find_(x, n->nxt[1], bit_idx - 1);
         }
     }
 
-    pair<T, vector<int>&> max_element_(Node *n, const int bit_idx) {
+    pair<T, vector<int> &> max_element_(Node *n, const int bit_idx) {
         if(bit_idx == -1){
-            return pair<T, vector<int>&>(0, n->accept);
+            return pair<T, vector<int> &>(0, n->accept);
         }
         if(n->nxt[~(lazy >> bit_idx) & 1]->exist){
             auto ret = max_element_(n->nxt[~(lazy >> bit_idx) & 1], bit_idx - 1);
@@ -86,9 +86,9 @@ private:
         return max_element_(n->nxt[(lazy >> bit_idx) & 1], bit_idx - 1);
     }
 
-    pair<T, vector<int>&> min_element_(Node *n, const int bit_idx){
+    pair<T, vector<int> &> min_element_(Node *n, const int bit_idx){
         if(bit_idx == -1){
-            return pair<T, vector<int>&>(0, n->accept);
+            return pair<T, vector<int> &>(0, n->accept);
         }
 
         if(n->nxt[(lazy >> bit_idx) & 1]->exist){
@@ -101,9 +101,9 @@ private:
     }
 
     // 1-indexed, minimum-kth
-    pair<T, vector<int>&> kth_element_(Node *n, const int k, const int bit_idx){
+    pair<T, vector<int> &> kth_element_(Node *n, const int k, const int bit_idx){
         if(bit_idx == -1){
-            return pair<T, vector<int>&>(0, n->accept);
+            return pair<T, vector<int> &>(0, n->accept);
         }
 
         int ex0 = n->nxt[(lazy >> bit_idx) & 1]->exist;
@@ -136,23 +136,23 @@ public:
         root = insert_(x, id, root, MAX_LOG);
     }
 
-    void erase(const T &x, const int id = -1){ 
+    void erase(const T &x, const int id = -1){
         root = erase_(x, id, root, MAX_LOG);
     }
 
-    pair<int, vector<int>&> find(const T &x){
+    pair<int, vector<int> &> find(const T &x){
         return find_(x, root, MAX_LOG);
     }
 
-    pair<T, vector<int>&> max_element(){
+    pair<T, vector<int> &> max_element(){
         return max_element_(root, MAX_LOG);
     }
 
-    pair<T, vector<int>&> min_element(){
+    pair<T, vector<int> &> min_element(){
         return min_element_(root, MAX_LOG);
     }
 
-    pair<T, vector<int>&> kth_element(const int k){
+    pair<T, vector<int> &> kth_element(const int k){
         return kth_element_(root, k, MAX_LOG);
     }
 

@@ -34,10 +34,10 @@ private:
         reverse_in[in[curr]] = curr;
         for(int v : G[curr]){
             if(v == prev) continue;
-            
+
             if(v == G[curr][0]){
                 pathtop[v] = pathtop[curr];
-            }else{
+            } else{
                 pathtop[v] = v;
             }
             depth[v] = depth[curr] + 1;
@@ -48,7 +48,7 @@ private:
 
 public:
     HeavyLightDecomposition(int node_size) : V(node_size), G(V), stsize(V, 0), parent(V, -1),
-    pathtop(V, -1), depth(V, 0), in(V, -1), reverse_in(V, -1), out(V, -1){}
+        pathtop(V, -1), depth(V, 0), in(V, -1), reverse_in(V, -1), out(V, -1){}
 
     void add_edge(int u, int v){
         G[u].push_back(v);
@@ -81,7 +81,7 @@ public:
         while(pathtop[a] != pathtop[b]){
             if(in[pa] > in[pb]){
                 a = parent[pa], pa = pathtop[a];
-            }else{
+            } else{
                 b = parent[pb], pb = pathtop[b];
             }
         }
@@ -112,7 +112,7 @@ public:
             if(in[pa] > in[pb]){
                 path.emplace_back(in[pa], in[a] + 1);
                 a = parent[pa], pa = pathtop[a];
-            }else{
+            } else{
                 path.emplace_back(in[pb], in[b] + 1);
                 b = parent[pb], pb = pathtop[b];
             }
@@ -121,9 +121,9 @@ public:
 
         if(include_root) path.emplace_back(in[a], in[b] + 1);
         else path.emplace_back(in[a] + 1, in[b] + 1);
-        
+
         if(!reverse_path) reverse(path.begin(), path.end());
-        else for(auto& p : path) p = make_pair(V - p.second, V - p.first);
+        else for(auto &p : path) p = make_pair(V - p.second, V - p.first);
 
         for(auto [u, v] : path){
             func(u, v);

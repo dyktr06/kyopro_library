@@ -33,9 +33,9 @@ public:
     T fold(){
         if(front_stack.empty()){
             return back_stack.top().sum;
-        }else if(back_stack.empty()){
+        } else if(back_stack.empty()){
             return front_stack.top().sum;
-        }else{
+        } else{
             return op(front_stack.top().sum, back_stack.top().sum);
         }
     }
@@ -43,7 +43,7 @@ public:
     void push(const T &x){
         if(back_stack.empty()){
             back_stack.emplace(x, x);
-        }else{
+        } else{
             T s = op(back_stack.top().sum, x);
             back_stack.emplace(x, s);
         }

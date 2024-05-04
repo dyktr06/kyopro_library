@@ -33,9 +33,9 @@ public:
     T fold(){
         if(front_stack.empty()){
             return back_stack.top().sum;
-        }else if(back_stack.empty()){
+        } else if(back_stack.empty()){
             return front_stack.top().sum;
-        }else{
+        } else{
             return op(front_stack.top().sum, back_stack.top().sum);
         }
     }
@@ -43,7 +43,7 @@ public:
     void push_front(const T &x){
         if(front_stack.empty()){
             front_stack.emplace(x, x);
-        }else{
+        } else{
             T s = op(x, front_stack.top().sum);
             front_stack.emplace(x, s);
         }
@@ -52,7 +52,7 @@ public:
     void push_back(const T &x){
         if(back_stack.empty()){
             back_stack.emplace(x, x);
-        }else{
+        } else{
             T s = op(back_stack.top().sum, x);
             back_stack.emplace(x, s);
         }
@@ -64,10 +64,10 @@ public:
             while(!back_stack.empty()){
                 if(back_stack.size() == half){
                     front_stack.emplace(back_stack.top().val, back_stack.top().val);
-                }else if(back_stack.size() < half){
+                } else if(back_stack.size() < half){
                     T s = op(back_stack.top().val, front_stack.top().sum);
                     front_stack.emplace(back_stack.top().val, s);
-                }else{
+                } else{
                     temp_stack.emplace(back_stack.top().val, back_stack.top().val);
                 }
                 back_stack.pop();
@@ -91,10 +91,10 @@ public:
             while(!front_stack.empty()){
                 if(front_stack.size() == half){
                     back_stack.emplace(front_stack.top().val, front_stack.top().val);
-                }else if(front_stack.size() < half){
+                } else if(front_stack.size() < half){
                     T s = op(back_stack.top().sum, front_stack.top().val);
                     back_stack.emplace(front_stack.top().val, s);
-                }else{
+                } else{
                     temp_stack.emplace(front_stack.top().val, front_stack.top().val);
                 }
                 front_stack.pop();

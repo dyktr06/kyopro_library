@@ -12,7 +12,7 @@ vector<int> z_algorithm(const T &s) {
     for(int i = 1, j = 0; i < n; ++i){
         if(i + res[i - j] < j + res[j]){
             res[i] = res[i - j];
-        }else{
+        } else{
             res[i] = max(j + res[j] - i, 0);
             while(i + res[i] < n && s[i + res[i]] == s[res[i]]) ++res[i];
             j = i;

@@ -14,7 +14,7 @@ long long babyStepGiantStep(long long x, long long y, long long m){
             u -= t * v; swap(u, v);
         }
         u %= m;
-        if (u < 0) u += m;
+        if(u < 0) u += m;
         return u;
     };
 
@@ -34,7 +34,7 @@ long long babyStepGiantStep(long long x, long long y, long long m){
 
     if(m == 1) return offset;
     (y *= inv(r, m)) %= m;
-    
+
     unordered_map<long long, long long> mp;
     // Baby Step
     long long z = 1, sq = sqrtl(m) + 1;
@@ -63,7 +63,7 @@ long long babyStepGiantStepP(long long x, long long y, long long m){
             u -= t * v; swap(u, v);
         }
         u %= m;
-        if (u < 0) u += m;
+        if(u < 0) u += m;
         return u;
     };
 
@@ -83,7 +83,7 @@ long long babyStepGiantStepP(long long x, long long y, long long m){
 
     if(m == 1) return offset;
     (y *= inv(r, m)) %= m;
-    
+
     unordered_map<long long, long long> mp;
     // Baby Step
     long long z = 1, sq = sqrtl(m) + 1;

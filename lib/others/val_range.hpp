@@ -5,7 +5,7 @@
  * @docs docs/others/val_range.md
  */
 
-// 0-indexed, (l, i], [i, r)
+ // 0-indexed, (l, i], [i, r)
 template<typename T>
 pair<vector<int>, vector<int>> val_range(const vector<T> &v, bool is_min){
     pair<vector<int>, vector<int>> res;
@@ -19,7 +19,7 @@ pair<vector<int>, vector<int>> val_range(const vector<T> &v, bool is_min){
             if(is_min ^ (v[st.top()] < v[i])){
                 res.second[st.top()] = i;
                 st.pop();
-            }else{
+            } else{
                 break;
             }
         }

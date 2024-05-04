@@ -4,13 +4,13 @@ template <typename T>
 struct FastDeque{
     int l = 1, r = 0;
     vector<T> L, R;
-    
+
     FastDeque(){}
 
     T front(){
         if(l <= 0){
             return L[-l];
-        }else{
+        } else{
             return R[l - 1];
         }
     }
@@ -20,10 +20,10 @@ struct FastDeque{
         if(l <= 0){
             if((int) L.size() == -l){
                 L.push_back(v);
-            }else{
+            } else{
                 L[-l] = v;
             }
-        }else{
+        } else{
             R[l - 1] = v;
         }
     }
@@ -35,7 +35,7 @@ struct FastDeque{
     T back(){
         if(r <= 0){
             return L[-r];
-        }else{
+        } else{
             return R[r - 1];
         }
     }
@@ -43,10 +43,10 @@ struct FastDeque{
     void push_back(int v){
         if(r < 0){
             L[-r - 1] = v;
-        }else{
+        } else{
             if((int) R.size() == r){
                 R.push_back(v);
-            }else{
+            } else{
                 R[r] = v;
             }
         }

@@ -1,10 +1,10 @@
 #pragma once
 
-/* 
+/*
     DynamicBinaryIndexedTree<S, T>(n) : BITをサイズnで構築
     add(i, x) : i 番目の要素に加算します。 O(log(n)^2)
     sum(l, r) : [l, r) の区間和を取得します。O(log(n)^2)
-    
+
     (以下の機能を使うには、0 <= i < N において、A_i >= 0 である必要があります。)
     lower_bound(x) : A_0 + A_1 + ... + A_y >= x となる最小の y を求めます。O(log(n))
 */
@@ -13,7 +13,7 @@ template <typename S, typename T>
 struct DynamicBinaryIndexedTree{
     S N;
     unordered_map<S, T> data;
-    DynamicBinaryIndexedTree(S _N): N(_N + 1){
+    DynamicBinaryIndexedTree(S _N) : N(_N + 1){
     }
 
     void add(S i, const T &x){

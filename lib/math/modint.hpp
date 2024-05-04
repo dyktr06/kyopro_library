@@ -14,23 +14,23 @@ struct ModInt{
     void normalize(){
         val = (val % Modulus + Modulus) % Modulus;
     }
-    inline ModInt& operator+=(const ModInt& rhs) noexcept {
+    inline ModInt &operator+=(const ModInt &rhs) noexcept {
         if(val += rhs.val, val >= Modulus) val -= Modulus;
         return *this;
     }
-    inline ModInt& operator-=(const ModInt& rhs) noexcept {
+    inline ModInt &operator-=(const ModInt &rhs) noexcept {
         if(val -= rhs.val, val < 0) val += Modulus;
         return *this;
     }
-    inline ModInt& operator*=(const ModInt& rhs) noexcept {
+    inline ModInt &operator*=(const ModInt &rhs) noexcept {
         val = val * rhs.val % Modulus;
         return *this;
     }
-    inline ModInt& operator/=(const ModInt& rhs) noexcept {
+    inline ModInt &operator/=(const ModInt &rhs) noexcept {
         val = val * inv(rhs.val).val % Modulus;
         return *this;
     }
-    inline ModInt& operator++() noexcept {
+    inline ModInt &operator++() noexcept {
         if(++val >= Modulus) val -= Modulus;
         return *this;
     }
@@ -39,7 +39,7 @@ struct ModInt{
         if(++val >= Modulus) val -= Modulus;
         return t;
     }
-    inline ModInt& operator--() noexcept {
+    inline ModInt &operator--() noexcept {
         if(--val < 0) val += Modulus;
         return *this;
     }
@@ -71,16 +71,16 @@ struct ModInt{
         if(u < 0) u += Modulus;
         return u;
     }
-    friend inline ModInt operator+(const ModInt& lhs, const ModInt& rhs) noexcept { return ModInt(lhs) += rhs; }
-    friend inline ModInt operator-(const ModInt& lhs, const ModInt& rhs) noexcept { return ModInt(lhs) -= rhs; }
-    friend inline ModInt operator*(const ModInt& lhs, const ModInt& rhs) noexcept { return ModInt(lhs) *= rhs; }
-    friend inline ModInt operator/(const ModInt& lhs, const ModInt& rhs) noexcept { return ModInt(lhs) /= rhs; }
-    friend inline bool operator==(const ModInt& lhs, const ModInt& rhs) noexcept { return lhs.val == rhs.val; }
-    friend inline bool operator!=(const ModInt& lhs, const ModInt& rhs) noexcept { return lhs.val != rhs.val; }
-    friend inline istream& operator>>(istream& is, ModInt& x) noexcept {
+    friend inline ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }
+    friend inline ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }
+    friend inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }
+    friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }
+    friend inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }
+    friend inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val != rhs.val; }
+    friend inline istream &operator>>(istream &is, ModInt &x) noexcept {
         is >> x.val;
         x.normalize();
         return is;
     }
-    friend inline ostream& operator<<(ostream& os, const ModInt& x) noexcept { return os << x.val; }
+    friend inline ostream &operator<<(ostream &os, const ModInt &x) noexcept { return os << x.val; }
 };

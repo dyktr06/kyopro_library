@@ -8,7 +8,7 @@
 struct RollingHash{
     vector<unsigned long long> hashed, power;
     const unsigned long long mod = (1uLL << 61) - 1;
-	
+
     unsigned long long mul(unsigned long long a, unsigned long long b) const {
         long long ret = a * b - mod * (unsigned long long)(1.0L / mod * a * b);
         return ret + mod * (ret < 0) - mod * (ret >= (long long) mod);

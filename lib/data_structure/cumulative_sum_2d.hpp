@@ -1,6 +1,6 @@
 #pragma once
 
-/* 
+/*
     CumulativeSum2D<T>(H, W) : CumulativeSum2Dをサイズ H * W で構築
     add(i, j, z) : (i, j) に z を加算します。 O(1)
     imos(i1, j1, i2, j2, v) : いもす法において、[(i1, j1), (i2, j2) ) に z を加算します。O(1)

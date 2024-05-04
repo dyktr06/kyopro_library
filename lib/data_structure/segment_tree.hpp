@@ -25,7 +25,7 @@ struct SegTree{
     X get(int i) const {
         return dat[i + n];
     }
-    
+
     void set(int i, const X &x){ dat[i + n] = x; }
 
     void build(){
@@ -54,7 +54,7 @@ struct SegTree{
         }
         return fx(vl, vr);
     }
-    
+
     X operator [](int i) const {
         return dat[i + n];
     }

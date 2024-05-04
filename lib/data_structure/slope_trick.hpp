@@ -36,10 +36,10 @@ public:
         if(L.empty()){
             if(R.empty()){
                 x = 0;
-            }else{
+            } else{
                 x = getR().x;
             }
-        }else{
+        } else{
             x = getL().x;
         }
         return make_pair(x, min_y);

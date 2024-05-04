@@ -9,7 +9,7 @@ template <typename T>
 struct ConvexHullTrick{
     deque<pair<T, T>> deq;
 
-    ConvexHullTrick(): deq(){
+    ConvexHullTrick() : deq(){
     }
 
     bool check(pair<T, T> line1, pair<T, T> line2, pair<T, T> line3){
