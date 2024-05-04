@@ -10,6 +10,9 @@ data:
     path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
     title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/convolution/convolution.test.cpp
+    title: test/library_checker/convolution/convolution.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
     title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -135,6 +138,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/convolution/bitwise_and_convolution.test.cpp
+  - test/library_checker/convolution/convolution.test.cpp
   - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp

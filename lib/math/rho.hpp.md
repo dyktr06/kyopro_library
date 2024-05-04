@@ -9,18 +9,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/math/factorize.test.cpp
     title: test/library_checker/math/factorize.test.cpp
-  - icon: ':x:'
-    path: test/library_checker/math/primarity_test.test.cpp
-    title: test/library_checker/math/primarity_test.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/math/primality_test.test.cpp
+    title: test/library_checker/math/primality_test.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/math/primitive_root.test.cpp
     title: test/library_checker/math/primitive_root.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_888.test.cpp
     title: test/yukicoder/yuki_888.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/rho.md
     document_title: Pollard's Rho
@@ -115,11 +115,11 @@ data:
   requiredBy:
   - lib/math/primitive_root.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_888.test.cpp
   - test/library_checker/math/factorize.test.cpp
-  - test/library_checker/math/primarity_test.test.cpp
+  - test/library_checker/math/primality_test.test.cpp
   - test/library_checker/math/primitive_root.test.cpp
 documentation_of: lib/math/rho.hpp
 layout: document

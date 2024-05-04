@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/rho.hpp
     title: Pollard's Rho
   - icon: ':heavy_check_mark:'
