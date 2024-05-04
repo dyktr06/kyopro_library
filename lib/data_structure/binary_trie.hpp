@@ -1,5 +1,6 @@
 #pragma once
 
+
 template <typename T, int MAX_LOG, int NODES = 1 << 24>
 struct BinaryTrie{
     struct Node{
