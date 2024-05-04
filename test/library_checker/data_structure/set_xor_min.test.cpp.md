@@ -16,7 +16,7 @@ data:
     - https://judge.yosupo.jp/problem/set_xor_min
   bundledCode: "#line 1 \"test/library_checker/data_structure/set_xor_min.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/set_xor_min\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 2 \"lib/data_structure/binary_trie.hpp\"\n\ntemplate\
+    using namespace std;\n\n#line 2 \"lib/data_structure/binary_trie.hpp\"\n\n\ntemplate\
     \ <typename T, int MAX_LOG, int NODES = 1 << 24>\nstruct BinaryTrie{\n    struct\
     \ Node{\n        Node *nxt[2];\n        int exist;\n        vector<int> accept;\n\
     \        Node() {}\n    };\n    Node *pool;\n    int pid;\n    T lazy;\n    Node\
@@ -105,7 +105,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/set_xor_min.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-05-04 23:14:01+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/set_xor_min.test.cpp

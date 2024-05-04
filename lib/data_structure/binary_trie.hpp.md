@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"lib/data_structure/binary_trie.hpp\"\n\ntemplate <typename\
+  bundledCode: "#line 2 \"lib/data_structure/binary_trie.hpp\"\n\n\ntemplate <typename\
     \ T, int MAX_LOG, int NODES = 1 << 24>\nstruct BinaryTrie{\n    struct Node{\n\
     \        Node *nxt[2];\n        int exist;\n        vector<int> accept;\n    \
     \    Node() {}\n    };\n    Node *pool;\n    int pid;\n    T lazy;\n    Node *nil;\n\
@@ -77,7 +77,7 @@ data:
     \       return root->exist;\n    }\n\n    bool empty() const {\n        return\
     \ size() == 0;\n    }\n\n    void operate_xor(const T &x){\n        lazy ^= x;\n\
     \    }\n};\n"
-  code: "#pragma once\n\ntemplate <typename T, int MAX_LOG, int NODES = 1 << 24>\n\
+  code: "#pragma once\n\n\ntemplate <typename T, int MAX_LOG, int NODES = 1 << 24>\n\
     struct BinaryTrie{\n    struct Node{\n        Node *nxt[2];\n        int exist;\n\
     \        vector<int> accept;\n        Node() {}\n    };\n    Node *pool;\n   \
     \ int pid;\n    T lazy;\n    Node *nil;\n    Node *root;\n\n    BinaryTrie() :\
@@ -146,7 +146,7 @@ data:
   isVerificationFile: false
   path: lib/data_structure/binary_trie.hpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-05-04 23:14:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/set_xor_min.test.cpp
