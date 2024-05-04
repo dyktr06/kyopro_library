@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/dynamic_binary_indexed_tree.hpp
     title: lib/data_structure/dynamic_binary_indexed_tree.hpp
   _extendedRequiredBy: []

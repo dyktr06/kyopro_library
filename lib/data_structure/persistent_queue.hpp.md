@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/persistent_array.hpp
     title: lib/data_structure/persistent_array.hpp
   _extendedRequiredBy: []

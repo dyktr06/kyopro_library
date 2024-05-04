@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/dynamic_binary_indexed_tree.hpp
     title: lib/data_structure/dynamic_binary_indexed_tree.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
     title: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/others/compression.hpp
     title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_add_rectangle_sum
@@ -121,7 +121,7 @@ data:
   path: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
 layout: document

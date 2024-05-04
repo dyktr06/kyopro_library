@@ -3,18 +3,18 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
     title: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/rectangle_add_point_get.test.cpp
     title: test/library_checker/data_structure/rectangle_add_point_get.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/rectangle_sum.test.cpp
     title: test/library_checker/data_structure/rectangle_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/range_tree.hpp\"\n\ntemplate <typename\
@@ -95,7 +95,7 @@ data:
   path: lib/data_structure/range_tree.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
   - test/library_checker/data_structure/rectangle_add_point_get.test.cpp

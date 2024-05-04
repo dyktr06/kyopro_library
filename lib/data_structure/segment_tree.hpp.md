@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/static_rmq.test.cpp
     title: test/library_checker/data_structure/static_rmq.test.cpp
   - icon: ':x:'
@@ -11,7 +11,7 @@ data:
     title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/data_structure/segment_tree.md
     document_title: Segment Tree
@@ -56,7 +56,7 @@ data:
   path: lib/data_structure/segment_tree.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - test/library_checker/data_structure/static_rmq.test.cpp

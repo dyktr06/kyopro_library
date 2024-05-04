@@ -5,19 +5,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/persistent_queue.hpp
     title: lib/data_structure/persistent_queue.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/persistent_union_find.hpp
     title: lib/data_structure/persistent_union_find.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/persistent_queue.test.cpp
     title: test/library_checker/data_structure/persistent_queue.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/persistent_unionfind.test.cpp
     title: test/library_checker/data_structure/persistent_unionfind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/persistent_array.hpp\"\n\ntemplate<typename\
@@ -55,7 +55,7 @@ data:
   - lib/data_structure/persistent_union_find.hpp
   - lib/data_structure/persistent_queue.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/persistent_queue.test.cpp
   - test/library_checker/data_structure/persistent_unionfind.test.cpp

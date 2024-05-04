@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/dynamic_binary_indexed_tree.hpp
     title: lib/data_structure/dynamic_binary_indexed_tree.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
     title: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/dynamic_binary_indexed_tree_2d.hpp\"\n\
@@ -79,7 +79,7 @@ data:
   path: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
 documentation_of: lib/data_structure/dynamic_binary_indexed_tree_2d.hpp

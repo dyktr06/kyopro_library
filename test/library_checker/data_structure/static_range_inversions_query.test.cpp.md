@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/data_structure/binary_indexed_tree.hpp
     title: Binary Indexed Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/mo.hpp
     title: lib/data_structure/mo.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/others/compression.hpp
     title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -44,7 +44,7 @@ data:
     \   }\n    }\n\n    template <typename A, typename E, typename O>\n    void build(const\
     \ A &add, const E &erase, const O &out){\n        build(add, add, erase, erase,\
     \ out);\n    }\n};\n#line 2 \"lib/data_structure/binary_indexed_tree.hpp\"\n\n\
-    /**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
+    \n/**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
     \ */\n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
     \ BIT;\n    BinaryIndexedTree(const int &N) : N(N), BIT(N + 1, 0){\n    }\n\n\
     \    T get(int i){\n        return sum(i + 1) - sum(i);\n    }\n\n    void add(int\
@@ -118,8 +118,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-05-04 19:03:38+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_inversions_query.test.cpp
 layout: document
