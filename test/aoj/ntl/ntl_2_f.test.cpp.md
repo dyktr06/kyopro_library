@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/bigint.hpp
     title: "BigInt (\u591A\u500D\u9577\u6574\u6570)"
   _extendedRequiredBy: []

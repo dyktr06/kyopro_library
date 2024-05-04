@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/primitive_root.hpp
     title: "Primitive Root (\u539F\u5B50\u6839)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/math/rho.hpp
     title: Pollard's Rho
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/others/random.hpp
     title: "Random (\u4E71\u6570\u751F\u6210)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/primitive_root
@@ -98,7 +98,7 @@ data:
   path: test/library_checker/math/primitive_root.test.cpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/math/primitive_root.test.cpp
 layout: document

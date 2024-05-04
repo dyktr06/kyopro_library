@@ -2,16 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/primitive_root.hpp
     title: "Primitive Root (\u539F\u5B50\u6839)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/math/primitive_root.test.cpp
     title: test/library_checker/math/primitive_root.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/others/random.md
     document_title: "Random (\u4E71\u6570\u751F\u6210)"
@@ -35,7 +35,7 @@ data:
   requiredBy:
   - lib/math/primitive_root.hpp
   timestamp: '2024-03-21 04:22:00+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/primitive_root.test.cpp
 documentation_of: lib/others/random.hpp

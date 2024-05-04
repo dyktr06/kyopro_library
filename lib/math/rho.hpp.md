@@ -2,17 +2,17 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/primitive_root.hpp
     title: "Primitive Root (\u539F\u5B50\u6839)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/math/factorize.test.cpp
     title: test/library_checker/math/factorize.test.cpp
   - icon: ':x:'
     path: test/library_checker/math/primarity_test.test.cpp
     title: test/library_checker/math/primarity_test.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/math/primitive_root.test.cpp
     title: test/library_checker/math/primitive_root.test.cpp
   - icon: ':x:'
@@ -20,7 +20,7 @@ data:
     title: test/yukicoder/yuki_888.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/rho.md
     document_title: Pollard's Rho
@@ -115,7 +115,7 @@ data:
   requiredBy:
   - lib/math/primitive_root.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/yuki_888.test.cpp
   - test/library_checker/math/factorize.test.cpp

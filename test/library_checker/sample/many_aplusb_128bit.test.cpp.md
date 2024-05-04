@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/bigint.hpp
     title: "BigInt (\u591A\u500D\u9577\u6574\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/many_aplusb_128bit
@@ -178,7 +178,7 @@ data:
   path: test/library_checker/sample/many_aplusb_128bit.test.cpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/sample/many_aplusb_128bit.test.cpp
 layout: document

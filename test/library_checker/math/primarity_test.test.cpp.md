@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/math/rho.hpp
     title: Pollard's Rho
   _extendedRequiredBy: []

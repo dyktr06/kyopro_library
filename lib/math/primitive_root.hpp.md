@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/math/rho.hpp
     title: Pollard's Rho
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/others/random.hpp
     title: "Random (\u4E71\u6570\u751F\u6210)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/math/primitive_root.test.cpp
     title: test/library_checker/math/primitive_root.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/primitive_root.md
     document_title: "Primitive Root (\u539F\u5B50\u6839)"
@@ -98,7 +98,7 @@ data:
   path: lib/math/primitive_root.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/primitive_root.test.cpp
 documentation_of: lib/math/primitive_root.hpp

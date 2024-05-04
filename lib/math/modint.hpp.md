@@ -24,19 +24,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
     title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/inverse_matrix.test.cpp
     title: test/library_checker/matrix/inverse_matrix.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/matrix_det.test.cpp
     title: test/library_checker/matrix/matrix_det.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/matrix_product.test.cpp
     title: test/library_checker/matrix/matrix_product.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/matrix_rank.test.cpp
     title: test/library_checker/matrix/matrix_rank.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/pow_of_matrix.test.cpp
     title: test/library_checker/matrix/pow_of_matrix.test.cpp
   - icon: ':x:'

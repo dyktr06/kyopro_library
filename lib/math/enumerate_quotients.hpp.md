@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/math/enumerate_quotients.test.cpp
     title: test/library_checker/math/enumerate_quotients.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/enumerate_quotients.md
     document_title: "Enumerate Quotients (\u5546\u5217\u6319)"
@@ -31,7 +31,7 @@ data:
   path: lib/math/enumerate_quotients.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/enumerate_quotients.test.cpp
 documentation_of: lib/math/enumerate_quotients.hpp

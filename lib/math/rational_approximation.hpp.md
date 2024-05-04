@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/math/fraction.hpp
     title: Fraction
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/math/rational_approximation.test.cpp
     title: test/library_checker/math/rational_approximation.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/rational_approximation.md
     document_title: "Rational Approximation (\u6709\u7406\u6570\u8FD1\u4F3C)"
@@ -92,7 +92,7 @@ data:
   path: lib/math/rational_approximation.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/rational_approximation.test.cpp
 documentation_of: lib/math/rational_approximation.hpp

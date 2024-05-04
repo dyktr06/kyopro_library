@@ -196,13 +196,13 @@ data:
         \u30A4\u30C9\u6CD5)"
   - name: lib/math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/arbitrary_modint.hpp
       title: Arbitrary Modint
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/baby-step_giant-step.hpp
       title: Baby-step giant-step
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/bigint.hpp
       title: "BigInt (\u591A\u500D\u9577\u6574\u6570)"
     - icon: ':x:'
@@ -217,16 +217,16 @@ data:
     - icon: ':x:'
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/enumerate_quotients.hpp
       title: "Enumerate Quotients (\u5546\u5217\u6319)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/math/fraction.hpp
       title: Fraction
     - icon: ':heavy_check_mark:'
       path: lib/math/kth_root_integer.hpp
       title: lib/math/kth_root_integer.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: Matrix
     - icon: ':warning:'
@@ -241,19 +241,19 @@ data:
     - icon: ':warning:'
       path: lib/math/prime-factor.hpp
       title: Smallest Prime Factor
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/prime-sieve.hpp
       title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
     - icon: ':warning:'
       path: lib/math/prime.hpp
       title: "\u7D20\u6570\u5224\u5B9A\u3001\u7D04\u6570\u5217\u6319"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/primitive_root.hpp
       title: "Primitive Root (\u539F\u5B50\u6839)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/rational_approximation.hpp
       title: "Rational Approximation (\u6709\u7406\u6570\u8FD1\u4F3C)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
     - icon: ':heavy_check_mark:'
@@ -273,7 +273,7 @@ data:
     - icon: ':warning:'
       path: lib/others/others.hpp
       title: lib/others/others.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/others/random.hpp
       title: "Random (\u4E71\u6570\u751F\u6210)"
     - icon: ':warning:'
@@ -519,19 +519,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
       title: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
       title: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/discrete_logarithm_mod.test.cpp
       title: test/library_checker/math/discrete_logarithm_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/enumerate_primes.test.cpp
       title: test/library_checker/math/enumerate_primes.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/enumerate_quotients.test.cpp
       title: test/library_checker/math/enumerate_quotients.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/factorize.test.cpp
       title: test/library_checker/math/factorize.test.cpp
     - icon: ':heavy_check_mark:'
@@ -540,32 +540,32 @@ data:
     - icon: ':x:'
       path: test/library_checker/math/primarity_test.test.cpp
       title: test/library_checker/math/primarity_test.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/primitive_root.test.cpp
       title: test/library_checker/math/primitive_root.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/rational_approximation.test.cpp
       title: test/library_checker/math/rational_approximation.test.cpp
   - name: test/library_checker/matrix
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/inverse_matrix.test.cpp
       title: test/library_checker/matrix/inverse_matrix.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/matrix_det.test.cpp
       title: test/library_checker/matrix/matrix_det.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/matrix_product.test.cpp
       title: test/library_checker/matrix/matrix_product.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/matrix_rank.test.cpp
       title: test/library_checker/matrix/matrix_rank.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/pow_of_matrix.test.cpp
       title: test/library_checker/matrix/pow_of_matrix.test.cpp
   - name: test/library_checker/sample
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/sample/many_aplusb_128bit.test.cpp
       title: test/library_checker/sample/many_aplusb_128bit.test.cpp
   - name: test/library_checker/string

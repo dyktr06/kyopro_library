@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/rational_approximation.hpp
     title: "Rational Approximation (\u6709\u7406\u6570\u8FD1\u4F3C)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/math/rational_approximation.test.cpp
     title: test/library_checker/math/rational_approximation.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: test/yukicoder/yuki_1464.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/fraction.md
     document_title: Fraction
@@ -81,7 +81,7 @@ data:
   requiredBy:
   - lib/math/rational_approximation.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/yuki_1464.test.cpp
   - test/library_checker/math/rational_approximation.test.cpp
