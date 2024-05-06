@@ -56,6 +56,7 @@
 "test/library_checker/geometry/sort_points_by_argument.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/geometry/static_convex_hull.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/graph/bipartitematching.test.cpp": "2024-05-04 18:06:16 +0900",
+"test/library_checker/graph/connected_components_of_complement_graph.test.cpp": "2024-05-06 21:04:03 +0900",
 "test/library_checker/graph/cycle_detection.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/graph/cycle_detection_undirected.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/graph/manhattanmst.test.cpp": "2024-05-04 18:06:16 +0900",
