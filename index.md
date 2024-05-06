@@ -157,6 +157,9 @@ data:
       path: lib/graph/cartesian_tree.hpp
       title: lib/graph/cartesian_tree.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/graph/connected_components_of_complement_graph.hpp
+      title: lib/graph/connected_components_of_complement_graph.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
     - icon: ':heavy_check_mark:'
@@ -502,6 +505,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/bipartitematching.test.cpp
       title: test/library_checker/graph/bipartitematching.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/connected_components_of_complement_graph.test.cpp
+      title: test/library_checker/graph/connected_components_of_complement_graph.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/cycle_detection.test.cpp
       title: test/library_checker/graph/cycle_detection.test.cpp
