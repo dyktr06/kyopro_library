@@ -5,20 +5,21 @@
  * @docs docs/graph/tree_diameter.md
  */
 
-struct TreeDiamiter{
-    using Graph = vector<vector<int>>;
+template <typename T>
+struct TreeDiameter{
+    using Graph = vector<vector<pair<int, T>>>;
     Graph G;
     vector<int> dist, dist2;
     int V, root, diam = -1;
     pair<int, int> ep;
 
-    TreeDiamiter(int n) : V(n){
+    TreeDiameter(int n) : V(n){
         G.resize(n);
     }
 
-    void add_edge(int u, int v){
-        G[u].emplace_back(v);
-        G[v].emplace_back(u);
+    void add_edge(int u, int v, T w = 1){
+        G[u].emplace_back(v, w);
+        G[v].emplace_back(u, w);
     }
 
     void build(int _root = 0){
@@ -44,15 +45,15 @@ struct TreeDiamiter{
 
     void dfs(const Graph &G, int v, int p, int d){
         dist[v] = d;
-        for(auto e : G[v]){
-            if(e != p) dfs(G, e, v, d + 1);
+        for(auto [e, w] : G[v]){
+            if(e != p) dfs(G, e, v, d + w);
         }
     }
 
     void dfs2(const Graph &G, int v, int p, int d){
         dist2[v] = d;
-        for(auto e : G[v]){
-            if(e != p) dfs2(G, e, v, d + 1);
+        for(auto [e, w] : G[v]){
+            if(e != p) dfs2(G, e, v, d + w);
         }
     }
 
