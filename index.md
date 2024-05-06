@@ -59,7 +59,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/dynamic_weighted_union_find.hpp
       title: lib/data_structure/dynamic_weighted_union_find.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/fast_deque.hpp
       title: lib/data_structure/fast_deque.hpp
     - icon: ':warning:'
@@ -150,7 +150,7 @@ data:
       path: lib/graph/bellman_ford.hpp
       title: "Bellman-Ford Algorithm (\u30D9\u30EB\u30DE\u30F3-\u30D5\u30A9\u30FC\u30C9\
         \u6CD5)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/bipartite_matching.hpp
       title: lib/graph/bipartite_matching.hpp
     - icon: ':heavy_check_mark:'
@@ -193,7 +193,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/tree_diameter.hpp
       title: "Tree Diameter (\u6728\u306E\u76F4\u5F84)"
     - icon: ':heavy_check_mark:'
@@ -235,7 +235,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: Matrix
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
     - icon: ':heavy_check_mark:'
@@ -250,7 +250,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/prime-sieve.hpp
       title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/prime.hpp
       title: "\u7D20\u6570\u5224\u5B9A\u3001\u7D04\u6570\u5217\u6319"
     - icon: ':heavy_check_mark:'
@@ -323,6 +323,9 @@ data:
       path: test/aoj/alds1/alds1_14_b.test.cpp
       title: test/aoj/alds1/alds1_14_b.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/aoj/alds1/alds1_1_c.test.cpp
+      title: test/aoj/alds1/alds1_1_c.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/alds1/alds1_5_a.test.cpp
       title: test/aoj/alds1/alds1_5_a.test.cpp
     - icon: ':heavy_check_mark:'
@@ -355,8 +358,20 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/grl/grl_1_c.test.cpp
       title: test/aoj/grl/grl_1_c.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/grl/grl_5_a.test.cpp
+      title: test/aoj/grl/grl_5_a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/grl/grl_7_a.test.cpp
+      title: test/aoj/grl/grl_7_a.test.cpp
   - name: test/aoj/ntl
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ntl/ntl_1_a.test.cpp
+      title: test/aoj/ntl/ntl_1_a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ntl/ntl_1_b.test.cpp
+      title: test/aoj/ntl/ntl_1_b.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/ntl/ntl_2_a.test.cpp
       title: test/aoj/ntl/ntl_2_a.test.cpp
@@ -394,6 +409,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
       title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/associative_array.test.cpp
+      title: test/library_checker/data_structure/associative_array.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
@@ -508,6 +526,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/connected_components_of_complement_graph.test.cpp
       title: test/library_checker/graph/connected_components_of_complement_graph.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/connected_components_of_complement_graph_1.test.cpp
+      title: test/library_checker/graph/connected_components_of_complement_graph_1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/cycle_detection.test.cpp
       title: test/library_checker/graph/cycle_detection.test.cpp
@@ -652,6 +673,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_888.test.cpp
       title: test/yukicoder/yuki_888.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/yuki_888_1.test.cpp
+      title: test/yukicoder/yuki_888_1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_901.test.cpp
       title: test/yukicoder/yuki_901.test.cpp

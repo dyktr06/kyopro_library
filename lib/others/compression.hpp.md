@@ -7,6 +7,9 @@ data:
     path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
     title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/associative_array.test.cpp
+    title: test/library_checker/data_structure/associative_array.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
     title: test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -70,6 +73,7 @@ data:
   - test/library_checker/data_structure/static_range_frequency.test.cpp
   - test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
   - test/library_checker/data_structure/static_range_count_distinct.test.cpp
+  - test/library_checker/data_structure/associative_array.test.cpp
 documentation_of: lib/others/compression.hpp
 layout: document
 redirect_from:

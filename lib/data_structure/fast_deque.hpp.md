@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/connected_components_of_complement_graph_1.test.cpp
+    title: test/library_checker/graph/connected_components_of_complement_graph_1.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/fast_deque.hpp\"\n\ntemplate <typename\
@@ -43,8 +46,9 @@ data:
   path: lib/data_structure/fast_deque.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library_checker/graph/connected_components_of_complement_graph_1.test.cpp
 documentation_of: lib/data_structure/fast_deque.hpp
 layout: document
 redirect_from:

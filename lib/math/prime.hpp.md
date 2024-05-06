@@ -2,10 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/alds1/alds1_1_c.test.cpp
+    title: test/aoj/alds1/alds1_1_c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/ntl/ntl_1_a.test.cpp
+    title: test/aoj/ntl/ntl_1_a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/yuki_888_1.test.cpp
+    title: test/yukicoder/yuki_888_1.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/prime.md
     document_title: "\u7D20\u6570\u5224\u5B9A\u3001\u7D04\u6570\u5217\u6319"
@@ -61,8 +70,11 @@ data:
   path: lib/math/prime.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/yuki_888_1.test.cpp
+  - test/aoj/ntl/ntl_1_a.test.cpp
+  - test/aoj/alds1/alds1_1_c.test.cpp
 documentation_of: lib/math/prime.hpp
 layout: document
 redirect_from:
