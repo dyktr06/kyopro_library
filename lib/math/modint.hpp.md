@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/string/wildcard_pattern_matching.hpp
+    title: lib/string/wildcard_pattern_matching.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
@@ -42,6 +45,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/pow_of_matrix.test.cpp
     title: test/library_checker/matrix/pow_of_matrix.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/string/wildcard_pattern_matching.test.cpp
+    title: test/library_checker/string/wildcard_pattern_matching.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/tree_path_composite_sum.test.cpp
     title: test/library_checker/tree/tree_path_composite_sum.test.cpp
@@ -133,7 +139,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/math/modint.hpp
-  requiredBy: []
+  requiredBy:
+  - lib/string/wildcard_pattern_matching.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -150,6 +157,7 @@ data:
   - test/library_checker/matrix/inverse_matrix.test.cpp
   - test/library_checker/matrix/matrix_rank.test.cpp
   - test/library_checker/matrix/pow_of_matrix.test.cpp
+  - test/library_checker/string/wildcard_pattern_matching.test.cpp
   - test/library_checker/tree/tree_path_composite_sum.test.cpp
 documentation_of: lib/math/modint.hpp
 layout: document

@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/string/wildcard_pattern_matching.hpp
+    title: lib/string/wildcard_pattern_matching.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/convolution.test.cpp
     title: test/library_checker/convolution/convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/string/wildcard_pattern_matching.test.cpp
+    title: test/library_checker/string/wildcard_pattern_matching.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -132,11 +138,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/convolution/fps.hpp
-  requiredBy: []
+  requiredBy:
+  - lib/string/wildcard_pattern_matching.hpp
   timestamp: '2024-05-05 01:52:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/convolution/convolution.test.cpp
+  - test/library_checker/string/wildcard_pattern_matching.test.cpp
 documentation_of: lib/convolution/fps.hpp
 layout: document
 redirect_from:

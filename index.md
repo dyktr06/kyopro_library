@@ -306,6 +306,9 @@ data:
       path: lib/string/suffix_array.hpp
       title: lib/string/suffix_array.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/string/wildcard_pattern_matching.hpp
+      title: lib/string/wildcard_pattern_matching.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/string/z_algorithm.hpp
       title: Z Algorithm
   - name: lib
@@ -612,6 +615,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/suffixarray.test.cpp
       title: test/library_checker/string/suffixarray.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/string/wildcard_pattern_matching.test.cpp
+      title: test/library_checker/string/wildcard_pattern_matching.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/z_algorithm.test.cpp
       title: test/library_checker/string/z_algorithm.test.cpp
