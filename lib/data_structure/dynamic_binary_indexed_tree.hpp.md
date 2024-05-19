@@ -70,8 +70,8 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/alds1/alds1_5_d.test.cpp
   - test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
+  - test/aoj/alds1/alds1_5_d.test.cpp
 documentation_of: lib/data_structure/dynamic_binary_indexed_tree.hpp
 layout: document
 redirect_from:

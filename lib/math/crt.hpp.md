@@ -50,8 +50,8 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/yuki_186.test.cpp
   - test/yukicoder/yuki_2119.test.cpp
+  - test/yukicoder/yuki_186.test.cpp
 documentation_of: lib/math/crt.hpp
 layout: document
 redirect_from:

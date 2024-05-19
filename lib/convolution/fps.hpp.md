@@ -143,8 +143,8 @@ data:
   timestamp: '2024-05-05 01:52:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/convolution/convolution.test.cpp
   - test/library_checker/string/wildcard_pattern_matching.test.cpp
+  - test/library_checker/convolution/convolution.test.cpp
 documentation_of: lib/convolution/fps.hpp
 layout: document
 redirect_from:

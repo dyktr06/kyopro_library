@@ -180,6 +180,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/manhattanMST.hpp
       title: Manhattan MST
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/maximum_independent_set.hpp
+      title: lib/graph/maximum_independent_set.hpp
     - icon: ':warning:'
       path: lib/graph/reachable_query.hpp
       title: lib/graph/reachable_query.hpp
@@ -541,6 +544,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/manhattanmst.test.cpp
       title: test/library_checker/graph/manhattanmst.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/maximum_independent_set.test.cpp
+      title: test/library_checker/graph/maximum_independent_set.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/minimum_spanning_tree.test.cpp
       title: test/library_checker/graph/minimum_spanning_tree.test.cpp
