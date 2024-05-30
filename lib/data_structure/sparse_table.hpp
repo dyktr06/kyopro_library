@@ -3,7 +3,7 @@
 template <class T>
 struct SparseTable{
     using FX = function<T(T, T)>;
-    FX op;
+    const FX op;
     vector<vector<T>> _table;
     vector<int> _log2;
 

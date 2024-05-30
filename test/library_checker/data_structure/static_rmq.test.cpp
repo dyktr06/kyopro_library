@@ -7,6 +7,9 @@ using namespace std;
 const long long INF = 0x1fffffffffffffff;
 
 int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n, q; cin >> n >> q;
     auto fx = [](long long x1, long long x2) -> long long { return min(x1, x2); };
     long long ex = INF;

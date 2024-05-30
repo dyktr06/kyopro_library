@@ -5,34 +5,49 @@
  * @docs docs/data_structure/segment_tree.md
  */
 
-template <typename X>
+template <typename T>
 struct SegTree{
-    using FX = function<X(X, X)>; // X•X -> X となる関数の型
+    using FX = function<T(T, T)>; // T•T -> T となる関数の型
     int n;
-    FX fx;
-    const X ex;
-    vector<X> dat;
+    const FX fx;
+    const T ex;
+    shared_ptr<T[]> dat;
 
-    SegTree(int n_, const FX &fx_, const X &ex_) : n(), fx(fx_), ex(ex_){
+    SegTree(int n_, const FX &fx_, const T &ex_) : n(), fx(fx_), ex(ex_){
         int x = 1;
         while(n_ > x){
             x *= 2;
         }
         n = x;
-        dat.assign(n * 2, ex);
+        dat = make_shared_for_overwrite<T[]>(n * 2);
+        for(int i = 0; i < n * 2; ++i){
+            dat[i] = ex;
+        }
+    }
+    SegTree(vector<T> &v, const FX &fx_, const T &ex_) : n(), fx(fx_), ex(ex_){
+        int x = 1;
+        while((int) v.size() > x){
+            x *= 2;
+        }
+        n = x;
+        dat = make_shared_for_overwrite<T[]>(n * 2);
+        for(int i = 0; i < n; ++i){
+            set(i, (i < (int) v.size() ? v[i] : ex));
+        }
+        build();
     }
 
-    X get(int i) const {
-        return dat[i + n];
-    }
-
-    void set(int i, const X &x){ dat[i + n] = x; }
+    void set(int i, const T &x){ dat[i + n] = x; }
 
     void build(){
         for(int k = n - 1; k >= 1; k--) dat[k] = fx(dat[k * 2], dat[k * 2 + 1]);
     }
 
-    void update(int i, const X &x){
+    T get(int i) const {
+        return dat[i + n];
+    }
+
+    void update(int i, const T &x){
         i += n;
         dat[i] = x;
         while(i > 0){
@@ -41,9 +56,9 @@ struct SegTree{
         }
     }
 
-    X query(int a, int b){
-        X vl = ex;
-        X vr = ex;
+    T query(int a, int b){
+        T vl = ex;
+        T vr = ex;
         int l = a + n;
         int r = b + n;
         while(l < r){
@@ -55,7 +70,26 @@ struct SegTree{
         return fx(vl, vr);
     }
 
-    X operator [](int i) const {
-        return dat[i + n];
+    class Index{
+        const shared_ptr<T[]> data;
+        const int pos;
+        const FX fx;
+
+    public:
+        Index(const shared_ptr<T[]> data_, const int index, const int size, const FX &fx_) : data(data_), pos(index + size), fx(fx_) {}
+        void operator=(const T value){
+            data[pos] = value;
+            for(int i = (pos >> 1); i > 0; i >>= 1) {
+                data[i] = fx(data[2 * i], data[2 * i + 1]);
+            }
+        }
+        operator T() const {
+            return data[pos];
+        }
+    };
+
+    Index operator[](const int index) const {
+        assert((uint) index < (uint) n);
+        return Index(dat, index, n, fx);
     }
 };
