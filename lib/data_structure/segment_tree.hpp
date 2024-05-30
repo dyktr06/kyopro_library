@@ -19,7 +19,7 @@ struct SegTree{
             x *= 2;
         }
         n = x;
-        dat = make_shared_for_overwrite<T[]>(n * 2);
+        dat = make_shared<T[]>(n * 2);
         for(int i = 0; i < n * 2; ++i){
             dat[i] = ex;
         }
@@ -30,7 +30,7 @@ struct SegTree{
             x *= 2;
         }
         n = x;
-        dat = make_shared_for_overwrite<T[]>(n * 2);
+        dat = make_shared<T[]>(n * 2);
         for(int i = 0; i < n; ++i){
             set(i, (i < (int) v.size() ? v[i] : ex));
         }
@@ -76,7 +76,7 @@ struct SegTree{
         const FX fx;
 
     public:
-        Index(const shared_ptr<T[]> data_, const int index, const int size, const FX &fx_) : data(data_), pos(index + size), fx(fx_) {}
+        Index(const shared_ptr<T[]> &data_, const int index, const int size, const FX &fx_) : data(data_), pos(index + size), fx(fx_) {}
         void operator=(const T value){
             data[pos] = value;
             for(int i = (pos >> 1); i > 0; i >>= 1) {
