@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/fps.hpp
     title: lib/convolution/fps.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   - icon: ':heavy_check_mark:'

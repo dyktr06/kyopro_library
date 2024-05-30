@@ -12,7 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
     title: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
     title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -24,9 +24,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_901.test.cpp
     title: test/yukicoder/yuki_901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/graph/heavy_light_decomposition.md
     document_title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
@@ -141,7 +141,7 @@ data:
   requiredBy:
   - lib/graph/auxiliary_tree.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp

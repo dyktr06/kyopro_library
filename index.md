@@ -101,7 +101,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/range_tree.hpp
       title: lib/data_structure/range_tree.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/data_structure/segment_tree.hpp
       title: Segment Tree
     - icon: ':heavy_check_mark:'
@@ -171,7 +171,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/grid-bfs.cpp
       title: lib/graph/grid-bfs.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/graph/heavy_light_decomposition.hpp
       title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
     - icon: ':warning:'
@@ -241,7 +241,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -484,7 +484,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_range_mode_query.test.cpp
       title: test/library_checker/data_structure/static_range_mode_query.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/data_structure/static_rmq.test.cpp
       title: test/library_checker/data_structure/static_rmq.test.cpp
     - icon: ':heavy_check_mark:'
@@ -502,7 +502,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
       title: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
       title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - name: test/library_checker/dp
