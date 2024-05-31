@@ -101,12 +101,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/range_tree.hpp
       title: lib/data_structure/range_tree.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree.hpp
       title: Segment Tree
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree_beats.hpp
       title: lib/data_structure/segment_tree_beats.hpp
+    - icon: ':warning:'
+      path: lib/data_structure/segment_tree_indexed.hpp
+      title: lib/data_structure/segment_tree_indexed.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/slope_trick.hpp
       title: lib/data_structure/slope_trick.hpp
@@ -171,7 +174,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/grid-bfs.cpp
       title: lib/graph/grid-bfs.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/heavy_light_decomposition.hpp
       title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
     - icon: ':warning:'
@@ -241,7 +244,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -484,7 +487,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_range_mode_query.test.cpp
       title: test/library_checker/data_structure/static_range_mode_query.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_rmq.test.cpp
       title: test/library_checker/data_structure/static_rmq.test.cpp
     - icon: ':heavy_check_mark:'
@@ -502,7 +505,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
       title: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
       title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - name: test/library_checker/dp
