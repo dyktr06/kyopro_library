@@ -1,17 +1,12 @@
 #pragma once
 
-/**
- * @brief Segment Tree
- * @docs docs/data_structure/segment_tree.md
- */
-
 template <typename T>
 struct SegTree{
     using FX = function<T(T, T)>; // T•T -> T となる関数の型
     int n;
     const FX fx;
     const T ex;
-    vector<T> dat;
+    shared_ptr<T[]> dat;
 
     SegTree(int n_, const FX &fx_, const T &ex_) : n(), fx(fx_), ex(ex_){
         int x = 1;
@@ -19,7 +14,7 @@ struct SegTree{
             x *= 2;
         }
         n = x;
-        dat.resize(n * 2);
+        dat = make_shared<T[]>(n * 2);
         for(int i = 0; i < n * 2; ++i){
             dat[i] = ex;
         }
@@ -30,7 +25,7 @@ struct SegTree{
             x *= 2;
         }
         n = x;
-        dat.resize(n * 2);
+        dat = make_shared<T[]>(n * 2);
         for(int i = 0; i < n; ++i){
             set(i, (i < (int) v.size() ? v[i] : ex));
         }
@@ -68,5 +63,28 @@ struct SegTree{
             r >>= 1;
         }
         return fx(vl, vr);
+    }
+
+    class Index{
+        const shared_ptr<T[]> data;
+        const int pos;
+        const FX fx;
+
+    public:
+        Index(const shared_ptr<T[]> &data_, const int index, const int size, const FX &fx_) : data(data_), pos(index + size), fx(fx_) {}
+        void operator=(const T value){
+            data[pos] = value;
+            for(int i = (pos >> 1); i > 0; i >>= 1) {
+                data[i] = fx(data[2 * i], data[2 * i + 1]);
+            }
+        }
+        operator T() const {
+            return data[pos];
+        }
+    };
+
+    Index operator[](const int index) const {
+        assert((uint) index < (uint) n);
+        return Index(dat, index, n, fx);
     }
 };
