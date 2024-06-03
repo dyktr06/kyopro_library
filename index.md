@@ -162,7 +162,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/connected_components_of_complement_graph.hpp
       title: lib/graph/connected_components_of_complement_graph.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/counting_spanning_tree.hpp
       title: lib/graph/counting_spanning_tree.hpp
     - icon: ':heavy_check_mark:'
@@ -241,13 +241,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/kth_root_integer.hpp
       title: lib/math/kth_root_integer.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: Matrix
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -541,10 +541,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/connected_components_of_complement_graph_1.test.cpp
       title: test/library_checker/graph/connected_components_of_complement_graph_1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/counting_spanning_tree_directed.test.cpp
       title: test/library_checker/graph/counting_spanning_tree_directed.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
       title: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
     - icon: ':heavy_check_mark:'
