@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':x:'
+    path: lib/graph/counting_spanning_tree.hpp
+    title: lib/graph/counting_spanning_tree.hpp
   - icon: ':question:'
     path: lib/math/matrix.hpp
     title: Matrix
@@ -9,63 +12,64 @@ data:
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/inverse_matrix
+    PROBLEM: https://judge.yosupo.jp/problem/counting_spanning_tree_undirected
     links:
-    - https://judge.yosupo.jp/problem/inverse_matrix
-  bundledCode: "#line 1 \"test/library_checker/matrix/inverse_matrix.test.cpp\"\n\
-    #define PROBLEM \"https://judge.yosupo.jp/problem/inverse_matrix\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 2 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n\
-    \ * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\nstruct ModInt{\n\
-    \    long long val;\n    constexpr ModInt(const long long _val = 0) noexcept :\
-    \ val(_val) {\n        normalize();\n    }\n    void normalize(){\n        val\
-    \ = (val % Modulus + Modulus) % Modulus;\n    }\n    inline ModInt &operator+=(const\
-    \ ModInt &rhs) noexcept {\n        if(val += rhs.val, val >= Modulus) val -= Modulus;\n\
-    \        return *this;\n    }\n    inline ModInt &operator-=(const ModInt &rhs)\
-    \ noexcept {\n        if(val -= rhs.val, val < 0) val += Modulus;\n        return\
-    \ *this;\n    }\n    inline ModInt &operator*=(const ModInt &rhs) noexcept {\n\
-    \        val = val * rhs.val % Modulus;\n        return *this;\n    }\n    inline\
-    \ ModInt &operator/=(const ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val\
-    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator++() noexcept\
-    \ {\n        if(++val >= Modulus) val -= Modulus;\n        return *this;\n   \
-    \ }\n    inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n \
-    \       if(++val >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline\
-    \ ModInt &operator--() noexcept {\n        if(--val < 0) val += Modulus;\n   \
-    \     return *this;\n    }\n    inline ModInt operator--(int) noexcept {\n   \
-    \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
-    \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
-    \ % Modulus; }\n    inline ModInt inv(void) const { return inv(val); }\n    ModInt\
-    \ pow(long long n){\n        assert(0 <= n);\n        ModInt x = *this, r = 1;\n\
-    \        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n     \
-    \       n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const long\
-    \ long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n     \
-    \   while(b){\n            long long t = a / b;\n            a -= t * b; swap(a,\
-    \ b);\n            u -= t * v; swap(u, v);\n        }\n        u %= Modulus;\n\
-    \        if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline\
-    \ ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
-    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
-    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
-    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ lhs.val != rhs.val; }\n    friend inline istream &operator>>(istream &is, ModInt\
-    \ &x) noexcept {\n        is >> x.val;\n        x.normalize();\n        return\
-    \ is;\n    }\n    friend inline ostream &operator<<(ostream &os, const ModInt\
-    \ &x) noexcept { return os << x.val; }\n};\n#line 2 \"lib/math/matrix.hpp\"\n\n\
-    /**\n * @brief Matrix\n * @docs docs/math/matrix.md\n */\n\ntemplate <typename\
-    \ T>\nstruct Matrix{\n    int n, m;\n    vector<T> val;\n    Matrix(int _n, int\
-    \ _m) : n(_n), m(_m), val(_n *_m){}\n    Matrix(const vector<vector<T>> &mat){\n\
-    \        n = mat.size();\n        m = mat[0].size();\n        val.resize(n * m);\n\
-    \        for(int i = 0; i < n; ++i){\n            for(int j = 0; j < m; ++j){\n\
-    \                val[i * m + j] = mat[i][j];\n            }\n        }\n    }\n\
-    \    static Matrix e(int _n){\n        Matrix res(_n, _n);\n        for(int i\
-    \ = 0; i < _n; ++i){\n            res[i][i] = T{1};\n        }\n        return\
+    - https://judge.yosupo.jp/problem/counting_spanning_tree_undirected
+  bundledCode: "#line 1 \"test/library_checker/graph/counting_spanning_tree_undirected.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/counting_spanning_tree_undirected\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/modint.hpp\"\
+    \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
+    \ long Modulus>\nstruct ModInt{\n    long long val;\n    constexpr ModInt(const\
+    \ long long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n  \
+    \  void normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n   \
+    \ }\n    inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val\
+    \ += rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n\
+    \    inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -=\
+    \ rhs.val, val < 0) val += Modulus;\n        return *this;\n    }\n    inline\
+    \ ModInt &operator*=(const ModInt &rhs) noexcept {\n        val = val * rhs.val\
+    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator/=(const\
+    \ ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val % Modulus;\n \
+    \       return *this;\n    }\n    inline ModInt &operator++() noexcept {\n   \
+    \     if(++val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
+    \ inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n        if(++val\
+    \ >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline ModInt &operator--()\
+    \ noexcept {\n        if(--val < 0) val += Modulus;\n        return *this;\n \
+    \   }\n    inline ModInt operator--(int) noexcept {\n        ModInt t = val;\n\
+    \        if(--val < 0) val += Modulus;\n        return t;\n    }\n    inline ModInt\
+    \ operator-() const noexcept { return (Modulus - val) % Modulus; }\n    inline\
+    \ ModInt inv(void) const { return inv(val); }\n    ModInt pow(long long n){\n\
+    \        assert(0 <= n);\n        ModInt x = *this, r = 1;\n        while(n){\n\
+    \            if(n & 1) r *= x;\n            x *= x;\n            n >>= 1;\n  \
+    \      }\n        return r;\n    }\n    ModInt inv(const long long n) const {\n\
+    \        long long a = n, b = Modulus, u = 1, v = 0;\n        while(b){\n    \
+    \        long long t = a / b;\n            a -= t * b; swap(a, b);\n         \
+    \   u -= t * v; swap(u, v);\n        }\n        u %= Modulus;\n        if(u <\
+    \ 0) u += Modulus;\n        return u;\n    }\n    friend inline ModInt operator+(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n  \
+    \  friend inline ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend\
+    \ inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend inline\
+    \ bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val\
+    \ != rhs.val; }\n    friend inline istream &operator>>(istream &is, ModInt &x)\
+    \ noexcept {\n        is >> x.val;\n        x.normalize();\n        return is;\n\
+    \    }\n    friend inline ostream &operator<<(ostream &os, const ModInt &x) noexcept\
+    \ { return os << x.val; }\n};\n#line 2 \"lib/graph/counting_spanning_tree.hpp\"\
+    \n\n#line 2 \"lib/math/matrix.hpp\"\n\n/**\n * @brief Matrix\n * @docs docs/math/matrix.md\n\
+    \ */\n\ntemplate <typename T>\nstruct Matrix{\n    int n, m;\n    vector<T> val;\n\
+    \    Matrix(int _n, int _m) : n(_n), m(_m), val(_n *_m){}\n    Matrix(const vector<vector<T>>\
+    \ &mat){\n        n = mat.size();\n        m = mat[0].size();\n        val.resize(n\
+    \ * m);\n        for(int i = 0; i < n; ++i){\n            for(int j = 0; j < m;\
+    \ ++j){\n                val[i * m + j] = mat[i][j];\n            }\n        }\n\
+    \    }\n    static Matrix e(int _n){\n        Matrix res(_n, _n);\n        for(int\
+    \ i = 0; i < _n; ++i){\n            res[i][i] = T{1};\n        }\n        return\
     \ res;\n    }\n    auto operator[](int i){ return val.begin() + i * m; }\n   \
     \ auto operator[](int i) const { return val.begin() + i * m; }\n    inline Matrix\
     \ &operator+=(const Matrix &rhs){\n        for(int i = 0; i < n * m; ++i){\n \
@@ -143,33 +147,44 @@ data:
     \    }\n    // Rotate 90 degrees clockwise\n    Matrix rotate() const {\n    \
     \    Matrix res(m, n), a = *this;\n        for(int i = 0; i < m; ++i){\n     \
     \       for(int j = 0; j < n; ++j){\n                res[i][j] = a[n - j - 1][i];\n\
-    \            }\n        }\n        return res;\n    }\n};\n#line 7 \"test/library_checker/matrix/inverse_matrix.test.cpp\"\
+    \            }\n        }\n        return res;\n    }\n};\n#line 4 \"lib/graph/counting_spanning_tree.hpp\"\
+    \n\ntemplate <typename T>\nT countingSpanningTree(const vector<vector<int>> &G,\
+    \ int root = 0){\n    const int n = G.size();\n    Matrix<mint> mat(n, n), dmat(n\
+    \ - 1, n - 1);\n    // \u30E9\u30D7\u30E9\u30B7\u30A2\u30F3\u884C\u5217\u3092\u4F5C\
+    \u308B\n    for(int i = 0; i < n; i++){\n        for(auto &j : G[i]){\n      \
+    \      if(i == j) continue;\n            mat[i][j] -= 1;\n            mat[j][j]\
+    \ += 1;\n        }\n    }\n\n    // \u4F59\u56E0\u5B50\u3092\u6C42\u3081\u308B\
+    \n    for(int i = 0; i < n; i++){\n        for(int j = 0; j < n; j++){\n     \
+    \       if(i != root && j != root){\n                dmat[i - (i > root ? 1 :\
+    \ 0)][j - (j > root ? 1 : 0)] = mat[i][j];\n            }\n        }\n    }\n\
+    \    return dmat.det();\n}\n#line 7 \"test/library_checker/graph/counting_spanning_tree_undirected.test.cpp\"\
     \n\nusing mint = ModInt<998244353>;\n\nint main(){\n    ios::sync_with_stdio(false);\n\
-    \    cin.tie(nullptr);\n\n    int n; cin >> n;\n    Matrix<mint> a(n, n);\n  \
-    \  for(int i = 0; i < n; i++){\n        for(int j = 0; j < n; j++){\n        \
-    \    cin >> a[i][j];\n        }\n    }\n    try{\n        a = a.inv();\n     \
-    \   cout << a;\n    }\n    catch(...){\n        cout << -1 << endl;\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inverse_matrix\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/modint.hpp\"\
-    \n#include \"../../../lib/math/matrix.hpp\"\n\nusing mint = ModInt<998244353>;\n\
+    \    cin.tie(nullptr);\n\n    int n, m, r; cin >> n >> m;\n    vector<vector<int>>\
+    \ G(n);\n    for(int i = 0; i < m; ++i){\n        int u, v; cin >> u >> v;\n \
+    \       G[u].push_back(v);\n        G[v].push_back(u);\n    }\n\n    cout << countingSpanningTree<mint>(G,\
+    \ 0) << '\\n';\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/counting_spanning_tree_undirected\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/modint.hpp\"\
+    \n#include \"../../../lib/graph/counting_spanning_tree.hpp\"\n\nusing mint = ModInt<998244353>;\n\
     \nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n   \
-    \ int n; cin >> n;\n    Matrix<mint> a(n, n);\n    for(int i = 0; i < n; i++){\n\
-    \        for(int j = 0; j < n; j++){\n            cin >> a[i][j];\n        }\n\
-    \    }\n    try{\n        a = a.inv();\n        cout << a;\n    }\n    catch(...){\n\
-    \        cout << -1 << endl;\n    }\n}"
+    \ int n, m, r; cin >> n >> m;\n    vector<vector<int>> G(n);\n    for(int i =\
+    \ 0; i < m; ++i){\n        int u, v; cin >> u >> v;\n        G[u].push_back(v);\n\
+    \        G[v].push_back(u);\n    }\n\n    cout << countingSpanningTree<mint>(G,\
+    \ 0) << '\\n';\n}\n"
   dependsOn:
   - lib/math/modint.hpp
+  - lib/graph/counting_spanning_tree.hpp
   - lib/math/matrix.hpp
   isVerificationFile: true
-  path: test/library_checker/matrix/inverse_matrix.test.cpp
+  path: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-06-04 05:02:33+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/matrix/inverse_matrix.test.cpp
+documentation_of: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/matrix/inverse_matrix.test.cpp
-- /verify/test/library_checker/matrix/inverse_matrix.test.cpp.html
-title: test/library_checker/matrix/inverse_matrix.test.cpp
+- /verify/test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
+- /verify/test/library_checker/graph/counting_spanning_tree_undirected.test.cpp.html
+title: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
 ---

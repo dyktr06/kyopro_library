@@ -36,8 +36,9 @@ data:
     \ T value){\n            data[pos] = value;\n            for(int i = (pos >> 1);\
     \ i > 0; i >>= 1) {\n                data[i] = fx(data[2 * i], data[2 * i + 1]);\n\
     \            }\n        }\n        operator T() const {\n            return data[pos];\n\
-    \        }\n    };\n\n    Index operator[](const int index) const {\n        assert((uint)\
-    \ index < (uint) n);\n        return Index(dat, index, n, fx);\n    }\n};\n"
+    \        }\n    };\n\n    Index operator[](const int index) const {\n        assert((unsigned\
+    \ int) index < (unsigned int) n);\n        return Index(dat, index, n, fx);\n\
+    \    }\n};\n"
   code: "#pragma once\n\ntemplate <typename T>\nstruct SegTree{\n    using FX = function<T(T,\
     \ T)>; // T\u2022T -> T \u3068\u306A\u308B\u95A2\u6570\u306E\u578B\n    int n;\n\
     \    const FX fx;\n    const T ex;\n    shared_ptr<T[]> dat;\n\n    SegTree(int\
@@ -66,13 +67,13 @@ data:
     \    for(int i = (pos >> 1); i > 0; i >>= 1) {\n                data[i] = fx(data[2\
     \ * i], data[2 * i + 1]);\n            }\n        }\n        operator T() const\
     \ {\n            return data[pos];\n        }\n    };\n\n    Index operator[](const\
-    \ int index) const {\n        assert((uint) index < (uint) n);\n        return\
-    \ Index(dat, index, n, fx);\n    }\n};\n"
+    \ int index) const {\n        assert((unsigned int) index < (unsigned int) n);\n\
+    \        return Index(dat, index, n, fx);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/segment_tree_indexed.hpp
   requiredBy: []
-  timestamp: '2024-05-31 18:23:43+09:00'
+  timestamp: '2024-06-04 05:02:45+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/data_structure/segment_tree_indexed.hpp

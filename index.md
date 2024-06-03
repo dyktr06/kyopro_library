@@ -162,6 +162,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/connected_components_of_complement_graph.hpp
       title: lib/graph/connected_components_of_complement_graph.hpp
+    - icon: ':x:'
+      path: lib/graph/counting_spanning_tree.hpp
+      title: lib/graph/counting_spanning_tree.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
@@ -238,13 +241,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/kth_root_integer.hpp
       title: lib/math/kth_root_integer.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/matrix.hpp
       title: Matrix
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -538,6 +541,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/connected_components_of_complement_graph_1.test.cpp
       title: test/library_checker/graph/connected_components_of_complement_graph_1.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/graph/counting_spanning_tree_directed.test.cpp
+      title: test/library_checker/graph/counting_spanning_tree_directed.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
+      title: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/cycle_detection.test.cpp
       title: test/library_checker/graph/cycle_detection.test.cpp
