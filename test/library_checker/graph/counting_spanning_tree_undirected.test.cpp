@@ -3,9 +3,10 @@
 using namespace std;
 
 #include "../../../lib/math/modint.hpp"
-#include "../../../lib/graph/counting_spanning_tree.hpp"
 
 using mint = ModInt<998244353>;
+
+#include "../../../lib/graph/counting_spanning_tree.hpp"
 
 int main(){
     ios::sync_with_stdio(false);
