@@ -84,7 +84,7 @@ struct SegTree{
     };
 
     Index operator[](const int index) const {
-        assert((uint) index < (uint) n);
+        assert((unsigned int) index < (unsigned int) n);
         return Index(dat, index, n, fx);
     }
 };
