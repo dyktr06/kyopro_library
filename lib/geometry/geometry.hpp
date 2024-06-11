@@ -2,13 +2,14 @@
 
 namespace Geometry{
     using T = long long;
+    const T INFT = 9e18;
     inline constexpr int type(T x, T y){
         if(!x && !y) return 0;
         if(y < 0 || (y == 0 && x > 0)) return -1;
         return 1;
     }
 
-    T abs(T x){
+    T absT(T x){
         if(x < 0) return -x;
         return x;
     }
@@ -47,7 +48,10 @@ namespace Geometry{
         // floor
         inline Point &operator/=(const T &k) { return x /= k, y /= k, *this; }
         inline Point operator/(const T &k) { return (*this /= k); }
-
+        friend inline istream &operator>>(istream &is, Point &p) noexcept {
+            is >> p.x >> p.y;
+            return is;
+        }
         friend inline ostream &operator<<(ostream &os, const Point &p) noexcept { return os << p.x << " " << p.y; }
     };
 
@@ -77,6 +81,10 @@ namespace Geometry{
 
     T dot(const Point &p, const Point &q){
         return p.x * q.x + p.y * q.y;
+    }
+
+    T manhattanDist(const Point &p, const Point &q){
+        return absT(p.x - q.x) + absT(p.y - q.y);
     }
 
     // 2乗
@@ -165,5 +173,109 @@ namespace Geometry{
         } else{
             return 0;
         }
+    }
+
+    pair<T, pair<int, int>> closestPair(vector<Point> &points){
+        const int n = points.size();
+        assert(n >= 2);
+        vector<pair<Point, int>> sortp(n);
+        for(int i = 0; i < n; i++){
+            sortp[i] = {points[i], i};
+        }
+
+        sort(sortp.begin(), sortp.end(), [](pair<Point, int> p, pair<Point, int> q){
+            return (p.first.x != q.first.x ? p.first.x < q.first.x : p.first.y < q.first.y);
+        });
+
+        int ans1 = -1, ans2 = -1;
+        T min_dist = INFT;
+        auto dfs = [&](auto &self, int l, int r) -> T {
+            if(r - l <= 1){
+                return INFT;
+            }
+            int mid = (l + r) / 2;
+            T d = min(self(self, l, mid), self(self, mid, r));
+            vector<pair<Point, int>> tmp;
+            for(int i = l; i < r; i++){
+                T dx = sortp[mid].first.x - sortp[i].first.x;
+                if(dx * dx < d){
+                    tmp.push_back(sortp[i]);
+                }
+            }
+            sort(tmp.begin(), tmp.end(), [](pair<Point, int> p, pair<Point, int> q){
+                return p.first.y < q.first.y;
+            });
+            for(int i = 0; i < (int) tmp.size(); i++){
+                for(int j = i + 1; j < (int) tmp.size(); j++){
+                    T dy = tmp[j].first.y - tmp[i].first.y;
+                    if(dy * dy >= d){
+                        break;
+                    }
+                    T td = dist(tmp[i].first, tmp[j].first);
+                    if(td < d){
+                        d = td;
+                        if(d < min_dist){
+                            min_dist = d;
+                            ans1 = tmp[i].second;
+                            ans2 = tmp[j].second;
+                        }
+                    }
+                }
+            }
+            return d;
+        };
+        dfs(dfs, 0, n);
+        return {min_dist, {ans1, ans2}};
+    }
+
+    pair<T, pair<int, int>> furthestPair(vector<Point> &points){
+        const int n = points.size();
+        assert(n >= 2);
+        vector<Point> convex = convexHull(points);
+        const int m = convex.size();
+
+        map<pair<T, T>, int> mp;
+        for(int i = 0; i < n; i++){
+            mp[{points[i].x, points[i].y}] = i;
+        }
+
+        vector<int> idx(m);
+        for(int i = 0; i < m; i++){
+            idx[i] = mp[{convex[i].x, convex[i].y}];
+        }
+
+        if(m == 1){
+            return {dist(points[0], points[1]), {0, 1}};
+        }else if(m == 2){
+            return {dist(convex[0], convex[1]), {idx[0], idx[1]}};
+        }
+
+        auto compare = [](Point p, Point q){
+            return p.x != q.x ? p.x < q.x : p.y < q.y;
+        };
+
+        int i = 0, j = 0;
+        for(int k = 0; k < m; k++){
+            if(compare(convex[k], convex[i])) i = k;
+            if(compare(convex[j], convex[k])) j = k;
+        }
+
+        int i0 = i, j0 = j;
+        T max_dist = 0;
+        int ans1 = -1, ans2 = -1;
+        while(i != j0 || j != i0){
+            T d = dist(convex[i], convex[j]);
+            if(d > max_dist){
+                max_dist = d;
+                ans1 = idx[i];
+                ans2 = idx[j];
+            }
+            if(cross(convex[(i + 1) % m] - convex[i], convex[(j + 1) % m] - convex[j]) < 0){
+                i = (i + 1) % m;
+            }else{
+                j = (j + 1) % m;
+            }
+        }
+        return {max_dist, {ans1, ans2}};
     }
 }
