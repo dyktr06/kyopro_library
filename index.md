@@ -449,6 +449,9 @@ data:
       path: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
       title: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/point_set_range_frequency.test.cpp
+      title: test/library_checker/data_structure/point_set_range_frequency.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
@@ -522,8 +525,14 @@ data:
   - name: test/library_checker/geometry
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/geometry/closest_pair.test.cpp
+      title: test/library_checker/geometry/closest_pair.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/geometry/count_points_in_triangle.test.cpp
       title: test/library_checker/geometry/count_points_in_triangle.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/geometry/furthest_pair.test.cpp
+      title: test/library_checker/geometry/furthest_pair.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/geometry/sort_points_by_argument.test.cpp
       title: test/library_checker/geometry/sort_points_by_argument.test.cpp

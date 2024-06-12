@@ -11,35 +11,35 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
+    PROBLEM: https://judge.yosupo.jp/problem/furthest_pair
     links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
-  bundledCode: "#line 1 \"test/aoj/cgl/cgl_3_a.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/geometry/geometry.hpp\"\
-    \n\nnamespace Geometry{\n    using T = long long;\n    const T INFT = 9e18;\n\
-    \    inline constexpr int type(T x, T y){\n        if(!x && !y) return 0;\n  \
-    \      if(y < 0 || (y == 0 && x > 0)) return -1;\n        return 1;\n    }\n\n\
-    \    T absT(T x){\n        if(x < 0) return -x;\n        return x;\n    }\n\n\
-    \    struct Point{\n        T x, y;\n        Point(T X = 0, T Y = 0) : x(X), y(Y){}\n\
-    \n        inline bool operator==(const Point &other) const {\n            return\
-    \ ((x == other.x) && (y == other.y));\n        }\n        inline bool operator!=(const\
-    \ Point &other) const {\n            return ((x != other.x) || (y != other.y));\n\
-    \        }\n        inline bool operator<(const Point &other) const {\n      \
-    \      int L = type(x, y), R = type(other.x, other.y);\n            if(L != R)\
-    \ return L < R;\n            if(x * other.y == other.x * y) return abs(x + y)\
-    \ < abs(other.x + other.y);\n            return x * other.y > other.x * y;\n \
-    \       }\n        inline bool operator>(const Point &other) const {\n       \
-    \     int L = type(x, y), R = type(other.x, other.y);\n            if(L != R)\
-    \ return L > R;\n            if(x * other.y == other.x * y) return abs(x + y)\
-    \ > abs(other.x + other.y);\n            return x * other.y < other.x * y;\n \
-    \       }\n        inline Point operator+() const noexcept { return *this; }\n\
-    \        inline Point operator-() const noexcept { return Point(-x, -y); }\n \
-    \       inline Point operator+(const Point &p) const { return Point(x + p.x, y\
-    \ + p.y); }\n        inline Point operator-(const Point &p) const { return Point(x\
-    \ - p.x, y - p.y); }\n        inline Point &operator+=(const Point &p) { return\
-    \ x += p.x, y += p.y, *this; }\n        inline Point &operator-=(const Point &p)\
-    \ { return x -= p.x, y -= p.y, *this; }\n        inline T operator*(const Point\
-    \ &p) const { return x * p.x + y * p.y; }\n        inline Point &operator*=(const\
+    - https://judge.yosupo.jp/problem/furthest_pair
+  bundledCode: "#line 1 \"test/library_checker/geometry/furthest_pair.test.cpp\"\n\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/furthest_pair\"\n#include <bits/stdc++.h>\n\
+    using namespace std;\n\n#line 2 \"lib/geometry/geometry.hpp\"\n\nnamespace Geometry{\n\
+    \    using T = long long;\n    const T INFT = 9e18;\n    inline constexpr int\
+    \ type(T x, T y){\n        if(!x && !y) return 0;\n        if(y < 0 || (y == 0\
+    \ && x > 0)) return -1;\n        return 1;\n    }\n\n    T absT(T x){\n      \
+    \  if(x < 0) return -x;\n        return x;\n    }\n\n    struct Point{\n     \
+    \   T x, y;\n        Point(T X = 0, T Y = 0) : x(X), y(Y){}\n\n        inline\
+    \ bool operator==(const Point &other) const {\n            return ((x == other.x)\
+    \ && (y == other.y));\n        }\n        inline bool operator!=(const Point &other)\
+    \ const {\n            return ((x != other.x) || (y != other.y));\n        }\n\
+    \        inline bool operator<(const Point &other) const {\n            int L\
+    \ = type(x, y), R = type(other.x, other.y);\n            if(L != R) return L <\
+    \ R;\n            if(x * other.y == other.x * y) return abs(x + y) < abs(other.x\
+    \ + other.y);\n            return x * other.y > other.x * y;\n        }\n    \
+    \    inline bool operator>(const Point &other) const {\n            int L = type(x,\
+    \ y), R = type(other.x, other.y);\n            if(L != R) return L > R;\n    \
+    \        if(x * other.y == other.x * y) return abs(x + y) > abs(other.x + other.y);\n\
+    \            return x * other.y < other.x * y;\n        }\n        inline Point\
+    \ operator+() const noexcept { return *this; }\n        inline Point operator-()\
+    \ const noexcept { return Point(-x, -y); }\n        inline Point operator+(const\
+    \ Point &p) const { return Point(x + p.x, y + p.y); }\n        inline Point operator-(const\
+    \ Point &p) const { return Point(x - p.x, y - p.y); }\n        inline Point &operator+=(const\
+    \ Point &p) { return x += p.x, y += p.y, *this; }\n        inline Point &operator-=(const\
+    \ Point &p) { return x -= p.x, y -= p.y, *this; }\n        inline T operator*(const\
+    \ Point &p) const { return x * p.x + y * p.y; }\n        inline Point &operator*=(const\
     \ T &k) { return x *= k, y *= k, *this; }\n        inline Point operator*(const\
     \ T &k) { return (*this *= k); }\n        // floor\n        inline Point &operator/=(const\
     \ T &k) { return x /= k, y /= k, *this; }\n        inline Point operator/(const\
@@ -136,29 +136,33 @@ data:
     \   ans2 = idx[j];\n            }\n            if(cross(convex[(i + 1) % m] -\
     \ convex[i], convex[(j + 1) % m] - convex[j]) < 0){\n                i = (i +\
     \ 1) % m;\n            }else{\n                j = (j + 1) % m;\n            }\n\
-    \        }\n        return {max_dist, {ans1, ans2}};\n    }\n}\n#line 6 \"test/aoj/cgl/cgl_3_a.test.cpp\"\
-    \n\nint main(){\n    int n; cin >> n;\n    vector<Geometry::Point> xy(n);\n  \
-    \  for(int i = 0; i < n; i++){\n        int x, y; cin >> x >> y;\n        xy[i]\
-    \ = Geometry::Point(x, y);\n    }\n    long double ans = Geometry::polygonArea(xy);\n\
-    \    ans /= 2;\n    printf(\"%.1Lf\\n\", ans);\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/geometry/geometry.hpp\"\
-    \n\nint main(){\n    int n; cin >> n;\n    vector<Geometry::Point> xy(n);\n  \
-    \  for(int i = 0; i < n; i++){\n        int x, y; cin >> x >> y;\n        xy[i]\
-    \ = Geometry::Point(x, y);\n    }\n    long double ans = Geometry::polygonArea(xy);\n\
-    \    ans /= 2;\n    printf(\"%.1Lf\\n\", ans);\n}"
+    \        }\n        return {max_dist, {ans1, ans2}};\n    }\n}\n#line 6 \"test/library_checker/geometry/furthest_pair.test.cpp\"\
+    \n\nvoid solve(){\n    int n; cin >> n;\n    vector<Geometry::Point> points(n);\n\
+    \    for(int i = 0; i < n; i++){\n        cin >> points[i];\n    }\n\n    auto\
+    \ [dist, p] = Geometry::furthestPair(points);\n    cout << p.first << \" \" <<\
+    \ p.second << \"\\n\";\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n \
+    \   cin.tie(nullptr);\n\n    int T; cin >> T;\n    while(T--){\n        solve();\n\
+    \    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/furthest_pair\"\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/geometry/geometry.hpp\"\
+    \n\nvoid solve(){\n    int n; cin >> n;\n    vector<Geometry::Point> points(n);\n\
+    \    for(int i = 0; i < n; i++){\n        cin >> points[i];\n    }\n\n    auto\
+    \ [dist, p] = Geometry::furthestPair(points);\n    cout << p.first << \" \" <<\
+    \ p.second << \"\\n\";\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n \
+    \   cin.tie(nullptr);\n\n    int T; cin >> T;\n    while(T--){\n        solve();\n\
+    \    }\n}\n"
   dependsOn:
   - lib/geometry/geometry.hpp
   isVerificationFile: true
-  path: test/aoj/cgl/cgl_3_a.test.cpp
+  path: test/library_checker/geometry/furthest_pair.test.cpp
   requiredBy: []
   timestamp: '2024-06-12 05:33:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/cgl/cgl_3_a.test.cpp
+documentation_of: test/library_checker/geometry/furthest_pair.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/cgl/cgl_3_a.test.cpp
-- /verify/test/aoj/cgl/cgl_3_a.test.cpp.html
-title: test/aoj/cgl/cgl_3_a.test.cpp
+- /verify/test/library_checker/geometry/furthest_pair.test.cpp
+- /verify/test/library_checker/geometry/furthest_pair.test.cpp.html
+title: test/library_checker/geometry/furthest_pair.test.cpp
 ---
