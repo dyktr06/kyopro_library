@@ -100,7 +100,7 @@ namespace Geometry{
             res += cross(points[i], points[i + 1]);
         }
         res += cross(points[n - 1], points[0]);
-        return res;
+        return absT(res);
     }
 
     vector<Point> convexHull(vector<Point> points){
