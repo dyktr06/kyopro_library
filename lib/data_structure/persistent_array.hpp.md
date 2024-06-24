@@ -57,8 +57,8 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/data_structure/persistent_queue.test.cpp
   - test/library_checker/data_structure/persistent_unionfind.test.cpp
+  - test/library_checker/data_structure/persistent_queue.test.cpp
 documentation_of: lib/data_structure/persistent_array.hpp
 layout: document
 redirect_from:

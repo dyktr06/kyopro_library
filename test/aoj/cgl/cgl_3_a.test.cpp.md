@@ -63,8 +63,8 @@ data:
     \  // 2\u500D\n    T polygonArea(const vector<Point> &points){\n        const\
     \ int n = points.size();\n        T res = 0;\n        for(int i = 0; i < n - 1;\
     \ i++){\n            res += cross(points[i], points[i + 1]);\n        }\n    \
-    \    res += cross(points[n - 1], points[0]);\n        return res;\n    }\n\n \
-    \   vector<Point> convexHull(vector<Point> points){\n        vector<Point> U,\
+    \    res += cross(points[n - 1], points[0]);\n        return absT(res);\n    }\n\
+    \n    vector<Point> convexHull(vector<Point> points){\n        vector<Point> U,\
     \ L, res;\n        sort(points.begin(), points.end(), [](Point p, Point q){\n\
     \            return (p.x != q.x ? p.x < q.x : p.y < q.y);\n        });\n     \
     \   points.erase(unique(points.begin(), points.end()), points.end());\n      \
@@ -152,7 +152,7 @@ data:
   isVerificationFile: true
   path: test/aoj/cgl/cgl_3_a.test.cpp
   requiredBy: []
-  timestamp: '2024-06-12 05:33:22+09:00'
+  timestamp: '2024-06-24 21:37:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/cgl/cgl_3_a.test.cpp
