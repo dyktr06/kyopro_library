@@ -9,8 +9,9 @@ template <typename T>
 struct TreeDiameter{
     using Graph = vector<vector<pair<int, T>>>;
     Graph G;
-    vector<int> dist, dist2;
-    int V, root, diam = -1;
+    vector<T> dist, dist2;
+    int V, root;
+    T diam = -1;
     pair<int, int> ep;
 
     TreeDiameter(int n) : V(n){
@@ -26,7 +27,7 @@ struct TreeDiameter{
         root = _root;
         dist.assign(V, -1); dist2.assign(V, -1);
         dfs(G, root, -1, 0);
-        int mx = 0;
+        T mx = 0;
         for(int i = 0; i < V; i++){
             if(mx < dist[i]){
                 mx = dist[i];
@@ -43,21 +44,21 @@ struct TreeDiameter{
         }
     }
 
-    void dfs(const Graph &G, int v, int p, int d){
+    void dfs(const Graph &G, int v, int p, T d){
         dist[v] = d;
         for(auto [e, w] : G[v]){
             if(e != p) dfs(G, e, v, d + w);
         }
     }
 
-    void dfs2(const Graph &G, int v, int p, int d){
+    void dfs2(const Graph &G, int v, int p, T d){
         dist2[v] = d;
         for(auto [e, w] : G[v]){
             if(e != p) dfs2(G, e, v, d + w);
         }
     }
 
-    int diameter(){
+    T diameter(){
         return diam;
     }
 
