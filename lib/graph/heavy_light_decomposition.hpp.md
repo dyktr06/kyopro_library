@@ -143,12 +143,12 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/yuki_901.test.cpp
-  - test/library_checker/data_structure/vertex_add_path_sum.test.cpp
-  - test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
+  - test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
+  - test/library_checker/data_structure/vertex_add_path_sum.test.cpp
   - test/library_checker/tree/lca_hl.test.cpp
   - test/library_checker/tree/jump_on_tree.test.cpp
+  - test/yukicoder/yuki_901.test.cpp
 documentation_of: lib/graph/heavy_light_decomposition.hpp
 layout: document
 redirect_from:

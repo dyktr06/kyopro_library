@@ -61,8 +61,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/unionfind.test.cpp
-  - test/library_checker/graph/manhattanmst.test.cpp
   - test/library_checker/graph/minimum_spanning_tree.test.cpp
+  - test/library_checker/graph/manhattanmst.test.cpp
   - test/library_checker/graph/cycle_detection_undirected.test.cpp
 documentation_of: lib/data_structure/union_find.hpp
 layout: document

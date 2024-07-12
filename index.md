@@ -95,7 +95,7 @@ data:
     - icon: ':warning:'
       path: lib/data_structure/priority_queue.hpp
       title: lib/data_structure/priority_queue.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/priority_set.hpp
       title: lib/data_structure/priority_set.hpp
     - icon: ':heavy_check_mark:'
@@ -700,6 +700,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2712.test.cpp
       title: test/yukicoder/yuki_2712.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/yuki_2809.test.cpp
+      title: test/yukicoder/yuki_2809.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_416.test.cpp
       title: test/yukicoder/yuki_416.test.cpp
