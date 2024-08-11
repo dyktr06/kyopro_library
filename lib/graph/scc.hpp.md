@@ -67,8 +67,8 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/graph/cycle_detection.test.cpp
   - test/library_checker/graph/scc.test.cpp
+  - test/library_checker/graph/cycle_detection.test.cpp
 documentation_of: lib/graph/scc.hpp
 layout: document
 redirect_from:

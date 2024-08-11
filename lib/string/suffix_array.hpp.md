@@ -98,8 +98,8 @@ data:
   timestamp: '2024-02-14 05:37:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/string/suffixarray.test.cpp
   - test/library_checker/string/number_of_substrings.test.cpp
+  - test/library_checker/string/suffixarray.test.cpp
 documentation_of: lib/string/suffix_array.hpp
 layout: document
 redirect_from:

@@ -83,8 +83,8 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/math/rational_approximation.test.cpp
   - test/yukicoder/yuki_1464.test.cpp
+  - test/library_checker/math/rational_approximation.test.cpp
 documentation_of: lib/math/fraction.hpp
 layout: document
 redirect_from:

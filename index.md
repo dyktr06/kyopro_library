@@ -146,6 +146,9 @@ data:
       title: lib/geometry/geometry.hpp
   - name: lib/graph
     pages:
+    - icon: ':warning:'
+      path: lib/graph/T_join.hpp
+      title: lib/graph/T_join.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/auxiliary_tree.hpp
       title: lib/graph/auxiliary_tree.hpp
@@ -199,6 +202,9 @@ data:
       path: lib/graph/scc.hpp
       title: "Strongly Connected Component (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
+    - icon: ':warning:'
+      path: lib/graph/steiner_tree.hpp
+      title: lib/graph/steiner_tree.hpp
     - icon: ':warning:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
