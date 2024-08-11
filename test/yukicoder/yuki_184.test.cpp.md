@@ -59,7 +59,7 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_184.test.cpp
   requiredBy: []
-  timestamp: '2024-08-11 14:50:42+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_184.test.cpp
