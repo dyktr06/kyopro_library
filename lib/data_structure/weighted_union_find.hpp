@@ -7,24 +7,24 @@
 
 template <typename T>
 struct WeightedUnionFind{
-    vector<int> par, rank, siz;
+    vector<int> par;
     vector<T> diff_weight;
+    T ex;
 
-    WeightedUnionFind(const int N, const T &e = 0) : par(N), rank(N), siz(N), diff_weight(N){
+    WeightedUnionFind(const int N, const T &e = 0) : par(N), diff_weight(N), ex(e){
         for(int i = 0; i < N; ++i){
-            par[i] = i;
-            rank[i] = 0;
-            siz[i] = 1;
+            par[i] = -1;
             diff_weight[i] = e;
         }
     }
 
     int root(const int x){
-        if(par[x] == x){
+        if(par[x] < 0){
             return x;
         }
+        int px = par[x];
         int rx = root(par[x]);
-        diff_weight[x] += diff_weight[par[x]];
+        diff_weight[x] = diff_weight[x] + diff_weight[px];
         return par[x] = rx;
     }
 
@@ -34,35 +34,31 @@ struct WeightedUnionFind{
     }
 
     T diff(const int x, const int y){
-        return weight(y) - weight(x);
+        return weight(x) - weight(y);
     }
 
-    void unite(const int x, const int y, T w){
-        w += weight(x);
-        w -= weight(y);
-
-        int rx = root(x);
-        int ry = root(y);
+    void unite(const int x, const int y, const T &w){
+        int tx = x, ty = y;
+        T tw = w;
+        int rx = root(x), ry = root(y);
         if(rx == ry) return;
 
-        if(rank[rx] < rank[ry]){
+        if(par[rx] < par[ry]){
             swap(rx, ry);
-            w = -w;
+            swap(tx, ty);
+            tw = ex - tw;
         }
 
-        par[ry] = rx;
-        siz[rx] += siz[ry];
-        diff_weight[ry] = w;
-        if(rank[rx] == rank[ry]) ++rank[rx];
+        par[ry] = par[rx] + par[ry];
+        par[rx] = ry;
+        diff_weight[rx] = ex - diff_weight[tx] + tw + diff_weight[ty];
     }
 
     bool same(const int x, const int y){
-        int rx = root(x);
-        int ry = root(y);
-        return rx == ry;
+        return root(x) == root(y);
     }
 
     int size(const int x){
-        return siz[root(x)];
+        return -par[root(x)];
     }
 };
