@@ -6,6 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/dsl/dsl_1_b.test.cpp
     title: test/aoj/dsl/dsl_1_b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/unionfind_with_potential.test.cpp
+    title: test/library_checker/data_structure/unionfind_with_potential.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
+    title: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -15,51 +21,51 @@ data:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/weighted_union_find.hpp\"\n\n/**\n *\
     \ @brief Weighted Union Find\n * @docs docs/data_structure/weighted_union_find.md\n\
-    \ */\n\ntemplate <typename T>\nstruct WeightedUnionFind{\n    vector<int> par,\
-    \ rank, siz;\n    vector<T> diff_weight;\n\n    WeightedUnionFind(const int N,\
-    \ const T &e = 0) : par(N), rank(N), siz(N), diff_weight(N){\n        for(int\
-    \ i = 0; i < N; ++i){\n            par[i] = i;\n            rank[i] = 0;\n   \
-    \         siz[i] = 1;\n            diff_weight[i] = e;\n        }\n    }\n\n \
-    \   int root(const int x){\n        if(par[x] == x){\n            return x;\n\
-    \        }\n        int rx = root(par[x]);\n        diff_weight[x] += diff_weight[par[x]];\n\
-    \        return par[x] = rx;\n    }\n\n    T weight(const int x){\n        root(x);\n\
-    \        return diff_weight[x];\n    }\n\n    T diff(const int x, const int y){\n\
-    \        return weight(y) - weight(x);\n    }\n\n    void unite(const int x, const\
-    \ int y, T w){\n        w += weight(x);\n        w -= weight(y);\n\n        int\
-    \ rx = root(x);\n        int ry = root(y);\n        if(rx == ry) return;\n\n \
-    \       if(rank[rx] < rank[ry]){\n            swap(rx, ry);\n            w = -w;\n\
-    \        }\n\n        par[ry] = rx;\n        siz[rx] += siz[ry];\n        diff_weight[ry]\
-    \ = w;\n        if(rank[rx] == rank[ry]) ++rank[rx];\n    }\n\n    bool same(const\
-    \ int x, const int y){\n        int rx = root(x);\n        int ry = root(y);\n\
-    \        return rx == ry;\n    }\n\n    int size(const int x){\n        return\
-    \ siz[root(x)];\n    }\n};\n"
+    \ */\n\ntemplate <typename T>\nstruct WeightedUnionFind{\n    vector<int> par;\n\
+    \    vector<T> diff_weight;\n    T ex;\n\n    WeightedUnionFind(const int N, const\
+    \ T &e = 0) : par(N), diff_weight(N), ex(e){\n        for(int i = 0; i < N; ++i){\n\
+    \            par[i] = -1;\n            diff_weight[i] = e;\n        }\n    }\n\
+    \n    int root(const int x){\n        if(par[x] < 0){\n            return x;\n\
+    \        }\n        int px = par[x];\n        int rx = root(par[x]);\n       \
+    \ diff_weight[x] = diff_weight[x] + diff_weight[px];\n        return par[x] =\
+    \ rx;\n    }\n\n    T weight(const int x){\n        root(x);\n        return diff_weight[x];\n\
+    \    }\n\n    T diff(const int x, const int y){\n        return weight(x) - weight(y);\n\
+    \    }\n\n    void unite(const int x, const int y, const T &w){\n        int tx\
+    \ = x, ty = y;\n        T tw = w;\n        int rx = root(x), ry = root(y);\n \
+    \       if(rx == ry) return;\n\n        if(par[rx] < par[ry]){\n            swap(rx,\
+    \ ry);\n            swap(tx, ty);\n            tw = ex - tw;\n        }\n\n  \
+    \      par[ry] = par[rx] + par[ry];\n        par[rx] = ry;\n        diff_weight[rx]\
+    \ = ex - diff_weight[tx] + tw + diff_weight[ty];\n    }\n\n    bool same(const\
+    \ int x, const int y){\n        return root(x) == root(y);\n    }\n\n    int size(const\
+    \ int x){\n        return -par[root(x)];\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Weighted Union Find\n * @docs docs/data_structure/weighted_union_find.md\n\
-    \ */\n\ntemplate <typename T>\nstruct WeightedUnionFind{\n    vector<int> par,\
-    \ rank, siz;\n    vector<T> diff_weight;\n\n    WeightedUnionFind(const int N,\
-    \ const T &e = 0) : par(N), rank(N), siz(N), diff_weight(N){\n        for(int\
-    \ i = 0; i < N; ++i){\n            par[i] = i;\n            rank[i] = 0;\n   \
-    \         siz[i] = 1;\n            diff_weight[i] = e;\n        }\n    }\n\n \
-    \   int root(const int x){\n        if(par[x] == x){\n            return x;\n\
-    \        }\n        int rx = root(par[x]);\n        diff_weight[x] += diff_weight[par[x]];\n\
-    \        return par[x] = rx;\n    }\n\n    T weight(const int x){\n        root(x);\n\
-    \        return diff_weight[x];\n    }\n\n    T diff(const int x, const int y){\n\
-    \        return weight(y) - weight(x);\n    }\n\n    void unite(const int x, const\
-    \ int y, T w){\n        w += weight(x);\n        w -= weight(y);\n\n        int\
-    \ rx = root(x);\n        int ry = root(y);\n        if(rx == ry) return;\n\n \
-    \       if(rank[rx] < rank[ry]){\n            swap(rx, ry);\n            w = -w;\n\
-    \        }\n\n        par[ry] = rx;\n        siz[rx] += siz[ry];\n        diff_weight[ry]\
-    \ = w;\n        if(rank[rx] == rank[ry]) ++rank[rx];\n    }\n\n    bool same(const\
-    \ int x, const int y){\n        int rx = root(x);\n        int ry = root(y);\n\
-    \        return rx == ry;\n    }\n\n    int size(const int x){\n        return\
-    \ siz[root(x)];\n    }\n};\n"
+    \ */\n\ntemplate <typename T>\nstruct WeightedUnionFind{\n    vector<int> par;\n\
+    \    vector<T> diff_weight;\n    T ex;\n\n    WeightedUnionFind(const int N, const\
+    \ T &e = 0) : par(N), diff_weight(N), ex(e){\n        for(int i = 0; i < N; ++i){\n\
+    \            par[i] = -1;\n            diff_weight[i] = e;\n        }\n    }\n\
+    \n    int root(const int x){\n        if(par[x] < 0){\n            return x;\n\
+    \        }\n        int px = par[x];\n        int rx = root(par[x]);\n       \
+    \ diff_weight[x] = diff_weight[x] + diff_weight[px];\n        return par[x] =\
+    \ rx;\n    }\n\n    T weight(const int x){\n        root(x);\n        return diff_weight[x];\n\
+    \    }\n\n    T diff(const int x, const int y){\n        return weight(x) - weight(y);\n\
+    \    }\n\n    void unite(const int x, const int y, const T &w){\n        int tx\
+    \ = x, ty = y;\n        T tw = w;\n        int rx = root(x), ry = root(y);\n \
+    \       if(rx == ry) return;\n\n        if(par[rx] < par[ry]){\n            swap(rx,\
+    \ ry);\n            swap(tx, ty);\n            tw = ex - tw;\n        }\n\n  \
+    \      par[ry] = par[rx] + par[ry];\n        par[rx] = ry;\n        diff_weight[rx]\
+    \ = ex - diff_weight[tx] + tw + diff_weight[ty];\n    }\n\n    bool same(const\
+    \ int x, const int y){\n        return root(x) == root(y);\n    }\n\n    int size(const\
+    \ int x){\n        return -par[root(x)];\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/weighted_union_find.hpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-08-24 05:13:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/dsl/dsl_1_b.test.cpp
+  - test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
+  - test/library_checker/data_structure/unionfind_with_potential.test.cpp
 documentation_of: lib/data_structure/weighted_union_find.hpp
 layout: document
 redirect_from:

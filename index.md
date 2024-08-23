@@ -512,6 +512,12 @@ data:
       path: test/library_checker/data_structure/unionfind_1.test.cpp
       title: test/library_checker/data_structure/unionfind_1.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/unionfind_with_potential.test.cpp
+      title: test/library_checker/data_structure/unionfind_with_potential.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
+      title: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
       title: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
     - icon: ':heavy_check_mark:'
