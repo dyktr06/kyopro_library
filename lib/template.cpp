@@ -111,12 +111,10 @@ void out(){ cout << '\n'; }
 template<class T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; (cout << ... << (cout << ' ', b)); cout << '\n'; }
 template<class T, class U> void inGraph(vector<vector<T>> &G, U n, U m, bool directed = false){ G.resize(n); for(int i = 0; i < m; ++i){ int a, b; cin >> a >> b; a--, b--; G[a].push_back(b); if(!directed) G[b].push_back(a); } }
 
-ll n;
-vll a;
+ll T;
 
 void input(){
-    in(n);
-    vin(a, n);
+    in(T);
 }
 
 void solve(){
@@ -128,6 +126,7 @@ int main(){
     cin.tie(nullptr);
     cout << fixed << setprecision(20);
 
-    input();
-    solve();
+    T = 1;
+    // input();
+    while(T--) solve();
 }
