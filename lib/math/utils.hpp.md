@@ -2,16 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
-    title: test/library_checker/convolution/bitwise_and_convolution.test.cpp
-  - icon: ':x:'
-    path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
-    title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/math/utils.hpp\"\n\n// \u521D\u9805 a, \u516C\u5DEE\
@@ -42,10 +36,8 @@ data:
   path: lib/math/utils.hpp
   requiredBy: []
   timestamp: '2024-09-08 16:34:19+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
-  - test/library_checker/convolution/bitwise_and_convolution.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: lib/math/utils.hpp
 layout: document
 redirect_from:

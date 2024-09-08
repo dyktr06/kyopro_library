@@ -3,13 +3,13 @@ data:
   libraryCategories:
   - name: lib/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/bitwise_and_convolution.hpp
       title: lib/convolution/bitwise_and_convolution.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/bitwise_xor_convolution.hpp
       title: lib/convolution/bitwise_xor_convolution.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/fast_walsh_hadamard_transform.hpp
       title: lib/convolution/fast_walsh_hadamard_transform.hpp
     - icon: ':heavy_check_mark:'
@@ -18,7 +18,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/convolution/karatsuba_algorithm.hpp
       title: lib/convolution/karatsuba_algorithm.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/superset_zeta_moebius_transform.hpp
       title: lib/convolution/superset_zeta_moebius_transform.hpp
   - name: lib/data_structure
@@ -253,7 +253,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -277,7 +277,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
-    - icon: ':x:'
+    - icon: ':warning:'
       path: lib/math/utils.hpp
       title: lib/math/utils.hpp
   - name: lib/others
@@ -416,10 +416,10 @@ data:
       title: test/aoj/ntl/ntl_2_f.test.cpp
   - name: test/library_checker/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
       title: test/library_checker/convolution/bitwise_and_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
       title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
     - icon: ':heavy_check_mark:'

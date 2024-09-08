@@ -74,9 +74,10 @@ data:
     \ cout << '\\n'; }\ntemplate<class T, class U> void inGraph(vector<vector<T>>\
     \ &G, U n, U m, bool directed = false){ G.resize(n); for(int i = 0; i < m; ++i){\
     \ int a, b; cin >> a >> b; a--, b--; G[a].push_back(b); if(!directed) G[b].push_back(a);\
-    \ } }\n\nll n;\nvll a;\n\nvoid input(){\n    in(n);\n    vin(a, n);\n}\n\nvoid\
-    \ solve(){\n\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
-    \    cout << fixed << setprecision(20);\n\n    input();\n    solve();\n}\n"
+    \ } }\n\nll T;\n\nvoid input(){\n    in(T);\n}\n\nvoid solve(){\n\n}\n\nint main(){\n\
+    \    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout << fixed <<\
+    \ setprecision(20);\n\n    T = 1;\n    // input();\n    while(T--) solve();\n\
+    }\n"
   code: "#include <bits/stdc++.h>\n#include <atcoder/all>\n\nusing namespace std;\n\
     using namespace atcoder;\n\n#define overload4(_1, _2, _3, _4, name, ...) name\n\
     #define rep1(n) for(int i = 0; i < (int)(n); ++i)\n#define rep2(i, n) for(int\
@@ -143,14 +144,15 @@ data:
     \ cout << '\\n'; }\ntemplate<class T, class U> void inGraph(vector<vector<T>>\
     \ &G, U n, U m, bool directed = false){ G.resize(n); for(int i = 0; i < m; ++i){\
     \ int a, b; cin >> a >> b; a--, b--; G[a].push_back(b); if(!directed) G[b].push_back(a);\
-    \ } }\n\nll n;\nvll a;\n\nvoid input(){\n    in(n);\n    vin(a, n);\n}\n\nvoid\
-    \ solve(){\n\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
-    \    cout << fixed << setprecision(20);\n\n    input();\n    solve();\n}\n"
+    \ } }\n\nll T;\n\nvoid input(){\n    in(T);\n}\n\nvoid solve(){\n\n}\n\nint main(){\n\
+    \    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout << fixed <<\
+    \ setprecision(20);\n\n    T = 1;\n    // input();\n    while(T--) solve();\n\
+    }\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/template.cpp
   requiredBy: []
-  timestamp: '2024-09-08 16:34:19+09:00'
+  timestamp: '2024-09-08 16:36:02+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/template.cpp
