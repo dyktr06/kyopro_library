@@ -6,10 +6,10 @@ data:
     path: lib/string/wildcard_pattern_matching.hpp
     title: lib/string/wildcard_pattern_matching.hpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
     title: test/library_checker/convolution/bitwise_and_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
     title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -63,9 +63,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/tree_path_composite_sum.test.cpp
     title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
@@ -154,27 +154,27 @@ data:
   requiredBy:
   - lib/string/wildcard_pattern_matching.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/library_checker/tree/tree_path_composite_sum.test.cpp
-  - test/library_checker/convolution/bitwise_and_convolution.test.cpp
   - test/library_checker/convolution/convolution.test.cpp
   - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
-  - test/library_checker/string/wildcard_pattern_matching.test.cpp
-  - test/library_checker/graph/counting_spanning_tree_directed.test.cpp
+  - test/library_checker/convolution/bitwise_and_convolution.test.cpp
+  - test/library_checker/tree/tree_path_composite_sum.test.cpp
   - test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
-  - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-  - test/library_checker/data_structure/queue_operate_all_composite.test.cpp
-  - test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
-  - test/library_checker/data_structure/range_affine_range_sum.test.cpp
+  - test/library_checker/graph/counting_spanning_tree_directed.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
-  - test/library_checker/data_structure/range_set_range_composite.test.cpp
+  - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
+  - test/library_checker/data_structure/range_affine_range_sum.test.cpp
   - test/library_checker/data_structure/unionfind_with_potential.test.cpp
-  - test/library_checker/matrix/matrix_rank.test.cpp
+  - test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
+  - test/library_checker/data_structure/queue_operate_all_composite.test.cpp
+  - test/library_checker/data_structure/range_set_range_composite.test.cpp
   - test/library_checker/matrix/pow_of_matrix.test.cpp
+  - test/library_checker/matrix/matrix_rank.test.cpp
   - test/library_checker/matrix/matrix_det.test.cpp
   - test/library_checker/matrix/inverse_matrix.test.cpp
   - test/library_checker/matrix/matrix_product.test.cpp
+  - test/library_checker/string/wildcard_pattern_matching.test.cpp
 documentation_of: lib/math/modint.hpp
 layout: document
 redirect_from:

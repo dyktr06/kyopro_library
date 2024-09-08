@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/weighted_union_find.hpp
     title: Weighted Union Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []

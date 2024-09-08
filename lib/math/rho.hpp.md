@@ -118,9 +118,9 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_888.test.cpp
+  - test/library_checker/math/primitive_root.test.cpp
   - test/library_checker/math/primality_test.test.cpp
   - test/library_checker/math/factorize.test.cpp
-  - test/library_checker/math/primitive_root.test.cpp
 documentation_of: lib/math/rho.hpp
 layout: document
 redirect_from:

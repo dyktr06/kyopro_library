@@ -3,13 +3,13 @@ data:
   libraryCategories:
   - name: lib/convolution
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/convolution/bitwise_and_convolution.hpp
       title: lib/convolution/bitwise_and_convolution.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/convolution/bitwise_xor_convolution.hpp
       title: lib/convolution/bitwise_xor_convolution.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/convolution/fast_walsh_hadamard_transform.hpp
       title: lib/convolution/fast_walsh_hadamard_transform.hpp
     - icon: ':heavy_check_mark:'
@@ -18,7 +18,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/convolution/karatsuba_algorithm.hpp
       title: lib/convolution/karatsuba_algorithm.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/convolution/superset_zeta_moebius_transform.hpp
       title: lib/convolution/superset_zeta_moebius_transform.hpp
   - name: lib/data_structure
@@ -253,7 +253,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -277,7 +277,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/math/utils.hpp
       title: lib/math/utils.hpp
   - name: lib/others
@@ -289,6 +289,9 @@ data:
       path: lib/others/exhaustive_search.hpp
       title: "Exhaustive Search (bit \u5168\u63A2\u7D22)"
     - icon: ':warning:'
+      path: lib/others/golden_section_search.hpp
+      title: lib/others/golden_section_search.hpp
+    - icon: ':warning:'
       path: lib/others/maximum_rectangle.hpp
       title: "Maximum Rectangle (\u6700\u5927\u9577\u65B9\u5F62)"
     - icon: ':warning:'
@@ -297,6 +300,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/others/random.hpp
       title: "Random (\u4E71\u6570\u751F\u6210)"
+    - icon: ':warning:'
+      path: lib/others/run_length_encoding.hpp
+      title: lib/others/run_length_encoding.hpp
     - icon: ':warning:'
       path: lib/others/val_range.hpp
       title: val_range
@@ -410,10 +416,10 @@ data:
       title: test/aoj/ntl/ntl_2_f.test.cpp
   - name: test/library_checker/convolution
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
       title: test/library_checker/convolution/bitwise_and_convolution.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
       title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
     - icon: ':heavy_check_mark:'

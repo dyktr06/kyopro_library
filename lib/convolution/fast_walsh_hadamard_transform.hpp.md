@@ -2,16 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/convolution/bitwise_xor_convolution.hpp
     title: lib/convolution/bitwise_xor_convolution.hpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
     title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/convolution/fast_walsh_hadamard_transform.hpp\"\n\n\
@@ -35,7 +35,7 @@ data:
   requiredBy:
   - lib/convolution/bitwise_xor_convolution.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
 documentation_of: lib/convolution/fast_walsh_hadamard_transform.hpp

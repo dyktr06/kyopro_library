@@ -51,18 +51,32 @@ data:
     \ << \" \"; st.pop(); } return os; }\ntemplate <class T, class Container, class\
     \ Compare> ostream &operator<<(ostream &os, priority_queue<T, Container, Compare>\
     \ pq){ while(pq.size()){ os << pq.top() << \" \"; pq.pop(); } return os; }\n\n\
-    template<class T, class U> inline T vin(T &vec, U n) { vec.resize(n); for(int\
-    \ i = 0; i < (int) n; ++i) cin >> vec[i]; return vec; }\ntemplate<class T> inline\
-    \ void vout(T vec, string s = \"\\n\"){ for(auto x : vec) cout << x << s; }\n\
-    template<class... T> void in(T&... a){ (cin >> ... >> a); }\nvoid out(){ cout\
-    \ << '\\n'; }\ntemplate<class T, class... Ts> void out(const T &a, const Ts&...\
-    \ b){ cout << a; (cout << ... << (cout << ' ', b)); cout << '\\n'; }\ntemplate<class\
-    \ T, class U> void inGraph(vector<vector<T>> &G, U n, U m, bool directed = false){\
-    \ G.resize(n); for(int i = 0; i < m; ++i){ int a, b; cin >> a >> b; a--, b--;\
-    \ G[a].push_back(b); if(!directed) G[b].push_back(a); } }\n\nll n;\nvll a;\n\n\
-    void input(){\n    in(n);\n    vin(a, n);\n}\n\nvoid solve(){\n\n}\n\nint main(){\n\
-    \    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout << fixed <<\
-    \ setprecision(20);\n\n    input();\n    solve();\n}\n"
+    template <typename T>\nlong long binary_search(long long ok, long long ng, T check){\n\
+    \    while(abs(ok - ng) > 1){\n        long long mid = (ok + ng) / 2;\n      \
+    \  if(check(mid)) ok = mid;\n        else ng = mid;\n    }\n    return ok;\n}\n\
+    \ntemplate <typename T>\nlong double binary_search_real(long double ok, long double\
+    \ ng, T check, int iter = 100){\n    for(int i = 0; i < iter; ++i){\n        long\
+    \ double mid = (ok + ng) / 2;\n        if(check(mid)) ok = mid;\n        else\
+    \ ng = mid;\n    }\n    return ok;\n}\n\ntemplate <typename T>\nlong long trisum(T\
+    \ a, T b){\n    long long res = ((b - a + 1) * (a + b)) / 2;\n    return res;\n\
+    }\n\ntemplate <typename T>\nT intpow(T x, int n){\n    T ret = 1;\n    while(n\
+    \ > 0) {\n        if(n & 1) (ret *= x);\n        (x *= x);\n        n >>= 1;\n\
+    \    }\n    return ret;\n}\n\ntemplate <typename T>\nT getReminder(T a, T b){\n\
+    \    if(b == 0) return -1;\n    if(a >= 0 && b > 0){\n        return a % b;\n\
+    \    } else if(a < 0 && b > 0){\n        return ((a % b) + b) % b;\n    } else\
+    \ if(a >= 0 && b < 0){\n        return a % b;\n    } else{\n        return (abs(b)\
+    \ - abs(a % b)) % b;\n    }\n}\n\ntemplate<class T, class U> inline T vin(T &vec,\
+    \ U n) { vec.resize(n); for(int i = 0; i < (int) n; ++i) cin >> vec[i]; return\
+    \ vec; }\ntemplate<class T> inline void vout(T vec, string s = \"\\n\"){ for(auto\
+    \ x : vec) cout << x << s; }\ntemplate<class... T> void in(T&... a){ (cin >> ...\
+    \ >> a); }\nvoid out(){ cout << '\\n'; }\ntemplate<class T, class... Ts> void\
+    \ out(const T &a, const Ts&... b){ cout << a; (cout << ... << (cout << ' ', b));\
+    \ cout << '\\n'; }\ntemplate<class T, class U> void inGraph(vector<vector<T>>\
+    \ &G, U n, U m, bool directed = false){ G.resize(n); for(int i = 0; i < m; ++i){\
+    \ int a, b; cin >> a >> b; a--, b--; G[a].push_back(b); if(!directed) G[b].push_back(a);\
+    \ } }\n\nll n;\nvll a;\n\nvoid input(){\n    in(n);\n    vin(a, n);\n}\n\nvoid\
+    \ solve(){\n\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
+    \    cout << fixed << setprecision(20);\n\n    input();\n    solve();\n}\n"
   code: "#include <bits/stdc++.h>\n#include <atcoder/all>\n\nusing namespace std;\n\
     using namespace atcoder;\n\n#define overload4(_1, _2, _3, _4, name, ...) name\n\
     #define rep1(n) for(int i = 0; i < (int)(n); ++i)\n#define rep2(i, n) for(int\
@@ -106,23 +120,37 @@ data:
     \ << \" \"; st.pop(); } return os; }\ntemplate <class T, class Container, class\
     \ Compare> ostream &operator<<(ostream &os, priority_queue<T, Container, Compare>\
     \ pq){ while(pq.size()){ os << pq.top() << \" \"; pq.pop(); } return os; }\n\n\
-    template<class T, class U> inline T vin(T &vec, U n) { vec.resize(n); for(int\
-    \ i = 0; i < (int) n; ++i) cin >> vec[i]; return vec; }\ntemplate<class T> inline\
-    \ void vout(T vec, string s = \"\\n\"){ for(auto x : vec) cout << x << s; }\n\
-    template<class... T> void in(T&... a){ (cin >> ... >> a); }\nvoid out(){ cout\
-    \ << '\\n'; }\ntemplate<class T, class... Ts> void out(const T &a, const Ts&...\
-    \ b){ cout << a; (cout << ... << (cout << ' ', b)); cout << '\\n'; }\ntemplate<class\
-    \ T, class U> void inGraph(vector<vector<T>> &G, U n, U m, bool directed = false){\
-    \ G.resize(n); for(int i = 0; i < m; ++i){ int a, b; cin >> a >> b; a--, b--;\
-    \ G[a].push_back(b); if(!directed) G[b].push_back(a); } }\n\nll n;\nvll a;\n\n\
-    void input(){\n    in(n);\n    vin(a, n);\n}\n\nvoid solve(){\n\n}\n\nint main(){\n\
-    \    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout << fixed <<\
-    \ setprecision(20);\n\n    input();\n    solve();\n}\n"
+    template <typename T>\nlong long binary_search(long long ok, long long ng, T check){\n\
+    \    while(abs(ok - ng) > 1){\n        long long mid = (ok + ng) / 2;\n      \
+    \  if(check(mid)) ok = mid;\n        else ng = mid;\n    }\n    return ok;\n}\n\
+    \ntemplate <typename T>\nlong double binary_search_real(long double ok, long double\
+    \ ng, T check, int iter = 100){\n    for(int i = 0; i < iter; ++i){\n        long\
+    \ double mid = (ok + ng) / 2;\n        if(check(mid)) ok = mid;\n        else\
+    \ ng = mid;\n    }\n    return ok;\n}\n\ntemplate <typename T>\nlong long trisum(T\
+    \ a, T b){\n    long long res = ((b - a + 1) * (a + b)) / 2;\n    return res;\n\
+    }\n\ntemplate <typename T>\nT intpow(T x, int n){\n    T ret = 1;\n    while(n\
+    \ > 0) {\n        if(n & 1) (ret *= x);\n        (x *= x);\n        n >>= 1;\n\
+    \    }\n    return ret;\n}\n\ntemplate <typename T>\nT getReminder(T a, T b){\n\
+    \    if(b == 0) return -1;\n    if(a >= 0 && b > 0){\n        return a % b;\n\
+    \    } else if(a < 0 && b > 0){\n        return ((a % b) + b) % b;\n    } else\
+    \ if(a >= 0 && b < 0){\n        return a % b;\n    } else{\n        return (abs(b)\
+    \ - abs(a % b)) % b;\n    }\n}\n\ntemplate<class T, class U> inline T vin(T &vec,\
+    \ U n) { vec.resize(n); for(int i = 0; i < (int) n; ++i) cin >> vec[i]; return\
+    \ vec; }\ntemplate<class T> inline void vout(T vec, string s = \"\\n\"){ for(auto\
+    \ x : vec) cout << x << s; }\ntemplate<class... T> void in(T&... a){ (cin >> ...\
+    \ >> a); }\nvoid out(){ cout << '\\n'; }\ntemplate<class T, class... Ts> void\
+    \ out(const T &a, const Ts&... b){ cout << a; (cout << ... << (cout << ' ', b));\
+    \ cout << '\\n'; }\ntemplate<class T, class U> void inGraph(vector<vector<T>>\
+    \ &G, U n, U m, bool directed = false){ G.resize(n); for(int i = 0; i < m; ++i){\
+    \ int a, b; cin >> a >> b; a--, b--; G[a].push_back(b); if(!directed) G[b].push_back(a);\
+    \ } }\n\nll n;\nvll a;\n\nvoid input(){\n    in(n);\n    vin(a, n);\n}\n\nvoid\
+    \ solve(){\n\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
+    \    cout << fixed << setprecision(20);\n\n    input();\n    solve();\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/template.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-09-08 16:34:19+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/template.cpp
