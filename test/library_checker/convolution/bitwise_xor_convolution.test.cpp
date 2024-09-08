@@ -4,13 +4,12 @@ using namespace std;
 
 #include "../../../lib/convolution/bitwise_xor_convolution.hpp"
 #include "../../../lib/math/modint.hpp"
-#include "../../../lib/math/utils.hpp"
 
 using mint = ModInt<998244353>;
 
 int main(){
     int n; cin >> n;
-    int m = intpow(2, n);
+    int m = 1LL << n;
     vector<mint> a(m), b(m);
     for(int i = 0; i < m; i++){
         cin >> a[i];
