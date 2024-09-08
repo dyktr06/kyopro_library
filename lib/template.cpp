@@ -53,6 +53,57 @@ template <typename T> ostream &operator<<(ostream &os, deque<T> q){ while(q.size
 template <typename T> ostream &operator<<(ostream &os, stack<T> st){ while(st.size()){ os << st.top() << " "; st.pop(); } return os; }
 template <class T, class Container, class Compare> ostream &operator<<(ostream &os, priority_queue<T, Container, Compare> pq){ while(pq.size()){ os << pq.top() << " "; pq.pop(); } return os; }
 
+template <typename T>
+long long binary_search(long long ok, long long ng, T check){
+    while(abs(ok - ng) > 1){
+        long long mid = (ok + ng) / 2;
+        if(check(mid)) ok = mid;
+        else ng = mid;
+    }
+    return ok;
+}
+
+template <typename T>
+long double binary_search_real(long double ok, long double ng, T check, int iter = 100){
+    for(int i = 0; i < iter; ++i){
+        long double mid = (ok + ng) / 2;
+        if(check(mid)) ok = mid;
+        else ng = mid;
+    }
+    return ok;
+}
+
+template <typename T>
+long long trisum(T a, T b){
+    long long res = ((b - a + 1) * (a + b)) / 2;
+    return res;
+}
+
+template <typename T>
+T intpow(T x, int n){
+    T ret = 1;
+    while(n > 0) {
+        if(n & 1) (ret *= x);
+        (x *= x);
+        n >>= 1;
+    }
+    return ret;
+}
+
+template <typename T>
+T getReminder(T a, T b){
+    if(b == 0) return -1;
+    if(a >= 0 && b > 0){
+        return a % b;
+    } else if(a < 0 && b > 0){
+        return ((a % b) + b) % b;
+    } else if(a >= 0 && b < 0){
+        return a % b;
+    } else{
+        return (abs(b) - abs(a % b)) % b;
+    }
+}
+
 template<class T, class U> inline T vin(T &vec, U n) { vec.resize(n); for(int i = 0; i < (int) n; ++i) cin >> vec[i]; return vec; }
 template<class T> inline void vout(T vec, string s = "\n"){ for(auto x : vec) cout << x << s; }
 template<class... T> void in(T&... a){ (cin >> ... >> a); }
