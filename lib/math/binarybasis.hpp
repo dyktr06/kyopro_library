@@ -9,12 +9,12 @@ template <typename T>
 struct BinaryBasis{
 
     vector<T> basis, original, inds;
-    int cnt = 0;
+    BinaryBasis(){};
     BinaryBasis(const vector<T> &vec){
         for(auto x : vec){
-            T v = (T) 1 << (cnt++);
-            T y = x;
             int len = basis.size();
+            T v = (T) 1 << (len);
+            T y = x;
             for(int i = 0; i < len; i++){
                 if((y ^ basis[i]) < y){
                     y ^= basis[i];
@@ -31,9 +31,9 @@ struct BinaryBasis{
     }
 
     pair<T, T> add(const T &x){
-        T v = (T) 1 << (cnt++);
-        T y = x;
         int len = basis.size();
+        T v = (T) 1 << (len);
+        T y = x;
         for(int i = 0; i < len; i++){
             if((y ^ basis[i]) < y){
                 y ^= basis[i];
