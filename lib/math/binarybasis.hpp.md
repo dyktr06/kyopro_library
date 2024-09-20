@@ -15,16 +15,16 @@ data:
     links: []
   bundledCode: "#line 2 \"lib/math/binarybasis.hpp\"\n\n/**\n * @brief Binary Basis\n\
     \ * @docs docs/math/binarybasis.md\n */\n\ntemplate <typename T>\nstruct BinaryBasis{\n\
-    \n    vector<T> basis, original, inds;\n    int cnt = 0;\n    BinaryBasis(const\
-    \ vector<T> &vec){\n        for(auto x : vec){\n            T v = (T) 1 << (cnt++);\n\
-    \            T y = x;\n            int len = basis.size();\n            for(int\
+    \n    vector<T> basis, original, inds;\n    BinaryBasis(){};\n    BinaryBasis(const\
+    \ vector<T> &vec){\n        for(auto x : vec){\n            int len = basis.size();\n\
+    \            T v = (T) 1 << (len);\n            T y = x;\n            for(int\
     \ i = 0; i < len; i++){\n                if((y ^ basis[i]) < y){\n           \
     \         y ^= basis[i];\n                    v ^= inds[i];\n                }\n\
     \            }\n            if(y > 0){\n                basis.push_back(y);\n\
     \                original.push_back(x);\n                inds.push_back(v);\n\
     \            }\n        }\n        normalize();\n    }\n\n    pair<T, T> add(const\
-    \ T &x){\n        T v = (T) 1 << (cnt++);\n        T y = x;\n        int len =\
-    \ basis.size();\n        for(int i = 0; i < len; i++){\n            if((y ^ basis[i])\
+    \ T &x){\n        int len = basis.size();\n        T v = (T) 1 << (len);\n   \
+    \     T y = x;\n        for(int i = 0; i < len; i++){\n            if((y ^ basis[i])\
     \ < y){\n                y ^= basis[i];\n                v ^= inds[i];\n     \
     \       }\n        }\n        if(y > 0){\n            basis.push_back(y);\n  \
     \          original.push_back(x);\n            inds.push_back(v);\n        }\n\
@@ -45,16 +45,16 @@ data:
     \ res;\n    }\n\n    size_t size(){\n        return basis.size();\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Binary Basis\n * @docs docs/math/binarybasis.md\n\
     \ */\n\ntemplate <typename T>\nstruct BinaryBasis{\n\n    vector<T> basis, original,\
-    \ inds;\n    int cnt = 0;\n    BinaryBasis(const vector<T> &vec){\n        for(auto\
-    \ x : vec){\n            T v = (T) 1 << (cnt++);\n            T y = x;\n     \
-    \       int len = basis.size();\n            for(int i = 0; i < len; i++){\n \
-    \               if((y ^ basis[i]) < y){\n                    y ^= basis[i];\n\
+    \ inds;\n    BinaryBasis(){};\n    BinaryBasis(const vector<T> &vec){\n      \
+    \  for(auto x : vec){\n            int len = basis.size();\n            T v =\
+    \ (T) 1 << (len);\n            T y = x;\n            for(int i = 0; i < len; i++){\n\
+    \                if((y ^ basis[i]) < y){\n                    y ^= basis[i];\n\
     \                    v ^= inds[i];\n                }\n            }\n       \
     \     if(y > 0){\n                basis.push_back(y);\n                original.push_back(x);\n\
     \                inds.push_back(v);\n            }\n        }\n        normalize();\n\
-    \    }\n\n    pair<T, T> add(const T &x){\n        T v = (T) 1 << (cnt++);\n \
-    \       T y = x;\n        int len = basis.size();\n        for(int i = 0; i <\
-    \ len; i++){\n            if((y ^ basis[i]) < y){\n                y ^= basis[i];\n\
+    \    }\n\n    pair<T, T> add(const T &x){\n        int len = basis.size();\n \
+    \       T v = (T) 1 << (len);\n        T y = x;\n        for(int i = 0; i < len;\
+    \ i++){\n            if((y ^ basis[i]) < y){\n                y ^= basis[i];\n\
     \                v ^= inds[i];\n            }\n        }\n        if(y > 0){\n\
     \            basis.push_back(y);\n            original.push_back(x);\n       \
     \     inds.push_back(v);\n        }\n        return make_pair(y, v);\n    }\n\n\
@@ -77,7 +77,7 @@ data:
   isVerificationFile: false
   path: lib/math/binarybasis.hpp
   requiredBy: []
-  timestamp: '2024-08-11 14:50:42+09:00'
+  timestamp: '2024-09-21 06:02:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_184.test.cpp
