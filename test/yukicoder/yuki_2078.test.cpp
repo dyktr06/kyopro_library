@@ -13,7 +13,7 @@ int main(){
         ConvexHullTrick<long long> CHT;
         for(long long i = 0; i <= a; i++){
             if(i >= 1){
-                dp[i] = min(dp[i], CHT.query(i) + i * i + x);    
+                dp[i] = min(dp[i], CHT.query(i).first + i * i + x);
             }
             CHT.add(-2 * i, i * i + dp[i]);
         }
