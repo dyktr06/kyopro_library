@@ -15,34 +15,66 @@ data:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/convex_hull_trick.hpp\"\n\n/**\n * @brief\
     \ Convex Hull Trick\n * @docs docs/data_structure/convex_hull_trick.md\n */\n\n\
-    template <typename T>\nstruct ConvexHullTrick{\n    deque<pair<T, T>> deq;\n\n\
-    \    ConvexHullTrick() : deq(){\n    }\n\n    bool check(pair<T, T> line1, pair<T,\
-    \ T> line2, pair<T, T> line3){\n        return (line2.first - line1.first) * (line3.second\
-    \ - line2.second) >= (line2.second - line1.second) * (line3.first - line2.first);\n\
-    \    }\n\n    T f(pair<T, T> line, T x){\n        return line.first * x + line.second;\n\
-    \    }\n\n    // ax + b\n    void add(T a, T b){\n        pair<T, T> p = {a, b};\n\
-    \        while((int) deq.size() >= 2 && check(deq.at((int) deq.size() - 2), deq.at((int)\
-    \ deq.size() - 1), p)){\n            deq.pop_back();\n        }\n        deq.push_back(p);\n\
-    \    }\n\n    T query(T x){\n        while((int) deq.size() >= 2 && f(deq.at(0),\
-    \ x) >= f(deq.at(1), x)){\n            deq.pop_front();\n        }\n        return\
-    \ f(deq.at(0), x);\n    }\n};\n"
+    // ax + by + c = 0 -> y = -b/a x - c/a\ntemplate <typename T>\nstruct Line{\n\
+    \    T a, b, c;\n    Line(T A = 0, T B = 0, T C = 0) : a(A), b(B), c(C) {}\n \
+    \   // \u50BE\u304D\n    inline bool operator<(const Line &other) const {\n  \
+    \      return -a * other.b < -other.a * b;\n    }\n    inline bool operator>(const\
+    \ Line &other) const {\n        return -a * other.b > -other.a * b;\n    }\n \
+    \   inline bool operator<=(const Line &other) const {\n        return -a * other.b\
+    \ <= -other.a * b;\n    }\n    inline bool operator>=(const Line &other) const\
+    \ {\n        return -a * other.b >= -other.a * b;\n    }\n};\n\ntemplate <typename\
+    \ T>\nstruct ConvexHullTrick{\n    deque<Line<T>> deq;\n\n    ConvexHullTrick()\
+    \ : deq(){\n    }\n\n    bool check(Line<T> l1, Line<T> l2, Line<T> l3){\n   \
+    \     T a = ((-l3.c * l2.b) - (-l2.c * l3.b)) * ((-l2.a * l1.b) - (-l1.a * l2.b));\n\
+    \        T b = ((-l2.c * l1.b) - (-l1.c * l2.b)) * ((-l3.a * l2.b) - (-l2.a *\
+    \ l3.b));\n        return a >= b;\n    }\n\n    // l1(x) < l2(x)\n    bool comp(Line<T>\
+    \ l1, Line<T> l2, T x){\n        // -(ax + c)/b < -(dx + f)/e\n        return\
+    \ -(l1.a * x + l1.c) * l2.b < -(l2.a * x + l2.c) * l1.b;\n    };\n\n    // first/second\n\
+    \    pair<T, T> f(Line<T> l, T x){\n        T a = -l.a * x - l.c;\n        T b\
+    \ = l.b;\n        if(b < 0) a *= -1, b *= -1;\n        return make_pair(a, b);\n\
+    \    };\n\n    // y = ax + b\n    void add(T a, T b){\n        Line<T> p(a, -1,\
+    \ b);\n        while((int) deq.size() >= 2 && check(deq.at((int) deq.size() -\
+    \ 2), deq.at((int) deq.size() - 1), p)){\n            deq.pop_back();\n      \
+    \  }\n        deq.push_back(p);\n    }\n\n    // ax + by + c = 0\n    void add(T\
+    \ a, T b, T c){\n        Line<T> p(a, b, c);\n        while((int) deq.size() >=\
+    \ 2 && check(deq.at((int) deq.size() - 2), deq.at((int) deq.size() - 1), p)){\n\
+    \            deq.pop_back();\n        }\n        deq.push_back(p);\n    }\n\n\
+    \    pair<T, T> query(T x){\n        while((int) deq.size() >= 2 && !comp(deq.at(0),\
+    \ deq.at(1), x)){\n            deq.pop_front();\n        }\n        return f(deq.at(0),\
+    \ x);\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Convex Hull Trick\n * @docs docs/data_structure/convex_hull_trick.md\n\
-    \ */\n\ntemplate <typename T>\nstruct ConvexHullTrick{\n    deque<pair<T, T>>\
-    \ deq;\n\n    ConvexHullTrick() : deq(){\n    }\n\n    bool check(pair<T, T> line1,\
-    \ pair<T, T> line2, pair<T, T> line3){\n        return (line2.first - line1.first)\
-    \ * (line3.second - line2.second) >= (line2.second - line1.second) * (line3.first\
-    \ - line2.first);\n    }\n\n    T f(pair<T, T> line, T x){\n        return line.first\
-    \ * x + line.second;\n    }\n\n    // ax + b\n    void add(T a, T b){\n      \
-    \  pair<T, T> p = {a, b};\n        while((int) deq.size() >= 2 && check(deq.at((int)\
-    \ deq.size() - 2), deq.at((int) deq.size() - 1), p)){\n            deq.pop_back();\n\
-    \        }\n        deq.push_back(p);\n    }\n\n    T query(T x){\n        while((int)\
-    \ deq.size() >= 2 && f(deq.at(0), x) >= f(deq.at(1), x)){\n            deq.pop_front();\n\
-    \        }\n        return f(deq.at(0), x);\n    }\n};\n"
+    \ */\n\n// ax + by + c = 0 -> y = -b/a x - c/a\ntemplate <typename T>\nstruct\
+    \ Line{\n    T a, b, c;\n    Line(T A = 0, T B = 0, T C = 0) : a(A), b(B), c(C)\
+    \ {}\n    // \u50BE\u304D\n    inline bool operator<(const Line &other) const\
+    \ {\n        return -a * other.b < -other.a * b;\n    }\n    inline bool operator>(const\
+    \ Line &other) const {\n        return -a * other.b > -other.a * b;\n    }\n \
+    \   inline bool operator<=(const Line &other) const {\n        return -a * other.b\
+    \ <= -other.a * b;\n    }\n    inline bool operator>=(const Line &other) const\
+    \ {\n        return -a * other.b >= -other.a * b;\n    }\n};\n\ntemplate <typename\
+    \ T>\nstruct ConvexHullTrick{\n    deque<Line<T>> deq;\n\n    ConvexHullTrick()\
+    \ : deq(){\n    }\n\n    bool check(Line<T> l1, Line<T> l2, Line<T> l3){\n   \
+    \     T a = ((-l3.c * l2.b) - (-l2.c * l3.b)) * ((-l2.a * l1.b) - (-l1.a * l2.b));\n\
+    \        T b = ((-l2.c * l1.b) - (-l1.c * l2.b)) * ((-l3.a * l2.b) - (-l2.a *\
+    \ l3.b));\n        return a >= b;\n    }\n\n    // l1(x) < l2(x)\n    bool comp(Line<T>\
+    \ l1, Line<T> l2, T x){\n        // -(ax + c)/b < -(dx + f)/e\n        return\
+    \ -(l1.a * x + l1.c) * l2.b < -(l2.a * x + l2.c) * l1.b;\n    };\n\n    // first/second\n\
+    \    pair<T, T> f(Line<T> l, T x){\n        T a = -l.a * x - l.c;\n        T b\
+    \ = l.b;\n        if(b < 0) a *= -1, b *= -1;\n        return make_pair(a, b);\n\
+    \    };\n\n    // y = ax + b\n    void add(T a, T b){\n        Line<T> p(a, -1,\
+    \ b);\n        while((int) deq.size() >= 2 && check(deq.at((int) deq.size() -\
+    \ 2), deq.at((int) deq.size() - 1), p)){\n            deq.pop_back();\n      \
+    \  }\n        deq.push_back(p);\n    }\n\n    // ax + by + c = 0\n    void add(T\
+    \ a, T b, T c){\n        Line<T> p(a, b, c);\n        while((int) deq.size() >=\
+    \ 2 && check(deq.at((int) deq.size() - 2), deq.at((int) deq.size() - 1), p)){\n\
+    \            deq.pop_back();\n        }\n        deq.push_back(p);\n    }\n\n\
+    \    pair<T, T> query(T x){\n        while((int) deq.size() >= 2 && !comp(deq.at(0),\
+    \ deq.at(1), x)){\n            deq.pop_front();\n        }\n        return f(deq.at(0),\
+    \ x);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/convex_hull_trick.hpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-09-23 06:50:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_2078.test.cpp
