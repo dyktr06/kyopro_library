@@ -92,6 +92,21 @@ namespace Geometry{
         return (p.x - q.x) * (p.x - q.x) + (p.y - q.y) * (p.y - q.y);
     }
 
+    // 線分 p1-p2 と線分 q1-q2
+    bool intersection(const Point &p1, const Point &p2, const Point &q1, const Point &q2){
+        T a = cross(p2 - p1, q1 - p1);
+        T b = cross(p2 - p1, q2 - p1);
+        T c = cross(q2 - q1, p1 - q1);
+        T d = cross(q2 - q1, p2 - q1);
+        if(a == 0 && b == 0){
+            T e = dot(p2 - p1, q1 - p1);
+            T f = dot(p2 - p1, q2 - p1);
+            if(e > f) swap(e, f);
+            return e <= dist(p1, p2) && 0 <= f;
+        }
+        return a * b <= 0 && c * d <= 0;
+    }
+
     // 2倍
     T polygonArea(const vector<Point> &points){
         const int n = points.size();
