@@ -70,20 +70,27 @@ data:
     \ Point &p, const Point &q){\n        return absT(p.x - q.x) + absT(p.y - q.y);\n\
     \    }\n\n    // 2\u4E57\n    T dist(const Point &p, const Point &q){\n      \
     \  return (p.x - q.x) * (p.x - q.x) + (p.y - q.y) * (p.y - q.y);\n    }\n\n  \
-    \  // 2\u500D\n    T polygonArea(const vector<Point> &points){\n        const\
-    \ int n = points.size();\n        T res = 0;\n        for(int i = 0; i < n - 1;\
-    \ i++){\n            res += cross(points[i], points[i + 1]);\n        }\n    \
-    \    res += cross(points[n - 1], points[0]);\n        return absT(res);\n    }\n\
-    \n    vector<Point> convexHull(vector<Point> points){\n        vector<Point> U,\
-    \ L, res;\n        sort(points.begin(), points.end(), [](Point p, Point q){\n\
-    \            return (p.x != q.x ? p.x < q.x : p.y < q.y);\n        });\n     \
-    \   points.erase(unique(points.begin(), points.end()), points.end());\n      \
-    \  const int n = points.size();\n        if((int) points.size() <= 2){\n     \
-    \       return points;\n        }\n\n        // lower\n        for(int i = 0;\
-    \ i < n; i++){\n            int j = L.size();\n            // \u50BE\u304D\u3067\
-    \u5DE6\u56DE\u308A\u304B\u3092\u30C1\u30A7\u30C3\u30AF\n            while(j >=\
-    \ 2 && cross(L[j - 1] - L[j - 2], points[i] - L[j - 2]) <= 0){\n             \
-    \   L.pop_back();\n                j--;\n            }\n            L.push_back(points[i]);\n\
+    \  // \u7DDA\u5206 p1-p2 \u3068\u7DDA\u5206 q1-q2\n    bool intersection(const\
+    \ Point &p1, const Point &p2, const Point &q1, const Point &q2){\n        T a\
+    \ = cross(p2 - p1, q1 - p1);\n        T b = cross(p2 - p1, q2 - p1);\n       \
+    \ T c = cross(q2 - q1, p1 - q1);\n        T d = cross(q2 - q1, p2 - q1);\n   \
+    \     if(a == 0 && b == 0){\n            T e = dot(p2 - p1, q1 - p1);\n      \
+    \      T f = dot(p2 - p1, q2 - p1);\n            if(e > f) swap(e, f);\n     \
+    \       return e <= dist(p1, p2) && 0 <= f;\n        }\n        return a * b <=\
+    \ 0 && c * d <= 0;\n    }\n\n    // 2\u500D\n    T polygonArea(const vector<Point>\
+    \ &points){\n        const int n = points.size();\n        T res = 0;\n      \
+    \  for(int i = 0; i < n - 1; i++){\n            res += cross(points[i], points[i\
+    \ + 1]);\n        }\n        res += cross(points[n - 1], points[0]);\n       \
+    \ return absT(res);\n    }\n\n    vector<Point> convexHull(vector<Point> points){\n\
+    \        vector<Point> U, L, res;\n        sort(points.begin(), points.end(),\
+    \ [](Point p, Point q){\n            return (p.x != q.x ? p.x < q.x : p.y < q.y);\n\
+    \        });\n        points.erase(unique(points.begin(), points.end()), points.end());\n\
+    \        const int n = points.size();\n        if((int) points.size() <= 2){\n\
+    \            return points;\n        }\n\n        // lower\n        for(int i\
+    \ = 0; i < n; i++){\n            int j = L.size();\n            // \u50BE\u304D\
+    \u3067\u5DE6\u56DE\u308A\u304B\u3092\u30C1\u30A7\u30C3\u30AF\n            while(j\
+    \ >= 2 && cross(L[j - 1] - L[j - 2], points[i] - L[j - 2]) <= 0){\n          \
+    \      L.pop_back();\n                j--;\n            }\n            L.push_back(points[i]);\n\
     \        }\n\n        // upper\n        for(int i = n - 1; i >= 0; i--){\n   \
     \         int j = U.size();\n            while(j >= 2 && cross(U[j - 1] - U[j\
     \ - 2], points[i] - U[j - 2]) <= 0){\n                U.pop_back();\n        \
@@ -191,20 +198,27 @@ data:
     \ Point &p, const Point &q){\n        return absT(p.x - q.x) + absT(p.y - q.y);\n\
     \    }\n\n    // 2\u4E57\n    T dist(const Point &p, const Point &q){\n      \
     \  return (p.x - q.x) * (p.x - q.x) + (p.y - q.y) * (p.y - q.y);\n    }\n\n  \
-    \  // 2\u500D\n    T polygonArea(const vector<Point> &points){\n        const\
-    \ int n = points.size();\n        T res = 0;\n        for(int i = 0; i < n - 1;\
-    \ i++){\n            res += cross(points[i], points[i + 1]);\n        }\n    \
-    \    res += cross(points[n - 1], points[0]);\n        return absT(res);\n    }\n\
-    \n    vector<Point> convexHull(vector<Point> points){\n        vector<Point> U,\
-    \ L, res;\n        sort(points.begin(), points.end(), [](Point p, Point q){\n\
-    \            return (p.x != q.x ? p.x < q.x : p.y < q.y);\n        });\n     \
-    \   points.erase(unique(points.begin(), points.end()), points.end());\n      \
-    \  const int n = points.size();\n        if((int) points.size() <= 2){\n     \
-    \       return points;\n        }\n\n        // lower\n        for(int i = 0;\
-    \ i < n; i++){\n            int j = L.size();\n            // \u50BE\u304D\u3067\
-    \u5DE6\u56DE\u308A\u304B\u3092\u30C1\u30A7\u30C3\u30AF\n            while(j >=\
-    \ 2 && cross(L[j - 1] - L[j - 2], points[i] - L[j - 2]) <= 0){\n             \
-    \   L.pop_back();\n                j--;\n            }\n            L.push_back(points[i]);\n\
+    \  // \u7DDA\u5206 p1-p2 \u3068\u7DDA\u5206 q1-q2\n    bool intersection(const\
+    \ Point &p1, const Point &p2, const Point &q1, const Point &q2){\n        T a\
+    \ = cross(p2 - p1, q1 - p1);\n        T b = cross(p2 - p1, q2 - p1);\n       \
+    \ T c = cross(q2 - q1, p1 - q1);\n        T d = cross(q2 - q1, p2 - q1);\n   \
+    \     if(a == 0 && b == 0){\n            T e = dot(p2 - p1, q1 - p1);\n      \
+    \      T f = dot(p2 - p1, q2 - p1);\n            if(e > f) swap(e, f);\n     \
+    \       return e <= dist(p1, p2) && 0 <= f;\n        }\n        return a * b <=\
+    \ 0 && c * d <= 0;\n    }\n\n    // 2\u500D\n    T polygonArea(const vector<Point>\
+    \ &points){\n        const int n = points.size();\n        T res = 0;\n      \
+    \  for(int i = 0; i < n - 1; i++){\n            res += cross(points[i], points[i\
+    \ + 1]);\n        }\n        res += cross(points[n - 1], points[0]);\n       \
+    \ return absT(res);\n    }\n\n    vector<Point> convexHull(vector<Point> points){\n\
+    \        vector<Point> U, L, res;\n        sort(points.begin(), points.end(),\
+    \ [](Point p, Point q){\n            return (p.x != q.x ? p.x < q.x : p.y < q.y);\n\
+    \        });\n        points.erase(unique(points.begin(), points.end()), points.end());\n\
+    \        const int n = points.size();\n        if((int) points.size() <= 2){\n\
+    \            return points;\n        }\n\n        // lower\n        for(int i\
+    \ = 0; i < n; i++){\n            int j = L.size();\n            // \u50BE\u304D\
+    \u3067\u5DE6\u56DE\u308A\u304B\u3092\u30C1\u30A7\u30C3\u30AF\n            while(j\
+    \ >= 2 && cross(L[j - 1] - L[j - 2], points[i] - L[j - 2]) <= 0){\n          \
+    \      L.pop_back();\n                j--;\n            }\n            L.push_back(points[i]);\n\
     \        }\n\n        // upper\n        for(int i = n - 1; i >= 0; i--){\n   \
     \         int j = U.size();\n            while(j >= 2 && cross(U[j - 1] - U[j\
     \ - 2], points[i] - U[j - 2]) <= 0){\n                U.pop_back();\n        \
@@ -272,7 +286,7 @@ data:
   isVerificationFile: false
   path: lib/geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2024-06-24 21:37:30+09:00'
+  timestamp: '2024-09-29 04:33:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/geometry/count_points_in_triangle.test.cpp
