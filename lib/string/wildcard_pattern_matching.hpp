@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../convolution/fps.hpp"
+#include "../convolution/ntt.hpp"
 #include "../math/modint.hpp"
 
 vector<bool> wildcardPatternMatching(string &s, string &t){
-    using mint = ModInt<FPS::MOD>;
+    using mint = ModInt<998244353>;
     auto id = [](char c) -> mint {
         // wildcard must be 0
         if(c == '*'){
@@ -34,9 +34,9 @@ vector<bool> wildcardPatternMatching(string &s, string &t){
         b3[i] = b1[i] * b1[i] * b1[i];
     }
 
-    vector<mint> a3b1 = FPS::convolution(a3, b1);
-    vector<mint> a2b2 = FPS::convolution(a2, b2);
-    vector<mint> a1b3 = FPS::convolution(a1, b3);
+    vector<mint> a3b1 = NTT::convolution(a3, b1);
+    vector<mint> a2b2 = NTT::convolution(a2, b2);
+    vector<mint> a1b3 = NTT::convolution(a1, b3);
     vector<bool> res(n - m + 1, false);
     for(int i = m - 1; i < n; i++){
         if((a3b1[i] - 2 * a2b2[i] + a1b3[i]) == 0){
