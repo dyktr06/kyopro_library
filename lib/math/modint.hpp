@@ -8,6 +8,7 @@
 template <long long Modulus>
 struct ModInt{
     long long val;
+    static constexpr int mod() { return Modulus; }
     constexpr ModInt(const long long _val = 0) noexcept : val(_val) {
         normalize();
     }

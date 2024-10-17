@@ -1,8 +1,9 @@
 #pragma once
 
-namespace FPS{
-    const unsigned long long MOD = 998244353;
+#include "../math/modint.hpp"
+#include "../math/crt.hpp"
 
+namespace NTT{
     // @param n `0 <= n`
     // @return minimum non-negative `x` s.t. `n <= 2**x`
     int ceil_pow2(int n) {
@@ -28,7 +29,7 @@ namespace FPS{
 
     template <typename T>
     void butterfly(vector<T> &a){
-        int g = primitive_root(MOD);
+        int g = primitive_root(T::mod());
         int n = int(a.size());
         int h = ceil_pow2(n);
 
@@ -37,8 +38,8 @@ namespace FPS{
         if(first){
             first = false;
             T es[30], ies[30];  // es[i]^(2^(2+i)) == 1
-            int cnt2 = bsf(MOD - 1);
-            T e = T(g).pow((MOD - 1) >> cnt2), ie = e.inv();
+            int cnt2 = bsf(T::mod() - 1);
+            T e = T(g).pow((T::mod() - 1) >> cnt2), ie = e.inv();
             for(int i = cnt2; i >= 2; i--){
                 // e^(2^i) == 1
                 es[i - 2] = e;
@@ -70,7 +71,7 @@ namespace FPS{
 
     template <typename T>
     void butterfly_inv(vector<T> &a) {
-        int g = primitive_root(MOD);
+        int g = primitive_root(T::mod());
         int n = int(a.size());
         int h = ceil_pow2(n);
 
@@ -79,8 +80,8 @@ namespace FPS{
         if(first){
             first = false;
             T es[30], ies[30];  // es[i]^(2^(2+i)) == 1
-            int cnt2 = bsf(MOD - 1);
-            T e = T(g).pow((MOD - 1) >> cnt2), ie = e.inv();
+            int cnt2 = bsf(T::mod() - 1);
+            T e = T(g).pow((T::mod() - 1) >> cnt2), ie = e.inv();
             for(int i = cnt2; i >= 2; i--){
                 // e^(2^i) == 1
                 es[i - 2] = e;
@@ -104,7 +105,7 @@ namespace FPS{
                     auto l = a[i + offset];
                     auto r = a[i + offset + p];
                     a[i + offset] = l + r;
-                    a[i + offset + p] = (unsigned long long) (MOD + l.val - r.val) * inow.val;
+                    a[i + offset + p] = (unsigned long long) (T::mod() + l.val - r.val) * inow.val;
                 }
                 inow *= sum_ie[bsf(~(unsigned int) (s))];
             }
@@ -141,5 +142,37 @@ namespace FPS{
         T iz = T(z).inv();
         for(int i = 0; i < n + m - 1; i++) a[i] *= iz;
         return a;
+    }
+
+    template <typename T>
+    vector<T> convolution_mod(const vector<T> &a, const vector<T> &b, const long long MOD){
+        constexpr long long m0 = 167772161;
+        constexpr long long m1 = 469762049;
+        constexpr long long m2 = 754974721;
+        using mint0 = ModInt<m0>;
+        using mint1 = ModInt<m1>;
+        using mint2 = ModInt<m2>;
+        int n = a.size(), m = b.size();
+        vector<mint0> a0(n), b0(m);
+        vector<mint1> a1(n), b1(m);
+        vector<mint2> a2(n), b2(m);
+        for(int i = 0; i < n; i++){
+            a0[i] = a[i].val;
+            a1[i] = a[i].val;
+            a2[i] = a[i].val;
+        }
+        for(int i = 0; i < m; i++){
+            b0[i] = b[i].val;
+            b1[i] = b[i].val;
+            b2[i] = b[i].val;
+        }
+        auto c0 = convolution(a0, b0);
+        auto c1 = convolution(a1, b1);
+        auto c2 = convolution(a2, b2);
+        vector<T> ret(n + m - 1);
+        for(int i = 0; i < n + m - 1; i++){
+            ret[i] = CRT::garner({c0[i].val, c1[i].val, c2[i].val}, {m0, m1, m2}, MOD);
+        }
+        return ret;
     }
 };
