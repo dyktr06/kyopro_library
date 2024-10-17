@@ -17,12 +17,12 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/convolution_mod
+    PROBLEM: https://judge.yosupo.jp/problem/convolution_mod_1000000007
     links:
-    - https://judge.yosupo.jp/problem/convolution_mod
-  bundledCode: "#line 1 \"test/library_checker/convolution/convolution.test.cpp\"\n\
-    #define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/convolution/ntt.hpp\"\
+    - https://judge.yosupo.jp/problem/convolution_mod_1000000007
+  bundledCode: "#line 1 \"test/library_checker/convolution/convolution_mod_1000000007.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod_1000000007\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/convolution/ntt.hpp\"\
     \n\n#line 2 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
     \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
     \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
@@ -169,34 +169,36 @@ data:
     \ c2 = convolution(a2, b2);\n        vector<T> ret(n + m - 1);\n        for(int\
     \ i = 0; i < n + m - 1; i++){\n            ret[i] = CRT::garner({c0[i].val, c1[i].val,\
     \ c2[i].val}, {m0, m1, m2}, MOD);\n        }\n        return ret;\n    }\n};\n\
-    #line 7 \"test/library_checker/convolution/convolution.test.cpp\"\n\nusing mint\
-    \ = ModInt<998244353>;\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
-    \    srand(time(NULL));\n\n    int n, m; cin >> n >> m;\n    vector<mint> a(n),\
+    #line 7 \"test/library_checker/convolution/convolution_mod_1000000007.test.cpp\"\
+    \n\nconst long long MOD = 1000000007;\nusing mint = ModInt<MOD>;\n\nint main(){\n\
+    \    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n    int n, m; cin\
+    \ >> n >> m;\n    vector<mint> a(n), b(m);\n    for(int i = 0; i < n; i++) cin\
+    \ >> a[i];\n    for(int i = 0; i < m; i++) cin >> b[i];\n    auto c = NTT::convolution_mod(a,\
+    \ b, MOD);\n    for(int i = 0; i < n + m - 1; i++) cout << c[i] << (i + 1 == n\
+    \ + m - 1 ? '\\n' : ' ');\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod_1000000007\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/convolution/ntt.hpp\"\
+    \n#include \"../../../lib/math/modint.hpp\"\n\nconst long long MOD = 1000000007;\n\
+    using mint = ModInt<MOD>;\n\nint main(){\n    ios::sync_with_stdio(false);\n \
+    \   cin.tie(nullptr);\n\n    int n, m; cin >> n >> m;\n    vector<mint> a(n),\
     \ b(m);\n    for(int i = 0; i < n; i++) cin >> a[i];\n    for(int i = 0; i < m;\
-    \ i++) cin >> b[i];\n    auto c = NTT::convolution(a, b);\n    for(int i = 0;\
-    \ i < n + m - 1; i++) cout << c[i] << (i + 1 == n + m - 1 ? '\\n' : ' ');\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/convolution/ntt.hpp\"\
-    \n#include \"../../../lib/math/modint.hpp\"\n\nusing mint = ModInt<998244353>;\n\
-    \nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    srand(time(NULL));\n\
-    \n    int n, m; cin >> n >> m;\n    vector<mint> a(n), b(m);\n    for(int i =\
-    \ 0; i < n; i++) cin >> a[i];\n    for(int i = 0; i < m; i++) cin >> b[i];\n \
-    \   auto c = NTT::convolution(a, b);\n    for(int i = 0; i < n + m - 1; i++) cout\
-    \ << c[i] << (i + 1 == n + m - 1 ? '\\n' : ' ');\n}\n"
+    \ i++) cin >> b[i];\n    auto c = NTT::convolution_mod(a, b, MOD);\n    for(int\
+    \ i = 0; i < n + m - 1; i++) cout << c[i] << (i + 1 == n + m - 1 ? '\\n' : ' ');\n\
+    }\n"
   dependsOn:
   - lib/convolution/ntt.hpp
   - lib/math/modint.hpp
   - lib/math/crt.hpp
   isVerificationFile: true
-  path: test/library_checker/convolution/convolution.test.cpp
+  path: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
   requiredBy: []
   timestamp: '2024-10-18 01:55:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/convolution/convolution.test.cpp
+documentation_of: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/convolution/convolution.test.cpp
-- /verify/test/library_checker/convolution/convolution.test.cpp.html
-title: test/library_checker/convolution/convolution.test.cpp
+- /verify/test/library_checker/convolution/convolution_mod_1000000007.test.cpp
+- /verify/test/library_checker/convolution/convolution_mod_1000000007.test.cpp.html
+title: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
 ---
