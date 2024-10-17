@@ -315,6 +315,9 @@ data:
       path: lib/string/calc_next.hpp
       title: calc-next
     - icon: ':heavy_check_mark:'
+      path: lib/string/lyndon_factorization.hpp
+      title: lib/string/lyndon_factorization.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/string/manacher.hpp
       title: Manacher
     - icon: ':warning:'
@@ -657,6 +660,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/enumerate_palindromes.test.cpp
       title: test/library_checker/string/enumerate_palindromes.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/string/lyndon_factorization.test.cpp
+      title: test/library_checker/string/lyndon_factorization.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/number_of_substrings.test.cpp
       title: test/library_checker/string/number_of_substrings.test.cpp
