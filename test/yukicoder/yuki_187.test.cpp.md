@@ -11,10 +11,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/186
+    PROBLEM: https://yukicoder.me/problems/no/187
     links:
-    - https://yukicoder.me/problems/no/186
-  bundledCode: "#line 1 \"test/yukicoder/yuki_186.test.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/186\"\
+    - https://yukicoder.me/problems/no/187
+  bundledCode: "#line 1 \"test/yukicoder/yuki_187.test.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/187\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/crt.hpp\"\
     \n\n/**\n * @brief Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406\
     )\n * @docs docs/math/crt.md\n */\n\nnamespace CRT{\n    inline long long mod(long\
@@ -51,32 +51,33 @@ data:
     \ tm[i]), tm[i]);\n            for(int j = i + 1; j < n + 1; j++){\n         \
     \       (constants[j] += t * coeffs[j]) %= tm[j];\n                (coeffs[j]\
     \ *= tm[i]) %= tm[j];\n            }\n        }\n        return constants[n];\n\
-    \    }\n}\n#line 6 \"test/yukicoder/yuki_186.test.cpp\"\n\nint main(){\n    vector<long\
-    \ long> b(3), m(3);\n    int cnt = 0;\n    for(int i = 0; i < 3; i++){\n     \
-    \   cin >> b[i] >> m[i];\n        if(b[i] == 0) cnt++;\n    }\n    pair<long long,\
-    \ long long> p = CRT::chineseRem(b, m);\n    if(p.second == -1){\n        cout\
-    \ << -1 << \"\\n\";\n    }else if(cnt == 3){\n        cout << p.second << \"\\\
-    n\";\n    }else{\n        cout << p.first << \"\\n\";\n    }\n}\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/186\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#include \"../../lib/math/crt.hpp\"\n\nint main(){\n \
-    \   vector<long long> b(3), m(3);\n    int cnt = 0;\n    for(int i = 0; i < 3;\
-    \ i++){\n        cin >> b[i] >> m[i];\n        if(b[i] == 0) cnt++;\n    }\n \
-    \   pair<long long, long long> p = CRT::chineseRem(b, m);\n    if(p.second ==\
-    \ -1){\n        cout << -1 << \"\\n\";\n    }else if(cnt == 3){\n        cout\
-    \ << p.second << \"\\n\";\n    }else{\n        cout << p.first << \"\\n\";\n \
-    \   }\n}"
+    \    }\n}\n#line 6 \"test/yukicoder/yuki_187.test.cpp\"\n\nconst long long MOD\
+    \ = 1000000007;\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
+    \n    int n; cin >> n;\n    vector<long long> x(n), y(n);\n    int all_zero =\
+    \ 1;\n    for(int i = 0; i < n; i++){\n        cin >> x[i] >> y[i];\n        if(x[i]\
+    \ != 0) all_zero = 0;\n    }\n\n    long long l = CRT::preGarner(x, y, MOD);\n\
+    \    if(l == -1) cout << -1 << \"\\n\";\n    else if(all_zero) cout << l << \"\
+    \\n\";\n    else cout << CRT::garner(x, y, MOD) << \"\\n\";\n}\n"
+  code: "#define PROBLEM \"https://yukicoder.me/problems/no/187\"\n#include <bits/stdc++.h>\n\
+    using namespace std;\n\n#include \"../../lib/math/crt.hpp\"\n\nconst long long\
+    \ MOD = 1000000007;\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
+    \n    int n; cin >> n;\n    vector<long long> x(n), y(n);\n    int all_zero =\
+    \ 1;\n    for(int i = 0; i < n; i++){\n        cin >> x[i] >> y[i];\n        if(x[i]\
+    \ != 0) all_zero = 0;\n    }\n\n    long long l = CRT::preGarner(x, y, MOD);\n\
+    \    if(l == -1) cout << -1 << \"\\n\";\n    else if(all_zero) cout << l << \"\
+    \\n\";\n    else cout << CRT::garner(x, y, MOD) << \"\\n\";\n}\n"
   dependsOn:
   - lib/math/crt.hpp
   isVerificationFile: true
-  path: test/yukicoder/yuki_186.test.cpp
+  path: test/yukicoder/yuki_187.test.cpp
   requiredBy: []
   timestamp: '2024-10-18 01:54:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yukicoder/yuki_186.test.cpp
+documentation_of: test/yukicoder/yuki_187.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yukicoder/yuki_186.test.cpp
-- /verify/test/yukicoder/yuki_186.test.cpp.html
-title: test/yukicoder/yuki_186.test.cpp
+- /verify/test/yukicoder/yuki_187.test.cpp
+- /verify/test/yukicoder/yuki_187.test.cpp.html
+title: test/yukicoder/yuki_187.test.cpp
 ---
