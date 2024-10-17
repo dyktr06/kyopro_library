@@ -8,13 +8,13 @@
 template <typename T>
 struct SCC{
     int siz;
-    vector<vector<T>> G_reverse;
+    vector<vector<T>> G_reverse, G_compress;
     vector<bool> check;
-    vector<int> memo;
+    vector<int> memo, id;
     vector<T> s;
     vector<vector<T>> result;
 
-    SCC(const vector<vector<T>> &G) : G_reverse((int) G.size()), check((int) G.size()){
+    SCC(const vector<vector<T>> &G) : G_reverse((int) G.size()), check((int) G.size()), id((int) G.size()){
         siz = (int) G.size();
         for(int i = 0; i < siz; ++i){
             for(const auto &x : G[i]){
@@ -34,7 +34,19 @@ struct SCC{
             if(!check[x]){
                 s = {};
                 dfs2(G_reverse, x);
+                for(const auto &y : s){
+                    id[y] = (int) result.size();
+                }
                 result.emplace_back(s);
+            }
+        }
+
+        G_compress.resize(result.size());
+        for(int i = 0; i < siz; ++i){
+            for(const auto &x : G[i]){
+                if(id[i] != id[x]){
+                    G_compress[id[i]].emplace_back(id[x]);
+                }
             }
         }
     }
@@ -63,5 +75,13 @@ struct SCC{
 
     vector<vector<T>> get() const {
         return result;
+    }
+
+    vector<vector<T>> getCompressed() const {
+        return G_compress;
+    }
+
+    int getId(int x) const {
+        return id[x];
     }
 };
