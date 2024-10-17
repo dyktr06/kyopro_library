@@ -96,6 +96,7 @@
 "test/library_checker/sample/many_aplusb_128bit.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/string/enumerate_palindromes.test.cpp": "2024-04-07 03:10:19 +0900",
 "test/library_checker/string/number_of_substrings.test.cpp": "2024-02-14 05:45:45 +0900",
+"test/library_checker/string/runenumerate.test.cpp": "2024-10-17 17:10:28 +0900",
 "test/library_checker/string/suffixarray.test.cpp": "2024-02-14 05:37:09 +0900",
 "test/library_checker/string/wildcard_pattern_matching.test.cpp": "2024-05-09 09:44:16 +0900",
 "test/library_checker/string/z_algorithm.test.cpp": "2024-05-04 18:06:16 +0900",
