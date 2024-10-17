@@ -77,8 +77,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/cycle_detection.test.cpp
-  - test/library_checker/graph/cycle_detection_undirected.test.cpp
   - test/library_checker/graph/shortest_path.test.cpp
+  - test/library_checker/graph/cycle_detection_undirected.test.cpp
   - test/library_checker/tree/tree_diameter.test.cpp
 documentation_of: lib/graph/dijkstra.hpp
 layout: document

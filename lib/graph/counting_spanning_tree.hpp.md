@@ -132,8 +132,8 @@ data:
   timestamp: '2024-06-04 05:02:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
   - test/library_checker/graph/counting_spanning_tree_directed.test.cpp
+  - test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
 documentation_of: lib/graph/counting_spanning_tree.hpp
 layout: document
 redirect_from:

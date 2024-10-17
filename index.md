@@ -324,6 +324,9 @@ data:
       path: lib/string/rolling_hash.hpp
       title: Rolling Hash
     - icon: ':heavy_check_mark:'
+      path: lib/string/run_enumerate.hpp
+      title: lib/string/run_enumerate.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/string/suffix_array.hpp
       title: lib/string/suffix_array.hpp
     - icon: ':heavy_check_mark:'
@@ -657,6 +660,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/number_of_substrings.test.cpp
       title: test/library_checker/string/number_of_substrings.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/string/runenumerate.test.cpp
+      title: test/library_checker/string/runenumerate.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/suffixarray.test.cpp
       title: test/library_checker/string/suffixarray.test.cpp

@@ -75,11 +75,11 @@ data:
   timestamp: '2024-05-04 20:00:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/vertex_add_path_sum.test.cpp
-  - test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
   - test/library_checker/data_structure/range_kth_smallest.test.cpp
   - test/library_checker/data_structure/static_range_inversions_query.test.cpp
-  - test/library_checker/data_structure/point_add_range_sum.test.cpp
+  - test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
 documentation_of: lib/data_structure/binary_indexed_tree.hpp
 layout: document
 redirect_from:

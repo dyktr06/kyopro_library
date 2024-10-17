@@ -1,8 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/string/run_enumerate.hpp
+    title: lib/string/run_enumerate.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/string/runenumerate.test.cpp
+    title: test/library_checker/string/runenumerate.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/string/z_algorithm.test.cpp
     title: test/library_checker/string/z_algorithm.test.cpp
@@ -31,11 +37,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/string/z_algorithm.hpp
-  requiredBy: []
+  requiredBy:
+  - lib/string/run_enumerate.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/string/z_algorithm.test.cpp
+  - test/library_checker/string/runenumerate.test.cpp
 documentation_of: lib/string/z_algorithm.hpp
 layout: document
 redirect_from:
