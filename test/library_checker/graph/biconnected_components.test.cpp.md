@@ -66,13 +66,15 @@ data:
     \                            if(edge.id == edgeb.id) break;\n                \
     \        }\n                    }\n                }\n            }\n        };\n\
     \        for(int i = 0; i < V; i++){\n            if(!visited[i]){\n         \
-    \       dfs(dfs, i, -1);\n            }\n        }\n\n        vector<bool> used(V);\n\
-    \        for(auto &x : edge_result){\n            vector<int> v;\n           \
-    \ for(auto &y : x){\n                v.push_back(y.from);\n                v.push_back(y.to);\n\
-    \                used[y.from] = true;\n                used[y.to] = true;\n  \
-    \          }\n            sort(v.begin(), v.end());\n            v.erase(unique(v.begin(),\
-    \ v.end()), v.end());\n            result.push_back(v);\n        }\n        for(int\
-    \ i = 0; i < V; i++){\n            if(!used[i]){\n                result.push_back({i});\n\
+    \       dfs(dfs, i, -1);\n            }\n        }\n\n        vector<bool> used(V),\
+    \ is_exist(V);\n        for(auto &x : edge_result){\n            vector<int> v;\n\
+    \            for(auto &y : x){\n                if(!is_exist[y.from]) v.push_back(y.from);\n\
+    \                if(!is_exist[y.to]) v.push_back(y.to);\n                is_exist[y.from]\
+    \ = true;\n                is_exist[y.to] = true;\n                used[y.from]\
+    \ = true;\n                used[y.to] = true;\n            }\n            for(auto\
+    \ &y : x){\n                is_exist[y.from] = false;\n                is_exist[y.to]\
+    \ = false;\n            }\n            result.push_back(v);\n        }\n     \
+    \   for(int i = 0; i < V; i++){\n            if(!used[i]){\n                result.push_back({i});\n\
     \            }\n        }\n    }\n\n    vector<vector<int>> get(){\n        return\
     \ result;\n    }\n};\n#line 6 \"test/library_checker/graph/biconnected_components.test.cpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
@@ -97,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/biconnected_components.test.cpp
   requiredBy: []
-  timestamp: '2024-10-19 01:09:14+09:00'
+  timestamp: '2024-10-19 01:49:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/biconnected_components.test.cpp
