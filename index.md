@@ -157,6 +157,9 @@ data:
       title: "Bellman-Ford Algorithm (\u30D9\u30EB\u30DE\u30F3-\u30D5\u30A9\u30FC\u30C9\
         \u6CD5)"
     - icon: ':heavy_check_mark:'
+      path: lib/graph/biconnected_components.hpp
+      title: lib/graph/biconnected_components.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/graph/bipartite_matching.hpp
       title: lib/graph/bipartite_matching.hpp
     - icon: ':heavy_check_mark:'
@@ -187,6 +190,9 @@ data:
       path: lib/graph/interval_graph.hpp
       title: lib/graph/interval_graph.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/graph/lowlink.hpp
+      title: lib/graph/lowlink.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/graph/manhattanMST.hpp
       title: Manhattan MST
     - icon: ':heavy_check_mark:'
@@ -211,6 +217,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/tree_diameter.hpp
       title: "Tree Diameter (\u6728\u306E\u76F4\u5F84)"
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/two_edge_connected_components.hpp
+      title: lib/graph/two_edge_connected_components.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/warshall_floyd.hpp
       title: "Floyd-Warshall Algorithm (\u30EF\u30FC\u30B7\u30E3\u30EB\u30D5\u30ED\
@@ -569,6 +578,9 @@ data:
   - name: test/library_checker/graph
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/biconnected_components.test.cpp
+      title: test/library_checker/graph/biconnected_components.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/bipartitematching.test.cpp
       title: test/library_checker/graph/bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
@@ -604,6 +616,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/shortest_path.test.cpp
       title: test/library_checker/graph/shortest_path.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/two_edge_connected_components.test.cpp
+      title: test/library_checker/graph/two_edge_connected_components.test.cpp
   - name: test/library_checker/math
     pages:
     - icon: ':heavy_check_mark:'
