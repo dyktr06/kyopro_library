@@ -217,7 +217,7 @@ data:
         \u30A4\u30C9\u6CD5)"
   - name: lib/math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/arbitrary_modint.hpp
       title: Arbitrary Modint
     - icon: ':heavy_check_mark:'
@@ -229,7 +229,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/binarybasis.hpp
       title: Binary Basis
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/combination.hpp
       title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
     - icon: ':heavy_check_mark:'
@@ -609,7 +609,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
       title: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
       title: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
     - icon: ':heavy_check_mark:'

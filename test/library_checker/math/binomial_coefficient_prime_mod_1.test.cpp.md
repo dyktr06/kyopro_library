@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/arbitrary_modint.hpp
     title: Arbitrary Modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/combination.hpp
     title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
@@ -24,7 +24,7 @@ data:
     \ */\n\nstruct ModInt{\n    long long val;\n    ModInt(const long long &_val =\
     \ 0) noexcept : val(_val) {\n        normalize();\n    }\n    static long long\
     \ &Modulus(){\n        static long long mod = 0;\n        return mod;\n    }\n\
-    \    static constexpr long long mod() { return Modulus(); }\n    static void setMod(const\
+    \    static long long mod() { return Modulus(); }\n    static void setMod(const\
     \ int &mod){\n        Modulus() = mod;\n    }\n    void normalize(){\n       \
     \ val = (val % Modulus() + Modulus()) % Modulus();\n    }\n    inline ModInt &operator+=(const\
     \ ModInt &rhs) noexcept {\n        if(val += rhs.val, val >= Modulus()) val -=\
@@ -105,8 +105,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
   requiredBy: []
-  timestamp: '2024-10-18 16:15:20+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-18 22:55:19+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
 layout: document
