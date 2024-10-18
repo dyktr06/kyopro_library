@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/arbitrary_modint.hpp
     title: Arbitrary Modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/combination.hpp
     title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
@@ -24,31 +24,34 @@ data:
     \ */\n\nstruct ModInt{\n    long long val;\n    ModInt(const long long &_val =\
     \ 0) noexcept : val(_val) {\n        normalize();\n    }\n    static long long\
     \ &Modulus(){\n        static long long mod = 0;\n        return mod;\n    }\n\
-    \    static void setMod(const int &mod){\n        Modulus() = mod;\n    }\n  \
-    \  void normalize(){\n        val = (val % Modulus() + Modulus()) % Modulus();\n\
-    \    }\n    inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val\
-    \ += rhs.val, val >= Modulus()) val -= Modulus();\n        return *this;\n   \
-    \ }\n    inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val\
-    \ -= rhs.val, val < 0) val += Modulus();\n        return *this;\n    }\n    inline\
-    \ ModInt &operator*=(const ModInt &rhs) noexcept {\n        val = val * rhs.val\
-    \ % Modulus();\n        return *this;\n    }\n    inline ModInt &operator/=(const\
-    \ ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val % Modulus();\n\
-    \        return *this;\n    }\n    inline ModInt &operator++() noexcept {\n  \
-    \      if(++val >= Modulus()) val -= Modulus();\n        return *this;\n    }\n\
-    \    inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n     \
-    \   if(++val >= Modulus()) val -= Modulus();\n        return t;\n    }\n    inline\
-    \ ModInt &operator--() noexcept {\n        if(--val < 0) val += Modulus();\n \
-    \       return *this;\n    }\n    inline ModInt operator--(int) noexcept {\n \
-    \       ModInt t = val;\n        if(--val < 0) val += Modulus();\n        return\
-    \ t;\n    }\n    inline ModInt operator-() const noexcept { return (Modulus()\
-    \ - val) % Modulus(); }\n    inline ModInt inv(void) const { return inv(val);\
-    \ }\n    ModInt inv(const long long &n) const {\n        long long a = n, b =\
-    \ Modulus(), u = 1, v = 0;\n        while(b){\n            long long t = a / b;\n\
-    \            a -= t * b; swap(a, b);\n            u -= t * v; swap(u, v);\n  \
-    \      }\n        u %= Modulus();\n        if(u < 0) u += Modulus();\n       \
-    \ return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs, const\
-    \ ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline ModInt\
-    \ operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \    static constexpr long long mod() { return Modulus(); }\n    static void setMod(const\
+    \ int &mod){\n        Modulus() = mod;\n    }\n    void normalize(){\n       \
+    \ val = (val % Modulus() + Modulus()) % Modulus();\n    }\n    inline ModInt &operator+=(const\
+    \ ModInt &rhs) noexcept {\n        if(val += rhs.val, val >= Modulus()) val -=\
+    \ Modulus();\n        return *this;\n    }\n    inline ModInt &operator-=(const\
+    \ ModInt &rhs) noexcept {\n        if(val -= rhs.val, val < 0) val += Modulus();\n\
+    \        return *this;\n    }\n    inline ModInt &operator*=(const ModInt &rhs)\
+    \ noexcept {\n        val = val * rhs.val % Modulus();\n        return *this;\n\
+    \    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n        val\
+    \ = val * inv(rhs.val).val % Modulus();\n        return *this;\n    }\n    inline\
+    \ ModInt &operator++() noexcept {\n        if(++val >= Modulus()) val -= Modulus();\n\
+    \        return *this;\n    }\n    inline ModInt operator++(int) noexcept {\n\
+    \        ModInt t = val;\n        if(++val >= Modulus()) val -= Modulus();\n \
+    \       return t;\n    }\n    inline ModInt &operator--() noexcept {\n       \
+    \ if(--val < 0) val += Modulus();\n        return *this;\n    }\n    inline ModInt\
+    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
+    \ += Modulus();\n        return t;\n    }\n    inline ModInt operator-() const\
+    \ noexcept { return (Modulus() - val) % Modulus(); }\n    inline ModInt inv(void)\
+    \ const { return inv(val); }\n    ModInt pow(long long n){\n        assert(0 <=\
+    \ n);\n        ModInt x = *this, r = 1;\n        while(n){\n            if(n &\
+    \ 1) r *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
+    \ r;\n    }\n    ModInt inv(const long long &n) const {\n        long long a =\
+    \ n, b = Modulus(), u = 1, v = 0;\n        while(b){\n            long long t\
+    \ = a / b;\n            a -= t * b; swap(a, b);\n            u -= t * v; swap(u,\
+    \ v);\n        }\n        u %= Modulus();\n        if(u < 0) u += Modulus();\n\
+    \        return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline\
+    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
     \ -= rhs; }\n    friend inline ModInt operator*(const ModInt &lhs, const ModInt\
     \ &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const\
     \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n  \
@@ -102,8 +105,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-10-18 16:15:20+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
 layout: document
