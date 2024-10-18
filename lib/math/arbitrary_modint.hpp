@@ -14,7 +14,7 @@ struct ModInt{
         static long long mod = 0;
         return mod;
     }
-    static constexpr long long mod() { return Modulus(); }
+    static long long mod() { return Modulus(); }
     static void setMod(const int &mod){
         Modulus() = mod;
     }
