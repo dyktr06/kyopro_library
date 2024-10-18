@@ -14,6 +14,7 @@ struct ModInt{
         static long long mod = 0;
         return mod;
     }
+    static constexpr long long mod() { return Modulus(); }
     static void setMod(const int &mod){
         Modulus() = mod;
     }
@@ -56,6 +57,16 @@ struct ModInt{
     }
     inline ModInt operator-() const noexcept { return (Modulus() - val) % Modulus(); }
     inline ModInt inv(void) const { return inv(val); }
+    ModInt pow(long long n){
+        assert(0 <= n);
+        ModInt x = *this, r = 1;
+        while(n){
+            if(n & 1) r *= x;
+            x *= x;
+            n >>= 1;
+        }
+        return r;
+    }
     ModInt inv(const long long &n) const {
         long long a = n, b = Modulus(), u = 1, v = 0;
         while(b){
