@@ -46,17 +46,21 @@ struct BiconnectedComponents : LowLink{
             }
         }
 
-        vector<bool> used(V);
+        vector<bool> used(V), is_exist(V);
         for(auto &x : edge_result){
             vector<int> v;
             for(auto &y : x){
-                v.push_back(y.from);
-                v.push_back(y.to);
+                if(!is_exist[y.from]) v.push_back(y.from);
+                if(!is_exist[y.to]) v.push_back(y.to);
+                is_exist[y.from] = true;
+                is_exist[y.to] = true;
                 used[y.from] = true;
                 used[y.to] = true;
             }
-            sort(v.begin(), v.end());
-            v.erase(unique(v.begin(), v.end()), v.end());
+            for(auto &y : x){
+                is_exist[y.from] = false;
+                is_exist[y.to] = false;
+            }
             result.push_back(v);
         }
         for(int i = 0; i < V; i++){
