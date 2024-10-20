@@ -35,14 +35,11 @@ data:
     \                T j = n / i;\n                if(j != rt){\n                \
     \    resB.push_back(j);\n                }\n            }\n        }\n       \
     \ for(int i = (int) resB.size() - 1; i >= 0; i--){\n            res.push_back(resB[i]);\n\
-    \        }\n        return res;\n    }\n\n    template <typename T>\n    vector<T>\
-    \ sieve(T n){\n        vector<T> c(n + 1);\n        for(int i = 2; i <= n; i++){\n\
-    \            if(c[i] != 0) continue;\n            for(int j = i; j <= n; j +=\
-    \ i){\n                c[j] += 1;\n            }\n        }\n        return c;\n\
-    \    }\n}\n#line 6 \"test/aoj/alds1/alds1_1_c.test.cpp\"\n\nint main(){\n    ios::sync_with_stdio(false);\n\
-    \    cin.tie(nullptr);\n\n    int n; cin >> n;\n    int ans = 0;\n    for(int\
-    \ i = 0; i < n; i++){\n        int x; cin >> x;\n        ans += prime::isPrime(x);\n\
-    \    }\n    cout << ans << \"\\n\";\n}\n"
+    \        }\n        return res;\n    }\n}\n#line 6 \"test/aoj/alds1/alds1_1_c.test.cpp\"\
+    \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
+    \   int n; cin >> n;\n    int ans = 0;\n    for(int i = 0; i < n; i++){\n    \
+    \    int x; cin >> x;\n        ans += prime::isPrime(x);\n    }\n    cout << ans\
+    \ << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/prime.hpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
@@ -54,7 +51,7 @@ data:
   isVerificationFile: true
   path: test/aoj/alds1/alds1_1_c.test.cpp
   requiredBy: []
-  timestamp: '2024-05-06 22:04:04+09:00'
+  timestamp: '2024-10-21 04:45:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/alds1/alds1_1_c.test.cpp

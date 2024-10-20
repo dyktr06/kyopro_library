@@ -166,6 +166,9 @@ data:
       path: lib/graph/cartesian_tree.hpp
       title: lib/graph/cartesian_tree.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/graph/chromatic_number.hpp
+      title: lib/graph/chromatic_number.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/graph/connected_components_of_complement_graph.hpp
       title: lib/graph/connected_components_of_complement_graph.hpp
     - icon: ':heavy_check_mark:'
@@ -177,6 +180,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/dinic.hpp
       title: lib/graph/dinic.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/enumerate_cliques.hpp
+      title: lib/graph/enumerate_cliques.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/enumerate_triangles.hpp
+      title: lib/graph/enumerate_triangles.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/graph-input.hpp
       title: lib/graph/graph-input.hpp
@@ -256,6 +265,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/kth_root_integer.hpp
       title: lib/math/kth_root_integer.hpp
+    - icon: ':warning:'
+      path: lib/math/math_table.hpp
+      title: lib/math/math_table.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: Matrix
@@ -584,6 +596,9 @@ data:
       path: test/library_checker/graph/bipartitematching.test.cpp
       title: test/library_checker/graph/bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/chromatic_number.test.cpp
+      title: test/library_checker/graph/chromatic_number.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/connected_components_of_complement_graph.test.cpp
       title: test/library_checker/graph/connected_components_of_complement_graph.test.cpp
     - icon: ':heavy_check_mark:'
@@ -601,6 +616,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/cycle_detection_undirected.test.cpp
       title: test/library_checker/graph/cycle_detection_undirected.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/enumerate_cliques.test.cpp
+      title: test/library_checker/graph/enumerate_cliques.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/enumerate_triangles.test.cpp
+      title: test/library_checker/graph/enumerate_triangles.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/manhattanmst.test.cpp
       title: test/library_checker/graph/manhattanmst.test.cpp

@@ -37,11 +37,7 @@ data:
     \    res.push_back(i);\n                T j = n / i;\n                if(j !=\
     \ rt){\n                    resB.push_back(j);\n                }\n          \
     \  }\n        }\n        for(int i = (int) resB.size() - 1; i >= 0; i--){\n  \
-    \          res.push_back(resB[i]);\n        }\n        return res;\n    }\n\n\
-    \    template <typename T>\n    vector<T> sieve(T n){\n        vector<T> c(n +\
-    \ 1);\n        for(int i = 2; i <= n; i++){\n            if(c[i] != 0) continue;\n\
-    \            for(int j = i; j <= n; j += i){\n                c[j] += 1;\n   \
-    \         }\n        }\n        return c;\n    }\n}\n"
+    \          res.push_back(resB[i]);\n        }\n        return res;\n    }\n}\n"
   code: "#pragma once\n\n/**\n * @brief \u7D20\u6570\u5224\u5B9A\u3001\u7D04\u6570\
     \u5217\u6319\n * @docs docs/math/prime.md\n */\n\nnamespace prime{\n\n    template\
     \ <typename T>\n    bool isPrime(T n){\n        switch(n) {\n        case 0: //\
@@ -60,16 +56,12 @@ data:
     \                T j = n / i;\n                if(j != rt){\n                \
     \    resB.push_back(j);\n                }\n            }\n        }\n       \
     \ for(int i = (int) resB.size() - 1; i >= 0; i--){\n            res.push_back(resB[i]);\n\
-    \        }\n        return res;\n    }\n\n    template <typename T>\n    vector<T>\
-    \ sieve(T n){\n        vector<T> c(n + 1);\n        for(int i = 2; i <= n; i++){\n\
-    \            if(c[i] != 0) continue;\n            for(int j = i; j <= n; j +=\
-    \ i){\n                c[j] += 1;\n            }\n        }\n        return c;\n\
-    \    }\n}\n"
+    \        }\n        return res;\n    }\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/prime.hpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-10-21 04:45:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/alds1/alds1_1_c.test.cpp

@@ -49,6 +49,12 @@ data:
     path: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
     title: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/enumerate_cliques.test.cpp
+    title: test/library_checker/graph/enumerate_cliques.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/enumerate_triangles.test.cpp
+    title: test/library_checker/graph/enumerate_triangles.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/inverse_matrix.test.cpp
     title: test/library_checker/matrix/inverse_matrix.test.cpp
   - icon: ':heavy_check_mark:'
@@ -181,6 +187,8 @@ data:
   - test/library_checker/convolution/convolution_mod_1000000007.test.cpp
   - test/library_checker/convolution/convolution.test.cpp
   - test/library_checker/string/wildcard_pattern_matching.test.cpp
+  - test/library_checker/graph/enumerate_cliques.test.cpp
+  - test/library_checker/graph/enumerate_triangles.test.cpp
   - test/library_checker/graph/counting_spanning_tree_directed.test.cpp
   - test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
   - test/library_checker/tree/tree_path_composite_sum.test.cpp
