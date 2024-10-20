@@ -59,16 +59,4 @@ namespace prime{
         }
         return res;
     }
-
-    template <typename T>
-    vector<T> sieve(T n){
-        vector<T> c(n + 1);
-        for(int i = 2; i <= n; i++){
-            if(c[i] != 0) continue;
-            for(int j = i; j <= n; j += i){
-                c[j] += 1;
-            }
-        }
-        return c;
-    }
 }
