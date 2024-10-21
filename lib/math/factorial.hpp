@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#pragma once
 
 long long factorial_998244353(int n){
     const int BLOCK = 10000000;
@@ -47,16 +45,3 @@ struct ManyFactorials{
         return res;
     }
 };
-
-int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    ManyFactorials<long long> fact(998244353LL);
-    int t;
-    cin >> t;
-    while(t--){
-        int n; cin >> n;
-        cout << fact.factorial(n) << "\n";
-    }
-}
