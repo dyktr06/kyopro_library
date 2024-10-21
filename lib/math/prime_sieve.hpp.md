@@ -2,10 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/convolution/divisor_zeta_mobius_transform.hpp
     title: lib/convolution/divisor_zeta_mobius_transform.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/convolution/gcd_convolution.hpp
+    title: lib/convolution/gcd_convolution.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/convolution/lcm_convolution.hpp
+    title: lib/convolution/lcm_convolution.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/convolution/gcd_convolution.test.cpp
+    title: test/library_checker/convolution/gcd_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/convolution/lcm_convolution.test.cpp
+    title: test/library_checker/convolution/lcm_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/math/enumerate_primes.test.cpp
     title: test/library_checker/math/enumerate_primes.test.cpp
@@ -50,10 +62,14 @@ data:
   path: lib/math/prime_sieve.hpp
   requiredBy:
   - lib/convolution/divisor_zeta_mobius_transform.hpp
+  - lib/convolution/lcm_convolution.hpp
+  - lib/convolution/gcd_convolution.hpp
   timestamp: '2024-10-21 21:39:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/enumerate_primes.test.cpp
+  - test/library_checker/convolution/gcd_convolution.test.cpp
+  - test/library_checker/convolution/lcm_convolution.test.cpp
 documentation_of: lib/math/prime_sieve.hpp
 layout: document
 redirect_from:

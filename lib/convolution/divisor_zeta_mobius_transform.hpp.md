@@ -4,11 +4,23 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/math/prime_sieve.hpp
     title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/convolution/gcd_convolution.hpp
+    title: lib/convolution/gcd_convolution.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/convolution/lcm_convolution.hpp
+    title: lib/convolution/lcm_convolution.hpp
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/convolution/gcd_convolution.test.cpp
+    title: test/library_checker/convolution/gcd_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/convolution/lcm_convolution.test.cpp
+    title: test/library_checker/convolution/lcm_convolution.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/convolution/divisor_zeta_mobius_transform.hpp\"\n\n\
@@ -64,10 +76,14 @@ data:
   - lib/math/prime_sieve.hpp
   isVerificationFile: false
   path: lib/convolution/divisor_zeta_mobius_transform.hpp
-  requiredBy: []
+  requiredBy:
+  - lib/convolution/lcm_convolution.hpp
+  - lib/convolution/gcd_convolution.hpp
   timestamp: '2024-10-21 21:43:04+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library_checker/convolution/gcd_convolution.test.cpp
+  - test/library_checker/convolution/lcm_convolution.test.cpp
 documentation_of: lib/convolution/divisor_zeta_mobius_transform.hpp
 layout: document
 redirect_from:

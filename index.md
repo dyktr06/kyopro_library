@@ -9,19 +9,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/convolution/bitwise_xor_convolution.hpp
       title: lib/convolution/bitwise_xor_convolution.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/divisor_zeta_mobius_transform.hpp
       title: lib/convolution/divisor_zeta_mobius_transform.hpp
     - icon: ':heavy_check_mark:'
       path: lib/convolution/fast_walsh_hadamard_transform.hpp
       title: lib/convolution/fast_walsh_hadamard_transform.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/gcd_convolution.hpp
       title: lib/convolution/gcd_convolution.hpp
     - icon: ':heavy_check_mark:'
       path: lib/convolution/karatsuba_algorithm.hpp
       title: lib/convolution/karatsuba_algorithm.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/lcm_convolution.hpp
       title: lib/convolution/lcm_convolution.hpp
     - icon: ':heavy_check_mark:'
@@ -274,7 +274,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/enumerate_quotients.hpp
       title: "Enumerate Quotients (\u5546\u5217\u6319)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/factorial.hpp
       title: lib/math/factorial.hpp
     - icon: ':heavy_check_mark:'
@@ -292,7 +292,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -476,10 +476,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/convolution_mod_2_64.test.cpp
       title: test/library_checker/convolution/convolution_mod_2_64.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/gcd_convolution.test.cpp
       title: test/library_checker/convolution/gcd_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/lcm_convolution.test.cpp
       title: test/library_checker/convolution/lcm_convolution.test.cpp
   - name: test/library_checker/data_structure
@@ -596,10 +596,10 @@ data:
       title: test/library_checker/dp/number_of_subsequences.test.cpp
   - name: test/library_checker/enumerative_combinatorics
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/factorial.test.cpp
       title: test/library_checker/enumerative_combinatorics/factorial.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
       title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - name: test/library_checker/geometry
