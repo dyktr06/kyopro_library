@@ -274,6 +274,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/enumerate_quotients.hpp
       title: "Enumerate Quotients (\u5546\u5217\u6319)"
+    - icon: ':x:'
+      path: lib/math/factorial.hpp
+      title: lib/math/factorial.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
       title: Fraction
@@ -591,6 +594,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/dp/number_of_subsequences.test.cpp
       title: test/library_checker/dp/number_of_subsequences.test.cpp
+  - name: test/library_checker/enumerative_combinatorics
+    pages:
+    - icon: ':x:'
+      path: test/library_checker/enumerative_combinatorics/factorial.test.cpp
+      title: test/library_checker/enumerative_combinatorics/factorial.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
+      title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - name: test/library_checker/geometry
     pages:
     - icon: ':heavy_check_mark:'
