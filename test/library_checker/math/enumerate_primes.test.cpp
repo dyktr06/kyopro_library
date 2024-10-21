@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../../lib/math/prime-sieve.hpp"
+#include "../../../lib/math/prime_sieve.hpp"
 
 int main(){
     int n, a, b; cin >> n >> a >> b;
