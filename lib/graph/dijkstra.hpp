@@ -55,10 +55,8 @@ pair<long long, vector<pair<int, int>>> shortest_path(const vector<vector<array<
         return {-1, {}};
     }
     vector<pair<int, int>> path;
-    int now = t;
-    while(par[now] != -1){
+    for(int now = t; par[now] != -1; now = par[now]){
         path.emplace_back(par[now], now);
-        now = par[now];
     }
     reverse(path.begin(), path.end());
 
