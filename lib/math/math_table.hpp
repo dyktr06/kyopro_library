@@ -39,6 +39,7 @@ namespace MathTable{
                 div[j].push_back(i);
             }
         }
+        return div;
     }
 
     // 累乗
