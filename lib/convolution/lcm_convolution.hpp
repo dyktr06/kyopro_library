@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../convolution/divisor_zeta_mobius_transform.hpp"
+
 template <typename T>
 vector<T> lcm_convolution(vector<T> f, vector<T> g){
     const int n = (int) f.size();
