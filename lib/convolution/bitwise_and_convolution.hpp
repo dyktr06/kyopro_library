@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../convolution/superset_zeta_moebius_transform.hpp"
+#include "../convolution/superset_zeta_mobius_transform.hpp"
 
 template <typename T>
 vector<T> bitwise_and_convolution(vector<T> f, vector<T> g){
