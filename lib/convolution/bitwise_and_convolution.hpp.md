@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: lib/convolution/superset_zeta_moebius_transform.hpp
-    title: lib/convolution/superset_zeta_moebius_transform.hpp
+    path: lib/convolution/superset_zeta_mobius_transform.hpp
+    title: lib/convolution/superset_zeta_mobius_transform.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -15,7 +15,7 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/convolution/bitwise_and_convolution.hpp\"\n\n#line 2\
-    \ \"lib/convolution/superset_zeta_moebius_transform.hpp\"\n\ntemplate <typename\
+    \ \"lib/convolution/superset_zeta_mobius_transform.hpp\"\n\ntemplate <typename\
     \ T>\nvoid superset_zeta_transform(vector<T> &f){\n    const int n = f.size();\n\
     \    assert((n & (n - 1)) == 0);\n    for(int i = 1; i < n; i <<= 1){\n      \
     \  for(int j = 0; j < n; ++j){\n            if((j & i) == 0){\n              \
@@ -29,18 +29,18 @@ data:
     \    assert((n & (n - 1)) == 0);\n    superset_zeta_transform(f);\n    superset_zeta_transform(g);\n\
     \    for(int i = 0; i < n; ++i){\n        f[i] *= g[i];\n    }\n    superset_mobius_transform(f);\n\
     \    return f;\n}\n"
-  code: "#pragma once\n\n#include \"../convolution/superset_zeta_moebius_transform.hpp\"\
+  code: "#pragma once\n\n#include \"../convolution/superset_zeta_mobius_transform.hpp\"\
     \n\ntemplate <typename T>\nvector<T> bitwise_and_convolution(vector<T> f, vector<T>\
     \ g){\n    const int n = (int) f.size();\n    assert(f.size() == g.size());\n\
     \    assert((n & (n - 1)) == 0);\n    superset_zeta_transform(f);\n    superset_zeta_transform(g);\n\
     \    for(int i = 0; i < n; ++i){\n        f[i] *= g[i];\n    }\n    superset_mobius_transform(f);\n\
     \    return f;\n}\n"
   dependsOn:
-  - lib/convolution/superset_zeta_moebius_transform.hpp
+  - lib/convolution/superset_zeta_mobius_transform.hpp
   isVerificationFile: false
   path: lib/convolution/bitwise_and_convolution.hpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-10-21 21:43:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/convolution/bitwise_and_convolution.test.cpp

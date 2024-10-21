@@ -14,7 +14,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"lib/convolution/superset_zeta_moebius_transform.hpp\"\n\n\
+  bundledCode: "#line 2 \"lib/convolution/superset_zeta_mobius_transform.hpp\"\n\n\
     template <typename T>\nvoid superset_zeta_transform(vector<T> &f){\n    const\
     \ int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for(int i = 1; i < n;\
     \ i <<= 1){\n        for(int j = 0; j < n; ++j){\n            if((j & i) == 0){\n\
@@ -34,17 +34,17 @@ data:
     \   }\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: lib/convolution/superset_zeta_moebius_transform.hpp
+  path: lib/convolution/superset_zeta_mobius_transform.hpp
   requiredBy:
   - lib/convolution/bitwise_and_convolution.hpp
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-10-21 21:43:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/convolution/bitwise_and_convolution.test.cpp
-documentation_of: lib/convolution/superset_zeta_moebius_transform.hpp
+documentation_of: lib/convolution/superset_zeta_mobius_transform.hpp
 layout: document
 redirect_from:
-- /library/lib/convolution/superset_zeta_moebius_transform.hpp
-- /library/lib/convolution/superset_zeta_moebius_transform.hpp.html
-title: lib/convolution/superset_zeta_moebius_transform.hpp
+- /library/lib/convolution/superset_zeta_mobius_transform.hpp
+- /library/lib/convolution/superset_zeta_mobius_transform.hpp.html
+title: lib/convolution/superset_zeta_mobius_transform.hpp
 ---

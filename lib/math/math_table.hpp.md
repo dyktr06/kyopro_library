@@ -22,10 +22,10 @@ data:
     \ <typename T>\n    vector<vector<T>> divisor_table(T n){\n        vector<vector<T>>\
     \ div(n + 1);\n        for(int i = 1; i <= n; i++){\n            for(int j = i;\
     \ j <= n; j += i){\n                div[j].push_back(i);\n            }\n    \
-    \    }\n    }\n\n    // \u7D2F\u4E57\n    template <typename T>\n    vector<T>\
-    \ power_table(int n, T p){\n        vector<T> power(n + 1);\n        power[0]\
-    \ = (T) 1;\n        for(int i = 1; i <= n; i++){\n            power[i] = power[i\
-    \ - 1] * p;\n        }\n        return power;\n    }\n}\n"
+    \    }\n        return div;\n    }\n\n    // \u7D2F\u4E57\n    template <typename\
+    \ T>\n    vector<T> power_table(int n, T p){\n        vector<T> power(n + 1);\n\
+    \        power[0] = (T) 1;\n        for(int i = 1; i <= n; i++){\n           \
+    \ power[i] = power[i - 1] * p;\n        }\n        return power;\n    }\n}\n"
   code: "#pragma once\n\nnamespace MathTable{\n    // \u30C8\u30FC\u30B7\u30A7\u30F3\
     \u30C8\u95A2\u6570\n    template <typename T>\n    vector<T> totient_table(T n){\n\
     \        vector<T> r(n + 1);\n        for(int i = 0; i <= n; i++){\n         \
@@ -40,15 +40,15 @@ data:
     \    vector<vector<T>> divisor_table(T n){\n        vector<vector<T>> div(n +\
     \ 1);\n        for(int i = 1; i <= n; i++){\n            for(int j = i; j <= n;\
     \ j += i){\n                div[j].push_back(i);\n            }\n        }\n \
-    \   }\n\n    // \u7D2F\u4E57\n    template <typename T>\n    vector<T> power_table(int\
-    \ n, T p){\n        vector<T> power(n + 1);\n        power[0] = (T) 1;\n     \
-    \   for(int i = 1; i <= n; i++){\n            power[i] = power[i - 1] * p;\n \
-    \       }\n        return power;\n    }\n}\n"
+    \       return div;\n    }\n\n    // \u7D2F\u4E57\n    template <typename T>\n\
+    \    vector<T> power_table(int n, T p){\n        vector<T> power(n + 1);\n   \
+    \     power[0] = (T) 1;\n        for(int i = 1; i <= n; i++){\n            power[i]\
+    \ = power[i - 1] * p;\n        }\n        return power;\n    }\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/math_table.hpp
   requiredBy: []
-  timestamp: '2024-10-21 04:45:56+09:00'
+  timestamp: '2024-10-21 21:40:06+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/math_table.hpp

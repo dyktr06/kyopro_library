@@ -21,6 +21,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
     title: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/convolution/gcd_convolution.test.cpp
+    title: test/library_checker/convolution/gcd_convolution.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/convolution/lcm_convolution.test.cpp
+    title: test/library_checker/convolution/lcm_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
     title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
@@ -75,9 +81,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/tree_path_composite_sum.test.cpp
     title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
@@ -168,7 +174,7 @@ data:
   - lib/convolution/ntt.hpp
   - lib/string/wildcard_pattern_matching.hpp
   timestamp: '2024-10-18 01:55:57+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/matrix/matrix_product.test.cpp
   - test/library_checker/matrix/inverse_matrix.test.cpp
@@ -184,6 +190,8 @@ data:
   - test/library_checker/data_structure/queue_operate_all_composite.test.cpp
   - test/library_checker/convolution/bitwise_and_convolution.test.cpp
   - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
+  - test/library_checker/convolution/gcd_convolution.test.cpp
+  - test/library_checker/convolution/lcm_convolution.test.cpp
   - test/library_checker/convolution/convolution_mod_1000000007.test.cpp
   - test/library_checker/convolution/convolution.test.cpp
   - test/library_checker/string/wildcard_pattern_matching.test.cpp

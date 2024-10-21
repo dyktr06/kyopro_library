@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: lib/convolution/divisor_zeta_mobius_transform.hpp
+    title: lib/convolution/divisor_zeta_mobius_transform.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/math/enumerate_primes.test.cpp
@@ -14,7 +17,7 @@ data:
     document_title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\
       \u7BE9)"
     links: []
-  bundledCode: "#line 2 \"lib/math/prime-sieve.hpp\"\n\n/**\n * @brief Prime Sieve\
+  bundledCode: "#line 2 \"lib/math/prime_sieve.hpp\"\n\n/**\n * @brief Prime Sieve\
     \ (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)\n * @docs docs/math/prime-sieve.md\n\
     \ */\n\ntemplate <typename T>\nstruct PrimeSieve{\n    int n, half;\n    vector<bool>\
     \ sieve;\n    vector<T> prime_list;\n    // sieve[i] ... 2 * i + 1\n\n    PrimeSieve(T\
@@ -44,17 +47,18 @@ data:
     \    }\n\n    T getKthPrime(int k){\n        return prime_list[k];\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: lib/math/prime-sieve.hpp
-  requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  path: lib/math/prime_sieve.hpp
+  requiredBy:
+  - lib/convolution/divisor_zeta_mobius_transform.hpp
+  timestamp: '2024-10-21 21:39:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/enumerate_primes.test.cpp
-documentation_of: lib/math/prime-sieve.hpp
+documentation_of: lib/math/prime_sieve.hpp
 layout: document
 redirect_from:
-- /library/lib/math/prime-sieve.hpp
-- /library/lib/math/prime-sieve.hpp.html
+- /library/lib/math/prime_sieve.hpp
+- /library/lib/math/prime_sieve.hpp.html
 title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
 ---
 ## Prime Sieve (エラトステネスの篩)

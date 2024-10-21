@@ -41,27 +41,27 @@ data:
     \            par[to] = at;\n                cost[to] = c + t;\n              \
     \  q.emplace(cost[to], to);\n            }\n        }\n    }\n\n    if(cost[t]\
     \ == INF){\n        return {-1, {}};\n    }\n    vector<pair<int, int>> path;\n\
-    \    int now = t;\n    while(par[now] != -1){\n        path.emplace_back(par[now],\
-    \ now);\n        now = par[now];\n    }\n    reverse(path.begin(), path.end());\n\
-    \n    return {cost[t], path};\n}\n#line 2 \"lib/graph/scc.hpp\"\n\n/**\n * @brief\
-    \ Strongly Connected Component (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n\
-    \ * @docs docs/graph/scc.md\n */\n\ntemplate <typename T>\nstruct SCC{\n    int\
-    \ siz;\n    vector<vector<T>> G_reverse, G_compress;\n    vector<bool> check;\n\
-    \    vector<int> memo, id;\n    vector<T> s;\n    vector<vector<T>> result;\n\n\
-    \    SCC(const vector<vector<T>> &G) : G_reverse((int) G.size()), check((int)\
-    \ G.size()), id((int) G.size()){\n        siz = (int) G.size();\n        for(int\
-    \ i = 0; i < siz; ++i){\n            for(const auto &x : G[i]){\n            \
-    \    G_reverse[x].emplace_back(i);\n            }\n        }\n\n        for(int\
-    \ i = 0; i < siz; ++i){\n            if(!check[i]){\n                dfs(G, i);\n\
-    \            }\n        }\n        reverse(memo.begin(), memo.end());\n\n    \
-    \    for(int i = 0; i < siz; ++i) check[i] = false;\n        for(const auto &x\
-    \ : memo){\n            if(!check[x]){\n                s = {};\n            \
-    \    dfs2(G_reverse, x);\n                for(const auto &y : s){\n          \
-    \          id[y] = (int) result.size();\n                }\n                result.emplace_back(s);\n\
-    \            }\n        }\n\n        G_compress.resize(result.size());\n     \
-    \   for(int i = 0; i < siz; ++i){\n            for(const auto &x : G[i]){\n  \
-    \              if(id[i] != id[x]){\n                    G_compress[id[i]].emplace_back(id[x]);\n\
-    \                }\n            }\n        }\n    }\n\n    void dfs(const vector<vector<T>>\
+    \    for(int now = t; par[now] != -1; now = par[now]){\n        path.emplace_back(par[now],\
+    \ now);\n    }\n    reverse(path.begin(), path.end());\n\n    return {cost[t],\
+    \ path};\n}\n#line 2 \"lib/graph/scc.hpp\"\n\n/**\n * @brief Strongly Connected\
+    \ Component (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n * @docs docs/graph/scc.md\n\
+    \ */\n\ntemplate <typename T>\nstruct SCC{\n    int siz;\n    vector<vector<T>>\
+    \ G_reverse, G_compress;\n    vector<bool> check;\n    vector<int> memo, id;\n\
+    \    vector<T> s;\n    vector<vector<T>> result;\n\n    SCC(const vector<vector<T>>\
+    \ &G) : G_reverse((int) G.size()), check((int) G.size()), id((int) G.size()){\n\
+    \        siz = (int) G.size();\n        for(int i = 0; i < siz; ++i){\n      \
+    \      for(const auto &x : G[i]){\n                G_reverse[x].emplace_back(i);\n\
+    \            }\n        }\n\n        for(int i = 0; i < siz; ++i){\n         \
+    \   if(!check[i]){\n                dfs(G, i);\n            }\n        }\n   \
+    \     reverse(memo.begin(), memo.end());\n\n        for(int i = 0; i < siz; ++i)\
+    \ check[i] = false;\n        for(const auto &x : memo){\n            if(!check[x]){\n\
+    \                s = {};\n                dfs2(G_reverse, x);\n              \
+    \  for(const auto &y : s){\n                    id[y] = (int) result.size();\n\
+    \                }\n                result.emplace_back(s);\n            }\n \
+    \       }\n\n        G_compress.resize(result.size());\n        for(int i = 0;\
+    \ i < siz; ++i){\n            for(const auto &x : G[i]){\n                if(id[i]\
+    \ != id[x]){\n                    G_compress[id[i]].emplace_back(id[x]);\n   \
+    \             }\n            }\n        }\n    }\n\n    void dfs(const vector<vector<T>>\
     \ &G, int curr){\n        check[curr] = true;\n        for(const auto &x : G[curr]){\n\
     \            if(check[x]){\n                continue;\n            }\n       \
     \     dfs(G, x);\n        }\n        memo.emplace_back(curr);\n    }\n\n    void\
@@ -109,7 +109,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/cycle_detection.test.cpp
   requiredBy: []
-  timestamp: '2024-10-17 17:10:37+09:00'
+  timestamp: '2024-10-21 21:40:42+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/cycle_detection.test.cpp
