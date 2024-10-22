@@ -199,6 +199,9 @@ data:
       path: lib/graph/enumerate_triangles.hpp
       title: lib/graph/enumerate_triangles.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/graph/eulerian_trail.hpp
+      title: lib/graph/eulerian_trail.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/graph/graph-input.hpp
       title: lib/graph/graph-input.hpp
     - icon: ':warning:'
@@ -657,6 +660,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/enumerate_triangles.test.cpp
       title: test/library_checker/graph/enumerate_triangles.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/eulerian_trail_directed.test.cpp
+      title: test/library_checker/graph/eulerian_trail_directed.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/eulerian_trail_undirected.test.cpp
+      title: test/library_checker/graph/eulerian_trail_undirected.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/manhattanmst.test.cpp
       title: test/library_checker/graph/manhattanmst.test.cpp
