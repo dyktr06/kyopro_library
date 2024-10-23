@@ -56,7 +56,9 @@ struct MinimumDiameterSpanningTree{
         Edge min_edge;
         for(int from = 0; from < V; from++){
             long long diameter = INF;
-            for(auto [_, to, cost, id] : G[from]){
+            for(auto &e : G[from]){
+                int to = e.to, id = e.id;
+                long long cost = e.cost;
                 if(from > to) continue;
 
                 vector<P> lines(V);
