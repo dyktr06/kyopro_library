@@ -5,7 +5,7 @@ using namespace std;
 #include "../../../lib/data_structure/disjoint_sparse_table.hpp"
 
 long long op(long long x, long long y){
-    return min(x, y);
+    return x + y;
 }
 
 int main(){
