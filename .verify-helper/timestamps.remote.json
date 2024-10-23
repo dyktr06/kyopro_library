@@ -89,6 +89,7 @@
 "test/library_checker/graph/eulerian_trail_undirected.test.cpp": "2024-10-22 15:19:05 +0900",
 "test/library_checker/graph/manhattanmst.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/graph/maximum_independent_set.test.cpp": "2024-05-19 23:47:16 +0900",
+"test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp": "2024-10-24 03:44:00 +0900",
 "test/library_checker/graph/minimum_spanning_tree.test.cpp": "2024-04-21 00:12:50 +0900",
 "test/library_checker/graph/scc.test.cpp": "2024-10-17 17:10:37 +0900",
 "test/library_checker/graph/shortest_path.test.cpp": "2024-10-21 21:40:42 +0900",
