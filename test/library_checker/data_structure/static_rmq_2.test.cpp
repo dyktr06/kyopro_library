@@ -1,0 +1,25 @@
+#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
+#include <bits/stdc++.h>
+using namespace std;
+
+#include "../../../lib/data_structure/disjoint_sparse_table.hpp"
+
+int op(int x, int y){
+    return min(x, y);
+}
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n, q; cin >> n >> q;
+    vector<int> a(n);
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+    DisjointSparseTable<int, op> dst(a);
+    for(int i = 0; i < q; i++){
+        int l, r; cin >> l >> r;
+        cout << dst.query(l, r - 1) << '\n';
+    }
+}
