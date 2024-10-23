@@ -39,7 +39,7 @@ data:
     \ = c + t;\n                        q.emplace(dist[i][to], to);\n            \
     \        }\n                }\n            }\n        }\n\n        vector<long\
     \ long> midpoint(E, INF);\n        Edge min_edge;\n        for(int from = 0; from\
-    \ < V; from++){\n            long long diameter = INF;\n            for(auto &[_,\
+    \ < V; from++){\n            long long diameter = INF;\n            for(auto [_,\
     \ to, cost, id] : G[from]){\n                if(from > to) continue;\n\n     \
     \           vector<P> lines(V);\n                for(int i = 0; i < V; i++){\n\
     \                    lines[i] = {dist[from][i], i};\n                }\n     \
@@ -105,7 +105,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-10-24 03:32:17+09:00'
+  timestamp: '2024-10-24 03:36:00+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
