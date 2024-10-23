@@ -16,7 +16,7 @@ data:
     - https://judge.yosupo.jp/problem/minimum_diameter_spanning_tree
   bundledCode: "#line 1 \"test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/minimum_diameter_spanning_tree\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/graph/minimum_diameter_spanning_tree.hpp\"\
+    \n#include <bits/stdc++.h>\n\nusing namespace std;\n\n#line 2 \"lib/graph/minimum_diameter_spanning_tree.hpp\"\
     \n\n// \u53C2\u8003: https://www.slideshare.net/slideshow/ss-17402143/17402143\n\
     struct MinimumDiameterSpanningTree{\n\n    const long long INF = 0x1fffffffffffffff;\n\
     \n    struct Edge{\n        int from, to;\n        long long cost;\n        int\
@@ -82,7 +82,7 @@ data:
     \ + t;\n                        edge_id[to] = id;\n                        q.emplace(ndist[to],\
     \ to);\n                    }\n                }\n            }\n        }\n \
     \   }\n\n    vector<int> get(){\n        return tree_edge;\n    }\n\n    long\
-    \ long getTreeDiameter(){\n        return tree_diameter;\n    }\n};\n#line 6 \"\
+    \ long getTreeDiameter(){\n        return tree_diameter;\n    }\n};\n#line 7 \"\
     test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp\"\n\nint main(){\n\
     \    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n    int n, m; cin\
     \ >> n >> m;\n    MinimumDiameterSpanningTree mst(n);\n    for(int i = 0; i <\
@@ -92,7 +92,7 @@ data:
     \ i < n - 1; i++){\n        if(i) cout << ' ';\n        cout << tree_edge[i];\n\
     \    }\n    cout << '\\n';\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/minimum_diameter_spanning_tree\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/graph/minimum_diameter_spanning_tree.hpp\"\
+    \n#include <bits/stdc++.h>\n\nusing namespace std;\n\n#include \"../../../lib/graph/minimum_diameter_spanning_tree.hpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
     \   int n, m; cin >> n >> m;\n    MinimumDiameterSpanningTree mst(n);\n    for(int\
     \ i = 0; i < m; i++){\n        int u, v; long long c;\n        cin >> u >> v >>\
@@ -105,7 +105,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-10-24 01:29:13+09:00'
+  timestamp: '2024-10-24 03:32:17+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
