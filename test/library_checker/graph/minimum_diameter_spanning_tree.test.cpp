@@ -1,5 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/minimum_diameter_spanning_tree"
 #include <bits/stdc++.h>
+
 using namespace std;
 
 #include "../../../lib/graph/minimum_diameter_spanning_tree.hpp"
