@@ -225,7 +225,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/maximum_independent_set.hpp
       title: lib/graph/maximum_independent_set.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/minimum_diameter_spanning_tree.hpp
       title: lib/graph/minimum_diameter_spanning_tree.hpp
     - icon: ':heavy_check_mark:'
@@ -684,7 +684,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/maximum_independent_set.test.cpp
       title: test/library_checker/graph/maximum_independent_set.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
       title: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
     - icon: ':heavy_check_mark:'

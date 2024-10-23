@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/minimum_diameter_spanning_tree.hpp
     title: lib/graph/minimum_diameter_spanning_tree.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/minimum_diameter_spanning_tree
@@ -39,14 +39,15 @@ data:
     \ = c + t;\n                        q.emplace(dist[i][to], to);\n            \
     \        }\n                }\n            }\n        }\n\n        vector<long\
     \ long> midpoint(E, INF);\n        Edge min_edge;\n        for(int from = 0; from\
-    \ < V; from++){\n            long long diameter = INF;\n            for(auto [_,\
-    \ to, cost, id] : G[from]){\n                if(from > to) continue;\n\n     \
-    \           vector<P> lines(V);\n                for(int i = 0; i < V; i++){\n\
-    \                    lines[i] = {dist[from][i], i};\n                }\n     \
-    \           sort(lines.rbegin(), lines.rend());\n\n                // \u8FBA\u306E\
-    \u9593\u3067\u3001\u76F4\u5F84\u304C\u6700\u5927\u5024\u306B\u306A\u308B\u70B9\
-    \n                vector<long long> mid(V);\n                for(int i = 0; i\
-    \ < V; i++){\n                    mid[i] = min(cost, max(0LL, (dist[to][i] - dist[from][i]\
+    \ < V; from++){\n            long long diameter = INF;\n            for(auto &e\
+    \ : G[from]){\n                int to = e.to, id = e.id;\n                long\
+    \ long cost = e.cost;\n                if(from > to) continue;\n\n           \
+    \     vector<P> lines(V);\n                for(int i = 0; i < V; i++){\n     \
+    \               lines[i] = {dist[from][i], i};\n                }\n          \
+    \      sort(lines.rbegin(), lines.rend());\n\n                // \u8FBA\u306E\u9593\
+    \u3067\u3001\u76F4\u5F84\u304C\u6700\u5927\u5024\u306B\u306A\u308B\u70B9\n   \
+    \             vector<long long> mid(V);\n                for(int i = 0; i < V;\
+    \ i++){\n                    mid[i] = min(cost, max(0LL, (dist[to][i] - dist[from][i]\
     \ + cost) / 2));\n                }\n                // \u8FBA\u4E0A\u306E\u70B9\
     \ t \u3068\u9802\u70B9 i \u3068\u306E\u8DDD\u96E2\n                auto f = [&](int\
     \ i, int t){\n                    return min(dist[from][i] + t, dist[to][i] +\
@@ -105,8 +106,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-10-24 03:36:00+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-24 03:44:00+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
 layout: document
