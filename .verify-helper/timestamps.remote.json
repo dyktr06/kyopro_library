@@ -55,6 +55,7 @@
 "test/library_checker/data_structure/static_range_mode_query.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/data_structure/static_rmq.test.cpp": "2024-05-31 18:23:43 +0900",
 "test/library_checker/data_structure/static_rmq_1.test.cpp": "2024-05-31 02:57:07 +0900",
+"test/library_checker/data_structure/static_rmq_2.test.cpp": "2024-10-24 01:29:32 +0900",
 "test/library_checker/data_structure/unionfind.test.cpp": "2024-04-21 00:12:50 +0900",
 "test/library_checker/data_structure/unionfind_1.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/data_structure/unionfind_with_potential.test.cpp": "2024-10-18 01:55:57 +0900",
