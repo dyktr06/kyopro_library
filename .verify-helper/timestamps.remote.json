@@ -53,6 +53,7 @@
 "test/library_checker/data_structure/static_range_frequency.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/data_structure/static_range_inversions_query.test.cpp": "2024-05-04 20:00:04 +0900",
 "test/library_checker/data_structure/static_range_mode_query.test.cpp": "2024-05-04 18:06:16 +0900",
+"test/library_checker/data_structure/static_range_sum.test.cpp": "2024-10-24 03:27:25 +0900",
 "test/library_checker/data_structure/static_rmq.test.cpp": "2024-05-31 18:23:43 +0900",
 "test/library_checker/data_structure/static_rmq_1.test.cpp": "2024-05-31 02:57:07 +0900",
 "test/library_checker/data_structure/static_rmq_2.test.cpp": "2024-10-24 01:29:32 +0900",
