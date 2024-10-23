@@ -51,6 +51,9 @@ data:
       path: lib/data_structure/deswag.hpp
       title: DESWAG
     - icon: ':heavy_check_mark:'
+      path: lib/data_structure/disjoint_sparse_table.hpp
+      title: lib/data_structure/disjoint_sparse_table.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/double_ended_priority_queue.hpp
       title: lib/data_structure/double_ended_priority_queue.hpp
     - icon: ':heavy_check_mark:'
@@ -566,11 +569,17 @@ data:
       path: test/library_checker/data_structure/static_range_mode_query.test.cpp
       title: test/library_checker/data_structure/static_range_mode_query.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/static_range_sum.test.cpp
+      title: test/library_checker/data_structure/static_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_rmq.test.cpp
       title: test/library_checker/data_structure/static_rmq.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_rmq_1.test.cpp
       title: test/library_checker/data_structure/static_rmq_1.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/static_rmq_2.test.cpp
+      title: test/library_checker/data_structure/static_rmq_2.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/unionfind.test.cpp
       title: test/library_checker/data_structure/unionfind.test.cpp
