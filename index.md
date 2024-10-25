@@ -7,6 +7,9 @@ data:
       path: lib/convolution/bitwise_and_convolution.hpp
       title: lib/convolution/bitwise_and_convolution.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/convolution/bitwise_or_convolution.hpp
+      title: lib/convolution/bitwise_or_convolution.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/bitwise_xor_convolution.hpp
       title: lib/convolution/bitwise_xor_convolution.hpp
     - icon: ':heavy_check_mark:'
@@ -28,8 +31,8 @@ data:
       path: lib/convolution/ntt.hpp
       title: lib/convolution/ntt.hpp
     - icon: ':heavy_check_mark:'
-      path: lib/convolution/superset_zeta_mobius_transform.hpp
-      title: lib/convolution/superset_zeta_mobius_transform.hpp
+      path: lib/convolution/set_zeta_mobius_transform.hpp
+      title: lib/convolution/set_zeta_mobius_transform.hpp
   - name: lib/data_structure
     pages:
     - icon: ':heavy_check_mark:'
@@ -473,6 +476,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
       title: test/library_checker/convolution/bitwise_and_convolution.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/convolution/bitwise_and_convolution_1.test.cpp
+      title: test/library_checker/convolution/bitwise_and_convolution_1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
       title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp

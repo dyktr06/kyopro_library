@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: lib/convolution/bitwise_and_convolution.hpp
-    title: lib/convolution/bitwise_and_convolution.hpp
+    path: lib/convolution/bitwise_or_convolution.hpp
+    title: lib/convolution/bitwise_or_convolution.hpp
   - icon: ':heavy_check_mark:'
     path: lib/convolution/set_zeta_mobius_transform.hpp
     title: lib/convolution/set_zeta_mobius_transform.hpp
@@ -20,9 +20,9 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/bitwise_and_convolution
     links:
     - https://judge.yosupo.jp/problem/bitwise_and_convolution
-  bundledCode: "#line 1 \"test/library_checker/convolution/bitwise_and_convolution.test.cpp\"\
+  bundledCode: "#line 1 \"test/library_checker/convolution/bitwise_and_convolution_1.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_and_convolution\"\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/convolution/bitwise_and_convolution.hpp\"\
+    #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/convolution/bitwise_or_convolution.hpp\"\
     \n\n#line 2 \"lib/convolution/set_zeta_mobius_transform.hpp\"\n\ntemplate <typename\
     \ T>\nvoid superset_zeta_transform(vector<T> &f){\n    const int n = f.size();\n\
     \    assert((n & (n - 1)) == 0);\n    for(int i = 1; i < n; i <<= 1){\n      \
@@ -39,11 +39,11 @@ data:
     \ T>\nvoid subset_mobius_transform(vector<T> &f){\n    const int n = f.size();\n\
     \    assert((n & (n - 1)) == 0);\n    for(int i = 1; i < n; i <<= 1){\n      \
     \  for(int j = 0; j < n; ++j){\n            if((j & i) == 0){\n              \
-    \  f[j | i] -= f[j];\n            }\n        }\n    }\n}\n#line 4 \"lib/convolution/bitwise_and_convolution.hpp\"\
-    \n\ntemplate <typename T>\nvector<T> bitwise_and_convolution(vector<T> f, vector<T>\
+    \  f[j | i] -= f[j];\n            }\n        }\n    }\n}\n#line 4 \"lib/convolution/bitwise_or_convolution.hpp\"\
+    \n\ntemplate <typename T>\nvector<T> bitwise_or_convolution(vector<T> f, vector<T>\
     \ g){\n    const int n = (int) f.size();\n    assert(f.size() == g.size());\n\
-    \    assert((n & (n - 1)) == 0);\n    superset_zeta_transform(f);\n    superset_zeta_transform(g);\n\
-    \    for(int i = 0; i < n; ++i){\n        f[i] *= g[i];\n    }\n    superset_mobius_transform(f);\n\
+    \    assert((n & (n - 1)) == 0);\n    subset_zeta_transform(f);\n    subset_zeta_transform(g);\n\
+    \    for(int i = 0; i < n; ++i){\n        f[i] *= g[i];\n    }\n    subset_mobius_transform(f);\n\
     \    return f;\n}\n#line 2 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n\
     \ * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\nstruct ModInt{\n\
     \    long long val;\n    static constexpr int mod() { return Modulus; }\n    constexpr\
@@ -83,35 +83,37 @@ data:
     \ != rhs.val; }\n    friend inline istream &operator>>(istream &is, ModInt &x)\
     \ noexcept {\n        is >> x.val;\n        x.normalize();\n        return is;\n\
     \    }\n    friend inline ostream &operator<<(ostream &os, const ModInt &x) noexcept\
-    \ { return os << x.val; }\n};\n#line 7 \"test/library_checker/convolution/bitwise_and_convolution.test.cpp\"\
+    \ { return os << x.val; }\n};\n#line 7 \"test/library_checker/convolution/bitwise_and_convolution_1.test.cpp\"\
     \n\nusing mint = ModInt<998244353>;\n\nint main(){\n    int n; cin >> n;\n   \
-    \ int m = 1LL << n;\n    vector<mint> a(m), b(m);\n    for(int i = 0; i < m; i++){\n\
+    \ int m = 1 << n;\n    vector<mint> a(m), b(m);\n    for(int i = 0; i < m; i++){\n\
     \        cin >> a[i];\n    }\n    for(int i = 0; i < m; i++){\n        cin >>\
-    \ b[i];\n    }\n    vector<mint> c = bitwise_and_convolution(a, b);\n    for(int\
-    \ i = 0; i < m; i++){\n        cout << c[i] << \" \\n\"[i == m - 1];\n    }\n\
-    }\n"
+    \ b[i];\n    }\n    reverse(a.begin(), a.end());\n    reverse(b.begin(), b.end());\n\
+    \    vector<mint> c = bitwise_or_convolution(a, b);\n    reverse(c.begin(), c.end());\n\
+    \    for(int i = 0; i < m; i++){\n        cout << c[i] << \" \\n\"[i == m - 1];\n\
+    \    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_and_convolution\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/convolution/bitwise_and_convolution.hpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/convolution/bitwise_or_convolution.hpp\"\
     \n#include \"../../../lib/math/modint.hpp\"\n\nusing mint = ModInt<998244353>;\n\
-    \nint main(){\n    int n; cin >> n;\n    int m = 1LL << n;\n    vector<mint> a(m),\
+    \nint main(){\n    int n; cin >> n;\n    int m = 1 << n;\n    vector<mint> a(m),\
     \ b(m);\n    for(int i = 0; i < m; i++){\n        cin >> a[i];\n    }\n    for(int\
-    \ i = 0; i < m; i++){\n        cin >> b[i];\n    }\n    vector<mint> c = bitwise_and_convolution(a,\
-    \ b);\n    for(int i = 0; i < m; i++){\n        cout << c[i] << \" \\n\"[i ==\
-    \ m - 1];\n    }\n}\n"
+    \ i = 0; i < m; i++){\n        cin >> b[i];\n    }\n    reverse(a.begin(), a.end());\n\
+    \    reverse(b.begin(), b.end());\n    vector<mint> c = bitwise_or_convolution(a,\
+    \ b);\n    reverse(c.begin(), c.end());\n    for(int i = 0; i < m; i++){\n   \
+    \     cout << c[i] << \" \\n\"[i == m - 1];\n    }\n}\n"
   dependsOn:
-  - lib/convolution/bitwise_and_convolution.hpp
+  - lib/convolution/bitwise_or_convolution.hpp
   - lib/convolution/set_zeta_mobius_transform.hpp
   - lib/math/modint.hpp
   isVerificationFile: true
-  path: test/library_checker/convolution/bitwise_and_convolution.test.cpp
+  path: test/library_checker/convolution/bitwise_and_convolution_1.test.cpp
   requiredBy: []
   timestamp: '2024-10-25 14:09:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/convolution/bitwise_and_convolution.test.cpp
+documentation_of: test/library_checker/convolution/bitwise_and_convolution_1.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/convolution/bitwise_and_convolution.test.cpp
-- /verify/test/library_checker/convolution/bitwise_and_convolution.test.cpp.html
-title: test/library_checker/convolution/bitwise_and_convolution.test.cpp
+- /verify/test/library_checker/convolution/bitwise_and_convolution_1.test.cpp
+- /verify/test/library_checker/convolution/bitwise_and_convolution_1.test.cpp.html
+title: test/library_checker/convolution/bitwise_and_convolution_1.test.cpp
 ---
