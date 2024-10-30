@@ -380,6 +380,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/string/run_enumerate.hpp
       title: lib/string/run_enumerate.hpp
+    - icon: ':x:'
+      path: lib/string/sa_is.hpp
+      title: lib/string/sa_is.hpp
     - icon: ':heavy_check_mark:'
       path: lib/string/suffix_array.hpp
       title: lib/string/suffix_array.hpp
@@ -776,6 +779,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/suffixarray.test.cpp
       title: test/library_checker/string/suffixarray.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/string/suffixarray_1.test.cpp
+      title: test/library_checker/string/suffixarray_1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/wildcard_pattern_matching.test.cpp
       title: test/library_checker/string/wildcard_pattern_matching.test.cpp
