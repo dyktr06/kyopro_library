@@ -8,7 +8,7 @@ struct SA_IS{
     std::vector<int> SA;
 
 private:
-    vector<int> dfs(vector<int> &s, const int bucket_size){
+    std::vector<int> dfs(std::vector<int> &s, const int bucket_size){
         if((int) s.size() == 1){
             return {0};
         }
@@ -149,7 +149,7 @@ private:
             if(is_lms[i]){
                 ns.push_back(id_lms[i]);
                 idx.push_back(i);
-                nbucket_size = max(nbucket_size, id_lms[i] + 1);
+                nbucket_size = std::max(nbucket_size, id_lms[i] + 1);
             }
         }
 
@@ -168,7 +168,7 @@ public:
         int nbucket_size = 1;
         for(int i = 0; i < (int) s.size(); ++i){
             ns[i] = (int) (s[i] + 1);
-            nbucket_size = max(nbucket_size, ns[i] + 1);
+            nbucket_size = std::max(nbucket_size, ns[i] + 1);
         }
         SA = dfs(ns, nbucket_size);
     }
