@@ -3,29 +3,29 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/string/suffixarray_1.test.cpp
     title: test/library_checker/string/suffixarray_1.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html
   bundledCode: "#line 2 \"lib/string/sa_is.hpp\"\n\n#include <vector>\n\n// \u53C2\
     \u8003: https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
     template <typename T>\nstruct SA_IS{\n    std::vector<int> SA;\n\nprivate:\n \
-    \   vector<int> dfs(vector<int> &s, const int bucket_size){\n        if((int)\
-    \ s.size() == 1){\n            return {0};\n        }\n\n        int n = s.size();\n\
-    \        s.push_back(0);\n\n        // S \u578B\u304B\u3069\u3046\u304B\n    \
-    \    std::vector<bool> is_s(n + 1);\n        is_s[n] = 1;\n        for(int i =\
-    \ n - 1; i >= 0; --i){\n            if(s[i] < s[i + 1]){\n                is_s[i]\
-    \ = 1;\n            }else if(s[i] > s[i + 1]){\n                is_s[i] = 0;\n\
-    \            }else{\n                is_s[i] = is_s[i + 1];\n            }\n \
-    \       }\n\n        // LMS \u304B\u3069\u3046\u304B\n        std::vector<bool>\
-    \ is_lms(n + 1);\n        is_lms[n] = 1;\n        for(int i = 1; i <= n; ++i){\n\
-    \            if(!is_s[i - 1] && is_s[i]){\n                is_lms[i] = 1;\n  \
-    \          }\n        }\n\n        std::vector<int> bucket_count(bucket_size,\
+    \   std::vector<int> dfs(std::vector<int> &s, const int bucket_size){\n      \
+    \  if((int) s.size() == 1){\n            return {0};\n        }\n\n        int\
+    \ n = s.size();\n        s.push_back(0);\n\n        // S \u578B\u304B\u3069\u3046\
+    \u304B\n        std::vector<bool> is_s(n + 1);\n        is_s[n] = 1;\n       \
+    \ for(int i = n - 1; i >= 0; --i){\n            if(s[i] < s[i + 1]){\n       \
+    \         is_s[i] = 1;\n            }else if(s[i] > s[i + 1]){\n             \
+    \   is_s[i] = 0;\n            }else{\n                is_s[i] = is_s[i + 1];\n\
+    \            }\n        }\n\n        // LMS \u304B\u3069\u3046\u304B\n       \
+    \ std::vector<bool> is_lms(n + 1);\n        is_lms[n] = 1;\n        for(int i\
+    \ = 1; i <= n; ++i){\n            if(!is_s[i - 1] && is_s[i]){\n             \
+    \   is_lms[i] = 1;\n            }\n        }\n\n        std::vector<int> bucket_count(bucket_size,\
     \ 0);\n        for(auto i : s){\n            bucket_count[i]++;\n        }\n\n\
     \        auto induced_sort = [&](std::vector<int> &lms) -> std::vector<int> {\n\
     \            std::vector<std::vector<int>> bucket(bucket_size);\n            std::vector<int>\
@@ -79,31 +79,31 @@ data:
     \        std::vector<int> ns;\n        int nbucket_size = 1;\n        std::vector<int>\
     \ idx;\n        for(int i = 0; i < n + 1; ++i){\n            if(is_lms[i]){\n\
     \                ns.push_back(id_lms[i]);\n                idx.push_back(i);\n\
-    \                nbucket_size = max(nbucket_size, id_lms[i] + 1);\n          \
-    \  }\n        }\n\n        std::vector<int> sorted_lms;\n        // LMS \u306E\
+    \                nbucket_size = std::max(nbucket_size, id_lms[i] + 1);\n     \
+    \       }\n        }\n\n        std::vector<int> sorted_lms;\n        // LMS \u306E\
     \ suffix_array \u3092\u6C42\u3081\u308B -> LMS \u306E suffix \u306E\u8F9E\u66F8\
     \u9806\u304C\u5206\u304B\u308B\n        for(auto i : dfs(ns, nbucket_size)){\n\
     \            sorted_lms.push_back(idx[i]);\n        }\n\n        return induced_sort(sorted_lms);\n\
     \    }\n\npublic:\n    SA_IS(const T &s){\n        std::vector<int> ns(s.size());\n\
     \        int nbucket_size = 1;\n        for(int i = 0; i < (int) s.size(); ++i){\n\
-    \            ns[i] = (int) (s[i] + 1);\n            nbucket_size = max(nbucket_size,\
+    \            ns[i] = (int) (s[i] + 1);\n            nbucket_size = std::max(nbucket_size,\
     \ ns[i] + 1);\n        }\n        SA = dfs(ns, nbucket_size);\n    }\n\n    std::vector<int>\
     \ get() const {\n        return SA;\n    }\n\n    size_t size() const {\n    \
     \    return SA.size();\n    }\n\n    int operator[](int k) const {\n        return\
     \ SA[k];\n    }\n};\n"
   code: "#pragma once\n\n#include <vector>\n\n// \u53C2\u8003: https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
     template <typename T>\nstruct SA_IS{\n    std::vector<int> SA;\n\nprivate:\n \
-    \   vector<int> dfs(vector<int> &s, const int bucket_size){\n        if((int)\
-    \ s.size() == 1){\n            return {0};\n        }\n\n        int n = s.size();\n\
-    \        s.push_back(0);\n\n        // S \u578B\u304B\u3069\u3046\u304B\n    \
-    \    std::vector<bool> is_s(n + 1);\n        is_s[n] = 1;\n        for(int i =\
-    \ n - 1; i >= 0; --i){\n            if(s[i] < s[i + 1]){\n                is_s[i]\
-    \ = 1;\n            }else if(s[i] > s[i + 1]){\n                is_s[i] = 0;\n\
-    \            }else{\n                is_s[i] = is_s[i + 1];\n            }\n \
-    \       }\n\n        // LMS \u304B\u3069\u3046\u304B\n        std::vector<bool>\
-    \ is_lms(n + 1);\n        is_lms[n] = 1;\n        for(int i = 1; i <= n; ++i){\n\
-    \            if(!is_s[i - 1] && is_s[i]){\n                is_lms[i] = 1;\n  \
-    \          }\n        }\n\n        std::vector<int> bucket_count(bucket_size,\
+    \   std::vector<int> dfs(std::vector<int> &s, const int bucket_size){\n      \
+    \  if((int) s.size() == 1){\n            return {0};\n        }\n\n        int\
+    \ n = s.size();\n        s.push_back(0);\n\n        // S \u578B\u304B\u3069\u3046\
+    \u304B\n        std::vector<bool> is_s(n + 1);\n        is_s[n] = 1;\n       \
+    \ for(int i = n - 1; i >= 0; --i){\n            if(s[i] < s[i + 1]){\n       \
+    \         is_s[i] = 1;\n            }else if(s[i] > s[i + 1]){\n             \
+    \   is_s[i] = 0;\n            }else{\n                is_s[i] = is_s[i + 1];\n\
+    \            }\n        }\n\n        // LMS \u304B\u3069\u3046\u304B\n       \
+    \ std::vector<bool> is_lms(n + 1);\n        is_lms[n] = 1;\n        for(int i\
+    \ = 1; i <= n; ++i){\n            if(!is_s[i - 1] && is_s[i]){\n             \
+    \   is_lms[i] = 1;\n            }\n        }\n\n        std::vector<int> bucket_count(bucket_size,\
     \ 0);\n        for(auto i : s){\n            bucket_count[i]++;\n        }\n\n\
     \        auto induced_sort = [&](std::vector<int> &lms) -> std::vector<int> {\n\
     \            std::vector<std::vector<int>> bucket(bucket_size);\n            std::vector<int>\
@@ -157,14 +157,14 @@ data:
     \        std::vector<int> ns;\n        int nbucket_size = 1;\n        std::vector<int>\
     \ idx;\n        for(int i = 0; i < n + 1; ++i){\n            if(is_lms[i]){\n\
     \                ns.push_back(id_lms[i]);\n                idx.push_back(i);\n\
-    \                nbucket_size = max(nbucket_size, id_lms[i] + 1);\n          \
-    \  }\n        }\n\n        std::vector<int> sorted_lms;\n        // LMS \u306E\
+    \                nbucket_size = std::max(nbucket_size, id_lms[i] + 1);\n     \
+    \       }\n        }\n\n        std::vector<int> sorted_lms;\n        // LMS \u306E\
     \ suffix_array \u3092\u6C42\u3081\u308B -> LMS \u306E suffix \u306E\u8F9E\u66F8\
     \u9806\u304C\u5206\u304B\u308B\n        for(auto i : dfs(ns, nbucket_size)){\n\
     \            sorted_lms.push_back(idx[i]);\n        }\n\n        return induced_sort(sorted_lms);\n\
     \    }\n\npublic:\n    SA_IS(const T &s){\n        std::vector<int> ns(s.size());\n\
     \        int nbucket_size = 1;\n        for(int i = 0; i < (int) s.size(); ++i){\n\
-    \            ns[i] = (int) (s[i] + 1);\n            nbucket_size = max(nbucket_size,\
+    \            ns[i] = (int) (s[i] + 1);\n            nbucket_size = std::max(nbucket_size,\
     \ ns[i] + 1);\n        }\n        SA = dfs(ns, nbucket_size);\n    }\n\n    std::vector<int>\
     \ get() const {\n        return SA;\n    }\n\n    size_t size() const {\n    \
     \    return SA.size();\n    }\n\n    int operator[](int k) const {\n        return\
@@ -173,8 +173,8 @@ data:
   isVerificationFile: false
   path: lib/string/sa_is.hpp
   requiredBy: []
-  timestamp: '2024-10-31 02:13:07+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-10-31 02:17:10+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/string/suffixarray_1.test.cpp
 documentation_of: lib/string/sa_is.hpp
