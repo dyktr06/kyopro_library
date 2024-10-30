@@ -116,6 +116,7 @@
 "test/library_checker/string/number_of_substrings.test.cpp": "2024-02-14 05:45:45 +0900",
 "test/library_checker/string/runenumerate.test.cpp": "2024-10-17 17:10:28 +0900",
 "test/library_checker/string/suffixarray.test.cpp": "2024-02-14 05:37:09 +0900",
+"test/library_checker/string/suffixarray_1.test.cpp": "2024-10-31 02:17:10 +0900",
 "test/library_checker/string/wildcard_pattern_matching.test.cpp": "2024-10-18 02:03:13 +0900",
 "test/library_checker/string/z_algorithm.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/tree/cartesian_tree.test.cpp": "2024-05-04 18:06:16 +0900",
