@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/lowlink.hpp
-    title: lib/graph/lowlink.hpp
+    title: Low Link
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -13,36 +13,44 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"lib/graph/two_edge_connected_components.hpp\"\n\n#line 2\
-    \ \"lib/graph/lowlink.hpp\"\n\nstruct LowLink{\n    struct Edge{\n        int\
-    \ from, to, id;\n    };\n    vector<vector<Edge>> G;\n    int V = 0, E = 0;\n\
-    \    vector<bool> used;\n    vector<int> ord, low;\n    vector<int> reachable;\n\
-    \    vector<pair<int, int>> bridges; // \u6A4B\n    vector<int> articulations;\
-    \ // \u95A2\u7BC0\u70B9\n    vector<bool> is_bridge, is_articulation;\n\n    LowLink(const\
-    \ int node_size) : V(node_size){\n        G.resize(V);\n    }\n\n    void add_edge(int\
-    \ from, int to){\n        G[from].push_back({from, to, E});\n        G[to].push_back({to,\
-    \ from, E});\n        E++;\n    }\n\n    void build(){\n        used.assign(G.size(),\
-    \ 0);\n        ord.assign(G.size(), 0);\n        low.assign(G.size(), 0);\n  \
-    \      reachable.assign(G.size(), -1);\n        is_bridge.assign(E, false);\n\
-    \        is_articulation.assign(V, false);\n\n        int k = 0;\n        for(int\
-    \ i = 0; i < (int) G.size(); i++){\n            if(!used[i]) dfs(i, -1, k);\n\
-    \        }\n    }\n\n    void dfs(int cur, int prv, int &k){\n        used[cur]\
-    \ = true;\n        ord[cur] = k++;\n        low[cur] = ord[cur];\n        bool\
-    \ flag_articulation = false;\n        int child_count = 0; // DFS \u6728\u306E\
-    \u5B50\u306E\u6570\n\n        bool is_multiple = false;\n        for(auto &edge\
-    \ : G[cur]){\n            if(edge.to == prv && !is_multiple){\n              \
-    \  is_multiple = true;\n                continue;\n            }\n           \
-    \ if(!used[edge.to]){\n                child_count++;\n                dfs(edge.to,\
-    \ cur, k);\n                low[cur] = min(low[cur], low[edge.to]);\n        \
-    \        if(prv != -1 && ord[cur] <= low[edge.to]){\n                    flag_articulation\
-    \ = true;\n                }\n                if(ord[cur] < low[edge.to]){\n \
-    \                   bridges.emplace_back(min(cur, edge.to), max(cur, edge.to));\n\
-    \                    is_bridge[edge.id] = true;\n                }\n         \
-    \   }else{ // \u5F8C\u9000\u8FBA\n                low[cur] = min(low[cur], ord[edge.to]);\n\
-    \            }\n        }\n        if(prv == -1 && child_count >= 2) flag_articulation\
-    \ = true;\n        if(flag_articulation){\n            articulations.push_back(cur);\n\
-    \            is_articulation[cur] = true;\n        }\n    }\n};\n#line 4 \"lib/graph/two_edge_connected_components.hpp\"\
+    _deprecated_at_docs: docs/graph/two_edge_connected_components.md
+    document_title: "Two Edge Connected Components (\u4E8C\u91CD\u8FBA\u9023\u7D50\
+      \u6210\u5206\u5206\u89E3)"
+    links:
+    - https://kntychance.hatenablog.jp/entry/2022/09/16/161858
+  bundledCode: "#line 2 \"lib/graph/two_edge_connected_components.hpp\"\n\n/**\n *\
+    \ @brief Two Edge Connected Components (\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
+    \u5206\u89E3)\n * @docs docs/graph/two_edge_connected_components.md\n * @see https://kntychance.hatenablog.jp/entry/2022/09/16/161858\n\
+    \ */\n\n#line 2 \"lib/graph/lowlink.hpp\"\n\n/**\n * @brief Low Link\n * @see\
+    \ https://kntychance.hatenablog.jp/entry/2022/09/16/161858\n */\n\nstruct LowLink{\n\
+    \    struct Edge{\n        int from, to, id;\n    };\n    vector<vector<Edge>>\
+    \ G;\n    int V = 0, E = 0;\n    vector<bool> used;\n    vector<int> ord, low;\n\
+    \    vector<int> reachable;\n    vector<pair<int, int>> bridges; // \u6A4B\n \
+    \   vector<int> articulations; // \u95A2\u7BC0\u70B9\n    vector<bool> is_bridge,\
+    \ is_articulation;\n\n    LowLink(const int node_size) : V(node_size){\n     \
+    \   G.resize(V);\n    }\n\n    void add_edge(int from, int to){\n        G[from].push_back({from,\
+    \ to, E});\n        G[to].push_back({to, from, E});\n        E++;\n    }\n\n \
+    \   void build(){\n        used.assign(G.size(), 0);\n        ord.assign(G.size(),\
+    \ 0);\n        low.assign(G.size(), 0);\n        reachable.assign(G.size(), -1);\n\
+    \        is_bridge.assign(E, false);\n        is_articulation.assign(V, false);\n\
+    \n        int k = 0;\n        for(int i = 0; i < (int) G.size(); i++){\n     \
+    \       if(!used[i]) dfs(i, -1, k);\n        }\n    }\n\n    void dfs(int cur,\
+    \ int prv, int &k){\n        used[cur] = true;\n        ord[cur] = k++;\n    \
+    \    low[cur] = ord[cur];\n        bool flag_articulation = false;\n        int\
+    \ child_count = 0; // DFS \u6728\u306E\u5B50\u306E\u6570\n\n        bool is_multiple\
+    \ = false;\n        for(auto &edge : G[cur]){\n            if(edge.to == prv &&\
+    \ !is_multiple){\n                is_multiple = true;\n                continue;\n\
+    \            }\n            if(!used[edge.to]){\n                child_count++;\n\
+    \                dfs(edge.to, cur, k);\n                low[cur] = min(low[cur],\
+    \ low[edge.to]);\n                if(prv != -1 && ord[cur] <= low[edge.to]){\n\
+    \                    flag_articulation = true;\n                }\n          \
+    \      if(ord[cur] < low[edge.to]){\n                    bridges.emplace_back(min(cur,\
+    \ edge.to), max(cur, edge.to));\n                    is_bridge[edge.id] = true;\n\
+    \                }\n            }else{ // \u5F8C\u9000\u8FBA\n               \
+    \ low[cur] = min(low[cur], ord[edge.to]);\n            }\n        }\n        if(prv\
+    \ == -1 && child_count >= 2) flag_articulation = true;\n        if(flag_articulation){\n\
+    \            articulations.push_back(cur);\n            is_articulation[cur] =\
+    \ true;\n        }\n    }\n};\n#line 10 \"lib/graph/two_edge_connected_components.hpp\"\
     \n\nstruct TwoEdgeConnectedComponents : LowLink{\n    using super = LowLink;\n\
     \n    vector<vector<int>> result;\n\n    TwoEdgeConnectedComponents(const int\
     \ node_size) : super(node_size){}\n\n    void build(){\n        super::build();\n\
@@ -55,24 +63,27 @@ data:
     \                v.clear();\n                dfs(dfs, i);\n                result.push_back(v);\n\
     \            }\n        }\n    }\n\n    vector<vector<int>> get(){\n        return\
     \ result;\n    }\n};\n"
-  code: "#pragma once\n\n#include \"../graph/lowlink.hpp\"\n\nstruct TwoEdgeConnectedComponents\
-    \ : LowLink{\n    using super = LowLink;\n\n    vector<vector<int>> result;\n\n\
-    \    TwoEdgeConnectedComponents(const int node_size) : super(node_size){}\n\n\
-    \    void build(){\n        super::build();\n        vector<bool> visited(V, false);\n\
-    \        vector<int> v;\n        auto dfs = [&](auto &self, int cur) -> void {\n\
-    \            visited[cur] = true;\n            v.push_back(cur);\n           \
-    \ for(auto &edge : G[cur]){\n                if(visited[edge.to]) continue;\n\
-    \                if(!is_bridge[edge.id]){\n                    self(self, edge.to);\n\
-    \                }\n            }\n        };\n        for(int i = 0; i < V; i++){\n\
-    \            if(!visited[i]){\n                v.clear();\n                dfs(dfs,\
-    \ i);\n                result.push_back(v);\n            }\n        }\n    }\n\
-    \n    vector<vector<int>> get(){\n        return result;\n    }\n};\n"
+  code: "#pragma once\n\n/**\n * @brief Two Edge Connected Components (\u4E8C\u91CD\
+    \u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3)\n * @docs docs/graph/two_edge_connected_components.md\n\
+    \ * @see https://kntychance.hatenablog.jp/entry/2022/09/16/161858\n */\n\n#include\
+    \ \"../graph/lowlink.hpp\"\n\nstruct TwoEdgeConnectedComponents : LowLink{\n \
+    \   using super = LowLink;\n\n    vector<vector<int>> result;\n\n    TwoEdgeConnectedComponents(const\
+    \ int node_size) : super(node_size){}\n\n    void build(){\n        super::build();\n\
+    \        vector<bool> visited(V, false);\n        vector<int> v;\n        auto\
+    \ dfs = [&](auto &self, int cur) -> void {\n            visited[cur] = true;\n\
+    \            v.push_back(cur);\n            for(auto &edge : G[cur]){\n      \
+    \          if(visited[edge.to]) continue;\n                if(!is_bridge[edge.id]){\n\
+    \                    self(self, edge.to);\n                }\n            }\n\
+    \        };\n        for(int i = 0; i < V; i++){\n            if(!visited[i]){\n\
+    \                v.clear();\n                dfs(dfs, i);\n                result.push_back(v);\n\
+    \            }\n        }\n    }\n\n    vector<vector<int>> get(){\n        return\
+    \ result;\n    }\n};\n"
   dependsOn:
   - lib/graph/lowlink.hpp
   isVerificationFile: false
   path: lib/graph/two_edge_connected_components.hpp
   requiredBy: []
-  timestamp: '2024-10-19 01:09:14+09:00'
+  timestamp: '2024-10-31 23:51:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/two_edge_connected_components.test.cpp
@@ -81,5 +92,22 @@ layout: document
 redirect_from:
 - /library/lib/graph/two_edge_connected_components.hpp
 - /library/lib/graph/two_edge_connected_components.hpp.html
-title: lib/graph/two_edge_connected_components.hpp
+title: "Two Edge Connected Components (\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\
+  \u89E3)"
 ---
+## Two Edge Connected Components (二重辺連結成分分解)
+
+#### 概要
+
+グラフについて、二重辺連結成分分解を行います。
+
+#### 使い方
+
+- `TwoEdgeConnectedComponents(node_size)`: コンストラクタ (node_size は頂点数)
+- `add_edge(u, v)`: 頂点 $u$ から 頂点 $v$ に無向辺を追加します。
+- `build()`: 二重辺連結成分分解の計算を行います。
+- `get()`: 二重辺連結成分分解のそれぞれの連結成分を返します。
+
+#### 計算量
+
+頂点数を $V$、辺の数を $E$ とすると、$\mathrm{O}(E + V)$

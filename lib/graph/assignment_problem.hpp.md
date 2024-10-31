@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/primal_dual.hpp
-    title: lib/graph/primal_dual.hpp
+    title: Primal-Dual Algorithm
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -15,9 +15,11 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/graph/assignment_problem.hpp\"\n\n#line 2 \"lib/graph/primal_dual.hpp\"\
-    \n\ntemplate <typename flow_t, typename cost_t>\nstruct PrimalDual{\n    struct\
-    \ Edge{\n        int from, to;\n        flow_t cap, flow;\n        cost_t cost;\n\
-    \        int rev;\n        bool is_rev;\n    };\n    int V;\n    vector<vector<Edge>>\
+    \n\n/**\n * @brief Primal-Dual Algorithm\n * @docs docs/graph/primal_dual.md\n\
+    \ * @see https://pione.hatenablog.com/entry/2021/02/28/075034\n */\n\ntemplate\
+    \ <typename flow_t, typename cost_t>\nstruct PrimalDual{\n    struct Edge{\n \
+    \       int from, to;\n        flow_t cap, flow;\n        cost_t cost;\n     \
+    \   int rev;\n        bool is_rev;\n    };\n    int V;\n    vector<vector<Edge>>\
     \ G;\n    vector<cost_t> potential, min_cost;\n    vector<int> prev_v, prev_e;\n\
     \    const cost_t INF;\n    PrimalDual(int n) : V(n), G(n), INF(numeric_limits<cost_t>::max()\
     \ / 3) {}\n\n    void add_edge(int from, int to, flow_t cap, cost_t cost){\n \
@@ -86,7 +88,7 @@ data:
   isVerificationFile: false
   path: lib/graph/assignment_problem.hpp
   requiredBy: []
-  timestamp: '2024-10-21 21:40:23+09:00'
+  timestamp: '2024-10-31 23:51:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/assignment.test.cpp

@@ -182,22 +182,24 @@ data:
         \u6CD5)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/biconnected_components.hpp
-      title: lib/graph/biconnected_components.hpp
+      title: "Biconnected Components (\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
+        \u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/bipartite_matching.hpp
       title: lib/graph/bipartite_matching.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/cartesian_tree.hpp
-      title: lib/graph/cartesian_tree.hpp
+      title: "Cartesian Tree (\u30C7\u30AB\u30EB\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/chromatic_number.hpp
-      title: lib/graph/chromatic_number.hpp
+      title: "Chromatic Number (\u5F69\u8272\u6570)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/connected_components_of_complement_graph.hpp
       title: lib/graph/connected_components_of_complement_graph.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/counting_spanning_tree.hpp
-      title: lib/graph/counting_spanning_tree.hpp
+      title: "Counting Spanning Tree (\u5168\u57DF\u6728\u306E\u6570\u3048\u4E0A\u3052\
+        )"
     - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
@@ -206,13 +208,13 @@ data:
       title: lib/graph/dinic.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/enumerate_cliques.hpp
-      title: lib/graph/enumerate_cliques.hpp
+      title: "Enumerate Cliques (\u30AF\u30EA\u30FC\u30AF\u306E\u5217\u6319)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/enumerate_triangles.hpp
-      title: lib/graph/enumerate_triangles.hpp
+      title: Enumerate Triangles
     - icon: ':heavy_check_mark:'
       path: lib/graph/eulerian_trail.hpp
-      title: lib/graph/eulerian_trail.hpp
+      title: "Eulerian Trail (\u30AA\u30A4\u30E9\u30FC\u5C0F\u9053)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/graph-input.hpp
       title: lib/graph/graph-input.hpp
@@ -227,19 +229,20 @@ data:
       title: lib/graph/interval_graph.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/lowlink.hpp
-      title: lib/graph/lowlink.hpp
+      title: Low Link
     - icon: ':heavy_check_mark:'
       path: lib/graph/manhattanMST.hpp
       title: Manhattan MST
     - icon: ':heavy_check_mark:'
       path: lib/graph/maximum_independent_set.hpp
-      title: lib/graph/maximum_independent_set.hpp
+      title: "Maximum Independent Set (\u6700\u5927\u72EC\u7ACB\u96C6\u5408)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/minimum_diameter_spanning_tree.hpp
-      title: lib/graph/minimum_diameter_spanning_tree.hpp
+      title: "Minimum Diameter Spanning Tree (\u6700\u5C0F\u76F4\u5F84\u5168\u57DF\
+        \u6728)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/primal_dual.hpp
-      title: lib/graph/primal_dual.hpp
+      title: Primal-Dual Algorithm
     - icon: ':warning:'
       path: lib/graph/reachable_query.hpp
       title: lib/graph/reachable_query.hpp
@@ -252,7 +255,7 @@ data:
         )"
     - icon: ':warning:'
       path: lib/graph/steiner_tree.hpp
-      title: lib/graph/steiner_tree.hpp
+      title: "Steiner Tree (\u30B7\u30E5\u30BF\u30A4\u30CA\u30FC\u6728)"
     - icon: ':warning:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
@@ -261,7 +264,8 @@ data:
       title: "Tree Diameter (\u6728\u306E\u76F4\u5F84)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/two_edge_connected_components.hpp
-      title: lib/graph/two_edge_connected_components.hpp
+      title: "Two Edge Connected Components (\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
+        \u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/warshall_floyd.hpp
       title: "Floyd-Warshall Algorithm (\u30EF\u30FC\u30B7\u30E3\u30EB\u30D5\u30ED\

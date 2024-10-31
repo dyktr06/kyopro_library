@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/enumerate_triangles.hpp
-    title: lib/graph/enumerate_triangles.hpp
+    title: Enumerate Triangles
   - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
@@ -20,19 +20,19 @@ data:
   bundledCode: "#line 1 \"test/library_checker/graph/enumerate_triangles.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_triangles\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/graph/enumerate_triangles.hpp\"\
-    \n\n// \u53C2\u8003: https://www.slideshare.net/slideshow/trianguler/38443802\n\
-    vector<array<int, 3>> enumerateTriangles(vector<vector<int>> &G){\n    int n =\
-    \ G.size();\n    vector<vector<int>> DAG(n);\n    for(int i = 0; i < n; i++){\n\
-    \        for(auto &j : G[i]){\n            pair<int, int> p = {(int) G[i].size(),\
-    \ i}, q = {(int) G[j].size(), j};\n            if(p < q){\n                DAG[i].push_back(j);\n\
-    \            }\n        }\n    }\n\n    vector<array<int, 3>> res;\n    vector<int>\
-    \ edge(n);\n    for(int i = 0; i < n; i++){\n        for(auto j : DAG[i]){\n \
-    \           for(auto k : DAG[i]){\n                edge[k]++;\n            }\n\
-    \            for(auto k : DAG[j]){\n                if(edge[k]){\n           \
-    \         res.push_back({i, j, k});\n                }\n            }\n      \
-    \      for(auto k : DAG[i]){\n                edge[k]--;\n            }\n    \
-    \    }\n    }\n    return res;\n}\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4\
-    \ \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \n\n/**\n * @brief Enumerate Triangles\n * @see https://www.slideshare.net/slideshow/trianguler/38443802\n\
+    \ */\n\nvector<array<int, 3>> enumerateTriangles(vector<vector<int>> &G){\n  \
+    \  int n = G.size();\n    vector<vector<int>> DAG(n);\n    for(int i = 0; i <\
+    \ n; i++){\n        for(auto &j : G[i]){\n            pair<int, int> p = {(int)\
+    \ G[i].size(), i}, q = {(int) G[j].size(), j};\n            if(p < q){\n     \
+    \           DAG[i].push_back(j);\n            }\n        }\n    }\n\n    vector<array<int,\
+    \ 3>> res;\n    vector<int> edge(n);\n    for(int i = 0; i < n; i++){\n      \
+    \  for(auto j : DAG[i]){\n            for(auto k : DAG[i]){\n                edge[k]++;\n\
+    \            }\n            for(auto k : DAG[j]){\n                if(edge[k]){\n\
+    \                    res.push_back({i, j, k});\n                }\n          \
+    \  }\n            for(auto k : DAG[i]){\n                edge[k]--;\n        \
+    \    }\n        }\n    }\n    return res;\n}\n#line 2 \"lib/math/modint.hpp\"\n\
+    \n#line 4 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
     \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
     \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
     \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
@@ -96,7 +96,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/enumerate_triangles.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:40:01+09:00'
+  timestamp: '2024-10-31 23:51:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/enumerate_triangles.test.cpp

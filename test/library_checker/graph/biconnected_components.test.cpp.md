@@ -3,10 +3,11 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/biconnected_components.hpp
-    title: lib/graph/biconnected_components.hpp
+    title: "Biconnected Components (\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
+      \u5206\u89E3)"
   - icon: ':heavy_check_mark:'
     path: lib/graph/lowlink.hpp
-    title: lib/graph/lowlink.hpp
+    title: Low Link
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -20,13 +21,17 @@ data:
   bundledCode: "#line 1 \"test/library_checker/graph/biconnected_components.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/biconnected_components\"\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/graph/biconnected_components.hpp\"\
-    \n\n#line 2 \"lib/graph/lowlink.hpp\"\n\nstruct LowLink{\n    struct Edge{\n \
-    \       int from, to, id;\n    };\n    vector<vector<Edge>> G;\n    int V = 0,\
-    \ E = 0;\n    vector<bool> used;\n    vector<int> ord, low;\n    vector<int> reachable;\n\
-    \    vector<pair<int, int>> bridges; // \u6A4B\n    vector<int> articulations;\
-    \ // \u95A2\u7BC0\u70B9\n    vector<bool> is_bridge, is_articulation;\n\n    LowLink(const\
-    \ int node_size) : V(node_size){\n        G.resize(V);\n    }\n\n    void add_edge(int\
-    \ from, int to){\n        G[from].push_back({from, to, E});\n        G[to].push_back({to,\
+    \n\n/**\n * @brief Biconnected Components (\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\
+    \u6210\u5206\u5206\u89E3)\n * @docs docs/graph/biconnected_components.md\n * @see\
+    \ https://kntychance.hatenablog.jp/entry/2022/09/16/161858\n */\n\n#line 2 \"\
+    lib/graph/lowlink.hpp\"\n\n/**\n * @brief Low Link\n * @see https://kntychance.hatenablog.jp/entry/2022/09/16/161858\n\
+    \ */\n\nstruct LowLink{\n    struct Edge{\n        int from, to, id;\n    };\n\
+    \    vector<vector<Edge>> G;\n    int V = 0, E = 0;\n    vector<bool> used;\n\
+    \    vector<int> ord, low;\n    vector<int> reachable;\n    vector<pair<int, int>>\
+    \ bridges; // \u6A4B\n    vector<int> articulations; // \u95A2\u7BC0\u70B9\n \
+    \   vector<bool> is_bridge, is_articulation;\n\n    LowLink(const int node_size)\
+    \ : V(node_size){\n        G.resize(V);\n    }\n\n    void add_edge(int from,\
+    \ int to){\n        G[from].push_back({from, to, E});\n        G[to].push_back({to,\
     \ from, E});\n        E++;\n    }\n\n    void build(){\n        used.assign(G.size(),\
     \ 0);\n        ord.assign(G.size(), 0);\n        low.assign(G.size(), 0);\n  \
     \      reachable.assign(G.size(), -1);\n        is_bridge.assign(E, false);\n\
@@ -47,7 +52,7 @@ data:
     \   }else{ // \u5F8C\u9000\u8FBA\n                low[cur] = min(low[cur], ord[edge.to]);\n\
     \            }\n        }\n        if(prv == -1 && child_count >= 2) flag_articulation\
     \ = true;\n        if(flag_articulation){\n            articulations.push_back(cur);\n\
-    \            is_articulation[cur] = true;\n        }\n    }\n};\n#line 4 \"lib/graph/biconnected_components.hpp\"\
+    \            is_articulation[cur] = true;\n        }\n    }\n};\n#line 10 \"lib/graph/biconnected_components.hpp\"\
     \n\nstruct BiconnectedComponents : LowLink{\n    using super = LowLink;\n\n  \
     \  vector<vector<Edge>> edge_result;\n    vector<vector<int>> result;\n\n    BiconnectedComponents(const\
     \ int node_size) : super(node_size){}\n\n    void build(){\n        super::build();\n\
@@ -99,7 +104,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/biconnected_components.test.cpp
   requiredBy: []
-  timestamp: '2024-10-19 01:49:36+09:00'
+  timestamp: '2024-10-31 23:51:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/biconnected_components.test.cpp

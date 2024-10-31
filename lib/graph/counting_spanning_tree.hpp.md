@@ -16,16 +16,21 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"lib/graph/counting_spanning_tree.hpp\"\n\n#line 2 \"lib/math/matrix.hpp\"\
-    \n\n/**\n * @brief Matrix\n * @docs docs/math/matrix.md\n */\n\ntemplate <typename\
-    \ T>\nstruct Matrix{\n    int n, m;\n    vector<T> val;\n    Matrix(int _n, int\
-    \ _m) : n(_n), m(_m), val(_n *_m){}\n    Matrix(const vector<vector<T>> &mat){\n\
-    \        n = mat.size();\n        m = mat[0].size();\n        val.resize(n * m);\n\
-    \        for(int i = 0; i < n; ++i){\n            for(int j = 0; j < m; ++j){\n\
-    \                val[i * m + j] = mat[i][j];\n            }\n        }\n    }\n\
-    \    static Matrix e(int _n){\n        Matrix res(_n, _n);\n        for(int i\
-    \ = 0; i < _n; ++i){\n            res[i][i] = T{1};\n        }\n        return\
+    document_title: "Counting Spanning Tree (\u5168\u57DF\u6728\u306E\u6570\u3048\u4E0A\
+      \u3052)"
+    links:
+    - https://mizuwater0.hatenablog.com/entry/2018/11/25/233547
+  bundledCode: "#line 2 \"lib/graph/counting_spanning_tree.hpp\"\n\n/**\n * @brief\
+    \ Counting Spanning Tree (\u5168\u57DF\u6728\u306E\u6570\u3048\u4E0A\u3052)\n\
+    \ * @see https://mizuwater0.hatenablog.com/entry/2018/11/25/233547\n */\n\n#line\
+    \ 2 \"lib/math/matrix.hpp\"\n\n/**\n * @brief Matrix\n * @docs docs/math/matrix.md\n\
+    \ */\n\ntemplate <typename T>\nstruct Matrix{\n    int n, m;\n    vector<T> val;\n\
+    \    Matrix(int _n, int _m) : n(_n), m(_m), val(_n *_m){}\n    Matrix(const vector<vector<T>>\
+    \ &mat){\n        n = mat.size();\n        m = mat[0].size();\n        val.resize(n\
+    \ * m);\n        for(int i = 0; i < n; ++i){\n            for(int j = 0; j < m;\
+    \ ++j){\n                val[i * m + j] = mat[i][j];\n            }\n        }\n\
+    \    }\n    static Matrix e(int _n){\n        Matrix res(_n, _n);\n        for(int\
+    \ i = 0; i < _n; ++i){\n            res[i][i] = T{1};\n        }\n        return\
     \ res;\n    }\n    auto operator[](int i){ return val.begin() + i * m; }\n   \
     \ auto operator[](int i) const { return val.begin() + i * m; }\n    inline Matrix\
     \ &operator+=(const Matrix &rhs){\n        for(int i = 0; i < n * m; ++i){\n \
@@ -103,7 +108,7 @@ data:
     \    }\n    // Rotate 90 degrees clockwise\n    Matrix rotate() const {\n    \
     \    Matrix res(m, n), a = *this;\n        for(int i = 0; i < m; ++i){\n     \
     \       for(int j = 0; j < n; ++j){\n                res[i][j] = a[n - j - 1][i];\n\
-    \            }\n        }\n        return res;\n    }\n};\n#line 4 \"lib/graph/counting_spanning_tree.hpp\"\
+    \            }\n        }\n        return res;\n    }\n};\n#line 9 \"lib/graph/counting_spanning_tree.hpp\"\
     \n\ntemplate <typename T>\nT countingSpanningTree(const vector<vector<int>> &G,\
     \ int root = 0){\n    const int n = G.size();\n    Matrix<mint> mat(n, n), dmat(n\
     \ - 1, n - 1);\n    // \u30E9\u30D7\u30E9\u30B7\u30A2\u30F3\u884C\u5217\u3092\u4F5C\
@@ -114,22 +119,24 @@ data:
     \       if(i != root && j != root){\n                dmat[i - (i > root ? 1 :\
     \ 0)][j - (j > root ? 1 : 0)] = mat[i][j];\n            }\n        }\n    }\n\
     \    return dmat.det();\n}\n"
-  code: "#pragma once\n\n#include \"../math/matrix.hpp\"\n\ntemplate <typename T>\n\
-    T countingSpanningTree(const vector<vector<int>> &G, int root = 0){\n    const\
-    \ int n = G.size();\n    Matrix<mint> mat(n, n), dmat(n - 1, n - 1);\n    // \u30E9\
-    \u30D7\u30E9\u30B7\u30A2\u30F3\u884C\u5217\u3092\u4F5C\u308B\n    for(int i =\
-    \ 0; i < n; i++){\n        for(auto &j : G[i]){\n            if(i == j) continue;\n\
-    \            mat[i][j] -= 1;\n            mat[j][j] += 1;\n        }\n    }\n\n\
-    \    // \u4F59\u56E0\u5B50\u3092\u6C42\u3081\u308B\n    for(int i = 0; i < n;\
-    \ i++){\n        for(int j = 0; j < n; j++){\n            if(i != root && j !=\
-    \ root){\n                dmat[i - (i > root ? 1 : 0)][j - (j > root ? 1 : 0)]\
-    \ = mat[i][j];\n            }\n        }\n    }\n    return dmat.det();\n}\n"
+  code: "#pragma once\n\n/**\n * @brief Counting Spanning Tree (\u5168\u57DF\u6728\
+    \u306E\u6570\u3048\u4E0A\u3052)\n * @see https://mizuwater0.hatenablog.com/entry/2018/11/25/233547\n\
+    \ */\n\n#include \"../math/matrix.hpp\"\n\ntemplate <typename T>\nT countingSpanningTree(const\
+    \ vector<vector<int>> &G, int root = 0){\n    const int n = G.size();\n    Matrix<mint>\
+    \ mat(n, n), dmat(n - 1, n - 1);\n    // \u30E9\u30D7\u30E9\u30B7\u30A2\u30F3\u884C\
+    \u5217\u3092\u4F5C\u308B\n    for(int i = 0; i < n; i++){\n        for(auto &j\
+    \ : G[i]){\n            if(i == j) continue;\n            mat[i][j] -= 1;\n  \
+    \          mat[j][j] += 1;\n        }\n    }\n\n    // \u4F59\u56E0\u5B50\u3092\
+    \u6C42\u3081\u308B\n    for(int i = 0; i < n; i++){\n        for(int j = 0; j\
+    \ < n; j++){\n            if(i != root && j != root){\n                dmat[i\
+    \ - (i > root ? 1 : 0)][j - (j > root ? 1 : 0)] = mat[i][j];\n            }\n\
+    \        }\n    }\n    return dmat.det();\n}\n"
   dependsOn:
   - lib/math/matrix.hpp
   isVerificationFile: false
   path: lib/graph/counting_spanning_tree.hpp
   requiredBy: []
-  timestamp: '2024-06-04 05:02:33+09:00'
+  timestamp: '2024-10-31 23:51:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/counting_spanning_tree_directed.test.cpp
@@ -139,5 +146,5 @@ layout: document
 redirect_from:
 - /library/lib/graph/counting_spanning_tree.hpp
 - /library/lib/graph/counting_spanning_tree.hpp.html
-title: lib/graph/counting_spanning_tree.hpp
+title: "Counting Spanning Tree (\u5168\u57DF\u6728\u306E\u6570\u3048\u4E0A\u3052)"
 ---

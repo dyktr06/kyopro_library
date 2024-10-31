@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/eulerian_trail.hpp
-    title: lib/graph/eulerian_trail.hpp
+    title: "Eulerian Trail (\u30AA\u30A4\u30E9\u30FC\u5C0F\u9053)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -17,9 +17,11 @@ data:
   bundledCode: "#line 1 \"test/library_checker/graph/eulerian_trail_directed.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/eulerian_trail_directed\"\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/graph/eulerian_trail.hpp\"\
-    \n\nstruct EulerianTrail{\n    struct Edge{\n        int from, to, id;\n    };\n\
-    \    int V;\n    int E = 0;\n    bool directed;\n    vector<vector<Edge>> G;\n\
-    \    vector<int> deg;\n    EulerianTrail(int n, bool directed = true) : V(n),\
+    \n\n/**\n * @brief Eulerian Trail (\u30AA\u30A4\u30E9\u30FC\u5C0F\u9053)\n * @docs\
+    \ docs/graph/eulerian_trail.md\n * @see https://kokiymgch.hatenablog.com/entry/2017/12/07/193238\n\
+    \ */\n\nstruct EulerianTrail{\n    struct Edge{\n        int from, to, id;\n \
+    \   };\n    int V;\n    int E = 0;\n    bool directed;\n    vector<vector<Edge>>\
+    \ G;\n    vector<int> deg;\n    EulerianTrail(int n, bool directed = true) : V(n),\
     \ directed(directed) {\n        G.resize(V);\n        deg.resize(V);\n    }\n\n\
     \    void add_edge(int u, int v){\n        if(directed){\n            G[u].push_back({u,\
     \ v, E});\n            deg[u]++;\n            deg[v]--;\n        }else{\n    \
@@ -80,7 +82,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/eulerian_trail_directed.test.cpp
   requiredBy: []
-  timestamp: '2024-10-22 15:19:05+09:00'
+  timestamp: '2024-10-31 23:51:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/eulerian_trail_directed.test.cpp

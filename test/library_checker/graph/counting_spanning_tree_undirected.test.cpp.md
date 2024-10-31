@@ -3,7 +3,8 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/counting_spanning_tree.hpp
-    title: lib/graph/counting_spanning_tree.hpp
+    title: "Counting Spanning Tree (\u5168\u57DF\u6728\u306E\u6570\u3048\u4E0A\u3052\
+      )"
   - icon: ':heavy_check_mark:'
     path: lib/math/matrix.hpp
     title: Matrix
@@ -64,7 +65,9 @@ data:
     \ std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept { return\
     \ os << x.val; }\n};\n#line 6 \"test/library_checker/graph/counting_spanning_tree_undirected.test.cpp\"\
     \n\nusing mint = ModInt<998244353>;\n\n#line 2 \"lib/graph/counting_spanning_tree.hpp\"\
-    \n\n#line 2 \"lib/math/matrix.hpp\"\n\n/**\n * @brief Matrix\n * @docs docs/math/matrix.md\n\
+    \n\n/**\n * @brief Counting Spanning Tree (\u5168\u57DF\u6728\u306E\u6570\u3048\
+    \u4E0A\u3052)\n * @see https://mizuwater0.hatenablog.com/entry/2018/11/25/233547\n\
+    \ */\n\n#line 2 \"lib/math/matrix.hpp\"\n\n/**\n * @brief Matrix\n * @docs docs/math/matrix.md\n\
     \ */\n\ntemplate <typename T>\nstruct Matrix{\n    int n, m;\n    vector<T> val;\n\
     \    Matrix(int _n, int _m) : n(_n), m(_m), val(_n *_m){}\n    Matrix(const vector<vector<T>>\
     \ &mat){\n        n = mat.size();\n        m = mat[0].size();\n        val.resize(n\
@@ -149,7 +152,7 @@ data:
     \    }\n    // Rotate 90 degrees clockwise\n    Matrix rotate() const {\n    \
     \    Matrix res(m, n), a = *this;\n        for(int i = 0; i < m; ++i){\n     \
     \       for(int j = 0; j < n; ++j){\n                res[i][j] = a[n - j - 1][i];\n\
-    \            }\n        }\n        return res;\n    }\n};\n#line 4 \"lib/graph/counting_spanning_tree.hpp\"\
+    \            }\n        }\n        return res;\n    }\n};\n#line 9 \"lib/graph/counting_spanning_tree.hpp\"\
     \n\ntemplate <typename T>\nT countingSpanningTree(const vector<vector<int>> &G,\
     \ int root = 0){\n    const int n = G.size();\n    Matrix<mint> mat(n, n), dmat(n\
     \ - 1, n - 1);\n    // \u30E9\u30D7\u30E9\u30B7\u30A2\u30F3\u884C\u5217\u3092\u4F5C\
@@ -180,7 +183,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 19:21:05+09:00'
+  timestamp: '2024-10-31 23:51:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp

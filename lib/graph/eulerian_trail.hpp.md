@@ -13,12 +13,17 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"lib/graph/eulerian_trail.hpp\"\n\nstruct EulerianTrail{\n\
-    \    struct Edge{\n        int from, to, id;\n    };\n    int V;\n    int E =\
-    \ 0;\n    bool directed;\n    vector<vector<Edge>> G;\n    vector<int> deg;\n\
-    \    EulerianTrail(int n, bool directed = true) : V(n), directed(directed) {\n\
-    \        G.resize(V);\n        deg.resize(V);\n    }\n\n    void add_edge(int\
+    _deprecated_at_docs: docs/graph/eulerian_trail.md
+    document_title: "Eulerian Trail (\u30AA\u30A4\u30E9\u30FC\u5C0F\u9053)"
+    links:
+    - https://kokiymgch.hatenablog.com/entry/2017/12/07/193238
+  bundledCode: "#line 2 \"lib/graph/eulerian_trail.hpp\"\n\n/**\n * @brief Eulerian\
+    \ Trail (\u30AA\u30A4\u30E9\u30FC\u5C0F\u9053)\n * @docs docs/graph/eulerian_trail.md\n\
+    \ * @see https://kokiymgch.hatenablog.com/entry/2017/12/07/193238\n */\n\nstruct\
+    \ EulerianTrail{\n    struct Edge{\n        int from, to, id;\n    };\n    int\
+    \ V;\n    int E = 0;\n    bool directed;\n    vector<vector<Edge>> G;\n    vector<int>\
+    \ deg;\n    EulerianTrail(int n, bool directed = true) : V(n), directed(directed)\
+    \ {\n        G.resize(V);\n        deg.resize(V);\n    }\n\n    void add_edge(int\
     \ u, int v){\n        if(directed){\n            G[u].push_back({u, v, E});\n\
     \            deg[u]++;\n            deg[v]--;\n        }else{\n            G[u].push_back({u,\
     \ v, E});\n            G[v].push_back({v, u, E});\n            deg[u]++;\n   \
@@ -48,8 +53,10 @@ data:
     \            trail_e.clear();\n            return false;\n        }\n        return\
     \ true;\n    }\n\n    vector<int> getVertex(){\n        return trail_v;\n    }\n\
     \n    vector<int> getEdge(){\n        return trail_e;\n    }\n};\n"
-  code: "#pragma once\n\nstruct EulerianTrail{\n    struct Edge{\n        int from,\
-    \ to, id;\n    };\n    int V;\n    int E = 0;\n    bool directed;\n    vector<vector<Edge>>\
+  code: "#pragma once\n\n/**\n * @brief Eulerian Trail (\u30AA\u30A4\u30E9\u30FC\u5C0F\
+    \u9053)\n * @docs docs/graph/eulerian_trail.md\n * @see https://kokiymgch.hatenablog.com/entry/2017/12/07/193238\n\
+    \ */\n\nstruct EulerianTrail{\n    struct Edge{\n        int from, to, id;\n \
+    \   };\n    int V;\n    int E = 0;\n    bool directed;\n    vector<vector<Edge>>\
     \ G;\n    vector<int> deg;\n    EulerianTrail(int n, bool directed = true) : V(n),\
     \ directed(directed) {\n        G.resize(V);\n        deg.resize(V);\n    }\n\n\
     \    void add_edge(int u, int v){\n        if(directed){\n            G[u].push_back({u,\
@@ -86,7 +93,7 @@ data:
   isVerificationFile: false
   path: lib/graph/eulerian_trail.hpp
   requiredBy: []
-  timestamp: '2024-10-22 15:19:05+09:00'
+  timestamp: '2024-10-31 23:51:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/eulerian_trail_directed.test.cpp
@@ -96,5 +103,29 @@ layout: document
 redirect_from:
 - /library/lib/graph/eulerian_trail.hpp
 - /library/lib/graph/eulerian_trail.hpp.html
-title: lib/graph/eulerian_trail.hpp
+title: "Eulerian Trail (\u30AA\u30A4\u30E9\u30FC\u5C0F\u9053)"
 ---
+## Eulerian Trail (オイラー小道)
+
+#### 概要
+
+グラフについて、オイラー小道を求めます。
+
+#### 使い方
+
+- `EulerianTrail(n, directed)`: コンストラクタ (n は頂点数、directed は有向かどうか)
+- `add_edge(u, v)`: 頂点 $u$ から 頂点 $v$ に辺を追加します。
+- `build()`: オイラー小道の計算を行います。存在しない場合は false が返ってきます。
+- `getVertex()`: オイラー小道の頂点列を返します。
+- `getEdge()`: オイラー小道の辺の列を返します。
+
+#### 計算量
+
+- `EulerianTrail(n, directed)`: $\mathrm{O}(n)$
+- `add_edge(u, v)`: $\mathrm{O}(1)$
+
+以降は、頂点数を $V$、追加された辺の数を $E$ とします。
+
+- `build()`: $\mathrm{O}(E + V)$
+- `getVertex()`: $\mathrm{O}(V)$
+- `getEdge()`: $\mathrm{O}(E)$

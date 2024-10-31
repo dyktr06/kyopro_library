@@ -6,7 +6,7 @@ data:
     title: lib/graph/assignment_problem.hpp
   - icon: ':heavy_check_mark:'
     path: lib/graph/primal_dual.hpp
-    title: lib/graph/primal_dual.hpp
+    title: Primal-Dual Algorithm
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -20,25 +20,27 @@ data:
   bundledCode: "#line 1 \"test/library_checker/graph/assignment.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/assignment\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#line 2 \"lib/graph/assignment_problem.hpp\"\n\n#line\
-    \ 2 \"lib/graph/primal_dual.hpp\"\n\ntemplate <typename flow_t, typename cost_t>\n\
-    struct PrimalDual{\n    struct Edge{\n        int from, to;\n        flow_t cap,\
-    \ flow;\n        cost_t cost;\n        int rev;\n        bool is_rev;\n    };\n\
-    \    int V;\n    vector<vector<Edge>> G;\n    vector<cost_t> potential, min_cost;\n\
-    \    vector<int> prev_v, prev_e;\n    const cost_t INF;\n    PrimalDual(int n)\
-    \ : V(n), G(n), INF(numeric_limits<cost_t>::max() / 3) {}\n\n    void add_edge(int\
-    \ from, int to, flow_t cap, cost_t cost){\n        G[from].push_back(Edge{from,\
-    \ to, cap, 0, cost, (int) G[to].size(), false});\n        G[to].push_back(Edge{to,\
-    \ from, 0, cap, -cost, (int) G[from].size() - 1, true});\n    }\n\n    cost_t\
-    \ flow(int s, int t, flow_t f){\n        assert(0 <= s && s < V && 0 <= t && t\
-    \ < V);\n        assert(0 <= f);\n        cost_t ret = 0;\n        using P = pair<cost_t,\
-    \ int>;\n        priority_queue<P, vector<P>, greater<P>> pq;\n        potential.assign(V,\
-    \ 0);\n        prev_v.assign(V, -1);\n        prev_e.assign(V, -1);\n        while(f\
-    \ > 0){\n            // s-t \u30D1\u30B9\u3092\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\
-    \u6CD5\u3067\u63A2\u7D22\n            min_cost.assign(V, INF);\n            pq.emplace(0,\
-    \ s);\n            min_cost[s] = 0;\n            while(pq.size()){\n         \
-    \       auto [c, at] = pq.top();\n                pq.pop();\n                if(min_cost[at]\
-    \ < c) continue;\n                for(int i = 0; i < (int) G[at].size(); i++){\n\
-    \                    auto &e = G[at][i];\n                    // \u975E\u8CA0\u306B\
+    \ 2 \"lib/graph/primal_dual.hpp\"\n\n/**\n * @brief Primal-Dual Algorithm\n *\
+    \ @docs docs/graph/primal_dual.md\n * @see https://pione.hatenablog.com/entry/2021/02/28/075034\n\
+    \ */\n\ntemplate <typename flow_t, typename cost_t>\nstruct PrimalDual{\n    struct\
+    \ Edge{\n        int from, to;\n        flow_t cap, flow;\n        cost_t cost;\n\
+    \        int rev;\n        bool is_rev;\n    };\n    int V;\n    vector<vector<Edge>>\
+    \ G;\n    vector<cost_t> potential, min_cost;\n    vector<int> prev_v, prev_e;\n\
+    \    const cost_t INF;\n    PrimalDual(int n) : V(n), G(n), INF(numeric_limits<cost_t>::max()\
+    \ / 3) {}\n\n    void add_edge(int from, int to, flow_t cap, cost_t cost){\n \
+    \       G[from].push_back(Edge{from, to, cap, 0, cost, (int) G[to].size(), false});\n\
+    \        G[to].push_back(Edge{to, from, 0, cap, -cost, (int) G[from].size() -\
+    \ 1, true});\n    }\n\n    cost_t flow(int s, int t, flow_t f){\n        assert(0\
+    \ <= s && s < V && 0 <= t && t < V);\n        assert(0 <= f);\n        cost_t\
+    \ ret = 0;\n        using P = pair<cost_t, int>;\n        priority_queue<P, vector<P>,\
+    \ greater<P>> pq;\n        potential.assign(V, 0);\n        prev_v.assign(V, -1);\n\
+    \        prev_e.assign(V, -1);\n        while(f > 0){\n            // s-t \u30D1\
+    \u30B9\u3092\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5\u3067\u63A2\u7D22\n   \
+    \         min_cost.assign(V, INF);\n            pq.emplace(0, s);\n          \
+    \  min_cost[s] = 0;\n            while(pq.size()){\n                auto [c, at]\
+    \ = pq.top();\n                pq.pop();\n                if(min_cost[at] < c)\
+    \ continue;\n                for(int i = 0; i < (int) G[at].size(); i++){\n  \
+    \                  auto &e = G[at][i];\n                    // \u975E\u8CA0\u306B\
     \u3059\u308B\u305F\u3081\u306B\u3001cost'(at, e.to) = cost(at, e.to) + potential[at]\
     \ - potential[e.to] \u3068\u3059\u308B\n                    // min_cost'[at] +\
     \ cost'(at, e.to) >= min_cost'[e.to]\n                    // <=> (min_cost'[at]\
@@ -97,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/assignment.test.cpp
   requiredBy: []
-  timestamp: '2024-10-21 21:40:23+09:00'
+  timestamp: '2024-10-31 23:51:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/assignment.test.cpp
