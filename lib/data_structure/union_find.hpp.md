@@ -8,7 +8,7 @@ data:
   - icon: ':warning:'
     path: lib/graph/T_join.hpp
     title: lib/graph/T_join.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/manhattanMST.hpp
     title: Manhattan MST
   _extendedVerifiedWith:
@@ -21,7 +21,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/cycle_detection_undirected.test.cpp
     title: test/library_checker/graph/cycle_detection_undirected.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/manhattanmst.test.cpp
     title: test/library_checker/graph/manhattanmst.test.cpp
   - icon: ':x:'
