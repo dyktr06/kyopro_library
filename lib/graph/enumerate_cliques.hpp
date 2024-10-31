@@ -2,13 +2,10 @@
 
 vector<vector<int>> enumerateCliques(vector<vector<int>> &G){
     int n = G.size();
-    int m = 0;
     vector<pair<int, int>> deg(n);
     for(int i = 0; i < n; i++){
-        m += (int) G[i].size();
         deg[i] = {(int) G[i].size(), i};
     }
-    m /= 2;
 
     vector<vector<bool>> adj(n, vector<bool>(n));
     for(int i = 0; i < n; i++){
