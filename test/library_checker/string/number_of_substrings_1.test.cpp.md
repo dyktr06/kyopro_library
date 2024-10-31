@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: lib/string/lcp_array.hpp
     title: lib/string/lcp_array.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/string/sa_is.hpp
     title: lib/string/sa_is.hpp
   _extendedRequiredBy: []

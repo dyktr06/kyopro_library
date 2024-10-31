@@ -60,10 +60,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
     title: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/enumerate_cliques.test.cpp
     title: test/library_checker/graph/enumerate_cliques.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/enumerate_triangles.test.cpp
     title: test/library_checker/graph/enumerate_triangles.test.cpp
   - icon: ':x:'
