@@ -7,7 +7,7 @@ data:
     title: lib/convolution/ntt.hpp
   - icon: ':heavy_check_mark:'
     path: lib/string/wildcard_pattern_matching.hpp
-    title: lib/string/wildcard_pattern_matching.hpp
+    title: Wildcard Pattern Matching
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/bitwise_and_convolution.test.cpp

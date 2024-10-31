@@ -373,10 +373,10 @@ data:
       title: calc-next
     - icon: ':heavy_check_mark:'
       path: lib/string/lcp_array.hpp
-      title: lib/string/lcp_array.hpp
+      title: LCP Array
     - icon: ':heavy_check_mark:'
       path: lib/string/lyndon_factorization.hpp
-      title: lib/string/lyndon_factorization.hpp
+      title: Lyndon Factorization
     - icon: ':heavy_check_mark:'
       path: lib/string/manacher.hpp
       title: Manacher
@@ -388,16 +388,16 @@ data:
       title: Rolling Hash
     - icon: ':heavy_check_mark:'
       path: lib/string/run_enumerate.hpp
-      title: lib/string/run_enumerate.hpp
+      title: Run Enumerate
     - icon: ':heavy_check_mark:'
       path: lib/string/sa_is.hpp
-      title: lib/string/sa_is.hpp
+      title: SA-IS
     - icon: ':heavy_check_mark:'
       path: lib/string/suffix_array.hpp
       title: lib/string/suffix_array.hpp
     - icon: ':heavy_check_mark:'
       path: lib/string/wildcard_pattern_matching.hpp
-      title: lib/string/wildcard_pattern_matching.hpp
+      title: Wildcard Pattern Matching
     - icon: ':heavy_check_mark:'
       path: lib/string/z_algorithm.hpp
       title: Z Algorithm

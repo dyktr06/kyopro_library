@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: lib/string/run_enumerate.hpp
-    title: lib/string/run_enumerate.hpp
+    title: Run Enumerate
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/string/runenumerate.test.cpp

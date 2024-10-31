@@ -12,7 +12,7 @@ data:
     title: ModInt
   - icon: ':heavy_check_mark:'
     path: lib/string/wildcard_pattern_matching.hpp
-    title: lib/string/wildcard_pattern_matching.hpp
+    title: Wildcard Pattern Matching
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -26,8 +26,9 @@ data:
   bundledCode: "#line 1 \"test/library_checker/string/wildcard_pattern_matching.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/wildcard_pattern_matching\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/string/wildcard_pattern_matching.hpp\"\
-    \n\n#line 2 \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/modint.hpp\"\n\n\
-    #line 4 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \n\n/**\n * @brief Wildcard Pattern Matching\n * @see https://qiita.com/MatsuTaku/items/cd5581fab97d7e74a7b3\n\
+    \ */\n\n#line 2 \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/modint.hpp\"\
+    \n\n#line 4 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
     \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
     \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
     \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
@@ -173,7 +174,7 @@ data:
     \ c2 = convolution(a2, b2);\n        vector<T> ret(n + m - 1);\n        for(int\
     \ i = 0; i < n + m - 1; i++){\n            ret[i] = CRT::garner({c0[i].val, c1[i].val,\
     \ c2[i].val}, {m0, m1, m2}, MOD);\n        }\n        return ret;\n    }\n};\n\
-    #line 5 \"lib/string/wildcard_pattern_matching.hpp\"\n\nvector<bool> wildcardPatternMatching(string\
+    #line 10 \"lib/string/wildcard_pattern_matching.hpp\"\n\nvector<bool> wildcardPatternMatching(string\
     \ &s, string &t){\n    using mint = ModInt<998244353>;\n    auto id = [](char\
     \ c) -> mint {\n        // wildcard must be 0\n        if(c == '*'){\n       \
     \     return mint(0);\n        } else if(isupper(c)){\n            return mint(1\
@@ -208,7 +209,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/string/wildcard_pattern_matching.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:40:01+09:00'
+  timestamp: '2024-10-31 22:40:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/string/wildcard_pattern_matching.test.cpp

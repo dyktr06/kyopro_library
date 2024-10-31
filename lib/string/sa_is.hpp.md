@@ -13,13 +13,15 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/string/sa_is.md
+    document_title: SA-IS
     links:
     - https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html
-  bundledCode: "#line 2 \"lib/string/sa_is.hpp\"\n\n#include <vector>\n\n// \u53C2\
-    \u8003: https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
-    template <typename T>\nstruct SA_IS{\n    std::vector<int> SA;\n\nprivate:\n \
-    \   std::vector<int> dfs(std::vector<int> &s, const int bucket_size){\n      \
-    \  if((int) s.size() == 1){\n            return {0};\n        }\n\n        const\
+  bundledCode: "#line 2 \"lib/string/sa_is.hpp\"\n\n#include <vector>\n\n/**\n * @brief\
+    \ SA-IS\n * @docs docs/string/sa_is.md\n * @see https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
+    \ */\n\ntemplate <typename T>\nstruct SA_IS{\n    std::vector<int> SA;\n\nprivate:\n\
+    \    std::vector<int> dfs(std::vector<int> &s, const int bucket_size){\n     \
+    \   if((int) s.size() == 1){\n            return {0};\n        }\n\n        const\
     \ int n = s.size();\n        s.push_back(0);\n\n        // S \u578B\u304B\u3069\
     \u3046\u304B\n        std::vector<bool> is_s(n + 1);\n        is_s[n] = true;\n\
     \        for(int i = n - 1; i >= 0; --i){\n            if(s[i] < s[i + 1]){\n\
@@ -93,10 +95,11 @@ data:
     \ get() const {\n        return SA;\n    }\n\n    size_t size() const {\n    \
     \    return SA.size();\n    }\n\n    int operator[](int k) const {\n        return\
     \ SA[k];\n    }\n};\n"
-  code: "#pragma once\n\n#include <vector>\n\n// \u53C2\u8003: https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
-    template <typename T>\nstruct SA_IS{\n    std::vector<int> SA;\n\nprivate:\n \
-    \   std::vector<int> dfs(std::vector<int> &s, const int bucket_size){\n      \
-    \  if((int) s.size() == 1){\n            return {0};\n        }\n\n        const\
+  code: "#pragma once\n\n#include <vector>\n\n/**\n * @brief SA-IS\n * @docs docs/string/sa_is.md\n\
+    \ * @see https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
+    \ */\n\ntemplate <typename T>\nstruct SA_IS{\n    std::vector<int> SA;\n\nprivate:\n\
+    \    std::vector<int> dfs(std::vector<int> &s, const int bucket_size){\n     \
+    \   if((int) s.size() == 1){\n            return {0};\n        }\n\n        const\
     \ int n = s.size();\n        s.push_back(0);\n\n        // S \u578B\u304B\u3069\
     \u3046\u304B\n        std::vector<bool> is_s(n + 1);\n        is_s[n] = true;\n\
     \        for(int i = n - 1; i >= 0; --i){\n            if(s[i] < s[i + 1]){\n\
@@ -174,7 +177,7 @@ data:
   isVerificationFile: false
   path: lib/string/sa_is.hpp
   requiredBy: []
-  timestamp: '2024-10-31 17:21:01+09:00'
+  timestamp: '2024-10-31 22:40:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/string/number_of_substrings_1.test.cpp
@@ -184,5 +187,14 @@ layout: document
 redirect_from:
 - /library/lib/string/sa_is.hpp
 - /library/lib/string/sa_is.hpp.html
-title: lib/string/sa_is.hpp
+title: SA-IS
 ---
+## SA-IS
+
+#### 概要
+
+文字列 $S$ について、接尾辞配列を求めます。
+
+#### 計算量
+
+$\mathrm{O}(\lvert S\lvert)$

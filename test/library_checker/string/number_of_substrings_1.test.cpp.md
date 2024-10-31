@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/string/lcp_array.hpp
-    title: lib/string/lcp_array.hpp
+    title: LCP Array
   - icon: ':heavy_check_mark:'
     path: lib/string/sa_is.hpp
-    title: lib/string/sa_is.hpp
+    title: SA-IS
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -20,10 +20,10 @@ data:
   bundledCode: "#line 1 \"test/library_checker/string/number_of_substrings_1.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/number_of_substrings\"\n#include\
     \ <iostream>\n#include <string>\n\n#line 2 \"lib/string/sa_is.hpp\"\n\n#include\
-    \ <vector>\n\n// \u53C2\u8003: https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
-    template <typename T>\nstruct SA_IS{\n    std::vector<int> SA;\n\nprivate:\n \
-    \   std::vector<int> dfs(std::vector<int> &s, const int bucket_size){\n      \
-    \  if((int) s.size() == 1){\n            return {0};\n        }\n\n        const\
+    \ <vector>\n\n/**\n * @brief SA-IS\n * @docs docs/string/sa_is.md\n * @see https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
+    \ */\n\ntemplate <typename T>\nstruct SA_IS{\n    std::vector<int> SA;\n\nprivate:\n\
+    \    std::vector<int> dfs(std::vector<int> &s, const int bucket_size){\n     \
+    \   if((int) s.size() == 1){\n            return {0};\n        }\n\n        const\
     \ int n = s.size();\n        s.push_back(0);\n\n        // S \u578B\u304B\u3069\
     \u3046\u304B\n        std::vector<bool> is_s(n + 1);\n        is_s[n] = true;\n\
     \        for(int i = n - 1; i >= 0; --i){\n            if(s[i] < s[i + 1]){\n\
@@ -96,7 +96,8 @@ data:
     \ ns[i] + 1);\n        }\n        SA = dfs(ns, nbucket_size);\n    }\n\n    std::vector<int>\
     \ get() const {\n        return SA;\n    }\n\n    size_t size() const {\n    \
     \    return SA.size();\n    }\n\n    int operator[](int k) const {\n        return\
-    \ SA[k];\n    }\n};\n#line 2 \"lib/string/lcp_array.hpp\"\n\n#line 4 \"lib/string/lcp_array.hpp\"\
+    \ SA[k];\n    }\n};\n#line 2 \"lib/string/lcp_array.hpp\"\n\n/**\n * @brief LCP\
+    \ Array\n * @docs docs/string/lcp_array.md\n */\n\n#line 9 \"lib/string/lcp_array.hpp\"\
     \n\n// Kasai's Algorithm\ntemplate <typename T>\nstd::vector<int> LCPArray(const\
     \ T &s, const std::vector<int> &sa){\n    const int n = s.size();\n    std::vector<int>\
     \ rank(n);\n    for(int i = 0; i < n; ++i){\n        rank[sa[i]] = i;\n    }\n\
@@ -123,7 +124,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/string/number_of_substrings_1.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 19:21:05+09:00'
+  timestamp: '2024-10-31 22:40:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/string/number_of_substrings_1.test.cpp

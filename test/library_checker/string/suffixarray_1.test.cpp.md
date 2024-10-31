@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/string/sa_is.hpp
-    title: lib/string/sa_is.hpp
+    title: SA-IS
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -17,10 +17,10 @@ data:
   bundledCode: "#line 1 \"test/library_checker/string/suffixarray_1.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/suffixarray\"\n#include <iostream>\n\
     #include <string>\n\n#line 2 \"lib/string/sa_is.hpp\"\n\n#include <vector>\n\n\
-    // \u53C2\u8003: https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
-    template <typename T>\nstruct SA_IS{\n    std::vector<int> SA;\n\nprivate:\n \
-    \   std::vector<int> dfs(std::vector<int> &s, const int bucket_size){\n      \
-    \  if((int) s.size() == 1){\n            return {0};\n        }\n\n        const\
+    /**\n * @brief SA-IS\n * @docs docs/string/sa_is.md\n * @see https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
+    \ */\n\ntemplate <typename T>\nstruct SA_IS{\n    std::vector<int> SA;\n\nprivate:\n\
+    \    std::vector<int> dfs(std::vector<int> &s, const int bucket_size){\n     \
+    \   if((int) s.size() == 1){\n            return {0};\n        }\n\n        const\
     \ int n = s.size();\n        s.push_back(0);\n\n        // S \u578B\u304B\u3069\
     \u3046\u304B\n        std::vector<bool> is_s(n + 1);\n        is_s[n] = true;\n\
     \        for(int i = n - 1; i >= 0; --i){\n            if(s[i] < s[i + 1]){\n\
@@ -109,7 +109,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/string/suffixarray_1.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:21:01+09:00'
+  timestamp: '2024-10-31 22:40:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/string/suffixarray_1.test.cpp
