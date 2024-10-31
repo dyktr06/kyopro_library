@@ -3,7 +3,8 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/connected_components_of_complement_graph.hpp
-    title: lib/graph/connected_components_of_complement_graph.hpp
+    title: "Connected Components of Complement Graph (\u88DC\u30B0\u30E9\u30D5\u306E\
+      \u9023\u7D50\u6210\u5206\u5206\u89E3)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -17,7 +18,9 @@ data:
   bundledCode: "#line 1 \"test/library_checker/graph/connected_components_of_complement_graph.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/connected_components_of_complement_graph\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/graph/connected_components_of_complement_graph.hpp\"\
-    \n\ntemplate <typename T>\nvector<vector<int>> connectedComponentsOfComplementGraph(vector<vector<T>>\
+    \n\n/**\n * @brief Connected Components of Complement Graph (\u88DC\u30B0\u30E9\
+    \u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3)\n * @docs docs/graph/connected_components_of_complement_graph.md\n\
+    \ */\n\ntemplate <typename T>\nvector<vector<int>> connectedComponentsOfComplementGraph(vector<vector<T>>\
     \ &G){\n    int n = (int) G.size();\n    vector<vector<int>> ans;\n    vector<bool>\
     \ used(n, false), reach(n, true);\n    vector<int> s(n);\n    iota(s.begin(),\
     \ s.end(), 0);\n    for(int i = 0; i < n; i++){\n        if(used[i]) continue;\n\
@@ -52,7 +55,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/connected_components_of_complement_graph.test.cpp
   requiredBy: []
-  timestamp: '2024-05-06 21:04:03+09:00'
+  timestamp: '2024-11-01 00:31:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/connected_components_of_complement_graph.test.cpp

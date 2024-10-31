@@ -164,18 +164,18 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: lib/geometry/geometry.hpp
-      title: lib/geometry/geometry.hpp
+      title: "Geometry (\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA)"
   - name: lib/graph
     pages:
     - icon: ':warning:'
       path: lib/graph/T_join.hpp
-      title: lib/graph/T_join.hpp
+      title: T-join Problem
     - icon: ':heavy_check_mark:'
       path: lib/graph/assignment_problem.hpp
-      title: lib/graph/assignment_problem.hpp
+      title: "Assignment Problem (\u5272\u5F53\u3066\u554F\u984C)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/auxiliary_tree.hpp
-      title: lib/graph/auxiliary_tree.hpp
+      title: Auxiliary Tree
     - icon: ':heavy_check_mark:'
       path: lib/graph/bellman_ford.hpp
       title: "Bellman-Ford Algorithm (\u30D9\u30EB\u30DE\u30F3-\u30D5\u30A9\u30FC\u30C9\
@@ -195,7 +195,8 @@ data:
       title: "Chromatic Number (\u5F69\u8272\u6570)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/connected_components_of_complement_graph.hpp
-      title: lib/graph/connected_components_of_complement_graph.hpp
+      title: "Connected Components of Complement Graph (\u88DC\u30B0\u30E9\u30D5\u306E\
+        \u9023\u7D50\u6210\u5206\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/counting_spanning_tree.hpp
       title: "Counting Spanning Tree (\u5168\u57DF\u6728\u306E\u6570\u3048\u4E0A\u3052\
@@ -205,7 +206,7 @@ data:
       title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/dinic.hpp
-      title: lib/graph/dinic.hpp
+      title: Dinic's Algorithm
     - icon: ':heavy_check_mark:'
       path: lib/graph/enumerate_cliques.hpp
       title: "Enumerate Cliques (\u30AF\u30EA\u30FC\u30AF\u306E\u5217\u6319)"
@@ -220,13 +221,14 @@ data:
       title: lib/graph/graph-input.hpp
     - icon: ':warning:'
       path: lib/graph/grid-bfs.cpp
-      title: lib/graph/grid-bfs.cpp
+      title: "Grid BFS (\u4E8C\u6B21\u5143\u30B0\u30EA\u30C3\u30C9\u4E0A\u306E\u5E45\
+        \u512A\u5148\u63A2\u7D22)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/heavy_light_decomposition.hpp
       title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
     - icon: ':warning:'
       path: lib/graph/interval_graph.hpp
-      title: lib/graph/interval_graph.hpp
+      title: "Interval Graph (\u533A\u9593\u30B0\u30E9\u30D5)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/lowlink.hpp
       title: Low Link
@@ -248,7 +250,7 @@ data:
       title: lib/graph/reachable_query.hpp
     - icon: ':heavy_check_mark:'
       path: lib/graph/rerooting.hpp
-      title: lib/graph/rerooting.hpp
+      title: "Rerooting (\u5168\u65B9\u4F4D\u6728DP)"
     - icon: ':heavy_check_mark:'
       path: lib/graph/scc.hpp
       title: "Strongly Connected Component (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\

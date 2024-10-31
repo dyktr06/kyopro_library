@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/geometry/geometry.hpp
-    title: lib/geometry/geometry.hpp
+    title: "Geometry (\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -16,11 +16,12 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
   bundledCode: "#line 1 \"test/aoj/cgl/cgl_3_a.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/geometry/geometry.hpp\"\
-    \n\nnamespace Geometry{\n    using T = long long;\n    const T INFT = 9e18;\n\
-    \    inline constexpr int type(T x, T y){\n        if(!x && !y) return 0;\n  \
-    \      if(y < 0 || (y == 0 && x > 0)) return -1;\n        return 1;\n    }\n\n\
-    \    T absT(T x){\n        if(x < 0) return -x;\n        return x;\n    }\n\n\
-    \    struct Point{\n        T x, y;\n        Point(T X = 0, T Y = 0) : x(X), y(Y){}\n\
+    \n\n/**\n * @brief Geometry (\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA)\n */\n\
+    \nnamespace Geometry{\n    using T = long long;\n    const T INFT = 9e18;\n  \
+    \  inline constexpr int type(T x, T y){\n        if(!x && !y) return 0;\n    \
+    \    if(y < 0 || (y == 0 && x > 0)) return -1;\n        return 1;\n    }\n\n \
+    \   T absT(T x){\n        if(x < 0) return -x;\n        return x;\n    }\n\n \
+    \   struct Point{\n        T x, y;\n        Point(T X = 0, T Y = 0) : x(X), y(Y){}\n\
     \n        inline bool operator==(const Point &other) const {\n            return\
     \ ((x == other.x) && (y == other.y));\n        }\n        inline bool operator!=(const\
     \ Point &other) const {\n            return ((x != other.x) || (y != other.y));\n\
@@ -159,7 +160,7 @@ data:
   isVerificationFile: true
   path: test/aoj/cgl/cgl_3_a.test.cpp
   requiredBy: []
-  timestamp: '2024-09-29 04:33:32+09:00'
+  timestamp: '2024-11-01 00:31:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/cgl/cgl_3_a.test.cpp

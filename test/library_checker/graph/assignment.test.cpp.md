@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/assignment_problem.hpp
-    title: lib/graph/assignment_problem.hpp
+    title: "Assignment Problem (\u5272\u5F53\u3066\u554F\u984C)"
   - icon: ':heavy_check_mark:'
     path: lib/graph/primal_dual.hpp
     title: Primal-Dual Algorithm
@@ -19,9 +19,10 @@ data:
     - https://judge.yosupo.jp/problem/assignment
   bundledCode: "#line 1 \"test/library_checker/graph/assignment.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/assignment\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 2 \"lib/graph/assignment_problem.hpp\"\n\n#line\
-    \ 2 \"lib/graph/primal_dual.hpp\"\n\n/**\n * @brief Primal-Dual Algorithm\n *\
-    \ @docs docs/graph/primal_dual.md\n * @see https://pione.hatenablog.com/entry/2021/02/28/075034\n\
+    using namespace std;\n\n#line 2 \"lib/graph/assignment_problem.hpp\"\n\n/**\n\
+    \ * @brief Assignment Problem (\u5272\u5F53\u3066\u554F\u984C)\n */\n\n#line 2\
+    \ \"lib/graph/primal_dual.hpp\"\n\n/**\n * @brief Primal-Dual Algorithm\n * @docs\
+    \ docs/graph/primal_dual.md\n * @see https://pione.hatenablog.com/entry/2021/02/28/075034\n\
     \ */\n\ntemplate <typename flow_t, typename cost_t>\nstruct PrimalDual{\n    struct\
     \ Edge{\n        int from, to;\n        flow_t cap, flow;\n        cost_t cost;\n\
     \        int rev;\n        bool is_rev;\n    };\n    int V;\n    vector<vector<Edge>>\
@@ -64,7 +65,7 @@ data:
     \    }\n        }\n        return ret;\n    }\n\n    vector<Edge> edges(){\n \
     \       vector<Edge> ret;\n        for(int i = 0; i < V; i++){\n            for(auto\
     \ &e : G[i]){\n                if(e.is_rev) continue;\n                ret.push_back(e);\n\
-    \            }\n        }\n        return ret;\n    }\n};\n#line 4 \"lib/graph/assignment_problem.hpp\"\
+    \            }\n        }\n        return ret;\n    }\n};\n#line 8 \"lib/graph/assignment_problem.hpp\"\
     \n\ntemplate <typename T>\nvector<int> assignmentProblem(vector<vector<T>> &p){\n\
     \    int n = p.size();\n    T minA = (T) 0;\n    PrimalDual<int, T> G(n * 2 +\
     \ 2);\n    int s = n * 2, t = n * 2 + 1;\n    for(int i = 0; i < n; i++){\n  \
@@ -99,7 +100,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/assignment.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 23:51:11+09:00'
+  timestamp: '2024-11-01 00:31:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/assignment.test.cpp

@@ -7,7 +7,7 @@ data:
     title: lib/data_structure/range_parallel_union_find.hpp
   - icon: ':warning:'
     path: lib/graph/T_join.hpp
-    title: lib/graph/T_join.hpp
+    title: T-join Problem
   - icon: ':heavy_check_mark:'
     path: lib/graph/manhattanMST.hpp
     title: Manhattan MST

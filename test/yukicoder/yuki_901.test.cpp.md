@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/auxiliary_tree.hpp
-    title: lib/graph/auxiliary_tree.hpp
+    title: Auxiliary Tree
   - icon: ':heavy_check_mark:'
     path: lib/graph/heavy_light_decomposition.hpp
     title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
@@ -19,8 +19,9 @@ data:
     - https://yukicoder.me/problems/no/901
   bundledCode: "#line 1 \"test/yukicoder/yuki_901.test.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/901\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/graph/auxiliary_tree.hpp\"\
-    \n\n#line 2 \"lib/graph/heavy_light_decomposition.hpp\"\n\n/**\n * @brief Heavy\
-    \ Light Decomposition (\u91CD\u8EFD\u5206\u89E3)\n * @docs docs/graph/heavy_light_decomposition.md\n\
+    \n\n/**\n * @brief Auxiliary Tree\n * @see https://smijake3.hatenablog.com/entry/2019/09/15/200200\n\
+    \ */\n\n#line 2 \"lib/graph/heavy_light_decomposition.hpp\"\n\n/**\n * @brief\
+    \ Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)\n * @docs docs/graph/heavy_light_decomposition.md\n\
     \ */\n\nclass HeavyLightDecomposition{\nprotected:\n    int V;\n    vector<vector<int>>\
     \ G;\n    vector<int> stsize, parent, pathtop, depth, in, reverse_in, out;\n \
     \   int root;\n\nprivate:\n    // Subtree Size\n    void buildStsize(int curr,\
@@ -70,7 +71,7 @@ data:
     \ v);\n        }\n    }\n\n    void path_noncommutative_query(int a, int b, const\
     \ function<void(int, int)> &func, const function<void(int, int)> &func2){\n  \
     \      int l = lca(a, b);\n        path_query(a, l, func2, false, true);\n   \
-    \     path_query(l, b, func, true, false);\n    }\n};\n#line 4 \"lib/graph/auxiliary_tree.hpp\"\
+    \     path_query(l, b, func, true, false);\n    }\n};\n#line 9 \"lib/graph/auxiliary_tree.hpp\"\
     \n\nstruct AuxiliaryTree : HeavyLightDecomposition{\n    using super = HeavyLightDecomposition;\n\
     \nprivate:\n    void add_aux_edge(int u, int v){\n        T[u].emplace_back(v);\n\
     \        T[v].emplace_back(u);\n    }\n\npublic:\n    vector<vector<int>> T;\n\
@@ -128,7 +129,7 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_901.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-11-01 00:31:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_901.test.cpp

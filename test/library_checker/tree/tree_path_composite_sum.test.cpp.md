@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/graph/rerooting.hpp
-    title: lib/graph/rerooting.hpp
+    title: "Rerooting (\u5168\u65B9\u4F4D\u6728DP)"
   - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
@@ -20,8 +20,9 @@ data:
   bundledCode: "#line 1 \"test/library_checker/tree/tree_path_composite_sum.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/tree_path_composite_sum\"\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/graph/rerooting.hpp\"\
-    \n\ntemplate<typename E, typename V>\nstruct Rerooting{\n    struct edge{\n  \
-    \      int from, to, idx, rev_idx;\n    };\n    int n, root;\n    vector<vector<edge>>\
+    \n\n/**\n * @brief Rerooting (\u5168\u65B9\u4F4D\u6728DP)\n * @see https://trap.jp/post/1702/\n\
+    \ */\n\ntemplate<typename E, typename V>\nstruct Rerooting{\n    struct edge{\n\
+    \        int from, to, idx, rev_idx;\n    };\n    int n, root;\n    vector<vector<edge>>\
     \ edges;\n    vector<int> visited;\n    vector<vector<E>> out;\n    vector<E>\
     \ reverse_edge;\n    vector<V> ans;\n    function<E(E, E)> merge;\n    E e;\n\
     \    function<E(V, int)> put_edge;\n    function<V(E, int)> put_vertex;\n    Rerooting(int\
@@ -122,7 +123,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/tree_path_composite_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:40:01+09:00'
+  timestamp: '2024-11-01 00:31:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/tree/tree_path_composite_sum.test.cpp

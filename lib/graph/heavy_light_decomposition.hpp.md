@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: lib/graph/auxiliary_tree.hpp
-    title: lib/graph/auxiliary_tree.hpp
+    title: Auxiliary Tree
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/vertex_add_path_sum.test.cpp

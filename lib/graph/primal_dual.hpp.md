@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: lib/graph/assignment_problem.hpp
-    title: lib/graph/assignment_problem.hpp
+    title: "Assignment Problem (\u5272\u5F53\u3066\u554F\u984C)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/assignment.test.cpp

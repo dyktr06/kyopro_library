@@ -13,8 +13,10 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: "Assignment Problem (\u5272\u5F53\u3066\u554F\u984C)"
     links: []
-  bundledCode: "#line 2 \"lib/graph/assignment_problem.hpp\"\n\n#line 2 \"lib/graph/primal_dual.hpp\"\
+  bundledCode: "#line 2 \"lib/graph/assignment_problem.hpp\"\n\n/**\n * @brief Assignment\
+    \ Problem (\u5272\u5F53\u3066\u554F\u984C)\n */\n\n#line 2 \"lib/graph/primal_dual.hpp\"\
     \n\n/**\n * @brief Primal-Dual Algorithm\n * @docs docs/graph/primal_dual.md\n\
     \ * @see https://pione.hatenablog.com/entry/2021/02/28/075034\n */\n\ntemplate\
     \ <typename flow_t, typename cost_t>\nstruct PrimalDual{\n    struct Edge{\n \
@@ -59,7 +61,7 @@ data:
     \    }\n        }\n        return ret;\n    }\n\n    vector<Edge> edges(){\n \
     \       vector<Edge> ret;\n        for(int i = 0; i < V; i++){\n            for(auto\
     \ &e : G[i]){\n                if(e.is_rev) continue;\n                ret.push_back(e);\n\
-    \            }\n        }\n        return ret;\n    }\n};\n#line 4 \"lib/graph/assignment_problem.hpp\"\
+    \            }\n        }\n        return ret;\n    }\n};\n#line 8 \"lib/graph/assignment_problem.hpp\"\
     \n\ntemplate <typename T>\nvector<int> assignmentProblem(vector<vector<T>> &p){\n\
     \    int n = p.size();\n    T minA = (T) 0;\n    PrimalDual<int, T> G(n * 2 +\
     \ 2);\n    int s = n * 2, t = n * 2 + 1;\n    for(int i = 0; i < n; i++){\n  \
@@ -71,8 +73,9 @@ data:
     \ }\n\n    G.flow(s, t, n);\n    auto edges = G.edges();\n    vector<int> ans(n);\n\
     \    for(auto &e : edges){\n        if(e.from == s || e.to == t || e.flow == 0)\
     \ continue;\n        ans[e.from] = e.to - n;\n    }\n    return ans;\n}\n"
-  code: "#pragma once\n\n#include \"../graph/primal_dual.hpp\"\n\ntemplate <typename\
-    \ T>\nvector<int> assignmentProblem(vector<vector<T>> &p){\n    int n = p.size();\n\
+  code: "#pragma once\n\n/**\n * @brief Assignment Problem (\u5272\u5F53\u3066\u554F\
+    \u984C)\n */\n\n#include \"../graph/primal_dual.hpp\"\n\ntemplate <typename T>\n\
+    vector<int> assignmentProblem(vector<vector<T>> &p){\n    int n = p.size();\n\
     \    T minA = (T) 0;\n    PrimalDual<int, T> G(n * 2 + 2);\n    int s = n * 2,\
     \ t = n * 2 + 1;\n    for(int i = 0; i < n; i++){\n        G.add_edge(s, i, 1,\
     \ 0);\n        G.add_edge(i + n, t, 1, 0);\n    }\n    for(int i = 0; i < n; i++){\n\
@@ -88,7 +91,7 @@ data:
   isVerificationFile: false
   path: lib/graph/assignment_problem.hpp
   requiredBy: []
-  timestamp: '2024-10-31 23:51:11+09:00'
+  timestamp: '2024-11-01 00:31:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/assignment.test.cpp
@@ -97,5 +100,5 @@ layout: document
 redirect_from:
 - /library/lib/graph/assignment_problem.hpp
 - /library/lib/graph/assignment_problem.hpp.html
-title: lib/graph/assignment_problem.hpp
+title: "Assignment Problem (\u5272\u5F53\u3066\u554F\u984C)"
 ---

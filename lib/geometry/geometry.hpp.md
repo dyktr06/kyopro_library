@@ -25,12 +25,14 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: "Geometry (\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA)"
     links: []
-  bundledCode: "#line 2 \"lib/geometry/geometry.hpp\"\n\nnamespace Geometry{\n   \
-    \ using T = long long;\n    const T INFT = 9e18;\n    inline constexpr int type(T\
-    \ x, T y){\n        if(!x && !y) return 0;\n        if(y < 0 || (y == 0 && x >\
-    \ 0)) return -1;\n        return 1;\n    }\n\n    T absT(T x){\n        if(x <\
-    \ 0) return -x;\n        return x;\n    }\n\n    struct Point{\n        T x, y;\n\
+  bundledCode: "#line 2 \"lib/geometry/geometry.hpp\"\n\n/**\n * @brief Geometry (\u5E7E\
+    \u4F55\u30E9\u30A4\u30D6\u30E9\u30EA)\n */\n\nnamespace Geometry{\n    using T\
+    \ = long long;\n    const T INFT = 9e18;\n    inline constexpr int type(T x, T\
+    \ y){\n        if(!x && !y) return 0;\n        if(y < 0 || (y == 0 && x > 0))\
+    \ return -1;\n        return 1;\n    }\n\n    T absT(T x){\n        if(x < 0)\
+    \ return -x;\n        return x;\n    }\n\n    struct Point{\n        T x, y;\n\
     \        Point(T X = 0, T Y = 0) : x(X), y(Y){}\n\n        inline bool operator==(const\
     \ Point &other) const {\n            return ((x == other.x) && (y == other.y));\n\
     \        }\n        inline bool operator!=(const Point &other) const {\n     \
@@ -154,26 +156,27 @@ data:
     \ convex[i], convex[(j + 1) % m] - convex[j]) < 0){\n                i = (i +\
     \ 1) % m;\n            }else{\n                j = (j + 1) % m;\n            }\n\
     \        }\n        return {max_dist, {ans1, ans2}};\n    }\n}\n"
-  code: "#pragma once\n\nnamespace Geometry{\n    using T = long long;\n    const\
-    \ T INFT = 9e18;\n    inline constexpr int type(T x, T y){\n        if(!x && !y)\
-    \ return 0;\n        if(y < 0 || (y == 0 && x > 0)) return -1;\n        return\
-    \ 1;\n    }\n\n    T absT(T x){\n        if(x < 0) return -x;\n        return\
-    \ x;\n    }\n\n    struct Point{\n        T x, y;\n        Point(T X = 0, T Y\
-    \ = 0) : x(X), y(Y){}\n\n        inline bool operator==(const Point &other) const\
-    \ {\n            return ((x == other.x) && (y == other.y));\n        }\n     \
-    \   inline bool operator!=(const Point &other) const {\n            return ((x\
-    \ != other.x) || (y != other.y));\n        }\n        inline bool operator<(const\
-    \ Point &other) const {\n            int L = type(x, y), R = type(other.x, other.y);\n\
-    \            if(L != R) return L < R;\n            if(x * other.y == other.x *\
-    \ y) return abs(x + y) < abs(other.x + other.y);\n            return x * other.y\
-    \ > other.x * y;\n        }\n        inline bool operator>(const Point &other)\
+  code: "#pragma once\n\n/**\n * @brief Geometry (\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\
+    \u30EA)\n */\n\nnamespace Geometry{\n    using T = long long;\n    const T INFT\
+    \ = 9e18;\n    inline constexpr int type(T x, T y){\n        if(!x && !y) return\
+    \ 0;\n        if(y < 0 || (y == 0 && x > 0)) return -1;\n        return 1;\n \
+    \   }\n\n    T absT(T x){\n        if(x < 0) return -x;\n        return x;\n \
+    \   }\n\n    struct Point{\n        T x, y;\n        Point(T X = 0, T Y = 0) :\
+    \ x(X), y(Y){}\n\n        inline bool operator==(const Point &other) const {\n\
+    \            return ((x == other.x) && (y == other.y));\n        }\n        inline\
+    \ bool operator!=(const Point &other) const {\n            return ((x != other.x)\
+    \ || (y != other.y));\n        }\n        inline bool operator<(const Point &other)\
     \ const {\n            int L = type(x, y), R = type(other.x, other.y);\n     \
-    \       if(L != R) return L > R;\n            if(x * other.y == other.x * y) return\
-    \ abs(x + y) > abs(other.x + other.y);\n            return x * other.y < other.x\
-    \ * y;\n        }\n        inline Point operator+() const noexcept { return *this;\
-    \ }\n        inline Point operator-() const noexcept { return Point(-x, -y); }\n\
-    \        inline Point operator+(const Point &p) const { return Point(x + p.x,\
-    \ y + p.y); }\n        inline Point operator-(const Point &p) const { return Point(x\
+    \       if(L != R) return L < R;\n            if(x * other.y == other.x * y) return\
+    \ abs(x + y) < abs(other.x + other.y);\n            return x * other.y > other.x\
+    \ * y;\n        }\n        inline bool operator>(const Point &other) const {\n\
+    \            int L = type(x, y), R = type(other.x, other.y);\n            if(L\
+    \ != R) return L > R;\n            if(x * other.y == other.x * y) return abs(x\
+    \ + y) > abs(other.x + other.y);\n            return x * other.y < other.x * y;\n\
+    \        }\n        inline Point operator+() const noexcept { return *this; }\n\
+    \        inline Point operator-() const noexcept { return Point(-x, -y); }\n \
+    \       inline Point operator+(const Point &p) const { return Point(x + p.x, y\
+    \ + p.y); }\n        inline Point operator-(const Point &p) const { return Point(x\
     \ - p.x, y - p.y); }\n        inline Point &operator+=(const Point &p) { return\
     \ x += p.x, y += p.y, *this; }\n        inline Point &operator-=(const Point &p)\
     \ { return x -= p.x, y -= p.y, *this; }\n        inline T operator*(const Point\
@@ -286,7 +289,7 @@ data:
   isVerificationFile: false
   path: lib/geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2024-09-29 04:33:32+09:00'
+  timestamp: '2024-11-01 00:31:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/geometry/furthest_pair.test.cpp
@@ -300,5 +303,5 @@ layout: document
 redirect_from:
 - /library/lib/geometry/geometry.hpp
 - /library/lib/geometry/geometry.hpp.html
-title: lib/geometry/geometry.hpp
+title: "Geometry (\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA)"
 ---
