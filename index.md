@@ -27,7 +27,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/convolution/lcm_convolution.hpp
       title: lib/convolution/lcm_convolution.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/convolution/ntt.hpp
       title: lib/convolution/ntt.hpp
     - icon: ':heavy_check_mark:'
@@ -114,6 +114,9 @@ data:
       path: lib/data_structure/priority_set.hpp
       title: lib/data_structure/priority_set.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/data_structure/range_parallel_union_find.hpp
+      title: lib/data_structure/range_parallel_union_find.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/range_tree.hpp
       title: lib/data_structure/range_tree.hpp
     - icon: ':heavy_check_mark:'
@@ -122,6 +125,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/segment_tree_beats.hpp
       title: lib/data_structure/segment_tree_beats.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/data_structure/segment_tree_func.hpp
+      title: lib/data_structure/segment_tree_func.hpp
     - icon: ':warning:'
       path: lib/data_structure/segment_tree_indexed.hpp
       title: lib/data_structure/segment_tree_indexed.hpp
@@ -137,7 +143,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/swag.hpp
       title: SWAG
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/data_structure/union_find.hpp
       title: Union Find
     - icon: ':heavy_check_mark:'
@@ -237,7 +243,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/reachable_query.hpp
       title: lib/graph/reachable_query.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/graph/rerooting.hpp
       title: lib/graph/rerooting.hpp
     - icon: ':heavy_check_mark:'
@@ -280,7 +286,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: "Convert Base (\u9032\u6570\u5909\u63DB)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':heavy_check_mark:'
@@ -298,13 +304,13 @@ data:
     - icon: ':warning:'
       path: lib/math/math_table.hpp
       title: lib/math/math_table.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/matrix.hpp
       title: Matrix
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -365,6 +371,9 @@ data:
     - icon: ':warning:'
       path: lib/string/calc_next.hpp
       title: calc-next
+    - icon: ':x:'
+      path: lib/string/lcp_array.hpp
+      title: lib/string/lcp_array.hpp
     - icon: ':heavy_check_mark:'
       path: lib/string/lyndon_factorization.hpp
       title: lib/string/lyndon_factorization.hpp
@@ -380,13 +389,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/string/run_enumerate.hpp
       title: lib/string/run_enumerate.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/string/sa_is.hpp
       title: lib/string/sa_is.hpp
     - icon: ':heavy_check_mark:'
       path: lib/string/suffix_array.hpp
       title: lib/string/suffix_array.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/string/wildcard_pattern_matching.hpp
       title: lib/string/wildcard_pattern_matching.hpp
     - icon: ':heavy_check_mark:'
@@ -485,10 +494,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
       title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/convolution/convolution.test.cpp
       title: test/library_checker/convolution/convolution.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
       title: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
     - icon: ':heavy_check_mark:'
@@ -550,6 +559,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_kth_smallest.test.cpp
       title: test/library_checker/data_structure/range_kth_smallest.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
+      title: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_set_range_composite.test.cpp
       title: test/library_checker/data_structure/range_set_range_composite.test.cpp
@@ -696,7 +708,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
       title: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/graph/minimum_spanning_tree.test.cpp
       title: test/library_checker/graph/minimum_spanning_tree.test.cpp
     - icon: ':heavy_check_mark:'
@@ -742,19 +754,19 @@ data:
       title: test/library_checker/math/rational_approximation.test.cpp
   - name: test/library_checker/matrix
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/matrix/inverse_matrix.test.cpp
       title: test/library_checker/matrix/inverse_matrix.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/matrix/matrix_det.test.cpp
       title: test/library_checker/matrix/matrix_det.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/matrix/matrix_product.test.cpp
       title: test/library_checker/matrix/matrix_product.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/matrix/matrix_rank.test.cpp
       title: test/library_checker/matrix/matrix_rank.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/matrix/pow_of_matrix.test.cpp
       title: test/library_checker/matrix/pow_of_matrix.test.cpp
   - name: test/library_checker/sample
@@ -773,16 +785,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/number_of_substrings.test.cpp
       title: test/library_checker/string/number_of_substrings.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/string/number_of_substrings_1.test.cpp
+      title: test/library_checker/string/number_of_substrings_1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/runenumerate.test.cpp
       title: test/library_checker/string/runenumerate.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/suffixarray.test.cpp
       title: test/library_checker/string/suffixarray.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/string/suffixarray_1.test.cpp
       title: test/library_checker/string/suffixarray_1.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/string/wildcard_pattern_matching.test.cpp
       title: test/library_checker/string/wildcard_pattern_matching.test.cpp
     - icon: ':heavy_check_mark:'
@@ -802,7 +817,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/tree_diameter.test.cpp
       title: test/library_checker/tree/tree_diameter.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/tree/tree_path_composite_sum.test.cpp
       title: test/library_checker/tree/tree_path_composite_sum.test.cpp
   - name: test/yukicoder

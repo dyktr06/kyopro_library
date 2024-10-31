@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/set_zeta_mobius_transform.hpp
     title: lib/convolution/set_zeta_mobius_transform.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
@@ -44,12 +44,12 @@ data:
     \ g){\n    const int n = (int) f.size();\n    assert(f.size() == g.size());\n\
     \    assert((n & (n - 1)) == 0);\n    subset_zeta_transform(f);\n    subset_zeta_transform(g);\n\
     \    for(int i = 0; i < n; ++i){\n        f[i] *= g[i];\n    }\n    subset_mobius_transform(f);\n\
-    \    return f;\n}\n#line 2 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n\
-    \ * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\nstruct ModInt{\n\
-    \    long long val;\n    static constexpr int mod() { return Modulus; }\n    constexpr\
-    \ ModInt(const long long _val = 0) noexcept : val(_val) {\n        normalize();\n\
-    \    }\n    void normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n\
-    \    }\n    inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val\
+    \    return f;\n}\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4 \"lib/math/modint.hpp\"\
+    \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
+    \ long Modulus>\nstruct ModInt{\n    long long val;\n    constexpr ModInt(const\
+    \ long long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n  \
+    \  void normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n   \
+    \ }\n    inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val\
     \ += rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n\
     \    inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -=\
     \ rhs.val, val < 0) val += Modulus;\n        return *this;\n    }\n    inline\
@@ -69,21 +69,21 @@ data:
     \            if(n & 1) r *= x;\n            x *= x;\n            n >>= 1;\n  \
     \      }\n        return r;\n    }\n    ModInt inv(const long long n) const {\n\
     \        long long a = n, b = Modulus, u = 1, v = 0;\n        while(b){\n    \
-    \        long long t = a / b;\n            a -= t * b; swap(a, b);\n         \
-    \   u -= t * v; swap(u, v);\n        }\n        u %= Modulus;\n        if(u <\
-    \ 0) u += Modulus;\n        return u;\n    }\n    friend inline ModInt operator+(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n  \
-    \  friend inline ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend\
-    \ inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt &lhs,\
-    \ const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend inline\
-    \ bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val\
-    \ != rhs.val; }\n    friend inline istream &operator>>(istream &is, ModInt &x)\
-    \ noexcept {\n        is >> x.val;\n        x.normalize();\n        return is;\n\
-    \    }\n    friend inline ostream &operator<<(ostream &os, const ModInt &x) noexcept\
-    \ { return os << x.val; }\n};\n#line 7 \"test/library_checker/convolution/bitwise_and_convolution_1.test.cpp\"\
+    \        long long t = a / b;\n            a -= t * b; std::swap(a, b);\n    \
+    \        u -= t * v; std::swap(u, v);\n        }\n        u %= Modulus;\n    \
+    \    if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline ModInt\
+    \ operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
+    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
+    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ lhs.val != rhs.val; }\n    friend inline std::istream &operator>>(std::istream\
+    \ &is, ModInt &x) noexcept {\n        is >> x.val;\n        x.normalize();\n \
+    \       return is;\n    }\n    friend inline std::ostream &operator<<(std::ostream\
+    \ &os, const ModInt &x) noexcept { return os << x.val; }\n};\n#line 7 \"test/library_checker/convolution/bitwise_and_convolution_1.test.cpp\"\
     \n\nusing mint = ModInt<998244353>;\n\nint main(){\n    int n; cin >> n;\n   \
     \ int m = 1 << n;\n    vector<mint> a(m), b(m);\n    for(int i = 0; i < m; i++){\n\
     \        cin >> a[i];\n    }\n    for(int i = 0; i < m; i++){\n        cin >>\
@@ -107,7 +107,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/bitwise_and_convolution_1.test.cpp
   requiredBy: []
-  timestamp: '2024-10-25 14:09:39+09:00'
+  timestamp: '2024-10-31 17:18:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution/bitwise_and_convolution_1.test.cpp

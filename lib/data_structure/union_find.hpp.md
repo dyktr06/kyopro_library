@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/data_structure/range_parallel_union_find.hpp
+    title: lib/data_structure/range_parallel_union_find.hpp
   - icon: ':warning:'
     path: lib/graph/T_join.hpp
     title: lib/graph/T_join.hpp
@@ -9,6 +12,9 @@ data:
     path: lib/graph/manhattanMST.hpp
     title: Manhattan MST
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
+    title: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/unionfind.test.cpp
     title: test/library_checker/data_structure/unionfind.test.cpp
@@ -18,53 +24,58 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/manhattanmst.test.cpp
     title: test/library_checker/graph/manhattanmst.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/minimum_spanning_tree.test.cpp
     title: test/library_checker/graph/minimum_spanning_tree.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/data_structure/union_find.md
     document_title: Union Find
     links: []
-  bundledCode: "#line 2 \"lib/data_structure/union_find.hpp\"\n\n/**\n * @brief Union\
-    \ Find\n * @docs docs/data_structure/union_find.md\n */\n\nstruct UnionFind{\n\
-    \    vector<int> par;\n    vector<int> edg;\n\n    UnionFind(int N) : par(N),\
-    \ edg(N){\n        for(int i = 0; i < N; ++i){\n            par[i] = -1;\n   \
-    \         edg[i] = 0;\n        }\n    }\n\n    int root(int x){\n        if(par[x]\
+  bundledCode: "#line 2 \"lib/data_structure/union_find.hpp\"\n\n#include <vector>\n\
+    #include <cassert>\n\n/**\n * @brief Union Find\n * @docs docs/data_structure/union_find.md\n\
+    \ */\n\nstruct UnionFind{\n    int V;\n    std::vector<int> par;\n    std::vector<int>\
+    \ edg;\n\n    UnionFind(int N) : V(N), par(N), edg(N){\n        for(int i = 0;\
+    \ i < N; ++i){\n            par[i] = -1;\n            edg[i] = 0;\n        }\n\
+    \    }\n\n    int root(int x){\n        assert(0 <= x && x < V);\n        if(par[x]\
     \ < 0) return x;\n        return par[x] = root(par[x]);\n    }\n\n    int unite(int\
     \ x, int y){\n        int rx = root(x);\n        int ry = root(y);\n        if(rx\
     \ == ry){\n            edg[rx]++;\n            return rx;\n        }\n       \
-    \ if(-par[rx] < -par[ry]) swap(rx, ry);\n        par[rx] = par[rx] + par[ry];\n\
+    \ if(-par[rx] < -par[ry]) std::swap(rx, ry);\n        par[rx] = par[rx] + par[ry];\n\
     \        par[ry] = rx;\n        edg[rx] += edg[ry] + 1;\n        return rx;\n\
     \    }\n\n    bool same(int x, int y){\n        int rx = root(x);\n        int\
     \ ry = root(y);\n        return rx == ry;\n    }\n\n    long long size(int x){\n\
     \        return -par[root(x)];\n    }\n\n    long long edge(int x){\n        return\
     \ edg[root(x)];\n    }\n};\n"
-  code: "#pragma once\n\n/**\n * @brief Union Find\n * @docs docs/data_structure/union_find.md\n\
-    \ */\n\nstruct UnionFind{\n    vector<int> par;\n    vector<int> edg;\n\n    UnionFind(int\
-    \ N) : par(N), edg(N){\n        for(int i = 0; i < N; ++i){\n            par[i]\
-    \ = -1;\n            edg[i] = 0;\n        }\n    }\n\n    int root(int x){\n \
-    \       if(par[x] < 0) return x;\n        return par[x] = root(par[x]);\n    }\n\
-    \n    int unite(int x, int y){\n        int rx = root(x);\n        int ry = root(y);\n\
-    \        if(rx == ry){\n            edg[rx]++;\n            return rx;\n     \
-    \   }\n        if(-par[rx] < -par[ry]) swap(rx, ry);\n        par[rx] = par[rx]\
-    \ + par[ry];\n        par[ry] = rx;\n        edg[rx] += edg[ry] + 1;\n       \
-    \ return rx;\n    }\n\n    bool same(int x, int y){\n        int rx = root(x);\n\
-    \        int ry = root(y);\n        return rx == ry;\n    }\n\n    long long size(int\
-    \ x){\n        return -par[root(x)];\n    }\n\n    long long edge(int x){\n  \
-    \      return edg[root(x)];\n    }\n};\n"
+  code: "#pragma once\n\n#include <vector>\n#include <cassert>\n\n/**\n * @brief Union\
+    \ Find\n * @docs docs/data_structure/union_find.md\n */\n\nstruct UnionFind{\n\
+    \    int V;\n    std::vector<int> par;\n    std::vector<int> edg;\n\n    UnionFind(int\
+    \ N) : V(N), par(N), edg(N){\n        for(int i = 0; i < N; ++i){\n          \
+    \  par[i] = -1;\n            edg[i] = 0;\n        }\n    }\n\n    int root(int\
+    \ x){\n        assert(0 <= x && x < V);\n        if(par[x] < 0) return x;\n  \
+    \      return par[x] = root(par[x]);\n    }\n\n    int unite(int x, int y){\n\
+    \        int rx = root(x);\n        int ry = root(y);\n        if(rx == ry){\n\
+    \            edg[rx]++;\n            return rx;\n        }\n        if(-par[rx]\
+    \ < -par[ry]) std::swap(rx, ry);\n        par[rx] = par[rx] + par[ry];\n     \
+    \   par[ry] = rx;\n        edg[rx] += edg[ry] + 1;\n        return rx;\n    }\n\
+    \n    bool same(int x, int y){\n        int rx = root(x);\n        int ry = root(y);\n\
+    \        return rx == ry;\n    }\n\n    long long size(int x){\n        return\
+    \ -par[root(x)];\n    }\n\n    long long edge(int x){\n        return edg[root(x)];\n\
+    \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/union_find.hpp
   requiredBy:
+  - lib/data_structure/range_parallel_union_find.hpp
   - lib/graph/manhattanMST.hpp
   - lib/graph/T_join.hpp
-  timestamp: '2024-04-21 00:12:50+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-10-31 17:18:53+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/unionfind.test.cpp
+  - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
   - test/library_checker/graph/cycle_detection_undirected.test.cpp
   - test/library_checker/graph/minimum_spanning_tree.test.cpp
   - test/library_checker/graph/manhattanmst.test.cpp

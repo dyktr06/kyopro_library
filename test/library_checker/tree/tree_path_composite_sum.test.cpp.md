@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/graph/rerooting.hpp
     title: lib/graph/rerooting.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/tree_path_composite_sum
@@ -48,32 +48,32 @@ data:
     \ out.resize(n);\n        visited.assign(n, 0);\n        return dfs(root);\n \
     \   }\n\n    vector<V> reroot(){\n        reverse_edge.resize(n);\n        reverse_edge[root]\
     \ = e;\n        ans.resize(n);\n        bfs(root);\n        return ans;\n    }\n\
-    };\n#line 2 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
-    \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
-    \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
-    \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
-    \ normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n    }\n  \
-    \  inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val +=\
-    \ rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
-    \ inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -= rhs.val,\
-    \ val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt &operator*=(const\
-    \ ModInt &rhs) noexcept {\n        val = val * rhs.val % Modulus;\n        return\
-    \ *this;\n    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n\
-    \        val = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n\
-    \    inline ModInt &operator++() noexcept {\n        if(++val >= Modulus) val\
-    \ -= Modulus;\n        return *this;\n    }\n    inline ModInt operator++(int)\
-    \ noexcept {\n        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n\
-    \        return t;\n    }\n    inline ModInt &operator--() noexcept {\n      \
-    \  if(--val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt\
-    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
-    \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
-    \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
-    \ inv(val); }\n    ModInt pow(long long n){\n        assert(0 <= n);\n       \
-    \ ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r *= x;\n\
-    \            x *= x;\n            n >>= 1;\n        }\n        return r;\n   \
-    \ }\n    ModInt inv(const long long n) const {\n        long long a = n, b = Modulus,\
-    \ u = 1, v = 0;\n        while(b){\n            long long t = a / b;\n       \
-    \     a -= t * b; swap(a, b);\n            u -= t * v; swap(u, v);\n        }\n\
+    };\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4 \"lib/math/modint.hpp\"\n\n/**\n\
+    \ * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\n\
+    struct ModInt{\n    long long val;\n    constexpr ModInt(const long long _val\
+    \ = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void normalize(){\n\
+    \        val = (val % Modulus + Modulus) % Modulus;\n    }\n    inline ModInt\
+    \ &operator+=(const ModInt &rhs) noexcept {\n        if(val += rhs.val, val >=\
+    \ Modulus) val -= Modulus;\n        return *this;\n    }\n    inline ModInt &operator-=(const\
+    \ ModInt &rhs) noexcept {\n        if(val -= rhs.val, val < 0) val += Modulus;\n\
+    \        return *this;\n    }\n    inline ModInt &operator*=(const ModInt &rhs)\
+    \ noexcept {\n        val = val * rhs.val % Modulus;\n        return *this;\n\
+    \    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n        val\
+    \ = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n    inline\
+    \ ModInt &operator++() noexcept {\n        if(++val >= Modulus) val -= Modulus;\n\
+    \        return *this;\n    }\n    inline ModInt operator++(int) noexcept {\n\
+    \        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n     \
+    \   return t;\n    }\n    inline ModInt &operator--() noexcept {\n        if(--val\
+    \ < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt operator--(int)\
+    \ noexcept {\n        ModInt t = val;\n        if(--val < 0) val += Modulus;\n\
+    \        return t;\n    }\n    inline ModInt operator-() const noexcept { return\
+    \ (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return inv(val);\
+    \ }\n    ModInt pow(long long n){\n        assert(0 <= n);\n        ModInt x =\
+    \ *this, r = 1;\n        while(n){\n            if(n & 1) r *= x;\n          \
+    \  x *= x;\n            n >>= 1;\n        }\n        return r;\n    }\n    ModInt\
+    \ inv(const long long n) const {\n        long long a = n, b = Modulus, u = 1,\
+    \ v = 0;\n        while(b){\n            long long t = a / b;\n            a -=\
+    \ t * b; std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n        }\n\
     \        u %= Modulus;\n        if(u < 0) u += Modulus;\n        return u;\n \
     \   }\n    friend inline ModInt operator+(const ModInt &lhs, const ModInt &rhs)\
     \ noexcept { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const\
@@ -84,11 +84,11 @@ data:
     \ inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return\
     \ lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs,\
     \ const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline\
-    \ istream &operator>>(istream &is, ModInt &x) noexcept {\n        is >> x.val;\n\
-    \        x.normalize();\n        return is;\n    }\n    friend inline ostream\
-    \ &operator<<(ostream &os, const ModInt &x) noexcept { return os << x.val; }\n\
-    };\n#line 7 \"test/library_checker/tree/tree_path_composite_sum.test.cpp\"\n\n\
-    using mint = ModInt<998244353>;\n\nint main(){\n    ios::sync_with_stdio(false);\n\
+    \ std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n        is\
+    \ >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend inline\
+    \ std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept { return\
+    \ os << x.val; }\n};\n#line 7 \"test/library_checker/tree/tree_path_composite_sum.test.cpp\"\
+    \n\nusing mint = ModInt<998244353>;\n\nint main(){\n    ios::sync_with_stdio(false);\n\
     \    cin.tie(nullptr);\n    \n    int n; cin >> n;\n    vector<mint> a(n), b(n\
     \ - 1), c(n - 1);\n    for(int i = 0; i < n; i++){\n        cin >> a[i];\n   \
     \ }\n    using T = pair<mint, mint>;\n    auto merge = [&](T x, T y){\n      \
@@ -122,8 +122,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/tree_path_composite_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-10-18 01:55:57+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-10-31 17:18:53+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/tree/tree_path_composite_sum.test.cpp
 layout: document

@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
+    path: lib/string/lcp_array.hpp
+    title: lib/string/lcp_array.hpp
+  - icon: ':x:'
     path: lib/string/sa_is.hpp
     title: lib/string/sa_is.hpp
   _extendedRequiredBy: []
@@ -11,13 +14,13 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/suffixarray
+    PROBLEM: https://judge.yosupo.jp/problem/number_of_substrings
     links:
-    - https://judge.yosupo.jp/problem/suffixarray
-  bundledCode: "#line 1 \"test/library_checker/string/suffixarray_1.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/suffixarray\"\n#include <iostream>\n\
-    #include <string>\n\n#line 2 \"lib/string/sa_is.hpp\"\n\n#include <vector>\n\n\
-    // \u53C2\u8003: https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
+    - https://judge.yosupo.jp/problem/number_of_substrings
+  bundledCode: "#line 1 \"test/library_checker/string/number_of_substrings_1.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/number_of_substrings\"\n#include\
+    \ <iostream>\n#include <string>\n\n#line 2 \"lib/string/sa_is.hpp\"\n\n#include\
+    \ <vector>\n\n// \u53C2\u8003: https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html\n\
     template <typename T>\nstruct SA_IS{\n    std::vector<int> SA;\n\nprivate:\n \
     \   std::vector<int> dfs(std::vector<int> &s, const int bucket_size){\n      \
     \  if((int) s.size() == 1){\n            return {0};\n        }\n\n        const\
@@ -93,29 +96,40 @@ data:
     \ ns[i] + 1);\n        }\n        SA = dfs(ns, nbucket_size);\n    }\n\n    std::vector<int>\
     \ get() const {\n        return SA;\n    }\n\n    size_t size() const {\n    \
     \    return SA.size();\n    }\n\n    int operator[](int k) const {\n        return\
-    \ SA[k];\n    }\n};\n#line 6 \"test/library_checker/string/suffixarray_1.test.cpp\"\
+    \ SA[k];\n    }\n};\n#line 2 \"lib/string/lcp_array.hpp\"\n\n#line 4 \"lib/string/lcp_array.hpp\"\
+    \n\n// Kasai's Algorithm\ntemplate <typename T>\nstd::vector<int> LCPArray(const\
+    \ T &s, const std::vector<int> &sa){\n    const int n = s.size();\n    std::vector<int>\
+    \ rank(n);\n    for(int i = 0; i < n; ++i){\n        rank[sa[i]] = i;\n    }\n\
+    \n    std::vector<int> lcp(n - 1);\n    for(int i = 0, h = 0; i < (int) sa.size();\
+    \ ++i){\n        if(rank[i] + 1 < (int) sa.size()){\n            for(int j = sa[rank[i]\
+    \ + 1]; std::max(i, j) + h < (int) sa.size() && s[i + h] == s[j + h]; ++h);\n\
+    \            lcp[rank[i] + 1] = h;\n            if(h > 0) --h;\n        }\n  \
+    \  }\n    return lcp;\n}\n#line 7 \"test/library_checker/string/number_of_substrings_1.test.cpp\"\
     \n\nusing namespace std;\n\nint main(){\n    ios::sync_with_stdio(false);\n  \
     \  cin.tie(nullptr);\n\n    string s; cin >> s;\n    SA_IS<string> sa(s);\n  \
-    \  for(int i = 0; i < (int) sa.size(); ++i){\n        cout << sa[i] << \" \\n\"\
-    [i == (int) sa.size() - 1];\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/suffixarray\"\n#include\
-    \ <iostream>\n#include <string>\n\n#include \"../../../lib/string/sa_is.hpp\"\n\
-    \nusing namespace std;\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
-    \n    string s; cin >> s;\n    SA_IS<string> sa(s);\n    for(int i = 0; i < (int)\
-    \ sa.size(); ++i){\n        cout << sa[i] << \" \\n\"[i == (int) sa.size() - 1];\n\
-    \    }\n}\n"
+    \  vector<int> la = LCPArray(s, sa.get());\n    long long ans = (long long) s.size()\
+    \ * (s.size() + 1) / 2;\n    for(auto x : la){\n        ans -= x;\n    }\n   \
+    \ cout << ans << '\\n';\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/number_of_substrings\"\n\
+    #include <iostream>\n#include <string>\n\n#include \"../../../lib/string/sa_is.hpp\"\
+    \n#include \"../../../lib/string/lcp_array.hpp\"\n\nusing namespace std;\n\nint\
+    \ main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n    string\
+    \ s; cin >> s;\n    SA_IS<string> sa(s);\n    vector<int> la = LCPArray(s, sa.get());\n\
+    \    long long ans = (long long) s.size() * (s.size() + 1) / 2;\n    for(auto\
+    \ x : la){\n        ans -= x;\n    }\n    cout << ans << '\\n';\n}\n"
   dependsOn:
   - lib/string/sa_is.hpp
+  - lib/string/lcp_array.hpp
   isVerificationFile: true
-  path: test/library_checker/string/suffixarray_1.test.cpp
+  path: test/library_checker/string/number_of_substrings_1.test.cpp
   requiredBy: []
   timestamp: '2024-10-31 17:21:01+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/string/suffixarray_1.test.cpp
+documentation_of: test/library_checker/string/number_of_substrings_1.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/string/suffixarray_1.test.cpp
-- /verify/test/library_checker/string/suffixarray_1.test.cpp.html
-title: test/library_checker/string/suffixarray_1.test.cpp
+- /verify/test/library_checker/string/number_of_substrings_1.test.cpp
+- /verify/test/library_checker/string/number_of_substrings_1.test.cpp.html
+title: test/library_checker/string/number_of_substrings_1.test.cpp
 ---
