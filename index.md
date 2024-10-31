@@ -27,7 +27,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/convolution/lcm_convolution.hpp
       title: lib/convolution/lcm_convolution.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/convolution/ntt.hpp
       title: lib/convolution/ntt.hpp
     - icon: ':heavy_check_mark:'
@@ -494,10 +494,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
       title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/convolution.test.cpp
       title: test/library_checker/convolution/convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
       title: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
     - icon: ':heavy_check_mark:'

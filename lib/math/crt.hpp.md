@@ -2,17 +2,17 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
   - icon: ':x:'
     path: lib/string/wildcard_pattern_matching.hpp
     title: lib/string/wildcard_pattern_matching.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/convolution.test.cpp
     title: test/library_checker/convolution/convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
     title: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
   - icon: ':x:'

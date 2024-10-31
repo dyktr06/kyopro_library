@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
   - icon: ':question:'
@@ -23,72 +23,73 @@ data:
   bundledCode: "#line 2 \"lib/string/wildcard_pattern_matching.hpp\"\n\n#line 2 \"\
     lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n\
     \n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long long\
-    \ Modulus>\nstruct ModInt{\n    long long val;\n    constexpr ModInt(const long\
-    \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
-    \ normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n    }\n  \
-    \  inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val +=\
-    \ rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
-    \ inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -= rhs.val,\
-    \ val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt &operator*=(const\
-    \ ModInt &rhs) noexcept {\n        val = val * rhs.val % Modulus;\n        return\
-    \ *this;\n    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n\
-    \        val = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n\
-    \    inline ModInt &operator++() noexcept {\n        if(++val >= Modulus) val\
-    \ -= Modulus;\n        return *this;\n    }\n    inline ModInt operator++(int)\
-    \ noexcept {\n        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n\
-    \        return t;\n    }\n    inline ModInt &operator--() noexcept {\n      \
-    \  if(--val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt\
-    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
-    \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
-    \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
-    \ inv(val); }\n    ModInt pow(long long n){\n        assert(0 <= n);\n       \
-    \ ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r *= x;\n\
-    \            x *= x;\n            n >>= 1;\n        }\n        return r;\n   \
-    \ }\n    ModInt inv(const long long n) const {\n        long long a = n, b = Modulus,\
-    \ u = 1, v = 0;\n        while(b){\n            long long t = a / b;\n       \
-    \     a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n\
-    \        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n        return\
-    \ u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n  \
-    \  friend inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend\
-    \ inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs,\
-    \ const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline\
-    \ std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n        is\
-    \ >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend inline\
-    \ std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept { return\
-    \ os << x.val; }\n};\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief Chinese Remainder\
-    \ Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
-    \ */\n\nnamespace CRT{\n    inline long long mod(long long a, long long m){\n\
-    \        return (a % m + m) % m;\n    }\n\n    long long extGCD(long long a, long\
-    \ long b, long long &x, long long &y){\n        if(b == 0){\n            x = 1;\n\
-    \            y = 0;\n            return a;\n        }\n        long long d = extGCD(b,\
-    \ a % b, y, x);\n        y -= a / b * x;\n        return d;\n    }\n\n    pair<long\
-    \ long, long long> chineseRem(const vector<long long> &b, const vector<long long>\
-    \ &m) {\n        long long r = 0, M = 1;\n        for(int i = 0; i < (int) b.size();\
-    \ i++){\n            long long p, q;\n            long long d = extGCD(M, m[i],\
-    \ p, q);\n            if((b[i] - r) % d != 0) return {0, -1};\n            long\
-    \ long tmp = (b[i] - r) / d * p % (m[i] / d);\n            r += M * tmp;\n   \
-    \         M *= m[i] / d;\n        }\n        r %= M;\n        if(r < 0) r += M;\n\
-    \        return {r, M};\n    }\n\n    // not coprime\n    long long preGarner(vector<long\
-    \ long> &b, vector<long long> &m, const long long MOD){\n        long long res\
-    \ = 1;\n        int n = b.size();\n        for(int i = 0; i < n; i++){\n     \
-    \       for(int j = 0; j < i; j++){\n                long long g = gcd(m[i], m[j]);\n\
-    \                if((b[i] - b[j]) % g != 0) return -1;\n                m[i] /=\
-    \ g, m[j] /= g;\n                // gcd \u306E\u5206\u3060\u3051\u88AB\u3063\u3066\
-    \u308B\u306E\u3067\u632F\u308A\u5206\u3051\u308B\n                long long gi\
-    \ = gcd(m[i], g), gj = g / gi;\n                do{\n                    g = gcd(gi,\
-    \ gj);\n                    gi *= g, gj /= g;\n                }while(g != 1);\n\
-    \                m[i] *= gi, m[j] *= gj;\n                b[i] %= m[i], b[j] %=\
-    \ m[j];\n            }\n        }\n        for(auto x : m) (res *= x) %= MOD;\n\
-    \        return res;\n    }\n\n    long long garner(const vector<long long> &b,\
-    \ const vector<long long> &m, const long long MOD){\n        vector<long long>\
-    \ tm = m;\n        tm.push_back(MOD);\n        auto inv = [&](long long a, long\
-    \ long m) -> long long {\n            long long x, y;\n            extGCD(a, m,\
-    \ x, y);\n            return mod(x, m);\n        };\n        int n = b.size();\n\
+    \ Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int mod()\
+    \ { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
+    \ : val(_val) {\n        normalize();\n    }\n    void normalize(){\n        val\
+    \ = (val % Modulus + Modulus) % Modulus;\n    }\n    inline ModInt &operator+=(const\
+    \ ModInt &rhs) noexcept {\n        if(val += rhs.val, val >= Modulus) val -= Modulus;\n\
+    \        return *this;\n    }\n    inline ModInt &operator-=(const ModInt &rhs)\
+    \ noexcept {\n        if(val -= rhs.val, val < 0) val += Modulus;\n        return\
+    \ *this;\n    }\n    inline ModInt &operator*=(const ModInt &rhs) noexcept {\n\
+    \        val = val * rhs.val % Modulus;\n        return *this;\n    }\n    inline\
+    \ ModInt &operator/=(const ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val\
+    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator++() noexcept\
+    \ {\n        if(++val >= Modulus) val -= Modulus;\n        return *this;\n   \
+    \ }\n    inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n \
+    \       if(++val >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline\
+    \ ModInt &operator--() noexcept {\n        if(--val < 0) val += Modulus;\n   \
+    \     return *this;\n    }\n    inline ModInt operator--(int) noexcept {\n   \
+    \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
+    \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
+    \ % Modulus; }\n    inline ModInt inv(void) const { return inv(val); }\n    ModInt\
+    \ pow(long long n){\n        assert(0 <= n);\n        ModInt x = *this, r = 1;\n\
+    \        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n     \
+    \       n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const long\
+    \ long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n     \
+    \   while(b){\n            long long t = a / b;\n            a -= t * b; std::swap(a,\
+    \ b);\n            u -= t * v; std::swap(u, v);\n        }\n        u %= Modulus;\n\
+    \        if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline\
+    \ ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
+    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
+    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ lhs.val != rhs.val; }\n    friend inline std::istream &operator>>(std::istream\
+    \ &is, ModInt &x) noexcept {\n        is >> x.val;\n        x.normalize();\n \
+    \       return is;\n    }\n    friend inline std::ostream &operator<<(std::ostream\
+    \ &os, const ModInt &x) noexcept { return os << x.val; }\n};\n#line 2 \"lib/math/crt.hpp\"\
+    \n\n/**\n * @brief Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406\
+    )\n * @docs docs/math/crt.md\n */\n\nnamespace CRT{\n    inline long long mod(long\
+    \ long a, long long m){\n        return (a % m + m) % m;\n    }\n\n    long long\
+    \ extGCD(long long a, long long b, long long &x, long long &y){\n        if(b\
+    \ == 0){\n            x = 1;\n            y = 0;\n            return a;\n    \
+    \    }\n        long long d = extGCD(b, a % b, y, x);\n        y -= a / b * x;\n\
+    \        return d;\n    }\n\n    pair<long long, long long> chineseRem(const vector<long\
+    \ long> &b, const vector<long long> &m) {\n        long long r = 0, M = 1;\n \
+    \       for(int i = 0; i < (int) b.size(); i++){\n            long long p, q;\n\
+    \            long long d = extGCD(M, m[i], p, q);\n            if((b[i] - r) %\
+    \ d != 0) return {0, -1};\n            long long tmp = (b[i] - r) / d * p % (m[i]\
+    \ / d);\n            r += M * tmp;\n            M *= m[i] / d;\n        }\n  \
+    \      r %= M;\n        if(r < 0) r += M;\n        return {r, M};\n    }\n\n \
+    \   // not coprime\n    long long preGarner(vector<long long> &b, vector<long\
+    \ long> &m, const long long MOD){\n        long long res = 1;\n        int n =\
+    \ b.size();\n        for(int i = 0; i < n; i++){\n            for(int j = 0; j\
+    \ < i; j++){\n                long long g = gcd(m[i], m[j]);\n               \
+    \ if((b[i] - b[j]) % g != 0) return -1;\n                m[i] /= g, m[j] /= g;\n\
+    \                // gcd \u306E\u5206\u3060\u3051\u88AB\u3063\u3066\u308B\u306E\
+    \u3067\u632F\u308A\u5206\u3051\u308B\n                long long gi = gcd(m[i],\
+    \ g), gj = g / gi;\n                do{\n                    g = gcd(gi, gj);\n\
+    \                    gi *= g, gj /= g;\n                }while(g != 1);\n    \
+    \            m[i] *= gi, m[j] *= gj;\n                b[i] %= m[i], b[j] %= m[j];\n\
+    \            }\n        }\n        for(auto x : m) (res *= x) %= MOD;\n      \
+    \  return res;\n    }\n\n    long long garner(const vector<long long> &b, const\
+    \ vector<long long> &m, const long long MOD){\n        vector<long long> tm =\
+    \ m;\n        tm.push_back(MOD);\n        auto inv = [&](long long a, long long\
+    \ m) -> long long {\n            long long x, y;\n            extGCD(a, m, x,\
+    \ y);\n            return mod(x, m);\n        };\n        int n = b.size();\n\
     \        vector<long long> coeffs(n + 1, 1), constants(n + 1, 0);\n        for(int\
     \ i = 0; i < n; i++){\n            // solve \"coeffs[i] * t[i] + constants[i]\
     \ = b[i] (mod. m[i])\n            long long t = mod((b[i] - constants[i]) * inv(coeffs[i],\
@@ -207,7 +208,7 @@ data:
   isVerificationFile: false
   path: lib/string/wildcard_pattern_matching.hpp
   requiredBy: []
-  timestamp: '2024-10-31 17:18:53+09:00'
+  timestamp: '2024-10-31 17:40:01+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/string/wildcard_pattern_matching.test.cpp
