@@ -2,7 +2,7 @@
 
 /**
  * @brief Enumerate Cliques (クリークの列挙)
- * @docs docs/graph/minimum_diameter_spanning_tree.md
+ * @docs docs/graph/enumerate_cliques.md
  * @see https://www.slideshare.net/wata_orz/ss-12131479
  */
 
