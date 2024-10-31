@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief T-join Problem
+ * @see https://en.wikipedia.org/wiki/Chinese_postman_problem
+ */
+
 #include "../data_structure/union_find.hpp"
 
 vector<pair<int, int>> T_join(vector<pair<int, int>> &edges, vector<bool> &b){

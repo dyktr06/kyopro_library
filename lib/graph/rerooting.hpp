@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Rerooting (全方位木DP)
+ * @see https://trap.jp/post/1702/
+ */
+
 template<typename E, typename V>
 struct Rerooting{
     struct edge{

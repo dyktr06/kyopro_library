@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Connected Components of Complement Graph (補グラフの連結成分分解)
+ * @docs docs/graph/connected_components_of_complement_graph.md
+ */
+
 template <typename T>
 vector<vector<int>> connectedComponentsOfComplementGraph(vector<vector<T>> &G){
     int n = (int) G.size();

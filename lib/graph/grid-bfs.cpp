@@ -1,3 +1,8 @@
+
+/**
+ * @brief Grid BFS (二次元グリッド上の幅優先探索)
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;

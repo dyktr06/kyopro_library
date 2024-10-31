@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Auxiliary Tree
+ * @see https://smijake3.hatenablog.com/entry/2019/09/15/200200
+ */
+
 #include "../graph/heavy_light_decomposition.hpp"
 
 struct AuxiliaryTree : HeavyLightDecomposition{

@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+ * @brief Assignment Problem (割当て問題)
+ */
+
 #include "../graph/primal_dual.hpp"
 
 template <typename T>

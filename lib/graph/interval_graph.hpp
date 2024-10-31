@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Interval Graph (区間グラフ)
+ * @see https://www.slideshare.net/secret/r8gjH9xYxFR0Fu
+ */
+
 struct IntervalGraph{
     int n;
     vector<vector<int>> G;

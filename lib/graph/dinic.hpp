@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Dinic's Algorithm
+ * @docs docs/graph/dinic.md
+ */
+
 template<typename T>
 struct Dinic{
 private:
