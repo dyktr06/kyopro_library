@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+ * @brief Geometry (幾何ライブラリ)
+ */
+
 namespace Geometry{
     using T = long long;
     const T INFT = 9e18;
