@@ -6,12 +6,12 @@ data:
     title: Union Find
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/manhattanmst.test.cpp
     title: test/library_checker/graph/manhattanmst.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/graph/manhattanMST.md
     document_title: Manhattan MST
@@ -75,7 +75,7 @@ data:
   path: lib/graph/manhattanMST.hpp
   requiredBy: []
   timestamp: '2024-10-31 17:18:53+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/graph/manhattanmst.test.cpp
 documentation_of: lib/graph/manhattanMST.hpp

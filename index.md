@@ -207,7 +207,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/enumerate_cliques.hpp
       title: lib/graph/enumerate_cliques.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/graph/enumerate_triangles.hpp
       title: lib/graph/enumerate_triangles.hpp
     - icon: ':heavy_check_mark:'
@@ -228,7 +228,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/lowlink.hpp
       title: lib/graph/lowlink.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/graph/manhattanMST.hpp
       title: Manhattan MST
     - icon: ':heavy_check_mark:'
@@ -690,7 +690,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/enumerate_cliques.test.cpp
       title: test/library_checker/graph/enumerate_cliques.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/graph/enumerate_triangles.test.cpp
       title: test/library_checker/graph/enumerate_triangles.test.cpp
     - icon: ':heavy_check_mark:'
@@ -699,7 +699,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/eulerian_trail_undirected.test.cpp
       title: test/library_checker/graph/eulerian_trail_undirected.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/graph/manhattanmst.test.cpp
       title: test/library_checker/graph/manhattanmst.test.cpp
     - icon: ':heavy_check_mark:'
