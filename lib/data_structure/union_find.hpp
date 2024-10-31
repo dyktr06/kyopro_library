@@ -1,15 +1,19 @@
 #pragma once
 
+#include <vector>
+#include <cassert>
+
 /**
  * @brief Union Find
  * @docs docs/data_structure/union_find.md
  */
 
 struct UnionFind{
-    vector<int> par;
-    vector<int> edg;
+    int V;
+    std::vector<int> par;
+    std::vector<int> edg;
 
-    UnionFind(int N) : par(N), edg(N){
+    UnionFind(int N) : V(N), par(N), edg(N){
         for(int i = 0; i < N; ++i){
             par[i] = -1;
             edg[i] = 0;
@@ -17,6 +21,7 @@ struct UnionFind{
     }
 
     int root(int x){
+        assert(0 <= x && x < V);
         if(par[x] < 0) return x;
         return par[x] = root(par[x]);
     }
@@ -28,7 +33,7 @@ struct UnionFind{
             edg[rx]++;
             return rx;
         }
-        if(-par[rx] < -par[ry]) swap(rx, ry);
+        if(-par[rx] < -par[ry]) std::swap(rx, ry);
         par[rx] = par[rx] + par[ry];
         par[ry] = rx;
         edg[rx] += edg[ry] + 1;

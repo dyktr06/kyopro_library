@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 /**
  * @brief ModInt
  * @docs docs/math/modint.md
@@ -8,7 +10,6 @@
 template <long long Modulus>
 struct ModInt{
     long long val;
-    static constexpr int mod() { return Modulus; }
     constexpr ModInt(const long long _val = 0) noexcept : val(_val) {
         normalize();
     }
@@ -65,8 +66,8 @@ struct ModInt{
         long long a = n, b = Modulus, u = 1, v = 0;
         while(b){
             long long t = a / b;
-            a -= t * b; swap(a, b);
-            u -= t * v; swap(u, v);
+            a -= t * b; std::swap(a, b);
+            u -= t * v; std::swap(u, v);
         }
         u %= Modulus;
         if(u < 0) u += Modulus;
@@ -78,10 +79,10 @@ struct ModInt{
     friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }
     friend inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }
     friend inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val != rhs.val; }
-    friend inline istream &operator>>(istream &is, ModInt &x) noexcept {
+    friend inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {
         is >> x.val;
         x.normalize();
         return is;
     }
-    friend inline ostream &operator<<(ostream &os, const ModInt &x) noexcept { return os << x.val; }
+    friend inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept { return os << x.val; }
 };
