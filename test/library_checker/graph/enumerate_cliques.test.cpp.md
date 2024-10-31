@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/enumerate_cliques.hpp
     title: lib/graph/enumerate_cliques.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
@@ -21,14 +21,13 @@ data:
     #define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_cliques\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/graph/enumerate_cliques.hpp\"\
     \n\nvector<vector<int>> enumerateCliques(vector<vector<int>> &G){\n    int n =\
-    \ G.size();\n    int m = 0;\n    vector<pair<int, int>> deg(n);\n    for(int i\
-    \ = 0; i < n; i++){\n        m += (int) G[i].size();\n        deg[i] = {(int)\
-    \ G[i].size(), i};\n    }\n    m /= 2;\n\n    vector<vector<bool>> adj(n, vector<bool>(n));\n\
-    \    for(int i = 0; i < n; i++){\n        for(auto &j : G[i]){\n            adj[i][j]\
-    \ = adj[j][i] = true;\n        }\n    }\n\n    // \u6B21\u6570\u304C \u221A2m\
-    \ \u672A\u6E80\u304B\u3069\u3046\u304B\u3067\u5834\u5408\u5206\u3051 -> \u6B21\
-    \u6570\u304C\u4F4E\u3044\u9802\u70B9\u304B\u3089\u51E6\u7406\u3092\u3057\u3066\
-    \u3082\u5341\u5206\u9AD8\u901F (O(2^(\u221A2m) * n^2))\n    sort(deg.begin(),\
+    \ G.size();\n    vector<pair<int, int>> deg(n);\n    for(int i = 0; i < n; i++){\n\
+    \        deg[i] = {(int) G[i].size(), i};\n    }\n\n    vector<vector<bool>> adj(n,\
+    \ vector<bool>(n));\n    for(int i = 0; i < n; i++){\n        for(auto &j : G[i]){\n\
+    \            adj[i][j] = adj[j][i] = true;\n        }\n    }\n\n    // \u6B21\u6570\
+    \u304C \u221A2m \u672A\u6E80\u304B\u3069\u3046\u304B\u3067\u5834\u5408\u5206\u3051\
+    \ -> \u6B21\u6570\u304C\u4F4E\u3044\u9802\u70B9\u304B\u3089\u51E6\u7406\u3092\u3057\
+    \u3066\u3082\u5341\u5206\u9AD8\u901F (O(2^(\u221A2m) * n^2))\n    sort(deg.begin(),\
     \ deg.end());\n    vector<vector<int>> res;\n    for(int i = 0; i < n; i++){\n\
     \        int cur = deg[i].second;\n        vector<int> nxt;\n        for(int j\
     \ = 0; j < n; j++){\n            if(adj[cur][j]){\n                nxt.push_back(j);\n\
@@ -106,7 +105,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/enumerate_cliques.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:40:01+09:00'
+  timestamp: '2024-10-31 19:36:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/enumerate_cliques.test.cpp

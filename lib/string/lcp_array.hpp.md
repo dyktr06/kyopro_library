@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/string/number_of_substrings_1.test.cpp
     title: test/library_checker/string/number_of_substrings_1.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/string/lcp_array.hpp\"\n\n#include <vector>\n\n// Kasai's\
@@ -32,7 +32,7 @@ data:
   path: lib/string/lcp_array.hpp
   requiredBy: []
   timestamp: '2024-10-31 19:21:05+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/string/number_of_substrings_1.test.cpp
 documentation_of: lib/string/lcp_array.hpp

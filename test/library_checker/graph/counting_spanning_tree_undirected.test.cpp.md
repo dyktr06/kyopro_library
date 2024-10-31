@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/counting_spanning_tree.hpp
     title: lib/graph/counting_spanning_tree.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/matrix.hpp
     title: Matrix
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []

@@ -27,7 +27,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/convolution/lcm_convolution.hpp
       title: lib/convolution/lcm_convolution.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/ntt.hpp
       title: lib/convolution/ntt.hpp
     - icon: ':heavy_check_mark:'
@@ -243,7 +243,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/reachable_query.hpp
       title: lib/graph/reachable_query.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/rerooting.hpp
       title: lib/graph/rerooting.hpp
     - icon: ':heavy_check_mark:'
@@ -286,7 +286,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: "Convert Base (\u9032\u6570\u5909\u63DB)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':heavy_check_mark:'
@@ -304,13 +304,13 @@ data:
     - icon: ':warning:'
       path: lib/math/math_table.hpp
       title: lib/math/math_table.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: Matrix
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -371,7 +371,7 @@ data:
     - icon: ':warning:'
       path: lib/string/calc_next.hpp
       title: calc-next
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/string/lcp_array.hpp
       title: lib/string/lcp_array.hpp
     - icon: ':heavy_check_mark:'
@@ -389,13 +389,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/string/run_enumerate.hpp
       title: lib/string/run_enumerate.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/string/sa_is.hpp
       title: lib/string/sa_is.hpp
     - icon: ':heavy_check_mark:'
       path: lib/string/suffix_array.hpp
       title: lib/string/suffix_array.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/string/wildcard_pattern_matching.hpp
       title: lib/string/wildcard_pattern_matching.hpp
     - icon: ':heavy_check_mark:'
@@ -763,10 +763,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/matrix_product.test.cpp
       title: test/library_checker/matrix/matrix_product.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/matrix_rank.test.cpp
       title: test/library_checker/matrix/matrix_rank.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/matrix/pow_of_matrix.test.cpp
       title: test/library_checker/matrix/pow_of_matrix.test.cpp
   - name: test/library_checker/sample
@@ -785,7 +785,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/number_of_substrings.test.cpp
       title: test/library_checker/string/number_of_substrings.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/string/number_of_substrings_1.test.cpp
       title: test/library_checker/string/number_of_substrings_1.test.cpp
     - icon: ':heavy_check_mark:'
@@ -794,10 +794,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/suffixarray.test.cpp
       title: test/library_checker/string/suffixarray.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/string/suffixarray_1.test.cpp
       title: test/library_checker/string/suffixarray_1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/string/wildcard_pattern_matching.test.cpp
       title: test/library_checker/string/wildcard_pattern_matching.test.cpp
     - icon: ':heavy_check_mark:'
@@ -817,7 +817,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/tree_diameter.test.cpp
       title: test/library_checker/tree/tree_diameter.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/tree_path_composite_sum.test.cpp
       title: test/library_checker/tree/tree_path_composite_sum.test.cpp
   - name: test/yukicoder
