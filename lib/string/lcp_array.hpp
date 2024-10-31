@@ -11,7 +11,7 @@ std::vector<int> LCPArray(const T &s, const std::vector<int> &sa){
         rank[sa[i]] = i;
     }
 
-    std::vector<int> lcp(n - 1);
+    std::vector<int> lcp(n);
     for(int i = 0, h = 0; i < (int) sa.size(); ++i){
         if(rank[i] + 1 < (int) sa.size()){
             for(int j = sa[rank[i] + 1]; std::max(i, j) + h < (int) sa.size() && s[i + h] == s[j + h]; ++h);
