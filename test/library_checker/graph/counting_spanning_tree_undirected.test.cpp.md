@@ -161,16 +161,16 @@ data:
     \ 0)][j - (j > root ? 1 : 0)] = mat[i][j];\n            }\n        }\n    }\n\
     \    return dmat.det();\n}\n#line 10 \"test/library_checker/graph/counting_spanning_tree_undirected.test.cpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
-    \   int n, m, r; cin >> n >> m;\n    vector<vector<int>> G(n);\n    for(int i\
-    \ = 0; i < m; ++i){\n        int u, v; cin >> u >> v;\n        G[u].push_back(v);\n\
+    \   int n, m; cin >> n >> m;\n    vector<vector<int>> G(n);\n    for(int i = 0;\
+    \ i < m; ++i){\n        int u, v; cin >> u >> v;\n        G[u].push_back(v);\n\
     \        G[v].push_back(u);\n    }\n\n    cout << countingSpanningTree<mint>(G,\
     \ 0) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/counting_spanning_tree_undirected\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/modint.hpp\"\
     \n\nusing mint = ModInt<998244353>;\n\n#include \"../../../lib/graph/counting_spanning_tree.hpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
-    \   int n, m, r; cin >> n >> m;\n    vector<vector<int>> G(n);\n    for(int i\
-    \ = 0; i < m; ++i){\n        int u, v; cin >> u >> v;\n        G[u].push_back(v);\n\
+    \   int n, m; cin >> n >> m;\n    vector<vector<int>> G(n);\n    for(int i = 0;\
+    \ i < m; ++i){\n        int u, v; cin >> u >> v;\n        G[u].push_back(v);\n\
     \        G[v].push_back(u);\n    }\n\n    cout << countingSpanningTree<mint>(G,\
     \ 0) << '\\n';\n}\n"
   dependsOn:
@@ -180,7 +180,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:18:53+09:00'
+  timestamp: '2024-10-31 19:21:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp

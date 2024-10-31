@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: lib/string/lcp_array.hpp
     title: lib/string/lcp_array.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: lib/string/sa_is.hpp
     title: lib/string/sa_is.hpp
   _extendedRequiredBy: []
@@ -100,7 +100,7 @@ data:
     \n\n// Kasai's Algorithm\ntemplate <typename T>\nstd::vector<int> LCPArray(const\
     \ T &s, const std::vector<int> &sa){\n    const int n = s.size();\n    std::vector<int>\
     \ rank(n);\n    for(int i = 0; i < n; ++i){\n        rank[sa[i]] = i;\n    }\n\
-    \n    std::vector<int> lcp(n - 1);\n    for(int i = 0, h = 0; i < (int) sa.size();\
+    \n    std::vector<int> lcp(n);\n    for(int i = 0, h = 0; i < (int) sa.size();\
     \ ++i){\n        if(rank[i] + 1 < (int) sa.size()){\n            for(int j = sa[rank[i]\
     \ + 1]; std::max(i, j) + h < (int) sa.size() && s[i + h] == s[j + h]; ++h);\n\
     \            lcp[rank[i] + 1] = h;\n            if(h > 0) --h;\n        }\n  \
@@ -123,7 +123,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/string/number_of_substrings_1.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:21:01+09:00'
+  timestamp: '2024-10-31 19:21:05+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/string/number_of_substrings_1.test.cpp

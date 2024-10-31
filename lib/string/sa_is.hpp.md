@@ -6,12 +6,12 @@ data:
   - icon: ':x:'
     path: test/library_checker/string/number_of_substrings_1.test.cpp
     title: test/library_checker/string/number_of_substrings_1.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/string/suffixarray_1.test.cpp
     title: test/library_checker/string/suffixarray_1.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html
@@ -175,7 +175,7 @@ data:
   path: lib/string/sa_is.hpp
   requiredBy: []
   timestamp: '2024-10-31 17:21:01+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/string/number_of_substrings_1.test.cpp
   - test/library_checker/string/suffixarray_1.test.cpp

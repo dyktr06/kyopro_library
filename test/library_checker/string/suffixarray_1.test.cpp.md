@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: lib/string/sa_is.hpp
     title: lib/string/sa_is.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/suffixarray
@@ -109,8 +109,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/string/suffixarray_1.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 02:17:10+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-10-31 17:21:01+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/string/suffixarray_1.test.cpp
 layout: document

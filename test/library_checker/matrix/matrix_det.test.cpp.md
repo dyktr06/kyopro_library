@@ -9,9 +9,9 @@ data:
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/matrix_det
@@ -162,8 +162,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/matrix/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:18:53+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-31 17:40:01+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/matrix/matrix_det.test.cpp
 layout: document
