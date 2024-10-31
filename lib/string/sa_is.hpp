@@ -13,17 +13,17 @@ private:
             return {0};
         }
 
-        int n = s.size();
+        const int n = s.size();
         s.push_back(0);
 
         // S 型かどうか
         std::vector<bool> is_s(n + 1);
-        is_s[n] = 1;
+        is_s[n] = true;
         for(int i = n - 1; i >= 0; --i){
             if(s[i] < s[i + 1]){
-                is_s[i] = 1;
+                is_s[i] = true;
             }else if(s[i] > s[i + 1]){
-                is_s[i] = 0;
+                is_s[i] = false;
             }else{
                 is_s[i] = is_s[i + 1];
             }
@@ -31,10 +31,10 @@ private:
 
         // LMS かどうか
         std::vector<bool> is_lms(n + 1);
-        is_lms[n] = 1;
+        is_lms[n] = true;
         for(int i = 1; i <= n; ++i){
             if(!is_s[i - 1] && is_s[i]){
-                is_lms[i] = 1;
+                is_lms[i] = true;
             }
         }
 
@@ -93,13 +93,14 @@ private:
                 }
             }
 
-            std::vector<int> res;
+            std::vector<int> sorted(n);
+            int cur_pos = 0;
             for(int i = 1; i < bucket_size; ++i){
                 for(auto j : bucket[i]){
-                    res.push_back(j);
+                    sorted[cur_pos++] = j;
                 }
             }
-            return res;
+            return sorted;
         };
 
         std::vector<int> lms;
@@ -132,11 +133,7 @@ private:
             };
             for(auto j : res){
                 if(is_lms[j]){
-                    if(comp(prv, j)){
-                        id_lms[j] = id_lms[prv];
-                    }else{
-                        id_lms[j] = id_lms[prv] + 1;
-                    }
+                    id_lms[j] = id_lms[prv] + (comp(prv, j) ? 0 : 1);
                     prv = j;
                 }
             }
