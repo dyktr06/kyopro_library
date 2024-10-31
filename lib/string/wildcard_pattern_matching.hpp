@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Wildcard Pattern Matching
+ * @see https://qiita.com/MatsuTaku/items/cd5581fab97d7e74a7b3
+ */
+
 #include "../convolution/ntt.hpp"
 #include "../math/modint.hpp"
 

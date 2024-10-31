@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief LCP Array
+ * @docs docs/string/lcp_array.md
+ */
+
 #include <vector>
 
 // Kasai's Algorithm

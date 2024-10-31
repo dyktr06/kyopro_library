@@ -2,7 +2,12 @@
 
 #include <vector>
 
-// 参考: https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html
+/**
+ * @brief SA-IS
+ * @docs docs/string/sa_is.md
+ * @see https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html
+ */
+
 template <typename T>
 struct SA_IS{
     std::vector<int> SA;

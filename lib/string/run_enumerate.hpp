@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Run Enumerate
+ * @docs docs/string/run_enumerate.md
+ * @see https://pazzle1230.hatenablog.com/entry/2019/11/27/234632
+ */
+
 #include "z_algorithm.hpp"
 
 vector<tuple<int, int, int>> run_enumerate(const string &s){

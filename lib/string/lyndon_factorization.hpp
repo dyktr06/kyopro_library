@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Lyndon Factorization
+ * @docs docs/string/lyndon_factorization.md
+ * @see https://qiita.com/nakashi18/items/66882bd6e0127174267a
+ */
+
 template <typename T>
 vector<int> lyndon_factorization(const T &s){
     int n = s.size();
