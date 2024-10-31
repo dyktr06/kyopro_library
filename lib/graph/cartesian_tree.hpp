@@ -1,4 +1,10 @@
 #pragma once
+
+/**
+ * @brief Cartesian Tree (デカルト木)
+ * @docs docs/graph/cartesian_tree.md
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 

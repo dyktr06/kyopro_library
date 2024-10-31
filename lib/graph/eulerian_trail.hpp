@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Eulerian Trail (オイラー小道)
+ * @docs docs/graph/eulerian_trail.md
+ * @see https://kokiymgch.hatenablog.com/entry/2017/12/07/193238
+ */
+
 struct EulerianTrail{
     struct Edge{
         int from, to, id;

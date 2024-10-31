@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Biconnected Components (二重頂点連結成分分解)
+ * @docs docs/graph/biconnected_components.md
+ * @see https://kntychance.hatenablog.jp/entry/2022/09/16/161858
+ */
+
 #include "../graph/lowlink.hpp"
 
 struct BiconnectedComponents : LowLink{

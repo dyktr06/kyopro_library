@@ -1,6 +1,11 @@
 #pragma once
 
-// 参考: https://www.slideshare.net/slideshow/ss-17402143/17402143
+/**
+ * @brief Minimum Diameter Spanning Tree (最小直径全域木)
+ * @docs docs/graph/minimum_diameter_spanning_tree.md
+ * @see https://www.slideshare.net/slideshow/ss-17402143/17402143
+ */
+
 struct MinimumDiameterSpanningTree{
 
     const long long INF = 0x1fffffffffffffff;

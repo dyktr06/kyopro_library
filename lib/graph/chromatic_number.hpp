@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Chromatic Number (彩色数)
+ * @docs docs/graph/chromatic_number.md
+ * @see https://www.slideshare.net/wata_orz/ss-12131479
+ */
+
 int chromaticNumber(vector<vector<int>> &G) {
     int n = G.size();
     vector<int> adj(n);
@@ -17,7 +23,7 @@ int chromaticNumber(vector<vector<int>> &G) {
         dp[S] = dp[S ^ (1 << i)] + dp[(S ^ (1 << i)) & (~adj[i])];
     }
 
-    // 包除原理 (https://www.slideshare.net/wata_orz/ss-12131479)
+    // 包除原理
     vector<int> cnt((1 << n) + 1, 0);
     for(int S = 0; S < (1 << n); S++){
         cnt[dp[S]] += __builtin_parity(S) ? 1 : -1;

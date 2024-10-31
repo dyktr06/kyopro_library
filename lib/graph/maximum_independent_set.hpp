@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+ * @brief Maximum Independent Set (最大独立集合)
+ */
+
 vector<int> maximumIndependentSet(vector<vector<int>> &G, int loop = 100000){
     const int MAX_V = 64;
     int n = G.size();

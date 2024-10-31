@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Two Edge Connected Components (二重辺連結成分分解)
+ * @docs docs/graph/two_edge_connected_components.md
+ * @see https://kntychance.hatenablog.jp/entry/2022/09/16/161858
+ */
+
 #include "../graph/lowlink.hpp"
 
 struct TwoEdgeConnectedComponents : LowLink{

@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Low Link
+ * @see https://kntychance.hatenablog.jp/entry/2022/09/16/161858
+ */
+
 struct LowLink{
     struct Edge{
         int from, to, id;

@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Primal-Dual Algorithm
+ * @docs docs/graph/primal_dual.md
+ * @see https://pione.hatenablog.com/entry/2021/02/28/075034
+ */
+
 template <typename flow_t, typename cost_t>
 struct PrimalDual{
     struct Edge{

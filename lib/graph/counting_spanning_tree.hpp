@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Counting Spanning Tree (全域木の数え上げ)
+ * @see https://mizuwater0.hatenablog.com/entry/2018/11/25/233547
+ */
+
 #include "../math/matrix.hpp"
 
 template <typename T>

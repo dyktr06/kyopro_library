@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Steiner Tree (シュタイナー木)
+ * @docs docs/graph/steiner_tree.md
+ * @see https://www.slideshare.net/wata_orz/ss-12131479
+ */
+
 template <typename T>
 struct SteinerTree{
 private:

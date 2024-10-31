@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Enumerate Cliques (クリークの列挙)
+ * @docs docs/graph/minimum_diameter_spanning_tree.md
+ * @see https://www.slideshare.net/wata_orz/ss-12131479
+ */
+
 vector<vector<int>> enumerateCliques(vector<vector<int>> &G){
     int n = G.size();
     vector<pair<int, int>> deg(n);

@@ -1,6 +1,10 @@
 #pragma once
 
-// 参考: https://www.slideshare.net/slideshow/trianguler/38443802
+/**
+ * @brief Enumerate Triangles
+ * @see https://www.slideshare.net/slideshow/trianguler/38443802
+ */
+
 vector<array<int, 3>> enumerateTriangles(vector<vector<int>> &G){
     int n = G.size();
     vector<vector<int>> DAG(n);
