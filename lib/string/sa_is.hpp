@@ -1,12 +1,12 @@
 #pragma once
 
-#include <vector>
-
 /**
  * @brief SA-IS
  * @docs docs/string/sa_is.md
  * @see https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html
  */
+
+#include <vector>
 
 template <typename T>
 struct SA_IS{
