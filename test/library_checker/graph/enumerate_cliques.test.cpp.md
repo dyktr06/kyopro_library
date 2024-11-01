@@ -21,7 +21,7 @@ data:
     #define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_cliques\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/graph/enumerate_cliques.hpp\"\
     \n\n/**\n * @brief Enumerate Cliques (\u30AF\u30EA\u30FC\u30AF\u306E\u5217\u6319\
-    )\n * @docs docs/graph/minimum_diameter_spanning_tree.md\n * @see https://www.slideshare.net/wata_orz/ss-12131479\n\
+    )\n * @docs docs/graph/enumerate_cliques.md\n * @see https://www.slideshare.net/wata_orz/ss-12131479\n\
     \ */\n\nvector<vector<int>> enumerateCliques(vector<vector<int>> &G){\n    int\
     \ n = G.size();\n    vector<pair<int, int>> deg(n);\n    for(int i = 0; i < n;\
     \ i++){\n        deg[i] = {(int) G[i].size(), i};\n    }\n\n    vector<vector<bool>>\
@@ -108,7 +108,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/enumerate_cliques.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 23:51:11+09:00'
+  timestamp: '2024-11-01 00:39:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/enumerate_cliques.test.cpp
