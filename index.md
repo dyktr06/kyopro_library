@@ -50,7 +50,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/cumulative_sum_2d.hpp
       title: lib/data_structure/cumulative_sum_2d.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/data_structure/deswag.hpp
       title: DESWAG
     - icon: ':heavy_check_mark:'
@@ -113,6 +113,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/priority_set.hpp
       title: lib/data_structure/priority_set.hpp
+    - icon: ':warning:'
+      path: lib/data_structure/radix_heap.hpp
+      title: lib/data_structure/radix_heap.hpp
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/range_parallel_union_find.hpp
       title: lib/data_structure/range_parallel_union_find.hpp
@@ -140,7 +143,7 @@ data:
     - icon: ':warning:'
       path: lib/data_structure/square_division.hpp
       title: lib/data_structure/square_division.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/data_structure/swag.hpp
       title: SWAG
     - icon: ':heavy_check_mark:'
@@ -316,7 +319,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -523,7 +526,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/associative_array.test.cpp
       title: test/library_checker/data_structure/associative_array.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
@@ -550,7 +553,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_set_range_frequency.test.cpp
       title: test/library_checker/data_structure/point_set_range_frequency.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
       title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
