@@ -5,10 +5,11 @@
  * @docs docs/data_structure/deswag.md
  */
 
-template <typename T>
-struct DESWAG{
-    using Op = function<T(T, T)>;
+#include <stack>
+#include <cassert>
 
+template <typename T, T (*op)(T, T)>
+struct DESWAG{
 private:
     struct node{
     public:
@@ -16,11 +17,10 @@ private:
         node(const T &val, const T &sum) : val(val), sum(sum) {}
     };
 
-    Op op;
-    stack<node> front_stack, back_stack, temp_stack;
+    std::stack<node> front_stack, back_stack, temp_stack;
 
 public:
-    DESWAG(const Op &op = Op()) : op(op), front_stack(), back_stack(), temp_stack() {}
+    DESWAG() : front_stack(), back_stack(), temp_stack() {}
 
     bool empty(){
         return front_stack.empty() && back_stack.empty();
@@ -60,7 +60,7 @@ public:
 
     void pop_front(){
         if(front_stack.empty()){
-            int half = (back_stack.size() + 1) / 2;
+            size_t half = (back_stack.size() + 1) / 2;
             while(!back_stack.empty()){
                 if(back_stack.size() == half){
                     front_stack.emplace(back_stack.top().val, back_stack.top().val);
@@ -87,7 +87,7 @@ public:
 
     void pop_back(){
         if(back_stack.empty()){
-            int half = (front_stack.size() + 1) / 2;
+            size_t half = (front_stack.size() + 1) / 2;
             while(!front_stack.empty()){
                 if(front_stack.size() == half){
                     back_stack.emplace(front_stack.top().val, front_stack.top().val);

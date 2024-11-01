@@ -1,14 +1,15 @@
 #pragma once
 
+#include <stack>
+#include <cassert>
+
 /**
  * @brief SWAG
  * @docs docs/data_structure/swag.md
  */
 
-template <typename T>
+template <typename T, T (*op)(T, T)>
 struct SWAG{
-    using Op = function<T(T, T)>;
-
 private:
     struct node{
     public:
@@ -16,11 +17,10 @@ private:
         node(const T &val, const T &sum) : val(val), sum(sum) {}
     };
 
-    Op op;
-    stack<node> front_stack, back_stack;
+    std::stack<node> front_stack, back_stack;
 
 public:
-    SWAG(const Op &op = Op()) : op(op), front_stack(), back_stack() {}
+    SWAG() : front_stack(), back_stack() {}
 
     bool empty(){
         return front_stack.empty() && back_stack.empty();
@@ -50,6 +50,7 @@ public:
     }
 
     void pop(){
+        assert(!empty());
         if(front_stack.empty()){
             front_stack.emplace(back_stack.top().val, back_stack.top().val);
             back_stack.pop();

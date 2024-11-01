@@ -1,21 +1,23 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/queue_operate_all_composite"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
 
 #include "../../../lib/math/modint.hpp"
 #include "../../../lib/data_structure/swag.hpp"
 
+using namespace std;
+
 using mint = ModInt<998244353>;
+
+using T = pair<mint, mint>;
+T op(T x1, T x2){
+    return {x1.first * x2.first, x2.first * x1.second + x2.second};
+}
 
 int main(){
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
 
-    using T = pair<mint, mint>;
-    auto op = [](T x1, T x2) -> T { 
-        return {x1.first * x2.first, x2.first * x1.second + x2.second};
-    };
-    SWAG<T> swag(op);
+    SWAG<T, op> swag;
 
     int q; cin >> q;
     while(q--){
@@ -27,7 +29,7 @@ int main(){
             swag.pop();
         }else{
             long long x; cin >> x;
-            if(swag.size() == 0){
+            if(swag.empty()){
                 cout << x << "\n";
                 continue;
             }
