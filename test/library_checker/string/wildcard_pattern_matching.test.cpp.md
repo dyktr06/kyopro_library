@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
   - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/string/wildcard_pattern_matching.hpp
     title: Wildcard Pattern Matching
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/wildcard_pattern_matching
@@ -28,7 +28,7 @@ data:
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/string/wildcard_pattern_matching.hpp\"\
     \n\n/**\n * @brief Wildcard Pattern Matching\n * @see https://qiita.com/MatsuTaku/items/cd5581fab97d7e74a7b3\n\
     \ */\n\n#line 2 \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/modint.hpp\"\
-    \n\n#line 4 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \n\n#line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
     \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
     \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
     \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
@@ -209,8 +209,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/string/wildcard_pattern_matching.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 22:40:32+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-03 00:11:03+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/string/wildcard_pattern_matching.test.cpp
 layout: document

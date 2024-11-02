@@ -5,7 +5,7 @@ data:
     path: lib/graph/counting_spanning_tree.hpp
     title: "Counting Spanning Tree (\u5168\u57DF\u6728\u306E\u6570\u3048\u4E0A\u3052\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/matrix.hpp
     title: Matrix
   - icon: ':question:'
@@ -24,7 +24,7 @@ data:
   bundledCode: "#line 1 \"test/library_checker/graph/counting_spanning_tree_undirected.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/counting_spanning_tree_undirected\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/modint.hpp\"\
-    \n\n#line 4 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \n\n#line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
     \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
     \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
     \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
@@ -183,7 +183,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 23:51:11+09:00'
+  timestamp: '2024-11-03 00:11:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp

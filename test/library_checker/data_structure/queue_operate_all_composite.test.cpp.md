@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/swag.hpp
     title: SWAG
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/queue_operate_all_composite
@@ -20,46 +20,47 @@ data:
   bundledCode: "#line 1 \"test/library_checker/data_structure/queue_operate_all_composite.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/queue_operate_all_composite\"\
     \n#include <iostream>\n\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4 \"lib/math/modint.hpp\"\
-    \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
-    \ long Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int\
-    \ mod() { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
-    \ : val(_val) {\n        normalize();\n    }\n    void normalize(){\n        val\
-    \ = (val % Modulus + Modulus) % Modulus;\n    }\n    inline ModInt &operator+=(const\
-    \ ModInt &rhs) noexcept {\n        if(val += rhs.val, val >= Modulus) val -= Modulus;\n\
-    \        return *this;\n    }\n    inline ModInt &operator-=(const ModInt &rhs)\
-    \ noexcept {\n        if(val -= rhs.val, val < 0) val += Modulus;\n        return\
-    \ *this;\n    }\n    inline ModInt &operator*=(const ModInt &rhs) noexcept {\n\
-    \        val = val * rhs.val % Modulus;\n        return *this;\n    }\n    inline\
-    \ ModInt &operator/=(const ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val\
-    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator++() noexcept\
-    \ {\n        if(++val >= Modulus) val -= Modulus;\n        return *this;\n   \
-    \ }\n    inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n \
-    \       if(++val >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline\
-    \ ModInt &operator--() noexcept {\n        if(--val < 0) val += Modulus;\n   \
-    \     return *this;\n    }\n    inline ModInt operator--(int) noexcept {\n   \
-    \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
-    \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
-    \ % Modulus; }\n    inline ModInt inv(void) const { return inv(val); }\n    ModInt\
-    \ pow(long long n){\n        assert(0 <= n);\n        ModInt x = *this, r = 1;\n\
-    \        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n     \
-    \       n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const long\
-    \ long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n     \
-    \   while(b){\n            long long t = a / b;\n            a -= t * b; std::swap(a,\
-    \ b);\n            u -= t * v; std::swap(u, v);\n        }\n        u %= Modulus;\n\
-    \        if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline\
-    \ ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
-    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
-    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
-    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ lhs.val != rhs.val; }\n    friend inline std::istream &operator>>(std::istream\
-    \ &is, ModInt &x) noexcept {\n        is >> x.val;\n        x.normalize();\n \
-    \       return is;\n    }\n    friend inline std::ostream &operator<<(std::ostream\
-    \ &os, const ModInt &x) noexcept { return os << x.val; }\n};\n#line 2 \"lib/data_structure/swag.hpp\"\
-    \n\n#include <stack>\n#include <cassert>\n\n/**\n * @brief SWAG\n * @docs docs/data_structure/swag.md\n\
+    \n#include <cassert>\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
+    \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
+    \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
+    \ normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n    }\n  \
+    \  inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val +=\
+    \ rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
+    \ inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -= rhs.val,\
+    \ val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt &operator*=(const\
+    \ ModInt &rhs) noexcept {\n        val = val * rhs.val % Modulus;\n        return\
+    \ *this;\n    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n\
+    \        val = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n\
+    \    inline ModInt &operator++() noexcept {\n        if(++val >= Modulus) val\
+    \ -= Modulus;\n        return *this;\n    }\n    inline ModInt operator++(int)\
+    \ noexcept {\n        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n\
+    \        return t;\n    }\n    inline ModInt &operator--() noexcept {\n      \
+    \  if(--val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt\
+    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
+    \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
+    \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
+    \ inv(val); }\n    ModInt pow(long long n){\n        assert(0 <= n);\n       \
+    \ ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r *= x;\n\
+    \            x *= x;\n            n >>= 1;\n        }\n        return r;\n   \
+    \ }\n    ModInt inv(const long long n) const {\n        long long a = n, b = Modulus,\
+    \ u = 1, v = 0;\n        while(b){\n            long long t = a / b;\n       \
+    \     a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n\
+    \        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n        return\
+    \ u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n  \
+    \  friend inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend\
+    \ inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline\
+    \ std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n        is\
+    \ >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend inline\
+    \ std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept { return\
+    \ os << x.val; }\n};\n#line 2 \"lib/data_structure/swag.hpp\"\n\n#include <stack>\n\
+    #line 5 \"lib/data_structure/swag.hpp\"\n\n/**\n * @brief SWAG\n * @docs docs/data_structure/swag.md\n\
     \ */\n\ntemplate <typename T, T (*op)(T, T)>\nstruct SWAG{\nprivate:\n    struct\
     \ node{\n    public:\n        T val, sum;\n        node(const T &val, const T\
     \ &sum) : val(val), sum(sum) {}\n    };\n\n    std::stack<node> front_stack, back_stack;\n\
@@ -106,8 +107,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-11-01 15:41:30+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-03 00:11:03+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
 layout: document

@@ -44,7 +44,7 @@ data:
     \                res.push_back(s);\n            }\n        }\n        for(int\
     \ j = 0; j < d; j++){\n            adj[cur][nxt[j]] = adj[nxt[j]][cur] = false;\n\
     \        }\n    }\n    return res;\n}\n#line 2 \"lib/math/modint.hpp\"\n\n#line\
-    \ 4 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \ 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
     \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
     \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
     \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
@@ -108,7 +108,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/enumerate_cliques.test.cpp
   requiredBy: []
-  timestamp: '2024-11-01 00:39:10+09:00'
+  timestamp: '2024-11-03 00:11:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/enumerate_cliques.test.cpp

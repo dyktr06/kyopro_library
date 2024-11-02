@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/graph/rerooting.hpp
     title: "Rerooting (\u5168\u65B9\u4F4D\u6728DP)"
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/tree_path_composite_sum
@@ -49,7 +49,7 @@ data:
     \ out.resize(n);\n        visited.assign(n, 0);\n        return dfs(root);\n \
     \   }\n\n    vector<V> reroot(){\n        reverse_edge.resize(n);\n        reverse_edge[root]\
     \ = e;\n        ans.resize(n);\n        bfs(root);\n        return ans;\n    }\n\
-    };\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4 \"lib/math/modint.hpp\"\n\n/**\n\
+    };\n#line 2 \"lib/math/modint.hpp\"\n\n#line 5 \"lib/math/modint.hpp\"\n\n/**\n\
     \ * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\n\
     struct ModInt{\n    long long val;\n    static constexpr int mod() { return Modulus;\
     \ }\n    constexpr ModInt(const long long _val = 0) noexcept : val(_val) {\n \
@@ -123,8 +123,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/tree_path_composite_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-11-01 00:31:19+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-03 00:11:03+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/tree/tree_path_composite_sum.test.cpp
 layout: document

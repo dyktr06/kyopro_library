@@ -32,7 +32,7 @@ data:
     \                    res.push_back({i, j, k});\n                }\n          \
     \  }\n            for(auto k : DAG[i]){\n                edge[k]--;\n        \
     \    }\n        }\n    }\n    return res;\n}\n#line 2 \"lib/math/modint.hpp\"\n\
-    \n#line 4 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \n#line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
     \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
     \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
     \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
@@ -96,7 +96,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/enumerate_triangles.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 23:51:11+09:00'
+  timestamp: '2024-11-03 00:11:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/enumerate_triangles.test.cpp

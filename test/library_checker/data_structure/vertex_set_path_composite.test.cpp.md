@@ -96,7 +96,7 @@ data:
     \n    void path_noncommutative_query(int a, int b, const function<void(int, int)>\
     \ &func, const function<void(int, int)> &func2){\n        int l = lca(a, b);\n\
     \        path_query(a, l, func2, false, true);\n        path_query(l, b, func,\
-    \ true, false);\n    }\n};\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4 \"lib/math/modint.hpp\"\
+    \ true, false);\n    }\n};\n#line 2 \"lib/math/modint.hpp\"\n\n#line 5 \"lib/math/modint.hpp\"\
     \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
     \ long Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int\
     \ mod() { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
@@ -182,7 +182,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:40:01+09:00'
+  timestamp: '2024-11-03 00:11:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/vertex_set_path_composite.test.cpp

@@ -2,10 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/string/wildcard_pattern_matching.hpp
     title: Wildcard Pattern Matching
   _extendedVerifiedWith:
@@ -30,10 +30,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/lcm_convolution.test.cpp
     title: test/library_checker/convolution/lcm_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
     title: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
     title: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -72,22 +72,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/inverse_matrix.test.cpp
     title: test/library_checker/matrix/inverse_matrix.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/matrix_det.test.cpp
     title: test/library_checker/matrix/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/matrix_product.test.cpp
     title: test/library_checker/matrix/matrix_product.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/matrix_rank.test.cpp
     title: test/library_checker/matrix/matrix_rank.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/pow_of_matrix.test.cpp
     title: test/library_checker/matrix/pow_of_matrix.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/string/wildcard_pattern_matching.test.cpp
     title: test/library_checker/string/wildcard_pattern_matching.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/tree/tree_path_composite_sum.test.cpp
     title: test/library_checker/tree/tree_path_composite_sum.test.cpp
   _isVerificationFailed: true
@@ -97,8 +97,48 @@ data:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
     links: []
-  bundledCode: "#line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n\n/**\n *\
-    \ @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\n\
+  bundledCode: "#line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n#include <cassert>\n\
+    \n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long long\
+    \ Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int mod()\
+    \ { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
+    \ : val(_val) {\n        normalize();\n    }\n    void normalize(){\n        val\
+    \ = (val % Modulus + Modulus) % Modulus;\n    }\n    inline ModInt &operator+=(const\
+    \ ModInt &rhs) noexcept {\n        if(val += rhs.val, val >= Modulus) val -= Modulus;\n\
+    \        return *this;\n    }\n    inline ModInt &operator-=(const ModInt &rhs)\
+    \ noexcept {\n        if(val -= rhs.val, val < 0) val += Modulus;\n        return\
+    \ *this;\n    }\n    inline ModInt &operator*=(const ModInt &rhs) noexcept {\n\
+    \        val = val * rhs.val % Modulus;\n        return *this;\n    }\n    inline\
+    \ ModInt &operator/=(const ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val\
+    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator++() noexcept\
+    \ {\n        if(++val >= Modulus) val -= Modulus;\n        return *this;\n   \
+    \ }\n    inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n \
+    \       if(++val >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline\
+    \ ModInt &operator--() noexcept {\n        if(--val < 0) val += Modulus;\n   \
+    \     return *this;\n    }\n    inline ModInt operator--(int) noexcept {\n   \
+    \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
+    \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
+    \ % Modulus; }\n    inline ModInt inv(void) const { return inv(val); }\n    ModInt\
+    \ pow(long long n){\n        assert(0 <= n);\n        ModInt x = *this, r = 1;\n\
+    \        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n     \
+    \       n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const long\
+    \ long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n     \
+    \   while(b){\n            long long t = a / b;\n            a -= t * b; std::swap(a,\
+    \ b);\n            u -= t * v; std::swap(u, v);\n        }\n        u %= Modulus;\n\
+    \        if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline\
+    \ ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
+    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
+    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ lhs.val != rhs.val; }\n    friend inline std::istream &operator>>(std::istream\
+    \ &is, ModInt &x) noexcept {\n        is >> x.val;\n        x.normalize();\n \
+    \       return is;\n    }\n    friend inline std::ostream &operator<<(std::ostream\
+    \ &os, const ModInt &x) noexcept { return os << x.val; }\n};\n"
+  code: "#pragma once\n\n#include <iostream>\n#include <cassert>\n\n/**\n * @brief\
+    \ ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\n\
     struct ModInt{\n    long long val;\n    static constexpr int mod() { return Modulus;\
     \ }\n    constexpr ModInt(const long long _val = 0) noexcept : val(_val) {\n \
     \       normalize();\n    }\n    void normalize(){\n        val = (val % Modulus\
@@ -137,53 +177,13 @@ data:
     \ &is, ModInt &x) noexcept {\n        is >> x.val;\n        x.normalize();\n \
     \       return is;\n    }\n    friend inline std::ostream &operator<<(std::ostream\
     \ &os, const ModInt &x) noexcept { return os << x.val; }\n};\n"
-  code: "#pragma once\n\n#include <iostream>\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
-    \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
-    \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
-    \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
-    \ normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n    }\n  \
-    \  inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val +=\
-    \ rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
-    \ inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -= rhs.val,\
-    \ val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt &operator*=(const\
-    \ ModInt &rhs) noexcept {\n        val = val * rhs.val % Modulus;\n        return\
-    \ *this;\n    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n\
-    \        val = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n\
-    \    inline ModInt &operator++() noexcept {\n        if(++val >= Modulus) val\
-    \ -= Modulus;\n        return *this;\n    }\n    inline ModInt operator++(int)\
-    \ noexcept {\n        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n\
-    \        return t;\n    }\n    inline ModInt &operator--() noexcept {\n      \
-    \  if(--val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt\
-    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
-    \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
-    \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
-    \ inv(val); }\n    ModInt pow(long long n){\n        assert(0 <= n);\n       \
-    \ ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r *= x;\n\
-    \            x *= x;\n            n >>= 1;\n        }\n        return r;\n   \
-    \ }\n    ModInt inv(const long long n) const {\n        long long a = n, b = Modulus,\
-    \ u = 1, v = 0;\n        while(b){\n            long long t = a / b;\n       \
-    \     a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n\
-    \        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n        return\
-    \ u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n  \
-    \  friend inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend\
-    \ inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs,\
-    \ const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline\
-    \ std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n        is\
-    \ >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend inline\
-    \ std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept { return\
-    \ os << x.val; }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/modint.hpp
   requiredBy:
   - lib/convolution/ntt.hpp
   - lib/string/wildcard_pattern_matching.hpp
-  timestamp: '2024-10-31 17:40:01+09:00'
+  timestamp: '2024-11-03 00:11:03+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/matrix/matrix_product.test.cpp

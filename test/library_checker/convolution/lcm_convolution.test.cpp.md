@@ -62,7 +62,7 @@ data:
     \ int n = (int) f.size();\n    assert(f.size() == g.size());\n    assert(1 <=\
     \ n);\n    divisor_zeta_transform(f);\n    divisor_zeta_transform(g);\n    for(int\
     \ i = 1; i < n; ++i){\n        f[i] *= g[i];\n    }\n    divisor_mobius_transform(f);\n\
-    \    return f;\n}\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4 \"lib/math/modint.hpp\"\
+    \    return f;\n}\n#line 2 \"lib/math/modint.hpp\"\n\n#line 5 \"lib/math/modint.hpp\"\
     \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
     \ long Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int\
     \ mod() { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
@@ -124,7 +124,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/lcm_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:40:01+09:00'
+  timestamp: '2024-11-03 00:11:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution/lcm_convolution.test.cpp
