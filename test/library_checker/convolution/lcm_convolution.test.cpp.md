@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/lcm_convolution.hpp
     title: lib/convolution/lcm_convolution.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   - icon: ':heavy_check_mark:'

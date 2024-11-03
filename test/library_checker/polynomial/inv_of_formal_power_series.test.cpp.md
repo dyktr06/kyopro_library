@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/formal_power_series.hpp
     title: lib/polynomial/formal_power_series.hpp
   _extendedRequiredBy: []
@@ -280,18 +280,18 @@ data:
     \u3042\u308B\u5FC5\u8981\u304C\u3042\u308B\u306E\u3067\u8ABF\u6574\u3059\u308B\
     \n        if((*this)[0] == T(0)){\n            for(int i = 1; i < (int) this->size();\
     \ i++){\n                if((*this)[i] == T(0)) continue;\n                if(i\
-    \ & 1) return {};\n                FPS res = (*this >> i).sqrt().pre(deg - i /\
-    \ 2);\n                res = res << (i / 2);\n                return res;\n  \
-    \          }\n            FPS res(deg, T(0));\n            return res;\n     \
-    \   }\n        // g_p mod x^k \u304B\u3089 g mod x^2k \u3092\u30CB\u30E5\u30FC\
-    \u30C8\u30F3\u6CD5\u3067\u6C42\u3081\u308B\n        // g^2 = f (mod x^n) \u3067\
-    \u3042\u308B\u304B\u3089\u3001\n        // g = g_p - ((g_p)^2 - f)/((g_p^2)')\n\
-    \        //   = g_p - ((g_p)^2 - f)/(2 g_p)\n        //   = 1/2 * (g_p + f/g_p\
-    \ (mod x^2k)\n        long long sqrt0 = sqrtT((*this)[0]);\n        if(sqrt0 ==\
-    \ -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2 = T(1) / T(2);\n\
-    \        for(int i = 1; i < deg; i <<= 1) {\n            res = (res + pre(i <<\
-    \ 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n   \
-    \ }\n};\n#line 6 \"test/library_checker/polynomial/inv_of_formal_power_series.test.cpp\"\
+    \ & 1) return {};\n                FPS res = (*this >> i).sqrt();\n          \
+    \      if(res.empty()) return {};\n                res = res.pre(deg - i / 2)\
+    \ << (i / 2);\n                return res;\n            }\n            FPS res(deg,\
+    \ T(0));\n            return res;\n        }\n        // g_p mod x^k \u304B\u3089\
+    \ g mod x^2k \u3092\u30CB\u30E5\u30FC\u30C8\u30F3\u6CD5\u3067\u6C42\u3081\u308B\
+    \n        // g^2 = f (mod x^n) \u3067\u3042\u308B\u304B\u3089\u3001\n        //\
+    \ g = g_p - ((g_p)^2 - f)/((g_p^2)')\n        //   = g_p - ((g_p)^2 - f)/(2 g_p)\n\
+    \        //   = 1/2 * (g_p + f/g_p (mod x^2k)\n        long long sqrt0 = sqrtT((*this)[0]);\n\
+    \        if(sqrt0 == -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2\
+    \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
+    \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
+    \    }\n};\n#line 6 \"test/library_checker/polynomial/inv_of_formal_power_series.test.cpp\"\
     \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\
     \nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n   \
     \ int n;\n    cin >> n;\n    FPS f(n);\n    for(int i = 0; i < n; i++) cin >>\
@@ -313,7 +313,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 22:55:35+09:00'
+  timestamp: '2024-11-03 23:34:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp

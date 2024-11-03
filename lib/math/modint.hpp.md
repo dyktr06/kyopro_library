@@ -2,15 +2,18 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/formal_power_series.hpp
     title: lib/polynomial/formal_power_series.hpp
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/product_of_polynomial_sequence.hpp
     title: lib/polynomial/product_of_polynomial_sequence.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/polynomial/taylor_shift.hpp
+    title: lib/polynomial/taylor_shift.hpp
   - icon: ':heavy_check_mark:'
     path: lib/string/wildcard_pattern_matching.hpp
     title: Wildcard Pattern Matching
@@ -103,12 +106,15 @@ data:
     path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+    title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
     title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -117,9 +123,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/tree_path_composite_sum.test.cpp
     title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
@@ -212,10 +218,11 @@ data:
   requiredBy:
   - lib/convolution/ntt.hpp
   - lib/string/wildcard_pattern_matching.hpp
+  - lib/polynomial/taylor_shift.hpp
   - lib/polynomial/product_of_polynomial_sequence.hpp
   - lib/polynomial/formal_power_series.hpp
   timestamp: '2024-11-03 21:58:22+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/matrix/matrix_product.test.cpp
   - test/library_checker/matrix/inverse_matrix.test.cpp
@@ -251,6 +258,7 @@ data:
   - test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
   - test/library_checker/polynomial/division_of_polynomials.test.cpp
   - test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
 documentation_of: lib/math/modint.hpp
 layout: document
 redirect_from:
