@@ -2,9 +2,15 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
+  - icon: ':question:'
+    path: lib/polynomial/formal_power_series.hpp
+    title: lib/polynomial/formal_power_series.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/polynomial/product_of_polynomial_sequence.hpp
+    title: lib/polynomial/product_of_polynomial_sequence.hpp
   - icon: ':heavy_check_mark:'
     path: lib/string/wildcard_pattern_matching.hpp
     title: Wildcard Pattern Matching
@@ -84,22 +90,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/matrix/pow_of_matrix.test.cpp
     title: test/library_checker/matrix/pow_of_matrix.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/division_of_polynomials.test.cpp
     title: test/library_checker/polynomial/division_of_polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
     title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
   - icon: ':x:'
@@ -206,6 +212,8 @@ data:
   requiredBy:
   - lib/convolution/ntt.hpp
   - lib/string/wildcard_pattern_matching.hpp
+  - lib/polynomial/product_of_polynomial_sequence.hpp
+  - lib/polynomial/formal_power_series.hpp
   timestamp: '2024-11-03 21:58:22+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:

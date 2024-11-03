@@ -1,13 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
   - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy:
+  - icon: ':question:'
+    path: lib/polynomial/formal_power_series.hpp
+    title: lib/polynomial/formal_power_series.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/polynomial/product_of_polynomial_sequence.hpp
+    title: lib/polynomial/product_of_polynomial_sequence.hpp
   - icon: ':heavy_check_mark:'
     path: lib/string/wildcard_pattern_matching.hpp
     title: Wildcard Pattern Matching
@@ -19,11 +25,32 @@ data:
     path: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
     title: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/polynomial/division_of_polynomials.test.cpp
+    title: test/library_checker/polynomial/division_of_polynomials.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
+    title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
+    title: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
+    title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
+    title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
+    title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
+    title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/string/wildcard_pattern_matching.test.cpp
     title: test/library_checker/string/wildcard_pattern_matching.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/modint.hpp\"\
@@ -260,12 +287,21 @@ data:
   path: lib/convolution/ntt.hpp
   requiredBy:
   - lib/string/wildcard_pattern_matching.hpp
+  - lib/polynomial/product_of_polynomial_sequence.hpp
+  - lib/polynomial/formal_power_series.hpp
   timestamp: '2024-11-03 21:58:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/convolution/convolution_mod_1000000007.test.cpp
   - test/library_checker/convolution/convolution.test.cpp
   - test/library_checker/string/wildcard_pattern_matching.test.cpp
+  - test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/log_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
+  - test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/division_of_polynomials.test.cpp
+  - test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
 documentation_of: lib/convolution/ntt.hpp
 layout: document
 redirect_from:

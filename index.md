@@ -27,7 +27,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/convolution/lcm_convolution.hpp
       title: lib/convolution/lcm_convolution.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/convolution/ntt.hpp
       title: lib/convolution/ntt.hpp
     - icon: ':heavy_check_mark:'
@@ -295,7 +295,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: "Convert Base (\u9032\u6570\u5909\u63DB)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':heavy_check_mark:'
@@ -377,10 +377,10 @@ data:
       title: lib/others/zorbrist_hash.hpp
   - name: lib/polynomial
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/polynomial/formal_power_series.hpp
       title: lib/polynomial/formal_power_series.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/product_of_polynomial_sequence.hpp
       title: lib/polynomial/product_of_polynomial_sequence.hpp
   - name: lib/string
@@ -793,22 +793,22 @@ data:
       title: test/library_checker/number_theory/sqrt_mod.test.cpp
   - name: test/library_checker/polynomial
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/division_of_polynomials.test.cpp
       title: test/library_checker/polynomial/division_of_polynomials.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
       title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
     - icon: ':x:'
