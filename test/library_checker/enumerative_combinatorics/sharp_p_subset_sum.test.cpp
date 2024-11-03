@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/many_factorials"
+#define PROBLEM "https://judge.yosupo.jp/problem/sharp_p_subset_sum"
 #include <iostream>
 
 #include "../../../lib/math/modint.hpp"

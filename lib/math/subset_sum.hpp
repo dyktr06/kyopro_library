@@ -11,6 +11,7 @@
 template <typename T>
 std::vector<T> subsetSum(std::vector<long long> s, const int t_max){
     using FPS = FormalPowerSeries<T>;
+    // prod (1 + x^{s_i}) -> exp(sum log(1 + x^{s_i}))
     std::vector<T> cnt(t_max + 1, T(0));
     for(auto x : s){
         if(x > t_max) continue;
@@ -27,6 +28,7 @@ std::vector<T> subsetSum(std::vector<long long> s, const int t_max){
     FPS ans(t_max + 1);
     for(int i = 1; i <= t_max; i++){
         if(cnt[i] == T(0)) continue;
+        // log(1 + x^i) = x^i - x^(2i)/2 + x^(3i)/3 - ...
         T sign = T(1);
         for(int j = i; j <= t_max; j += i){
             ans[j] += T(cnt[i]) * sign * inv[j / i];
