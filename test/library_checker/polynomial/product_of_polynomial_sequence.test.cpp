@@ -2,7 +2,6 @@
 #include <iostream>
 
 #include "../../../lib/math/modint.hpp"
-#include "../../../lib/polynomial/formal_power_series.hpp"
 #include "../../../lib/polynomial/product_of_polynomial_sequence.hpp"
 
 using namespace std;
