@@ -7,6 +7,9 @@ data:
   - icon: ':x:'
     path: lib/polynomial/formal_power_series.hpp
     title: lib/polynomial/formal_power_series.hpp
+  - icon: ':x:'
+    path: lib/polynomial/product_of_polynomial_sequence.hpp
+    title: lib/polynomial/product_of_polynomial_sequence.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -14,11 +17,11 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/exp_of_formal_power_series
+    PROBLEM: https://judge.yosupo.jp/problem/product_of_polynomial_sequence
     links:
-    - https://judge.yosupo.jp/problem/exp_of_formal_power_series
-  bundledCode: "#line 1 \"test/library_checker/polynomial/exp_of_formal_power_series.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/exp_of_formal_power_series\"\
+    - https://judge.yosupo.jp/problem/product_of_polynomial_sequence
+  bundledCode: "#line 1 \"test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/product_of_polynomial_sequence\"\
     \n#include <iostream>\n\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4 \"lib/math/modint.hpp\"\
     \n#include <cassert>\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
     \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
@@ -173,33 +176,44 @@ data:
     \ -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2 = T(1) / T(2);\n\
     \        for(int i = 1; i < deg; i <<= 1) {\n            res = (res + pre(i <<\
     \ 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n   \
-    \ }\n};\n#line 6 \"test/library_checker/polynomial/exp_of_formal_power_series.test.cpp\"\
+    \ }\n};\n#line 2 \"lib/polynomial/product_of_polynomial_sequence.hpp\"\n\n#line\
+    \ 5 \"lib/polynomial/product_of_polynomial_sequence.hpp\"\n\ntemplate <typename\
+    \ T>\nFormalPowerSeries<T> product(const std::vector<FormalPowerSeries<T>> &f){\n\
+    \    auto dfs = [&](auto &self, int l, int r) -> FormalPowerSeries<T> {\n    \
+    \    if(r - l == 1) return f[l];\n        if(r - l == 0) return {T(1)};\n    \
+    \    int mid = (l + r) / 2;\n        return self(self, l, mid) * self(self, mid,\
+    \ r);\n    };\n    return dfs(dfs, 0, (int) f.size());\n}\n#line 7 \"test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp\"\
     \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\
     \nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n   \
-    \ int n;\n    cin >> n;\n    FPS f(n);\n    for(int i = 0; i < n; i++) cin >>\
-    \ f[i];\n    FPS g = f.exp();\n    for(int i = 0; i < n; i++) cout << g[i] <<\
-    \ (i == n - 1 ? '\\n' : ' ');\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/exp_of_formal_power_series\"\
+    \ int n;\n    cin >> n;\n    vector<FPS> f(n);\n    for(int i = 0; i < n; i++){\n\
+    \        int d; cin >> d;\n        f[i].resize(d + 1);\n        for(int j = 0;\
+    \ j < d + 1; j++) cin >> f[i][j];\n    }\n    FPS ans = product(f);\n    int len\
+    \ = ans.size();\n    for(int i = 0; i < len; i++){\n        cout << ans[i] <<\
+    \ (i == len - 1 ? '\\n' : ' ');\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/product_of_polynomial_sequence\"\
     \n#include <iostream>\n\n#include \"../../../lib/math/modint.hpp\"\n#include \"\
-    ../../../lib/polynomial/formal_power_series.hpp\"\n\nusing namespace std;\n\n\
-    using mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\nint main(){\n\
-    \    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int n;\n    cin\
-    \ >> n;\n    FPS f(n);\n    for(int i = 0; i < n; i++) cin >> f[i];\n    FPS g\
-    \ = f.exp();\n    for(int i = 0; i < n; i++) cout << g[i] << (i == n - 1 ? '\\\
-    n' : ' ');\n}\n"
+    ../../../lib/polynomial/formal_power_series.hpp\"\n#include \"../../../lib/polynomial/product_of_polynomial_sequence.hpp\"\
+    \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\
+    \nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n   \
+    \ int n;\n    cin >> n;\n    vector<FPS> f(n);\n    for(int i = 0; i < n; i++){\n\
+    \        int d; cin >> d;\n        f[i].resize(d + 1);\n        for(int j = 0;\
+    \ j < d + 1; j++) cin >> f[i][j];\n    }\n    FPS ans = product(f);\n    int len\
+    \ = ans.size();\n    for(int i = 0; i < len; i++){\n        cout << ans[i] <<\
+    \ (i == len - 1 ? '\\n' : ' ');\n    }\n}\n"
   dependsOn:
   - lib/math/modint.hpp
   - lib/polynomial/formal_power_series.hpp
+  - lib/polynomial/product_of_polynomial_sequence.hpp
   isVerificationFile: true
-  path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
+  path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
   requiredBy: []
   timestamp: '2024-11-03 22:42:38+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
+documentation_of: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
-- /verify/test/library_checker/polynomial/exp_of_formal_power_series.test.cpp.html
-title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
+- /verify/test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
+- /verify/test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp.html
+title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
 ---

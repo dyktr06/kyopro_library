@@ -1,8 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: lib/polynomial/product_of_polynomial_sequence.hpp
+    title: lib/polynomial/product_of_polynomial_sequence.hpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/library_checker/polynomial/division_of_polynomials.test.cpp
+    title: test/library_checker/polynomial/division_of_polynomials.test.cpp
   - icon: ':x:'
     path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
@@ -16,6 +22,9 @@ data:
     path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
   - icon: ':x:'
+    path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
+    title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
+  - icon: ':x:'
     path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: true
@@ -27,56 +36,60 @@ data:
     #include <cassert>\n#include <vector>\n\ntemplate <typename T>\nstruct FormalPowerSeries\
     \ : std::vector<T> {\n    using std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n\
     \n    // deg \u6B21\u3068\u3057\u3066\u521D\u671F\u5316\n    FPS pre(int deg)\
-    \ const {\n        FPS res(begin(*this), begin(*this) + std::min((int) this->size(),\
-    \ deg));\n        if((int) res.size() < deg) res.resize(deg, T(0));\n        return\
-    \ res;\n    }\n\n    // deg \u6B21\u3068\u3057\u3066\u53CD\u8EE2\n    FPS rev(int\
-    \ deg = -1) const {\n        FPS res(*this);\n        if(deg != -1) res.resize(deg,\
-    \ T(0));\n        std::reverse(begin(res), end(res));\n        return res;\n \
-    \   }\n\n    void shrink() {\n        while(this->size() && this->back() == T(0))\
-    \ this->pop_back();\n    }\n\n    FPS operator+(const T &rhs) const { return FPS(*this)\
-    \ += rhs; }\n    FPS operator+(const FPS &rhs) const { return FPS(*this) += rhs;\
-    \ }\n    FPS operator-(const T &rhs) const { return FPS(*this) -= rhs; }\n   \
-    \ FPS operator-(const FPS &rhs) const { return FPS(*this) -= rhs; }\n    FPS operator*(const\
-    \ T &rhs) const { return FPS(*this) *= rhs; }\n    FPS operator*(const FPS &rhs)\
-    \ const { return FPS(*this) *= rhs; }\n    FPS operator/(const T &rhs) const {\
-    \ return FPS(*this) /= rhs; }\n    FPS operator/(const FPS &rhs) const { return\
-    \ FPS(*this) /= rhs; }\n    FPS operator%(const FPS &rhs) const { return FPS(*this)\
-    \ %= rhs; }\n    FPS operator-() const {\n        FPS res(this->size());\n   \
-    \     for(int i = 0; i < (int) this->size(); i++) res[i] = -(*this)[i];\n    \
-    \    return res;\n    }\n\n    FPS &operator+=(const T &rhs){\n        if(this->empty())\
-    \ this->resize(1);\n        (*this)[0] += rhs;\n        return *this;\n    }\n\
-    \n    FPS &operator-=(const T &rhs){\n        if(this->empty()) this->resize(1);\n\
-    \        (*this)[0] -= rhs;\n        return *this;\n    }\n\n    FPS &operator*=(const\
-    \ T &rhs){\n        for(auto &x : *this) x *= rhs;\n        return *this;\n  \
-    \  }\n\n    FPS &operator/=(const T &rhs){\n        for(auto &x : *this) x /=\
-    \ rhs;\n        return *this;\n    }\n\n    FPS &operator+=(const FPS &rhs) noexcept\
-    \ {\n        if(this->size() < rhs.size()) this->resize(rhs.size());\n       \
-    \ for(int i = 0; i < (int) rhs.size(); i++) (*this)[i] += rhs[i];\n        return\
-    \ *this;\n    }\n\n    FPS &operator-=(const FPS &rhs) noexcept {\n        if(this->size()\
+    \ const {\n        FPS res(std::begin(*this), std::begin(*this) + std::min((int)\
+    \ this->size(), deg));\n        if((int) res.size() < deg) res.resize(deg, T(0));\n\
+    \        return res;\n    }\n\n    // deg \u6B21\u3068\u3057\u3066\u53CD\u8EE2\
+    \n    FPS rev(int deg = -1) const {\n        FPS res(*this);\n        if(deg !=\
+    \ -1) res.resize(deg, T(0));\n        std::reverse(std::begin(res), std::end(res));\n\
+    \        return res;\n    }\n\n    void shrink() {\n        while(this->size()\
+    \ && this->back() == T(0)) this->pop_back();\n    }\n\n    FPS operator+(const\
+    \ T &rhs) const { return FPS(*this) += rhs; }\n    FPS operator+(const FPS &rhs)\
+    \ const { return FPS(*this) += rhs; }\n    FPS operator-(const T &rhs) const {\
+    \ return FPS(*this) -= rhs; }\n    FPS operator-(const FPS &rhs) const { return\
+    \ FPS(*this) -= rhs; }\n    FPS operator*(const T &rhs) const { return FPS(*this)\
+    \ *= rhs; }\n    FPS operator*(const FPS &rhs) const { return FPS(*this) *= rhs;\
+    \ }\n    FPS operator/(const T &rhs) const { return FPS(*this) /= rhs; }\n   \
+    \ FPS operator/(const FPS &rhs) const { return FPS(*this) /= rhs; }\n    FPS operator%(const\
+    \ FPS &rhs) const { return FPS(*this) %= rhs; }\n    FPS operator-() const {\n\
+    \        FPS res(this->size());\n        for(int i = 0; i < (int) this->size();\
+    \ i++) res[i] = -(*this)[i];\n        return res;\n    }\n\n    FPS &operator+=(const\
+    \ T &rhs){\n        if(this->empty()) this->resize(1);\n        (*this)[0] +=\
+    \ rhs;\n        return *this;\n    }\n\n    FPS &operator-=(const T &rhs){\n \
+    \       if(this->empty()) this->resize(1);\n        (*this)[0] -= rhs;\n     \
+    \   return *this;\n    }\n\n    FPS &operator*=(const T &rhs){\n        for(auto\
+    \ &x : *this) x *= rhs;\n        return *this;\n    }\n\n    FPS &operator/=(const\
+    \ T &rhs){\n        for(auto &x : *this) x /= rhs;\n        return *this;\n  \
+    \  }\n\n    FPS &operator+=(const FPS &rhs) noexcept {\n        if(this->size()\
     \ < rhs.size()) this->resize(rhs.size());\n        for(int i = 0; i < (int) rhs.size();\
-    \ i++) (*this)[i] -= rhs[i];\n        return *this;\n    }\n\n    FPS &operator*=(const\
-    \ FPS &rhs) noexcept {\n        auto res = NTT::convolution_mod(*this, rhs, T::mod());\n\
-    \        return *this = {begin(res), end(res)};\n    }\n\n    // f/g = f * (g.inv())\n\
+    \ i++) (*this)[i] += rhs[i];\n        return *this;\n    }\n\n    FPS &operator-=(const\
+    \ FPS &rhs) noexcept {\n        if(this->size() < rhs.size()) this->resize(rhs.size());\n\
+    \        for(int i = 0; i < (int) rhs.size(); i++) (*this)[i] -= rhs[i];\n   \
+    \     return *this;\n    }\n\n    FPS &operator*=(const FPS &rhs) noexcept {\n\
+    \        auto res = NTT::convolution_mod(*this, rhs, T::mod());\n        return\
+    \ *this = {std::begin(res), std::end(res)};\n    }\n\n    // f/g = f * (g.inv())\n\
     \    FPS &operator/=(const FPS &rhs) noexcept {\n        if(this->size() < rhs.size())\
     \ return *this = FPS();\n        const int n = this->size() - rhs.size() + 1;\n\
     \        return *this = (rev().pre(n) * rhs.rev().inv(n)).pre(n).rev(n);\n   \
     \ }\n\n    FPS &operator%=(const FPS &rhs) noexcept {\n        return *this -=\
     \ (*this / rhs) * rhs;\n    }\n\n    FPS operator>>(int deg) const {\n       \
-    \ if((int) this->size() <= deg) return {};\n        FPS res(*this);\n        res.erase(res.begin(),\
-    \ res.begin() + deg);\n        return res;\n    }\n\n    FPS operator<<(int deg)\
-    \ const {\n        FPS res(*this);\n        res.insert(res.begin(), deg, T(0));\n\
-    \        return res;\n    }\n\n    // \u5FAE\u5206\n    FPS diff() const {\n \
-    \       const int n = this->size();\n        FPS res(std::max(0, n - 1));\n  \
-    \      for(int i = 1; i < n; i++) res[i - 1] = (*this)[i] * T(i);\n        return\
+    \ if((int) this->size() <= deg) return {};\n        FPS res(*this);\n        res.erase(std::begin(res),\
+    \ std::begin(res) + deg);\n        return res;\n    }\n\n    FPS operator<<(int\
+    \ deg) const {\n        FPS res(*this);\n        res.insert(std::begin(res), deg,\
+    \ T(0));\n        return res;\n    }\n\n    // \u5FAE\u5206\n    FPS diff() const\
+    \ {\n        const int n = this->size();\n        FPS res(std::max(0, n - 1));\n\
+    \        for(int i = 1; i < n; i++) res[i - 1] = (*this)[i] * T(i);\n        return\
     \ res;\n    }\n\n    // \u7A4D\u5206\n    FPS integral() const {\n        const\
     \ int n = this->size();\n        FPS res(n + 1);\n        res[0] = T(0);\n   \
     \     for(int i = 0; i < n; i++) res[i + 1] = (*this)[i] / T(i + 1);\n       \
-    \ return res;\n    }\n\n    // fg = 1 (mod x^n) \u3068\u306A\u308B g\n    FPS\
-    \ inv(int deg = -1) const {\n        assert((*this)[0] != T(0));\n        if(deg\
-    \ == -1) deg = this->size();\n        // g_p mod x^k \u304B\u3089 g mod x^2k \u3092\
-    \u6C42\u3081\u308B\n        // (g - g_p)^2 = g^2 - 2 g g_p + (g_p)^2 = 0 (mod\
-    \ x^2k)\n        // fg^2 - 2fg g_p + f (g_p)^2\n        // = g - 2(g_p) + f (g_p)^2\
-    \ = 0 (mod x^2k)\n        // g = 2(g_p) - f (g_p)^2 (mod x^2k)\n        FPS res({T(1)\
+    \ return res;\n    }\n\n    // {lhs / rhs, lhs % rhs}\n    std::pair<FPS, FPS>\
+    \ division(const FPS &rhs) const {\n        FPS q = *this / rhs;\n        FPS\
+    \ r = *this - q * rhs;\n        q.shrink(), r.shrink();\n        return {q, r};\n\
+    \    }\n\n    // fg = 1 (mod x^n) \u3068\u306A\u308B g\n    FPS inv(int deg =\
+    \ -1) const {\n        assert((*this)[0] != T(0));\n        if(deg == -1) deg\
+    \ = this->size();\n        // g_p mod x^k \u304B\u3089 g mod x^2k \u3092\u6C42\
+    \u3081\u308B\n        // (g - g_p)^2 = g^2 - 2 g g_p + (g_p)^2 = 0 (mod x^2k)\n\
+    \        // fg^2 - 2fg g_p + f (g_p)^2\n        // = g - 2(g_p) + f (g_p)^2 =\
+    \ 0 (mod x^2k)\n        // g = 2(g_p) - f (g_p)^2 (mod x^2k)\n        FPS res({T(1)\
     \ / (*this)[0]});\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + res - res * res * pre(i << 1)).pre(i << 1);\n        }\n        return\
     \ res.pre(deg);\n    }\n\n    // g = log f \u3068\u306A\u308B g\n    FPS log(int\
@@ -138,23 +151,23 @@ data:
     \ntemplate <typename T>\nstruct FormalPowerSeries : std::vector<T> {\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n\n    // deg \u6B21\
     \u3068\u3057\u3066\u521D\u671F\u5316\n    FPS pre(int deg) const {\n        FPS\
-    \ res(begin(*this), begin(*this) + std::min((int) this->size(), deg));\n     \
-    \   if((int) res.size() < deg) res.resize(deg, T(0));\n        return res;\n \
-    \   }\n\n    // deg \u6B21\u3068\u3057\u3066\u53CD\u8EE2\n    FPS rev(int deg\
+    \ res(std::begin(*this), std::begin(*this) + std::min((int) this->size(), deg));\n\
+    \        if((int) res.size() < deg) res.resize(deg, T(0));\n        return res;\n\
+    \    }\n\n    // deg \u6B21\u3068\u3057\u3066\u53CD\u8EE2\n    FPS rev(int deg\
     \ = -1) const {\n        FPS res(*this);\n        if(deg != -1) res.resize(deg,\
-    \ T(0));\n        std::reverse(begin(res), end(res));\n        return res;\n \
-    \   }\n\n    void shrink() {\n        while(this->size() && this->back() == T(0))\
-    \ this->pop_back();\n    }\n\n    FPS operator+(const T &rhs) const { return FPS(*this)\
-    \ += rhs; }\n    FPS operator+(const FPS &rhs) const { return FPS(*this) += rhs;\
-    \ }\n    FPS operator-(const T &rhs) const { return FPS(*this) -= rhs; }\n   \
-    \ FPS operator-(const FPS &rhs) const { return FPS(*this) -= rhs; }\n    FPS operator*(const\
-    \ T &rhs) const { return FPS(*this) *= rhs; }\n    FPS operator*(const FPS &rhs)\
-    \ const { return FPS(*this) *= rhs; }\n    FPS operator/(const T &rhs) const {\
-    \ return FPS(*this) /= rhs; }\n    FPS operator/(const FPS &rhs) const { return\
-    \ FPS(*this) /= rhs; }\n    FPS operator%(const FPS &rhs) const { return FPS(*this)\
-    \ %= rhs; }\n    FPS operator-() const {\n        FPS res(this->size());\n   \
-    \     for(int i = 0; i < (int) this->size(); i++) res[i] = -(*this)[i];\n    \
-    \    return res;\n    }\n\n    FPS &operator+=(const T &rhs){\n        if(this->empty())\
+    \ T(0));\n        std::reverse(std::begin(res), std::end(res));\n        return\
+    \ res;\n    }\n\n    void shrink() {\n        while(this->size() && this->back()\
+    \ == T(0)) this->pop_back();\n    }\n\n    FPS operator+(const T &rhs) const {\
+    \ return FPS(*this) += rhs; }\n    FPS operator+(const FPS &rhs) const { return\
+    \ FPS(*this) += rhs; }\n    FPS operator-(const T &rhs) const { return FPS(*this)\
+    \ -= rhs; }\n    FPS operator-(const FPS &rhs) const { return FPS(*this) -= rhs;\
+    \ }\n    FPS operator*(const T &rhs) const { return FPS(*this) *= rhs; }\n   \
+    \ FPS operator*(const FPS &rhs) const { return FPS(*this) *= rhs; }\n    FPS operator/(const\
+    \ T &rhs) const { return FPS(*this) /= rhs; }\n    FPS operator/(const FPS &rhs)\
+    \ const { return FPS(*this) /= rhs; }\n    FPS operator%(const FPS &rhs) const\
+    \ { return FPS(*this) %= rhs; }\n    FPS operator-() const {\n        FPS res(this->size());\n\
+    \        for(int i = 0; i < (int) this->size(); i++) res[i] = -(*this)[i];\n \
+    \       return res;\n    }\n\n    FPS &operator+=(const T &rhs){\n        if(this->empty())\
     \ this->resize(1);\n        (*this)[0] += rhs;\n        return *this;\n    }\n\
     \n    FPS &operator-=(const T &rhs){\n        if(this->empty()) this->resize(1);\n\
     \        (*this)[0] -= rhs;\n        return *this;\n    }\n\n    FPS &operator*=(const\
@@ -167,35 +180,38 @@ data:
     \ < rhs.size()) this->resize(rhs.size());\n        for(int i = 0; i < (int) rhs.size();\
     \ i++) (*this)[i] -= rhs[i];\n        return *this;\n    }\n\n    FPS &operator*=(const\
     \ FPS &rhs) noexcept {\n        auto res = NTT::convolution_mod(*this, rhs, T::mod());\n\
-    \        return *this = {begin(res), end(res)};\n    }\n\n    // f/g = f * (g.inv())\n\
-    \    FPS &operator/=(const FPS &rhs) noexcept {\n        if(this->size() < rhs.size())\
-    \ return *this = FPS();\n        const int n = this->size() - rhs.size() + 1;\n\
-    \        return *this = (rev().pre(n) * rhs.rev().inv(n)).pre(n).rev(n);\n   \
-    \ }\n\n    FPS &operator%=(const FPS &rhs) noexcept {\n        return *this -=\
-    \ (*this / rhs) * rhs;\n    }\n\n    FPS operator>>(int deg) const {\n       \
-    \ if((int) this->size() <= deg) return {};\n        FPS res(*this);\n        res.erase(res.begin(),\
-    \ res.begin() + deg);\n        return res;\n    }\n\n    FPS operator<<(int deg)\
-    \ const {\n        FPS res(*this);\n        res.insert(res.begin(), deg, T(0));\n\
-    \        return res;\n    }\n\n    // \u5FAE\u5206\n    FPS diff() const {\n \
-    \       const int n = this->size();\n        FPS res(std::max(0, n - 1));\n  \
-    \      for(int i = 1; i < n; i++) res[i - 1] = (*this)[i] * T(i);\n        return\
-    \ res;\n    }\n\n    // \u7A4D\u5206\n    FPS integral() const {\n        const\
-    \ int n = this->size();\n        FPS res(n + 1);\n        res[0] = T(0);\n   \
-    \     for(int i = 0; i < n; i++) res[i + 1] = (*this)[i] / T(i + 1);\n       \
-    \ return res;\n    }\n\n    // fg = 1 (mod x^n) \u3068\u306A\u308B g\n    FPS\
-    \ inv(int deg = -1) const {\n        assert((*this)[0] != T(0));\n        if(deg\
-    \ == -1) deg = this->size();\n        // g_p mod x^k \u304B\u3089 g mod x^2k \u3092\
-    \u6C42\u3081\u308B\n        // (g - g_p)^2 = g^2 - 2 g g_p + (g_p)^2 = 0 (mod\
-    \ x^2k)\n        // fg^2 - 2fg g_p + f (g_p)^2\n        // = g - 2(g_p) + f (g_p)^2\
-    \ = 0 (mod x^2k)\n        // g = 2(g_p) - f (g_p)^2 (mod x^2k)\n        FPS res({T(1)\
-    \ / (*this)[0]});\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
-    \ = (res + res - res * res * pre(i << 1)).pre(i << 1);\n        }\n        return\
-    \ res.pre(deg);\n    }\n\n    // g = log f \u3068\u306A\u308B g\n    FPS log(int\
-    \ deg = -1) const {\n        assert((*this)[0] == T(1));\n        if(deg == -1)\
-    \ deg = this->size();\n        // log f = integral((f' / f) dx)\n        return\
-    \ (this->diff() * this->inv(deg)).pre(deg - 1).integral().pre(deg);\n    }\n\n\
-    \    // g = exp(f) \u3068\u306A\u308B g\n    FPS exp(int deg = -1) const {\n \
-    \       assert((*this)[0] == T(0));\n        if(deg == -1) deg = this->size();\n\
+    \        return *this = {std::begin(res), std::end(res)};\n    }\n\n    // f/g\
+    \ = f * (g.inv())\n    FPS &operator/=(const FPS &rhs) noexcept {\n        if(this->size()\
+    \ < rhs.size()) return *this = FPS();\n        const int n = this->size() - rhs.size()\
+    \ + 1;\n        return *this = (rev().pre(n) * rhs.rev().inv(n)).pre(n).rev(n);\n\
+    \    }\n\n    FPS &operator%=(const FPS &rhs) noexcept {\n        return *this\
+    \ -= (*this / rhs) * rhs;\n    }\n\n    FPS operator>>(int deg) const {\n    \
+    \    if((int) this->size() <= deg) return {};\n        FPS res(*this);\n     \
+    \   res.erase(std::begin(res), std::begin(res) + deg);\n        return res;\n\
+    \    }\n\n    FPS operator<<(int deg) const {\n        FPS res(*this);\n     \
+    \   res.insert(std::begin(res), deg, T(0));\n        return res;\n    }\n\n  \
+    \  // \u5FAE\u5206\n    FPS diff() const {\n        const int n = this->size();\n\
+    \        FPS res(std::max(0, n - 1));\n        for(int i = 1; i < n; i++) res[i\
+    \ - 1] = (*this)[i] * T(i);\n        return res;\n    }\n\n    // \u7A4D\u5206\
+    \n    FPS integral() const {\n        const int n = this->size();\n        FPS\
+    \ res(n + 1);\n        res[0] = T(0);\n        for(int i = 0; i < n; i++) res[i\
+    \ + 1] = (*this)[i] / T(i + 1);\n        return res;\n    }\n\n    // {lhs / rhs,\
+    \ lhs % rhs}\n    std::pair<FPS, FPS> division(const FPS &rhs) const {\n     \
+    \   FPS q = *this / rhs;\n        FPS r = *this - q * rhs;\n        q.shrink(),\
+    \ r.shrink();\n        return {q, r};\n    }\n\n    // fg = 1 (mod x^n) \u3068\
+    \u306A\u308B g\n    FPS inv(int deg = -1) const {\n        assert((*this)[0] !=\
+    \ T(0));\n        if(deg == -1) deg = this->size();\n        // g_p mod x^k \u304B\
+    \u3089 g mod x^2k \u3092\u6C42\u3081\u308B\n        // (g - g_p)^2 = g^2 - 2 g\
+    \ g_p + (g_p)^2 = 0 (mod x^2k)\n        // fg^2 - 2fg g_p + f (g_p)^2\n      \
+    \  // = g - 2(g_p) + f (g_p)^2 = 0 (mod x^2k)\n        // g = 2(g_p) - f (g_p)^2\
+    \ (mod x^2k)\n        FPS res({T(1) / (*this)[0]});\n        for(int i = 1; i\
+    \ < deg; i <<= 1) {\n            res = (res + res - res * res * pre(i << 1)).pre(i\
+    \ << 1);\n        }\n        return res.pre(deg);\n    }\n\n    // g = log f \u3068\
+    \u306A\u308B g\n    FPS log(int deg = -1) const {\n        assert((*this)[0] ==\
+    \ T(1));\n        if(deg == -1) deg = this->size();\n        // log f = integral((f'\
+    \ / f) dx)\n        return (this->diff() * this->inv(deg)).pre(deg - 1).integral().pre(deg);\n\
+    \    }\n\n    // g = exp(f) \u3068\u306A\u308B g\n    FPS exp(int deg = -1) const\
+    \ {\n        assert((*this)[0] == T(0));\n        if(deg == -1) deg = this->size();\n\
     \        // g_p mod x^k \u304B\u3089 g mod x^2k \u3092\u30CB\u30E5\u30FC\u30C8\
     \u30F3\u6CD5\u3067\u6C42\u3081\u308B\n        // log g = f (mod x^n) \u3067\u3042\
     \u308B\u304B\u3089\u3001\n        // g = g_p - (log g_p - f)/(log' g_p)\n    \
@@ -248,14 +264,17 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/polynomial/formal_power_series.hpp
-  requiredBy: []
-  timestamp: '2024-11-03 21:58:22+09:00'
+  requiredBy:
+  - lib/polynomial/product_of_polynomial_sequence.hpp
+  timestamp: '2024-11-03 22:42:38+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
   - test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
   - test/library_checker/polynomial/log_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
   - test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/division_of_polynomials.test.cpp
   - test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
 documentation_of: lib/polynomial/formal_power_series.hpp
 layout: document
