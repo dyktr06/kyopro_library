@@ -6,6 +6,9 @@ data:
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
   - icon: ':heavy_check_mark:'
+    path: lib/math/subset_sum.hpp
+    title: Subset Sum
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/formal_power_series.hpp
     title: lib/polynomial/formal_power_series.hpp
   - icon: ':heavy_check_mark:'
@@ -30,6 +33,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
     title: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+    title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/division_of_polynomials.test.cpp
     title: test/library_checker/polynomial/division_of_polynomials.test.cpp
@@ -158,6 +164,7 @@ data:
   isVerificationFile: false
   path: lib/math/crt.hpp
   requiredBy:
+  - lib/math/subset_sum.hpp
   - lib/convolution/ntt.hpp
   - lib/string/wildcard_pattern_matching.hpp
   - lib/polynomial/multipoint_evaluation.hpp
@@ -168,6 +175,7 @@ data:
   timestamp: '2024-11-03 21:58:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - test/library_checker/convolution/convolution_mod_1000000007.test.cpp
   - test/library_checker/convolution/convolution.test.cpp
   - test/library_checker/string/wildcard_pattern_matching.test.cpp

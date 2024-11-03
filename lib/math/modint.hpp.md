@@ -6,6 +6,9 @@ data:
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
   - icon: ':heavy_check_mark:'
+    path: lib/math/subset_sum.hpp
+    title: Subset Sum
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/formal_power_series.hpp
     title: lib/polynomial/formal_power_series.hpp
   - icon: ':heavy_check_mark:'
@@ -72,6 +75,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
     title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+    title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/counting_spanning_tree_directed.test.cpp
     title: test/library_checker/graph/counting_spanning_tree_directed.test.cpp
@@ -228,6 +234,7 @@ data:
   isVerificationFile: false
   path: lib/math/modint.hpp
   requiredBy:
+  - lib/math/subset_sum.hpp
   - lib/convolution/ntt.hpp
   - lib/string/wildcard_pattern_matching.hpp
   - lib/polynomial/multipoint_evaluation.hpp
@@ -243,6 +250,7 @@ data:
   - test/library_checker/matrix/matrix_rank.test.cpp
   - test/library_checker/matrix/pow_of_matrix.test.cpp
   - test/library_checker/matrix/matrix_det.test.cpp
+  - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
   - test/library_checker/data_structure/unionfind_with_potential.test.cpp
   - test/library_checker/data_structure/vertex_set_path_composite.test.cpp

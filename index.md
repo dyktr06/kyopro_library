@@ -346,6 +346,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
+    - icon: ':heavy_check_mark:'
+      path: lib/math/subset_sum.hpp
+      title: Subset Sum
     - icon: ':warning:'
       path: lib/math/utils.hpp
       title: lib/math/utils.hpp
@@ -667,6 +670,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
       title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+      title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - name: test/library_checker/geometry
     pages:
     - icon: ':heavy_check_mark:'
