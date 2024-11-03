@@ -5,6 +5,9 @@
  * @docs docs/math/crt.md
  */
 
+#include <numeric>
+#include <vector>
+
 namespace CRT{
     inline long long mod(long long a, long long m){
         return (a % m + m) % m;
@@ -21,7 +24,7 @@ namespace CRT{
         return d;
     }
 
-    pair<long long, long long> chineseRem(const vector<long long> &b, const vector<long long> &m) {
+    std::pair<long long, long long> chineseRem(const std::vector<long long> &b, const std::vector<long long> &m) {
         long long r = 0, M = 1;
         for(int i = 0; i < (int) b.size(); i++){
             long long p, q;
@@ -37,18 +40,18 @@ namespace CRT{
     }
 
     // not coprime
-    long long preGarner(vector<long long> &b, vector<long long> &m, const long long MOD){
+    long long preGarner(std::vector<long long> &b, std::vector<long long> &m, const long long MOD){
         long long res = 1;
         int n = b.size();
         for(int i = 0; i < n; i++){
             for(int j = 0; j < i; j++){
-                long long g = gcd(m[i], m[j]);
+                long long g = std::gcd(m[i], m[j]);
                 if((b[i] - b[j]) % g != 0) return -1;
                 m[i] /= g, m[j] /= g;
                 // gcd の分だけ被ってるので振り分ける
-                long long gi = gcd(m[i], g), gj = g / gi;
+                long long gi = std::gcd(m[i], g), gj = g / gi;
                 do{
-                    g = gcd(gi, gj);
+                    g = std::gcd(gi, gj);
                     gi *= g, gj /= g;
                 }while(g != 1);
                 m[i] *= gi, m[j] *= gj;
@@ -59,8 +62,8 @@ namespace CRT{
         return res;
     }
 
-    long long garner(const vector<long long> &b, const vector<long long> &m, const long long MOD){
-        vector<long long> tm = m;
+    long long garner(const std::vector<long long> &b, const std::vector<long long> &m, const long long MOD){
+        std::vector<long long> tm = m;
         tm.push_back(MOD);
         auto inv = [&](long long a, long long m) -> long long {
             long long x, y;
@@ -68,7 +71,7 @@ namespace CRT{
             return mod(x, m);
         };
         int n = b.size();
-        vector<long long> coeffs(n + 1, 1), constants(n + 1, 0);
+        std::vector<long long> coeffs(n + 1, 1), constants(n + 1, 0);
         for(int i = 0; i < n; i++){
             // solve "coeffs[i] * t[i] + constants[i] = b[i] (mod. m[i])
             long long t = mod((b[i] - constants[i]) * inv(coeffs[i], tm[i]), tm[i]);

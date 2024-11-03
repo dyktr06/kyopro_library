@@ -3,7 +3,10 @@
 #include "../math/modint.hpp"
 #include "../math/crt.hpp"
 
+#include <vector>
+
 namespace NTT{
+
     // @param n `0 <= n`
     // @return minimum non-negative `x` s.t. `n <= 2**x`
     int ceil_pow2(int n) {
@@ -28,7 +31,7 @@ namespace NTT{
     }
 
     template <typename T>
-    void butterfly(vector<T> &a){
+    void butterfly(std::vector<T> &a){
         int g = primitive_root(T::mod());
         int n = int(a.size());
         int h = ceil_pow2(n);
@@ -70,7 +73,7 @@ namespace NTT{
     }
 
     template <typename T>
-    void butterfly_inv(vector<T> &a) {
+    void butterfly_inv(std::vector<T> &a) {
         int g = primitive_root(T::mod());
         int n = int(a.size());
         int h = ceil_pow2(n);
@@ -113,15 +116,15 @@ namespace NTT{
     }
 
     template <typename T>
-    vector<T> convolution(vector<T> a, vector<T> b){
+    std::vector<T> convolution(std::vector<T> a, std::vector<T> b){
         int n = int(a.size()), m = int(b.size());
         if(!n || !m) return {};
-        if(min(n, m) <= 60) {
+        if(std::min(n, m) <= 60) {
             if(n < m) {
-                swap(n, m);
-                swap(a, b);
+                std::swap(n, m);
+                std::swap(a, b);
             }
-            vector<T> ans(n + m - 1);
+            std::vector<T> ans(n + m - 1);
             for(int i = 0; i < n; i++){
                 for(int j = 0; j < m; j++){
                     ans[i + j] += a[i] * b[j];
@@ -145,7 +148,10 @@ namespace NTT{
     }
 
     template <typename T>
-    vector<T> convolution_mod(const vector<T> &a, const vector<T> &b, const long long MOD){
+    std::vector<T> convolution_mod(const std::vector<T> &a, const std::vector<T> &b, const long long MOD){
+        if(MOD == 998244353){
+            return convolution(a, b);
+        }
         constexpr long long m0 = 167772161;
         constexpr long long m1 = 469762049;
         constexpr long long m2 = 754974721;
@@ -153,9 +159,9 @@ namespace NTT{
         using mint1 = ModInt<m1>;
         using mint2 = ModInt<m2>;
         int n = a.size(), m = b.size();
-        vector<mint0> a0(n), b0(m);
-        vector<mint1> a1(n), b1(m);
-        vector<mint2> a2(n), b2(m);
+        std::vector<mint0> a0(n), b0(m);
+        std::vector<mint1> a1(n), b1(m);
+        std::vector<mint2> a2(n), b2(m);
         for(int i = 0; i < n; i++){
             a0[i] = a[i].val;
             a1[i] = a[i].val;
@@ -169,7 +175,7 @@ namespace NTT{
         auto c0 = convolution(a0, b0);
         auto c1 = convolution(a1, b1);
         auto c2 = convolution(a2, b2);
-        vector<T> ret(n + m - 1);
+        std::vector<T> ret(n + m - 1);
         for(int i = 0; i < n + m - 1; i++){
             ret[i] = CRT::garner({c0[i].val, c1[i].val, c2[i].val}, {m0, m1, m2}, MOD);
         }

@@ -54,7 +54,7 @@ struct ModInt{
     }
     inline ModInt operator-() const noexcept { return (Modulus - val) % Modulus; }
     inline ModInt inv(void) const { return inv(val); }
-    ModInt pow(long long n){
+    ModInt pow(long long n) const {
         assert(0 <= n);
         ModInt x = *this, r = 1;
         while(n){
