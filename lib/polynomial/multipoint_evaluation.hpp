@@ -9,7 +9,7 @@
 #include <vector>
 
 template <typename T>
-std::vector<T> multipointEvalutation(const FormalPowerSeries<T> &f, std::vector<T> &p){
+std::vector<T> multipointEvalutation(const FormalPowerSeries<T> &f, const std::vector<T> &p){
     using FPS = FormalPowerSeries<T>;
     int m = 1;
     while(m < (int) p.size()) m *= 2;
