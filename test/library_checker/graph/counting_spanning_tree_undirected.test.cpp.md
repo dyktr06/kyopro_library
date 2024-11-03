@@ -5,10 +5,10 @@ data:
     path: lib/graph/counting_spanning_tree.hpp
     title: "Counting Spanning Tree (\u5168\u57DF\u6728\u306E\u6570\u3048\u4E0A\u3052\
       )"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/matrix.hpp
     title: Matrix
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []

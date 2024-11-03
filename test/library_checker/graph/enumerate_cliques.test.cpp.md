@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/enumerate_cliques.hpp
     title: "Enumerate Cliques (\u30AF\u30EA\u30FC\u30AF\u306E\u5217\u6319)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
