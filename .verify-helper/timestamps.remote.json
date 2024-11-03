@@ -70,6 +70,7 @@
 "test/library_checker/dp/number_of_subsequences.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/enumerative_combinatorics/factorial.test.cpp": "2024-10-21 22:22:04 +0900",
 "test/library_checker/enumerative_combinatorics/many_factorials.test.cpp": "2024-10-21 22:22:04 +0900",
+"test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp": "2024-11-04 03:01:51 +0900",
 "test/library_checker/geometry/closest_pair.test.cpp": "2024-11-01 00:31:34 +0900",
 "test/library_checker/geometry/count_points_in_triangle.test.cpp": "2024-11-01 00:31:34 +0900",
 "test/library_checker/geometry/furthest_pair.test.cpp": "2024-11-01 00:31:34 +0900",
