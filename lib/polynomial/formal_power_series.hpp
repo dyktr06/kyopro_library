@@ -11,7 +11,7 @@ struct FormalPowerSeries : std::vector<T> {
 
     // deg 次として初期化
     FPS pre(int deg) const {
-        FPS res(begin(*this), begin(*this) + std::min((int) this->size(), deg));
+        FPS res(std::begin(*this), std::begin(*this) + std::min((int) this->size(), deg));
         if((int) res.size() < deg) res.resize(deg, T(0));
         return res;
     }
@@ -20,7 +20,7 @@ struct FormalPowerSeries : std::vector<T> {
     FPS rev(int deg = -1) const {
         FPS res(*this);
         if(deg != -1) res.resize(deg, T(0));
-        std::reverse(begin(res), end(res));
+        std::reverse(std::begin(res), std::end(res));
         return res;
     }
 
@@ -79,7 +79,7 @@ struct FormalPowerSeries : std::vector<T> {
 
     FPS &operator*=(const FPS &rhs) noexcept {
         auto res = NTT::convolution_mod(*this, rhs, T::mod());
-        return *this = {begin(res), end(res)};
+        return *this = {std::begin(res), std::end(res)};
     }
 
     // f/g = f * (g.inv())
@@ -96,13 +96,13 @@ struct FormalPowerSeries : std::vector<T> {
     FPS operator>>(int deg) const {
         if((int) this->size() <= deg) return {};
         FPS res(*this);
-        res.erase(res.begin(), res.begin() + deg);
+        res.erase(std::begin(res), std::begin(res) + deg);
         return res;
     }
 
     FPS operator<<(int deg) const {
         FPS res(*this);
-        res.insert(res.begin(), deg, T(0));
+        res.insert(std::begin(res), deg, T(0));
         return res;
     }
 
@@ -121,6 +121,14 @@ struct FormalPowerSeries : std::vector<T> {
         res[0] = T(0);
         for(int i = 0; i < n; i++) res[i + 1] = (*this)[i] / T(i + 1);
         return res;
+    }
+
+    // {lhs / rhs, lhs % rhs}
+    std::pair<FPS, FPS> division(const FPS &rhs) const {
+        FPS q = *this / rhs;
+        FPS r = *this - q * rhs;
+        q.shrink(), r.shrink();
+        return {q, r};
     }
 
     // fg = 1 (mod x^n) となる g
