@@ -73,9 +73,6 @@ data:
     path: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
     title: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-    title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
     title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -91,20 +88,20 @@ data:
     path: test/library_checker/graph/enumerate_triangles.test.cpp
     title: test/library_checker/graph/enumerate_triangles.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/matrix/inverse_matrix.test.cpp
-    title: test/library_checker/matrix/inverse_matrix.test.cpp
+    path: test/library_checker/linear_algebra/inverse_matrix.test.cpp
+    title: test/library_checker/linear_algebra/inverse_matrix.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/matrix/matrix_det.test.cpp
-    title: test/library_checker/matrix/matrix_det.test.cpp
+    path: test/library_checker/linear_algebra/matrix_det.test.cpp
+    title: test/library_checker/linear_algebra/matrix_det.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/matrix/matrix_product.test.cpp
-    title: test/library_checker/matrix/matrix_product.test.cpp
+    path: test/library_checker/linear_algebra/matrix_product.test.cpp
+    title: test/library_checker/linear_algebra/matrix_product.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/matrix/matrix_rank.test.cpp
-    title: test/library_checker/matrix/matrix_rank.test.cpp
+    path: test/library_checker/linear_algebra/matrix_rank.test.cpp
+    title: test/library_checker/linear_algebra/matrix_rank.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/matrix/pow_of_matrix.test.cpp
-    title: test/library_checker/matrix/pow_of_matrix.test.cpp
+    path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+    title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/division_of_polynomials.test.cpp
     title: test/library_checker/polynomial/division_of_polynomials.test.cpp
@@ -141,9 +138,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/tree_path_composite_sum.test.cpp
     title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/library_checker/tree/vertex_set_path_composite.test.cpp
+    title: test/library_checker/tree/vertex_set_path_composite.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
@@ -243,17 +243,11 @@ data:
   - lib/polynomial/product_of_polynomial_sequence.hpp
   - lib/polynomial/formal_power_series.hpp
   timestamp: '2024-11-03 21:58:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/library_checker/matrix/matrix_product.test.cpp
-  - test/library_checker/matrix/inverse_matrix.test.cpp
-  - test/library_checker/matrix/matrix_rank.test.cpp
-  - test/library_checker/matrix/pow_of_matrix.test.cpp
-  - test/library_checker/matrix/matrix_det.test.cpp
   - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
   - test/library_checker/data_structure/unionfind_with_potential.test.cpp
-  - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
   - test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
   - test/library_checker/data_structure/deque_operate_all_composite.test.cpp
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
@@ -268,10 +262,16 @@ data:
   - test/library_checker/convolution/convolution_mod_1000000007.test.cpp
   - test/library_checker/convolution/convolution.test.cpp
   - test/library_checker/string/wildcard_pattern_matching.test.cpp
+  - test/library_checker/linear_algebra/matrix_product.test.cpp
+  - test/library_checker/linear_algebra/inverse_matrix.test.cpp
+  - test/library_checker/linear_algebra/matrix_rank.test.cpp
+  - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - test/library_checker/linear_algebra/matrix_det.test.cpp
   - test/library_checker/graph/enumerate_cliques.test.cpp
   - test/library_checker/graph/enumerate_triangles.test.cpp
   - test/library_checker/graph/counting_spanning_tree_directed.test.cpp
   - test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
+  - test/library_checker/tree/vertex_set_path_composite.test.cpp
   - test/library_checker/tree/tree_path_composite_sum.test.cpp
   - test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
   - test/library_checker/polynomial/pow_of_formal_power_series.test.cpp

@@ -14,7 +14,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/discrete_logarithm_mod
     links:
     - https://judge.yosupo.jp/problem/discrete_logarithm_mod
-  bundledCode: "#line 1 \"test/library_checker/math/discrete_logarithm_mod.test.cpp\"\
+  bundledCode: "#line 1 \"test/library_checker/number_theory/discrete_logarithm_mod.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/discrete_logarithm_mod\"\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/baby-step_giant-step.hpp\"\
     \n\n/**\n * @brief Baby-step giant-step\n * @docs docs/math/baby-step_giant-step.md\n\
@@ -49,7 +49,7 @@ data:
     \ != 0 && offset + mp[y]) return offset + mp[y];\n        z *= x;\n        z %=\
     \ m;\n    }\n\n    // Giant Step\n    long long u = inv(z, m);\n    for(int i\
     \ = 1; i <= sq; i++){\n        (y *= u) %= m;\n        if(mp.count(y) != 0) return\
-    \ offset + mp[y] + i * sq;\n    }\n    return -1;\n}\n#line 6 \"test/library_checker/math/discrete_logarithm_mod.test.cpp\"\
+    \ offset + mp[y] + i * sq;\n    }\n    return -1;\n}\n#line 6 \"test/library_checker/number_theory/discrete_logarithm_mod.test.cpp\"\
     \n\nint main(){\n    int t; cin >> t;\n    while(t--){\n        long long x, y,\
     \ m; cin >> x >> y >> m;\n        cout << babyStepGiantStep(x, y, m) << \"\\n\"\
     ;\n    }\n}\n"
@@ -61,15 +61,15 @@ data:
   dependsOn:
   - lib/math/baby-step_giant-step.hpp
   isVerificationFile: true
-  path: test/library_checker/math/discrete_logarithm_mod.test.cpp
+  path: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-11-04 03:12:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/math/discrete_logarithm_mod.test.cpp
+documentation_of: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/math/discrete_logarithm_mod.test.cpp
-- /verify/test/library_checker/math/discrete_logarithm_mod.test.cpp.html
-title: test/library_checker/math/discrete_logarithm_mod.test.cpp
+- /verify/test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
+- /verify/test/library_checker/number_theory/discrete_logarithm_mod.test.cpp.html
+title: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
 ---

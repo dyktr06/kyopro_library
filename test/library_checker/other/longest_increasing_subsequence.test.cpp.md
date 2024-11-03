@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/dp/LIS.hpp
     title: Longest Increasing Subsequence
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/longest_increasing_subsequence
     links:
     - https://judge.yosupo.jp/problem/longest_increasing_subsequence
-  bundledCode: "#line 1 \"test/library_checker/dp/longest_increasing_subsequence.test.cpp\"\
+  bundledCode: "#line 1 \"test/library_checker/other/longest_increasing_subsequence.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/longest_increasing_subsequence\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/dp/LIS.hpp\"\
     \n\n/**\n * @brief Longest Increasing Subsequence\n * @docs docs/dp/LIS.md\n */\n\
@@ -34,7 +34,7 @@ data:
     \    vector<int> res;\n    int now = n;\n    for(int i = k - 1; i >= 0; --i){\n\
     \        auto iter = upper_bound(idx[i].begin(), idx[i].end(), now);\n       \
     \ iter--;\n        now = *iter;\n        res.push_back(now);\n    }\n    reverse(res.begin(),\
-    \ res.end());\n    return res;\n}\n#line 6 \"test/library_checker/dp/longest_increasing_subsequence.test.cpp\"\
+    \ res.end());\n    return res;\n}\n#line 6 \"test/library_checker/other/longest_increasing_subsequence.test.cpp\"\
     \n\nint main(){\n    int n; cin >> n;\n    vector<int> a(n);\n    for(int i =\
     \ 0; i < n; i++){\n        cin >> a[i];\n    }\n    vector<int> LIS = construct_LIS(a);\n\
     \    cout << (int) LIS.size() << \"\\n\";\n    for(auto x : LIS){\n        cout\
@@ -48,15 +48,15 @@ data:
   dependsOn:
   - lib/dp/LIS.hpp
   isVerificationFile: true
-  path: test/library_checker/dp/longest_increasing_subsequence.test.cpp
+  path: test/library_checker/other/longest_increasing_subsequence.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-04 03:12:13+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/dp/longest_increasing_subsequence.test.cpp
+documentation_of: test/library_checker/other/longest_increasing_subsequence.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/dp/longest_increasing_subsequence.test.cpp
-- /verify/test/library_checker/dp/longest_increasing_subsequence.test.cpp.html
-title: test/library_checker/dp/longest_increasing_subsequence.test.cpp
+- /verify/test/library_checker/other/longest_increasing_subsequence.test.cpp
+- /verify/test/library_checker/other/longest_increasing_subsequence.test.cpp.html
+title: test/library_checker/other/longest_increasing_subsequence.test.cpp
 ---

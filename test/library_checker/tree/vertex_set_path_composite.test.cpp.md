@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/data_structure/segment_tree.hpp
     title: Segment Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/graph/heavy_light_decomposition.hpp
     title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/vertex_set_path_composite
     links:
     - https://judge.yosupo.jp/problem/vertex_set_path_composite
-  bundledCode: "#line 1 \"test/library_checker/data_structure/vertex_set_path_composite.test.cpp\"\
+  bundledCode: "#line 1 \"test/library_checker/tree/vertex_set_path_composite.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_set_path_composite\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/segment_tree.hpp\"\
     \n\n/**\n * @brief Segment Tree\n * @docs docs/data_structure/segment_tree.md\n\
@@ -136,7 +136,7 @@ data:
     \ &operator>>(std::istream &is, ModInt &x) noexcept {\n        is >> x.val;\n\
     \        x.normalize();\n        return is;\n    }\n    friend inline std::ostream\
     \ &operator<<(std::ostream &os, const ModInt &x) noexcept { return os << x.val;\
-    \ }\n};\n#line 8 \"test/library_checker/data_structure/vertex_set_path_composite.test.cpp\"\
+    \ }\n};\n#line 8 \"test/library_checker/tree/vertex_set_path_composite.test.cpp\"\
     \n\nusing mint = ModInt<998244353>;\n\nint main(){\n    int n, q; cin >> n >>\
     \ q;\n    using T = pair<mint, mint>;\n    vector<T> f(n);\n    for(int i = 0;\
     \ i < n; i++){\n        cin >> f[i].first >> f[i].second;\n    }\n    HeavyLightDecomposition\
@@ -181,15 +181,15 @@ data:
   - lib/graph/heavy_light_decomposition.hpp
   - lib/math/modint.hpp
   isVerificationFile: true
-  path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
+  path: test/library_checker/tree/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 21:58:22+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-04 03:12:13+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
+documentation_of: test/library_checker/tree/vertex_set_path_composite.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-- /verify/test/library_checker/data_structure/vertex_set_path_composite.test.cpp.html
-title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
+- /verify/test/library_checker/tree/vertex_set_path_composite.test.cpp
+- /verify/test/library_checker/tree/vertex_set_path_composite.test.cpp.html
+title: test/library_checker/tree/vertex_set_path_composite.test.cpp
 ---

@@ -7,8 +7,8 @@ data:
     title: "Rational Approximation (\u6709\u7406\u6570\u8FD1\u4F3C)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/rational_approximation.test.cpp
-    title: test/library_checker/math/rational_approximation.test.cpp
+    path: test/library_checker/number_theory/rational_approximation.test.cpp
+    title: test/library_checker/number_theory/rational_approximation.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_1464.test.cpp
     title: test/yukicoder/yuki_1464.test.cpp
@@ -83,7 +83,7 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/math/rational_approximation.test.cpp
+  - test/library_checker/number_theory/rational_approximation.test.cpp
   - test/yukicoder/yuki_1464.test.cpp
 documentation_of: lib/math/fraction.hpp
 layout: document

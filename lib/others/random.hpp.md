@@ -7,8 +7,8 @@ data:
     title: "Primitive Root (\u539F\u5B50\u6839)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/primitive_root.test.cpp
-    title: test/library_checker/math/primitive_root.test.cpp
+    path: test/library_checker/number_theory/primitive_root.test.cpp
+    title: test/library_checker/number_theory/primitive_root.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -37,7 +37,7 @@ data:
   timestamp: '2024-03-21 04:22:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/math/primitive_root.test.cpp
+  - test/library_checker/number_theory/primitive_root.test.cpp
 documentation_of: lib/others/random.hpp
 layout: document
 redirect_from:

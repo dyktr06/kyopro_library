@@ -19,11 +19,11 @@ data:
     path: test/library_checker/data_structure/unionfind.test.cpp
     title: test/library_checker/data_structure/unionfind.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/geometry/manhattanmst.test.cpp
+    title: test/library_checker/geometry/manhattanmst.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/cycle_detection_undirected.test.cpp
     title: test/library_checker/graph/cycle_detection_undirected.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/graph/manhattanmst.test.cpp
-    title: test/library_checker/graph/manhattanmst.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/minimum_spanning_tree.test.cpp
     title: test/library_checker/graph/minimum_spanning_tree.test.cpp
@@ -76,9 +76,9 @@ data:
   verifiedWith:
   - test/library_checker/data_structure/unionfind.test.cpp
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
+  - test/library_checker/geometry/manhattanmst.test.cpp
   - test/library_checker/graph/cycle_detection_undirected.test.cpp
   - test/library_checker/graph/minimum_spanning_tree.test.cpp
-  - test/library_checker/graph/manhattanmst.test.cpp
 documentation_of: lib/data_structure/union_find.hpp
 layout: document
 redirect_from:

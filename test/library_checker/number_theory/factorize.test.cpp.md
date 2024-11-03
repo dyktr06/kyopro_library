@@ -14,8 +14,8 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/factorize
     links:
     - https://judge.yosupo.jp/problem/factorize
-  bundledCode: "#line 1 \"test/library_checker/math/factorize.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/factorize\"\n#include <bits/stdc++.h>\n\
+  bundledCode: "#line 1 \"test/library_checker/number_theory/factorize.test.cpp\"\n\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/factorize\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#line 2 \"lib/math/rho.hpp\"\n\n/**\n * @brief Pollard's\
     \ Rho\n * @docs docs/math/rho.md\n */\n\nnamespace Rho{\n    unsigned long long\
     \ mul(unsigned long long a, unsigned long long b, const unsigned long long mod)\
@@ -57,7 +57,7 @@ data:
     \ = 0; i < n; ++i){\n                unsigned long long z = ret[i];\n        \
     \        for(int j = 0; j < cnt; ++j){\n                    z *= x;\n        \
     \            ret.push_back(z);\n                }\n            }\n        }\n\
-    \        return ret;\n    }\n}\n#line 6 \"test/library_checker/math/factorize.test.cpp\"\
+    \        return ret;\n    }\n}\n#line 6 \"test/library_checker/number_theory/factorize.test.cpp\"\
     \n\nint main(){\n    int q; cin >> q;\n    while(q--){\n        long long a; cin\
     \ >> a;\n        vector<unsigned long long> factor = Rho::factorize(a);\n    \
     \    sort(factor.begin(), factor.end());\n        int n = factor.size();\n   \
@@ -73,15 +73,15 @@ data:
   dependsOn:
   - lib/math/rho.hpp
   isVerificationFile: true
-  path: test/library_checker/math/factorize.test.cpp
+  path: test/library_checker/number_theory/factorize.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-11-04 03:12:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/math/factorize.test.cpp
+documentation_of: test/library_checker/number_theory/factorize.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/math/factorize.test.cpp
-- /verify/test/library_checker/math/factorize.test.cpp.html
-title: test/library_checker/math/factorize.test.cpp
+- /verify/test/library_checker/number_theory/factorize.test.cpp
+- /verify/test/library_checker/number_theory/factorize.test.cpp.html
+title: test/library_checker/number_theory/factorize.test.cpp
 ---

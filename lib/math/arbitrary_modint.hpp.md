@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
-    title: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
+    path: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
+    title: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -105,7 +105,7 @@ data:
   timestamp: '2024-11-03 21:58:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
+  - test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
 documentation_of: lib/math/arbitrary_modint.hpp
 layout: document
 redirect_from:

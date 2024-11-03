@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/enumerate_quotients.test.cpp
-    title: test/library_checker/math/enumerate_quotients.test.cpp
+    path: test/library_checker/number_theory/enumerate_quotients.test.cpp
+    title: test/library_checker/number_theory/enumerate_quotients.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -33,7 +33,7 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/math/enumerate_quotients.test.cpp
+  - test/library_checker/number_theory/enumerate_quotients.test.cpp
 documentation_of: lib/math/enumerate_quotients.hpp
 layout: document
 redirect_from:

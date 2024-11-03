@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/static_rmq.test.cpp
     title: test/library_checker/data_structure/static_rmq.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-    title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/library_checker/tree/vertex_set_path_composite.test.cpp
+    title: test/library_checker/tree/vertex_set_path_composite.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/data_structure/segment_tree.md
     document_title: Segment Tree
@@ -66,10 +66,10 @@ data:
   path: lib/data_structure/segment_tree.hpp
   requiredBy: []
   timestamp: '2024-05-31 18:23:43+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/static_rmq.test.cpp
-  - test/library_checker/data_structure/vertex_set_path_composite.test.cpp
+  - test/library_checker/tree/vertex_set_path_composite.test.cpp
 documentation_of: lib/data_structure/segment_tree.hpp
 layout: document
 redirect_from:

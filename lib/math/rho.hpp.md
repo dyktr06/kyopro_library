@@ -7,14 +7,14 @@ data:
     title: "Primitive Root (\u539F\u5B50\u6839)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/factorize.test.cpp
-    title: test/library_checker/math/factorize.test.cpp
+    path: test/library_checker/number_theory/factorize.test.cpp
+    title: test/library_checker/number_theory/factorize.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/primality_test.test.cpp
-    title: test/library_checker/math/primality_test.test.cpp
+    path: test/library_checker/number_theory/primality_test.test.cpp
+    title: test/library_checker/number_theory/primality_test.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/primitive_root.test.cpp
-    title: test/library_checker/math/primitive_root.test.cpp
+    path: test/library_checker/number_theory/primitive_root.test.cpp
+    title: test/library_checker/number_theory/primitive_root.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_888.test.cpp
     title: test/yukicoder/yuki_888.test.cpp
@@ -117,9 +117,9 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/math/primitive_root.test.cpp
-  - test/library_checker/math/factorize.test.cpp
-  - test/library_checker/math/primality_test.test.cpp
+  - test/library_checker/number_theory/primitive_root.test.cpp
+  - test/library_checker/number_theory/factorize.test.cpp
+  - test/library_checker/number_theory/primality_test.test.cpp
   - test/yukicoder/yuki_888.test.cpp
 documentation_of: lib/math/rho.hpp
 layout: document

@@ -14,20 +14,20 @@ data:
     path: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
     title: test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/matrix/inverse_matrix.test.cpp
-    title: test/library_checker/matrix/inverse_matrix.test.cpp
+    path: test/library_checker/linear_algebra/inverse_matrix.test.cpp
+    title: test/library_checker/linear_algebra/inverse_matrix.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/matrix/matrix_det.test.cpp
-    title: test/library_checker/matrix/matrix_det.test.cpp
+    path: test/library_checker/linear_algebra/matrix_det.test.cpp
+    title: test/library_checker/linear_algebra/matrix_det.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/matrix/matrix_product.test.cpp
-    title: test/library_checker/matrix/matrix_product.test.cpp
+    path: test/library_checker/linear_algebra/matrix_product.test.cpp
+    title: test/library_checker/linear_algebra/matrix_product.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/matrix/matrix_rank.test.cpp
-    title: test/library_checker/matrix/matrix_rank.test.cpp
+    path: test/library_checker/linear_algebra/matrix_rank.test.cpp
+    title: test/library_checker/linear_algebra/matrix_rank.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/matrix/pow_of_matrix.test.cpp
-    title: test/library_checker/matrix/pow_of_matrix.test.cpp
+    path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+    title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -215,11 +215,11 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/matrix/matrix_product.test.cpp
-  - test/library_checker/matrix/inverse_matrix.test.cpp
-  - test/library_checker/matrix/matrix_rank.test.cpp
-  - test/library_checker/matrix/pow_of_matrix.test.cpp
-  - test/library_checker/matrix/matrix_det.test.cpp
+  - test/library_checker/linear_algebra/matrix_product.test.cpp
+  - test/library_checker/linear_algebra/inverse_matrix.test.cpp
+  - test/library_checker/linear_algebra/matrix_rank.test.cpp
+  - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - test/library_checker/linear_algebra/matrix_det.test.cpp
   - test/library_checker/graph/counting_spanning_tree_directed.test.cpp
   - test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
 documentation_of: lib/math/matrix.hpp

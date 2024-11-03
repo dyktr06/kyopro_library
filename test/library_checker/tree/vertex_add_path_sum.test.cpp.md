@@ -1,25 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/data_structure/binary_indexed_tree.hpp
     title: Binary Indexed Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/graph/heavy_light_decomposition.hpp
     title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/vertex_add_subtree_sum
+    PROBLEM: https://judge.yosupo.jp/problem/vertex_add_path_sum
     links:
-    - https://judge.yosupo.jp/problem/vertex_add_subtree_sum
-  bundledCode: "#line 1 \"test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/binary_indexed_tree.hpp\"\
+    - https://judge.yosupo.jp/problem/vertex_add_path_sum
+  bundledCode: "#line 1 \"test/library_checker/tree/vertex_add_path_sum.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/binary_indexed_tree.hpp\"\
     \n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
     \ */\n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
     \ BIT;\n    BinaryIndexedTree(const int &N) : N(N), BIT(N + 1, 0){\n    }\n\n\
@@ -92,43 +92,45 @@ data:
     \n    void path_noncommutative_query(int a, int b, const function<void(int, int)>\
     \ &func, const function<void(int, int)> &func2){\n        int l = lca(a, b);\n\
     \        path_query(a, l, func2, false, true);\n        path_query(l, b, func,\
-    \ true, false);\n    }\n};\n#line 7 \"test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp\"\
+    \ true, false);\n    }\n};\n#line 7 \"test/library_checker/tree/vertex_add_path_sum.test.cpp\"\
     \n\nint main(){\n    int n, q; cin >> n >> q;\n    vector<int> a(n);\n    for(int\
     \ i = 0; i < n; i++){\n        cin >> a[i];\n    }\n    HeavyLightDecomposition\
-    \ hl(n);\n    for(int i = 1; i < n; i++){\n        int p; cin >> p;\n        hl.add_edge(p,\
-    \ i);\n    }\n    hl.build();\n    BinaryIndexedTree<long long> BIT(n);\n    for(int\
-    \ i = 0; i < n; i++){\n        BIT.add(hl.get(i), a[i]);\n    }\n    long long\
-    \ ans = 0;\n    auto query = [&](int l, int r){\n        ans += BIT.sum(l, r);\n\
-    \    };\n    while(q--){\n        int t; cin >> t;\n        if(t == 0){\n    \
-    \        int p, x; cin >> p >> x;\n            BIT.add(hl.get(p), x);\n      \
-    \  }else{\n            int u; cin >> u;\n            ans = 0;\n            hl.subtree_query(u,\
-    \ query);\n            cout << ans << \"\\n\";\n        }\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/data_structure/binary_indexed_tree.hpp\"\
+    \ hl(n);\n    for(int i = 0; i < n - 1; i++){\n        int u, v; cin >> u >> v;\n\
+    \        hl.add_edge(u, v);\n    }\n    hl.build();\n    BinaryIndexedTree<long\
+    \ long> BIT(n);\n    for(int i = 0; i < n; i++){\n        BIT.add(hl.get(i), a[i]);\n\
+    \    }\n    long long ans = 0;\n    auto query = [&](int l, int r){\n        ans\
+    \ += BIT.sum(l, r);\n    };\n    while(q--){\n        int t; cin >> t;\n     \
+    \   if(t == 0){\n            int p, x; cin >> p >> x;\n            BIT.add(hl.get(p),\
+    \ x);\n        }else{\n            int u, v; cin >> u >> v;\n            ans =\
+    \ 0;\n            hl.path_query(u, v, query);\n            cout << ans << \"\\\
+    n\";\n        }\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n\
+    #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/data_structure/binary_indexed_tree.hpp\"\
     \n#include \"../../../lib/graph/heavy_light_decomposition.hpp\"\n\nint main(){\n\
     \    int n, q; cin >> n >> q;\n    vector<int> a(n);\n    for(int i = 0; i < n;\
     \ i++){\n        cin >> a[i];\n    }\n    HeavyLightDecomposition hl(n);\n   \
-    \ for(int i = 1; i < n; i++){\n        int p; cin >> p;\n        hl.add_edge(p,\
-    \ i);\n    }\n    hl.build();\n    BinaryIndexedTree<long long> BIT(n);\n    for(int\
+    \ for(int i = 0; i < n - 1; i++){\n        int u, v; cin >> u >> v;\n        hl.add_edge(u,\
+    \ v);\n    }\n    hl.build();\n    BinaryIndexedTree<long long> BIT(n);\n    for(int\
     \ i = 0; i < n; i++){\n        BIT.add(hl.get(i), a[i]);\n    }\n    long long\
     \ ans = 0;\n    auto query = [&](int l, int r){\n        ans += BIT.sum(l, r);\n\
     \    };\n    while(q--){\n        int t; cin >> t;\n        if(t == 0){\n    \
     \        int p, x; cin >> p >> x;\n            BIT.add(hl.get(p), x);\n      \
-    \  }else{\n            int u; cin >> u;\n            ans = 0;\n            hl.subtree_query(u,\
-    \ query);\n            cout << ans << \"\\n\";\n        }\n    }\n}"
+    \  }else{\n            int u, v; cin >> u >> v;\n            ans = 0;\n      \
+    \      hl.path_query(u, v, query);\n            cout << ans << \"\\n\";\n    \
+    \    }\n    }\n}"
   dependsOn:
   - lib/data_structure/binary_indexed_tree.hpp
   - lib/graph/heavy_light_decomposition.hpp
   isVerificationFile: true
-  path: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
+  path: test/library_checker/tree/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 20:00:04+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-04 03:12:13+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
+documentation_of: test/library_checker/tree/vertex_add_path_sum.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
-- /verify/test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp.html
-title: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
+- /verify/test/library_checker/tree/vertex_add_path_sum.test.cpp
+- /verify/test/library_checker/tree/vertex_add_path_sum.test.cpp.html
+title: test/library_checker/tree/vertex_add_path_sum.test.cpp
 ---

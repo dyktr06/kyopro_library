@@ -14,8 +14,8 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/enumerate_primes
     links:
     - https://judge.yosupo.jp/problem/enumerate_primes
-  bundledCode: "#line 1 \"test/library_checker/math/enumerate_primes.test.cpp\"\n\
-    #define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_primes\"\n#include\
+  bundledCode: "#line 1 \"test/library_checker/number_theory/enumerate_primes.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_primes\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/prime_sieve.hpp\"\
     \n\n/**\n * @brief Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\
     \u7BE9)\n * @docs docs/math/prime-sieve.md\n */\n\ntemplate <typename T>\nstruct\
@@ -31,13 +31,13 @@ data:
     \ return true;\n        if(x % 2 == 0) return false;\n        return sieve[x /\
     \ 2];\n    }\n\n    T getPrimeCount(){\n        return prime_list.size();\n  \
     \  }\n\n    T getKthPrime(int k){\n        return prime_list[k];\n    }\n};\n\
-    #line 6 \"test/library_checker/math/enumerate_primes.test.cpp\"\n\nint main(){\n\
-    \    int n, a, b; cin >> n >> a >> b;\n    PrimeSieve<int> s(n);\n    int cnt\
-    \ = s.getPrimeCount();\n    vector<int> res;\n    for(int i = b; i < cnt; i +=\
-    \ a){\n        res.push_back(s.getKthPrime(i));\n    }\n    int cnt2 = res.size();\n\
-    \    cout << cnt << \" \" << cnt2 << \"\\n\";\n    for(int i = 0; i < cnt2; i++){\n\
-    \        if(i >= 1) cout << \" \";\n        cout << res[i];\n    }\n    cout <<\
-    \ \"\\n\";\n}\n"
+    #line 6 \"test/library_checker/number_theory/enumerate_primes.test.cpp\"\n\nint\
+    \ main(){\n    int n, a, b; cin >> n >> a >> b;\n    PrimeSieve<int> s(n);\n \
+    \   int cnt = s.getPrimeCount();\n    vector<int> res;\n    for(int i = b; i <\
+    \ cnt; i += a){\n        res.push_back(s.getKthPrime(i));\n    }\n    int cnt2\
+    \ = res.size();\n    cout << cnt << \" \" << cnt2 << \"\\n\";\n    for(int i =\
+    \ 0; i < cnt2; i++){\n        if(i >= 1) cout << \" \";\n        cout << res[i];\n\
+    \    }\n    cout << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_primes\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/prime_sieve.hpp\"\
     \n\nint main(){\n    int n, a, b; cin >> n >> a >> b;\n    PrimeSieve<int> s(n);\n\
@@ -49,15 +49,15 @@ data:
   dependsOn:
   - lib/math/prime_sieve.hpp
   isVerificationFile: true
-  path: test/library_checker/math/enumerate_primes.test.cpp
+  path: test/library_checker/number_theory/enumerate_primes.test.cpp
   requiredBy: []
-  timestamp: '2024-10-21 21:39:54+09:00'
+  timestamp: '2024-11-04 03:12:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/math/enumerate_primes.test.cpp
+documentation_of: test/library_checker/number_theory/enumerate_primes.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/math/enumerate_primes.test.cpp
-- /verify/test/library_checker/math/enumerate_primes.test.cpp.html
-title: test/library_checker/math/enumerate_primes.test.cpp
+- /verify/test/library_checker/number_theory/enumerate_primes.test.cpp
+- /verify/test/library_checker/number_theory/enumerate_primes.test.cpp.html
+title: test/library_checker/number_theory/enumerate_primes.test.cpp
 ---

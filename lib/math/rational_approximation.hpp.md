@@ -7,8 +7,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/rational_approximation.test.cpp
-    title: test/library_checker/math/rational_approximation.test.cpp
+    path: test/library_checker/number_theory/rational_approximation.test.cpp
+    title: test/library_checker/number_theory/rational_approximation.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -94,7 +94,7 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/math/rational_approximation.test.cpp
+  - test/library_checker/number_theory/rational_approximation.test.cpp
 documentation_of: lib/math/rational_approximation.hpp
 layout: document
 redirect_from:

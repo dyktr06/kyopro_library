@@ -4,11 +4,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
-    title: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
+    path: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod.test.cpp
+    title: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
-    title: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
+    path: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
+    title: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_117.test.cpp
     title: test/yukicoder/yuki_117.test.cpp
@@ -78,8 +78,8 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
-  - test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
+  - test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
+  - test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod.test.cpp
   - test/yukicoder/yuki_117.test.cpp
 documentation_of: lib/math/combination.hpp
 layout: document

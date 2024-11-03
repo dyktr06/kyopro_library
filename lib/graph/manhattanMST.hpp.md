@@ -7,8 +7,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/graph/manhattanmst.test.cpp
-    title: test/library_checker/graph/manhattanmst.test.cpp
+    path: test/library_checker/geometry/manhattanmst.test.cpp
+    title: test/library_checker/geometry/manhattanmst.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -77,7 +77,7 @@ data:
   timestamp: '2024-10-31 17:18:53+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/graph/manhattanmst.test.cpp
+  - test/library_checker/geometry/manhattanmst.test.cpp
 documentation_of: lib/graph/manhattanMST.hpp
 layout: document
 redirect_from:

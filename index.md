@@ -35,7 +35,7 @@ data:
       title: lib/convolution/set_zeta_mobius_transform.hpp
   - name: lib/data_structure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/data_structure/binary_indexed_tree.hpp
       title: Binary Indexed Tree
     - icon: ':heavy_check_mark:'
@@ -122,7 +122,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/range_tree.hpp
       title: lib/data_structure/range_tree.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/data_structure/segment_tree.hpp
       title: Segment Tree
     - icon: ':heavy_check_mark:'
@@ -157,7 +157,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/dp/LCS.hpp
       title: Longest Common Subsequence
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/dp/LIS.hpp
       title: Longest Increasing Subsequence
     - icon: ':heavy_check_mark:'
@@ -226,7 +226,7 @@ data:
       path: lib/graph/grid-bfs.cpp
       title: "Grid BFS (\u4E8C\u6B21\u5143\u30B0\u30EA\u30C3\u30C9\u4E0A\u306E\u5E45\
         \u512A\u5148\u63A2\u7D22)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/graph/heavy_light_decomposition.hpp
       title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
     - icon: ':warning:'
@@ -322,7 +322,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -645,31 +645,23 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
       title: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
-      title: test/library_checker/data_structure/vertex_add_path_sum.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
-      title: test/library_checker/data_structure/vertex_add_subtree_sum.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-      title: test/library_checker/data_structure/vertex_set_path_composite.test.cpp
-  - name: test/library_checker/dp
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/dp/longest_increasing_subsequence.test.cpp
-      title: test/library_checker/dp/longest_increasing_subsequence.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/dp/number_of_subsequences.test.cpp
-      title: test/library_checker/dp/number_of_subsequences.test.cpp
   - name: test/library_checker/enumerative_combinatorics
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod.test.cpp
+      title: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
+      title: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/factorial.test.cpp
       title: test/library_checker/enumerative_combinatorics/factorial.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
       title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp
+      title: test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
       title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
@@ -684,6 +676,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/geometry/furthest_pair.test.cpp
       title: test/library_checker/geometry/furthest_pair.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/geometry/manhattanmst.test.cpp
+      title: test/library_checker/geometry/manhattanmst.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/geometry/sort_points_by_argument.test.cpp
       title: test/library_checker/geometry/sort_points_by_argument.test.cpp
@@ -735,9 +730,6 @@ data:
       path: test/library_checker/graph/eulerian_trail_undirected.test.cpp
       title: test/library_checker/graph/eulerian_trail_undirected.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/library_checker/graph/manhattanmst.test.cpp
-      title: test/library_checker/graph/manhattanmst.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/maximum_independent_set.test.cpp
       title: test/library_checker/graph/maximum_independent_set.test.cpp
     - icon: ':heavy_check_mark:'
@@ -755,60 +747,57 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/two_edge_connected_components.test.cpp
       title: test/library_checker/graph/two_edge_connected_components.test.cpp
-  - name: test/library_checker/math
+  - name: test/library_checker/linear_algebra
     pages:
     - icon: ':heavy_check_mark:'
-      path: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
-      title: test/library_checker/math/binomial_coefficient_prime_mod.test.cpp
+      path: test/library_checker/linear_algebra/inverse_matrix.test.cpp
+      title: test/library_checker/linear_algebra/inverse_matrix.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
-      title: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
+      path: test/library_checker/linear_algebra/matrix_det.test.cpp
+      title: test/library_checker/linear_algebra/matrix_det.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/library_checker/math/discrete_logarithm_mod.test.cpp
-      title: test/library_checker/math/discrete_logarithm_mod.test.cpp
+      path: test/library_checker/linear_algebra/matrix_product.test.cpp
+      title: test/library_checker/linear_algebra/matrix_product.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/library_checker/math/enumerate_primes.test.cpp
-      title: test/library_checker/math/enumerate_primes.test.cpp
+      path: test/library_checker/linear_algebra/matrix_rank.test.cpp
+      title: test/library_checker/linear_algebra/matrix_rank.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/library_checker/math/enumerate_quotients.test.cpp
-      title: test/library_checker/math/enumerate_quotients.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/math/factorize.test.cpp
-      title: test/library_checker/math/factorize.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/math/kth_root_integer.test.cpp
-      title: test/library_checker/math/kth_root_integer.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/math/primality_test.test.cpp
-      title: test/library_checker/math/primality_test.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/math/primitive_root.test.cpp
-      title: test/library_checker/math/primitive_root.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/math/rational_approximation.test.cpp
-      title: test/library_checker/math/rational_approximation.test.cpp
-  - name: test/library_checker/matrix
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/matrix/inverse_matrix.test.cpp
-      title: test/library_checker/matrix/inverse_matrix.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/matrix/matrix_det.test.cpp
-      title: test/library_checker/matrix/matrix_det.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/matrix/matrix_product.test.cpp
-      title: test/library_checker/matrix/matrix_product.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/matrix/matrix_rank.test.cpp
-      title: test/library_checker/matrix/matrix_rank.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/matrix/pow_of_matrix.test.cpp
-      title: test/library_checker/matrix/pow_of_matrix.test.cpp
+      path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+      title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - name: test/library_checker/number_theory
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
+      title: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/enumerate_primes.test.cpp
+      title: test/library_checker/number_theory/enumerate_primes.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/enumerate_quotients.test.cpp
+      title: test/library_checker/number_theory/enumerate_quotients.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/factorize.test.cpp
+      title: test/library_checker/number_theory/factorize.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/kth_root_integer.test.cpp
+      title: test/library_checker/number_theory/kth_root_integer.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/primality_test.test.cpp
+      title: test/library_checker/number_theory/primality_test.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/primitive_root.test.cpp
+      title: test/library_checker/number_theory/primitive_root.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/rational_approximation.test.cpp
+      title: test/library_checker/number_theory/rational_approximation.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/sqrt_mod.test.cpp
       title: test/library_checker/number_theory/sqrt_mod.test.cpp
+  - name: test/library_checker/other
+    pages:
+    - icon: ':x:'
+      path: test/library_checker/other/longest_increasing_subsequence.test.cpp
+      title: test/library_checker/other/longest_increasing_subsequence.test.cpp
   - name: test/library_checker/polynomial
     pages:
     - icon: ':heavy_check_mark:'
@@ -892,6 +881,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/tree_path_composite_sum.test.cpp
       title: test/library_checker/tree/tree_path_composite_sum.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/tree/vertex_add_path_sum.test.cpp
+      title: test/library_checker/tree/vertex_add_path_sum.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/tree/vertex_add_subtree_sum.test.cpp
+      title: test/library_checker/tree/vertex_add_subtree_sum.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/tree/vertex_set_path_composite.test.cpp
+      title: test/library_checker/tree/vertex_set_path_composite.test.cpp
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'

@@ -19,8 +19,8 @@ data:
     path: test/library_checker/convolution/lcm_convolution.test.cpp
     title: test/library_checker/convolution/lcm_convolution.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/enumerate_primes.test.cpp
-    title: test/library_checker/math/enumerate_primes.test.cpp
+    path: test/library_checker/number_theory/enumerate_primes.test.cpp
+    title: test/library_checker/number_theory/enumerate_primes.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -67,7 +67,7 @@ data:
   timestamp: '2024-10-21 21:39:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/math/enumerate_primes.test.cpp
+  - test/library_checker/number_theory/enumerate_primes.test.cpp
   - test/library_checker/convolution/gcd_convolution.test.cpp
   - test/library_checker/convolution/lcm_convolution.test.cpp
 documentation_of: lib/math/prime_sieve.hpp

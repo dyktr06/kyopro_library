@@ -17,7 +17,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/rational_approximation
     links:
     - https://judge.yosupo.jp/problem/rational_approximation
-  bundledCode: "#line 1 \"test/library_checker/math/rational_approximation.test.cpp\"\
+  bundledCode: "#line 1 \"test/library_checker/number_theory/rational_approximation.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/rational_approximation\"\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/rational_approximation.hpp\"\
     \n\n/**\n * @brief Rational Approximation (\u6709\u7406\u6570\u8FD1\u4F3C)\n *\
@@ -68,7 +68,7 @@ data:
     \                } else{\n                    ng = mid;\n                }\n \
     \           }\n            a = m;\n            if(m.p <= n && m.q <= n){\n   \
     \             x = m;\n            } else{\n                ok_right = false;\n\
-    \            }\n        }\n    }\n    return make_pair(x, y);\n}\n#line 6 \"test/library_checker/math/rational_approximation.test.cpp\"\
+    \            }\n        }\n    }\n    return make_pair(x, y);\n}\n#line 6 \"test/library_checker/number_theory/rational_approximation.test.cpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
     \   int T; cin >> T;\n    while(T--){\n        long long n, x, y; cin >> n >>\
     \ x >> y;\n        fraction<long long> f(x, y);\n        auto [l, r] = rationalApproximation(n,\
@@ -85,15 +85,15 @@ data:
   - lib/math/rational_approximation.hpp
   - lib/math/fraction.hpp
   isVerificationFile: true
-  path: test/library_checker/math/rational_approximation.test.cpp
+  path: test/library_checker/number_theory/rational_approximation.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-11-04 03:12:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/math/rational_approximation.test.cpp
+documentation_of: test/library_checker/number_theory/rational_approximation.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/math/rational_approximation.test.cpp
-- /verify/test/library_checker/math/rational_approximation.test.cpp.html
-title: test/library_checker/math/rational_approximation.test.cpp
+- /verify/test/library_checker/number_theory/rational_approximation.test.cpp
+- /verify/test/library_checker/number_theory/rational_approximation.test.cpp.html
+title: test/library_checker/number_theory/rational_approximation.test.cpp
 ---

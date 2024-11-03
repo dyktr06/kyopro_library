@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/math/kth_root_integer.test.cpp
-    title: test/library_checker/math/kth_root_integer.test.cpp
+    path: test/library_checker/number_theory/kth_root_integer.test.cpp
+    title: test/library_checker/number_theory/kth_root_integer.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -32,7 +32,7 @@ data:
   timestamp: '2024-04-29 04:13:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/math/kth_root_integer.test.cpp
+  - test/library_checker/number_theory/kth_root_integer.test.cpp
 documentation_of: lib/math/kth_root_integer.hpp
 layout: document
 redirect_from:

@@ -17,7 +17,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
     links:
     - https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
-  bundledCode: "#line 1 \"test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp\"\
+  bundledCode: "#line 1 \"test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/arbitrary_modint.hpp\"\
     \n\n/**\n * @brief Arbitrary Modint\n * @docs docs/math/arbitrary_modint.md\n\
@@ -86,7 +86,7 @@ data:
     \ - 1] + memo[i - 1][j]);\n                if(memo[i][j] >= mod) memo[i][j] -=\
     \ mod;\n            }\n        }\n    }\n    inline long long ncr(const int &n,\
     \ const int &r) const {\n        if(n < r || r < 0) return 0;\n        return\
-    \ memo[n][r];\n    }\n};\n#line 7 \"test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp\"\
+    \ memo[n][r];\n    }\n};\n#line 7 \"test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp\"\
     \n\nusing mint = ModInt;\n\nint main(){\n    ios::sync_with_stdio(false);\n  \
     \  cin.tie(nullptr);\n\n    int t, m; cin >> t >> m;\n    mint::setMod(m);\n \
     \   Combination comb(10000000, m);\n    while(t--){\n        int n, k; cin >>\
@@ -103,15 +103,15 @@ data:
   - lib/math/arbitrary_modint.hpp
   - lib/math/combination.hpp
   isVerificationFile: true
-  path: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
+  path: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 21:58:22+09:00'
+  timestamp: '2024-11-04 03:12:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
+documentation_of: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
-- /verify/test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp.html
-title: test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp
+- /verify/test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
+- /verify/test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp.html
+title: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
 ---

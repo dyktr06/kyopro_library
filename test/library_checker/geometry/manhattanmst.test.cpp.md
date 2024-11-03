@@ -17,8 +17,8 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/manhattanmst
     links:
     - https://judge.yosupo.jp/problem/manhattanmst
-  bundledCode: "#line 1 \"test/library_checker/graph/manhattanmst.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/manhattanmst\"\n#include <bits/stdc++.h>\n\
+  bundledCode: "#line 1 \"test/library_checker/geometry/manhattanmst.test.cpp\"\n\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/manhattanmst\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#line 2 \"lib/graph/manhattanMST.hpp\"\n\n#line 2 \"lib/data_structure/union_find.hpp\"\
     \n\n#line 5 \"lib/data_structure/union_find.hpp\"\n\n/**\n * @brief Union Find\n\
     \ * @docs docs/data_structure/union_find.md\n */\n\nstruct UnionFind{\n    int\
@@ -52,7 +52,7 @@ data:
     \    UnionFind dsu(n);\n    vector<pair<int, int>> used;\n    used.reserve(n -\
     \ 1);\n    for(const auto &[c, i, j] : edge){\n        if(!dsu.same(i, j)){\n\
     \            used.emplace_back(i, j);\n            dsu.unite(i, j);\n        }\n\
-    \    }\n    return used;\n}\n#line 6 \"test/library_checker/graph/manhattanmst.test.cpp\"\
+    \    }\n    return used;\n}\n#line 6 \"test/library_checker/geometry/manhattanmst.test.cpp\"\
     \n\nint main(){\n    int n; cin >> n;\n    vector<int> x(n), y(n);\n    for(int\
     \ i = 0; i < n; i++){\n        cin >> x[i] >> y[i];\n    }\n    vector<pair<int,\
     \ int>> ans = manhattanMST(x, y);\n    long long sum = 0;\n    for(auto [i, j]\
@@ -71,15 +71,15 @@ data:
   - lib/graph/manhattanMST.hpp
   - lib/data_structure/union_find.hpp
   isVerificationFile: true
-  path: test/library_checker/graph/manhattanmst.test.cpp
+  path: test/library_checker/geometry/manhattanmst.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:18:53+09:00'
+  timestamp: '2024-11-04 03:12:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/graph/manhattanmst.test.cpp
+documentation_of: test/library_checker/geometry/manhattanmst.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/graph/manhattanmst.test.cpp
-- /verify/test/library_checker/graph/manhattanmst.test.cpp.html
-title: test/library_checker/graph/manhattanmst.test.cpp
+- /verify/test/library_checker/geometry/manhattanmst.test.cpp
+- /verify/test/library_checker/geometry/manhattanmst.test.cpp.html
+title: test/library_checker/geometry/manhattanmst.test.cpp
 ---

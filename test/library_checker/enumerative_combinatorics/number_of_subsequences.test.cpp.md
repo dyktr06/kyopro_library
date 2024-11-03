@@ -14,7 +14,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/number_of_subsequences
     links:
     - https://judge.yosupo.jp/problem/number_of_subsequences
-  bundledCode: "#line 1 \"test/library_checker/dp/number_of_subsequences.test.cpp\"\
+  bundledCode: "#line 1 \"test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/number_of_subsequences\"\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/dp/substring.hpp\"\
     \n\n/**\n * @brief Count Substrings\n * @docs docs/dp/substring.md\n */\n\nlong\
@@ -31,7 +31,7 @@ data:
     \ dp(n + 1);\n    dp[0] = 1;\n    for(int i = 0; i < n; i++){\n        if(mp.count(s[i])\
     \ != 0){\n            dp[i + 1] = dp[i] * 2 + m - dp[mp[s[i]]];\n        } else{\n\
     \            dp[i + 1] = dp[i] * 2;\n        }\n        dp[i + 1] %= m;\n    \
-    \    mp[s[i]] = i;\n    }\n    return dp[n];\n}\n#line 6 \"test/library_checker/dp/number_of_subsequences.test.cpp\"\
+    \    mp[s[i]] = i;\n    }\n    return dp[n];\n}\n#line 6 \"test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp\"\
     \n\nconstexpr long long MOD = 998244353;\n\nint main(){\n    int n; cin >> n;\n\
     \    vector<int> a(n);\n    for(int i = 0; i < n; i++){\n        cin >> a[i];\n\
     \    }\n    long long ans = subsequences(a, MOD) + MOD - 1;\n    ans %= MOD;\n\
@@ -45,15 +45,15 @@ data:
   dependsOn:
   - lib/dp/substring.hpp
   isVerificationFile: true
-  path: test/library_checker/dp/number_of_subsequences.test.cpp
+  path: test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2024-11-04 03:12:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/dp/number_of_subsequences.test.cpp
+documentation_of: test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/dp/number_of_subsequences.test.cpp
-- /verify/test/library_checker/dp/number_of_subsequences.test.cpp.html
-title: test/library_checker/dp/number_of_subsequences.test.cpp
+- /verify/test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp
+- /verify/test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp.html
+title: test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp
 ---
