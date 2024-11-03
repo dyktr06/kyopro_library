@@ -384,11 +384,14 @@ data:
       path: lib/polynomial/formal_power_series.hpp
       title: lib/polynomial/formal_power_series.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/polynomial/multipoint_evaluation.hpp
+      title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/product_of_polynomial_sequence.hpp
       title: lib/polynomial/product_of_polynomial_sequence.hpp
     - icon: ':heavy_check_mark:'
       path: lib/polynomial/taylor_shift.hpp
-      title: lib/polynomial/taylor_shift.hpp
+      title: Taylor Shift
   - name: lib/string
     pages:
     - icon: ':warning:'
@@ -811,6 +814,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
+      title: test/library_checker/polynomial/multipoint_evaluation.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
       title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp

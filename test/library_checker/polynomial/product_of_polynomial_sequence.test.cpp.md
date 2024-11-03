@@ -68,17 +68,18 @@ data:
     \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
     \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
     \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
-    \ { return os << x.val; }\n};\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\
-    \n\n#include <algorithm>\n#line 5 \"lib/polynomial/formal_power_series.hpp\"\n\
-    #include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/crt.hpp\"\
-    \n\n/**\n * @brief Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406\
-    )\n * @docs docs/math/crt.md\n */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\
-    \n\nnamespace CRT{\n    inline long long mod(long long a, long long m){\n    \
-    \    return (a % m + m) % m;\n    }\n\n    long long extGCD(long long a, long\
-    \ long b, long long &x, long long &y){\n        if(b == 0){\n            x = 1;\n\
-    \            y = 0;\n            return a;\n        }\n        long long d = extGCD(b,\
-    \ a % b, y, x);\n        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long\
-    \ long, long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
+    \ { return os << x.val; }\n};\n#line 2 \"lib/polynomial/product_of_polynomial_sequence.hpp\"\
+    \n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n#include <algorithm>\n\
+    #line 5 \"lib/polynomial/formal_power_series.hpp\"\n#include <vector>\n#line 2\
+    \ \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
+    \ Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
+    \ */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n\
+    \    inline long long mod(long long a, long long m){\n        return (a % m +\
+    \ m) % m;\n    }\n\n    long long extGCD(long long a, long long b, long long &x,\
+    \ long long &y){\n        if(b == 0){\n            x = 1;\n            y = 0;\n\
+    \            return a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n\
+    \        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long long,\
+    \ long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
     \ long> &m) {\n        long long r = 0, M = 1;\n        for(int i = 0; i < (int)\
     \ b.size(); i++){\n            long long p, q;\n            long long d = extGCD(M,\
     \ m[i], p, q);\n            if((b[i] - r) % d != 0) return {0, -1};\n        \
@@ -294,13 +295,12 @@ data:
     \        if(sqrt0 == -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2\
     \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
-    \    }\n};\n#line 2 \"lib/polynomial/product_of_polynomial_sequence.hpp\"\n\n\
-    #line 5 \"lib/polynomial/product_of_polynomial_sequence.hpp\"\n\ntemplate <typename\
-    \ T>\nFormalPowerSeries<T> product(const std::vector<FormalPowerSeries<T>> &f){\n\
-    \    auto dfs = [&](auto &self, int l, int r) -> FormalPowerSeries<T> {\n    \
-    \    if(r - l == 1) return f[l];\n        if(r - l == 0) return {T(1)};\n    \
-    \    int mid = (l + r) / 2;\n        return self(self, l, mid) * self(self, mid,\
-    \ r);\n    };\n    return dfs(dfs, 0, (int) f.size());\n}\n#line 7 \"test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp\"\
+    \    }\n};\n#line 5 \"lib/polynomial/product_of_polynomial_sequence.hpp\"\n\n\
+    template <typename T>\nFormalPowerSeries<T> product(const std::vector<FormalPowerSeries<T>>\
+    \ &f){\n    auto dfs = [&](auto &self, int l, int r) -> FormalPowerSeries<T> {\n\
+    \        if(r - l == 1) return f[l];\n        if(r - l == 0) return {T(1)};\n\
+    \        int mid = (l + r) / 2;\n        return self(self, l, mid) * self(self,\
+    \ mid, r);\n    };\n    return dfs(dfs, 0, (int) f.size());\n}\n#line 6 \"test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp\"\
     \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\
     \nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n   \
     \ int n;\n    cin >> n;\n    vector<FPS> f(n);\n    for(int i = 0; i < n; i++){\n\
@@ -310,8 +310,8 @@ data:
     \ (i == len - 1 ? '\\n' : ' ');\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/product_of_polynomial_sequence\"\
     \n#include <iostream>\n\n#include \"../../../lib/math/modint.hpp\"\n#include \"\
-    ../../../lib/polynomial/formal_power_series.hpp\"\n#include \"../../../lib/polynomial/product_of_polynomial_sequence.hpp\"\
-    \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\
+    ../../../lib/polynomial/product_of_polynomial_sequence.hpp\"\n\nusing namespace\
+    \ std;\n\nusing mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\
     \nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n   \
     \ int n;\n    cin >> n;\n    vector<FPS> f(n);\n    for(int i = 0; i < n; i++){\n\
     \        int d; cin >> d;\n        f[i].resize(d + 1);\n        for(int j = 0;\
@@ -320,14 +320,14 @@ data:
     \ (i == len - 1 ? '\\n' : ' ');\n    }\n}\n"
   dependsOn:
   - lib/math/modint.hpp
+  - lib/polynomial/product_of_polynomial_sequence.hpp
   - lib/polynomial/formal_power_series.hpp
   - lib/convolution/ntt.hpp
   - lib/math/crt.hpp
-  - lib/polynomial/product_of_polynomial_sequence.hpp
   isVerificationFile: true
   path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 23:34:29+09:00'
+  timestamp: '2024-11-04 00:30:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp

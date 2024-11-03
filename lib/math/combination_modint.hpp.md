@@ -7,7 +7,7 @@ data:
     title: lib/math/pow_sum.hpp
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/taylor_shift.hpp
-    title: lib/polynomial/taylor_shift.hpp
+    title: Taylor Shift
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp

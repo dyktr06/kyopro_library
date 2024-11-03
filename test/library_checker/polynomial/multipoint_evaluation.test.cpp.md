@@ -5,9 +5,6 @@ data:
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
   - icon: ':heavy_check_mark:'
-    path: lib/math/combination_modint.hpp
-    title: lib/math/combination_modint.hpp
-  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
   - icon: ':heavy_check_mark:'
@@ -17,8 +14,8 @@ data:
     path: lib/polynomial/formal_power_series.hpp
     title: lib/polynomial/formal_power_series.hpp
   - icon: ':heavy_check_mark:'
-    path: lib/polynomial/taylor_shift.hpp
-    title: Taylor Shift
+    path: lib/polynomial/multipoint_evaluation.hpp
+    title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -26,11 +23,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
+    PROBLEM: https://judge.yosupo.jp/problem/multipoint_evaluation
     links:
-    - https://judge.yosupo.jp/problem/polynomial_taylor_shift
-  bundledCode: "#line 1 \"test/library_checker/polynomial/polynomial_taylor_shift.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\n\
+    - https://judge.yosupo.jp/problem/multipoint_evaluation
+  bundledCode: "#line 1 \"test/library_checker/polynomial/multipoint_evaluation.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/multipoint_evaluation\"\n\
     #include <iostream>\n\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4 \"lib/math/modint.hpp\"\
     \n#include <cassert>\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
     \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
@@ -71,46 +68,19 @@ data:
     \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
     \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
     \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
-    \ { return os << x.val; }\n};\n#line 2 \"lib/polynomial/taylor_shift.hpp\"\n\n\
-    /**\n * @brief Taylor Shift\n * @see https://drken1215.hatenablog.com/entry/2023/09/08/003100\n\
-    \ */\n\n#line 2 \"lib/math/combination_modint.hpp\"\n\n#include <vector>\n\ntemplate\
-    \ <typename T>\nstruct Combination{\n    std::vector<T> memo, memoinv, inv;\n\
-    \    Combination(const int N) : memo(N + 1), memoinv(N + 1), inv(N + 1){\n   \
-    \     T m = -1;\n        long long mod = (m.val + 1LL);\n        memo[0] = memo[1]\
-    \ = 1;\n        memoinv[0] = memoinv[1] = 1;\n        inv[1] = 1;\n        for(int\
-    \ i = 2; i <= N; ++i){\n            memo[i] = memo[i - 1] * i;\n            inv[i]\
-    \ = mod - inv[mod % i] * (mod / i);\n            memoinv[i] = memoinv[i - 1] *\
-    \ inv[i];\n        }\n    }\n    inline T fact(const int n) const {\n        return\
-    \ memo[n];\n    }\n    inline T factinv(const int n) const {\n        return memoinv[n];\n\
-    \    }\n    inline T ncr(const int n, const int r) const {\n        if(n < r ||\
-    \ r < 0) return 0;\n        return (memo[n] * memoinv[r]) * memoinv[n - r];\n\
-    \    }\n    inline T npr(const int n, const int r) const {\n        if(n < r ||\
-    \ r < 0) return 0;\n        return memo[n] * memoinv[n - r];\n    }\n    // \u91CD\
-    \u8907\u7D44\u307F\u5408\u308F\u305B\n    inline T nhr(const int n, const int\
-    \ r) const {\n        if(n == 0 && r == 0) return 1;\n        return ncr(n + r\
-    \ - 1, r);\n    }\n    // \u30DC\u30FC\u30EB\u306E\u6570\u3001\u4E00\u500B\u4EE5\
-    \u4E0A\u5FC5\u8981\u306A\u7BB1\u306E\u6570\u3001\u5236\u9650\u304C\u306A\u3044\
-    \u7BB1\u306E\u6570 (\u7BB1\u533A\u5225\u3042\u308A)\n    // a = 0 \u306E\u5834\
-    \u5408\u306F\u91CD\u8907\u7D44\u307F\u5408\u308F\u305B\n    inline T choose(const\
-    \ int n, const int a, const int b = 0) const {\n        if(n == 0) return !a;\n\
-    \        return ncr(n + b - 1, a + b - 1);\n    }\n    // +1 n \u500B, -1 m \u500B\
-    , \u7D2F\u7A4D\u548C >= 0\n    inline T cataran(const int n, const int m) const\
-    \ {\n        return ncr(n + m, n) - ncr(n + m, n - 1);\n    }\n    // +1 n \u500B\
-    , -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T cataran(const int n, const\
-    \ int m, const int k) const {\n        if(m < k) return ncr(n + m, n);\n     \
-    \   if(m < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n        return 0;\n\
-    \    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C < +k\n    inline T\
-    \ cataran2(const int n, const int m, const int k) const {\n        return cataran(m,\
-    \ n, k);\n    }\n};\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n#include\
-    \ <algorithm>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/crt.hpp\"\
-    \n\n/**\n * @brief Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406\
-    )\n * @docs docs/math/crt.md\n */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\
-    \n\nnamespace CRT{\n    inline long long mod(long long a, long long m){\n    \
-    \    return (a % m + m) % m;\n    }\n\n    long long extGCD(long long a, long\
-    \ long b, long long &x, long long &y){\n        if(b == 0){\n            x = 1;\n\
-    \            y = 0;\n            return a;\n        }\n        long long d = extGCD(b,\
-    \ a % b, y, x);\n        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long\
-    \ long, long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
+    \ { return os << x.val; }\n};\n#line 2 \"lib/polynomial/multipoint_evaluation.hpp\"\
+    \n\n/**\n * @brief Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)\n * @see https://37zigen.com/multipoint-evaluation/\n\
+    \ */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n#include <algorithm>\n\
+    #line 5 \"lib/polynomial/formal_power_series.hpp\"\n#include <vector>\n#line 2\
+    \ \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
+    \ Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
+    \ */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n\
+    \    inline long long mod(long long a, long long m){\n        return (a % m +\
+    \ m) % m;\n    }\n\n    long long extGCD(long long a, long long b, long long &x,\
+    \ long long &y){\n        if(b == 0){\n            x = 1;\n            y = 0;\n\
+    \            return a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n\
+    \        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long long,\
+    \ long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
     \ long> &m) {\n        long long r = 0, M = 1;\n        for(int i = 0; i < (int)\
     \ b.size(); i++){\n            long long p, q;\n            long long d = extGCD(M,\
     \ m[i], p, q);\n            if((b[i] - r) % d != 0) return {0, -1};\n        \
@@ -326,50 +296,53 @@ data:
     \        if(sqrt0 == -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2\
     \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
-    \    }\n};\n#line 11 \"lib/polynomial/taylor_shift.hpp\"\n\n// g(x) = f(x + a)\
-    \ \u3068\u306A\u308B g\ntemplate <typename T>\nFormalPowerSeries<T> taylorShift(const\
-    \ FormalPowerSeries<T> &f, const T c) {\n    const int deg = f.size();\n    Combination<T>\
-    \ comb(deg);\n    // g_j = 1/j! sum(f_{i + j} (i + j!) * (c^i / i!)) -> f_{i +\
-    \ j} (i + j!) \u3068 (c^i / i!) \u306F\u6DFB\u3048\u5B57\u306E\u5DEE\u306E\u7573\
-    \u307F\u8FBC\u307F\n    FormalPowerSeries<T> res = f;\n    for(int i = 0; i <\
-    \ deg; i++){\n        res[i] *= comb.fact(i);\n    }\n    std::reverse(std::begin(res),\
-    \ std::end(res));\n    FormalPowerSeries<T> res2(deg, T(1));\n    for(int i =\
-    \ 1; i < deg; i++){\n        res2[i] = (res2[i - 1] * c) * comb.inv[i];\n    }\n\
-    \    res = (res * res2).pre(deg);\n    std::reverse(std::begin(res), std::end(res));\n\
-    \    for(int i = 0; i < deg; i++){\n        res[i] *= comb.factinv(i);\n    }\n\
-    \    return res;\n}\n#line 6 \"test/library_checker/polynomial/polynomial_taylor_shift.test.cpp\"\
-    \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\
+    \    }\n};\n#line 10 \"lib/polynomial/multipoint_evaluation.hpp\"\n\ntemplate\
+    \ <typename T>\nstd::vector<T> multipointEvalutation(const FormalPowerSeries<T>\
+    \ &f, std::vector<T> &p){\n    using FPS = FormalPowerSeries<T>;\n    int m =\
+    \ 1;\n    while(m < (int) p.size()) m *= 2;\n    std::vector<FPS> product_tree(m\
+    \ * 2, FPS({T(1)}));\n    for(int i = 0; i < (int) p.size(); i++){\n        //\
+    \ f(a) = f(x) (mod (x - a))\n        product_tree[m + i] = {-p[i], T(1)};\n  \
+    \  }\n    for(int i = m - 1; i >= 1; i--){\n        product_tree[i] = product_tree[i\
+    \ * 2] * product_tree[i * 2 + 1];\n    }\n    std::vector<FPS> reminder_tree(m\
+    \ * 2, FPS({T(0)}));\n    reminder_tree[1] = f % product_tree[1];\n    for(int\
+    \ i = 2; i < m * 2; i++){\n        // (f mod (g_0 g_1)) mod g_0 = f mod g_0\n\
+    \        reminder_tree[i] = reminder_tree[i / 2] % product_tree[i];\n        reminder_tree[i].shrink();\n\
+    \    }\n    std::vector<T> res(p.size());\n    for(int i = 0; i < (int) p.size();\
+    \ i++){\n        res[i] = reminder_tree[m + i][0];\n    }\n    return res;\n}\n\
+    #line 6 \"test/library_checker/polynomial/multipoint_evaluation.test.cpp\"\n\n\
+    using namespace std;\n\nusing mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\
     \nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n   \
-    \ int n; cin >> n;\n    mint c; cin >> c;\n    FPS f(n);\n    for(int i = 0; i\
-    \ < n; i++){\n        cin >> f[i];\n    }\n    FPS g = taylorShift(f, c);\n  \
-    \  for(int i = 0; i < n; i++){\n        cout << g[i] << (i == n - 1 ? '\\n' :\
-    \ ' ');\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
+    \ int n, m; cin >> n >> m;\n    FPS f(n);\n    for(int i = 0; i < n; i++){\n \
+    \       cin >> f[i];\n    }\n    vector<mint> p(m);\n    for(int i = 0; i < m;\
+    \ i++){\n        cin >> p[i];\n    }\n    auto res = multipointEvalutation(f,\
+    \ p);\n    for(int i = 0; i < m; i++){\n        cout << res[i] << (i == m - 1\
+    \ ? '\\n' : ' ');\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/multipoint_evaluation\"\
     \n#include <iostream>\n\n#include \"../../../lib/math/modint.hpp\"\n#include \"\
-    ../../../lib/polynomial/taylor_shift.hpp\"\n\nusing namespace std;\n\nusing mint\
-    \ = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\nint main(){\n\
-    \    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int n; cin >>\
-    \ n;\n    mint c; cin >> c;\n    FPS f(n);\n    for(int i = 0; i < n; i++){\n\
-    \        cin >> f[i];\n    }\n    FPS g = taylorShift(f, c);\n    for(int i =\
-    \ 0; i < n; i++){\n        cout << g[i] << (i == n - 1 ? '\\n' : ' ');\n    }\n\
+    ../../../lib/polynomial/multipoint_evaluation.hpp\"\n\nusing namespace std;\n\n\
+    using mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\nint main(){\n\
+    \    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int n, m; cin\
+    \ >> n >> m;\n    FPS f(n);\n    for(int i = 0; i < n; i++){\n        cin >> f[i];\n\
+    \    }\n    vector<mint> p(m);\n    for(int i = 0; i < m; i++){\n        cin >>\
+    \ p[i];\n    }\n    auto res = multipointEvalutation(f, p);\n    for(int i = 0;\
+    \ i < m; i++){\n        cout << res[i] << (i == m - 1 ? '\\n' : ' ');\n    }\n\
     }\n"
   dependsOn:
   - lib/math/modint.hpp
-  - lib/polynomial/taylor_shift.hpp
-  - lib/math/combination_modint.hpp
+  - lib/polynomial/multipoint_evaluation.hpp
   - lib/polynomial/formal_power_series.hpp
   - lib/convolution/ntt.hpp
   - lib/math/crt.hpp
   isVerificationFile: true
-  path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+  path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
   requiredBy: []
   timestamp: '2024-11-04 00:30:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+documentation_of: test/library_checker/polynomial/multipoint_evaluation.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-- /verify/test/library_checker/polynomial/polynomial_taylor_shift.test.cpp.html
-title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+- /verify/test/library_checker/polynomial/multipoint_evaluation.test.cpp
+- /verify/test/library_checker/polynomial/multipoint_evaluation.test.cpp.html
+title: test/library_checker/polynomial/multipoint_evaluation.test.cpp
 ---
