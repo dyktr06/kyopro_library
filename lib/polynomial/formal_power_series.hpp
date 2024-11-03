@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cassert>
 #include <vector>
+#include "../convolution/ntt.hpp"
 
 template <typename T>
 struct FormalPowerSeries : std::vector<T> {
