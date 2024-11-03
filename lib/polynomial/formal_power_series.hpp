@@ -235,8 +235,9 @@ struct FormalPowerSeries : std::vector<T> {
             for(int i = 1; i < (int) this->size(); i++){
                 if((*this)[i] == T(0)) continue;
                 if(i & 1) return {};
-                FPS res = (*this >> i).sqrt().pre(deg - i / 2);
-                res = res << (i / 2);
+                FPS res = (*this >> i).sqrt();
+                if(res.empty()) return {};
+                res = res.pre(deg - i / 2) << (i / 2);
                 return res;
             }
             FPS res(deg, T(0));
