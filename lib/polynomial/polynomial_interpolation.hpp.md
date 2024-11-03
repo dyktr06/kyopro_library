@@ -17,76 +17,76 @@ data:
     path: lib/polynomial/multipoint_evaluation.hpp
     title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
+    title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
   _isVerificationFailed: false
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/multipoint_evaluation
+    document_title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
     links:
-    - https://judge.yosupo.jp/problem/multipoint_evaluation
-  bundledCode: "#line 1 \"test/library_checker/polynomial/multipoint_evaluation.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/multipoint_evaluation\"\n\
-    #include <iostream>\n\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4 \"lib/math/modint.hpp\"\
-    \n#include <cassert>\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
-    \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
-    \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
-    \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
-    \ normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n    }\n  \
-    \  inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val +=\
-    \ rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
-    \ inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -= rhs.val,\
-    \ val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt &operator*=(const\
-    \ ModInt &rhs) noexcept {\n        val = val * rhs.val % Modulus;\n        return\
-    \ *this;\n    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n\
-    \        val = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n\
-    \    inline ModInt &operator++() noexcept {\n        if(++val >= Modulus) val\
-    \ -= Modulus;\n        return *this;\n    }\n    inline ModInt operator++(int)\
-    \ noexcept {\n        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n\
-    \        return t;\n    }\n    inline ModInt &operator--() noexcept {\n      \
-    \  if(--val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt\
-    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
-    \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
-    \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
-    \ inv(val); }\n    ModInt pow(long long n) const {\n        assert(0 <= n);\n\
-    \        ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r\
-    \ *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
-    \ r;\n    }\n    ModInt inv(const long long n) const {\n        long long a =\
-    \ n, b = Modulus, u = 1, v = 0;\n        while(b){\n            long long t =\
-    \ a / b;\n            a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u,\
-    \ v);\n        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n   \
-    \     return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs,\
-    \ const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline\
-    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
-    \ -= rhs; }\n    friend inline ModInt operator*(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n  \
-    \  friend inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend\
-    \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
-    \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
-    \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
-    \ { return os << x.val; }\n};\n#line 2 \"lib/polynomial/multipoint_evaluation.hpp\"\
-    \n\n/**\n * @brief Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)\n * @see https://37zigen.com/multipoint-evaluation/\n\
+    - https://37zigen.com/lagrange-interpolation/
+  bundledCode: "#line 2 \"lib/polynomial/polynomial_interpolation.hpp\"\n\n/**\n *\
+    \ @brief Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)\n * @see https://37zigen.com/lagrange-interpolation/\n\
     \ */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n#include <algorithm>\n\
-    #line 5 \"lib/polynomial/formal_power_series.hpp\"\n#include <vector>\n#line 2\
-    \ \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
-    \ Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
-    \ */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n\
-    \    inline long long mod(long long a, long long m){\n        return (a % m +\
-    \ m) % m;\n    }\n\n    long long extGCD(long long a, long long b, long long &x,\
-    \ long long &y){\n        if(b == 0){\n            x = 1;\n            y = 0;\n\
-    \            return a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n\
-    \        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long long,\
-    \ long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
-    \ long> &m) {\n        long long r = 0, M = 1;\n        for(int i = 0; i < (int)\
-    \ b.size(); i++){\n            long long p, q;\n            long long d = extGCD(M,\
-    \ m[i], p, q);\n            if((b[i] - r) % d != 0) return {0, -1};\n        \
-    \    long long tmp = (b[i] - r) / d * p % (m[i] / d);\n            r += M * tmp;\n\
-    \            M *= m[i] / d;\n        }\n        r %= M;\n        if(r < 0) r +=\
-    \ M;\n        return {r, M};\n    }\n\n    // not coprime\n    long long preGarner(std::vector<long\
+    #include <cassert>\n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n\
+    #line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n#line 5 \"lib/math/modint.hpp\"\
+    \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
+    \ long Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int\
+    \ mod() { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
+    \ : val(_val) {\n        normalize();\n    }\n    void normalize(){\n        val\
+    \ = (val % Modulus + Modulus) % Modulus;\n    }\n    inline ModInt &operator+=(const\
+    \ ModInt &rhs) noexcept {\n        if(val += rhs.val, val >= Modulus) val -= Modulus;\n\
+    \        return *this;\n    }\n    inline ModInt &operator-=(const ModInt &rhs)\
+    \ noexcept {\n        if(val -= rhs.val, val < 0) val += Modulus;\n        return\
+    \ *this;\n    }\n    inline ModInt &operator*=(const ModInt &rhs) noexcept {\n\
+    \        val = val * rhs.val % Modulus;\n        return *this;\n    }\n    inline\
+    \ ModInt &operator/=(const ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val\
+    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator++() noexcept\
+    \ {\n        if(++val >= Modulus) val -= Modulus;\n        return *this;\n   \
+    \ }\n    inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n \
+    \       if(++val >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline\
+    \ ModInt &operator--() noexcept {\n        if(--val < 0) val += Modulus;\n   \
+    \     return *this;\n    }\n    inline ModInt operator--(int) noexcept {\n   \
+    \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
+    \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
+    \ % Modulus; }\n    inline ModInt inv(void) const { return inv(val); }\n    ModInt\
+    \ pow(long long n) const {\n        assert(0 <= n);\n        ModInt x = *this,\
+    \ r = 1;\n        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n\
+    \            n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const\
+    \ long long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n\
+    \        while(b){\n            long long t = a / b;\n            a -= t * b;\
+    \ std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n        }\n    \
+    \    u %= Modulus;\n        if(u < 0) u += Modulus;\n        return u;\n    }\n\
+    \    friend inline ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend\
+    \ inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend inline\
+    \ bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val\
+    \ == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline std::istream\
+    \ &operator>>(std::istream &is, ModInt &x) noexcept {\n        is >> x.val;\n\
+    \        x.normalize();\n        return is;\n    }\n    friend inline std::ostream\
+    \ &operator<<(std::ostream &os, const ModInt &x) noexcept { return os << x.val;\
+    \ }\n};\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief Chinese Remainder Theorem\
+    \ (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n */\n\n#include\
+    \ <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n    inline long\
+    \ long mod(long long a, long long m){\n        return (a % m + m) % m;\n    }\n\
+    \n    long long extGCD(long long a, long long b, long long &x, long long &y){\n\
+    \        if(b == 0){\n            x = 1;\n            y = 0;\n            return\
+    \ a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n        y -= a\
+    \ / b * x;\n        return d;\n    }\n\n    std::pair<long long, long long> chineseRem(const\
+    \ std::vector<long long> &b, const std::vector<long long> &m) {\n        long\
+    \ long r = 0, M = 1;\n        for(int i = 0; i < (int) b.size(); i++){\n     \
+    \       long long p, q;\n            long long d = extGCD(M, m[i], p, q);\n  \
+    \          if((b[i] - r) % d != 0) return {0, -1};\n            long long tmp\
+    \ = (b[i] - r) / d * p % (m[i] / d);\n            r += M * tmp;\n            M\
+    \ *= m[i] / d;\n        }\n        r %= M;\n        if(r < 0) r += M;\n      \
+    \  return {r, M};\n    }\n\n    // not coprime\n    long long preGarner(std::vector<long\
     \ long> &b, std::vector<long long> &m, const long long MOD){\n        long long\
     \ res = 1;\n        int n = b.size();\n        for(int i = 0; i < n; i++){\n \
     \           for(int j = 0; j < i; j++){\n                long long g = std::gcd(m[i],\
@@ -296,53 +296,68 @@ data:
     \        if(sqrt0 == -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2\
     \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
-    \    }\n};\n#line 10 \"lib/polynomial/multipoint_evaluation.hpp\"\n\ntemplate\
-    \ <typename T>\nstd::vector<T> multipointEvalutation(const FormalPowerSeries<T>\
-    \ &f, const std::vector<T> &p){\n    using FPS = FormalPowerSeries<T>;\n    int\
-    \ m = 1;\n    while(m < (int) p.size()) m *= 2;\n    std::vector<FPS> product_tree(m\
-    \ * 2, FPS({T(1)}));\n    for(int i = 0; i < (int) p.size(); i++){\n        //\
-    \ f(a) = f(x) (mod (x - a))\n        product_tree[m + i] = {-p[i], T(1)};\n  \
-    \  }\n    for(int i = m - 1; i >= 1; i--){\n        product_tree[i] = product_tree[i\
+    \    }\n};\n#line 2 \"lib/polynomial/multipoint_evaluation.hpp\"\n\n/**\n * @brief\
+    \ Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)\n * @see https://37zigen.com/multipoint-evaluation/\n\
+    \ */\n\n#line 10 \"lib/polynomial/multipoint_evaluation.hpp\"\n\ntemplate <typename\
+    \ T>\nstd::vector<T> multipointEvalutation(const FormalPowerSeries<T> &f, const\
+    \ std::vector<T> &p){\n    using FPS = FormalPowerSeries<T>;\n    int m = 1;\n\
+    \    while(m < (int) p.size()) m *= 2;\n    std::vector<FPS> product_tree(m *\
+    \ 2, FPS({T(1)}));\n    for(int i = 0; i < (int) p.size(); i++){\n        // f(a)\
+    \ = f(x) (mod (x - a))\n        product_tree[m + i] = {-p[i], T(1)};\n    }\n\
+    \    for(int i = m - 1; i >= 1; i--){\n        product_tree[i] = product_tree[i\
     \ * 2] * product_tree[i * 2 + 1];\n    }\n    std::vector<FPS> reminder_tree(m\
     \ * 2, FPS({T(0)}));\n    reminder_tree[1] = f % product_tree[1];\n    for(int\
     \ i = 2; i < m * 2; i++){\n        // (f mod (g_0 g_1)) mod g_0 = f mod g_0\n\
     \        reminder_tree[i] = reminder_tree[i / 2] % product_tree[i];\n        reminder_tree[i].shrink();\n\
     \    }\n    std::vector<T> res(p.size());\n    for(int i = 0; i < (int) p.size();\
     \ i++){\n        res[i] = reminder_tree[m + i][0];\n    }\n    return res;\n}\n\
-    #line 6 \"test/library_checker/polynomial/multipoint_evaluation.test.cpp\"\n\n\
-    using namespace std;\n\nusing mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\
-    \nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n   \
-    \ int n, m; cin >> n >> m;\n    FPS f(n);\n    for(int i = 0; i < n; i++){\n \
-    \       cin >> f[i];\n    }\n    vector<mint> p(m);\n    for(int i = 0; i < m;\
-    \ i++){\n        cin >> p[i];\n    }\n    auto res = multipointEvalutation(f,\
-    \ p);\n    for(int i = 0; i < m; i++){\n        cout << res[i] << (i == m - 1\
-    \ ? '\\n' : ' ');\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/multipoint_evaluation\"\
-    \n#include <iostream>\n\n#include \"../../../lib/math/modint.hpp\"\n#include \"\
-    ../../../lib/polynomial/multipoint_evaluation.hpp\"\n\nusing namespace std;\n\n\
-    using mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\nint main(){\n\
-    \    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int n, m; cin\
-    \ >> n >> m;\n    FPS f(n);\n    for(int i = 0; i < n; i++){\n        cin >> f[i];\n\
-    \    }\n    vector<mint> p(m);\n    for(int i = 0; i < m; i++){\n        cin >>\
-    \ p[i];\n    }\n    auto res = multipointEvalutation(f, p);\n    for(int i = 0;\
-    \ i < m; i++){\n        cout << res[i] << (i == m - 1 ? '\\n' : ' ');\n    }\n\
-    }\n"
+    #line 11 \"lib/polynomial/polynomial_interpolation.hpp\"\n\ntemplate <typename\
+    \ T>\nFormalPowerSeries<T> polynomialInterpolation(const std::vector<T> &x, const\
+    \ std::vector<T> &y){\n    using FPS = FormalPowerSeries<T>;\n    assert(x.size()\
+    \ == y.size());\n    int n = 1;\n    while(n < (int) x.size()) n *= 2;\n    std::vector<FPS>\
+    \ product_tree(n * 2, FPS({T(1)}));\n    for(int i = 0; i < (int) x.size(); i++){\n\
+    \        product_tree[n + i] = {-x[i], T(1)};\n    }\n    for(int i = n - 1; i\
+    \ >= 1; i--){\n        product_tree[i] = product_tree[i * 2] * product_tree[i\
+    \ * 2 + 1];\n    }\n    // g = procuct_tree[1]\n    FPS g_d = product_tree[1].diff();\n\
+    \    std::vector<T> p = multipointEvalutation(g_d, x);\n\n    std::vector<FPS>\
+    \ f(n * 2, FPS({T(0)}));\n    for(int i = 0; i < (int) x.size(); i++){\n     \
+    \   f[n + i] = FPS({y[i] / p[i]});\n    }\n    for(int i = n - 1; i >= 1; i--){\n\
+    \        // \u901A\u5206\n        f[i] = (f[i * 2] * product_tree[i * 2 + 1])\
+    \ + (f[i * 2 + 1] * product_tree[i * 2]);\n    }\n    // g * f / g = f\n    return\
+    \ f[1].pre(n);\n}\n"
+  code: "#pragma once\n\n/**\n * @brief Polynomial Interpolation (\u591A\u9805\u5F0F\
+    \u88DC\u9593)\n * @see https://37zigen.com/lagrange-interpolation/\n */\n\n#include\
+    \ \"../polynomial/formal_power_series.hpp\"\n#include \"../polynomial/multipoint_evaluation.hpp\"\
+    \n#include <vector>\n\ntemplate <typename T>\nFormalPowerSeries<T> polynomialInterpolation(const\
+    \ std::vector<T> &x, const std::vector<T> &y){\n    using FPS = FormalPowerSeries<T>;\n\
+    \    assert(x.size() == y.size());\n    int n = 1;\n    while(n < (int) x.size())\
+    \ n *= 2;\n    std::vector<FPS> product_tree(n * 2, FPS({T(1)}));\n    for(int\
+    \ i = 0; i < (int) x.size(); i++){\n        product_tree[n + i] = {-x[i], T(1)};\n\
+    \    }\n    for(int i = n - 1; i >= 1; i--){\n        product_tree[i] = product_tree[i\
+    \ * 2] * product_tree[i * 2 + 1];\n    }\n    // g = procuct_tree[1]\n    FPS\
+    \ g_d = product_tree[1].diff();\n    std::vector<T> p = multipointEvalutation(g_d,\
+    \ x);\n\n    std::vector<FPS> f(n * 2, FPS({T(0)}));\n    for(int i = 0; i < (int)\
+    \ x.size(); i++){\n        f[n + i] = FPS({y[i] / p[i]});\n    }\n    for(int\
+    \ i = n - 1; i >= 1; i--){\n        // \u901A\u5206\n        f[i] = (f[i * 2]\
+    \ * product_tree[i * 2 + 1]) + (f[i * 2 + 1] * product_tree[i * 2]);\n    }\n\
+    \    // g * f / g = f\n    return f[1].pre(n);\n}\n"
   dependsOn:
-  - lib/math/modint.hpp
-  - lib/polynomial/multipoint_evaluation.hpp
   - lib/polynomial/formal_power_series.hpp
   - lib/convolution/ntt.hpp
+  - lib/math/modint.hpp
   - lib/math/crt.hpp
-  isVerificationFile: true
-  path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
+  - lib/polynomial/multipoint_evaluation.hpp
+  isVerificationFile: false
+  path: lib/polynomial/polynomial_interpolation.hpp
   requiredBy: []
   timestamp: '2024-11-04 02:09:51+09:00'
-  verificationStatus: TEST_ACCEPTED
-  verifiedWith: []
-documentation_of: test/library_checker/polynomial/multipoint_evaluation.test.cpp
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library_checker/polynomial/polynomial_interpolation.test.cpp
+documentation_of: lib/polynomial/polynomial_interpolation.hpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/polynomial/multipoint_evaluation.test.cpp
-- /verify/test/library_checker/polynomial/multipoint_evaluation.test.cpp.html
-title: test/library_checker/polynomial/multipoint_evaluation.test.cpp
+- /library/lib/polynomial/polynomial_interpolation.hpp
+- /library/lib/polynomial/polynomial_interpolation.hpp.html
+title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
 ---

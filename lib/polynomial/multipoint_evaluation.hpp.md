@@ -13,11 +13,17 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/formal_power_series.hpp
     title: lib/polynomial/formal_power_series.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/polynomial/polynomial_interpolation.hpp
+    title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
     title: test/library_checker/polynomial/multipoint_evaluation.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
+    title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -295,8 +301,8 @@ data:
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
     \    }\n};\n#line 10 \"lib/polynomial/multipoint_evaluation.hpp\"\n\ntemplate\
     \ <typename T>\nstd::vector<T> multipointEvalutation(const FormalPowerSeries<T>\
-    \ &f, std::vector<T> &p){\n    using FPS = FormalPowerSeries<T>;\n    int m =\
-    \ 1;\n    while(m < (int) p.size()) m *= 2;\n    std::vector<FPS> product_tree(m\
+    \ &f, const std::vector<T> &p){\n    using FPS = FormalPowerSeries<T>;\n    int\
+    \ m = 1;\n    while(m < (int) p.size()) m *= 2;\n    std::vector<FPS> product_tree(m\
     \ * 2, FPS({T(1)}));\n    for(int i = 0; i < (int) p.size(); i++){\n        //\
     \ f(a) = f(x) (mod (x - a))\n        product_tree[m + i] = {-p[i], T(1)};\n  \
     \  }\n    for(int i = m - 1; i >= 1; i--){\n        product_tree[i] = product_tree[i\
@@ -309,7 +315,7 @@ data:
   code: "#pragma once\n\n/**\n * @brief Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1\
     )\n * @see https://37zigen.com/multipoint-evaluation/\n */\n\n#include \"../polynomial/formal_power_series.hpp\"\
     \n#include <vector>\n\ntemplate <typename T>\nstd::vector<T> multipointEvalutation(const\
-    \ FormalPowerSeries<T> &f, std::vector<T> &p){\n    using FPS = FormalPowerSeries<T>;\n\
+    \ FormalPowerSeries<T> &f, const std::vector<T> &p){\n    using FPS = FormalPowerSeries<T>;\n\
     \    int m = 1;\n    while(m < (int) p.size()) m *= 2;\n    std::vector<FPS> product_tree(m\
     \ * 2, FPS({T(1)}));\n    for(int i = 0; i < (int) p.size(); i++){\n        //\
     \ f(a) = f(x) (mod (x - a))\n        product_tree[m + i] = {-p[i], T(1)};\n  \
@@ -327,10 +333,12 @@ data:
   - lib/math/crt.hpp
   isVerificationFile: false
   path: lib/polynomial/multipoint_evaluation.hpp
-  requiredBy: []
-  timestamp: '2024-11-04 00:30:36+09:00'
+  requiredBy:
+  - lib/polynomial/polynomial_interpolation.hpp
+  timestamp: '2024-11-04 02:09:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/polynomial/polynomial_interpolation.test.cpp
   - test/library_checker/polynomial/multipoint_evaluation.test.cpp
 documentation_of: lib/polynomial/multipoint_evaluation.hpp
 layout: document
