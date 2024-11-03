@@ -36,13 +36,13 @@ data:
     \       ModInt t = val;\n        if(--val < 0) val += Modulus();\n        return\
     \ t;\n    }\n    inline ModInt operator-() const noexcept { return (Modulus()\
     \ - val) % Modulus(); }\n    inline ModInt inv(void) const { return inv(val);\
-    \ }\n    ModInt pow(long long n){\n        assert(0 <= n);\n        ModInt x =\
-    \ *this, r = 1;\n        while(n){\n            if(n & 1) r *= x;\n          \
-    \  x *= x;\n            n >>= 1;\n        }\n        return r;\n    }\n    ModInt\
-    \ inv(const long long &n) const {\n        long long a = n, b = Modulus(), u =\
-    \ 1, v = 0;\n        while(b){\n            long long t = a / b;\n           \
-    \ a -= t * b; swap(a, b);\n            u -= t * v; swap(u, v);\n        }\n  \
-    \      u %= Modulus();\n        if(u < 0) u += Modulus();\n        return u;\n\
+    \ }\n    ModInt pow(long long n) const {\n        assert(0 <= n);\n        ModInt\
+    \ x = *this, r = 1;\n        while(n){\n            if(n & 1) r *= x;\n      \
+    \      x *= x;\n            n >>= 1;\n        }\n        return r;\n    }\n  \
+    \  ModInt inv(const long long n) const {\n        long long a = n, b = Modulus(),\
+    \ u = 1, v = 0;\n        while(b){\n            long long t = a / b;\n       \
+    \     a -= t * b; swap(a, b);\n            u -= t * v; swap(u, v);\n        }\n\
+    \        u %= Modulus();\n        if(u < 0) u += Modulus();\n        return u;\n\
     \    }\n    friend inline ModInt operator+(const ModInt &lhs, const ModInt &rhs)\
     \ noexcept { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const\
     \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n  \
@@ -78,12 +78,12 @@ data:
     \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
     \ += Modulus();\n        return t;\n    }\n    inline ModInt operator-() const\
     \ noexcept { return (Modulus() - val) % Modulus(); }\n    inline ModInt inv(void)\
-    \ const { return inv(val); }\n    ModInt pow(long long n){\n        assert(0 <=\
-    \ n);\n        ModInt x = *this, r = 1;\n        while(n){\n            if(n &\
-    \ 1) r *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
-    \ r;\n    }\n    ModInt inv(const long long &n) const {\n        long long a =\
-    \ n, b = Modulus(), u = 1, v = 0;\n        while(b){\n            long long t\
-    \ = a / b;\n            a -= t * b; swap(a, b);\n            u -= t * v; swap(u,\
+    \ const { return inv(val); }\n    ModInt pow(long long n) const {\n        assert(0\
+    \ <= n);\n        ModInt x = *this, r = 1;\n        while(n){\n            if(n\
+    \ & 1) r *= x;\n            x *= x;\n            n >>= 1;\n        }\n       \
+    \ return r;\n    }\n    ModInt inv(const long long n) const {\n        long long\
+    \ a = n, b = Modulus(), u = 1, v = 0;\n        while(b){\n            long long\
+    \ t = a / b;\n            a -= t * b; swap(a, b);\n            u -= t * v; swap(u,\
     \ v);\n        }\n        u %= Modulus();\n        if(u < 0) u += Modulus();\n\
     \        return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs,\
     \ const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline\
@@ -102,7 +102,7 @@ data:
   isVerificationFile: false
   path: lib/math/arbitrary_modint.hpp
   requiredBy: []
-  timestamp: '2024-10-18 22:55:19+09:00'
+  timestamp: '2024-11-03 21:58:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/math/binomial_coefficient_prime_mod_1.test.cpp

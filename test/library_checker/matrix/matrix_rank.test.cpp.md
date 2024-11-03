@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/matrix.hpp
     title: Matrix
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/matrix_rank
@@ -40,33 +40,33 @@ data:
     \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
     \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
     \ % Modulus; }\n    inline ModInt inv(void) const { return inv(val); }\n    ModInt\
-    \ pow(long long n){\n        assert(0 <= n);\n        ModInt x = *this, r = 1;\n\
-    \        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n     \
-    \       n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const long\
-    \ long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n     \
-    \   while(b){\n            long long t = a / b;\n            a -= t * b; std::swap(a,\
-    \ b);\n            u -= t * v; std::swap(u, v);\n        }\n        u %= Modulus;\n\
-    \        if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline\
-    \ ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
-    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
-    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
-    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ lhs.val != rhs.val; }\n    friend inline std::istream &operator>>(std::istream\
-    \ &is, ModInt &x) noexcept {\n        is >> x.val;\n        x.normalize();\n \
-    \       return is;\n    }\n    friend inline std::ostream &operator<<(std::ostream\
-    \ &os, const ModInt &x) noexcept { return os << x.val; }\n};\n#line 2 \"lib/math/matrix.hpp\"\
-    \n\n/**\n * @brief Matrix\n * @docs docs/math/matrix.md\n */\n\ntemplate <typename\
-    \ T>\nstruct Matrix{\n    int n, m;\n    vector<T> val;\n    Matrix(int _n, int\
-    \ _m) : n(_n), m(_m), val(_n *_m){}\n    Matrix(const vector<vector<T>> &mat){\n\
-    \        n = mat.size();\n        m = mat[0].size();\n        val.resize(n * m);\n\
-    \        for(int i = 0; i < n; ++i){\n            for(int j = 0; j < m; ++j){\n\
-    \                val[i * m + j] = mat[i][j];\n            }\n        }\n    }\n\
-    \    static Matrix e(int _n){\n        Matrix res(_n, _n);\n        for(int i\
-    \ = 0; i < _n; ++i){\n            res[i][i] = T{1};\n        }\n        return\
+    \ pow(long long n) const {\n        assert(0 <= n);\n        ModInt x = *this,\
+    \ r = 1;\n        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n\
+    \            n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const\
+    \ long long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n\
+    \        while(b){\n            long long t = a / b;\n            a -= t * b;\
+    \ std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n        }\n    \
+    \    u %= Modulus;\n        if(u < 0) u += Modulus;\n        return u;\n    }\n\
+    \    friend inline ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend\
+    \ inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend inline\
+    \ bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val\
+    \ == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline std::istream\
+    \ &operator>>(std::istream &is, ModInt &x) noexcept {\n        is >> x.val;\n\
+    \        x.normalize();\n        return is;\n    }\n    friend inline std::ostream\
+    \ &operator<<(std::ostream &os, const ModInt &x) noexcept { return os << x.val;\
+    \ }\n};\n#line 2 \"lib/math/matrix.hpp\"\n\n/**\n * @brief Matrix\n * @docs docs/math/matrix.md\n\
+    \ */\n\ntemplate <typename T>\nstruct Matrix{\n    int n, m;\n    vector<T> val;\n\
+    \    Matrix(int _n, int _m) : n(_n), m(_m), val(_n *_m){}\n    Matrix(const vector<vector<T>>\
+    \ &mat){\n        n = mat.size();\n        m = mat[0].size();\n        val.resize(n\
+    \ * m);\n        for(int i = 0; i < n; ++i){\n            for(int j = 0; j < m;\
+    \ ++j){\n                val[i * m + j] = mat[i][j];\n            }\n        }\n\
+    \    }\n    static Matrix e(int _n){\n        Matrix res(_n, _n);\n        for(int\
+    \ i = 0; i < _n; ++i){\n            res[i][i] = T{1};\n        }\n        return\
     \ res;\n    }\n    auto operator[](int i){ return val.begin() + i * m; }\n   \
     \ auto operator[](int i) const { return val.begin() + i * m; }\n    inline Matrix\
     \ &operator+=(const Matrix &rhs){\n        for(int i = 0; i < n * m; ++i){\n \
@@ -163,8 +163,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/matrix/matrix_rank.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 00:11:03+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-03 21:58:22+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/matrix/matrix_rank.test.cpp
 layout: document

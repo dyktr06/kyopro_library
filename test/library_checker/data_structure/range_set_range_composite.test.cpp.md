@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/lazy_segment_tree.hpp
     title: lib/data_structure/lazy_segment_tree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
@@ -40,27 +40,27 @@ data:
     \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
     \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
     \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
-    \ inv(val); }\n    ModInt pow(long long n){\n        assert(0 <= n);\n       \
-    \ ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r *= x;\n\
-    \            x *= x;\n            n >>= 1;\n        }\n        return r;\n   \
-    \ }\n    ModInt inv(const long long n) const {\n        long long a = n, b = Modulus,\
-    \ u = 1, v = 0;\n        while(b){\n            long long t = a / b;\n       \
-    \     a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n\
-    \        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n        return\
-    \ u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n  \
-    \  friend inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend\
-    \ inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs,\
-    \ const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline\
-    \ std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n        is\
-    \ >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend inline\
-    \ std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept { return\
-    \ os << x.val; }\n};\n#line 2 \"lib/data_structure/lazy_segment_tree.hpp\"\n\n\
-    template <class S,\n    S(*op)(S, S),\n    S(*e)(),\n    class F,\n    S(*mapping)(F,\
+    \ inv(val); }\n    ModInt pow(long long n) const {\n        assert(0 <= n);\n\
+    \        ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r\
+    \ *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
+    \ r;\n    }\n    ModInt inv(const long long n) const {\n        long long a =\
+    \ n, b = Modulus, u = 1, v = 0;\n        while(b){\n            long long t =\
+    \ a / b;\n            a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u,\
+    \ v);\n        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n   \
+    \     return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline\
+    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \ -= rhs; }\n    friend inline ModInt operator*(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n  \
+    \  friend inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend\
+    \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
+    \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
+    \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
+    \ { return os << x.val; }\n};\n#line 2 \"lib/data_structure/lazy_segment_tree.hpp\"\
+    \n\ntemplate <class S,\n    S(*op)(S, S),\n    S(*e)(),\n    class F,\n    S(*mapping)(F,\
     \ S),\n    F(*composition)(F, F),\n    F(*id)()>\nstruct LazySegTree{\nprivate:\n\
     \    int _n, size, log;\n    vector<S> d;\n    vector<F> lz;\n\n    void pull(int\
     \ k){ d[k] = op(d[2 * k], d[2 * k + 1]); }\n    void all_apply(int k, F f){\n\
@@ -168,7 +168,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/range_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 00:11:03+09:00'
+  timestamp: '2024-11-03 21:58:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/range_set_range_composite.test.cpp

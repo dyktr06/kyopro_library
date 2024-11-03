@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/enumerate_triangles.hpp
     title: Enumerate Triangles
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
@@ -52,26 +52,26 @@ data:
     \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
     \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
     \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
-    \ inv(val); }\n    ModInt pow(long long n){\n        assert(0 <= n);\n       \
-    \ ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r *= x;\n\
-    \            x *= x;\n            n >>= 1;\n        }\n        return r;\n   \
-    \ }\n    ModInt inv(const long long n) const {\n        long long a = n, b = Modulus,\
-    \ u = 1, v = 0;\n        while(b){\n            long long t = a / b;\n       \
-    \     a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n\
-    \        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n        return\
-    \ u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n  \
-    \  friend inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend\
-    \ inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs,\
-    \ const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline\
-    \ std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n        is\
-    \ >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend inline\
-    \ std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept { return\
-    \ os << x.val; }\n};\n#line 7 \"test/library_checker/graph/enumerate_triangles.test.cpp\"\
+    \ inv(val); }\n    ModInt pow(long long n) const {\n        assert(0 <= n);\n\
+    \        ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r\
+    \ *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
+    \ r;\n    }\n    ModInt inv(const long long n) const {\n        long long a =\
+    \ n, b = Modulus, u = 1, v = 0;\n        while(b){\n            long long t =\
+    \ a / b;\n            a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u,\
+    \ v);\n        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n   \
+    \     return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline\
+    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \ -= rhs; }\n    friend inline ModInt operator*(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n  \
+    \  friend inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend\
+    \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
+    \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
+    \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
+    \ { return os << x.val; }\n};\n#line 7 \"test/library_checker/graph/enumerate_triangles.test.cpp\"\
     \n\nusing mint = ModInt<998244353>;\n\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    cin.tie(nullptr);\n\n    int n, m; cin >> n >> m;\n    vector<mint> x(n);\n\
     \    for(int i = 0; i < n; i++){\n        cin >> x[i];\n    }\n    vector<vector<int>>\
@@ -96,7 +96,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/enumerate_triangles.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 00:11:03+09:00'
+  timestamp: '2024-11-03 21:58:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/enumerate_triangles.test.cpp

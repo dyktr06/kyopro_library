@@ -2,10 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/string/wildcard_pattern_matching.hpp
     title: Wildcard Pattern Matching
   _extendedVerifiedWith:
@@ -69,30 +69,45 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/enumerate_triangles.test.cpp
     title: test/library_checker/graph/enumerate_triangles.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/inverse_matrix.test.cpp
     title: test/library_checker/matrix/inverse_matrix.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/matrix_det.test.cpp
     title: test/library_checker/matrix/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/matrix_product.test.cpp
     title: test/library_checker/matrix/matrix_product.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/matrix_rank.test.cpp
     title: test/library_checker/matrix/matrix_rank.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/matrix/pow_of_matrix.test.cpp
     title: test/library_checker/matrix/pow_of_matrix.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
+    title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
+    title: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
+    title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
+    title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
+    title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
+  - icon: ':x:'
     path: test/library_checker/string/wildcard_pattern_matching.test.cpp
     title: test/library_checker/string/wildcard_pattern_matching.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/tree/tree_path_composite_sum.test.cpp
     title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
@@ -118,25 +133,26 @@ data:
     \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
     \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
     \ % Modulus; }\n    inline ModInt inv(void) const { return inv(val); }\n    ModInt\
-    \ pow(long long n){\n        assert(0 <= n);\n        ModInt x = *this, r = 1;\n\
-    \        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n     \
-    \       n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const long\
-    \ long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n     \
-    \   while(b){\n            long long t = a / b;\n            a -= t * b; std::swap(a,\
-    \ b);\n            u -= t * v; std::swap(u, v);\n        }\n        u %= Modulus;\n\
-    \        if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline\
-    \ ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
-    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
-    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
-    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ lhs.val != rhs.val; }\n    friend inline std::istream &operator>>(std::istream\
-    \ &is, ModInt &x) noexcept {\n        is >> x.val;\n        x.normalize();\n \
-    \       return is;\n    }\n    friend inline std::ostream &operator<<(std::ostream\
-    \ &os, const ModInt &x) noexcept { return os << x.val; }\n};\n"
+    \ pow(long long n) const {\n        assert(0 <= n);\n        ModInt x = *this,\
+    \ r = 1;\n        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n\
+    \            n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const\
+    \ long long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n\
+    \        while(b){\n            long long t = a / b;\n            a -= t * b;\
+    \ std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n        }\n    \
+    \    u %= Modulus;\n        if(u < 0) u += Modulus;\n        return u;\n    }\n\
+    \    friend inline ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend\
+    \ inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend inline\
+    \ bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val\
+    \ == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline std::istream\
+    \ &operator>>(std::istream &is, ModInt &x) noexcept {\n        is >> x.val;\n\
+    \        x.normalize();\n        return is;\n    }\n    friend inline std::ostream\
+    \ &operator<<(std::ostream &os, const ModInt &x) noexcept { return os << x.val;\
+    \ }\n};\n"
   code: "#pragma once\n\n#include <iostream>\n#include <cassert>\n\n/**\n * @brief\
     \ ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\n\
     struct ModInt{\n    long long val;\n    static constexpr int mod() { return Modulus;\
@@ -158,33 +174,34 @@ data:
     \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
     \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
     \ % Modulus; }\n    inline ModInt inv(void) const { return inv(val); }\n    ModInt\
-    \ pow(long long n){\n        assert(0 <= n);\n        ModInt x = *this, r = 1;\n\
-    \        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n     \
-    \       n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const long\
-    \ long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n     \
-    \   while(b){\n            long long t = a / b;\n            a -= t * b; std::swap(a,\
-    \ b);\n            u -= t * v; std::swap(u, v);\n        }\n        u %= Modulus;\n\
-    \        if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline\
-    \ ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
-    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
-    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
-    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ lhs.val != rhs.val; }\n    friend inline std::istream &operator>>(std::istream\
-    \ &is, ModInt &x) noexcept {\n        is >> x.val;\n        x.normalize();\n \
-    \       return is;\n    }\n    friend inline std::ostream &operator<<(std::ostream\
-    \ &os, const ModInt &x) noexcept { return os << x.val; }\n};\n"
+    \ pow(long long n) const {\n        assert(0 <= n);\n        ModInt x = *this,\
+    \ r = 1;\n        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n\
+    \            n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const\
+    \ long long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n\
+    \        while(b){\n            long long t = a / b;\n            a -= t * b;\
+    \ std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n        }\n    \
+    \    u %= Modulus;\n        if(u < 0) u += Modulus;\n        return u;\n    }\n\
+    \    friend inline ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend\
+    \ inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend inline\
+    \ bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val\
+    \ == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline std::istream\
+    \ &operator>>(std::istream &is, ModInt &x) noexcept {\n        is >> x.val;\n\
+    \        x.normalize();\n        return is;\n    }\n    friend inline std::ostream\
+    \ &operator<<(std::ostream &os, const ModInt &x) noexcept { return os << x.val;\
+    \ }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/modint.hpp
   requiredBy:
   - lib/convolution/ntt.hpp
   - lib/string/wildcard_pattern_matching.hpp
-  timestamp: '2024-11-03 00:11:03+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-11-03 21:58:22+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/matrix/matrix_product.test.cpp
   - test/library_checker/matrix/inverse_matrix.test.cpp
@@ -213,6 +230,11 @@ data:
   - test/library_checker/graph/counting_spanning_tree_directed.test.cpp
   - test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
   - test/library_checker/tree/tree_path_composite_sum.test.cpp
+  - test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/log_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
 documentation_of: lib/math/modint.hpp
 layout: document
 redirect_from:
