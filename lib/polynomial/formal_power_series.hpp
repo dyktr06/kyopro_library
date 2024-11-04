@@ -116,11 +116,6 @@ struct FormalPowerSeries : std::vector<T> {
     FPS &operator/=(const FPS &rhs) noexcept {
         if(this->size() < rhs.size()) return *this = FPS();
         const int n = this->size() - rhs.size() + 1;
-        // Sparse な場合
-        if((int) rhs.notZeroCount() <= 60 && rhs[0] != T(0)){
-            std::vector<std::pair<int, T>> rhs_sparse = rhs.sparseFormat();
-            return *this = this->divide_naive(rhs_sparse);
-        }
         return *this = (rev().pre(n) * rhs.rev().inv(n)).pre(n).rev(n);
     }
 
