@@ -227,50 +227,51 @@ data:
     \ std::end(res)};\n    }\n\n    // f/g = f * (g.inv())\n    FPS &operator/=(const\
     \ FPS &rhs) noexcept {\n        if(this->size() < rhs.size()) return *this = FPS();\n\
     \        const int n = this->size() - rhs.size() + 1;\n        // Sparse \u306A\
-    \u5834\u5408\n        if((int) rhs.notZeroCount() <= 60){\n            std::vector<std::pair<int,\
-    \ T>> rhs_sparse = rhs.sparseFormat();\n            return *this = this->divide_naive(rhs_sparse);\n\
-    \        }\n        return *this = (rev().pre(n) * rhs.rev().inv(n)).pre(n).rev(n);\n\
-    \    }\n\n    FPS &operator%=(const FPS &rhs) noexcept {\n        return *this\
-    \ -= (*this / rhs) * rhs;\n    }\n\n    FPS operator>>(int deg) const {\n    \
-    \    if((int) this->size() <= deg) return {};\n        FPS res(*this);\n     \
-    \   res.erase(std::begin(res), std::begin(res) + deg);\n        return res;\n\
-    \    }\n\n    FPS operator<<(int deg) const {\n        FPS res(*this);\n     \
-    \   res.insert(std::begin(res), deg, T(0));\n        return res;\n    }\n\n  \
-    \  // \u5FAE\u5206\n    FPS diff() const {\n        const int n = this->size();\n\
-    \        FPS res(std::max(0, n - 1));\n        for(int i = 1; i < n; i++) res[i\
-    \ - 1] = (*this)[i] * T(i);\n        return res;\n    }\n\n    // \u7A4D\u5206\
-    \n    FPS integral() const {\n        const int n = this->size();\n        FPS\
-    \ res(n + 1);\n        res[0] = T(0);\n        for(int i = 0; i < n; i++) res[i\
-    \ + 1] = (*this)[i] / T(i + 1);\n        return res;\n    }\n\n    // {lhs / rhs,\
-    \ lhs % rhs}\n    std::pair<FPS, FPS> division(const FPS &rhs) const {\n     \
-    \   FPS q = *this / rhs;\n        FPS r = *this - q * rhs;\n        q.shrink(),\
-    \ r.shrink();\n        return {q, r};\n    }\n\n    FPS multiply_naive(const std::vector<std::pair<int,\
-    \ T>> &rhs, int deg = -1){\n        if(deg == -1) deg = this->size() + (rhs.back().first\
-    \ + 1) - 1;\n        FPS res(deg, T(0));\n        for(auto &[i, x] : this->sparseFormat()){\n\
+    \u5834\u5408\n        if((int) rhs.notZeroCount() <= 60 && rhs[0] != T(0)){\n\
+    \            std::vector<std::pair<int, T>> rhs_sparse = rhs.sparseFormat();\n\
+    \            return *this = this->divide_naive(rhs_sparse);\n        }\n     \
+    \   return *this = (rev().pre(n) * rhs.rev().inv(n)).pre(n).rev(n);\n    }\n\n\
+    \    FPS &operator%=(const FPS &rhs) noexcept {\n        return *this -= (*this\
+    \ / rhs) * rhs;\n    }\n\n    FPS operator>>(int deg) const {\n        if((int)\
+    \ this->size() <= deg) return {};\n        FPS res(*this);\n        res.erase(std::begin(res),\
+    \ std::begin(res) + deg);\n        return res;\n    }\n\n    FPS operator<<(int\
+    \ deg) const {\n        FPS res(*this);\n        res.insert(std::begin(res), deg,\
+    \ T(0));\n        return res;\n    }\n\n    // \u5FAE\u5206\n    FPS diff() const\
+    \ {\n        const int n = this->size();\n        FPS res(std::max(0, n - 1));\n\
+    \        for(int i = 1; i < n; i++) res[i - 1] = (*this)[i] * T(i);\n        return\
+    \ res;\n    }\n\n    // \u7A4D\u5206\n    FPS integral() const {\n        const\
+    \ int n = this->size();\n        FPS res(n + 1);\n        res[0] = T(0);\n   \
+    \     for(int i = 0; i < n; i++) res[i + 1] = (*this)[i] / T(i + 1);\n       \
+    \ return res;\n    }\n\n    // {lhs / rhs, lhs % rhs}\n    std::pair<FPS, FPS>\
+    \ division(const FPS &rhs) const {\n        FPS q = *this / rhs;\n        FPS\
+    \ r = *this - q * rhs;\n        q.shrink(), r.shrink();\n        return {q, r};\n\
+    \    }\n\n    FPS multiply_naive(const std::vector<std::pair<int, T>> &rhs, int\
+    \ deg = -1){\n        if(deg == -1) deg = this->size() + (rhs.back().first + 1)\
+    \ - 1;\n        FPS res(deg, T(0));\n        for(auto &[i, x] : this->sparseFormat()){\n\
     \            for(auto &[j, y] : rhs){\n                if(i + j >= deg) break;\n\
     \                res[i + j] += x * y;\n            }\n        }\n        return\
     \ *this = {std::begin(res), std::end(res)};\n    }\n\n    FPS divide_naive(const\
     \ std::vector<std::pair<int, T>> &rhs){\n        assert(!rhs.empty());\n     \
-    \   if(this->size() < (rhs.back().first + 1)) return FPS();\n        auto [i0,\
-    \ x0] = rhs[0];\n        assert(i0 == 0 && x0 != T(0));\n        T x0_inv = T(1)\
-    \ / x0;\n        for(int i = 0; i < (int) this->size(); i++){\n            for(int\
-    \ i2 = 1; i2 < (int) rhs.size(); i2++){\n                auto &[j, y] = rhs[i2];\n\
-    \                if(i < j) break;\n                (*this)[i] -= (*this)[i - j]\
-    \ * y;\n            }\n            (*this)[i] *= x0_inv;\n        }\n        return\
-    \ *this;\n    }\n\n    // fg = 1 (mod x^n) \u3068\u306A\u308B g\n    FPS inv(int\
-    \ deg = -1) const {\n        assert((*this)[0] != T(0));\n        if(deg == -1)\
-    \ deg = this->size();\n        // g_p mod x^k \u304B\u3089 g mod x^2k \u3092\u6C42\
-    \u3081\u308B\n        // (g - g_p)^2 = g^2 - 2 g g_p + (g_p)^2 = 0 (mod x^2k)\n\
-    \        // fg^2 - 2fg g_p + f (g_p)^2\n        // = g - 2(g_p) + f (g_p)^2 =\
-    \ 0 (mod x^2k)\n        // g = 2(g_p) - f (g_p)^2 (mod x^2k)\n        FPS res({T(1)\
-    \ / (*this)[0]});\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
-    \ = (res + res - res * res * pre(i << 1)).pre(i << 1);\n        }\n        return\
-    \ res.pre(deg);\n    }\n\n    // g = log f \u3068\u306A\u308B g\n    FPS log(int\
-    \ deg = -1) const {\n        assert((*this)[0] == T(1));\n        if(deg == -1)\
-    \ deg = this->size();\n        // log f = integral((f' / f) dx)\n        return\
-    \ (this->diff() * this->inv(deg)).pre(deg - 1).integral().pre(deg);\n    }\n\n\
-    \    // g = exp(f) \u3068\u306A\u308B g\n    FPS exp(int deg = -1) const {\n \
-    \       assert((*this)[0] == T(0));\n        if(deg == -1) deg = this->size();\n\
+    \   if((int) this->size() < (rhs.back().first + 1)) return FPS();\n        auto\
+    \ [i0, x0] = rhs[0];\n        assert(i0 == 0 && x0 != T(0));\n        T x0_inv\
+    \ = T(1) / x0;\n        for(int i = 0; i < (int) this->size(); i++){\n       \
+    \     for(int i2 = 1; i2 < (int) rhs.size(); i2++){\n                auto &[j,\
+    \ y] = rhs[i2];\n                if(i < j) break;\n                (*this)[i]\
+    \ -= (*this)[i - j] * y;\n            }\n            (*this)[i] *= x0_inv;\n \
+    \       }\n        return *this;\n    }\n\n    // fg = 1 (mod x^n) \u3068\u306A\
+    \u308B g\n    FPS inv(int deg = -1) const {\n        assert((*this)[0] != T(0));\n\
+    \        if(deg == -1) deg = this->size();\n        // g_p mod x^k \u304B\u3089\
+    \ g mod x^2k \u3092\u6C42\u3081\u308B\n        // (g - g_p)^2 = g^2 - 2 g g_p\
+    \ + (g_p)^2 = 0 (mod x^2k)\n        // fg^2 - 2fg g_p + f (g_p)^2\n        //\
+    \ = g - 2(g_p) + f (g_p)^2 = 0 (mod x^2k)\n        // g = 2(g_p) - f (g_p)^2 (mod\
+    \ x^2k)\n        FPS res({T(1) / (*this)[0]});\n        for(int i = 1; i < deg;\
+    \ i <<= 1) {\n            res = (res + res - res * res * pre(i << 1)).pre(i <<\
+    \ 1);\n        }\n        return res.pre(deg);\n    }\n\n    // g = log f \u3068\
+    \u306A\u308B g\n    FPS log(int deg = -1) const {\n        assert((*this)[0] ==\
+    \ T(1));\n        if(deg == -1) deg = this->size();\n        // log f = integral((f'\
+    \ / f) dx)\n        return (this->diff() * this->inv(deg)).pre(deg - 1).integral().pre(deg);\n\
+    \    }\n\n    // g = exp(f) \u3068\u306A\u308B g\n    FPS exp(int deg = -1) const\
+    \ {\n        assert((*this)[0] == T(0));\n        if(deg == -1) deg = this->size();\n\
     \        // g_p mod x^k \u304B\u3089 g mod x^2k \u3092\u30CB\u30E5\u30FC\u30C8\
     \u30F3\u6CD5\u3067\u6C42\u3081\u308B\n        // log g = f (mod x^n) \u3067\u3042\
     \u308B\u304B\u3089\u3001\n        // g = g_p - (log g_p - f)/(log' g_p)\n    \
@@ -341,7 +342,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2024-11-04 16:38:13+09:00'
+  timestamp: '2024-11-04 23:25:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
