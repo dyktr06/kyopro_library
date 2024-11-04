@@ -35,10 +35,6 @@ std::vector<T> subsetSum(std::vector<long long> s, const int t_max){
             sign *= T(-1);
         }
     }
-    ans = ans.exp();
-    std::vector<T> res(t_max + 1, T(0));
-    for(int i = 0; i <= t_max; i++){
-        res[i] = ans[i];
-    }
-    return res;
+    ans = ans.exp(t_max + 1);
+    return std::vector<T>(std::begin(ans), std::end(ans));
 }
