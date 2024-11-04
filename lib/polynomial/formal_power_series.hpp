@@ -25,8 +25,31 @@ struct FormalPowerSeries : std::vector<T> {
         return res;
     }
 
+    int notZeroCount() const {
+        int res = 0;
+        for(auto x : *this){
+            if(x != T(0)) res++;
+        }
+        return res;
+    }
+
+    int maxDeg() const {
+        for(int i = (int) this->size() - 1; i >= 0; i--){
+            if((*this)[i] != T(0)) return i;
+        }
+        return -1;
+    }
+
     void shrink() {
         while(this->size() && this->back() == T(0)) this->pop_back();
+    }
+
+    std::vector<std::pair<int, T>> sparseFormat() const {
+        std::vector<std::pair<int, T>> res;
+        for(int i = 0; i < (int) this->size(); i++){
+            if((*this)[i] != T(0)) res.emplace_back(i, (*this)[i]);
+        }
+        return res;
     }
 
     FPS operator+(const T &rhs) const { return FPS(*this) += rhs; }
@@ -79,6 +102,12 @@ struct FormalPowerSeries : std::vector<T> {
     }
 
     FPS &operator*=(const FPS &rhs) noexcept {
+        long long len1 = this->notZeroCount(), len2 = rhs.notZeroCount();
+        // Sparse な場合
+        if(len1 * len2 <= 60LL * (long long) std::max(this->size(), rhs.size())){
+            std::vector<std::pair<int, T>> rhs_sparse = rhs.sparseFormat();
+            return *this = this->multiply_naive(rhs_sparse);
+        }
         auto res = NTT::convolution_mod(*this, rhs, T::mod());
         return *this = {std::begin(res), std::end(res)};
     }
@@ -87,6 +116,11 @@ struct FormalPowerSeries : std::vector<T> {
     FPS &operator/=(const FPS &rhs) noexcept {
         if(this->size() < rhs.size()) return *this = FPS();
         const int n = this->size() - rhs.size() + 1;
+        // Sparse な場合
+        if((int) rhs.notZeroCount() <= 60){
+            std::vector<std::pair<int, T>> rhs_sparse = rhs.sparseFormat();
+            return *this = this->divide_naive(rhs_sparse);
+        }
         return *this = (rev().pre(n) * rhs.rev().inv(n)).pre(n).rev(n);
     }
 
@@ -130,6 +164,35 @@ struct FormalPowerSeries : std::vector<T> {
         FPS r = *this - q * rhs;
         q.shrink(), r.shrink();
         return {q, r};
+    }
+
+    FPS multiply_naive(const std::vector<std::pair<int, T>> &rhs, int deg = -1){
+        if(deg == -1) deg = this->size() + (rhs.back().first + 1) - 1;
+        FPS res(deg, T(0));
+        for(auto &[i, x] : this->sparseFormat()){
+            for(auto &[j, y] : rhs){
+                if(i + j >= deg) break;
+                res[i + j] += x * y;
+            }
+        }
+        return *this = {std::begin(res), std::end(res)};
+    }
+
+    FPS divide_naive(const std::vector<std::pair<int, T>> &rhs){
+        assert(!rhs.empty());
+        if(this->size() < (rhs.back().first + 1)) return FPS();
+        auto [i0, x0] = rhs[0];
+        assert(i0 == 0 && x0 != T(0));
+        T x0_inv = T(1) / x0;
+        for(int i = 0; i < (int) this->size(); i++){
+            for(int i2 = 1; i2 < (int) rhs.size(); i2++){
+                auto &[j, y] = rhs[i2];
+                if(i < j) break;
+                (*this)[i] -= (*this)[i - j] * y;
+            }
+            (*this)[i] *= x0_inv;
+        }
+        return *this;
     }
 
     // fg = 1 (mod x^n) となる g
