@@ -12,6 +12,12 @@ data:
     title: ModInt
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: lib/math/bernoulli_number.hpp
+    title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
+  - icon: ':heavy_check_mark:'
+    path: lib/math/partition_function.hpp
+    title: "Partition Function (\u5206\u5272\u6570)"
+  - icon: ':heavy_check_mark:'
     path: lib/math/subset_sum.hpp
     title: Subset Sum
   - icon: ':heavy_check_mark:'
@@ -28,8 +34,14 @@ data:
     title: Taylor Shift
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
+    title: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
     title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/number_theory/bernoulli_number.test.cpp
+    title: test/library_checker/number_theory/bernoulli_number.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/division_of_polynomials.test.cpp
     title: test/library_checker/polynomial/division_of_polynomials.test.cpp
@@ -505,7 +517,9 @@ data:
   isVerificationFile: false
   path: lib/polynomial/formal_power_series.hpp
   requiredBy:
+  - lib/math/bernoulli_number.hpp
   - lib/math/subset_sum.hpp
+  - lib/math/partition_function.hpp
   - lib/polynomial/multipoint_evaluation.hpp
   - lib/polynomial/taylor_shift.hpp
   - lib/polynomial/polynomial_interpolation.hpp
@@ -513,6 +527,8 @@ data:
   timestamp: '2024-11-05 00:02:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/number_theory/bernoulli_number.test.cpp
+  - test/library_checker/enumerative_combinatorics/partition_function.test.cpp
   - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
   - test/library_checker/polynomial/pow_of_formal_power_series.test.cpp

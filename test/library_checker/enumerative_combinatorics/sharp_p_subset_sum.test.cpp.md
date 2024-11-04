@@ -332,9 +332,9 @@ data:
     \ i = 1; i <= t_max; i++){\n        if(cnt[i] == T(0)) continue;\n        // log(1\
     \ + x^i) = x^i - x^(2i)/2 + x^(3i)/3 - ...\n        T sign = T(1);\n        for(int\
     \ j = i; j <= t_max; j += i){\n            ans[j] += T(cnt[i]) * sign * inv[j\
-    \ / i];\n            sign *= T(-1);\n        }\n    }\n    ans = ans.exp();\n\
-    \    std::vector<T> res(t_max + 1, T(0));\n    for(int i = 0; i <= t_max; i++){\n\
-    \        res[i] = ans[i];\n    }\n    return res;\n}\n#line 6 \"test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp\"\
+    \ / i];\n            sign *= T(-1);\n        }\n    }\n    ans = ans.exp(t_max\
+    \ + 1);\n    return std::vector<T>(std::begin(ans), std::end(ans));\n}\n#line\
+    \ 6 \"test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp\"\
     \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\nint main(){\n \
     \   cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int n, t; cin >>\
     \ n >> t;\n    vector<long long> s(n);\n    for(int i = 0; i < n; i++){\n    \
@@ -358,7 +358,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-11-05 00:02:21+09:00'
+  timestamp: '2024-11-05 01:35:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp

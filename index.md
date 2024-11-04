@@ -284,6 +284,9 @@ data:
       path: lib/math/baby-step_giant-step.hpp
       title: Baby-step giant-step
     - icon: ':heavy_check_mark:'
+      path: lib/math/bernoulli_number.hpp
+      title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
+    - icon: ':heavy_check_mark:'
       path: lib/math/bigint.hpp
       title: "BigInt (\u591A\u500D\u9577\u6574\u6570)"
     - icon: ':heavy_check_mark:'
@@ -325,6 +328,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
+    - icon: ':heavy_check_mark:'
+      path: lib/math/montmort_number.hpp
+      title: "Montmort Number (\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"
+    - icon: ':heavy_check_mark:'
+      path: lib/math/partition_function.hpp
+      title: "Partition Function (\u5206\u5272\u6570)"
     - icon: ':warning:'
       path: lib/math/pow_sum.hpp
       title: lib/math/pow_sum.hpp
@@ -660,8 +669,14 @@ data:
       path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
       title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/enumerative_combinatorics/montmort_number_mod.test.cpp
+      title: test/library_checker/enumerative_combinatorics/montmort_number_mod.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp
       title: test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
+      title: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
       title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
@@ -766,6 +781,9 @@ data:
       title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - name: test/library_checker/number_theory
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/bernoulli_number.test.cpp
+      title: test/library_checker/number_theory/bernoulli_number.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
       title: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp

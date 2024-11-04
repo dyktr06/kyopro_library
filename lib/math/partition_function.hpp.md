@@ -16,20 +16,20 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
-    title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+    path: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
+    title: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: Subset Sum
+    document_title: "Partition Function (\u5206\u5272\u6570)"
     links:
-    - https://suu-0313.hatenablog.com/entry/2022/04/12/225153
-  bundledCode: "#line 2 \"lib/math/subset_sum.hpp\"\n\n/**\n * @brief Subset Sum\n\
-    \ * @see https://suu-0313.hatenablog.com/entry/2022/04/12/225153\n */\n\n#line\
-    \ 2 \"lib/polynomial/formal_power_series.hpp\"\n\n#include <algorithm>\n#include\
-    \ <cassert>\n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n#line 2\
-    \ \"lib/math/modint.hpp\"\n\n#include <iostream>\n#line 5 \"lib/math/modint.hpp\"\
+    - https://ladywingclover.hatenablog.com/entry/2023/04/05/153502
+  bundledCode: "#line 2 \"lib/math/partition_function.hpp\"\n\n/**\n * @brief Partition\
+    \ Function (\u5206\u5272\u6570)\n * @see https://ladywingclover.hatenablog.com/entry/2023/04/05/153502\n\
+    \ */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n#include <algorithm>\n\
+    #include <cassert>\n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n\
+    #line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n#line 5 \"lib/math/modint.hpp\"\
     \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
     \ long Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int\
     \ mod() { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
@@ -319,48 +319,53 @@ data:
     \        if(sqrt0 == -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2\
     \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
-    \    }\n};\n#line 10 \"lib/math/subset_sum.hpp\"\n\ntemplate <typename T>\nstd::vector<T>\
-    \ subsetSum(std::vector<long long> s, const int t_max){\n    using FPS = FormalPowerSeries<T>;\n\
-    \    // prod (1 + x^{s_i}) -> exp(sum log(1 + x^{s_i}))\n    std::vector<T> cnt(t_max\
-    \ + 1, T(0));\n    for(auto x : s){\n        if(x > t_max) continue;\n       \
-    \ cnt[x]++;\n    }\n\n    std::vector<T> inv(t_max + 1);\n    inv[1] = 1;\n  \
-    \  long long mod = T::mod();\n    for(int i = 2; i <= t_max; ++i){\n        inv[i]\
-    \ = mod - inv[mod % i] * (mod / i);\n    }\n\n    FPS ans(t_max + 1);\n    for(int\
-    \ i = 1; i <= t_max; i++){\n        if(cnt[i] == T(0)) continue;\n        // log(1\
-    \ + x^i) = x^i - x^(2i)/2 + x^(3i)/3 - ...\n        T sign = T(1);\n        for(int\
-    \ j = i; j <= t_max; j += i){\n            ans[j] += T(cnt[i]) * sign * inv[j\
-    \ / i];\n            sign *= T(-1);\n        }\n    }\n    ans = ans.exp(t_max\
-    \ + 1);\n    return std::vector<T>(std::begin(ans), std::end(ans));\n}\n"
-  code: "#pragma once\n\n/**\n * @brief Subset Sum\n * @see https://suu-0313.hatenablog.com/entry/2022/04/12/225153\n\
-    \ */\n\n#include \"../polynomial/formal_power_series.hpp\"\n#include <vector>\n\
-    \ntemplate <typename T>\nstd::vector<T> subsetSum(std::vector<long long> s, const\
-    \ int t_max){\n    using FPS = FormalPowerSeries<T>;\n    // prod (1 + x^{s_i})\
-    \ -> exp(sum log(1 + x^{s_i}))\n    std::vector<T> cnt(t_max + 1, T(0));\n   \
-    \ for(auto x : s){\n        if(x > t_max) continue;\n        cnt[x]++;\n    }\n\
-    \n    std::vector<T> inv(t_max + 1);\n    inv[1] = 1;\n    long long mod = T::mod();\n\
-    \    for(int i = 2; i <= t_max; ++i){\n        inv[i] = mod - inv[mod % i] * (mod\
-    \ / i);\n    }\n\n    FPS ans(t_max + 1);\n    for(int i = 1; i <= t_max; i++){\n\
-    \        if(cnt[i] == T(0)) continue;\n        // log(1 + x^i) = x^i - x^(2i)/2\
-    \ + x^(3i)/3 - ...\n        T sign = T(1);\n        for(int j = i; j <= t_max;\
-    \ j += i){\n            ans[j] += T(cnt[i]) * sign * inv[j / i];\n           \
-    \ sign *= T(-1);\n        }\n    }\n    ans = ans.exp(t_max + 1);\n    return\
-    \ std::vector<T>(std::begin(ans), std::end(ans));\n}\n"
+    \    }\n};\n#line 10 \"lib/math/partition_function.hpp\"\n\ntemplate <typename\
+    \ T>\nstd::vector<T> partitionFunction(const int n){\n    using FPS = FormalPowerSeries<T>;\n\
+    \    FPS f(n + 1);\n    // (1 + x + x^2 + ...)(1 + x^2 + x^4 + ...)(1 + x^3 +\
+    \ x^6 + ...)(...)\n    // N \u6B21\u307E\u3067\u3067\u826F\u3044\u306E\u3067\u3001\
+    \u7B49\u6BD4\u6570\u5217\u306E\u548C\u3092\u8003\u3048\u308B\u3068\u3001\n   \
+    \ // (1/(1 - x))(1/(1 - x^2))(1/(1 - x^3))(...)\n    // = exp(log(1/(1 - x)) +\
+    \ log(1/(1 - x^2)) + log(1/(1 - x^3)) + ...)\n    // = exp(-log(1 - x) - log(1\
+    \ - x^2) - log(1 - x^3) - ...)\n\n    std::vector<T> inv(n + 1);\n    inv[1] =\
+    \ 1;\n    long long mod = T::mod();\n    for(int i = 2; i <= n; ++i){\n      \
+    \  inv[i] = mod - inv[mod % i] * (mod / i);\n    }\n\n    for(int i = 1; i <=\
+    \ n; i++){\n        for(int j = i; j <= n; j += i){\n            // log(1 - x)\
+    \ = -x - x^2/2 - x^3/3 - ...\n            // -log(1 - x) = x + x^2/2 + x^3/3 +\
+    \ ...\n            f[j] += inv[j / i];\n        }\n    }\n    f = f.exp(n + 1);\n\
+    \    return std::vector<T>(std::begin(f), std::end(f));\n}\n"
+  code: "#pragma once\n\n/**\n * @brief Partition Function (\u5206\u5272\u6570)\n\
+    \ * @see https://ladywingclover.hatenablog.com/entry/2023/04/05/153502\n */\n\n\
+    #include \"../polynomial/formal_power_series.hpp\"\n#include <vector>\n\ntemplate\
+    \ <typename T>\nstd::vector<T> partitionFunction(const int n){\n    using FPS\
+    \ = FormalPowerSeries<T>;\n    FPS f(n + 1);\n    // (1 + x + x^2 + ...)(1 + x^2\
+    \ + x^4 + ...)(1 + x^3 + x^6 + ...)(...)\n    // N \u6B21\u307E\u3067\u3067\u826F\
+    \u3044\u306E\u3067\u3001\u7B49\u6BD4\u6570\u5217\u306E\u548C\u3092\u8003\u3048\
+    \u308B\u3068\u3001\n    // (1/(1 - x))(1/(1 - x^2))(1/(1 - x^3))(...)\n    //\
+    \ = exp(log(1/(1 - x)) + log(1/(1 - x^2)) + log(1/(1 - x^3)) + ...)\n    // =\
+    \ exp(-log(1 - x) - log(1 - x^2) - log(1 - x^3) - ...)\n\n    std::vector<T> inv(n\
+    \ + 1);\n    inv[1] = 1;\n    long long mod = T::mod();\n    for(int i = 2; i\
+    \ <= n; ++i){\n        inv[i] = mod - inv[mod % i] * (mod / i);\n    }\n\n   \
+    \ for(int i = 1; i <= n; i++){\n        for(int j = i; j <= n; j += i){\n    \
+    \        // log(1 - x) = -x - x^2/2 - x^3/3 - ...\n            // -log(1 - x)\
+    \ = x + x^2/2 + x^3/3 + ...\n            f[j] += inv[j / i];\n        }\n    }\n\
+    \    f = f.exp(n + 1);\n    return std::vector<T>(std::begin(f), std::end(f));\n\
+    }\n"
   dependsOn:
   - lib/polynomial/formal_power_series.hpp
   - lib/convolution/ntt.hpp
   - lib/math/modint.hpp
   - lib/math/crt.hpp
   isVerificationFile: false
-  path: lib/math/subset_sum.hpp
+  path: lib/math/partition_function.hpp
   requiredBy: []
   timestamp: '2024-11-05 01:35:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
-documentation_of: lib/math/subset_sum.hpp
+  - test/library_checker/enumerative_combinatorics/partition_function.test.cpp
+documentation_of: lib/math/partition_function.hpp
 layout: document
 redirect_from:
-- /library/lib/math/subset_sum.hpp
-- /library/lib/math/subset_sum.hpp.html
-title: Subset Sum
+- /library/lib/math/partition_function.hpp
+- /library/lib/math/partition_function.hpp.html
+title: "Partition Function (\u5206\u5272\u6570)"
 ---

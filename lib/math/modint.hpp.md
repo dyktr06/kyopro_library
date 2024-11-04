@@ -6,6 +6,12 @@ data:
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
   - icon: ':heavy_check_mark:'
+    path: lib/math/bernoulli_number.hpp
+    title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
+  - icon: ':heavy_check_mark:'
+    path: lib/math/partition_function.hpp
+    title: "Partition Function (\u5206\u5272\u6570)"
+  - icon: ':heavy_check_mark:'
     path: lib/math/subset_sum.hpp
     title: Subset Sum
   - icon: ':heavy_check_mark:'
@@ -73,6 +79,9 @@ data:
     path: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
     title: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
+    title: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
     title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -102,6 +111,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
     title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/number_theory/bernoulli_number.test.cpp
+    title: test/library_checker/number_theory/bernoulli_number.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/division_of_polynomials.test.cpp
     title: test/library_checker/polynomial/division_of_polynomials.test.cpp
@@ -234,7 +246,9 @@ data:
   isVerificationFile: false
   path: lib/math/modint.hpp
   requiredBy:
+  - lib/math/bernoulli_number.hpp
   - lib/math/subset_sum.hpp
+  - lib/math/partition_function.hpp
   - lib/convolution/ntt.hpp
   - lib/string/wildcard_pattern_matching.hpp
   - lib/polynomial/multipoint_evaluation.hpp
@@ -245,6 +259,8 @@ data:
   timestamp: '2024-11-03 21:58:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/number_theory/bernoulli_number.test.cpp
+  - test/library_checker/enumerative_combinatorics/partition_function.test.cpp
   - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
   - test/library_checker/data_structure/unionfind_with_potential.test.cpp
