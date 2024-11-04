@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/formal_power_series.hpp
     title: lib/polynomial/formal_power_series.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/multipoint_evaluation.hpp
     title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/multipoint_evaluation
@@ -231,19 +231,16 @@ data:
     \ res = NTT::convolution_mod(*this, rhs, T::mod());\n        return *this = {std::begin(res),\
     \ std::end(res)};\n    }\n\n    // f/g = f * (g.inv())\n    FPS &operator/=(const\
     \ FPS &rhs) noexcept {\n        if(this->size() < rhs.size()) return *this = FPS();\n\
-    \        const int n = this->size() - rhs.size() + 1;\n        // Sparse \u306A\
-    \u5834\u5408\n        if((int) rhs.notZeroCount() <= 60 && rhs[0] != T(0)){\n\
-    \            std::vector<std::pair<int, T>> rhs_sparse = rhs.sparseFormat();\n\
-    \            return *this = this->divide_naive(rhs_sparse);\n        }\n     \
-    \   return *this = (rev().pre(n) * rhs.rev().inv(n)).pre(n).rev(n);\n    }\n\n\
-    \    FPS &operator%=(const FPS &rhs) noexcept {\n        return *this -= (*this\
-    \ / rhs) * rhs;\n    }\n\n    FPS operator>>(int deg) const {\n        if((int)\
-    \ this->size() <= deg) return {};\n        FPS res(*this);\n        res.erase(std::begin(res),\
-    \ std::begin(res) + deg);\n        return res;\n    }\n\n    FPS operator<<(int\
-    \ deg) const {\n        FPS res(*this);\n        res.insert(std::begin(res), deg,\
-    \ T(0));\n        return res;\n    }\n\n    // \u5FAE\u5206\n    FPS diff() const\
-    \ {\n        const int n = this->size();\n        FPS res(std::max(0, n - 1));\n\
-    \        for(int i = 1; i < n; i++) res[i - 1] = (*this)[i] * T(i);\n        return\
+    \        const int n = this->size() - rhs.size() + 1;\n        return *this =\
+    \ (rev().pre(n) * rhs.rev().inv(n)).pre(n).rev(n);\n    }\n\n    FPS &operator%=(const\
+    \ FPS &rhs) noexcept {\n        return *this -= (*this / rhs) * rhs;\n    }\n\n\
+    \    FPS operator>>(int deg) const {\n        if((int) this->size() <= deg) return\
+    \ {};\n        FPS res(*this);\n        res.erase(std::begin(res), std::begin(res)\
+    \ + deg);\n        return res;\n    }\n\n    FPS operator<<(int deg) const {\n\
+    \        FPS res(*this);\n        res.insert(std::begin(res), deg, T(0));\n  \
+    \      return res;\n    }\n\n    // \u5FAE\u5206\n    FPS diff() const {\n   \
+    \     const int n = this->size();\n        FPS res(std::max(0, n - 1));\n    \
+    \    for(int i = 1; i < n; i++) res[i - 1] = (*this)[i] * T(i);\n        return\
     \ res;\n    }\n\n    // \u7A4D\u5206\n    FPS integral() const {\n        const\
     \ int n = this->size();\n        FPS res(n + 1);\n        res[0] = T(0);\n   \
     \     for(int i = 0; i < n; i++) res[i + 1] = (*this)[i] / T(i + 1);\n       \
@@ -365,8 +362,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
   requiredBy: []
-  timestamp: '2024-11-04 23:25:00+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-05 00:02:21+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/multipoint_evaluation.test.cpp
 layout: document

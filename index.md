@@ -27,7 +27,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/convolution/lcm_convolution.hpp
       title: lib/convolution/lcm_convolution.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/ntt.hpp
       title: lib/convolution/ntt.hpp
     - icon: ':heavy_check_mark:'
@@ -298,7 +298,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: "Convert Base (\u9032\u6570\u5909\u63DB)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':heavy_check_mark:'
@@ -322,7 +322,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -383,13 +383,13 @@ data:
       title: lib/others/zorbrist_hash.hpp
   - name: lib/polynomial
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/formal_power_series.hpp
       title: lib/polynomial/formal_power_series.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/multipoint_evaluation.hpp
       title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/polynomial_interpolation.hpp
       title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':heavy_check_mark:'
@@ -800,7 +800,7 @@ data:
       title: test/library_checker/other/longest_increasing_subsequence.test.cpp
   - name: test/library_checker/polynomial
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/division_of_polynomials.test.cpp
       title: test/library_checker/polynomial/division_of_polynomials.test.cpp
     - icon: ':heavy_check_mark:'
@@ -812,10 +812,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
       title: test/library_checker/polynomial/multipoint_evaluation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
       title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
     - icon: ':heavy_check_mark:'
