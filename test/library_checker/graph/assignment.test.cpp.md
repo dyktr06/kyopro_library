@@ -29,9 +29,10 @@ data:
     \ G;\n    vector<cost_t> potential, min_cost;\n    vector<int> prev_v, prev_e;\n\
     \    const cost_t INF;\n    PrimalDual(int n) : V(n), G(n), INF(numeric_limits<cost_t>::max()\
     \ / 3) {}\n\n    void add_edge(int from, int to, flow_t cap, cost_t cost){\n \
-    \       G[from].push_back(Edge{from, to, cap, 0, cost, (int) G[to].size(), false});\n\
-    \        G[to].push_back(Edge{to, from, 0, cap, -cost, (int) G[from].size() -\
-    \ 1, true});\n    }\n\n    cost_t flow(int s, int t, flow_t f){\n        assert(0\
+    \       assert(0 <= from && from < V && 0 <= to && to < V);\n        assert(cost\
+    \ >= 0);\n        G[from].push_back(Edge{from, to, cap, 0, cost, (int) G[to].size(),\
+    \ false});\n        G[to].push_back(Edge{to, from, 0, cap, -cost, (int) G[from].size()\
+    \ - 1, true});\n    }\n\n    cost_t flow(int s, int t, flow_t f){\n        assert(0\
     \ <= s && s < V && 0 <= t && t < V);\n        assert(0 <= f);\n        cost_t\
     \ ret = 0;\n        using P = pair<cost_t, int>;\n        priority_queue<P, vector<P>,\
     \ greater<P>> pq;\n        potential.assign(V, 0);\n        prev_v.assign(V, -1);\n\
@@ -41,20 +42,21 @@ data:
     \  min_cost[s] = 0;\n            while(pq.size()){\n                auto [c, at]\
     \ = pq.top();\n                pq.pop();\n                if(min_cost[at] < c)\
     \ continue;\n                for(int i = 0; i < (int) G[at].size(); i++){\n  \
-    \                  auto &e = G[at][i];\n                    // \u975E\u8CA0\u306B\
-    \u3059\u308B\u305F\u3081\u306B\u3001cost'(at, e.to) = cost(at, e.to) + potential[at]\
-    \ - potential[e.to] \u3068\u3059\u308B\n                    // min_cost'[at] +\
-    \ cost'(at, e.to) >= min_cost'[e.to]\n                    // <=> (min_cost'[at]\
-    \ + potential[at]) + cost(at, e.to) >= (min_cost[e.to] + potential[e.to])\n  \
-    \                  cost_t next_cost = min_cost[at] + e.cost + potential[at] -\
-    \ potential[e.to];\n                    if(e.cap > 0 && next_cost < min_cost[e.to]){\n\
-    \                        min_cost[e.to] = next_cost;\n                       \
-    \ prev_v[e.to] = at;\n                        prev_e[e.to] = i;\n            \
-    \            pq.emplace(min_cost[e.to], e.to);\n                    }\n      \
-    \          }\n            }\n            if(min_cost[t] == INF){\n           \
-    \     return -1;\n            }\n            // \u30D5\u30ED\u30FC\u3092\u6D41\
-    \u3059\n            flow_t addflow = f;\n            for(int i = t; i != s; i\
-    \ = prev_v[i]){\n                addflow = min(addflow, G[prev_v[i]][prev_e[i]].cap);\n\
+    \                  auto &e = G[at][i];\n                    if(e.cap <= 0) continue;\n\
+    \                    // \u975E\u8CA0\u306B\u3059\u308B\u305F\u3081\u306B\u3001\
+    cost'(at, e.to) = cost(at, e.to) + potential[at] - potential[e.to] \u3068\u3059\
+    \u308B\n                    // min_cost'[at] + cost'(at, e.to) >= min_cost'[e.to]\n\
+    \                    // <=> (min_cost'[at] + potential[at]) + cost(at, e.to) >=\
+    \ (min_cost[e.to] + potential[e.to])\n                    cost_t next_cost = min_cost[at]\
+    \ + e.cost + potential[at] - potential[e.to];\n                    assert(e.cost\
+    \ + potential[at] - potential[e.to] >= 0);\n                    if(next_cost <\
+    \ min_cost[e.to]){\n                        min_cost[e.to] = next_cost;\n    \
+    \                    prev_v[e.to] = at;\n                        prev_e[e.to]\
+    \ = i;\n                        pq.emplace(min_cost[e.to], e.to);\n          \
+    \          }\n                }\n            }\n            if(min_cost[t] ==\
+    \ INF){\n                return -1;\n            }\n            // \u30D5\u30ED\
+    \u30FC\u3092\u6D41\u3059\n            flow_t addflow = f;\n            for(int\
+    \ i = t; i != s; i = prev_v[i]){\n                addflow = min(addflow, G[prev_v[i]][prev_e[i]].cap);\n\
     \            }\n            f -= addflow;\n            ret += addflow * (min_cost[t]\
     \ + potential[t]);\n            for(int i = t; i != s; i = prev_v[i]){\n     \
     \           auto &e = G[prev_v[i]][prev_e[i]];\n                e.cap -= addflow;\n\
@@ -73,8 +75,8 @@ data:
     \   for(int i = 0; i < n; i++){\n        assert((int) p[i].size() == n);\n   \
     \     for(int j = 0; j < n; j++){\n            minA = min(minA, p[i][j]);\n  \
     \      }\n    }\n    for(int i = 0; i < n; i++){\n        for(int j = 0; j < n;\
-    \ j++){\n            G.add_edge(i, j + n, 1, minA + p[i][j]);\n        }\n   \
-    \ }\n\n    G.flow(s, t, n);\n    auto edges = G.edges();\n    vector<int> ans(n);\n\
+    \ j++){\n            G.add_edge(i, j + n, 1, -minA + p[i][j]);\n        }\n  \
+    \  }\n\n    G.flow(s, t, n);\n    auto edges = G.edges();\n    vector<int> ans(n);\n\
     \    for(auto &e : edges){\n        if(e.from == s || e.to == t || e.flow == 0)\
     \ continue;\n        ans[e.from] = e.to - n;\n    }\n    return ans;\n}\n#line\
     \ 6 \"test/library_checker/graph/assignment.test.cpp\"\n\nint main() {\n    ios::sync_with_stdio(false);\n\
@@ -100,7 +102,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/assignment.test.cpp
   requiredBy: []
-  timestamp: '2024-11-01 00:31:19+09:00'
+  timestamp: '2024-11-08 00:33:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/assignment.test.cpp
