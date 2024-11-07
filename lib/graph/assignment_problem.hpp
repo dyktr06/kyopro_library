@@ -24,7 +24,7 @@ vector<int> assignmentProblem(vector<vector<T>> &p){
     }
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
-            G.add_edge(i, j + n, 1, minA + p[i][j]);
+            G.add_edge(i, j + n, 1, -minA + p[i][j]);
         }
     }
 

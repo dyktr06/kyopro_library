@@ -23,6 +23,8 @@ struct PrimalDual{
     PrimalDual(int n) : V(n), G(n), INF(numeric_limits<cost_t>::max() / 3) {}
 
     void add_edge(int from, int to, flow_t cap, cost_t cost){
+        assert(0 <= from && from < V && 0 <= to && to < V);
+        assert(cost >= 0);
         G[from].push_back(Edge{from, to, cap, 0, cost, (int) G[to].size(), false});
         G[to].push_back(Edge{to, from, 0, cap, -cost, (int) G[from].size() - 1, true});
     }
@@ -47,11 +49,13 @@ struct PrimalDual{
                 if(min_cost[at] < c) continue;
                 for(int i = 0; i < (int) G[at].size(); i++){
                     auto &e = G[at][i];
+                    if(e.cap <= 0) continue;
                     // 非負にするために、cost'(at, e.to) = cost(at, e.to) + potential[at] - potential[e.to] とする
                     // min_cost'[at] + cost'(at, e.to) >= min_cost'[e.to]
                     // <=> (min_cost'[at] + potential[at]) + cost(at, e.to) >= (min_cost[e.to] + potential[e.to])
                     cost_t next_cost = min_cost[at] + e.cost + potential[at] - potential[e.to];
-                    if(e.cap > 0 && next_cost < min_cost[e.to]){
+                    assert(e.cost + potential[at] - potential[e.to] >= 0);
+                    if(next_cost < min_cost[e.to]){
                         min_cost[e.to] = next_cost;
                         prev_v[e.to] = at;
                         prev_e[e.to] = i;
