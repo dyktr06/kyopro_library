@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy:
@@ -21,6 +21,9 @@ data:
     path: lib/math/subset_sum.hpp
     title: Subset Sum
   - icon: ':heavy_check_mark:'
+    path: lib/polynomial/bostan_mori.hpp
+    title: Bostan-Mori
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/multipoint_evaluation.hpp
     title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
   - icon: ':heavy_check_mark:'
@@ -28,7 +31,8 @@ data:
     title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/product_of_polynomial_sequence.hpp
-    title: lib/polynomial/product_of_polynomial_sequence.hpp
+    title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\u7A4D\
+      )"
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/taylor_shift.hpp
     title: Taylor Shift
@@ -42,6 +46,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/bernoulli_number.test.cpp
     title: test/library_checker/number_theory/bernoulli_number.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+    title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/division_of_polynomials.test.cpp
     title: test/library_checker/polynomial/division_of_polynomials.test.cpp
@@ -69,17 +76,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
     title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
+    document_title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
-  bundledCode: "#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n#include <algorithm>\n\
-    #include <cassert>\n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n\
-    #line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n#line 5 \"lib/math/modint.hpp\"\
+  bundledCode: "#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n * @brief\
+    \ Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n#include\
+    \ <algorithm>\n#include <cassert>\n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\
+    \n\n#line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n#line 5 \"lib/math/modint.hpp\"\
     \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
     \ long Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int\
     \ mod() { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
@@ -230,7 +239,7 @@ data:
     \ c1 = convolution(a1, b1);\n        auto c2 = convolution(a2, b2);\n        std::vector<T>\
     \ ret(n + m - 1);\n        for(int i = 0; i < n + m - 1; i++){\n            ret[i]\
     \ = CRT::garner({c0[i].val, c1[i].val, c2[i].val}, {m0, m1, m2}, MOD);\n     \
-    \   }\n        return ret;\n    }\n};\n#line 7 \"lib/polynomial/formal_power_series.hpp\"\
+    \   }\n        return ret;\n    }\n};\n#line 11 \"lib/polynomial/formal_power_series.hpp\"\
     \n\ntemplate <typename T>\nstruct FormalPowerSeries : std::vector<T> {\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n\n    // deg \u6B21\
     \u3068\u3057\u3066\u521D\u671F\u5316\n    FPS pre(int deg) const {\n        FPS\
@@ -370,7 +379,8 @@ data:
     \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
     \    }\n};\n"
-  code: "#pragma once\n\n#include <algorithm>\n#include <cassert>\n#include <vector>\n\
+  code: "#pragma once\n\n/**\n * @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\
+    \u7D1A\u6570)\n */\n\n#include <algorithm>\n#include <cassert>\n#include <vector>\n\
     #include \"../convolution/ntt.hpp\"\n\ntemplate <typename T>\nstruct FormalPowerSeries\
     \ : std::vector<T> {\n    using std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n\
     \n    // deg \u6B21\u3068\u3057\u3066\u521D\u671F\u5316\n    FPS pre(int deg)\
@@ -520,16 +530,18 @@ data:
   - lib/math/bernoulli_number.hpp
   - lib/math/subset_sum.hpp
   - lib/math/partition_function.hpp
+  - lib/polynomial/bostan_mori.hpp
   - lib/polynomial/multipoint_evaluation.hpp
   - lib/polynomial/taylor_shift.hpp
   - lib/polynomial/polynomial_interpolation.hpp
   - lib/polynomial/product_of_polynomial_sequence.hpp
-  timestamp: '2024-11-05 00:02:21+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-11-09 19:46:52+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/bernoulli_number.test.cpp
   - test/library_checker/enumerative_combinatorics/partition_function.test.cpp
   - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+  - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
   - test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
   - test/library_checker/polynomial/log_of_formal_power_series.test.cpp
@@ -545,5 +557,5 @@ layout: document
 redirect_from:
 - /library/lib/polynomial/formal_power_series.hpp
 - /library/lib/polynomial/formal_power_series.hpp.html
-title: lib/polynomial/formal_power_series.hpp
+title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
 ---

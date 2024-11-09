@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
-    title: lib/polynomial/formal_power_series.hpp
+    title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -22,11 +22,15 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\
+      \u7DCF\u7A4D)"
     links: []
   bundledCode: "#line 2 \"lib/polynomial/product_of_polynomial_sequence.hpp\"\n\n\
-    #line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n#include <algorithm>\n#include\
-    \ <cassert>\n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n#line 2\
-    \ \"lib/math/modint.hpp\"\n\n#include <iostream>\n#line 5 \"lib/math/modint.hpp\"\
+    /**\n * @brief Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\
+    \u7A4D)\n */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n *\
+    \ @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n#include\
+    \ <algorithm>\n#include <cassert>\n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\
+    \n\n#line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n#line 5 \"lib/math/modint.hpp\"\
     \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
     \ long Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int\
     \ mod() { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
@@ -177,7 +181,7 @@ data:
     \ c1 = convolution(a1, b1);\n        auto c2 = convolution(a2, b2);\n        std::vector<T>\
     \ ret(n + m - 1);\n        for(int i = 0; i < n + m - 1; i++){\n            ret[i]\
     \ = CRT::garner({c0[i].val, c1[i].val, c2[i].val}, {m0, m1, m2}, MOD);\n     \
-    \   }\n        return ret;\n    }\n};\n#line 7 \"lib/polynomial/formal_power_series.hpp\"\
+    \   }\n        return ret;\n    }\n};\n#line 11 \"lib/polynomial/formal_power_series.hpp\"\
     \n\ntemplate <typename T>\nstruct FormalPowerSeries : std::vector<T> {\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n\n    // deg \u6B21\
     \u3068\u3057\u3066\u521D\u671F\u5316\n    FPS pre(int deg) const {\n        FPS\
@@ -316,18 +320,20 @@ data:
     \        if(sqrt0 == -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2\
     \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
-    \    }\n};\n#line 5 \"lib/polynomial/product_of_polynomial_sequence.hpp\"\n\n\
+    \    }\n};\n#line 9 \"lib/polynomial/product_of_polynomial_sequence.hpp\"\n\n\
     template <typename T>\nFormalPowerSeries<T> product(const std::vector<FormalPowerSeries<T>>\
     \ &f){\n    auto dfs = [&](auto &self, int l, int r) -> FormalPowerSeries<T> {\n\
     \        if(r - l == 1) return f[l];\n        if(r - l == 0) return {T(1)};\n\
     \        int mid = (l + r) / 2;\n        return self(self, l, mid) * self(self,\
     \ mid, r);\n    };\n    return dfs(dfs, 0, (int) f.size());\n}\n"
-  code: "#pragma once\n\n#include \"../polynomial/formal_power_series.hpp\"\n#include\
-    \ <vector>\n\ntemplate <typename T>\nFormalPowerSeries<T> product(const std::vector<FormalPowerSeries<T>>\
-    \ &f){\n    auto dfs = [&](auto &self, int l, int r) -> FormalPowerSeries<T> {\n\
-    \        if(r - l == 1) return f[l];\n        if(r - l == 0) return {T(1)};\n\
-    \        int mid = (l + r) / 2;\n        return self(self, l, mid) * self(self,\
-    \ mid, r);\n    };\n    return dfs(dfs, 0, (int) f.size());\n}\n"
+  code: "#pragma once\n\n/**\n * @brief Product of Polynomial Sequence (\u591A\u9805\
+    \u5F0F\u5217\u306E\u7DCF\u7A4D)\n */\n\n#include \"../polynomial/formal_power_series.hpp\"\
+    \n#include <vector>\n\ntemplate <typename T>\nFormalPowerSeries<T> product(const\
+    \ std::vector<FormalPowerSeries<T>> &f){\n    auto dfs = [&](auto &self, int l,\
+    \ int r) -> FormalPowerSeries<T> {\n        if(r - l == 1) return f[l];\n    \
+    \    if(r - l == 0) return {T(1)};\n        int mid = (l + r) / 2;\n        return\
+    \ self(self, l, mid) * self(self, mid, r);\n    };\n    return dfs(dfs, 0, (int)\
+    \ f.size());\n}\n"
   dependsOn:
   - lib/polynomial/formal_power_series.hpp
   - lib/convolution/ntt.hpp
@@ -336,7 +342,7 @@ data:
   isVerificationFile: false
   path: lib/polynomial/product_of_polynomial_sequence.hpp
   requiredBy: []
-  timestamp: '2024-11-05 00:02:21+09:00'
+  timestamp: '2024-11-09 19:46:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
@@ -345,5 +351,6 @@ layout: document
 redirect_from:
 - /library/lib/polynomial/product_of_polynomial_sequence.hpp
 - /library/lib/polynomial/product_of_polynomial_sequence.hpp.html
-title: lib/polynomial/product_of_polynomial_sequence.hpp
+title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\u7A4D\
+  )"
 ---

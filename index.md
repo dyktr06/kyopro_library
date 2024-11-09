@@ -27,7 +27,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/convolution/lcm_convolution.hpp
       title: lib/convolution/lcm_convolution.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/convolution/ntt.hpp
       title: lib/convolution/ntt.hpp
     - icon: ':heavy_check_mark:'
@@ -301,7 +301,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: "Convert Base (\u9032\u6570\u5909\u63DB)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':heavy_check_mark:'
@@ -325,7 +325,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':heavy_check_mark:'
@@ -393,8 +393,11 @@ data:
   - name: lib/polynomial
     pages:
     - icon: ':heavy_check_mark:'
+      path: lib/polynomial/bostan_mori.hpp
+      title: Bostan-Mori
+    - icon: ':question:'
       path: lib/polynomial/formal_power_series.hpp
-      title: lib/polynomial/formal_power_series.hpp
+      title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
       path: lib/polynomial/multipoint_evaluation.hpp
       title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
@@ -403,7 +406,8 @@ data:
       title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':heavy_check_mark:'
       path: lib/polynomial/product_of_polynomial_sequence.hpp
-      title: lib/polynomial/product_of_polynomial_sequence.hpp
+      title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\
+        \u7A4D)"
     - icon: ':heavy_check_mark:'
       path: lib/polynomial/taylor_shift.hpp
       title: Taylor Shift
@@ -814,6 +818,9 @@ data:
   - name: test/library_checker/other
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+      title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/other/longest_increasing_subsequence.test.cpp
       title: test/library_checker/other/longest_increasing_subsequence.test.cpp
   - name: test/library_checker/polynomial
@@ -845,7 +852,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
       title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
   - name: test/library_checker/sample

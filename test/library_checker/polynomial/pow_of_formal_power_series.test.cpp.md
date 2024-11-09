@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
-    title: lib/polynomial/formal_power_series.hpp
+    title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -66,8 +66,9 @@ data:
     \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
     \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
     \ { return os << x.val; }\n};\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\
-    \n\n#include <algorithm>\n#line 5 \"lib/polynomial/formal_power_series.hpp\"\n\
-    #include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/crt.hpp\"\
+    \n\n/**\n * @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
+    \ */\n\n#include <algorithm>\n#line 9 \"lib/polynomial/formal_power_series.hpp\"\
+    \n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/crt.hpp\"\
     \n\n/**\n * @brief Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406\
     )\n * @docs docs/math/crt.md\n */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\
     \n\nnamespace CRT{\n    inline long long mod(long long a, long long m){\n    \
@@ -178,7 +179,7 @@ data:
     \ c1 = convolution(a1, b1);\n        auto c2 = convolution(a2, b2);\n        std::vector<T>\
     \ ret(n + m - 1);\n        for(int i = 0; i < n + m - 1; i++){\n            ret[i]\
     \ = CRT::garner({c0[i].val, c1[i].val, c2[i].val}, {m0, m1, m2}, MOD);\n     \
-    \   }\n        return ret;\n    }\n};\n#line 7 \"lib/polynomial/formal_power_series.hpp\"\
+    \   }\n        return ret;\n    }\n};\n#line 11 \"lib/polynomial/formal_power_series.hpp\"\
     \n\ntemplate <typename T>\nstruct FormalPowerSeries : std::vector<T> {\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n\n    // deg \u6B21\
     \u3068\u3057\u3066\u521D\u671F\u5316\n    FPS pre(int deg) const {\n        FPS\
@@ -339,7 +340,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2024-11-05 00:02:21+09:00'
+  timestamp: '2024-11-09 19:46:52+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp

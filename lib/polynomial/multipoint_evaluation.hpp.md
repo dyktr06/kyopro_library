@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
-    title: lib/polynomial/formal_power_series.hpp
+    title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/polynomial_interpolation.hpp
@@ -33,7 +33,8 @@ data:
     - https://37zigen.com/multipoint-evaluation/
   bundledCode: "#line 2 \"lib/polynomial/multipoint_evaluation.hpp\"\n\n/**\n * @brief\
     \ Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)\n * @see https://37zigen.com/multipoint-evaluation/\n\
-    \ */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n#include <algorithm>\n\
+    \ */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n * @brief Formal\
+    \ Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n#include <algorithm>\n\
     #include <cassert>\n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n\
     #line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n#line 5 \"lib/math/modint.hpp\"\
     \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
@@ -186,7 +187,7 @@ data:
     \ c1 = convolution(a1, b1);\n        auto c2 = convolution(a2, b2);\n        std::vector<T>\
     \ ret(n + m - 1);\n        for(int i = 0; i < n + m - 1; i++){\n            ret[i]\
     \ = CRT::garner({c0[i].val, c1[i].val, c2[i].val}, {m0, m1, m2}, MOD);\n     \
-    \   }\n        return ret;\n    }\n};\n#line 7 \"lib/polynomial/formal_power_series.hpp\"\
+    \   }\n        return ret;\n    }\n};\n#line 11 \"lib/polynomial/formal_power_series.hpp\"\
     \n\ntemplate <typename T>\nstruct FormalPowerSeries : std::vector<T> {\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n\n    // deg \u6B21\
     \u3068\u3057\u3066\u521D\u671F\u5316\n    FPS pre(int deg) const {\n        FPS\
@@ -361,7 +362,7 @@ data:
   path: lib/polynomial/multipoint_evaluation.hpp
   requiredBy:
   - lib/polynomial/polynomial_interpolation.hpp
-  timestamp: '2024-11-05 00:02:21+09:00'
+  timestamp: '2024-11-09 19:46:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/polynomial/polynomial_interpolation.test.cpp
