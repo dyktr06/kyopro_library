@@ -123,6 +123,7 @@
 "test/library_checker/polynomial/polynomial_taylor_shift.test.cpp": "2024-11-09 19:46:52 +0900",
 "test/library_checker/polynomial/pow_of_formal_power_series.test.cpp": "2024-11-09 19:46:52 +0900",
 "test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp": "2024-11-09 19:46:52 +0900",
+"test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp": "2024-11-09 19:46:52 +0900",
 "test/library_checker/sample/many_aplusb_128bit.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/string/enumerate_palindromes.test.cpp": "2024-04-07 03:10:19 +0900",
 "test/library_checker/string/lyndon_factorization.test.cpp": "2024-10-31 22:40:32 +0900",
