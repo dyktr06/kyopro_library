@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+ * @brief Formal Power Series (形式的冪級数)
+ */
+
 #include <algorithm>
 #include <cassert>
 #include <vector>

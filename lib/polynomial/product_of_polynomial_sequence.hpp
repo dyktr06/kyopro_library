@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+ * @brief Product of Polynomial Sequence (多項式列の総積)
+ */
+
 #include "../polynomial/formal_power_series.hpp"
 #include <vector>
 
