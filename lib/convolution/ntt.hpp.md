@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy:
@@ -20,7 +20,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/bostan_mori.hpp
     title: Bostan-Mori
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
@@ -85,15 +85,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
     title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/string/wildcard_pattern_matching.test.cpp
     title: test/library_checker/string/wildcard_pattern_matching.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/modint.hpp\"\
@@ -340,7 +340,7 @@ data:
   - lib/polynomial/product_of_polynomial_sequence.hpp
   - lib/polynomial/formal_power_series.hpp
   timestamp: '2024-11-03 21:58:22+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/bernoulli_number.test.cpp
   - test/library_checker/enumerative_combinatorics/partition_function.test.cpp

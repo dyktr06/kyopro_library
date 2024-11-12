@@ -27,7 +27,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/convolution/lcm_convolution.hpp
       title: lib/convolution/lcm_convolution.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/ntt.hpp
       title: lib/convolution/ntt.hpp
     - icon: ':heavy_check_mark:'
@@ -301,7 +301,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: "Convert Base (\u9032\u6570\u5909\u63DB)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':heavy_check_mark:'
@@ -325,7 +325,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':heavy_check_mark:'
@@ -395,7 +395,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/polynomial/bostan_mori.hpp
       title: Bostan-Mori
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/formal_power_series.hpp
       title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
@@ -571,6 +571,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/line_add_get_min.test.cpp
       title: test/library_checker/data_structure/line_add_get_min.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/ordered_set.test.cpp
+      title: test/library_checker/data_structure/ordered_set.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/persistent_queue.test.cpp
       title: test/library_checker/data_structure/persistent_queue.test.cpp
@@ -852,7 +855,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
       title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
   - name: test/library_checker/sample
