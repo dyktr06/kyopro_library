@@ -5,21 +5,24 @@
  * @docs docs/others/compression.md
  */
 
+#include <vector>
+#include <algorithm>
+
 template <typename T>
 struct compress{
-    vector<T> sorted;
-    vector<int> compressed;
+    std::vector<T> sorted;
+    std::vector<int> compressed;
 
-    compress(const vector<T> &vec){
+    compress(const std::vector<T> &vec){
         int n = vec.size();
         compressed.resize(n);
         for(T x : vec){
             sorted.emplace_back(x);
         }
-        sort(sorted.begin(), sorted.end());
-        sorted.erase(unique(sorted.begin(), sorted.end()), sorted.end());
+        std::sort(sorted.begin(), sorted.end());
+        sorted.erase(std::unique(sorted.begin(), sorted.end()), sorted.end());
         for(int i = 0; i < n; ++i){
-            compressed[i] = lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();
+            compressed[i] = std::lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();
         }
     }
 
@@ -35,7 +38,7 @@ struct compress{
         return sorted.size();
     }
 
-    vector<T> getCompressed() const{
+    std::vector<T> getCompressed() const{
         return compressed;
     }
 };

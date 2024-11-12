@@ -1,6 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/ordered_set"
 
 #include <iostream>
+#include <vector>
+
 #include "../../../lib/data_structure/priority_set.hpp"
 
 using namespace std;
