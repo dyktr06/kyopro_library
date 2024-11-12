@@ -18,17 +18,18 @@ data:
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/associative_array\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/others/compression.hpp\"\
     \n\n/**\n * @brief Compression (\u5EA7\u6A19\u5727\u7E2E)\n * @docs docs/others/compression.md\n\
-    \ */\n\ntemplate <typename T>\nstruct compress{\n    vector<T> sorted;\n    vector<int>\
-    \ compressed;\n\n    compress(const vector<T> &vec){\n        int n = vec.size();\n\
-    \        compressed.resize(n);\n        for(T x : vec){\n            sorted.emplace_back(x);\n\
-    \        }\n        sort(sorted.begin(), sorted.end());\n        sorted.erase(unique(sorted.begin(),\
+    \ */\n\n#line 10 \"lib/others/compression.hpp\"\n\ntemplate <typename T>\nstruct\
+    \ compress{\n    std::vector<T> sorted;\n    std::vector<int> compressed;\n\n\
+    \    compress(const std::vector<T> &vec){\n        int n = vec.size();\n     \
+    \   compressed.resize(n);\n        for(T x : vec){\n            sorted.emplace_back(x);\n\
+    \        }\n        std::sort(sorted.begin(), sorted.end());\n        sorted.erase(std::unique(sorted.begin(),\
     \ sorted.end()), sorted.end());\n        for(int i = 0; i < n; ++i){\n       \
-    \     compressed[i] = lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();\n\
-    \        }\n    }\n\n    int get(const T &x) const{\n        return lower_bound(sorted.begin(),\
-    \ sorted.end(), x) - sorted.begin();\n    }\n\n    T inv(const int x) const{\n\
-    \        return sorted[x];\n    }\n\n    size_t size() const{\n        return\
-    \ sorted.size();\n    }\n\n    vector<T> getCompressed() const{\n        return\
-    \ compressed;\n    }\n};\n#line 6 \"test/library_checker/data_structure/associative_array.test.cpp\"\
+    \     compressed[i] = std::lower_bound(sorted.begin(), sorted.end(), vec[i]) -\
+    \ sorted.begin();\n        }\n    }\n\n    int get(const T &x) const{\n      \
+    \  return lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();\n   \
+    \ }\n\n    T inv(const int x) const{\n        return sorted[x];\n    }\n\n   \
+    \ size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<T>\
+    \ getCompressed() const{\n        return compressed;\n    }\n};\n#line 6 \"test/library_checker/data_structure/associative_array.test.cpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
     \   int q; cin >> q;\n    using T = tuple<int, long long, long long>;\n    vector<T>\
     \ query(q);\n    vector<long long> x(q);\n    for(int i = 0; i < q; i++){\n  \
@@ -56,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/associative_array.test.cpp
   requiredBy: []
-  timestamp: '2024-05-06 22:04:04+09:00'
+  timestamp: '2024-11-12 11:47:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/associative_array.test.cpp

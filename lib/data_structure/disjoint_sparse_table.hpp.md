@@ -29,10 +29,10 @@ data:
     \    }\n                table[i][j + h - 1] = val[j + h - 1];\n              \
     \  for(int k = j + h - 2; k >= j; k--){\n                    table[i][k] = op(table[i][k\
     \ + 1], val[k]);\n                }\n            }\n        }\n    }\n\n    //\
-    \ [l, r]\n    T query(int l, int r){\n        if(l == r){\n            return\
-    \ val[l];\n        }\n        // \u307E\u305F\u3050\u5834\u6240\u306E\u8A08\u7B97\
-    \n        int d = __builtin_clz(l ^ r) - (32 - log2);\n        return op(table[d][l],\
-    \ table[d][r]);\n    }\n};\n"
+    \ [l, r]\n    T query(int l, int r){\n        assert(l <= r);\n        if(l ==\
+    \ r){\n            return val[l];\n        }\n        // \u307E\u305F\u3050\u5834\
+    \u6240\u306E\u8A08\u7B97\n        int d = __builtin_clz(l ^ r) - (32 - log2);\n\
+    \        return op(table[d][l], table[d][r]);\n    }\n};\n"
   code: "#pragma once\n\ntemplate <typename T, T (*op)(T, T)>\nstruct DisjointSparseTable{\n\
     \    int n, log2;\n    std::vector<std::vector<T>> table;\n    std::vector<T>\
     \ val;\n    DisjointSparseTable(std::vector<T> &a) : val(a) {\n        int len\
@@ -48,15 +48,15 @@ data:
     \        table[i][j + h - 1] = val[j + h - 1];\n                for(int k = j\
     \ + h - 2; k >= j; k--){\n                    table[i][k] = op(table[i][k + 1],\
     \ val[k]);\n                }\n            }\n        }\n    }\n\n    // [l, r]\n\
-    \    T query(int l, int r){\n        if(l == r){\n            return val[l];\n\
-    \        }\n        // \u307E\u305F\u3050\u5834\u6240\u306E\u8A08\u7B97\n    \
-    \    int d = __builtin_clz(l ^ r) - (32 - log2);\n        return op(table[d][l],\
-    \ table[d][r]);\n    }\n};\n"
+    \    T query(int l, int r){\n        assert(l <= r);\n        if(l == r){\n  \
+    \          return val[l];\n        }\n        // \u307E\u305F\u3050\u5834\u6240\
+    \u306E\u8A08\u7B97\n        int d = __builtin_clz(l ^ r) - (32 - log2);\n    \
+    \    return op(table[d][l], table[d][r]);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/disjoint_sparse_table.hpp
   requiredBy: []
-  timestamp: '2024-10-24 01:29:32+09:00'
+  timestamp: '2024-11-12 11:47:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/static_rmq_2.test.cpp

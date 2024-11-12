@@ -589,6 +589,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
       title: test/library_checker/data_structure/point_add_rectangle_sum_rt.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
+      title: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_set_range_frequency.test.cpp
       title: test/library_checker/data_structure/point_set_range_frequency.test.cpp
