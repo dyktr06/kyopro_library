@@ -36,6 +36,7 @@ struct DisjointSparseTable{
 
     // [l, r]
     T query(int l, int r){
+        assert(l <= r);
         if(l == r){
             return val[l];
         }
