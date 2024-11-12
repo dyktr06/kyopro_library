@@ -1,27 +1,30 @@
 #pragma once
 
+#include <vector>
+#include <algorithm>
+
 template <typename T>
 struct PrioritySet{
     struct compress{
-        vector<T> sorted, compressed;
+        std::vector<T> sorted, compressed;
 
         compress(){}
 
-        void init(const vector<T> &vec){
+        void init(const std::vector<T> &vec){
             int n = vec.size();
             compressed.resize(n);
             for(T x : vec){
                 sorted.emplace_back(x);
             }
-            sort(sorted.begin(), sorted.end());
+            std::sort(sorted.begin(), sorted.end());
             sorted.erase(unique(sorted.begin(), sorted.end()), sorted.end());
             for(int i = 0; i < n; ++i){
-                compressed[i] = lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();
+                compressed[i] = std::lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();
             }
         }
 
         int get(const T &x) const{
-            return lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();
+            return std::lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();
         }
 
         T inv(const T &x) const{
@@ -32,14 +35,14 @@ struct PrioritySet{
             return sorted.size();
         }
 
-        vector<T> getCompressed() const{
+        std::vector<T> getCompressed() const{
             return compressed;
         }
     };
 
     struct BinaryIndexedTree{
         int N;
-        vector<T> BIT;
+        std::vector<T> BIT;
         BinaryIndexedTree() {}
 
         void init(int size){
@@ -109,7 +112,7 @@ struct PrioritySet{
         }
     };
 
-    vector<T> a;
+    std::vector<T> a;
     compress comp;
     BinaryIndexedTree cnt, val;
 
@@ -145,11 +148,17 @@ struct PrioritySet{
 
     // 1-indexed
     T kth_small_element(T k){
+        if(k <= 0 || size() < k){
+            return -1;
+        }
         T idx = cnt.lower_bound(k);
         return comp.inv(idx);
     }
 
     T kth_large_element(T k){
+        if(k <= 0 || size() < k){
+            return -1;
+        }
         T rev_k = size() - k + 1;
         return kth_small_element(rev_k);
     }
@@ -171,5 +180,27 @@ struct PrioritySet{
         }
         T rev_k = size() - k;
         return val.sum((int) comp.size()) - kth_small_sum(rev_k);
+    }
+
+    // x 未満
+    T count_less(T x){
+        return cnt.sum(comp.get(x));
+    }
+
+    T lower_bound(T x){
+        return kth_small_element(count_less(x) + 1);
+    }
+
+    T upper_bound(T x){
+        return kth_small_element(count_less(x + 1) + 1);
+    }
+
+    // x 以下で最大
+    T reverse_lower_bound(T x){
+        return kth_small_element(count_less(x + 1));
+    }
+
+    bool exist(T x){
+        return count_less(x) != count_less(x + 1);
     }
 };
