@@ -5,9 +5,6 @@ data:
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
   - icon: ':heavy_check_mark:'
-    path: lib/math/bernoulli_number.hpp
-    title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
-  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
   - icon: ':heavy_check_mark:'
@@ -17,63 +14,61 @@ data:
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/number_theory/bell_number.test.cpp
+    title: test/library_checker/number_theory/bell_number.test.cpp
   _isVerificationFailed: false
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/bernoulli_number
-    links:
-    - https://judge.yosupo.jp/problem/bernoulli_number
-  bundledCode: "#line 1 \"test/library_checker/number_theory/bernoulli_number.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/bernoulli_number\"\n#include\
-    \ <iostream>\nusing namespace std;\n\n#line 2 \"lib/math/modint.hpp\"\n\n#line\
-    \ 4 \"lib/math/modint.hpp\"\n#include <cassert>\n\n/**\n * @brief ModInt\n * @docs\
-    \ docs/math/modint.md\n */\n\ntemplate <long long Modulus>\nstruct ModInt{\n \
-    \   long long val;\n    static constexpr int mod() { return Modulus; }\n    constexpr\
-    \ ModInt(const long long _val = 0) noexcept : val(_val) {\n        normalize();\n\
-    \    }\n    void normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n\
-    \    }\n    inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val\
-    \ += rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n\
-    \    inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -=\
-    \ rhs.val, val < 0) val += Modulus;\n        return *this;\n    }\n    inline\
-    \ ModInt &operator*=(const ModInt &rhs) noexcept {\n        val = val * rhs.val\
-    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator/=(const\
-    \ ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val % Modulus;\n \
-    \       return *this;\n    }\n    inline ModInt &operator++() noexcept {\n   \
-    \     if(++val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
-    \ inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n        if(++val\
-    \ >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline ModInt &operator--()\
-    \ noexcept {\n        if(--val < 0) val += Modulus;\n        return *this;\n \
-    \   }\n    inline ModInt operator--(int) noexcept {\n        ModInt t = val;\n\
-    \        if(--val < 0) val += Modulus;\n        return t;\n    }\n    inline ModInt\
-    \ operator-() const noexcept { return (Modulus - val) % Modulus; }\n    inline\
-    \ ModInt inv(void) const { return inv(val); }\n    ModInt pow(long long n) const\
-    \ {\n        assert(0 <= n);\n        ModInt x = *this, r = 1;\n        while(n){\n\
-    \            if(n & 1) r *= x;\n            x *= x;\n            n >>= 1;\n  \
-    \      }\n        return r;\n    }\n    ModInt inv(const long long n) const {\n\
-    \        long long a = n, b = Modulus, u = 1, v = 0;\n        while(b){\n    \
-    \        long long t = a / b;\n            a -= t * b; std::swap(a, b);\n    \
-    \        u -= t * v; std::swap(u, v);\n        }\n        u %= Modulus;\n    \
-    \    if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline ModInt\
-    \ operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
-    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
-    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
-    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ lhs.val != rhs.val; }\n    friend inline std::istream &operator>>(std::istream\
-    \ &is, ModInt &x) noexcept {\n        is >> x.val;\n        x.normalize();\n \
-    \       return is;\n    }\n    friend inline std::ostream &operator<<(std::ostream\
-    \ &os, const ModInt &x) noexcept { return os << x.val; }\n};\n#line 2 \"lib/math/bernoulli_number.hpp\"\
-    \n\n/**\n * @brief Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)\n */\n\
-    \n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n * @brief Formal\
-    \ Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n#include <algorithm>\n\
-    #line 9 \"lib/polynomial/formal_power_series.hpp\"\n#include <vector>\n#line 2\
-    \ \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
+    document_title: "Bell Number (\u30D9\u30EB\u6570)"
+    links: []
+  bundledCode: "#line 2 \"lib/math/bell_number.hpp\"\n\n/**\n * @brief Bell Number\
+    \ (\u30D9\u30EB\u6570)\n */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\
+    \n\n/**\n * @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
+    \ */\n\n#include <algorithm>\n#include <cassert>\n#include <vector>\n#line 2 \"\
+    lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n\
+    #line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
+    \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
+    \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
+    \ normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n    }\n  \
+    \  inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val +=\
+    \ rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
+    \ inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -= rhs.val,\
+    \ val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt &operator*=(const\
+    \ ModInt &rhs) noexcept {\n        val = val * rhs.val % Modulus;\n        return\
+    \ *this;\n    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n\
+    \        val = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n\
+    \    inline ModInt &operator++() noexcept {\n        if(++val >= Modulus) val\
+    \ -= Modulus;\n        return *this;\n    }\n    inline ModInt operator++(int)\
+    \ noexcept {\n        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n\
+    \        return t;\n    }\n    inline ModInt &operator--() noexcept {\n      \
+    \  if(--val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt\
+    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
+    \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
+    \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
+    \ inv(val); }\n    ModInt pow(long long n) const {\n        assert(0 <= n);\n\
+    \        ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r\
+    \ *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
+    \ r;\n    }\n    ModInt inv(const long long n) const {\n        long long a =\
+    \ n, b = Modulus, u = 1, v = 0;\n        while(b){\n            long long t =\
+    \ a / b;\n            a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u,\
+    \ v);\n        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n   \
+    \     return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline\
+    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \ -= rhs; }\n    friend inline ModInt operator*(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n  \
+    \  friend inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend\
+    \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
+    \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
+    \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
+    \ { return os << x.val; }\n};\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
     \ Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
     \ */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n\
     \    inline long long mod(long long a, long long m){\n        return (a % m +\
@@ -323,47 +318,37 @@ data:
     \        if(sqrt0 == -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2\
     \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
-    \    }\n};\n#line 9 \"lib/math/bernoulli_number.hpp\"\n\ntemplate <typename T>\n\
-    std::vector<T> bernoulliNumber(const int n){\n    using FPS = FormalPowerSeries<T>;\n\
-    \    // \u30D9\u30EB\u30CC\u30FC\u30A4\u6570 B_i \u306F\u3001\u95A2\u6570 x/(exp(x)\
-    \ - 1) = sum ((B_n / n!) x^n) \u3068\u3057\u3066\u5B9A\u7FA9\u3055\u308C\u308B\
-    \n    // inv((exp(x) - 1)/x) \u306E\u4FC2\u6570\u3092\u6C42\u3081\u308C\u3070\u3088\
-    \u3044\n    FPS f(n + 1);\n    std::vector<T> inv(n + 2), invfact(n + 2);\n  \
-    \  inv[1] = 1;\n    invfact[0] = invfact[1] = 1;\n    long long mod = T::mod();\n\
-    \    for(int i = 2; i <= n + 1; ++i){\n        inv[i] = mod - inv[mod % i] * (mod\
-    \ / i);\n        invfact[i] = invfact[i - 1] * inv[i];\n    }\n    for(int i =\
-    \ 0; i <= n; i++){\n        // exp(x) - 1 = x + x^2/2! + x^3/3! + ...\n      \
-    \  // (exp(x) - 1)/x = 1 + x/2! + x^2/3! + ...\n        f[i] = invfact[i + 1];\n\
-    \    }\n    f = f.inv(n + 1);\n    T fact = 1;\n    for(int i = 0; i <= n; i++){\n\
-    \        if(i >= 1) fact *= i;\n        f[i] *= fact;\n    }\n    return std::vector<T>(std::begin(f),\
-    \ std::end(f));\n}\n#line 7 \"test/library_checker/number_theory/bernoulli_number.test.cpp\"\
-    \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\nint main(){\n \
-    \   cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int n; cin >> n;\n\
-    \    auto ans = bernoulliNumber<mint>(n);\n    for(int i = 0; i <= n; i++){\n\
-    \        cout << ans[i] << (i == n ? '\\n' : ' ');\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bernoulli_number\"\n#include\
-    \ <iostream>\nusing namespace std;\n\n#include \"../../../lib/math/modint.hpp\"\
-    \n#include \"../../../lib/math/bernoulli_number.hpp\"\n\nusing namespace std;\n\
-    \nusing mint = ModInt<998244353>;\n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
-    \n    int n; cin >> n;\n    auto ans = bernoulliNumber<mint>(n);\n    for(int\
-    \ i = 0; i <= n; i++){\n        cout << ans[i] << (i == n ? '\\n' : ' ');\n  \
-    \  }\n}\n"
+    \    }\n};\n#line 9 \"lib/math/bell_number.hpp\"\n\ntemplate <typename T>\nstd::vector<T>\
+    \ bellNumber(const int n){\n    using FPS = FormalPowerSeries<T>;\n    // \u30D9\
+    \u30EB\u6570 B_i \u306F\u3001\u95A2\u6570 e^{e^x - 1} = sum ((B_n / n!) x^n) \u3068\
+    \u3057\u3066\u5B9A\u7FA9\u3055\u308C\u308B\n    FPS f = {0, 1};\n    f = f.exp(n\
+    \ + 1);\n    f[0] -= 1;\n    f = f.exp(n + 1);\n\n    T fact = 1;\n    for(int\
+    \ i = 0; i <= n; i++){\n        if(i) fact *= i;\n        f[i] *= fact;\n    }\n\
+    \    return std::vector<T>(std::begin(f), std::end(f));\n}\n"
+  code: "#pragma once\n\n/**\n * @brief Bell Number (\u30D9\u30EB\u6570)\n */\n\n\
+    #include \"../polynomial/formal_power_series.hpp\"\n#include <vector>\n\ntemplate\
+    \ <typename T>\nstd::vector<T> bellNumber(const int n){\n    using FPS = FormalPowerSeries<T>;\n\
+    \    // \u30D9\u30EB\u6570 B_i \u306F\u3001\u95A2\u6570 e^{e^x - 1} = sum ((B_n\
+    \ / n!) x^n) \u3068\u3057\u3066\u5B9A\u7FA9\u3055\u308C\u308B\n    FPS f = {0,\
+    \ 1};\n    f = f.exp(n + 1);\n    f[0] -= 1;\n    f = f.exp(n + 1);\n\n    T fact\
+    \ = 1;\n    for(int i = 0; i <= n; i++){\n        if(i) fact *= i;\n        f[i]\
+    \ *= fact;\n    }\n    return std::vector<T>(std::begin(f), std::end(f));\n}\n"
   dependsOn:
-  - lib/math/modint.hpp
-  - lib/math/bernoulli_number.hpp
   - lib/polynomial/formal_power_series.hpp
   - lib/convolution/ntt.hpp
+  - lib/math/modint.hpp
   - lib/math/crt.hpp
-  isVerificationFile: true
-  path: test/library_checker/number_theory/bernoulli_number.test.cpp
+  isVerificationFile: false
+  path: lib/math/bell_number.hpp
   requiredBy: []
   timestamp: '2024-11-12 12:01:11+09:00'
-  verificationStatus: TEST_ACCEPTED
-  verifiedWith: []
-documentation_of: test/library_checker/number_theory/bernoulli_number.test.cpp
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library_checker/number_theory/bell_number.test.cpp
+documentation_of: lib/math/bell_number.hpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/number_theory/bernoulli_number.test.cpp
-- /verify/test/library_checker/number_theory/bernoulli_number.test.cpp.html
-title: test/library_checker/number_theory/bernoulli_number.test.cpp
+- /library/lib/math/bell_number.hpp
+- /library/lib/math/bell_number.hpp.html
+title: "Bell Number (\u30D9\u30EB\u6570)"
 ---

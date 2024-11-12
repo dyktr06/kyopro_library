@@ -284,6 +284,9 @@ data:
       path: lib/math/baby-step_giant-step.hpp
       title: Baby-step giant-step
     - icon: ':heavy_check_mark:'
+      path: lib/math/bell_number.hpp
+      title: "Bell Number (\u30D9\u30EB\u6570)"
+    - icon: ':heavy_check_mark:'
       path: lib/math/bernoulli_number.hpp
       title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
     - icon: ':heavy_check_mark:'
@@ -791,6 +794,9 @@ data:
       title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - name: test/library_checker/number_theory
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/bell_number.test.cpp
+      title: test/library_checker/number_theory/bell_number.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/bernoulli_number.test.cpp
       title: test/library_checker/number_theory/bernoulli_number.test.cpp

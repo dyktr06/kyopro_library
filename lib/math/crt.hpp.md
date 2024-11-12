@@ -6,6 +6,9 @@ data:
     path: lib/convolution/ntt.hpp
     title: lib/convolution/ntt.hpp
   - icon: ':heavy_check_mark:'
+    path: lib/math/bell_number.hpp
+    title: "Bell Number (\u30D9\u30EB\u6570)"
+  - icon: ':heavy_check_mark:'
     path: lib/math/bernoulli_number.hpp
     title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
   - icon: ':heavy_check_mark:'
@@ -49,6 +52,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
     title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/number_theory/bell_number.test.cpp
+    title: test/library_checker/number_theory/bell_number.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/bernoulli_number.test.cpp
     title: test/library_checker/number_theory/bernoulli_number.test.cpp
@@ -184,6 +190,7 @@ data:
   path: lib/math/crt.hpp
   requiredBy:
   - lib/math/bernoulli_number.hpp
+  - lib/math/bell_number.hpp
   - lib/math/subset_sum.hpp
   - lib/math/partition_function.hpp
   - lib/convolution/ntt.hpp
@@ -197,6 +204,7 @@ data:
   timestamp: '2024-11-03 21:58:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/number_theory/bell_number.test.cpp
   - test/library_checker/number_theory/bernoulli_number.test.cpp
   - test/library_checker/enumerative_combinatorics/partition_function.test.cpp
   - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
