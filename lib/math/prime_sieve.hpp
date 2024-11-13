@@ -5,11 +5,13 @@
  * @docs docs/math/prime-sieve.md
  */
 
+#include <vector>
+
 template <typename T>
 struct PrimeSieve{
     int n, half;
-    vector<bool> sieve;
-    vector<T> prime_list;
+    std::vector<bool> sieve;
+    std::vector<T> prime_list;
     // sieve[i] ... 2 * i + 1
 
     PrimeSieve(T _n) : n(_n){

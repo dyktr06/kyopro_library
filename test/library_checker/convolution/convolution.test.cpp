@@ -1,16 +1,17 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
 
 #include "../../../lib/convolution/ntt.hpp"
 #include "../../../lib/math/modint.hpp"
+
+using namespace std;
 
 using mint = ModInt<998244353>;
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    srand(time(NULL));
 
     int n, m; cin >> n >> m;
     vector<mint> a(n), b(m);

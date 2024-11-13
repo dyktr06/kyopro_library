@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+ * @brief Number Theoretic Transform
+ */
+
 #include "../math/modint.hpp"
 #include "../math/crt.hpp"
 

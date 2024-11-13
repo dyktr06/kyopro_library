@@ -1,13 +1,20 @@
 #pragma once
 
+/**
+ * @brief Karatsuba Algorithm
+ */
+
+#include <vector>
+#include <cassert>
+
 template <typename T>
-vector<T> karatsuba_algorithm(vector<T> &a, vector<T> &b){
+std::vector<T> karatsuba_algorithm(std::vector<T> &a, std::vector<T> &b){
     const int n = (int) a.size();
     const int h = n >> 1;
     assert(a.size() == b.size());
     assert((n & (n - 1)) == 0);
     if(n <= 64){
-        vector<T> res(2 * n - 1);
+        std::vector<T> res(2 * n - 1);
         for(int i = 0; i < n; ++i){
             for(int j = 0; j < n; ++j){
                 res[i + j] += a[i] * b[j];
@@ -15,7 +22,7 @@ vector<T> karatsuba_algorithm(vector<T> &a, vector<T> &b){
         }
         return res;
     }
-    vector<T> p(h), q(h), r(h), s(h), t(h), u(h);
+    std::vector<T> p(h), q(h), r(h), s(h), t(h), u(h);
     for(int i = 0; i < h; ++i){
         p[i] = a[i + h];
         q[i] = a[i];
@@ -27,7 +34,7 @@ vector<T> karatsuba_algorithm(vector<T> &a, vector<T> &b){
     p = karatsuba_algorithm(p, r);
     q = karatsuba_algorithm(q, s);
     t = karatsuba_algorithm(t, u);
-    vector<T> res(2 * n - 1, 0);
+    std::vector<T> res(2 * n - 1, 0);
     for(int i = 0; i < n - 1; ++i){
         res[i] += q[i];
         res[i + h] += t[i] - p[i] - q[i];

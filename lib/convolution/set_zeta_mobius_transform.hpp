@@ -1,7 +1,14 @@
 #pragma once
 
+/**
+ * @brief Set Zeta/Mobius Transform
+ */
+
+#include <vector>
+#include <cassert>
+
 template <typename T>
-void superset_zeta_transform(vector<T> &f){
+void superset_zeta_transform(std::vector<T> &f){
     const int n = f.size();
     assert((n & (n - 1)) == 0);
     for(int i = 1; i < n; i <<= 1){
@@ -14,7 +21,7 @@ void superset_zeta_transform(vector<T> &f){
 }
 
 template <typename T>
-void superset_mobius_transform(vector<T> &f){
+void superset_mobius_transform(std::vector<T> &f){
     const int n = f.size();
     assert((n & (n - 1)) == 0);
     for(int i = 1; i < n; i <<= 1){
@@ -27,7 +34,7 @@ void superset_mobius_transform(vector<T> &f){
 }
 
 template <typename T>
-void subset_zeta_transform(vector<T> &f){
+void subset_zeta_transform(std::vector<T> &f){
     const int n = f.size();
     assert((n & (n - 1)) == 0);
     for(int i = 1; i < n; i <<= 1){
@@ -40,7 +47,7 @@ void subset_zeta_transform(vector<T> &f){
 }
 
 template <typename T>
-void subset_mobius_transform(vector<T> &f){
+void subset_mobius_transform(std::vector<T> &f){
     const int n = f.size();
     assert((n & (n - 1)) == 0);
     for(int i = 1; i < n; i <<= 1){

@@ -27,7 +27,7 @@ struct compress{
     }
 
     int get(const T &x) const{
-        return lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();
+        return std::lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();
     }
 
     T inv(const int x) const{

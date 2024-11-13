@@ -1,9 +1,12 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/bitwise_and_convolution"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
 #include "../../../lib/convolution/bitwise_or_convolution.hpp"
 #include "../../../lib/math/modint.hpp"
+
+using namespace std;
 
 using mint = ModInt<998244353>;
 

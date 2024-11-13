@@ -1,9 +1,11 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod_1000000007"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
 
 #include "../../../lib/convolution/ntt.hpp"
 #include "../../../lib/math/modint.hpp"
+
+using namespace std;
 
 const long long MOD = 1000000007;
 using mint = ModInt<MOD>;

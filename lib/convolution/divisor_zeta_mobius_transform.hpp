@@ -1,9 +1,15 @@
 #pragma once
 
+/**
+ * @brief Divisor Zeta/Mobius Transform
+ */
+
+#include <vector>
+
 #include "../math/prime_sieve.hpp"
 
 template <typename T>
-void divisor_zeta_transform(vector<T> &a){
+void divisor_zeta_transform(std::vector<T> &a){
     int n = a.size() - 1;
     PrimeSieve<int> sieve(n);
     for(int d = 2; d <= n; d++){
@@ -16,7 +22,7 @@ void divisor_zeta_transform(vector<T> &a){
 }
 
 template <typename T>
-void divisor_reversed_zeta_transform(vector<T> &a){
+void divisor_reversed_zeta_transform(std::vector<T> &a){
     int n = a.size() - 1;
     PrimeSieve<int> sieve(n);
     for(int d = 2; d <= n; d++){
@@ -29,7 +35,7 @@ void divisor_reversed_zeta_transform(vector<T> &a){
 }
 
 template <typename T>
-void divisor_mobius_transform(vector<T> &a){
+void divisor_mobius_transform(std::vector<T> &a){
     int n = a.size() - 1;
     PrimeSieve<int> sieve(n);
     for(int d = 2; d <= n; d++){
@@ -42,7 +48,7 @@ void divisor_mobius_transform(vector<T> &a){
 }
 
 template <typename T>
-void divisor_reversed_mobius_transform(vector<T> &a){
+void divisor_reversed_mobius_transform(std::vector<T> &a){
     int n = a.size() - 1;
     PrimeSieve<int> sieve(n);
     for(int d = 2; d <= n; d++){
