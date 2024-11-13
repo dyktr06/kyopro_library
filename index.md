@@ -27,7 +27,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/convolution/lcm_convolution.hpp
       title: LCM Convolution
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/convolution/ntt.hpp
       title: Number Theoretic Transform
     - icon: ':heavy_check_mark:'
@@ -304,7 +304,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: "Convert Base (\u9032\u6570\u5909\u63DB)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/crt.hpp
       title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
     - icon: ':heavy_check_mark:'
@@ -328,7 +328,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':heavy_check_mark:'
@@ -398,7 +398,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/polynomial/bostan_mori.hpp
       title: Bostan-Mori
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/formal_power_series.hpp
       title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
@@ -407,7 +407,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/polynomial/polynomial_interpolation.hpp
       title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/product_of_polynomial_sequence.hpp
       title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\
         \u7A4D)"
@@ -443,7 +443,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/string/suffix_array.hpp
       title: lib/string/suffix_array.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/string/wildcard_pattern_matching.hpp
       title: Wildcard Pattern Matching
     - icon: ':heavy_check_mark:'
@@ -861,10 +861,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
       title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
   - name: test/library_checker/sample
@@ -895,7 +895,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/suffixarray_1.test.cpp
       title: test/library_checker/string/suffixarray_1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/string/wildcard_pattern_matching.test.cpp
       title: test/library_checker/string/wildcard_pattern_matching.test.cpp
     - icon: ':heavy_check_mark:'

@@ -51,7 +51,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/number_theory/enumerate_primes.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
+  timestamp: '2024-11-04 03:12:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/number_theory/enumerate_primes.test.cpp

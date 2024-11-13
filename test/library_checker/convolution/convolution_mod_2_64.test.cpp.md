@@ -54,7 +54,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/convolution_mod_2_64.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
+  timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution/convolution_mod_2_64.test.cpp

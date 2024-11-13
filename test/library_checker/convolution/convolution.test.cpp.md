@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
@@ -196,7 +196,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
+  timestamp: '2024-11-03 21:58:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution/convolution.test.cpp

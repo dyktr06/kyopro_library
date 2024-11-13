@@ -119,7 +119,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
+  timestamp: '2024-11-12 11:47:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_inversions_query.test.cpp

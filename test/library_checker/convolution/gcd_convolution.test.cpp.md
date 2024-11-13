@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/gcd_convolution.hpp
     title: GCD Convolution
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   - icon: ':heavy_check_mark:'
@@ -131,7 +131,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/gcd_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
+  timestamp: '2024-11-03 21:58:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution/gcd_convolution.test.cpp

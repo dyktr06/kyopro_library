@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/fast_walsh_hadamard_transform.hpp
     title: Fast Walsh-Hadamard Transform
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
@@ -101,7 +101,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
+  timestamp: '2024-11-03 21:58:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
