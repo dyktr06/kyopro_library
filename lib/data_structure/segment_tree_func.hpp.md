@@ -7,6 +7,9 @@ data:
     title: lib/data_structure/range_parallel_union_find.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
+    title: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
     title: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
   _isVerificationFailed: false
@@ -65,6 +68,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
+  - test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
 documentation_of: lib/data_structure/segment_tree_func.hpp
 layout: document
 redirect_from:

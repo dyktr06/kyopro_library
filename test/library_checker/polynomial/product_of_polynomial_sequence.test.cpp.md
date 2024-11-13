@@ -10,7 +10,7 @@ data:
   - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':x:'

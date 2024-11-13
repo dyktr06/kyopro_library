@@ -5,16 +5,16 @@ data:
   - icon: ':warning:'
     path: lib/math/pow_sum.hpp
     title: lib/math/pow_sum.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/taylor_shift.hpp
     title: Taylor Shift
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/math/combination_modint.hpp\"\n\n#include <vector>\n\
@@ -82,7 +82,7 @@ data:
   - lib/math/pow_sum.hpp
   - lib/polynomial/taylor_shift.hpp
   timestamp: '2024-11-03 23:33:46+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
 documentation_of: lib/math/combination_modint.hpp
