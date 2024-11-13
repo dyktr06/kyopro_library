@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/data_structure/mo.hpp
     title: lib/data_structure/mo.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/others/compression.hpp
     title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
@@ -50,9 +50,9 @@ data:
     \ sorted.end()), sorted.end());\n        for(int i = 0; i < n; ++i){\n       \
     \     compressed[i] = std::lower_bound(sorted.begin(), sorted.end(), vec[i]) -\
     \ sorted.begin();\n        }\n    }\n\n    int get(const T &x) const{\n      \
-    \  return lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();\n   \
-    \ }\n\n    T inv(const int x) const{\n        return sorted[x];\n    }\n\n   \
-    \ size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<T>\
+    \  return std::lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();\n\
+    \    }\n\n    T inv(const int x) const{\n        return sorted[x];\n    }\n\n\
+    \    size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<T>\
     \ getCompressed() const{\n        return compressed;\n    }\n};\n#line 7 \"test/library_checker/data_structure/static_range_frequency.test.cpp\"\
     \n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n \
     \   int n, q; cin >> n >> q;\n    vector<int> a;\n    vector<int> c(n);\n    for(int\
@@ -85,7 +85,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_frequency.test.cpp
   requiredBy: []
-  timestamp: '2024-11-12 11:47:25+09:00'
+  timestamp: '2024-11-13 13:43:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_frequency.test.cpp

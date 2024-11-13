@@ -3,11 +3,11 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/bitwise_xor_convolution.hpp
-    title: lib/convolution/bitwise_xor_convolution.hpp
+    title: Bitwise XOR Convolution
   - icon: ':heavy_check_mark:'
     path: lib/convolution/fast_walsh_hadamard_transform.hpp
-    title: lib/convolution/fast_walsh_hadamard_transform.hpp
-  - icon: ':heavy_check_mark:'
+    title: Fast Walsh-Hadamard Transform
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
@@ -22,16 +22,19 @@ data:
     - https://judge.yosupo.jp/problem/bitwise_xor_convolution
   bundledCode: "#line 1 \"test/library_checker/convolution/bitwise_xor_convolution.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_xor_convolution\"\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/convolution/bitwise_xor_convolution.hpp\"\
-    \n\n#line 2 \"lib/convolution/fast_walsh_hadamard_transform.hpp\"\n\ntemplate\
-    \ <typename T>\nvoid fast_walsh_hadamard_transform(vector<T> &f, bool inv = false){\n\
-    \    const int n = (int) f.size();\n    assert((n & (n - 1)) == 0);\n    for(int\
-    \ i = 1; i < n; i <<= 1){\n        for(int j = 0; j < n; j += i << 1){\n     \
-    \       for(int k = 0; k < i; ++k){\n                T s = f[j + k], t = f[j +\
-    \ k + i];\n                f[j + k] = s + t;\n                f[j + k + i] = s\
-    \ - t;\n            }\n        }\n    }\n    if(inv){\n        T inv_n = T(1)\
-    \ / n;\n        for(auto &x : f) x *= inv_n;\n    }\n}\n#line 4 \"lib/convolution/bitwise_xor_convolution.hpp\"\
-    \n\ntemplate <typename T>\nvector<T> bitwise_xor_convolution(vector<T> f, vector<T>\
+    #include <iostream>\n#include <vector>\n\n#line 2 \"lib/convolution/bitwise_xor_convolution.hpp\"\
+    \n\n/**\n * @brief Bitwise XOR Convolution\n */\n\n#line 8 \"lib/convolution/bitwise_xor_convolution.hpp\"\
+    \n#include <cassert>\n\n#line 2 \"lib/convolution/fast_walsh_hadamard_transform.hpp\"\
+    \n\n/**\n * @brief Fast Walsh-Hadamard Transform\n */\n\n#line 9 \"lib/convolution/fast_walsh_hadamard_transform.hpp\"\
+    \n\ntemplate <typename T>\nvoid fast_walsh_hadamard_transform(std::vector<T> &f,\
+    \ bool inv = false){\n    const int n = (int) f.size();\n    assert((n & (n -\
+    \ 1)) == 0);\n    for(int i = 1; i < n; i <<= 1){\n        for(int j = 0; j <\
+    \ n; j += i << 1){\n            for(int k = 0; k < i; ++k){\n                T\
+    \ s = f[j + k], t = f[j + k + i];\n                f[j + k] = s + t;\n       \
+    \         f[j + k + i] = s - t;\n            }\n        }\n    }\n    if(inv){\n\
+    \        T inv_n = T(1) / n;\n        for(auto &x : f) x *= inv_n;\n    }\n}\n\
+    #line 11 \"lib/convolution/bitwise_xor_convolution.hpp\"\n\ntemplate <typename\
+    \ T>\nstd::vector<T> bitwise_xor_convolution(std::vector<T> f, std::vector<T>\
     \ g){\n    const int n = (int) f.size();\n    assert(f.size() == g.size());\n\
     \    assert((n & (n - 1)) == 0);\n    fast_walsh_hadamard_transform(f, false);\n\
     \    fast_walsh_hadamard_transform(g, false);\n    for(int i = 0; i < n; ++i){\n\
@@ -77,20 +80,20 @@ data:
     \        x.normalize();\n        return is;\n    }\n    friend inline std::ostream\
     \ &operator<<(std::ostream &os, const ModInt &x) noexcept { return os << x.val;\
     \ }\n};\n#line 7 \"test/library_checker/convolution/bitwise_xor_convolution.test.cpp\"\
-    \n\nusing mint = ModInt<998244353>;\n\nint main(){\n    int n; cin >> n;\n   \
-    \ int m = 1LL << n;\n    vector<mint> a(m), b(m);\n    for(int i = 0; i < m; i++){\n\
-    \        cin >> a[i];\n    }\n    for(int i = 0; i < m; i++){\n        cin >>\
-    \ b[i];\n    }\n    vector<mint> c = bitwise_xor_convolution(a, b);\n    for(int\
-    \ i = 0; i < m; i++){\n        cout << c[i] << \" \\n\"[i == m - 1];\n    }\n\
-    }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_xor_convolution\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/convolution/bitwise_xor_convolution.hpp\"\
-    \n#include \"../../../lib/math/modint.hpp\"\n\nusing mint = ModInt<998244353>;\n\
-    \nint main(){\n    int n; cin >> n;\n    int m = 1LL << n;\n    vector<mint> a(m),\
-    \ b(m);\n    for(int i = 0; i < m; i++){\n        cin >> a[i];\n    }\n    for(int\
-    \ i = 0; i < m; i++){\n        cin >> b[i];\n    }\n    vector<mint> c = bitwise_xor_convolution(a,\
+    \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\nint main(){\n \
+    \   int n; cin >> n;\n    int m = 1LL << n;\n    vector<mint> a(m), b(m);\n  \
+    \  for(int i = 0; i < m; i++){\n        cin >> a[i];\n    }\n    for(int i = 0;\
+    \ i < m; i++){\n        cin >> b[i];\n    }\n    vector<mint> c = bitwise_xor_convolution(a,\
     \ b);\n    for(int i = 0; i < m; i++){\n        cout << c[i] << \" \\n\"[i ==\
     \ m - 1];\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_xor_convolution\"\
+    \n#include <iostream>\n#include <vector>\n\n#include \"../../../lib/convolution/bitwise_xor_convolution.hpp\"\
+    \n#include \"../../../lib/math/modint.hpp\"\n\nusing namespace std;\n\nusing mint\
+    \ = ModInt<998244353>;\n\nint main(){\n    int n; cin >> n;\n    int m = 1LL <<\
+    \ n;\n    vector<mint> a(m), b(m);\n    for(int i = 0; i < m; i++){\n        cin\
+    \ >> a[i];\n    }\n    for(int i = 0; i < m; i++){\n        cin >> b[i];\n   \
+    \ }\n    vector<mint> c = bitwise_xor_convolution(a, b);\n    for(int i = 0; i\
+    \ < m; i++){\n        cout << c[i] << \" \\n\"[i == m - 1];\n    }\n}\n"
   dependsOn:
   - lib/convolution/bitwise_xor_convolution.hpp
   - lib/convolution/fast_walsh_hadamard_transform.hpp
@@ -98,7 +101,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 21:58:22+09:00'
+  timestamp: '2024-11-13 13:43:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution/bitwise_xor_convolution.test.cpp

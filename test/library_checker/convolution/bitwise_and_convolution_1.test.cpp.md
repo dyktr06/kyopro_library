@@ -3,11 +3,11 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/bitwise_or_convolution.hpp
-    title: lib/convolution/bitwise_or_convolution.hpp
+    title: Bitwise OR Convolution
   - icon: ':heavy_check_mark:'
     path: lib/convolution/set_zeta_mobius_transform.hpp
-    title: lib/convolution/set_zeta_mobius_transform.hpp
-  - icon: ':heavy_check_mark:'
+    title: Set Zeta/Mobius Transform
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
@@ -22,25 +22,28 @@ data:
     - https://judge.yosupo.jp/problem/bitwise_and_convolution
   bundledCode: "#line 1 \"test/library_checker/convolution/bitwise_and_convolution_1.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_and_convolution\"\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/convolution/bitwise_or_convolution.hpp\"\
-    \n\n#line 2 \"lib/convolution/set_zeta_mobius_transform.hpp\"\n\ntemplate <typename\
-    \ T>\nvoid superset_zeta_transform(vector<T> &f){\n    const int n = f.size();\n\
-    \    assert((n & (n - 1)) == 0);\n    for(int i = 1; i < n; i <<= 1){\n      \
-    \  for(int j = 0; j < n; ++j){\n            if((j & i) == 0){\n              \
-    \  f[j] += f[j | i];\n            }\n        }\n    }\n}\n\ntemplate <typename\
-    \ T>\nvoid superset_mobius_transform(vector<T> &f){\n    const int n = f.size();\n\
-    \    assert((n & (n - 1)) == 0);\n    for(int i = 1; i < n; i <<= 1){\n      \
-    \  for(int j = 0; j < n; ++j){\n            if((j & i) == 0){\n              \
-    \  f[j] -= f[j | i];\n            }\n        }\n    }\n}\n\ntemplate <typename\
-    \ T>\nvoid subset_zeta_transform(vector<T> &f){\n    const int n = f.size();\n\
-    \    assert((n & (n - 1)) == 0);\n    for(int i = 1; i < n; i <<= 1){\n      \
-    \  for(int j = 0; j < n; ++j){\n            if((j & i) == 0){\n              \
-    \  f[j | i] += f[j];\n            }\n        }\n    }\n}\n\ntemplate <typename\
-    \ T>\nvoid subset_mobius_transform(vector<T> &f){\n    const int n = f.size();\n\
-    \    assert((n & (n - 1)) == 0);\n    for(int i = 1; i < n; i <<= 1){\n      \
-    \  for(int j = 0; j < n; ++j){\n            if((j & i) == 0){\n              \
-    \  f[j | i] -= f[j];\n            }\n        }\n    }\n}\n#line 4 \"lib/convolution/bitwise_or_convolution.hpp\"\
-    \n\ntemplate <typename T>\nvector<T> bitwise_or_convolution(vector<T> f, vector<T>\
+    #include <iostream>\n#include <vector>\n#include <algorithm>\n\n#line 2 \"lib/convolution/bitwise_or_convolution.hpp\"\
+    \n\n/**\n * @brief Bitwise OR Convolution\n */\n\n#line 8 \"lib/convolution/bitwise_or_convolution.hpp\"\
+    \n#include <cassert>\n\n#line 2 \"lib/convolution/set_zeta_mobius_transform.hpp\"\
+    \n\n/**\n * @brief Set Zeta/Mobius Transform\n */\n\n#line 9 \"lib/convolution/set_zeta_mobius_transform.hpp\"\
+    \n\ntemplate <typename T>\nvoid superset_zeta_transform(std::vector<T> &f){\n\
+    \    const int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for(int i =\
+    \ 1; i < n; i <<= 1){\n        for(int j = 0; j < n; ++j){\n            if((j\
+    \ & i) == 0){\n                f[j] += f[j | i];\n            }\n        }\n \
+    \   }\n}\n\ntemplate <typename T>\nvoid superset_mobius_transform(std::vector<T>\
+    \ &f){\n    const int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for(int\
+    \ i = 1; i < n; i <<= 1){\n        for(int j = 0; j < n; ++j){\n            if((j\
+    \ & i) == 0){\n                f[j] -= f[j | i];\n            }\n        }\n \
+    \   }\n}\n\ntemplate <typename T>\nvoid subset_zeta_transform(std::vector<T> &f){\n\
+    \    const int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for(int i =\
+    \ 1; i < n; i <<= 1){\n        for(int j = 0; j < n; ++j){\n            if((j\
+    \ & i) == 0){\n                f[j | i] += f[j];\n            }\n        }\n \
+    \   }\n}\n\ntemplate <typename T>\nvoid subset_mobius_transform(std::vector<T>\
+    \ &f){\n    const int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for(int\
+    \ i = 1; i < n; i <<= 1){\n        for(int j = 0; j < n; ++j){\n            if((j\
+    \ & i) == 0){\n                f[j | i] -= f[j];\n            }\n        }\n \
+    \   }\n}\n#line 11 \"lib/convolution/bitwise_or_convolution.hpp\"\n\ntemplate\
+    \ <typename T>\nstd::vector<T> bitwise_or_convolution(std::vector<T> f, std::vector<T>\
     \ g){\n    const int n = (int) f.size();\n    assert(f.size() == g.size());\n\
     \    assert((n & (n - 1)) == 0);\n    subset_zeta_transform(f);\n    subset_zeta_transform(g);\n\
     \    for(int i = 0; i < n; ++i){\n        f[i] *= g[i];\n    }\n    subset_mobius_transform(f);\n\
@@ -84,23 +87,24 @@ data:
     \ &operator>>(std::istream &is, ModInt &x) noexcept {\n        is >> x.val;\n\
     \        x.normalize();\n        return is;\n    }\n    friend inline std::ostream\
     \ &operator<<(std::ostream &os, const ModInt &x) noexcept { return os << x.val;\
-    \ }\n};\n#line 7 \"test/library_checker/convolution/bitwise_and_convolution_1.test.cpp\"\
-    \n\nusing mint = ModInt<998244353>;\n\nint main(){\n    int n; cin >> n;\n   \
-    \ int m = 1 << n;\n    vector<mint> a(m), b(m);\n    for(int i = 0; i < m; i++){\n\
-    \        cin >> a[i];\n    }\n    for(int i = 0; i < m; i++){\n        cin >>\
-    \ b[i];\n    }\n    reverse(a.begin(), a.end());\n    reverse(b.begin(), b.end());\n\
-    \    vector<mint> c = bitwise_or_convolution(a, b);\n    reverse(c.begin(), c.end());\n\
-    \    for(int i = 0; i < m; i++){\n        cout << c[i] << \" \\n\"[i == m - 1];\n\
-    \    }\n}\n"
+    \ }\n};\n#line 8 \"test/library_checker/convolution/bitwise_and_convolution_1.test.cpp\"\
+    \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\nint main(){\n \
+    \   int n; cin >> n;\n    int m = 1 << n;\n    vector<mint> a(m), b(m);\n    for(int\
+    \ i = 0; i < m; i++){\n        cin >> a[i];\n    }\n    for(int i = 0; i < m;\
+    \ i++){\n        cin >> b[i];\n    }\n    reverse(a.begin(), a.end());\n    reverse(b.begin(),\
+    \ b.end());\n    vector<mint> c = bitwise_or_convolution(a, b);\n    reverse(c.begin(),\
+    \ c.end());\n    for(int i = 0; i < m; i++){\n        cout << c[i] << \" \\n\"\
+    [i == m - 1];\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_and_convolution\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/convolution/bitwise_or_convolution.hpp\"\
-    \n#include \"../../../lib/math/modint.hpp\"\n\nusing mint = ModInt<998244353>;\n\
-    \nint main(){\n    int n; cin >> n;\n    int m = 1 << n;\n    vector<mint> a(m),\
-    \ b(m);\n    for(int i = 0; i < m; i++){\n        cin >> a[i];\n    }\n    for(int\
-    \ i = 0; i < m; i++){\n        cin >> b[i];\n    }\n    reverse(a.begin(), a.end());\n\
-    \    reverse(b.begin(), b.end());\n    vector<mint> c = bitwise_or_convolution(a,\
-    \ b);\n    reverse(c.begin(), c.end());\n    for(int i = 0; i < m; i++){\n   \
-    \     cout << c[i] << \" \\n\"[i == m - 1];\n    }\n}\n"
+    \n#include <iostream>\n#include <vector>\n#include <algorithm>\n\n#include \"\
+    ../../../lib/convolution/bitwise_or_convolution.hpp\"\n#include \"../../../lib/math/modint.hpp\"\
+    \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\nint main(){\n \
+    \   int n; cin >> n;\n    int m = 1 << n;\n    vector<mint> a(m), b(m);\n    for(int\
+    \ i = 0; i < m; i++){\n        cin >> a[i];\n    }\n    for(int i = 0; i < m;\
+    \ i++){\n        cin >> b[i];\n    }\n    reverse(a.begin(), a.end());\n    reverse(b.begin(),\
+    \ b.end());\n    vector<mint> c = bitwise_or_convolution(a, b);\n    reverse(c.begin(),\
+    \ c.end());\n    for(int i = 0; i < m; i++){\n        cout << c[i] << \" \\n\"\
+    [i == m - 1];\n    }\n}\n"
   dependsOn:
   - lib/convolution/bitwise_or_convolution.hpp
   - lib/convolution/set_zeta_mobius_transform.hpp
@@ -108,7 +112,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/bitwise_and_convolution_1.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 21:58:22+09:00'
+  timestamp: '2024-11-13 13:43:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution/bitwise_and_convolution_1.test.cpp

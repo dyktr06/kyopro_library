@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
-    title: lib/convolution/ntt.hpp
-  - icon: ':heavy_check_mark:'
+    title: Number Theoretic Transform
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/partition_function.hpp
     title: "Partition Function (\u5206\u5272\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/partition_function
@@ -73,21 +73,22 @@ data:
     \ */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n * @brief Formal\
     \ Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n#include <algorithm>\n\
     #line 9 \"lib/polynomial/formal_power_series.hpp\"\n#include <vector>\n#line 2\
-    \ \"lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
-    \ Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
-    \ */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n\
-    \    inline long long mod(long long a, long long m){\n        return (a % m +\
-    \ m) % m;\n    }\n\n    long long extGCD(long long a, long long b, long long &x,\
-    \ long long &y){\n        if(b == 0){\n            x = 1;\n            y = 0;\n\
-    \            return a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n\
-    \        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long long,\
-    \ long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
-    \ long> &m) {\n        long long r = 0, M = 1;\n        for(int i = 0; i < (int)\
-    \ b.size(); i++){\n            long long p, q;\n            long long d = extGCD(M,\
-    \ m[i], p, q);\n            if((b[i] - r) % d != 0) return {0, -1};\n        \
-    \    long long tmp = (b[i] - r) / d * p % (m[i] / d);\n            r += M * tmp;\n\
-    \            M *= m[i] / d;\n        }\n        r %= M;\n        if(r < 0) r +=\
-    \ M;\n        return {r, M};\n    }\n\n    // not coprime\n    long long preGarner(std::vector<long\
+    \ \"lib/convolution/ntt.hpp\"\n\n/**\n * @brief Number Theoretic Transform\n */\n\
+    \n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief Chinese Remainder Theorem (\u4E2D\
+    \u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n */\n\n#include <numeric>\n\
+    #line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n    inline long long mod(long\
+    \ long a, long long m){\n        return (a % m + m) % m;\n    }\n\n    long long\
+    \ extGCD(long long a, long long b, long long &x, long long &y){\n        if(b\
+    \ == 0){\n            x = 1;\n            y = 0;\n            return a;\n    \
+    \    }\n        long long d = extGCD(b, a % b, y, x);\n        y -= a / b * x;\n\
+    \        return d;\n    }\n\n    std::pair<long long, long long> chineseRem(const\
+    \ std::vector<long long> &b, const std::vector<long long> &m) {\n        long\
+    \ long r = 0, M = 1;\n        for(int i = 0; i < (int) b.size(); i++){\n     \
+    \       long long p, q;\n            long long d = extGCD(M, m[i], p, q);\n  \
+    \          if((b[i] - r) % d != 0) return {0, -1};\n            long long tmp\
+    \ = (b[i] - r) / d * p % (m[i] / d);\n            r += M * tmp;\n            M\
+    \ *= m[i] / d;\n        }\n        r %= M;\n        if(r < 0) r += M;\n      \
+    \  return {r, M};\n    }\n\n    // not coprime\n    long long preGarner(std::vector<long\
     \ long> &b, std::vector<long long> &m, const long long MOD){\n        long long\
     \ res = 1;\n        int n = b.size();\n        for(int i = 0; i < n; i++){\n \
     \           for(int j = 0; j < i; j++){\n                long long g = std::gcd(m[i],\
@@ -109,8 +110,8 @@ data:
     \    long long t = mod((b[i] - constants[i]) * inv(coeffs[i], tm[i]), tm[i]);\n\
     \            for(int j = i + 1; j < n + 1; j++){\n                (constants[j]\
     \ += t * coeffs[j]) %= tm[j];\n                (coeffs[j] *= tm[i]) %= tm[j];\n\
-    \            }\n        }\n        return constants[n];\n    }\n}\n#line 5 \"\
-    lib/convolution/ntt.hpp\"\n\n#line 7 \"lib/convolution/ntt.hpp\"\n\nnamespace\
+    \            }\n        }\n        return constants[n];\n    }\n}\n#line 9 \"\
+    lib/convolution/ntt.hpp\"\n\n#line 11 \"lib/convolution/ntt.hpp\"\n\nnamespace\
     \ NTT{\n\n    // @param n `0 <= n`\n    // @return minimum non-negative `x` s.t.\
     \ `n <= 2**x`\n    int ceil_pow2(int n) {\n        int x = 0;\n        while((1U\
     \ << x) < (unsigned int) (n)) x++;\n        return x;\n    }\n\n    // @param\
@@ -357,8 +358,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
   requiredBy: []
-  timestamp: '2024-11-09 19:46:52+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-13 13:43:26+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
 layout: document

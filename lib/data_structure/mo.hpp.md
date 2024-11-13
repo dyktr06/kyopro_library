@@ -15,12 +15,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
     title: test/library_checker/data_structure/static_range_inversions_query.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/static_range_mode_query.test.cpp
     title: test/library_checker/data_structure/static_range_mode_query.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/mo.hpp\"\n\n// [0 , N) \u4E0A\u306E\u533A\
@@ -70,7 +70,7 @@ data:
   path: lib/data_structure/mo.hpp
   requiredBy: []
   timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/static_range_mode_query.test.cpp
   - test/library_checker/data_structure/static_range_frequency.test.cpp

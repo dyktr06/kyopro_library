@@ -4,13 +4,13 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/divisor_zeta_mobius_transform.hpp
-    title: lib/convolution/divisor_zeta_mobius_transform.hpp
+    title: Divisor Zeta/Mobius Transform
   - icon: ':heavy_check_mark:'
     path: lib/convolution/gcd_convolution.hpp
-    title: lib/convolution/gcd_convolution.hpp
+    title: GCD Convolution
   - icon: ':heavy_check_mark:'
     path: lib/convolution/lcm_convolution.hpp
-    title: lib/convolution/lcm_convolution.hpp
+    title: LCM Convolution
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/gcd_convolution.test.cpp
@@ -18,12 +18,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/lcm_convolution.test.cpp
     title: test/library_checker/convolution/lcm_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/enumerate_primes.test.cpp
     title: test/library_checker/number_theory/enumerate_primes.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/prime-sieve.md
     document_title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\
@@ -31,32 +31,34 @@ data:
     links: []
   bundledCode: "#line 2 \"lib/math/prime_sieve.hpp\"\n\n/**\n * @brief Prime Sieve\
     \ (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)\n * @docs docs/math/prime-sieve.md\n\
-    \ */\n\ntemplate <typename T>\nstruct PrimeSieve{\n    int n, half;\n    vector<bool>\
-    \ sieve;\n    vector<T> prime_list;\n    // sieve[i] ... 2 * i + 1\n\n    PrimeSieve(T\
-    \ _n) : n(_n){\n        init();\n    }\n\n    void init(){\n        if(n < 2){\n\
-    \            return;\n        }\n        half = (n + 1) / 2;\n        sieve.assign(half,\
-    \ true);\n        sieve[0] = false;\n        prime_list.emplace_back(2);\n   \
-    \     for(long long i = 1; 2 * i + 1 <= n; ++i){\n            if(!sieve[i]) continue;\n\
-    \            T p = 2 * i + 1;\n            prime_list.emplace_back(p);\n     \
-    \       for(long long j = 2 * i * (i + 1); j < half; j += p){\n              \
-    \  sieve[j] = false;\n            }\n        }\n    }\n\n    bool isPrime(T x){\n\
-    \        if(x == 2) return true;\n        if(x % 2 == 0) return false;\n     \
-    \   return sieve[x / 2];\n    }\n\n    T getPrimeCount(){\n        return prime_list.size();\n\
-    \    }\n\n    T getKthPrime(int k){\n        return prime_list[k];\n    }\n};\n"
+    \ */\n\n#include <vector>\n\ntemplate <typename T>\nstruct PrimeSieve{\n    int\
+    \ n, half;\n    std::vector<bool> sieve;\n    std::vector<T> prime_list;\n   \
+    \ // sieve[i] ... 2 * i + 1\n\n    PrimeSieve(T _n) : n(_n){\n        init();\n\
+    \    }\n\n    void init(){\n        if(n < 2){\n            return;\n        }\n\
+    \        half = (n + 1) / 2;\n        sieve.assign(half, true);\n        sieve[0]\
+    \ = false;\n        prime_list.emplace_back(2);\n        for(long long i = 1;\
+    \ 2 * i + 1 <= n; ++i){\n            if(!sieve[i]) continue;\n            T p\
+    \ = 2 * i + 1;\n            prime_list.emplace_back(p);\n            for(long\
+    \ long j = 2 * i * (i + 1); j < half; j += p){\n                sieve[j] = false;\n\
+    \            }\n        }\n    }\n\n    bool isPrime(T x){\n        if(x == 2)\
+    \ return true;\n        if(x % 2 == 0) return false;\n        return sieve[x /\
+    \ 2];\n    }\n\n    T getPrimeCount(){\n        return prime_list.size();\n  \
+    \  }\n\n    T getKthPrime(int k){\n        return prime_list[k];\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\
-    \u30CD\u30B9\u306E\u7BE9)\n * @docs docs/math/prime-sieve.md\n */\n\ntemplate\
-    \ <typename T>\nstruct PrimeSieve{\n    int n, half;\n    vector<bool> sieve;\n\
-    \    vector<T> prime_list;\n    // sieve[i] ... 2 * i + 1\n\n    PrimeSieve(T\
-    \ _n) : n(_n){\n        init();\n    }\n\n    void init(){\n        if(n < 2){\n\
-    \            return;\n        }\n        half = (n + 1) / 2;\n        sieve.assign(half,\
-    \ true);\n        sieve[0] = false;\n        prime_list.emplace_back(2);\n   \
-    \     for(long long i = 1; 2 * i + 1 <= n; ++i){\n            if(!sieve[i]) continue;\n\
-    \            T p = 2 * i + 1;\n            prime_list.emplace_back(p);\n     \
-    \       for(long long j = 2 * i * (i + 1); j < half; j += p){\n              \
-    \  sieve[j] = false;\n            }\n        }\n    }\n\n    bool isPrime(T x){\n\
-    \        if(x == 2) return true;\n        if(x % 2 == 0) return false;\n     \
-    \   return sieve[x / 2];\n    }\n\n    T getPrimeCount(){\n        return prime_list.size();\n\
-    \    }\n\n    T getKthPrime(int k){\n        return prime_list[k];\n    }\n};\n"
+    \u30CD\u30B9\u306E\u7BE9)\n * @docs docs/math/prime-sieve.md\n */\n\n#include\
+    \ <vector>\n\ntemplate <typename T>\nstruct PrimeSieve{\n    int n, half;\n  \
+    \  std::vector<bool> sieve;\n    std::vector<T> prime_list;\n    // sieve[i] ...\
+    \ 2 * i + 1\n\n    PrimeSieve(T _n) : n(_n){\n        init();\n    }\n\n    void\
+    \ init(){\n        if(n < 2){\n            return;\n        }\n        half =\
+    \ (n + 1) / 2;\n        sieve.assign(half, true);\n        sieve[0] = false;\n\
+    \        prime_list.emplace_back(2);\n        for(long long i = 1; 2 * i + 1 <=\
+    \ n; ++i){\n            if(!sieve[i]) continue;\n            T p = 2 * i + 1;\n\
+    \            prime_list.emplace_back(p);\n            for(long long j = 2 * i\
+    \ * (i + 1); j < half; j += p){\n                sieve[j] = false;\n         \
+    \   }\n        }\n    }\n\n    bool isPrime(T x){\n        if(x == 2) return true;\n\
+    \        if(x % 2 == 0) return false;\n        return sieve[x / 2];\n    }\n\n\
+    \    T getPrimeCount(){\n        return prime_list.size();\n    }\n\n    T getKthPrime(int\
+    \ k){\n        return prime_list[k];\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/prime_sieve.hpp
@@ -64,8 +66,8 @@ data:
   - lib/convolution/divisor_zeta_mobius_transform.hpp
   - lib/convolution/lcm_convolution.hpp
   - lib/convolution/gcd_convolution.hpp
-  timestamp: '2024-10-21 21:39:54+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-11-13 13:43:26+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/enumerate_primes.test.cpp
   - test/library_checker/convolution/gcd_convolution.test.cpp

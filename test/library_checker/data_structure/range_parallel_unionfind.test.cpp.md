@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/union_find.hpp
     title: Union Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []

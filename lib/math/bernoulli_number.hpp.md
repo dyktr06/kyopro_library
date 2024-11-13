@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
-    title: lib/convolution/ntt.hpp
-  - icon: ':heavy_check_mark:'
+    title: Number Theoretic Transform
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/bernoulli_number.test.cpp
     title: test/library_checker/number_theory/bernoulli_number.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
     links: []
@@ -28,61 +28,62 @@ data:
     \ Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)\n */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\
     \n\n/**\n * @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
     \ */\n\n#include <algorithm>\n#include <cassert>\n#include <vector>\n#line 2 \"\
-    lib/convolution/ntt.hpp\"\n\n#line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n\
-    #line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
-    \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
-    \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
-    \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
-    \ normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n    }\n  \
-    \  inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val +=\
-    \ rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
-    \ inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -= rhs.val,\
-    \ val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt &operator*=(const\
-    \ ModInt &rhs) noexcept {\n        val = val * rhs.val % Modulus;\n        return\
-    \ *this;\n    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n\
-    \        val = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n\
-    \    inline ModInt &operator++() noexcept {\n        if(++val >= Modulus) val\
-    \ -= Modulus;\n        return *this;\n    }\n    inline ModInt operator++(int)\
-    \ noexcept {\n        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n\
-    \        return t;\n    }\n    inline ModInt &operator--() noexcept {\n      \
-    \  if(--val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt\
-    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
-    \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
-    \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
-    \ inv(val); }\n    ModInt pow(long long n) const {\n        assert(0 <= n);\n\
-    \        ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r\
-    \ *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
-    \ r;\n    }\n    ModInt inv(const long long n) const {\n        long long a =\
-    \ n, b = Modulus, u = 1, v = 0;\n        while(b){\n            long long t =\
-    \ a / b;\n            a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u,\
-    \ v);\n        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n   \
-    \     return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs,\
-    \ const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline\
-    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
-    \ -= rhs; }\n    friend inline ModInt operator*(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n  \
-    \  friend inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend\
-    \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
-    \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
-    \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
-    \ { return os << x.val; }\n};\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
-    \ Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
-    \ */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n\
-    \    inline long long mod(long long a, long long m){\n        return (a % m +\
-    \ m) % m;\n    }\n\n    long long extGCD(long long a, long long b, long long &x,\
-    \ long long &y){\n        if(b == 0){\n            x = 1;\n            y = 0;\n\
-    \            return a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n\
-    \        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long long,\
-    \ long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
-    \ long> &m) {\n        long long r = 0, M = 1;\n        for(int i = 0; i < (int)\
-    \ b.size(); i++){\n            long long p, q;\n            long long d = extGCD(M,\
-    \ m[i], p, q);\n            if((b[i] - r) % d != 0) return {0, -1};\n        \
-    \    long long tmp = (b[i] - r) / d * p % (m[i] / d);\n            r += M * tmp;\n\
-    \            M *= m[i] / d;\n        }\n        r %= M;\n        if(r < 0) r +=\
-    \ M;\n        return {r, M};\n    }\n\n    // not coprime\n    long long preGarner(std::vector<long\
+    lib/convolution/ntt.hpp\"\n\n/**\n * @brief Number Theoretic Transform\n */\n\n\
+    #line 2 \"lib/math/modint.hpp\"\n\n#include <iostream>\n#line 5 \"lib/math/modint.hpp\"\
+    \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
+    \ long Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int\
+    \ mod() { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
+    \ : val(_val) {\n        normalize();\n    }\n    void normalize(){\n        val\
+    \ = (val % Modulus + Modulus) % Modulus;\n    }\n    inline ModInt &operator+=(const\
+    \ ModInt &rhs) noexcept {\n        if(val += rhs.val, val >= Modulus) val -= Modulus;\n\
+    \        return *this;\n    }\n    inline ModInt &operator-=(const ModInt &rhs)\
+    \ noexcept {\n        if(val -= rhs.val, val < 0) val += Modulus;\n        return\
+    \ *this;\n    }\n    inline ModInt &operator*=(const ModInt &rhs) noexcept {\n\
+    \        val = val * rhs.val % Modulus;\n        return *this;\n    }\n    inline\
+    \ ModInt &operator/=(const ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val\
+    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator++() noexcept\
+    \ {\n        if(++val >= Modulus) val -= Modulus;\n        return *this;\n   \
+    \ }\n    inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n \
+    \       if(++val >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline\
+    \ ModInt &operator--() noexcept {\n        if(--val < 0) val += Modulus;\n   \
+    \     return *this;\n    }\n    inline ModInt operator--(int) noexcept {\n   \
+    \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
+    \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
+    \ % Modulus; }\n    inline ModInt inv(void) const { return inv(val); }\n    ModInt\
+    \ pow(long long n) const {\n        assert(0 <= n);\n        ModInt x = *this,\
+    \ r = 1;\n        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n\
+    \            n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const\
+    \ long long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n\
+    \        while(b){\n            long long t = a / b;\n            a -= t * b;\
+    \ std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n        }\n    \
+    \    u %= Modulus;\n        if(u < 0) u += Modulus;\n        return u;\n    }\n\
+    \    friend inline ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend\
+    \ inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend inline\
+    \ bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val\
+    \ == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline std::istream\
+    \ &operator>>(std::istream &is, ModInt &x) noexcept {\n        is >> x.val;\n\
+    \        x.normalize();\n        return is;\n    }\n    friend inline std::ostream\
+    \ &operator<<(std::ostream &os, const ModInt &x) noexcept { return os << x.val;\
+    \ }\n};\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief Chinese Remainder Theorem\
+    \ (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n */\n\n#include\
+    \ <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n    inline long\
+    \ long mod(long long a, long long m){\n        return (a % m + m) % m;\n    }\n\
+    \n    long long extGCD(long long a, long long b, long long &x, long long &y){\n\
+    \        if(b == 0){\n            x = 1;\n            y = 0;\n            return\
+    \ a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n        y -= a\
+    \ / b * x;\n        return d;\n    }\n\n    std::pair<long long, long long> chineseRem(const\
+    \ std::vector<long long> &b, const std::vector<long long> &m) {\n        long\
+    \ long r = 0, M = 1;\n        for(int i = 0; i < (int) b.size(); i++){\n     \
+    \       long long p, q;\n            long long d = extGCD(M, m[i], p, q);\n  \
+    \          if((b[i] - r) % d != 0) return {0, -1};\n            long long tmp\
+    \ = (b[i] - r) / d * p % (m[i] / d);\n            r += M * tmp;\n            M\
+    \ *= m[i] / d;\n        }\n        r %= M;\n        if(r < 0) r += M;\n      \
+    \  return {r, M};\n    }\n\n    // not coprime\n    long long preGarner(std::vector<long\
     \ long> &b, std::vector<long long> &m, const long long MOD){\n        long long\
     \ res = 1;\n        int n = b.size();\n        for(int i = 0; i < n; i++){\n \
     \           for(int j = 0; j < i; j++){\n                long long g = std::gcd(m[i],\
@@ -104,8 +105,8 @@ data:
     \    long long t = mod((b[i] - constants[i]) * inv(coeffs[i], tm[i]), tm[i]);\n\
     \            for(int j = i + 1; j < n + 1; j++){\n                (constants[j]\
     \ += t * coeffs[j]) %= tm[j];\n                (coeffs[j] *= tm[i]) %= tm[j];\n\
-    \            }\n        }\n        return constants[n];\n    }\n}\n#line 5 \"\
-    lib/convolution/ntt.hpp\"\n\n#line 7 \"lib/convolution/ntt.hpp\"\n\nnamespace\
+    \            }\n        }\n        return constants[n];\n    }\n}\n#line 9 \"\
+    lib/convolution/ntt.hpp\"\n\n#line 11 \"lib/convolution/ntt.hpp\"\n\nnamespace\
     \ NTT{\n\n    // @param n `0 <= n`\n    // @return minimum non-negative `x` s.t.\
     \ `n <= 2**x`\n    int ceil_pow2(int n) {\n        int x = 0;\n        while((1U\
     \ << x) < (unsigned int) (n)) x++;\n        return x;\n    }\n\n    // @param\
@@ -356,8 +357,8 @@ data:
   isVerificationFile: false
   path: lib/math/bernoulli_number.hpp
   requiredBy: []
-  timestamp: '2024-11-09 19:46:52+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-11-13 13:43:26+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/number_theory/bernoulli_number.test.cpp
 documentation_of: lib/math/bernoulli_number.hpp
