@@ -5,7 +5,7 @@
 #include <tuple>
 
 #include "../../../lib/data_structure/segment_tree_func.hpp"
-#include "../../../lib/math/ModInt.hpp"
+#include "../../../lib/math/modint.hpp"
 #include "../../../lib/others/compression.hpp"
 
 using namespace std;
