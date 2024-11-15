@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/weighted_union_find.hpp
     title: Weighted Union Find
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/unionfind_with_potential_non_commutative_group
@@ -34,12 +34,12 @@ data:
     \        return weight(x) - weight(y);\n    }\n\n    void unite(const int x, const\
     \ int y, const T &w){\n        int tx = x, ty = y;\n        T tw = w;\n      \
     \  int rx = root(x), ry = root(y);\n        if(rx == ry) return;\n\n        if(par[rx]\
-    \ < par[ry]){\n            swap(rx, ry);\n            swap(tx, ty);\n        \
-    \    tw = ex - tw;\n        }\n\n        par[ry] = par[rx] + par[ry];\n      \
-    \  par[rx] = ry;\n        diff_weight[rx] = ex - diff_weight[tx] + tw + diff_weight[ty];\n\
-    \    }\n\n    bool same(const int x, const int y){\n        return root(x) ==\
-    \ root(y);\n    }\n\n    int size(const int x){\n        return -par[root(x)];\n\
-    \    }\n};\n#line 2 \"lib/math/modint.hpp\"\n\n#line 5 \"lib/math/modint.hpp\"\
+    \ < par[ry]){\n            std::swap(rx, ry);\n            std::swap(tx, ty);\n\
+    \            tw = ex - tw;\n        }\n\n        par[ry] = par[rx] + par[ry];\n\
+    \        par[rx] = ry;\n        diff_weight[rx] = ex - diff_weight[tx] + tw +\
+    \ diff_weight[ty];\n    }\n\n    bool same(const int x, const int y){\n      \
+    \  return root(x) == root(y);\n    }\n\n    int size(const int x){\n        return\
+    \ -par[root(x)];\n    }\n};\n#line 2 \"lib/math/modint.hpp\"\n\n#line 5 \"lib/math/modint.hpp\"\
     \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
     \ long Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int\
     \ mod() { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
@@ -137,8 +137,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
   requiredBy: []
-  timestamp: '2024-11-15 15:44:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-15 16:06:01+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
 layout: document

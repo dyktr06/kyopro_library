@@ -3,18 +3,18 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/dsl/dsl_1_b.test.cpp
     title: test/aoj/dsl/dsl_1_b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/unionfind_with_potential.test.cpp
     title: test/library_checker/data_structure/unionfind_with_potential.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
     title: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/weighted_union_find.md
     document_title: Weighted Union Find
@@ -34,12 +34,12 @@ data:
     \        return weight(x) - weight(y);\n    }\n\n    void unite(const int x, const\
     \ int y, const T &w){\n        int tx = x, ty = y;\n        T tw = w;\n      \
     \  int rx = root(x), ry = root(y);\n        if(rx == ry) return;\n\n        if(par[rx]\
-    \ < par[ry]){\n            swap(rx, ry);\n            swap(tx, ty);\n        \
-    \    tw = ex - tw;\n        }\n\n        par[ry] = par[rx] + par[ry];\n      \
-    \  par[rx] = ry;\n        diff_weight[rx] = ex - diff_weight[tx] + tw + diff_weight[ty];\n\
-    \    }\n\n    bool same(const int x, const int y){\n        return root(x) ==\
-    \ root(y);\n    }\n\n    int size(const int x){\n        return -par[root(x)];\n\
-    \    }\n};\n"
+    \ < par[ry]){\n            std::swap(rx, ry);\n            std::swap(tx, ty);\n\
+    \            tw = ex - tw;\n        }\n\n        par[ry] = par[rx] + par[ry];\n\
+    \        par[rx] = ry;\n        diff_weight[rx] = ex - diff_weight[tx] + tw +\
+    \ diff_weight[ty];\n    }\n\n    bool same(const int x, const int y){\n      \
+    \  return root(x) == root(y);\n    }\n\n    int size(const int x){\n        return\
+    \ -par[root(x)];\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Weighted Union Find\n * @docs docs/data_structure/weighted_union_find.md\n\
     \ */\n\n#include <vector>\n#include <cassert>\n\ntemplate <typename T>\nstruct\
     \ WeightedUnionFind{\n    int V;\n    std::vector<int> par;\n    std::vector<T>\
@@ -54,18 +54,18 @@ data:
     \        return weight(x) - weight(y);\n    }\n\n    void unite(const int x, const\
     \ int y, const T &w){\n        int tx = x, ty = y;\n        T tw = w;\n      \
     \  int rx = root(x), ry = root(y);\n        if(rx == ry) return;\n\n        if(par[rx]\
-    \ < par[ry]){\n            swap(rx, ry);\n            swap(tx, ty);\n        \
-    \    tw = ex - tw;\n        }\n\n        par[ry] = par[rx] + par[ry];\n      \
-    \  par[rx] = ry;\n        diff_weight[rx] = ex - diff_weight[tx] + tw + diff_weight[ty];\n\
-    \    }\n\n    bool same(const int x, const int y){\n        return root(x) ==\
-    \ root(y);\n    }\n\n    int size(const int x){\n        return -par[root(x)];\n\
-    \    }\n};\n"
+    \ < par[ry]){\n            std::swap(rx, ry);\n            std::swap(tx, ty);\n\
+    \            tw = ex - tw;\n        }\n\n        par[ry] = par[rx] + par[ry];\n\
+    \        par[rx] = ry;\n        diff_weight[rx] = ex - diff_weight[tx] + tw +\
+    \ diff_weight[ty];\n    }\n\n    bool same(const int x, const int y){\n      \
+    \  return root(x) == root(y);\n    }\n\n    int size(const int x){\n        return\
+    \ -par[root(x)];\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/weighted_union_find.hpp
   requiredBy: []
-  timestamp: '2024-11-15 15:44:55+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-11-15 16:06:01+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/unionfind_with_potential.test.cpp
   - test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp

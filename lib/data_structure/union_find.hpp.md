@@ -2,23 +2,23 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/range_parallel_union_find.hpp
     title: lib/data_structure/range_parallel_union_find.hpp
   - icon: ':warning:'
     path: lib/graph/T_join.hpp
     title: T-join Problem
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/manhattanMST.hpp
     title: Manhattan MST
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
     title: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/unionfind.test.cpp
     title: test/library_checker/data_structure/unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/manhattanmst.test.cpp
     title: test/library_checker/geometry/manhattanmst.test.cpp
   - icon: ':x:'
@@ -29,7 +29,7 @@ data:
     title: test/library_checker/graph/minimum_spanning_tree.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/data_structure/union_find.md
     document_title: Union Find
@@ -72,7 +72,7 @@ data:
   - lib/graph/manhattanMST.hpp
   - lib/graph/T_join.hpp
   timestamp: '2024-11-15 15:44:55+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/unionfind.test.cpp
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp

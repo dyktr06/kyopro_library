@@ -4,17 +4,17 @@ data:
   - icon: ':question:'
     path: lib/data_structure/binary_indexed_tree.hpp
     title: Binary Indexed Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/mo.hpp
     title: lib/data_structure/mo.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/others/compression.hpp
     title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -45,31 +45,31 @@ data:
     \ A &add, const E &erase, const O &out){\n        build(add, add, erase, erase,\
     \ out);\n    }\n};\n#line 2 \"lib/data_structure/binary_indexed_tree.hpp\"\n\n\
     /**\n * @brief Binary Indexed Tree\n * @docs docs/data_structure/binary_indexed_tree.md\n\
-    \ */\n\ntemplate <typename T>\nstruct BinaryIndexedTree{\n    int N;\n    vector<T>\
-    \ BIT;\n    BinaryIndexedTree(const int &N) : N(N), BIT(N + 1, 0){\n    }\n\n\
-    \    T get(int i){\n        return sum(i + 1) - sum(i);\n    }\n\n    void add(int\
-    \ i, T x){\n        i++;\n        while(i <= N){\n            BIT[i] += x;\n \
-    \           i += i & -i;\n        }\n    }\n\n    T sum(int i) const {\n     \
-    \   T ans = 0;\n        while(i > 0){\n            ans += BIT[i];\n          \
-    \  i -= i & -i;\n        }\n        return ans;\n    }\n\n    T sum(int L, int\
-    \ R) const {\n        return sum(R) - sum(L);\n    }\n\n    int lower_bound(T\
-    \ x) const {\n        if(x <= 0){\n            return 0;\n        } else{\n  \
-    \          int v = 0, r = 1;\n            while(r < N) r = r << 1;\n         \
-    \   for(int len = r; len > 0; len = len >> 1){\n                if(v + len < N\
-    \ && BIT[v + len] < x){\n                    x -= BIT[v + len];\n            \
-    \        v += len;\n                }\n            }\n            return v;\n\
-    \        }\n    }\n\n    int upper_bound(T x) const {\n        if(x < 0){\n  \
-    \          return 0;\n        } else{\n            int v = 0, r = 1;\n       \
-    \     while(r <= N) r = r << 1;\n            for(int len = r; len > 0; len = len\
-    \ >> 1){\n                if(v + len <= N && BIT[v + len] <= x){\n           \
-    \         x -= BIT[v + len];\n                    v += len;\n                }\n\
-    \            }\n            return v;\n        }\n    }\n\n    T operator [](int\
-    \ i) const {\n        return sum(i, i + 1);\n    }\n};\n#line 2 \"lib/others/compression.hpp\"\
-    \n\n/**\n * @brief Compression (\u5EA7\u6A19\u5727\u7E2E)\n * @docs docs/others/compression.md\n\
-    \ */\n\n#line 10 \"lib/others/compression.hpp\"\n\ntemplate <typename T>\nstruct\
-    \ compress{\n    std::vector<T> sorted;\n    std::vector<int> compressed;\n\n\
-    \    compress(const std::vector<T> &vec){\n        int n = vec.size();\n     \
-    \   compressed.resize(n);\n        for(T x : vec){\n            sorted.emplace_back(x);\n\
+    \ */\n\n#line 9 \"lib/data_structure/binary_indexed_tree.hpp\"\n\ntemplate <typename\
+    \ T>\nstruct BinaryIndexedTree{\n    int N;\n    std::vector<T> BIT;\n    BinaryIndexedTree(const\
+    \ int N) : N(N), BIT(N + 1, 0){\n    }\n\n    T get(int i){\n        return sum(i\
+    \ + 1) - sum(i);\n    }\n\n    void add(int i, T x){\n        i++;\n        while(i\
+    \ <= N){\n            BIT[i] += x;\n            i += i & -i;\n        }\n    }\n\
+    \n    T sum(int i) const {\n        T ans = 0;\n        while(i > 0){\n      \
+    \      ans += BIT[i];\n            i -= i & -i;\n        }\n        return ans;\n\
+    \    }\n\n    T sum(int L, int R) const {\n        return sum(R) - sum(L);\n \
+    \   }\n\n    int lower_bound(T x) const {\n        if(x <= 0){\n            return\
+    \ 0;\n        } else{\n            int v = 0, r = 1;\n            while(r < N)\
+    \ r = r << 1;\n            for(int len = r; len > 0; len = len >> 1){\n      \
+    \          if(v + len < N && BIT[v + len] < x){\n                    x -= BIT[v\
+    \ + len];\n                    v += len;\n                }\n            }\n \
+    \           return v;\n        }\n    }\n\n    int upper_bound(T x) const {\n\
+    \        if(x < 0){\n            return 0;\n        } else{\n            int v\
+    \ = 0, r = 1;\n            while(r <= N) r = r << 1;\n            for(int len\
+    \ = r; len > 0; len = len >> 1){\n                if(v + len <= N && BIT[v + len]\
+    \ <= x){\n                    x -= BIT[v + len];\n                    v += len;\n\
+    \                }\n            }\n            return v;\n        }\n    }\n\n\
+    \    T operator [](int i) const {\n        return sum(i, i + 1);\n    }\n};\n\
+    #line 2 \"lib/others/compression.hpp\"\n\n/**\n * @brief Compression (\u5EA7\u6A19\
+    \u5727\u7E2E)\n * @docs docs/others/compression.md\n */\n\n#line 10 \"lib/others/compression.hpp\"\
+    \n\ntemplate <typename T>\nstruct compress{\n    std::vector<T> sorted;\n    std::vector<int>\
+    \ compressed;\n\n    compress(const std::vector<T> &vec){\n        int n = vec.size();\n\
+    \        compressed.resize(n);\n        for(T x : vec){\n            sorted.emplace_back(x);\n\
     \        }\n        std::sort(sorted.begin(), sorted.end());\n        sorted.erase(std::unique(sorted.begin(),\
     \ sorted.end()), sorted.end());\n        for(int i = 0; i < n; ++i){\n       \
     \     compressed[i] = std::lower_bound(sorted.begin(), sorted.end(), vec[i]) -\
@@ -119,8 +119,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-15 16:06:01+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_inversions_query.test.cpp
 layout: document

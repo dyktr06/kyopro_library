@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/range_parallel_union_find.hpp
     title: lib/data_structure/range_parallel_union_find.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
     title: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
     title: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/segment_tree_func.hpp\"\n\n#include <vector>\n\
@@ -65,7 +65,7 @@ data:
   requiredBy:
   - lib/data_structure/range_parallel_union_find.hpp
   timestamp: '2024-10-31 17:18:53+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
   - test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
