@@ -49,8 +49,8 @@ struct WeightedUnionFind{
         if(rx == ry) return;
 
         if(par[rx] < par[ry]){
-            swap(rx, ry);
-            swap(tx, ty);
+            std::swap(rx, ry);
+            std::swap(tx, ty);
             tw = ex - tw;
         }
 

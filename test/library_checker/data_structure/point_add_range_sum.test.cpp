@@ -1,8 +1,9 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
 
 #include "../../../lib/data_structure/binary_indexed_tree.hpp"
+
+using namespace std;
 
 int main(){
     int n, q; cin >> n >> q;

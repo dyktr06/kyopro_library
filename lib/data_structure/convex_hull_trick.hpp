@@ -5,6 +5,9 @@
  * @docs docs/data_structure/convex_hull_trick.md
  */
 
+#include <deque>
+#include <utility>
+
 // ax + by + c = 0 -> y = -b/a x - c/a
 template <typename T>
 struct Line{
@@ -27,7 +30,7 @@ struct Line{
 
 template <typename T>
 struct ConvexHullTrick{
-    deque<Line<T>> deq;
+    std::deque<Line<T>> deq;
 
     ConvexHullTrick() : deq(){
     }
@@ -45,11 +48,11 @@ struct ConvexHullTrick{
     };
 
     // first/second
-    pair<T, T> f(Line<T> l, T x){
+    std::pair<T, T> f(Line<T> l, T x){
         T a = -l.a * x - l.c;
         T b = l.b;
         if(b < 0) a *= -1, b *= -1;
-        return make_pair(a, b);
+        return std::make_pair(a, b);
     };
 
     // y = ax + b
@@ -70,7 +73,7 @@ struct ConvexHullTrick{
         deq.push_back(p);
     }
 
-    pair<T, T> query(T x){
+    std::pair<T, T> query(T x){
         while((int) deq.size() >= 2 && !comp(deq.at(0), deq.at(1), x)){
             deq.pop_front();
         }

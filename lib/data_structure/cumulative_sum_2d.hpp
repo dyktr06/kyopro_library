@@ -1,18 +1,19 @@
 #pragma once
 
-/*
-    CumulativeSum2D<T>(H, W) : CumulativeSum2Dをサイズ H * W で構築
-    add(i, j, z) : (i, j) に z を加算します。 O(1)
-    imos(i1, j1, i2, j2, v) : いもす法において、[(i1, j1), (i2, j2) ) に z を加算します。O(1)
-    build() : 加算された配列を構築します。O(HW)
-    sum(i1, j1, i2, j2) : [(x1, y1), (x2, y2) ) の和を取得します。O(1)
-*/
+/**
+ * @brief Cumulative Sum 2D
+ * @docs docs/data_structure/cumulative_sum_2d.md
+ */
+
+#include <vector>
+#include <cassert>
 
 template <typename T>
 struct CumulativeSum2D{
-    vector<vector<T>> data;
+    int H, W;
+    std::vector<std::vector<T>> data;
 
-    CumulativeSum2D(const int H, const int W) : data(H + 3, vector<T>(W + 3, 0)) {}
+    CumulativeSum2D(const int _H, const int _W) : H(_H), W(_W), data(_H + 3, std::vector<T>(_W + 3, 0)) {}
 
     void add(int i, int j, const T &z){
         ++i, ++j;
@@ -21,6 +22,8 @@ struct CumulativeSum2D{
     }
 
     void imos(const int i1, const int j1, const int i2, const int j2, const T &z = 1) {
+        assert(0 <= i1 && i1 <= i2 && i2 <= H);
+        assert(0 <= j1 && j1 <= j2 && j2 <= W);
         add(i1, j1, z);
         add(i1, j2, -z);
         add(i2, j1, -z);
@@ -40,6 +43,8 @@ struct CumulativeSum2D{
     }
 
     inline T sum(const int i1, const int j1, const int i2, const int j2) const {
+        assert(0 <= i1 && i1 <= i2 && i2 <= H);
+        assert(0 <= j1 && j1 <= j2 && j2 <= W);
         return (data[i2][j2] - data[i1][j2] - data[i2][j1] + data[i1][j1]);
     }
 };

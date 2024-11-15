@@ -1,18 +1,19 @@
 #pragma once
 
-/*
-    BinaryIndexedTree2D<T>(h, w) : BIT2Dをサイズh*wで構築
-    add(x, y, v) : (x, y) に v を加算します。 O(log(H) * log(W))
-    imos(x1, y1, x2, y2, v) : いもす法において、[(x1, y1), (x2, y2)] に v を加算します。O(log(H) * log(W))
-    sum(x1, y1, x2, y2) : [(x1, y1), (x2, y2)] の和を取得します。O(log(H) * log(W))
-*/
+/**
+ * @brief Binary Indexed Tree 2D
+ * @docs docs/data_structure/binary_indexed_tree_2d.md
+ */
+
+#include <vector>
+#include <cassert>
 
 template <typename T>
 struct BinaryIndexedTree2D{
     int H, W;
-    vector<vector<T>> BIT;
-    BinaryIndexedTree2D(const int &_H, const int &_W) : H(_H + 1), W(_W + 1){
-        BIT.resize(H + 3, vector<T>(W + 3, 0));
+    std::vector<std::vector<T>> BIT;
+    BinaryIndexedTree2D(const int _H, const int _W) : H(_H + 1), W(_W + 1){
+        BIT.resize(H + 3, std::vector<T>(W + 3, 0));
     }
 
     void add(const int x, const int y, const T v){

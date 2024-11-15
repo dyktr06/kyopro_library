@@ -1,8 +1,9 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_5_B"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
 
 #include "../../../lib/data_structure/binary_indexed_tree_2d.hpp"
+
+using namespace std;
 
 int main(){
     int n; cin >> n;

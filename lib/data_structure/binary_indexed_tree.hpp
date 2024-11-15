@@ -5,11 +5,13 @@
  * @docs docs/data_structure/binary_indexed_tree.md
  */
 
+#include <vector>
+
 template <typename T>
 struct BinaryIndexedTree{
     int N;
-    vector<T> BIT;
-    BinaryIndexedTree(const int &N) : N(N), BIT(N + 1, 0){
+    std::vector<T> BIT;
+    BinaryIndexedTree(const int N) : N(N), BIT(N + 1, 0){
     }
 
     T get(int i){
