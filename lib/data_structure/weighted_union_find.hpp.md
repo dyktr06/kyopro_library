@@ -91,8 +91,8 @@ title: Weighted Union Find
 #### 計算量
 
 - `WeightedUnionFind(N)`: $\mathrm{O}(N)$
-- `root(x)`: $\mathrm{O}(\log N)$
-- `diff(x, y)`: $\mathrm{O}(\log N)$
-- `unite(x, y, w)`: $\mathrm{O}(\log N)$
-- `same(x, y)`: $\mathrm{O}(\log N)$
-- `size(x)`: $\mathrm{O}(\log N)$
+- `root(x)`: 償却 $\mathrm{O}(\alpha(N))$ (アッカーマンの逆関数)
+- `diff(x, y)`: 償却 $\mathrm{O}(\alpha(N))$
+- `unite(x, y, w)`: 償却 $\mathrm{O}(\alpha(N))$
+- `same(x, y)`: 償却 $\mathrm{O}(\alpha(N))$
+- `size(x)`: 償却 $\mathrm{O}(\alpha(N))$

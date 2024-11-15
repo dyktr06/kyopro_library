@@ -15,12 +15,12 @@ data:
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
     title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\
       \u7DCF\u7A4D)"
@@ -343,7 +343,7 @@ data:
   path: lib/polynomial/product_of_polynomial_sequence.hpp
   requiredBy: []
   timestamp: '2024-11-13 13:43:26+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
 documentation_of: lib/polynomial/product_of_polynomial_sequence.hpp

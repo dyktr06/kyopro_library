@@ -21,15 +21,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/manhattanmst.test.cpp
     title: test/library_checker/geometry/manhattanmst.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/cycle_detection_undirected.test.cpp
     title: test/library_checker/graph/cycle_detection_undirected.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/minimum_spanning_tree.test.cpp
     title: test/library_checker/graph/minimum_spanning_tree.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/union_find.md
     document_title: Union Find
@@ -72,7 +72,7 @@ data:
   - lib/graph/manhattanMST.hpp
   - lib/graph/T_join.hpp
   timestamp: '2024-11-15 15:44:55+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/unionfind.test.cpp
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
@@ -100,8 +100,8 @@ title: Union Find
 #### 計算量
 
 - `UnionFind(N)`: $\mathrm{O}(N)$
-- `root(x)`: 償却 $\alpha(N)$ (アッカーマンの逆関数)
-- `unite(x, y)`: 償却 $\alpha(N)$
-- `same(x, y)`: 償却 $\alpha(N)$
-- `size(x)`: 償却 $\alpha(N)$
-- `edge(x)`: 償却 $\alpha(N)$
+- `root(x)`: 償却 $\mathrm{O}(\alpha(N))$ (アッカーマンの逆関数)
+- `unite(x, y)`: 償却 $\mathrm{O}(\alpha(N))$
+- `same(x, y)`: 償却 $\mathrm{O}(\alpha(N))$
+- `size(x)`: 償却 $\mathrm{O}(\alpha(N))$
+- `edge(x)`: 償却 $\mathrm{O}(\alpha(N))$

@@ -80,9 +80,10 @@ data:
     - icon: ':warning:'
       path: lib/data_structure/grid_unionfind.hpp
       title: lib/data_structure/grid_unionfind.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/data_structure/imos_linear.hpp
-      title: lib/data_structure/imos_linear.hpp
+      title: "Imos Linear (\u9759\u7684\u306A\u4E00\u6B21\u95A2\u6570\u306E\u52A0\u7B97\
+        )"
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/lazy_segment_tree.hpp
       title: lib/data_structure/lazy_segment_tree.hpp
@@ -92,9 +93,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/mo.hpp
       title: lib/data_structure/mo.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/data_structure/partly_persistent_union_find.hpp
-      title: lib/data_structure/partly_persistent_union_find.hpp
+      title: Partly Persistent Union Find
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/persistent_array.hpp
       title: lib/data_structure/persistent_array.hpp
@@ -103,13 +104,14 @@ data:
       title: lib/data_structure/persistent_queue.hpp
     - icon: ':warning:'
       path: lib/data_structure/persistent_stack.hpp
-      title: lib/data_structure/persistent_stack.hpp
+      title: "Persistent Stack (\u6C38\u7D9A\u30B9\u30BF\u30C3\u30AF)"
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/persistent_union_find.hpp
       title: lib/data_structure/persistent_union_find.hpp
     - icon: ':warning:'
       path: lib/data_structure/priority_queue.hpp
-      title: lib/data_structure/priority_queue.hpp
+      title: "Eraseable\u3000Priority Queue (\u524A\u9664\u53EF\u80FD\u512A\u5148\u5EA6\
+        \u4ED8\u304D\u30AD\u30E5\u30FC)"
     - icon: ':warning:'
       path: lib/data_structure/radix_heap.hpp
       title: Radix Heap
@@ -146,7 +148,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/swag.hpp
       title: SWAG
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/union_find.hpp
       title: Union Find
     - icon: ':heavy_check_mark:'
@@ -204,7 +206,7 @@ data:
       path: lib/graph/counting_spanning_tree.hpp
       title: "Counting Spanning Tree (\u5168\u57DF\u6728\u306E\u6570\u3048\u4E0A\u3052\
         )"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/dijkstra.hpp
       title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
     - icon: ':heavy_check_mark:'
@@ -286,7 +288,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/bell_number.hpp
       title: "Bell Number (\u30D9\u30EB\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/bernoulli_number.hpp
       title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
     - icon: ':heavy_check_mark:'
@@ -298,7 +300,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/combination.hpp
       title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/combination_modint.hpp
       title: lib/math/combination_modint.hpp
     - icon: ':heavy_check_mark:'
@@ -346,7 +348,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/prime.hpp
       title: "\u7D20\u6570\u5224\u5B9A\u3001\u7D04\u6570\u5217\u6319"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/prime_sieve.hpp
       title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
     - icon: ':heavy_check_mark:'
@@ -395,23 +397,23 @@ data:
       title: lib/others/zorbrist_hash.hpp
   - name: lib/polynomial
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/bostan_mori.hpp
       title: Bostan-Mori
     - icon: ':question:'
       path: lib/polynomial/formal_power_series.hpp
       title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/multipoint_evaluation.hpp
       title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/polynomial_interpolation.hpp
       title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/product_of_polynomial_sequence.hpp
       title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\
         \u7A4D)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/taylor_shift.hpp
       title: Taylor Shift
   - name: lib/string
@@ -742,7 +744,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/cycle_detection.test.cpp
       title: test/library_checker/graph/cycle_detection.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/cycle_detection_undirected.test.cpp
       title: test/library_checker/graph/cycle_detection_undirected.test.cpp
     - icon: ':heavy_check_mark:'
@@ -763,7 +765,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
       title: test/library_checker/graph/minimum_diameter_spanning_tree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/minimum_spanning_tree.test.cpp
       title: test/library_checker/graph/minimum_spanning_tree.test.cpp
     - icon: ':heavy_check_mark:'
@@ -797,13 +799,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/bell_number.test.cpp
       title: test/library_checker/number_theory/bell_number.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/bernoulli_number.test.cpp
       title: test/library_checker/number_theory/bernoulli_number.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
       title: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/enumerate_primes.test.cpp
       title: test/library_checker/number_theory/enumerate_primes.test.cpp
     - icon: ':heavy_check_mark:'
@@ -829,7 +831,7 @@ data:
       title: test/library_checker/number_theory/sqrt_mod.test.cpp
   - name: test/library_checker/other
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
       title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     - icon: ':heavy_check_mark:'
@@ -837,31 +839,31 @@ data:
       title: test/library_checker/other/longest_increasing_subsequence.test.cpp
   - name: test/library_checker/polynomial
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/division_of_polynomials.test.cpp
       title: test/library_checker/polynomial/division_of_polynomials.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
       title: test/library_checker/polynomial/multipoint_evaluation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
       title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
       title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
       title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
     - icon: ':x:'
@@ -929,7 +931,7 @@ data:
       title: test/library_checker/tree/vertex_set_path_composite.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/yuki_1008.test.cpp
       title: test/yukicoder/yuki_1008.test.cpp
     - icon: ':heavy_check_mark:'
@@ -968,7 +970,7 @@ data:
     - icon: ':x:'
       path: test/yukicoder/yuki_2809.test.cpp
       title: test/yukicoder/yuki_2809.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/yuki_416.test.cpp
       title: test/yukicoder/yuki_416.test.cpp
     - icon: ':heavy_check_mark:'
