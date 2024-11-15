@@ -1,18 +1,17 @@
 #pragma once
 
-/*
-    PersistentUnionFind(n) : 部分永続 Union-Find 木をサイズnで構築
-    計算量 : O(log(n))
-    root(x, t) : 時刻 t における集合 x の根を取得します。
-    unite(x, y) : 集合 x と y を併合します。
-    same(x, y, t) : 時刻 t における集合 x と 集合 y が等しいかどうかを判定します。
-    size(x, t) : 時刻 t における x を含む集合の大きさを取得します。
-*/
+/**
+ * @brief Partly Persistent Union Find
+ * @docs docs/data_structure/partly_persistent_union_find.md
+ */
+
+#include <vector>
+#include <algorithm>
 
 struct PersistentUnionFind{
     int now;
-    vector<int> par, rank, time;
-    vector<vector<pair<int, int>>> num;
+    std::vector<int> par, rank, time;
+    std::vector<std::vector<std::pair<int, int>>> num;
     const int INF = 1 << 30;
 
     PersistentUnionFind(const int N) : par(N), rank(N), time(N), num(N){
@@ -21,8 +20,8 @@ struct PersistentUnionFind{
             par[i] = i;
             num[i].emplace_back(0, 1);
         }
-        fill(rank.begin(), rank.begin() + N, 0);
-        fill(time.begin(), time.begin() + N, INF);
+        std::fill(rank.begin(), rank.begin() + N, 0);
+        std::fill(time.begin(), time.begin() + N, INF);
     }
 
     int root(const int x, const int t){
@@ -37,7 +36,7 @@ struct PersistentUnionFind{
         int ry = root(y, now);
         if(rx == ry) return;
 
-        if(rank[rx] < rank[ry]) swap(rx, ry);
+        if(rank[rx] < rank[ry]) std::swap(rx, ry);
         num[rx].emplace_back(now, size(rx, now) + size(ry, now));
 
         par[ry] = rx;

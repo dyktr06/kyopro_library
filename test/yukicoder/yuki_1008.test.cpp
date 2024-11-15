@@ -1,8 +1,10 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1008"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
 
 #include "../../lib/data_structure/imos_linear.hpp"
+
+using namespace std;
 
 int main(){
     ios::sync_with_stdio(false);

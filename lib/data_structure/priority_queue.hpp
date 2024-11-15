@@ -1,8 +1,15 @@
 #pragma once
 
+/**
+ * @brief Eraseable　Priority Queue (削除可能優先度付きキュー)
+ */
+
+#include <queue>
+#include <cassert>
+
 template <typename T>
 struct PriorityQueue{
-    priority_queue<T> q, removed_q;
+    std::priority_queue<T> q, removed_q;
 
     PriorityQueue(){ }
 

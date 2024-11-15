@@ -1,8 +1,11 @@
 #define PROBLEM "https://yukicoder.me/problems/no/416"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <set>
 
 #include "../../lib/data_structure/partly_persistent_union_find.hpp"
+
+using namespace std;
 
 int main(){
     int n, m, q; cin >> n >> m >> q;

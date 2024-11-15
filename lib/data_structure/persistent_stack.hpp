@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+ * @brief Persistent Stack (永続スタック)
+ */
+
 template<typename T>
 struct PersistentStack{
     T val;
