@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: lib/data_structure/priority_set.hpp
-    title: lib/data_structure/priority_set.hpp
+  - icon: ':question:'
+    path: lib/data_structure/static_ordered_set.hpp
+    title: Static Ordered Set
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -16,20 +16,21 @@ data:
     - https://judge.yosupo.jp/problem/ordered_set
   bundledCode: "#line 1 \"test/library_checker/data_structure/ordered_set.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/ordered_set\"\n\n#include\
-    \ <iostream>\n#include <vector>\n\n#line 2 \"lib/data_structure/priority_set.hpp\"\
-    \n\n#line 4 \"lib/data_structure/priority_set.hpp\"\n#include <algorithm>\n\n\
-    template <typename T>\nstruct PrioritySet{\n    struct compress{\n        std::vector<T>\
-    \ sorted, compressed;\n\n        compress(){}\n\n        void init(const std::vector<T>\
-    \ &vec){\n            int n = vec.size();\n            compressed.resize(n);\n\
-    \            for(T x : vec){\n                sorted.emplace_back(x);\n      \
-    \      }\n            std::sort(sorted.begin(), sorted.end());\n            sorted.erase(unique(sorted.begin(),\
-    \ sorted.end()), sorted.end());\n            for(int i = 0; i < n; ++i){\n   \
-    \             compressed[i] = std::lower_bound(sorted.begin(), sorted.end(), vec[i])\
-    \ - sorted.begin();\n            }\n        }\n\n        int get(const T &x) const{\n\
-    \            return std::lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();\n\
-    \        }\n\n        T inv(const T &x) const{\n            return sorted[x];\n\
-    \        }\n\n        size_t size() const{\n            return sorted.size();\n\
-    \        }\n\n        std::vector<T> getCompressed() const{\n            return\
+    \ <iostream>\n#include <vector>\n\n#line 2 \"lib/data_structure/static_ordered_set.hpp\"\
+    \n\n/**\n * @brief Static Ordered Set\n */\n\n#line 8 \"lib/data_structure/static_ordered_set.hpp\"\
+    \n#include <algorithm>\n\ntemplate <typename T>\nstruct StaticOrderedSet{\n  \
+    \  struct compress{\n        std::vector<T> sorted, compressed;\n\n        compress(){}\n\
+    \n        void init(const std::vector<T> &vec){\n            int n = vec.size();\n\
+    \            compressed.resize(n);\n            for(T x : vec){\n            \
+    \    sorted.emplace_back(x);\n            }\n            std::sort(sorted.begin(),\
+    \ sorted.end());\n            sorted.erase(unique(sorted.begin(), sorted.end()),\
+    \ sorted.end());\n            for(int i = 0; i < n; ++i){\n                compressed[i]\
+    \ = std::lower_bound(sorted.begin(), sorted.end(), vec[i]) - sorted.begin();\n\
+    \            }\n        }\n\n        int get(const T &x) const{\n            return\
+    \ std::lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();\n      \
+    \  }\n\n        T inv(const T &x) const{\n            return sorted[x];\n    \
+    \    }\n\n        size_t size() const{\n            return sorted.size();\n  \
+    \      }\n\n        std::vector<T> getCompressed() const{\n            return\
     \ compressed;\n        }\n    };\n\n    struct BinaryIndexedTree{\n        int\
     \ N;\n        std::vector<T> BIT;\n        BinaryIndexedTree() {}\n\n        void\
     \ init(int size){\n            N = size;\n            BIT.assign(N + 1, 0);\n\
@@ -54,9 +55,9 @@ data:
     \      v += len;\n                    }\n                }\n                return\
     \ v;\n            }\n        }\n\n        T operator [](int i) const {\n     \
     \       return sum(i, i + 1);\n        }\n    };\n\n    std::vector<T> a;\n  \
-    \  compress comp;\n    BinaryIndexedTree cnt, val;\n\n    PrioritySet(){ }\n\n\
-    \    void add(T x){\n        a.push_back(x);\n    }\n\n    void build(){\n   \
-    \     comp.init(a);\n        cnt.init(comp.size());\n        val.init(comp.size());\n\
+    \  compress comp;\n    BinaryIndexedTree cnt, val;\n\n    StaticOrderedSet(){\
+    \ }\n\n    void add(T x){\n        a.push_back(x);\n    }\n\n    void build(){\n\
+    \        comp.init(a);\n        cnt.init(comp.size());\n        val.init(comp.size());\n\
     \    }\n\n    T size(){\n        return cnt.sum((int) comp.size());\n    }\n\n\
     \    void insert(T x, T count = 1){\n        cnt.add(comp.get(x), count);\n  \
     \      val.add(comp.get(x), count * x);\n    }\n\n    void erase(T x, T count\
@@ -81,7 +82,7 @@ data:
     \ exist(T x){\n        return count_less(x) != count_less(x + 1);\n    }\n};\n\
     #line 7 \"test/library_checker/data_structure/ordered_set.test.cpp\"\n\nusing\
     \ namespace std;\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
-    \n    int n, q; cin >> n >> q;\n    PrioritySet<long long> ps;\n    vector<int>\
+    \n    int n, q; cin >> n >> q;\n    StaticOrderedSet<long long> ps;\n    vector<int>\
     \ a(n);\n    for(int i = 0; i < n; ++i){\n        cin >> a[i];\n        ps.add(a[i]);\n\
     \    }\n    using T = pair<int, int>;\n    vector<T> query(q);\n    for(int i\
     \ = 0; i < q; ++i){\n        cin >> query[i].first >> query[i].second;\n     \
@@ -96,11 +97,11 @@ data:
     \ << \"\\n\";\n        } else if(type == 5){\n            cout << ps.lower_bound(x)\
     \ << \"\\n\";\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/ordered_set\"\n\n#include\
-    \ <iostream>\n#include <vector>\n\n#include \"../../../lib/data_structure/priority_set.hpp\"\
+    \ <iostream>\n#include <vector>\n\n#include \"../../../lib/data_structure/static_ordered_set.hpp\"\
     \n\nusing namespace std;\n\nint main() {\n    ios::sync_with_stdio(false);\n \
-    \   cin.tie(nullptr);\n\n    int n, q; cin >> n >> q;\n    PrioritySet<long long>\
-    \ ps;\n    vector<int> a(n);\n    for(int i = 0; i < n; ++i){\n        cin >>\
-    \ a[i];\n        ps.add(a[i]);\n    }\n    using T = pair<int, int>;\n    vector<T>\
+    \   cin.tie(nullptr);\n\n    int n, q; cin >> n >> q;\n    StaticOrderedSet<long\
+    \ long> ps;\n    vector<int> a(n);\n    for(int i = 0; i < n; ++i){\n        cin\
+    \ >> a[i];\n        ps.add(a[i]);\n    }\n    using T = pair<int, int>;\n    vector<T>\
     \ query(q);\n    for(int i = 0; i < q; ++i){\n        cin >> query[i].first >>\
     \ query[i].second;\n        if(query[i].first != 2){\n            ps.add(query[i].second);\n\
     \        }\n    }\n    ps.build();\n\n    for(int i = 0; i < n; ++i){\n      \
@@ -113,11 +114,11 @@ data:
     \ << \"\\n\";\n        } else if(type == 5){\n            cout << ps.lower_bound(x)\
     \ << \"\\n\";\n        }\n    }\n}\n"
   dependsOn:
-  - lib/data_structure/priority_set.hpp
+  - lib/data_structure/static_ordered_set.hpp
   isVerificationFile: true
   path: test/library_checker/data_structure/ordered_set.test.cpp
   requiredBy: []
-  timestamp: '2024-11-12 11:47:25+09:00'
+  timestamp: '2024-11-15 15:44:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/ordered_set.test.cpp

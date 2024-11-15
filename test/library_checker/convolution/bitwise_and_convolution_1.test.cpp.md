@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/set_zeta_mobius_transform.hpp
     title: Set Zeta/Mobius Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
@@ -112,7 +112,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/bitwise_and_convolution_1.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 21:58:22+09:00'
+  timestamp: '2024-11-13 13:43:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution/bitwise_and_convolution_1.test.cpp

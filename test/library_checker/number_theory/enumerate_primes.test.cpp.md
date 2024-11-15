@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/prime_sieve.hpp
     title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/enumerate_primes
@@ -51,8 +51,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/number_theory/enumerate_primes.test.cpp
   requiredBy: []
-  timestamp: '2024-11-04 03:12:13+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-13 13:43:26+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/number_theory/enumerate_primes.test.cpp
 layout: document

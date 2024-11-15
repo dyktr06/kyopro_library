@@ -7,10 +7,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/lcm_convolution.hpp
     title: LCM Convolution
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/prime_sieve.hpp
     title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
   _extendedRequiredBy: []
@@ -130,7 +130,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution/lcm_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 21:58:22+09:00'
+  timestamp: '2024-11-13 13:43:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution/lcm_convolution.test.cpp

@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: Bostan-Mori
     links:
@@ -334,13 +334,14 @@ data:
     \        for(int i = 0; i < (int) g.size(); i++){\n            g[i] = tmp_g[i\
     \ * 2];\n        }\n        n >>= 1;\n    }\n    return f[0] / g[0];\n}\n\n//\
     \ a_i = sum_{j = 1}^{d} a_{i - j} * c[j] \u3092\u6E80\u305F\u3059\u6570\u5217\u306E\
-    \ k \u756A\u76EE\u306E\u9805\u3092\u6C42\u3081\u308B\ntemplate <typename T>\n\
-    T findKthTerm(const std::vector<T> &init, const std::vector<T> &c, long long k){\n\
-    \    using FPS = FormalPowerSeries<T>;\n    assert((int) init.size() + 1 == (int)\
-    \ c.size());\n    FPS f(init.size()), g(c.size());\n    for(int i = 0; i < (int)\
-    \ init.size(); i++){\n        f[i] = init[i];\n    }\n    g[0] = 1;\n    for(int\
-    \ i = 1; i < (int) c.size(); i++){\n        g[i] = c[i] * T(-1);\n    }\n    f\
-    \ *= g;\n    f.resize(init.size());\n    return bostan_mori(k, f, g);\n}\n"
+    \ k (0-indexed) \u756A\u76EE\u306E\u9805\u3092\u6C42\u3081\u308B\ntemplate <typename\
+    \ T>\nT findKthTerm(const std::vector<T> &init, const std::vector<T> &c, long\
+    \ long k){\n    using FPS = FormalPowerSeries<T>;\n    assert((int) init.size()\
+    \ + 1 == (int) c.size());\n    FPS f(init.size()), g(c.size());\n    for(int i\
+    \ = 0; i < (int) init.size(); i++){\n        f[i] = init[i];\n    }\n    g[0]\
+    \ = 1;\n    for(int i = 1; i < (int) c.size(); i++){\n        g[i] = c[i] * T(-1);\n\
+    \    }\n    f *= g;\n    f.resize(init.size());\n    return bostan_mori(k, f,\
+    \ g);\n}\n"
   code: "#pragma once\n\n/**\n * @brief Bostan-Mori\n * @see https://qiita.com/ryuhe1/items/da5acbcce4ac1911f47a\n\
     \ */\n\n#include <cassert>\n#include <vector>\n#include \"../polynomial/formal_power_series.hpp\"\
     \n\n// [x^n] f(x)/g(x) : O(d log d log n)\ntemplate <typename T>\nT bostan_mori(long\
@@ -356,9 +357,9 @@ data:
     \ *= g;\n        for(int i = 0; i < (int) g.size(); i++){\n            g[i] =\
     \ tmp_g[i * 2];\n        }\n        n >>= 1;\n    }\n    return f[0] / g[0];\n\
     }\n\n// a_i = sum_{j = 1}^{d} a_{i - j} * c[j] \u3092\u6E80\u305F\u3059\u6570\u5217\
-    \u306E k \u756A\u76EE\u306E\u9805\u3092\u6C42\u3081\u308B\ntemplate <typename\
-    \ T>\nT findKthTerm(const std::vector<T> &init, const std::vector<T> &c, long\
-    \ long k){\n    using FPS = FormalPowerSeries<T>;\n    assert((int) init.size()\
+    \u306E k (0-indexed) \u756A\u76EE\u306E\u9805\u3092\u6C42\u3081\u308B\ntemplate\
+    \ <typename T>\nT findKthTerm(const std::vector<T> &init, const std::vector<T>\
+    \ &c, long long k){\n    using FPS = FormalPowerSeries<T>;\n    assert((int) init.size()\
     \ + 1 == (int) c.size());\n    FPS f(init.size()), g(c.size());\n    for(int i\
     \ = 0; i < (int) init.size(); i++){\n        f[i] = init[i];\n    }\n    g[0]\
     \ = 1;\n    for(int i = 1; i < (int) c.size(); i++){\n        g[i] = c[i] * T(-1);\n\
@@ -372,8 +373,8 @@ data:
   isVerificationFile: false
   path: lib/polynomial/bostan_mori.hpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-11-15 15:44:55+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
 documentation_of: lib/polynomial/bostan_mori.hpp

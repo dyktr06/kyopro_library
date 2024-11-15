@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/swag.hpp
     title: SWAG
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
@@ -59,9 +59,9 @@ data:
     \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
     \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
     \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
-    \ { return os << x.val; }\n};\n#line 2 \"lib/data_structure/swag.hpp\"\n\n#include\
-    \ <stack>\n#line 5 \"lib/data_structure/swag.hpp\"\n\n/**\n * @brief SWAG\n *\
-    \ @docs docs/data_structure/swag.md\n */\n\ntemplate <typename T, T (*op)(T, T)>\n\
+    \ { return os << x.val; }\n};\n#line 2 \"lib/data_structure/swag.hpp\"\n\n/**\n\
+    \ * @brief SWAG\n * @docs docs/data_structure/swag.md\n */\n\n#include <stack>\n\
+    #line 10 \"lib/data_structure/swag.hpp\"\n\ntemplate <typename T, T (*op)(T, T)>\n\
     struct SWAG{\nprivate:\n    struct node{\n    public:\n        T val, sum;\n \
     \       node(const T &val, const T &sum) : val(val), sum(sum) {}\n    };\n\n \
     \   std::stack<node> front_stack, back_stack;\n\npublic:\n    SWAG() : front_stack(),\
@@ -108,7 +108,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 21:58:22+09:00'
+  timestamp: '2024-11-15 15:44:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/queue_operate_all_composite.test.cpp

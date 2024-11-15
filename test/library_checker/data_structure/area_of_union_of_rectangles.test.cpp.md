@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/lazy_segment_tree.hpp
     title: lib/data_structure/lazy_segment_tree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/others/compression.hpp
     title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
@@ -148,7 +148,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   requiredBy: []
-  timestamp: '2024-11-12 11:47:25+09:00'
+  timestamp: '2024-11-13 13:43:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp

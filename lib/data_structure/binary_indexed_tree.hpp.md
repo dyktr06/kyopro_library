@@ -6,10 +6,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_add_range_sum.test.cpp
     title: test/library_checker/data_structure/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/range_kth_smallest.test.cpp
     title: test/library_checker/data_structure/range_kth_smallest.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
     title: test/library_checker/data_structure/static_range_inversions_query.test.cpp
   - icon: ':heavy_check_mark:'
@@ -18,9 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/vertex_add_subtree_sum.test.cpp
     title: test/library_checker/tree/vertex_add_subtree_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/data_structure/binary_indexed_tree.md
     document_title: Binary Indexed Tree
@@ -73,7 +73,7 @@ data:
   path: lib/data_structure/binary_indexed_tree.hpp
   requiredBy: []
   timestamp: '2024-05-04 20:00:04+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/range_kth_smallest.test.cpp

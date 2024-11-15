@@ -2,41 +2,41 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
     path: lib/math/bell_number.hpp
     title: "Bell Number (\u30D9\u30EB\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/bernoulli_number.hpp
     title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/partition_function.hpp
     title: "Partition Function (\u5206\u5272\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/subset_sum.hpp
     title: Subset Sum
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/bostan_mori.hpp
     title: Bostan-Mori
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/multipoint_evaluation.hpp
     title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/polynomial_interpolation.hpp
     title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/product_of_polynomial_sequence.hpp
     title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\u7A4D\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/taylor_shift.hpp
     title: Taylor Shift
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/string/wildcard_pattern_matching.hpp
     title: Wildcard Pattern Matching
   _extendedVerifiedWith:
@@ -76,22 +76,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
     title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
     title: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_set_range_composite.test.cpp
     title: test/library_checker/data_structure/range_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/unionfind_with_potential.test.cpp
     title: test/library_checker/data_structure/unionfind_with_potential.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
     title: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
     title: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
     title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -124,43 +124,43 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/bell_number.test.cpp
     title: test/library_checker/number_theory/bell_number.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/bernoulli_number.test.cpp
     title: test/library_checker/number_theory/bernoulli_number.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/division_of_polynomials.test.cpp
     title: test/library_checker/polynomial/division_of_polynomials.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
     title: test/library_checker/polynomial/multipoint_evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
     title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
     title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/string/wildcard_pattern_matching.test.cpp
     title: test/library_checker/string/wildcard_pattern_matching.test.cpp
   - icon: ':heavy_check_mark:'
@@ -169,9 +169,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/vertex_set_path_composite.test.cpp
     title: test/library_checker/tree/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
@@ -275,7 +275,7 @@ data:
   - lib/polynomial/product_of_polynomial_sequence.hpp
   - lib/polynomial/formal_power_series.hpp
   timestamp: '2024-11-03 21:58:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/bell_number.test.cpp
   - test/library_checker/number_theory/bernoulli_number.test.cpp

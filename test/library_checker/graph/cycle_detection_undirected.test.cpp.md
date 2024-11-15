@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/union_find.hpp
     title: Union Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/graph/dijkstra.hpp
     title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/cycle_detection_undirected
@@ -20,11 +20,11 @@ data:
   bundledCode: "#line 1 \"test/library_checker/graph/cycle_detection_undirected.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/cycle_detection_undirected\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/union_find.hpp\"\
-    \n\n#line 5 \"lib/data_structure/union_find.hpp\"\n\n/**\n * @brief Union Find\n\
-    \ * @docs docs/data_structure/union_find.md\n */\n\nstruct UnionFind{\n    int\
-    \ V;\n    std::vector<int> par;\n    std::vector<int> edg;\n\n    UnionFind(int\
-    \ N) : V(N), par(N), edg(N){\n        for(int i = 0; i < N; ++i){\n          \
-    \  par[i] = -1;\n            edg[i] = 0;\n        }\n    }\n\n    int root(int\
+    \n\n/**\n * @brief Union Find\n * @docs docs/data_structure/union_find.md\n */\n\
+    \n#line 10 \"lib/data_structure/union_find.hpp\"\n\nstruct UnionFind{\n    int\
+    \ V;\n    std::vector<int> par;\n    std::vector<int> edg;\n\n    UnionFind(const\
+    \ int N) : V(N), par(N), edg(N){\n        for(int i = 0; i < N; ++i){\n      \
+    \      par[i] = -1;\n            edg[i] = 0;\n        }\n    }\n\n    int root(int\
     \ x){\n        assert(0 <= x && x < V);\n        if(par[x] < 0) return x;\n  \
     \      return par[x] = root(par[x]);\n    }\n\n    int unite(int x, int y){\n\
     \        int rx = root(x);\n        int ry = root(y);\n        if(rx == ry){\n\
@@ -96,8 +96,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/cycle_detection_undirected.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 17:18:53+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-15 15:44:55+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/graph/cycle_detection_undirected.test.cpp
 layout: document
