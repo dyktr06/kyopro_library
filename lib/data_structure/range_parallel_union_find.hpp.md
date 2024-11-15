@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/data_structure/segment_tree_func.hpp
     title: lib/data_structure/segment_tree_func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/union_find.hpp
     title: Union Find
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
     title: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/data_structure/range_parallel_union_find.hpp\"\n\n#line\
@@ -122,7 +122,7 @@ data:
   path: lib/data_structure/range_parallel_union_find.hpp
   requiredBy: []
   timestamp: '2024-11-15 15:44:55+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
 documentation_of: lib/data_structure/range_parallel_union_find.hpp

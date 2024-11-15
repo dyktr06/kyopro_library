@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/mo.hpp
     title: lib/data_structure/mo.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/others/compression.hpp
     title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_mode_query
@@ -97,7 +97,7 @@ data:
   path: test/library_checker/data_structure/static_range_mode_query.test.cpp
   requiredBy: []
   timestamp: '2024-11-13 13:43:26+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_mode_query.test.cpp
 layout: document

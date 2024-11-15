@@ -10,7 +10,7 @@ data:
   - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/bostan_mori.hpp
     title: Bostan-Mori
   - icon: ':question:'
@@ -18,9 +18,9 @@ data:
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
@@ -369,7 +369,7 @@ data:
   path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   requiredBy: []
   timestamp: '2024-11-15 15:44:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
 layout: document

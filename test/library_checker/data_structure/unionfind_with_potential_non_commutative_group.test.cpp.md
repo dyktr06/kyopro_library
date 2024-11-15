@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/data_structure/weighted_union_find.hpp
     title: Weighted Union Find
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/unionfind_with_potential_non_commutative_group
@@ -137,8 +137,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
   requiredBy: []
-  timestamp: '2024-11-15 16:06:01+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-15 15:44:55+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
 layout: document

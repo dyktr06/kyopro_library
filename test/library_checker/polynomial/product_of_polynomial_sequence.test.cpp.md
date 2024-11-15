@@ -13,15 +13,15 @@ data:
   - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/product_of_polynomial_sequence.hpp
     title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\u7A4D\
       )"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/product_of_polynomial_sequence
@@ -358,7 +358,7 @@ data:
   path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
   requiredBy: []
   timestamp: '2024-11-13 13:43:26+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
 layout: document

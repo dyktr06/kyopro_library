@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/range_parallel_union_find.hpp
     title: lib/data_structure/range_parallel_union_find.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/data_structure/segment_tree_func.hpp
     title: lib/data_structure/segment_tree_func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/union_find.hpp
     title: Union Find
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_parallel_unionfind
@@ -158,7 +158,7 @@ data:
   path: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
   requiredBy: []
   timestamp: '2024-11-15 15:44:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/range_parallel_unionfind.test.cpp
 layout: document

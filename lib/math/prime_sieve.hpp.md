@@ -18,12 +18,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution/lcm_convolution.test.cpp
     title: test/library_checker/convolution/lcm_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/enumerate_primes.test.cpp
     title: test/library_checker/number_theory/enumerate_primes.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/prime-sieve.md
     document_title: "Prime Sieve (\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\
@@ -67,7 +67,7 @@ data:
   - lib/convolution/lcm_convolution.hpp
   - lib/convolution/gcd_convolution.hpp
   timestamp: '2024-11-13 13:43:26+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/enumerate_primes.test.cpp
   - test/library_checker/convolution/gcd_convolution.test.cpp

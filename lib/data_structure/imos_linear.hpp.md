@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_1008.test.cpp
     title: test/yukicoder/yuki_1008.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/imos_linear.md
     document_title: "Imos Linear (\u9759\u7684\u306A\u4E00\u6B21\u95A2\u6570\u306E\
@@ -46,7 +46,7 @@ data:
   path: lib/data_structure/imos_linear.hpp
   requiredBy: []
   timestamp: '2024-11-15 16:27:00+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_1008.test.cpp
 documentation_of: lib/data_structure/imos_linear.hpp

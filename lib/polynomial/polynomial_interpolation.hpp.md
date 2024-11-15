@@ -13,17 +13,17 @@ data:
   - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/multipoint_evaluation.hpp
     title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
     title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
     links:
@@ -378,7 +378,7 @@ data:
   path: lib/polynomial/polynomial_interpolation.hpp
   requiredBy: []
   timestamp: '2024-11-13 13:43:26+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/polynomial/polynomial_interpolation.test.cpp
 documentation_of: lib/polynomial/polynomial_interpolation.hpp

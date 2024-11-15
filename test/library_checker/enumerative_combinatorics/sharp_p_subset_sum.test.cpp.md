@@ -10,7 +10,7 @@ data:
   - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/subset_sum.hpp
     title: Subset Sum
   - icon: ':question:'
@@ -18,9 +18,9 @@ data:
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sharp_p_subset_sum
@@ -361,7 +361,7 @@ data:
   path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   requiredBy: []
   timestamp: '2024-11-13 13:43:26+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
 layout: document

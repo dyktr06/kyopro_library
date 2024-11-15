@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/math/combination_modint.hpp
     title: lib/math/combination_modint.hpp
   _extendedRequiredBy: []
