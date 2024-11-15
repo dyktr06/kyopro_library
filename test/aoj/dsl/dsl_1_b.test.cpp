@@ -1,8 +1,9 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
 
 #include "../../../lib/data_structure/weighted_union_find.hpp"
+
+using namespace std;
 
 int main(){
     int n, q; cin >> n >> q;

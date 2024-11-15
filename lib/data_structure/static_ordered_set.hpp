@@ -1,10 +1,14 @@
 #pragma once
 
+/**
+ * @brief Static Ordered Set
+ */
+
 #include <vector>
 #include <algorithm>
 
 template <typename T>
-struct PrioritySet{
+struct StaticOrderedSet{
     struct compress{
         std::vector<T> sorted, compressed;
 
@@ -116,7 +120,7 @@ struct PrioritySet{
     compress comp;
     BinaryIndexedTree cnt, val;
 
-    PrioritySet(){ }
+    StaticOrderedSet(){ }
 
     void add(T x){
         a.push_back(x);

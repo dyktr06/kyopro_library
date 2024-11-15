@@ -1,19 +1,19 @@
 #pragma once
 
-#include <vector>
-#include <cassert>
-
 /**
  * @brief Union Find
  * @docs docs/data_structure/union_find.md
  */
+
+#include <vector>
+#include <cassert>
 
 struct UnionFind{
     int V;
     std::vector<int> par;
     std::vector<int> edg;
 
-    UnionFind(int N) : V(N), par(N), edg(N){
+    UnionFind(const int N) : V(N), par(N), edg(N){
         for(int i = 0; i < N; ++i){
             par[i] = -1;
             edg[i] = 0;

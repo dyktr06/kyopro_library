@@ -1,9 +1,17 @@
 #pragma once
 
+/**
+ * @brief Double Ended Priority Queue
+ */
+
+#include <queue>
+#include <vector>
+#include <cassert>
+
 template <typename T>
 struct DoubleEndedPriorityQueue{
-    priority_queue<T, vector<T>, greater<T>> min_q, removed_min;
-    priority_queue<T> max_q, removed_max;
+    std::priority_queue<T, std::vector<T>, std::greater<T>> min_q, removed_min;
+    std::priority_queue<T> max_q, removed_max;
     DoubleEndedPriorityQueue(){ }
 
     void normalize(){

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../lib/data_structure/priority_set.hpp"
+#include "../../../lib/data_structure/static_ordered_set.hpp"
 
 using namespace std;
 
@@ -12,7 +12,7 @@ int main() {
     cin.tie(nullptr);
 
     int n, q; cin >> n >> q;
-    PrioritySet<long long> ps;
+    StaticOrderedSet<long long> ps;
     vector<int> a(n);
     for(int i = 0; i < n; ++i){
         cin >> a[i];

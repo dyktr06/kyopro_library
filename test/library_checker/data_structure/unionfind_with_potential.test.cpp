@@ -1,9 +1,10 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind_with_potential"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
 
 #include "../../../lib/data_structure/weighted_union_find.hpp"
 #include "../../../lib/math/modint.hpp"
+
+using namespace std;
 
 using mint = ModInt<998244353>;
 

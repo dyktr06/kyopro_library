@@ -1,5 +1,13 @@
 #pragma once
 
+/**
+ * @brief Disjoint Sparse Table
+ * @see https://noshi91.hatenablog.com/entry/2018/05/08/183946
+ */
+
+#include <vector>
+#include <cassert>
+
 template <typename T, T (*op)(T, T)>
 struct DisjointSparseTable{
     int n, log2;

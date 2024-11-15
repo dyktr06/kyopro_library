@@ -1,8 +1,9 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/double_ended_priority_queue"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
 
 #include "../../../lib/data_structure/double_ended_priority_queue.hpp"
+
+using namespace std;
 
 int main(){
     int n, q; cin >> n >> q;

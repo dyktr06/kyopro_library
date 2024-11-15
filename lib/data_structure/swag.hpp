@@ -1,12 +1,12 @@
 #pragma once
 
-#include <stack>
-#include <cassert>
-
 /**
  * @brief SWAG
  * @docs docs/data_structure/swag.md
  */
+
+#include <stack>
+#include <cassert>
 
 template <typename T, T (*op)(T, T)>
 struct SWAG{

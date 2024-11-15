@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../lib/data_structure/priority_set.hpp"
+#include "../../lib/data_structure/static_ordered_set.hpp"
 
 int main(){
     ios::sync_with_stdio(false);
@@ -15,7 +15,7 @@ int main(){
     }
     using T = tuple<long long, long long, long long>;
     vector<T> query(q);
-    PrioritySet<long long> ps;
+    StaticOrderedSet<long long> ps;
     for(auto v : a) ps.add(v);
     for(int i = 0; i < q; i++){
         int t; cin >> t;

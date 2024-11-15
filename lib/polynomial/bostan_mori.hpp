@@ -46,7 +46,7 @@ T bostan_mori(long long n, FormalPowerSeries<T> f, FormalPowerSeries<T> g){
     return f[0] / g[0];
 }
 
-// a_i = sum_{j = 1}^{d} a_{i - j} * c[j] を満たす数列の k 番目の項を求める
+// a_i = sum_{j = 1}^{d} a_{i - j} * c[j] を満たす数列の k (0-indexed) 番目の項を求める
 template <typename T>
 T findKthTerm(const std::vector<T> &init, const std::vector<T> &c, long long k){
     using FPS = FormalPowerSeries<T>;

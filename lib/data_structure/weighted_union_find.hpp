@@ -5,13 +5,17 @@
  * @docs docs/data_structure/weighted_union_find.md
  */
 
+#include <vector>
+#include <cassert>
+
 template <typename T>
 struct WeightedUnionFind{
-    vector<int> par;
-    vector<T> diff_weight;
+    int V;
+    std::vector<int> par;
+    std::vector<T> diff_weight;
     T ex;
 
-    WeightedUnionFind(const int N, const T &e = 0) : par(N), diff_weight(N), ex(e){
+    WeightedUnionFind(const int N, const T &e = 0) : V(N), par(N), diff_weight(N), ex(e){
         for(int i = 0; i < N; ++i){
             par[i] = -1;
             diff_weight[i] = e;
@@ -19,6 +23,7 @@ struct WeightedUnionFind{
     }
 
     int root(const int x){
+        assert(0 <= x && x < V);
         if(par[x] < 0){
             return x;
         }
