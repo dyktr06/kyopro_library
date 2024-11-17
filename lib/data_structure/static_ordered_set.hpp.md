@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/ordered_set.test.cpp
     title: test/library_checker/data_structure/ordered_set.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_2809.test.cpp
     title: test/yukicoder/yuki_2809.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Static Ordered Set
     links: []
@@ -146,7 +146,7 @@ data:
   path: lib/data_structure/static_ordered_set.hpp
   requiredBy: []
   timestamp: '2024-11-15 15:44:55+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/ordered_set.test.cpp
   - test/yukicoder/yuki_2809.test.cpp

@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/persistent_array.hpp
     title: "Persistent Array (\u6C38\u7D9A\u914D\u5217)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/persistent_union_find.hpp
     title: "Persistent Union Find (\u6C38\u7D9A UnionFind)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/persistent_unionfind
@@ -43,7 +43,7 @@ data:
     \ -1, res);\n        }\n        return res;\n    }\n\n    std::pair<bool, node>\
     \ unite(const int x, const int y, node t){\n        int rx = root(x, t), ry =\
     \ root(y, t);\n        if(rx == ry) return {false, t};\n\n        if(data.get(ry,\
-    \ t) < data.get(rx, t)) swap(rx, ry);\n\n        node n = data.set(rx, data.get(rx,\
+    \ t) < data.get(rx, t)) std::swap(rx, ry);\n\n        node n = data.set(rx, data.get(rx,\
     \ t) + data.get(ry, t), t);\n        node res = data.set(ry, rx, n);\n       \
     \ return {true, res};\n    }\n\n    int root(const int x, node t){\n        if(data.get(x,\
     \ t) < 0){\n            return x;\n        }\n        int res = root(data.get(x,\
@@ -59,9 +59,9 @@ data:
     \ y, node t){\n        int rx = root(x, t), ry = root(y, t);\n        if(rx ==\
     \ ry){\n            node res = data.set(rx + n, edge(rx, t) + 1, t);\n       \
     \     return {false, res};\n        }\n\n        if(data.get(ry, t) < data.get(rx,\
-    \ t)) swap(rx, ry);\n\n        node res = data.set(rx, data.get(rx, t) + data.get(ry,\
-    \ t), t);\n        res = data.set(ry, rx, res);\n        res = data.set(rx + n,\
-    \ data.get(rx + n, t) + data.get(ry + n, t) + 1, res);\n        return {true,\
+    \ t)) std::swap(rx, ry);\n\n        node res = data.set(rx, data.get(rx, t) +\
+    \ data.get(ry, t), t);\n        res = data.set(ry, rx, res);\n        res = data.set(rx\
+    \ + n, data.get(rx + n, t) + data.get(ry + n, t) + 1, res);\n        return {true,\
     \ res};\n    }\n\n    int root(const int x, node t){\n        if(data.get(x, t)\
     \ < 0){\n            return x;\n        }\n        int res = root(data.get(x,\
     \ t), t);\n        return res;\n    }\n\n    inline bool same(const int x, const\
@@ -91,8 +91,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/persistent_unionfind_1.test.cpp
   requiredBy: []
-  timestamp: '2024-11-18 03:54:10+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-18 04:07:23+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/persistent_unionfind_1.test.cpp
 layout: document

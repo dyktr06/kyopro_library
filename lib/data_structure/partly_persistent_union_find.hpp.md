@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_416.test.cpp
     title: test/yukicoder/yuki_416.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/partly_persistent_union_find.md
     document_title: Partly Persistent Union-Find
@@ -61,7 +61,7 @@ data:
   path: lib/data_structure/partly_persistent_union_find.hpp
   requiredBy: []
   timestamp: '2024-11-18 03:54:10+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yuki_416.test.cpp
 documentation_of: lib/data_structure/partly_persistent_union_find.hpp

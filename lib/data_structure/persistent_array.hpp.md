@@ -5,22 +5,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/persistent_queue.hpp
     title: "Persistent Queue (\u6C38\u7D9A\u30AD\u30E5\u30FC)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/persistent_union_find.hpp
     title: "Persistent Union Find (\u6C38\u7D9A UnionFind)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/persistent_queue.test.cpp
     title: test/library_checker/data_structure/persistent_queue.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/persistent_unionfind.test.cpp
     title: test/library_checker/data_structure/persistent_unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/persistent_unionfind_1.test.cpp
     title: test/library_checker/data_structure/persistent_unionfind_1.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Persistent Array (\u6C38\u7D9A\u914D\u5217)"
     links: []
@@ -61,7 +61,7 @@ data:
   - lib/data_structure/persistent_union_find.hpp
   - lib/data_structure/persistent_queue.hpp
   timestamp: '2024-11-18 03:54:10+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/persistent_queue.test.cpp
   - test/library_checker/data_structure/persistent_unionfind_1.test.cpp
