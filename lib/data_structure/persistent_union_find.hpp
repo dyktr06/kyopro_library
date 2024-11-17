@@ -24,7 +24,7 @@ struct PersistentUnionFind{
         int rx = root(x, t), ry = root(y, t);
         if(rx == ry) return {false, t};
 
-        if(data.get(ry, t) < data.get(rx, t)) swap(rx, ry);
+        if(data.get(ry, t) < data.get(rx, t)) std::swap(rx, ry);
 
         node n = data.set(rx, data.get(rx, t) + data.get(ry, t), t);
         node res = data.set(ry, rx, n);
@@ -72,7 +72,7 @@ struct PersistentUnionFindv2{
             return {false, res};
         }
 
-        if(data.get(ry, t) < data.get(rx, t)) swap(rx, ry);
+        if(data.get(ry, t) < data.get(rx, t)) std::swap(rx, ry);
 
         node res = data.set(rx, data.get(rx, t) + data.get(ry, t), t);
         res = data.set(ry, rx, res);

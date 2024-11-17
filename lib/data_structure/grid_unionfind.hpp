@@ -1,8 +1,16 @@
 #pragma once
 
+/**
+ * @brief Grid Union-Find
+ */
+
+#include <vector>
+#include <string>
+#include <algorithm>
+
 struct GridUnionFind{
     struct UnionFind{
-        vector<int> par;
+        std::vector<int> par;
 
         UnionFind(){}
 
@@ -24,8 +32,9 @@ struct GridUnionFind{
             if(rx == ry){
                 return;
             }
-            par[ry] = par[rx] + par[ry];
-            par[rx] = ry;
+            if(-par[rx] < -par[ry]) std::swap(rx, ry);
+            par[rx] = par[rx] + par[ry];
+            par[ry] = rx;
         }
 
         bool same(int x, int y){
@@ -39,17 +48,17 @@ struct GridUnionFind{
         }
     };
 
-    vector<string> grid;
+    std::vector<std::string> grid;
     int h, w;
     UnionFind uf;
     char empty = '$';
 
     GridUnionFind(int _h, int _w) : h(_h), w(_w){
-        grid = vector<string>(h, string(w, empty));
+        grid = std::vector<std::string>(h, std::string(w, empty));
         uf.init(h * w);
     }
 
-    GridUnionFind(vector<string> &s){
+    GridUnionFind(std::vector<std::string> &s){
         grid = s;
         h = s.size(), w = s[0].size();
         uf.init(h * w);
@@ -60,11 +69,11 @@ struct GridUnionFind{
     }
 
     bool check(int x, int y){
-        return (clamp(x, 0, h - 1) == x && clamp(y, 0, w - 1) == y);
+        return (std::clamp(x, 0, h - 1) == x && std::clamp(y, 0, w - 1) == y);
     }
 
     void build(){
-        vector<pair<int, int>> d = {
+        std::vector<std::pair<int, int>> d = {
             {0, 1},
             {1, 0}
         };
@@ -82,7 +91,7 @@ struct GridUnionFind{
         }
     }
 
-    pair<int, int> root(int x, int y){
+    std::pair<int, int> root(int x, int y){
         int r = uf.root(id(x, y));
         return {r / w, r % w};
     }
@@ -99,7 +108,7 @@ struct GridUnionFind{
             return;
         }
 
-        vector<pair<int, int>> d = {
+        std::vector<std::pair<int, int>> d = {
             {-1, 0},
             {1, 0},
             {0, -1},
