@@ -1,7 +1,7 @@
 #pragma once
 
 /**
- * @brief Cumulative Sum 2D
+ * @brief Cumulative Sum 2D (二次元累積和)
  * @docs docs/data_structure/cumulative_sum_2d.md
  */
 

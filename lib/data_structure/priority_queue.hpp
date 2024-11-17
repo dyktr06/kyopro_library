@@ -1,7 +1,7 @@
 #pragma once
 
 /**
- * @brief Eraseable　Priority Queue (削除可能優先度付きキュー)
+ * @brief Eraseable Priority Queue (削除可能優先度付きキュー)
  */
 
 #include <queue>

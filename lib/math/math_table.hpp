@@ -1,10 +1,16 @@
 #pragma once
 
+/**
+ * @brief Math Table
+ */
+
+#include <vector>
+
 namespace MathTable{
     // トーシェント関数
     template <typename T>
-    vector<T> totient_table(T n){
-        vector<T> r(n + 1);
+    std::vector<T> totient_table(T n){
+        std::vector<T> r(n + 1);
         for(int i = 0; i <= n; i++){
             r[i] = i;
         }
@@ -19,8 +25,8 @@ namespace MathTable{
 
     // 素因数の個数
     template <typename T>
-    vector<T> prime_factor_table(T n){
-        vector<T> c(n + 1);
+    std::vector<T> prime_factor_table(T n){
+        std::vector<T> c(n + 1);
         for(int i = 2; i <= n; i++){
             if(c[i] != 0) continue;
             for(int j = i; j <= n; j += i){
@@ -32,8 +38,8 @@ namespace MathTable{
 
     // 約数
     template <typename T>
-    vector<vector<T>> divisor_table(T n){
-        vector<vector<T>> div(n + 1);
+    std::vector<std::vector<T>> divisor_table(T n){
+        std::vector<std::vector<T>> div(n + 1);
         for(int i = 1; i <= n; i++){
             for(int j = i; j <= n; j += i){
                 div[j].push_back(i);
@@ -44,8 +50,8 @@ namespace MathTable{
 
     // 累乗
     template <typename T>
-    vector<T> power_table(int n, T p){
-        vector<T> power(n + 1);
+    std::vector<T> power_table(int n, T p){
+        std::vector<T> power(n + 1);
         power[0] = (T) 1;
         for(int i = 1; i <= n; i++){
             power[i] = power[i - 1] * p;

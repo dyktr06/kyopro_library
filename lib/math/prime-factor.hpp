@@ -5,9 +5,11 @@
  * @docs docs/math/prime-factor.md
  */
 
+#include <vector>
+
 template <typename T>
 struct PrimeFactor{
-    vector<T> spf;
+    std::vector<T> spf;
     PrimeFactor(T N){ init(N); }
     void init(T N){
         spf.assign(N + 1, 0);
@@ -23,16 +25,26 @@ struct PrimeFactor{
         }
     }
 
-    map<T, T> get(T n){
-        map<T, T> m;
+    std::vector<T> get(T n){
+        std::vector<T> res;
         while(n != 1){
-            if(m.count(spf[n]) == 0){
-                m[spf[n]] = 1;
-            } else{
-                m[spf[n]]++;
-            }
+            res.push_back(spf[n]);
             n /= spf[n];
         }
-        return m;
+        return res;
+    }
+
+    std::vector<std::pair<T, int>> getPair(T n){
+        std::vector<std::pair<T, int>> res;
+        while(n != 1){
+            T p = spf[n];
+            int cnt = 0;
+            while(n % p == 0){
+                n /= p;
+                cnt++;
+            }
+            res.push_back({p, cnt});
+        }
+        return res;
     }
 };
