@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/weighted_union_find.hpp
-    title: Weighted Union Find
+    title: Weighted Union-Find
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -16,7 +16,7 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B
   bundledCode: "#line 1 \"test/aoj/dsl/dsl_1_b.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B\"\
     \n#include <iostream>\n\n#line 2 \"lib/data_structure/weighted_union_find.hpp\"\
-    \n\n/**\n * @brief Weighted Union Find\n * @docs docs/data_structure/weighted_union_find.md\n\
+    \n\n/**\n * @brief Weighted Union-Find\n * @docs docs/data_structure/weighted_union_find.md\n\
     \ */\n\n#include <vector>\n#include <cassert>\n\ntemplate <typename T>\nstruct\
     \ WeightedUnionFind{\n    int V;\n    std::vector<int> par;\n    std::vector<T>\
     \ diff_weight;\n    T ex;\n\n    WeightedUnionFind(const int N, const T &e = 0)\
@@ -57,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/aoj/dsl/dsl_1_b.test.cpp
   requiredBy: []
-  timestamp: '2024-11-15 16:06:01+09:00'
+  timestamp: '2024-11-18 03:54:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/dsl/dsl_1_b.test.cpp

@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/range_parallel_union_find.hpp
-    title: lib/data_structure/range_parallel_union_find.hpp
+    title: Range Parallel Union-Find
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp

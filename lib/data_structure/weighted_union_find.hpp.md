@@ -17,10 +17,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/weighted_union_find.md
-    document_title: Weighted Union Find
+    document_title: Weighted Union-Find
     links: []
   bundledCode: "#line 2 \"lib/data_structure/weighted_union_find.hpp\"\n\n/**\n *\
-    \ @brief Weighted Union Find\n * @docs docs/data_structure/weighted_union_find.md\n\
+    \ @brief Weighted Union-Find\n * @docs docs/data_structure/weighted_union_find.md\n\
     \ */\n\n#include <vector>\n#include <cassert>\n\ntemplate <typename T>\nstruct\
     \ WeightedUnionFind{\n    int V;\n    std::vector<int> par;\n    std::vector<T>\
     \ diff_weight;\n    T ex;\n\n    WeightedUnionFind(const int N, const T &e = 0)\
@@ -40,7 +40,7 @@ data:
     \ diff_weight[ty];\n    }\n\n    bool same(const int x, const int y){\n      \
     \  return root(x) == root(y);\n    }\n\n    int size(const int x){\n        return\
     \ -par[root(x)];\n    }\n};\n"
-  code: "#pragma once\n\n/**\n * @brief Weighted Union Find\n * @docs docs/data_structure/weighted_union_find.md\n\
+  code: "#pragma once\n\n/**\n * @brief Weighted Union-Find\n * @docs docs/data_structure/weighted_union_find.md\n\
     \ */\n\n#include <vector>\n#include <cassert>\n\ntemplate <typename T>\nstruct\
     \ WeightedUnionFind{\n    int V;\n    std::vector<int> par;\n    std::vector<T>\
     \ diff_weight;\n    T ex;\n\n    WeightedUnionFind(const int N, const T &e = 0)\
@@ -64,7 +64,7 @@ data:
   isVerificationFile: false
   path: lib/data_structure/weighted_union_find.hpp
   requiredBy: []
-  timestamp: '2024-11-15 16:06:01+09:00'
+  timestamp: '2024-11-18 03:54:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/unionfind_with_potential.test.cpp
@@ -75,7 +75,7 @@ layout: document
 redirect_from:
 - /library/lib/data_structure/weighted_union_find.hpp
 - /library/lib/data_structure/weighted_union_find.hpp.html
-title: Weighted Union Find
+title: Weighted Union-Find
 ---
 ## Weighted Union Find
 

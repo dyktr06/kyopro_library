@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/range_parallel_union_find.hpp
-    title: lib/data_structure/range_parallel_union_find.hpp
+    title: Range Parallel Union-Find
   - icon: ':warning:'
     path: lib/graph/T_join.hpp
     title: T-join Problem
@@ -21,35 +21,35 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/manhattanmst.test.cpp
     title: test/library_checker/geometry/manhattanmst.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/cycle_detection_undirected.test.cpp
     title: test/library_checker/graph/cycle_detection_undirected.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/minimum_spanning_tree.test.cpp
     title: test/library_checker/graph/minimum_spanning_tree.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/union_find.md
-    document_title: Union Find
+    document_title: Union-Find
     links: []
-  bundledCode: "#line 2 \"lib/data_structure/union_find.hpp\"\n\n/**\n * @brief Union\
-    \ Find\n * @docs docs/data_structure/union_find.md\n */\n\n#include <vector>\n\
-    #include <cassert>\n\nstruct UnionFind{\n    int V;\n    std::vector<int> par;\n\
-    \    std::vector<int> edg;\n\n    UnionFind(const int N) : V(N), par(N), edg(N){\n\
-    \        for(int i = 0; i < N; ++i){\n            par[i] = -1;\n            edg[i]\
-    \ = 0;\n        }\n    }\n\n    int root(int x){\n        assert(0 <= x && x <\
-    \ V);\n        if(par[x] < 0) return x;\n        return par[x] = root(par[x]);\n\
-    \    }\n\n    int unite(int x, int y){\n        int rx = root(x);\n        int\
-    \ ry = root(y);\n        if(rx == ry){\n            edg[rx]++;\n            return\
-    \ rx;\n        }\n        if(-par[rx] < -par[ry]) std::swap(rx, ry);\n       \
-    \ par[rx] = par[rx] + par[ry];\n        par[ry] = rx;\n        edg[rx] += edg[ry]\
-    \ + 1;\n        return rx;\n    }\n\n    bool same(int x, int y){\n        int\
-    \ rx = root(x);\n        int ry = root(y);\n        return rx == ry;\n    }\n\n\
-    \    long long size(int x){\n        return -par[root(x)];\n    }\n\n    long\
-    \ long edge(int x){\n        return edg[root(x)];\n    }\n};\n"
-  code: "#pragma once\n\n/**\n * @brief Union Find\n * @docs docs/data_structure/union_find.md\n\
+  bundledCode: "#line 2 \"lib/data_structure/union_find.hpp\"\n\n/**\n * @brief Union-Find\n\
+    \ * @docs docs/data_structure/union_find.md\n */\n\n#include <vector>\n#include\
+    \ <cassert>\n\nstruct UnionFind{\n    int V;\n    std::vector<int> par;\n    std::vector<int>\
+    \ edg;\n\n    UnionFind(const int N) : V(N), par(N), edg(N){\n        for(int\
+    \ i = 0; i < N; ++i){\n            par[i] = -1;\n            edg[i] = 0;\n   \
+    \     }\n    }\n\n    int root(int x){\n        assert(0 <= x && x < V);\n   \
+    \     if(par[x] < 0) return x;\n        return par[x] = root(par[x]);\n    }\n\
+    \n    int unite(int x, int y){\n        int rx = root(x);\n        int ry = root(y);\n\
+    \        if(rx == ry){\n            edg[rx]++;\n            return rx;\n     \
+    \   }\n        if(-par[rx] < -par[ry]) std::swap(rx, ry);\n        par[rx] = par[rx]\
+    \ + par[ry];\n        par[ry] = rx;\n        edg[rx] += edg[ry] + 1;\n       \
+    \ return rx;\n    }\n\n    bool same(int x, int y){\n        int rx = root(x);\n\
+    \        int ry = root(y);\n        return rx == ry;\n    }\n\n    long long size(int\
+    \ x){\n        return -par[root(x)];\n    }\n\n    long long edge(int x){\n  \
+    \      return edg[root(x)];\n    }\n};\n"
+  code: "#pragma once\n\n/**\n * @brief Union-Find\n * @docs docs/data_structure/union_find.md\n\
     \ */\n\n#include <vector>\n#include <cassert>\n\nstruct UnionFind{\n    int V;\n\
     \    std::vector<int> par;\n    std::vector<int> edg;\n\n    UnionFind(const int\
     \ N) : V(N), par(N), edg(N){\n        for(int i = 0; i < N; ++i){\n          \
@@ -71,8 +71,8 @@ data:
   - lib/data_structure/range_parallel_union_find.hpp
   - lib/graph/manhattanMST.hpp
   - lib/graph/T_join.hpp
-  timestamp: '2024-11-15 15:44:55+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-11-18 03:54:10+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/unionfind.test.cpp
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
@@ -84,7 +84,7 @@ layout: document
 redirect_from:
 - /library/lib/data_structure/union_find.hpp
 - /library/lib/data_structure/union_find.hpp.html
-title: Union Find
+title: Union-Find
 ---
 ## Union Find
 

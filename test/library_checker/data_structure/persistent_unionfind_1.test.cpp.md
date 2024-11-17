@@ -17,7 +17,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/persistent_unionfind
     links:
     - https://judge.yosupo.jp/problem/persistent_unionfind
-  bundledCode: "#line 1 \"test/library_checker/data_structure/persistent_unionfind.test.cpp\"\
+  bundledCode: "#line 1 \"test/library_checker/data_structure/persistent_unionfind_1.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/persistent_unionfind\"\n#include\
     \ <iostream>\n#include <vector>\n\n#line 2 \"lib/data_structure/persistent_union_find.hpp\"\
     \n\n/**\n * @brief Persistent Union Find (\u6C38\u7D9A UnionFind)\n */\n\n#line\
@@ -68,36 +68,36 @@ data:
     \ int y, node t){\n        return root(x, t) == root(y, t);\n    }\n\n    inline\
     \ int size(const int x, node t){\n        return -data.get(root(x, t), t);\n \
     \   }\n\n    inline int edge(const int x, node t){\n        return data.get(root(x,\
-    \ t) + n, t);\n    }\n};\n#line 6 \"test/library_checker/data_structure/persistent_unionfind.test.cpp\"\
+    \ t) + n, t);\n    }\n};\n#line 6 \"test/library_checker/data_structure/persistent_unionfind_1.test.cpp\"\
     \n\nusing namespace std;\n\nusing pa = PersistentArray<int>::Node*;\n\nint main(){\n\
-    \    int n, q; cin >> n >> q;\n    PersistentUnionFind tree;\n    vector<pa> p(q\
-    \ + 1);\n    p[0] = tree.init(n);\n    int nxt = 1;\n    while(q--){\n       \
-    \ int t, k, u, v; cin >> t >> k >> u >> v;\n        k++;\n        if(t == 0){\n\
-    \            p[nxt] = tree.unite(u, v, p[k]).second;\n        }else{\n       \
-    \     cout << (int) tree.same(u, v, p[k]) << \"\\n\";\n        }\n        nxt++;\n\
-    \    }\n}\n"
+    \    int n, q; cin >> n >> q;\n    PersistentUnionFindv2 tree;\n    vector<pa>\
+    \ p(q + 1);\n    p[0] = tree.init(n);\n    int nxt = 1;\n    while(q--){\n   \
+    \     int t, k, u, v; cin >> t >> k >> u >> v;\n        k++;\n        if(t ==\
+    \ 0){\n            p[nxt] = tree.unite(u, v, p[k]).second;\n        }else{\n \
+    \           cout << (int) tree.same(u, v, p[k]) << \"\\n\";\n        }\n     \
+    \   nxt++;\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/persistent_unionfind\"\n\
     #include <iostream>\n#include <vector>\n\n#include \"../../../lib/data_structure/persistent_union_find.hpp\"\
     \n\nusing namespace std;\n\nusing pa = PersistentArray<int>::Node*;\n\nint main(){\n\
-    \    int n, q; cin >> n >> q;\n    PersistentUnionFind tree;\n    vector<pa> p(q\
-    \ + 1);\n    p[0] = tree.init(n);\n    int nxt = 1;\n    while(q--){\n       \
-    \ int t, k, u, v; cin >> t >> k >> u >> v;\n        k++;\n        if(t == 0){\n\
-    \            p[nxt] = tree.unite(u, v, p[k]).second;\n        }else{\n       \
-    \     cout << (int) tree.same(u, v, p[k]) << \"\\n\";\n        }\n        nxt++;\n\
-    \    }\n}\n"
+    \    int n, q; cin >> n >> q;\n    PersistentUnionFindv2 tree;\n    vector<pa>\
+    \ p(q + 1);\n    p[0] = tree.init(n);\n    int nxt = 1;\n    while(q--){\n   \
+    \     int t, k, u, v; cin >> t >> k >> u >> v;\n        k++;\n        if(t ==\
+    \ 0){\n            p[nxt] = tree.unite(u, v, p[k]).second;\n        }else{\n \
+    \           cout << (int) tree.same(u, v, p[k]) << \"\\n\";\n        }\n     \
+    \   nxt++;\n    }\n}\n"
   dependsOn:
   - lib/data_structure/persistent_union_find.hpp
   - lib/data_structure/persistent_array.hpp
   isVerificationFile: true
-  path: test/library_checker/data_structure/persistent_unionfind.test.cpp
+  path: test/library_checker/data_structure/persistent_unionfind_1.test.cpp
   requiredBy: []
   timestamp: '2024-11-18 03:54:10+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/data_structure/persistent_unionfind.test.cpp
+documentation_of: test/library_checker/data_structure/persistent_unionfind_1.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/data_structure/persistent_unionfind.test.cpp
-- /verify/test/library_checker/data_structure/persistent_unionfind.test.cpp.html
-title: test/library_checker/data_structure/persistent_unionfind.test.cpp
+- /verify/test/library_checker/data_structure/persistent_unionfind_1.test.cpp
+- /verify/test/library_checker/data_structure/persistent_unionfind_1.test.cpp.html
+title: test/library_checker/data_structure/persistent_unionfind_1.test.cpp
 ---

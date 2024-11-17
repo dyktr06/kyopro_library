@@ -11,10 +11,10 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/data_structure/partly_persistent_union_find.md
-    document_title: Partly Persistent Union Find
+    document_title: Partly Persistent Union-Find
     links: []
   bundledCode: "#line 2 \"lib/data_structure/partly_persistent_union_find.hpp\"\n\n\
-    /**\n * @brief Partly Persistent Union Find\n * @docs docs/data_structure/partly_persistent_union_find.md\n\
+    /**\n * @brief Partly Persistent Union-Find\n * @docs docs/data_structure/partly_persistent_union_find.md\n\
     \ */\n\n#include <vector>\n#include <algorithm>\n\nstruct PersistentUnionFind{\n\
     \    int now;\n    std::vector<int> par, rank, time;\n    std::vector<std::vector<std::pair<int,\
     \ int>>> num;\n    const int INF = 1 << 30;\n\n    PersistentUnionFind(const int\
@@ -35,7 +35,7 @@ data:
     \          int mid = (ok + ng) / 2;\n            if(num[rx][mid].first <= t){\n\
     \                ok = mid;\n            } else{\n                ng = mid;\n \
     \           }\n        }\n        return num[rx][ok].second;\n    }\n};\n"
-  code: "#pragma once\n\n/**\n * @brief Partly Persistent Union Find\n * @docs docs/data_structure/partly_persistent_union_find.md\n\
+  code: "#pragma once\n\n/**\n * @brief Partly Persistent Union-Find\n * @docs docs/data_structure/partly_persistent_union_find.md\n\
     \ */\n\n#include <vector>\n#include <algorithm>\n\nstruct PersistentUnionFind{\n\
     \    int now;\n    std::vector<int> par, rank, time;\n    std::vector<std::vector<std::pair<int,\
     \ int>>> num;\n    const int INF = 1 << 30;\n\n    PersistentUnionFind(const int\
@@ -60,7 +60,7 @@ data:
   isVerificationFile: false
   path: lib/data_structure/partly_persistent_union_find.hpp
   requiredBy: []
-  timestamp: '2024-11-15 16:27:00+09:00'
+  timestamp: '2024-11-18 03:54:10+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/yuki_416.test.cpp
@@ -69,7 +69,7 @@ layout: document
 redirect_from:
 - /library/lib/data_structure/partly_persistent_union_find.hpp
 - /library/lib/data_structure/partly_persistent_union_find.hpp.html
-title: Partly Persistent Union Find
+title: Partly Persistent Union-Find
 ---
 ## Partly Persistent Union Find
 

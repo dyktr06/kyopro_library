@@ -14,7 +14,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/math/bell_number.hpp
     title: "Bell Number (\u30D9\u30EB\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/bernoulli_number.hpp
     title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
   - icon: ':heavy_check_mark:'
@@ -23,7 +23,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/math/subset_sum.hpp
     title: Subset Sum
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/bostan_mori.hpp
     title: Bostan-Mori
   - icon: ':x:'
@@ -49,22 +49,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/bell_number.test.cpp
     title: test/library_checker/number_theory/bell_number.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/bernoulli_number.test.cpp
     title: test/library_checker/number_theory/bernoulli_number.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/division_of_polynomials.test.cpp
     title: test/library_checker/polynomial/division_of_polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
   - icon: ':x:'

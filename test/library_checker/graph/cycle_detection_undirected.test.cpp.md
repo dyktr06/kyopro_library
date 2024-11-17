@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/union_find.hpp
-    title: Union Find
-  - icon: ':question:'
+    title: Union-Find
+  - icon: ':heavy_check_mark:'
     path: lib/graph/dijkstra.hpp
     title: "Dijkstra's Algorithm (\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/cycle_detection_undirected
@@ -20,7 +20,7 @@ data:
   bundledCode: "#line 1 \"test/library_checker/graph/cycle_detection_undirected.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/cycle_detection_undirected\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/data_structure/union_find.hpp\"\
-    \n\n/**\n * @brief Union Find\n * @docs docs/data_structure/union_find.md\n */\n\
+    \n\n/**\n * @brief Union-Find\n * @docs docs/data_structure/union_find.md\n */\n\
     \n#line 10 \"lib/data_structure/union_find.hpp\"\n\nstruct UnionFind{\n    int\
     \ V;\n    std::vector<int> par;\n    std::vector<int> edg;\n\n    UnionFind(const\
     \ int N) : V(N), par(N), edg(N){\n        for(int i = 0; i < N; ++i){\n      \
@@ -96,8 +96,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/cycle_detection_undirected.test.cpp
   requiredBy: []
-  timestamp: '2024-11-15 15:44:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-18 03:54:10+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/cycle_detection_undirected.test.cpp
 layout: document

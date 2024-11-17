@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: lib/data_structure/partly_persistent_union_find.hpp
-    title: Partly Persistent Union Find
+    title: Partly Persistent Union-Find
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -16,7 +16,7 @@ data:
     - https://yukicoder.me/problems/no/416
   bundledCode: "#line 1 \"test/yukicoder/yuki_416.test.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/416\"\
     \n#include <iostream>\n#include <vector>\n#include <set>\n\n#line 2 \"lib/data_structure/partly_persistent_union_find.hpp\"\
-    \n\n/**\n * @brief Partly Persistent Union Find\n * @docs docs/data_structure/partly_persistent_union_find.md\n\
+    \n\n/**\n * @brief Partly Persistent Union-Find\n * @docs docs/data_structure/partly_persistent_union_find.md\n\
     \ */\n\n#line 9 \"lib/data_structure/partly_persistent_union_find.hpp\"\n#include\
     \ <algorithm>\n\nstruct PersistentUnionFind{\n    int now;\n    std::vector<int>\
     \ par, rank, time;\n    std::vector<std::vector<std::pair<int, int>>> num;\n \
@@ -77,7 +77,7 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_416.test.cpp
   requiredBy: []
-  timestamp: '2024-11-15 16:27:00+09:00'
+  timestamp: '2024-11-18 03:54:10+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_416.test.cpp

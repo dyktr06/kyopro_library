@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/union_find.hpp
-    title: Union Find
+    title: Union-Find
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -15,7 +15,7 @@ data:
     - https://en.wikipedia.org/wiki/Chinese_postman_problem
   bundledCode: "#line 2 \"lib/graph/T_join.hpp\"\n\n/**\n * @brief T-join Problem\n\
     \ * @see https://en.wikipedia.org/wiki/Chinese_postman_problem\n */\n\n#line 2\
-    \ \"lib/data_structure/union_find.hpp\"\n\n/**\n * @brief Union Find\n * @docs\
+    \ \"lib/data_structure/union_find.hpp\"\n\n/**\n * @brief Union-Find\n * @docs\
     \ docs/data_structure/union_find.md\n */\n\n#include <vector>\n#include <cassert>\n\
     \nstruct UnionFind{\n    int V;\n    std::vector<int> par;\n    std::vector<int>\
     \ edg;\n\n    UnionFind(const int N) : V(N), par(N), edg(N){\n        for(int\
@@ -62,7 +62,7 @@ data:
   isVerificationFile: false
   path: lib/graph/T_join.hpp
   requiredBy: []
-  timestamp: '2024-11-15 15:44:55+09:00'
+  timestamp: '2024-11-18 03:54:10+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/graph/T_join.hpp
