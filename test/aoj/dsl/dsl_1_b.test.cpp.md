@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/weighted_union_find.hpp
     title: Weighted Union Find
   _extendedRequiredBy: []
@@ -57,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/aoj/dsl/dsl_1_b.test.cpp
   requiredBy: []
-  timestamp: '2024-11-15 15:44:55+09:00'
+  timestamp: '2024-11-15 16:06:01+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/dsl/dsl_1_b.test.cpp

@@ -6,15 +6,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/dsl/dsl_1_b.test.cpp
     title: test/aoj/dsl/dsl_1_b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/unionfind_with_potential.test.cpp
     title: test/library_checker/data_structure/unionfind_with_potential.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
     title: test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/weighted_union_find.md
     document_title: Weighted Union Find
@@ -65,7 +65,7 @@ data:
   path: lib/data_structure/weighted_union_find.hpp
   requiredBy: []
   timestamp: '2024-11-15 16:06:01+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/unionfind_with_potential.test.cpp
   - test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp

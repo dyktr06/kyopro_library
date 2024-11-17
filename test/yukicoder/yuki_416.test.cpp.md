@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/data_structure/partly_persistent_union_find.hpp
     title: Partly Persistent Union Find
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/416
@@ -77,8 +77,8 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_416.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-15 16:27:00+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_416.test.cpp
 layout: document

@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: lib/data_structure/binary_indexed_tree.hpp
     title: Binary Indexed Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/graph/heavy_light_decomposition.hpp
     title: "Heavy Light Decomposition (\u91CD\u8EFD\u5206\u89E3)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/vertex_add_path_sum
@@ -124,8 +124,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-11-04 03:12:13+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-15 16:06:01+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/tree/vertex_add_path_sum.test.cpp
 layout: document

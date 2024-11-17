@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/yuki_2078.test.cpp
     title: test/yukicoder/yuki_2078.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/data_structure/convex_hull_trick.md
     document_title: Convex Hull Trick
@@ -77,7 +77,7 @@ data:
   path: lib/data_structure/convex_hull_trick.hpp
   requiredBy: []
   timestamp: '2024-11-15 16:06:01+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/yuki_2078.test.cpp
 documentation_of: lib/data_structure/convex_hull_trick.hpp
