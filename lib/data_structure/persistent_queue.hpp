@@ -1,13 +1,19 @@
 #pragma once
 
+/**
+ * @brief Persistent Queue (永続キュー)
+ */
+
+#include <vector>
+
 #include "../data_structure/persistent_array.hpp"
 
 template<typename T>
 struct PersistentQueue{
     PersistentArray<T> data;
     using node = typename PersistentArray<T>::Node *;
-    vector<node> nodes;
-    vector<int> front, back;
+    std::vector<node> nodes;
+    std::vector<int> front, back;
     int nxt = 1;
 
     PersistentQueue(int N) : nodes(N), front(N), back(N){

@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+ * @brief Persistent Union Find (永続 UnionFind)
+ */
+
 #include "../data_structure/persistent_array.hpp"
 
 struct PersistentUnionFind{
@@ -16,7 +20,7 @@ struct PersistentUnionFind{
         return res;
     }
 
-    pair<bool, node> unite(const int x, const int y, node t){
+    std::pair<bool, node> unite(const int x, const int y, node t){
         int rx = root(x, t), ry = root(y, t);
         if(rx == ry) return {false, t};
 
@@ -61,7 +65,7 @@ struct PersistentUnionFindv2{
         return res;
     }
 
-    pair<bool, node> unite(const int x, const int y, node t){
+    std::pair<bool, node> unite(const int x, const int y, node t){
         int rx = root(x, t), ry = root(y, t);
         if(rx == ry){
             node res = data.set(rx + n, edge(rx, t) + 1, t);

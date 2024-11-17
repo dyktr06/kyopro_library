@@ -1,8 +1,9 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/persistent_queue"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
 
 #include "../../../lib/data_structure/persistent_queue.hpp"
+
+using namespace std;
 
 int main(){
     int q; cin >> q;

@@ -10,7 +10,7 @@ using pa = PersistentArray<int>::Node*;
 
 int main(){
     int n, q; cin >> n >> q;
-    PersistentUnionFind tree;
+    PersistentUnionFindv2 tree;
     vector<pa> p(q + 1);
     p[0] = tree.init(n);
     int nxt = 1;

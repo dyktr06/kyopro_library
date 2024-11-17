@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+ * @brief Range Parallel Union-Find
+ */
+
 #include "../data_structure/union_find.hpp"
 #include "../data_structure/segment_tree_func.hpp"
 

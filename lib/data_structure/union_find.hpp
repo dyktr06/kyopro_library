@@ -1,7 +1,7 @@
 #pragma once
 
 /**
- * @brief Union Find
+ * @brief Union-Find
  * @docs docs/data_structure/union_find.md
  */
 

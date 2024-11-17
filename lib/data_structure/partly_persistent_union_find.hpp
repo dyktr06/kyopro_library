@@ -1,7 +1,7 @@
 #pragma once
 
 /**
- * @brief Partly Persistent Union Find
+ * @brief Partly Persistent Union-Find
  * @docs docs/data_structure/partly_persistent_union_find.md
  */
 

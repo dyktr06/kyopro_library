@@ -1,7 +1,7 @@
 #pragma once
 
 /**
- * @brief Weighted Union Find
+ * @brief Weighted Union-Find
  * @docs docs/data_structure/weighted_union_find.md
  */
 

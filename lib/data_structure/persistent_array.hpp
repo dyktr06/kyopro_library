@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Persistent Array (永続配列)
+ */
+
+#include <cstring>
+
 template<typename T>
 struct PersistentArray{
     struct Node{
@@ -26,7 +32,7 @@ struct PersistentArray{
     Node *set(const int i, const T &val, Node *&t){
         Node *res = new Node();
         if(t){
-            memcpy(res->ch, t->ch, sizeof(t->ch));
+            std::memcpy(res->ch, t->ch, sizeof(t->ch));
             res->data = t->data;
         }
         if(i == 0){
