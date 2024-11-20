@@ -64,6 +64,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
     title: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
+    title: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
     title: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
@@ -169,9 +172,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/vertex_set_path_composite.test.cpp
     title: test/library_checker/tree/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
@@ -275,7 +278,7 @@ data:
   - lib/polynomial/product_of_polynomial_sequence.hpp
   - lib/polynomial/formal_power_series.hpp
   timestamp: '2024-11-03 21:58:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/bell_number.test.cpp
   - test/library_checker/number_theory/bernoulli_number.test.cpp
@@ -288,6 +291,7 @@ data:
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
+  - test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
   - test/library_checker/data_structure/queue_operate_all_composite.test.cpp
   - test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
   - test/library_checker/convolution/bitwise_and_convolution_1.test.cpp
