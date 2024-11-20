@@ -1,6 +1,7 @@
 
 /**
  * @brief k-d Tree
+ * @see https://trap.jp/post/1489/
  */
 
 #include <algorithm>
@@ -83,6 +84,11 @@ private:
         }
         build(v, l, m, !div_x);
         build(v, m, r, !div_x);
+    }
+
+    bool inside(long long dx, long long dy, long long dist){
+        using i128 = __int128_t;
+        return i128(dx) * dx + i128(dy) * dy <= i128(dist) * dist;
     }
 
 public:
@@ -183,11 +189,6 @@ public:
             que.push(2 * p + 1);
         }
         return res;
-    }
-
-    bool inside(long long dx, long long dy, long long dist){
-        using i128 = __int128_t;
-        return i128(dx) * dx + i128(dy) * dy <= i128(dist) * dist;
     }
 
     // ユークリッド距離
