@@ -1,3 +1,4 @@
+#define PROBLEM "https://judge.yosupo.jp/problem/dynamic_point_set_rectangle_affine_rectangle_sum"
 #include <iostream>
 #include <vector>
 #include <array>
@@ -67,11 +68,11 @@ int main(){
             tree.update(query[i][1], S{query[i][2]});
         }else if(t == 2){
             long long l = query[i][1], d = query[i][2], r = query[i][3], u = query[i][4];
-            cout << tree.query(l, r - 1, d, u - 1) << '\n';
+            cout << tree.query(l, d, r - 1, u - 1) << '\n';
         }else{
             long long l = query[i][1], d = query[i][2], r = query[i][3], u = query[i][4];
             mint a = query[i][5], b = query[i][6];
-            tree.apply(l, r - 1, d, u - 1, F{a, b});
+            tree.apply(l, d, r - 1, u - 1, F{a, b});
         }
     }
 }

@@ -140,7 +140,7 @@ public:
     }
 
     // [sx, tx] x [sy, ty]
-    void apply(long long sx, long long tx, long long sy, long long ty, const F &f){
+    void apply(long long sx, long long sy, long long tx, long long ty, const F &f){
         if(sx > tx || sy > ty) return;
         std::queue<int> que;
         std::vector<int> st;
@@ -165,7 +165,7 @@ public:
     }
 
     // [sx, tx] x [sy, ty]
-    S query(long long sx, long long tx, long long sy, long long ty){
+    S query(long long sx, long long sy, long long tx, long long ty){
         if(sx > tx || sy > ty) return e();
         std::queue<int> que;
         que.push(1);
