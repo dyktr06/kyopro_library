@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
     title: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: k-d Tree
     links: []
@@ -71,7 +71,7 @@ data:
     \        assert(0 <= k && k < _n);\n        int p = info[k].second + size;\n \
     \       for(int i = log; i >= 1; i--) push(p >> i);\n        nodes[p].sum = x;\n\
     \        for(int i = 1; i <= log; i++) pull(p >> i);\n    }\n\n    // [sx, tx]\
-    \ x [sy, ty]\n    void apply(long long sx, long long tx, long long sy, long long\
+    \ x [sy, ty]\n    void apply(long long sx, long long sy, long long tx, long long\
     \ ty, const F &f){\n        if(sx > tx || sy > ty) return;\n        std::queue<int>\
     \ que;\n        std::vector<int> st;\n        que.push(1);\n        while(que.size()){\n\
     \            int p = que.front();\n            que.pop();\n            if(nodes[p].size\
@@ -82,7 +82,7 @@ data:
     \      que.push(2 * p);\n            que.push(2 * p + 1);\n            st.push_back(p);\n\
     \        }\n        while(st.size()){\n            pull(st.back());\n        \
     \    st.pop_back();\n        }\n    }\n\n    // [sx, tx] x [sy, ty]\n    S query(long\
-    \ long sx, long long tx, long long sy, long long ty){\n        if(sx > tx || sy\
+    \ long sx, long long sy, long long tx, long long ty){\n        if(sx > tx || sy\
     \ > ty) return e();\n        std::queue<int> que;\n        que.push(1);\n    \
     \    S res = e();\n        while(que.size()){\n            int p = que.front();\n\
     \            que.pop();\n            if(nodes[p].size == 0 || nodes[p].max_x <\
@@ -161,7 +161,7 @@ data:
     \ && k < _n);\n        int p = info[k].second + size;\n        for(int i = log;\
     \ i >= 1; i--) push(p >> i);\n        nodes[p].sum = x;\n        for(int i = 1;\
     \ i <= log; i++) pull(p >> i);\n    }\n\n    // [sx, tx] x [sy, ty]\n    void\
-    \ apply(long long sx, long long tx, long long sy, long long ty, const F &f){\n\
+    \ apply(long long sx, long long sy, long long tx, long long ty, const F &f){\n\
     \        if(sx > tx || sy > ty) return;\n        std::queue<int> que;\n      \
     \  std::vector<int> st;\n        que.push(1);\n        while(que.size()){\n  \
     \          int p = que.front();\n            que.pop();\n            if(nodes[p].size\
@@ -172,7 +172,7 @@ data:
     \      que.push(2 * p);\n            que.push(2 * p + 1);\n            st.push_back(p);\n\
     \        }\n        while(st.size()){\n            pull(st.back());\n        \
     \    st.pop_back();\n        }\n    }\n\n    // [sx, tx] x [sy, ty]\n    S query(long\
-    \ long sx, long long tx, long long sy, long long ty){\n        if(sx > tx || sy\
+    \ long sx, long long sy, long long tx, long long ty){\n        if(sx > tx || sy\
     \ > ty) return e();\n        std::queue<int> que;\n        que.push(1);\n    \
     \    S res = e();\n        while(que.size()){\n            int p = que.front();\n\
     \            que.pop();\n            if(nodes[p].size == 0 || nodes[p].max_x <\
@@ -196,8 +196,8 @@ data:
   isVerificationFile: false
   path: lib/data_structure/kd_tree.hpp
   requiredBy: []
-  timestamp: '2024-11-20 20:09:04+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-11-20 20:20:22+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
 documentation_of: lib/data_structure/kd_tree.hpp

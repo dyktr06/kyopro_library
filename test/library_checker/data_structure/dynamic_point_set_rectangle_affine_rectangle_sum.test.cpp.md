@@ -1,21 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/kd_tree.hpp
     title: k-d Tree
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    links: []
+    PROBLEM: https://judge.yosupo.jp/problem/dynamic_point_set_rectangle_affine_rectangle_sum
+    links:
+    - https://judge.yosupo.jp/problem/dynamic_point_set_rectangle_affine_rectangle_sum
   bundledCode: "#line 1 \"test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/dynamic_point_set_rectangle_affine_rectangle_sum\"\
     \n#include <iostream>\n#include <vector>\n#include <array>\n\n#line 1 \"lib/data_structure/kd_tree.hpp\"\
     \n\n/**\n * @brief k-d Tree\n */\n\n#include <algorithm>\n#include <cassert>\n\
     #include <limits>\n#include <queue>\n#line 11 \"lib/data_structure/kd_tree.hpp\"\
@@ -76,7 +79,7 @@ data:
     \ && k < _n);\n        int p = info[k].second + size;\n        for(int i = log;\
     \ i >= 1; i--) push(p >> i);\n        nodes[p].sum = x;\n        for(int i = 1;\
     \ i <= log; i++) pull(p >> i);\n    }\n\n    // [sx, tx] x [sy, ty]\n    void\
-    \ apply(long long sx, long long tx, long long sy, long long ty, const F &f){\n\
+    \ apply(long long sx, long long sy, long long tx, long long ty, const F &f){\n\
     \        if(sx > tx || sy > ty) return;\n        std::queue<int> que;\n      \
     \  std::vector<int> st;\n        que.push(1);\n        while(que.size()){\n  \
     \          int p = que.front();\n            que.pop();\n            if(nodes[p].size\
@@ -87,7 +90,7 @@ data:
     \      que.push(2 * p);\n            que.push(2 * p + 1);\n            st.push_back(p);\n\
     \        }\n        while(st.size()){\n            pull(st.back());\n        \
     \    st.pop_back();\n        }\n    }\n\n    // [sx, tx] x [sy, ty]\n    S query(long\
-    \ long sx, long long tx, long long sy, long long ty){\n        if(sx > tx || sy\
+    \ long sx, long long sy, long long tx, long long ty){\n        if(sx > tx || sy\
     \ > ty) return e();\n        std::queue<int> que;\n        que.push(1);\n    \
     \    S res = e();\n        while(que.size()){\n            int p = que.front();\n\
     \            que.pop();\n            if(nodes[p].size == 0 || nodes[p].max_x <\
@@ -146,7 +149,7 @@ data:
     \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
     \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
     \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
-    \ { return os << x.val; }\n};\n#line 7 \"test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp\"\
+    \ { return os << x.val; }\n};\n#line 8 \"test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp\"\
     \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\nusing S = mint;\n\
     \nstruct F{\n    mint a, b;\n};\n\nS op(S l, S r){ return l + r; }\n\nS e(){ return\
     \ S{0}; }\n\nS mapping(F l, S r, int size){ return S{r * l.a + size * l.b}; }\n\
@@ -169,12 +172,13 @@ data:
     \            tree.update(cur, S{query[i][3]});\n            cur++;\n        }else\
     \ if(t == 1){\n            tree.update(query[i][1], S{query[i][2]});\n       \
     \ }else if(t == 2){\n            long long l = query[i][1], d = query[i][2], r\
-    \ = query[i][3], u = query[i][4];\n            cout << tree.query(l, r - 1, d,\
+    \ = query[i][3], u = query[i][4];\n            cout << tree.query(l, d, r - 1,\
     \ u - 1) << '\\n';\n        }else{\n            long long l = query[i][1], d =\
     \ query[i][2], r = query[i][3], u = query[i][4];\n            mint a = query[i][5],\
-    \ b = query[i][6];\n            tree.apply(l, r - 1, d, u - 1, F{a, b});\n   \
+    \ b = query[i][6];\n            tree.apply(l, d, r - 1, u - 1, F{a, b});\n   \
     \     }\n    }\n}\n"
-  code: "#include <iostream>\n#include <vector>\n#include <array>\n\n#include \"../../../lib/data_structure/kd_tree.hpp\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/dynamic_point_set_rectangle_affine_rectangle_sum\"\
+    \n#include <iostream>\n#include <vector>\n#include <array>\n\n#include \"../../../lib/data_structure/kd_tree.hpp\"\
     \n#include \"../../../lib/math/modint.hpp\"\n\nusing namespace std;\n\nusing mint\
     \ = ModInt<998244353>;\n\nusing S = mint;\n\nstruct F{\n    mint a, b;\n};\n\n\
     S op(S l, S r){ return l + r; }\n\nS e(){ return S{0}; }\n\nS mapping(F l, S r,\
@@ -198,10 +202,10 @@ data:
     \            tree.update(cur, S{query[i][3]});\n            cur++;\n        }else\
     \ if(t == 1){\n            tree.update(query[i][1], S{query[i][2]});\n       \
     \ }else if(t == 2){\n            long long l = query[i][1], d = query[i][2], r\
-    \ = query[i][3], u = query[i][4];\n            cout << tree.query(l, r - 1, d,\
+    \ = query[i][3], u = query[i][4];\n            cout << tree.query(l, d, r - 1,\
     \ u - 1) << '\\n';\n        }else{\n            long long l = query[i][1], d =\
     \ query[i][2], r = query[i][3], u = query[i][4];\n            mint a = query[i][5],\
-    \ b = query[i][6];\n            tree.apply(l, r - 1, d, u - 1, F{a, b});\n   \
+    \ b = query[i][6];\n            tree.apply(l, d, r - 1, u - 1, F{a, b});\n   \
     \     }\n    }\n}\n"
   dependsOn:
   - lib/data_structure/kd_tree.hpp
@@ -209,8 +213,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-11-20 20:09:04+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-20 20:20:22+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
 layout: document

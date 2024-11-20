@@ -64,7 +64,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
     title: test/library_checker/data_structure/deque_operate_all_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
     title: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -172,9 +172,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/vertex_set_path_composite.test.cpp
     title: test/library_checker/tree/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/modint.md
     document_title: ModInt
@@ -278,7 +278,7 @@ data:
   - lib/polynomial/product_of_polynomial_sequence.hpp
   - lib/polynomial/formal_power_series.hpp
   timestamp: '2024-11-03 21:58:22+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/bell_number.test.cpp
   - test/library_checker/number_theory/bernoulli_number.test.cpp

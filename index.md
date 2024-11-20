@@ -84,7 +84,7 @@ data:
       path: lib/data_structure/imos_linear.hpp
       title: "Imos Linear (\u9759\u7684\u306A\u4E00\u6B21\u95A2\u6570\u306E\u52A0\u7B97\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/kd_tree.hpp
       title: k-d Tree
     - icon: ':heavy_check_mark:'
@@ -333,7 +333,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':heavy_check_mark:'
@@ -576,7 +576,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
       title: test/library_checker/data_structure/double_ended_priority_queue.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
       title: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
