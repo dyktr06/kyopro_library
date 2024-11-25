@@ -284,7 +284,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/steiner_tree.hpp
       title: "Steiner Tree (\u30B7\u30E5\u30BF\u30A4\u30CA\u30FC\u6728)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
     - icon: ':heavy_check_mark:'

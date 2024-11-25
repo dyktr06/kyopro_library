@@ -6,9 +6,6 @@ data:
     title: "Strongly Connected Component (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
   - icon: ':heavy_check_mark:'
-    path: lib/graph/topological_sort.hpp
-    title: Topological Sort
-  - icon: ':heavy_check_mark:'
     path: lib/graph/two_sat.hpp
     title: 2-SAT
   _extendedRequiredBy: []
@@ -55,32 +52,20 @@ data:
     \ x);\n        }\n    }\n\n    std::vector<std::vector<int>> get() const {\n \
     \       return result;\n    }\n\n    std::vector<std::vector<int>> getCompressed()\
     \ const {\n        return G_compress;\n    }\n\n    int getId(int x) const {\n\
-    \        return id[x];\n    }\n};\n#line 2 \"lib/graph/topological_sort.hpp\"\n\
-    \n/**\n * @brief Topological Sort\n * @docs docs/graph/topological_sort.md\n */\n\
-    \n#line 9 \"lib/graph/topological_sort.hpp\"\n#include <queue>\n\ntemplate <typename\
-    \ T>\nstd::vector<T> topological_sort(const std::vector<std::vector<T>> &G){\n\
-    \    int siz = (int) G.size();\n    std::vector<int> indegree(siz);\n    for(int\
-    \ i = 0; i < siz; i++){\n        for(auto x : G[i]){\n            indegree[x]++;\n\
-    \        }\n    }\n\n    std::priority_queue<int, std::vector<int>, std::greater<int>>\
-    \ heap;\n    for(int i = 0; i < siz; i++){\n        if(indegree[i] == 0){\n  \
-    \          heap.push(i);\n        }\n    }\n\n    std::vector<T> res;\n    while(!heap.empty()){\n\
-    \        int node = heap.top();\n        heap.pop();\n        res.push_back(node);\n\
-    \        for(auto x : G[node]){\n            indegree[x]--;\n            if(indegree[x]\
-    \ == 0){\n                heap.push(x);\n            }\n        }\n    }\n   \
-    \ return res;\n}\n#line 10 \"lib/graph/two_sat.hpp\"\n\n#line 13 \"lib/graph/two_sat.hpp\"\
-    \n\nstruct TwoSAT{\n    int N;\n    SCC scc;\n    std::vector<bool> ans;\n   \
-    \ TwoSAT(int N) : N(N), scc(2 * N){ }\n\n    // ((x = f) or (y = g))\n    void\
-    \ add_clause(int x, bool f, int y, bool g){\n        assert(0 <= x && x < N);\n\
-    \        assert(0 <= y && y < N);\n        int px = x * 2 + f, py = y * 2 + g;\n\
-    \        int nx = x * 2 + !f, ny = y * 2 + !g;\n        scc.add_edge(nx, py);\n\
-    \        scc.add_edge(ny, px);\n    }\n\n    void build(){\n        scc.build();\n\
-    \        for(int i = 0; i < N; i++){\n            // x -> !x \u3068 !x -> x \u306E\
-    \u30D1\u30B9\u304C\u5B58\u5728\u3059\u308B\u5834\u5408\u306F\u89E3\u306A\u3057\
-    \n            if(scc.getId(i * 2) == scc.getId(i * 2 + 1)){\n                return;\n\
-    \            }\n        }\n        std::vector<int> ts = topological_sort(scc.getCompressed());\n\
-    \        int len = (int) ts.size();\n        ans.resize(N);\n        std::vector<bool>\
+    \        return id[x];\n    }\n};\n#line 9 \"lib/graph/two_sat.hpp\"\n\n#line\
+    \ 12 \"lib/graph/two_sat.hpp\"\n\nstruct TwoSAT{\n    int N;\n    SCC scc;\n \
+    \   std::vector<bool> ans;\n    TwoSAT(const int N) : N(N), scc(2 * N){ }\n\n\
+    \    // ((x = f) or (y = g))\n    void add_clause(int x, bool f, int y, bool g){\n\
+    \        assert(0 <= x && x < N);\n        assert(0 <= y && y < N);\n        int\
+    \ px = x * 2 + f, py = y * 2 + g;\n        int nx = x * 2 + !f, ny = y * 2 + !g;\n\
+    \        scc.add_edge(nx, py);\n        scc.add_edge(ny, px);\n    }\n\n    void\
+    \ build(){\n        scc.build();\n        for(int i = 0; i < N; i++){\n      \
+    \      // x -> !x \u3068 !x -> x \u306E\u30D1\u30B9\u304C\u5B58\u5728\u3059\u308B\
+    \u5834\u5408\u306F\u89E3\u306A\u3057\n            if(scc.getId(i * 2) == scc.getId(i\
+    \ * 2 + 1)){\n                return;\n            }\n        }\n        int len\
+    \ = (int) scc.result.size();\n        ans.resize(N);\n        std::vector<bool>\
     \ used(2 * N);\n        for(int i = 0; i < len; i++){\n            for(auto x\
-    \ : scc.result[ts[i]]){\n                used[x] = 1;\n                // x \u304C\
+    \ : scc.result[i]){\n                used[x] = 1;\n                // x \u304C\
     \ \u771F \u304B\u3064 !x \u304C\u8A2A\u554F\u6E08\u307F -> !x -> x \u306E\u30D1\
     \u30B9\u304C\u5B58\u5728\u3059\u308B\u53EF\u80FD\u6027\u304C\u3042\u308B\u305F\
     \u3081 \u771F \u3092\u5272\u308A\u5F53\u3066\u308B\n                if(x % 2 ==\
@@ -112,11 +97,10 @@ data:
   dependsOn:
   - lib/graph/two_sat.hpp
   - lib/graph/scc.hpp
-  - lib/graph/topological_sort.hpp
   isVerificationFile: true
   path: test/library_checker/other/two_sat.test.cpp
   requiredBy: []
-  timestamp: '2024-11-25 23:10:43+09:00'
+  timestamp: '2024-11-25 23:30:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/other/two_sat.test.cpp

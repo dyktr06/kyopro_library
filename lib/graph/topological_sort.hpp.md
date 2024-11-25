@@ -5,16 +5,10 @@ data:
   - icon: ':warning:'
     path: lib/graph/reachable_query.hpp
     title: lib/graph/reachable_query.hpp
-  - icon: ':heavy_check_mark:'
-    path: lib/graph/two_sat.hpp
-    title: 2-SAT
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/other/two_sat.test.cpp
-    title: test/library_checker/other/two_sat.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/graph/topological_sort.md
     document_title: Topological Sort
@@ -47,12 +41,10 @@ data:
   isVerificationFile: false
   path: lib/graph/topological_sort.hpp
   requiredBy:
-  - lib/graph/two_sat.hpp
   - lib/graph/reachable_query.hpp
   timestamp: '2024-11-25 23:10:43+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/other/two_sat.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: lib/graph/topological_sort.hpp
 layout: document
 redirect_from:
