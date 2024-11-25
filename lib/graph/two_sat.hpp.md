@@ -17,9 +17,9 @@ data:
     document_title: 2-SAT
     links:
     - https://noshi91.hatenablog.com/entry/2019/10/03/184812
-    - https://zenn.dev/magurofly/articles/9d8417a17231db,
+    - https://zenn.dev/magurofly/articles/9d8417a17231db
   bundledCode: "#line 2 \"lib/graph/two_sat.hpp\"\n\n/**\n * @brief 2-SAT\n * @see\
-    \ https://zenn.dev/magurofly/articles/9d8417a17231db, https://noshi91.hatenablog.com/entry/2019/10/03/184812\n\
+    \ https://zenn.dev/magurofly/articles/9d8417a17231db https://noshi91.hatenablog.com/entry/2019/10/03/184812\n\
     \ */\n\n#line 2 \"lib/graph/scc.hpp\"\n\n/**\n * @brief Strongly Connected Component\
     \ (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n * @docs docs/graph/scc.md\n */\n\
     \n#include <vector>\n#include <cassert>\n#include <algorithm>\n\nstruct SCC{\n\
@@ -70,7 +70,7 @@ data:
     \ 1 && used[x ^ 1]){\n                    ans[x / 2] = 1;\n                  \
     \  continue;\n                }\n            }\n        }\n    }\n\n    std::vector<bool>\
     \ getAnswer() const {\n        return ans;\n    }\n\n};\n"
-  code: "#pragma once\n\n/**\n * @brief 2-SAT\n * @see https://zenn.dev/magurofly/articles/9d8417a17231db,\
+  code: "#pragma once\n\n/**\n * @brief 2-SAT\n * @see https://zenn.dev/magurofly/articles/9d8417a17231db\
     \ https://noshi91.hatenablog.com/entry/2019/10/03/184812\n */\n\n#include \"../graph/scc.hpp\"\
     \n\n#include <vector>\n#include <cassert>\n\nstruct TwoSAT{\n    int N;\n    SCC\
     \ scc;\n    std::vector<bool> ans;\n    TwoSAT(const int N) : N(N), scc(2 * N){\
@@ -97,7 +97,7 @@ data:
   isVerificationFile: false
   path: lib/graph/two_sat.hpp
   requiredBy: []
-  timestamp: '2024-11-25 23:30:15+09:00'
+  timestamp: '2024-11-25 23:33:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/other/two_sat.test.cpp

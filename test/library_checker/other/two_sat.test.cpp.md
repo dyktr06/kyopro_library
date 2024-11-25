@@ -21,7 +21,7 @@ data:
   bundledCode: "#line 1 \"test/library_checker/other/two_sat.test.cpp\"\n\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/two_sat\"\n#include <iostream>\n#include\
     \ <vector>\n\n#line 2 \"lib/graph/two_sat.hpp\"\n\n/**\n * @brief 2-SAT\n * @see\
-    \ https://zenn.dev/magurofly/articles/9d8417a17231db, https://noshi91.hatenablog.com/entry/2019/10/03/184812\n\
+    \ https://zenn.dev/magurofly/articles/9d8417a17231db https://noshi91.hatenablog.com/entry/2019/10/03/184812\n\
     \ */\n\n#line 2 \"lib/graph/scc.hpp\"\n\n/**\n * @brief Strongly Connected Component\
     \ (\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n * @docs docs/graph/scc.md\n */\n\
     \n#line 9 \"lib/graph/scc.hpp\"\n#include <cassert>\n#include <algorithm>\n\n\
@@ -100,7 +100,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/other/two_sat.test.cpp
   requiredBy: []
-  timestamp: '2024-11-25 23:30:15+09:00'
+  timestamp: '2024-11-25 23:33:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/other/two_sat.test.cpp
