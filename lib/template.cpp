@@ -53,6 +53,18 @@ template <typename T> ostream &operator<<(ostream &os, deque<T> q){ while(q.size
 template <typename T> ostream &operator<<(ostream &os, stack<T> st){ while(st.size()){ os << st.top() << " "; st.pop(); } return os; }
 template <class T, class Container, class Compare> ostream &operator<<(ostream &os, priority_queue<T, Container, Compare> pq){ while(pq.size()){ os << pq.top() << " "; pq.pop(); } return os; }
 
+template<class T, class U>
+void inGraph(vector<vector<T>> &G, U n, U m, bool directed = true, bool zero_index = true){
+    G.resize(n);
+    for(int i = 0; i < m; i++){
+        int a, b;
+        cin >> a >> b;
+        if(!zero_index) a--, b--;
+        G[a].push_back(b);
+        if(!directed) G[b].push_back(a);
+    }
+}
+
 template <typename T>
 long long binary_search(long long ok, long long ng, T check){
     while(abs(ok - ng) > 1){

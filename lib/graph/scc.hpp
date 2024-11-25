@@ -5,17 +5,27 @@
  * @docs docs/graph/scc.md
  */
 
-template <typename T>
+#include <vector>
+#include <cassert>
+#include <algorithm>
+
 struct SCC{
     int siz;
-    vector<vector<T>> G_reverse, G_compress;
-    vector<bool> check;
-    vector<int> memo, id;
-    vector<T> s;
-    vector<vector<T>> result;
+    std::vector<std::vector<int>> G, G_reverse, G_compress;
+    std::vector<bool> check;
+    std::vector<int> memo, id;
+    std::vector<int> s;
+    std::vector<std::vector<int>> result;
 
-    SCC(const vector<vector<T>> &G) : G_reverse((int) G.size()), check((int) G.size()), id((int) G.size()){
-        siz = (int) G.size();
+    SCC(const int N) : siz(N), G(N), G_reverse(N), check(N), id(N){ }
+
+    void add_edge(int u, int v){
+        assert(0 <= u && u < siz);
+        assert(0 <= v && v < siz);
+        G[u].emplace_back(v);
+    }
+
+    void build(){
         for(int i = 0; i < siz; ++i){
             for(const auto &x : G[i]){
                 G_reverse[x].emplace_back(i);
@@ -51,7 +61,7 @@ struct SCC{
         }
     }
 
-    void dfs(const vector<vector<T>> &G, int curr){
+    void dfs(const std::vector<std::vector<int>> &G, int curr){
         check[curr] = true;
         for(const auto &x : G[curr]){
             if(check[x]){
@@ -62,7 +72,7 @@ struct SCC{
         memo.emplace_back(curr);
     }
 
-    void dfs2(const vector<vector<T>> &G, int curr){
+    void dfs2(const std::vector<std::vector<int>> &G, int curr){
         s.emplace_back(curr);
         check[curr] = true;
         for(const auto &x : G[curr]){
@@ -73,11 +83,11 @@ struct SCC{
         }
     }
 
-    vector<vector<T>> get() const {
+    std::vector<std::vector<int>> get() const {
         return result;
     }
 
-    vector<vector<T>> getCompressed() const {
+    std::vector<std::vector<int>> getCompressed() const {
         return G_compress;
     }
 

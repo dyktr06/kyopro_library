@@ -5,24 +5,27 @@
  * @docs docs/graph/topological_sort.md
  */
 
+#include <vector>
+#include <queue>
+
 template <typename T>
-vector<T> topological_sort(const vector<vector<T>> &G){
+std::vector<T> topological_sort(const std::vector<std::vector<T>> &G){
     int siz = (int) G.size();
-    vector<int> indegree(siz);
+    std::vector<int> indegree(siz);
     for(int i = 0; i < siz; i++){
         for(auto x : G[i]){
             indegree[x]++;
         }
     }
 
-    priority_queue<int, vector<int>, greater<int>> heap;
+    std::priority_queue<int, std::vector<int>, std::greater<int>> heap;
     for(int i = 0; i < siz; i++){
         if(indegree[i] == 0){
             heap.push(i);
         }
     }
 
-    vector<T> res;
+    std::vector<T> res;
     while(!heap.empty()){
         int node = heap.top();
         heap.pop();
