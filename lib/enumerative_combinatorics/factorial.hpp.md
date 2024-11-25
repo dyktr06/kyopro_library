@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/factorial.test.cpp
     title: test/library_checker/enumerative_combinatorics/factorial.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Factorial (\u968E\u4E57)"
     links: []
@@ -36,7 +36,7 @@ data:
     \    int d = n / BLOCK;\n    long long res = memo[d];\n    for(int i = d * BLOCK\
     \ + 1; i <= n; ++i){\n        res = res * i % 998244353;\n    }\n    return res;\n\
     }\n\ntemplate <typename T>\nstruct ManyFactorials{\n    const T BLOCK, MOD;\n\
-    \    std::vector<T> memo;\n    ManyFactorials(const T MOD) : BLOCK((T) ((std::sqrtl(MOD)\
+    \    std::vector<T> memo;\n    ManyFactorials(const T MOD) : BLOCK((T) ((sqrtl(MOD)\
     \ + 49) / 50)), MOD(MOD){\n        setup();\n    }\n\n    void setup(){\n    \
     \    memo = {1};\n        T cur = 1;\n        for(T i = 1; i < MOD; ++i){\n  \
     \          cur = cur * i % MOD;\n            if(i % BLOCK == 0){\n           \
@@ -66,20 +66,20 @@ data:
     \ d * BLOCK + 1; i <= n; ++i){\n        res = res * i % 998244353;\n    }\n  \
     \  return res;\n}\n\ntemplate <typename T>\nstruct ManyFactorials{\n    const\
     \ T BLOCK, MOD;\n    std::vector<T> memo;\n    ManyFactorials(const T MOD) : BLOCK((T)\
-    \ ((std::sqrtl(MOD) + 49) / 50)), MOD(MOD){\n        setup();\n    }\n\n    void\
-    \ setup(){\n        memo = {1};\n        T cur = 1;\n        for(T i = 1; i <\
-    \ MOD; ++i){\n            cur = cur * i % MOD;\n            if(i % BLOCK == 0){\n\
-    \                memo.push_back(cur);\n            }\n        }\n    }\n\n   \
-    \ T factorial(T n){\n        if(n >= MOD){\n            return 0;\n        }\n\
-    \        T d = n / BLOCK;\n        T res = memo[d];\n        for(T i = d * BLOCK\
-    \ + 1; i <= n; ++i){\n            res = res * i % MOD;\n        }\n        return\
-    \ res;\n    }\n};\n"
+    \ ((sqrtl(MOD) + 49) / 50)), MOD(MOD){\n        setup();\n    }\n\n    void setup(){\n\
+    \        memo = {1};\n        T cur = 1;\n        for(T i = 1; i < MOD; ++i){\n\
+    \            cur = cur * i % MOD;\n            if(i % BLOCK == 0){\n         \
+    \       memo.push_back(cur);\n            }\n        }\n    }\n\n    T factorial(T\
+    \ n){\n        if(n >= MOD){\n            return 0;\n        }\n        T d =\
+    \ n / BLOCK;\n        T res = memo[d];\n        for(T i = d * BLOCK + 1; i <=\
+    \ n; ++i){\n            res = res * i % MOD;\n        }\n        return res;\n\
+    \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/enumerative_combinatorics/factorial.hpp
   requiredBy: []
-  timestamp: '2024-11-25 16:56:48+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-11-25 17:28:12+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/enumerative_combinatorics/factorial.test.cpp

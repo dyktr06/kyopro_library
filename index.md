@@ -173,7 +173,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/enumerative_combinatorics/combination_modint.hpp
       title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/enumerative_combinatorics/factorial.hpp
       title: "Factorial (\u968E\u4E57)"
     - icon: ':heavy_check_mark:'
@@ -692,10 +692,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
       title: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/factorial.test.cpp
       title: test/library_checker/enumerative_combinatorics/factorial.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
       title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     - icon: ':heavy_check_mark:'

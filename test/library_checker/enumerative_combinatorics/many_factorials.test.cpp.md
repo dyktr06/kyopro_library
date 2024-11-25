@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/factorial.hpp
     title: "Factorial (\u968E\u4E57)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/many_factorials
@@ -37,7 +37,7 @@ data:
     \    int d = n / BLOCK;\n    long long res = memo[d];\n    for(int i = d * BLOCK\
     \ + 1; i <= n; ++i){\n        res = res * i % 998244353;\n    }\n    return res;\n\
     }\n\ntemplate <typename T>\nstruct ManyFactorials{\n    const T BLOCK, MOD;\n\
-    \    std::vector<T> memo;\n    ManyFactorials(const T MOD) : BLOCK((T) ((std::sqrtl(MOD)\
+    \    std::vector<T> memo;\n    ManyFactorials(const T MOD) : BLOCK((T) ((sqrtl(MOD)\
     \ + 49) / 50)), MOD(MOD){\n        setup();\n    }\n\n    void setup(){\n    \
     \    memo = {1};\n        T cur = 1;\n        for(T i = 1; i < MOD; ++i){\n  \
     \          cur = cur * i % MOD;\n            if(i % BLOCK == 0){\n           \
@@ -61,8 +61,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   requiredBy: []
-  timestamp: '2024-11-25 16:56:48+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-25 17:28:12+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
 layout: document

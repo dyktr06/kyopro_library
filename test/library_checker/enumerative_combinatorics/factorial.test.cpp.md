@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/factorial.hpp
     title: "Factorial (\u968E\u4E57)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/factorial
@@ -37,14 +37,14 @@ data:
     \ d * BLOCK + 1; i <= n; ++i){\n        res = res * i % 998244353;\n    }\n  \
     \  return res;\n}\n\ntemplate <typename T>\nstruct ManyFactorials{\n    const\
     \ T BLOCK, MOD;\n    std::vector<T> memo;\n    ManyFactorials(const T MOD) : BLOCK((T)\
-    \ ((std::sqrtl(MOD) + 49) / 50)), MOD(MOD){\n        setup();\n    }\n\n    void\
-    \ setup(){\n        memo = {1};\n        T cur = 1;\n        for(T i = 1; i <\
-    \ MOD; ++i){\n            cur = cur * i % MOD;\n            if(i % BLOCK == 0){\n\
-    \                memo.push_back(cur);\n            }\n        }\n    }\n\n   \
-    \ T factorial(T n){\n        if(n >= MOD){\n            return 0;\n        }\n\
-    \        T d = n / BLOCK;\n        T res = memo[d];\n        for(T i = d * BLOCK\
-    \ + 1; i <= n; ++i){\n            res = res * i % MOD;\n        }\n        return\
-    \ res;\n    }\n};\n#line 5 \"test/library_checker/enumerative_combinatorics/factorial.test.cpp\"\
+    \ ((sqrtl(MOD) + 49) / 50)), MOD(MOD){\n        setup();\n    }\n\n    void setup(){\n\
+    \        memo = {1};\n        T cur = 1;\n        for(T i = 1; i < MOD; ++i){\n\
+    \            cur = cur * i % MOD;\n            if(i % BLOCK == 0){\n         \
+    \       memo.push_back(cur);\n            }\n        }\n    }\n\n    T factorial(T\
+    \ n){\n        if(n >= MOD){\n            return 0;\n        }\n        T d =\
+    \ n / BLOCK;\n        T res = memo[d];\n        for(T i = d * BLOCK + 1; i <=\
+    \ n; ++i){\n            res = res * i % MOD;\n        }\n        return res;\n\
+    \    }\n};\n#line 5 \"test/library_checker/enumerative_combinatorics/factorial.test.cpp\"\
     \n\nusing namespace std;\n\nint main() {\n    ios::sync_with_stdio(false);\n \
     \   cin.tie(nullptr);\n\n    int t;\n    cin >> t;\n    while(t--){\n        int\
     \ n; cin >> n;\n        cout << factorial_998244353(n) << \"\\n\";\n    }\n}\n"
@@ -58,8 +58,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/enumerative_combinatorics/factorial.test.cpp
   requiredBy: []
-  timestamp: '2024-11-25 16:56:48+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-25 17:28:12+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/factorial.test.cpp
 layout: document
