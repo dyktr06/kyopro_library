@@ -2,7 +2,7 @@
 
 /**
  * @brief 2-SAT
- * @see https://zenn.dev/magurofly/articles/9d8417a17231db, https://noshi91.hatenablog.com/entry/2019/10/03/184812
+ * @see https://zenn.dev/magurofly/articles/9d8417a17231db https://noshi91.hatenablog.com/entry/2019/10/03/184812
  */
 
 #include "../graph/scc.hpp"
