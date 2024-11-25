@@ -60,16 +60,12 @@ data:
     \ build(){\n        scc.build();\n        for(int i = 0; i < N; i++){\n      \
     \      // x -> !x \u3068 !x -> x \u306E\u30D1\u30B9\u304C\u5B58\u5728\u3059\u308B\
     \u5834\u5408\u306F\u89E3\u306A\u3057\n            if(scc.getId(i * 2) == scc.getId(i\
-    \ * 2 + 1)){\n                return;\n            }\n        }\n        int len\
-    \ = (int) scc.result.size();\n        ans.resize(N);\n        std::vector<bool>\
-    \ used(2 * N);\n        for(int i = 0; i < len; i++){\n            for(auto x\
-    \ : scc.result[i]){\n                used[x] = 1;\n                // x \u304C\
-    \ \u771F \u304B\u3064 !x \u304C\u8A2A\u554F\u6E08\u307F -> !x -> x \u306E\u30D1\
-    \u30B9\u304C\u5B58\u5728\u3059\u308B\u53EF\u80FD\u6027\u304C\u3042\u308B\u305F\
-    \u3081 \u771F \u3092\u5272\u308A\u5F53\u3066\u308B\n                if(x % 2 ==\
-    \ 1 && used[x ^ 1]){\n                    ans[x / 2] = 1;\n                  \
-    \  continue;\n                }\n            }\n        }\n    }\n\n    std::vector<bool>\
-    \ getAnswer() const {\n        return ans;\n    }\n\n};\n"
+    \ * 2 + 1)){\n                return;\n            }\n        }\n        ans.resize(N);\n\
+    \        for(int i = 0; i < N; i++){\n            // !x -> x \u306E\u30D1\u30B9\
+    \u304C\u5B58\u5728\u3059\u308B\u53EF\u80FD\u6027\u304C\u3042\u308B\u306A\u3089\
+    \ \u771F \u3092\u5272\u308A\u5F53\u3066\u308B\n            ans[i] = scc.getId(i\
+    \ * 2) < scc.getId(i * 2 + 1);\n        }\n    }\n\n    std::vector<bool> getAnswer()\
+    \ const {\n        return ans;\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief 2-SAT\n * @see https://zenn.dev/magurofly/articles/9d8417a17231db\
     \ https://noshi91.hatenablog.com/entry/2019/10/03/184812\n */\n\n#include \"../graph/scc.hpp\"\
     \n\n#include <vector>\n#include <cassert>\n\nstruct TwoSAT{\n    int N;\n    SCC\
@@ -82,22 +78,18 @@ data:
     \ N; i++){\n            // x -> !x \u3068 !x -> x \u306E\u30D1\u30B9\u304C\u5B58\
     \u5728\u3059\u308B\u5834\u5408\u306F\u89E3\u306A\u3057\n            if(scc.getId(i\
     \ * 2) == scc.getId(i * 2 + 1)){\n                return;\n            }\n   \
-    \     }\n        int len = (int) scc.result.size();\n        ans.resize(N);\n\
-    \        std::vector<bool> used(2 * N);\n        for(int i = 0; i < len; i++){\n\
-    \            for(auto x : scc.result[i]){\n                used[x] = 1;\n    \
-    \            // x \u304C \u771F \u304B\u3064 !x \u304C\u8A2A\u554F\u6E08\u307F\
-    \ -> !x -> x \u306E\u30D1\u30B9\u304C\u5B58\u5728\u3059\u308B\u53EF\u80FD\u6027\
-    \u304C\u3042\u308B\u305F\u3081 \u771F \u3092\u5272\u308A\u5F53\u3066\u308B\n \
-    \               if(x % 2 == 1 && used[x ^ 1]){\n                    ans[x / 2]\
-    \ = 1;\n                    continue;\n                }\n            }\n    \
-    \    }\n    }\n\n    std::vector<bool> getAnswer() const {\n        return ans;\n\
-    \    }\n\n};\n"
+    \     }\n        ans.resize(N);\n        for(int i = 0; i < N; i++){\n       \
+    \     // !x -> x \u306E\u30D1\u30B9\u304C\u5B58\u5728\u3059\u308B\u53EF\u80FD\u6027\
+    \u304C\u3042\u308B\u306A\u3089 \u771F \u3092\u5272\u308A\u5F53\u3066\u308B\n \
+    \           ans[i] = scc.getId(i * 2) < scc.getId(i * 2 + 1);\n        }\n   \
+    \ }\n\n    std::vector<bool> getAnswer() const {\n        return ans;\n    }\n\
+    };\n"
   dependsOn:
   - lib/graph/scc.hpp
   isVerificationFile: false
   path: lib/graph/two_sat.hpp
   requiredBy: []
-  timestamp: '2024-11-25 23:33:15+09:00'
+  timestamp: '2024-11-25 23:39:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/other/two_sat.test.cpp
