@@ -6,17 +6,21 @@ data:
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
+    path: lib/enumerative_combinatorics/partition_function.hpp
+    title: "Partition Function (\u5206\u5272\u6570)"
+  - icon: ':heavy_check_mark:'
+    path: lib/enumerative_combinatorics/stirling_number_2nd.hpp
+    title: "Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\u30FC\u30EA\
+      \u30F3\u30B0\u6570)"
+  - icon: ':heavy_check_mark:'
+    path: lib/enumerative_combinatorics/subset_sum.hpp
+    title: Subset Sum
+  - icon: ':heavy_check_mark:'
     path: lib/math/bell_number.hpp
     title: "Bell Number (\u30D9\u30EB\u6570)"
   - icon: ':heavy_check_mark:'
     path: lib/math/bernoulli_number.hpp
     title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
-  - icon: ':heavy_check_mark:'
-    path: lib/math/partition_function.hpp
-    title: "Partition Function (\u5206\u5272\u6570)"
-  - icon: ':heavy_check_mark:'
-    path: lib/math/subset_sum.hpp
-    title: Subset Sum
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/bostan_mori.hpp
     title: Bostan-Mori
@@ -97,6 +101,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
     title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
+    title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
+    title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/counting_spanning_tree_directed.test.cpp
     title: test/library_checker/graph/counting_spanning_tree_directed.test.cpp
@@ -267,8 +277,9 @@ data:
   requiredBy:
   - lib/math/bernoulli_number.hpp
   - lib/math/bell_number.hpp
-  - lib/math/subset_sum.hpp
-  - lib/math/partition_function.hpp
+  - lib/enumerative_combinatorics/subset_sum.hpp
+  - lib/enumerative_combinatorics/partition_function.hpp
+  - lib/enumerative_combinatorics/stirling_number_2nd.hpp
   - lib/convolution/ntt.hpp
   - lib/string/wildcard_pattern_matching.hpp
   - lib/polynomial/bostan_mori.hpp
@@ -283,6 +294,8 @@ data:
   - test/library_checker/number_theory/bell_number.test.cpp
   - test/library_checker/number_theory/bernoulli_number.test.cpp
   - test/library_checker/enumerative_combinatorics/partition_function.test.cpp
+  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
+  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
   - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
   - test/library_checker/data_structure/unionfind_with_potential.test.cpp

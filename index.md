@@ -168,6 +168,27 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/dp/substring.hpp
       title: Count Substrings
+  - name: lib/enumerative_combinatorics
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/enumerative_combinatorics/combination_modint.hpp
+      title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
+    - icon: ':x:'
+      path: lib/enumerative_combinatorics/factorial.hpp
+      title: "Factorial (\u968E\u4E57)"
+    - icon: ':heavy_check_mark:'
+      path: lib/enumerative_combinatorics/montmort_number.hpp
+      title: "Montmort Number (\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"
+    - icon: ':heavy_check_mark:'
+      path: lib/enumerative_combinatorics/partition_function.hpp
+      title: "Partition Function (\u5206\u5272\u6570)"
+    - icon: ':heavy_check_mark:'
+      path: lib/enumerative_combinatorics/stirling_number_2nd.hpp
+      title: "Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\u30FC\
+        \u30EA\u30F3\u30B0\u6570)"
+    - icon: ':heavy_check_mark:'
+      path: lib/enumerative_combinatorics/subset_sum.hpp
+      title: Subset Sum
   - name: lib/geometry
     pages:
     - icon: ':heavy_check_mark:'
@@ -304,9 +325,6 @@ data:
       path: lib/math/combination.hpp
       title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
     - icon: ':heavy_check_mark:'
-      path: lib/math/combination_modint.hpp
-      title: lib/math/combination_modint.hpp
-    - icon: ':heavy_check_mark:'
       path: lib/math/convert_base.hpp
       title: "Convert Base (\u9032\u6570\u5909\u63DB)"
     - icon: ':heavy_check_mark:'
@@ -315,9 +333,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/enumerate_quotients.hpp
       title: "Enumerate Quotients (\u5546\u5217\u6319)"
-    - icon: ':heavy_check_mark:'
-      path: lib/math/factorial.hpp
-      title: lib/math/factorial.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/fraction.hpp
       title: Fraction
@@ -336,12 +351,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: ModInt
-    - icon: ':heavy_check_mark:'
-      path: lib/math/montmort_number.hpp
-      title: "Montmort Number (\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"
-    - icon: ':heavy_check_mark:'
-      path: lib/math/partition_function.hpp
-      title: "Partition Function (\u5206\u5272\u6570)"
     - icon: ':warning:'
       path: lib/math/pow_sum.hpp
       title: lib/math/pow_sum.hpp
@@ -363,9 +372,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/rho.hpp
       title: Pollard's Rho
-    - icon: ':heavy_check_mark:'
-      path: lib/math/subset_sum.hpp
-      title: Subset Sum
     - icon: ':warning:'
       path: lib/math/utils.hpp
       title: lib/math/utils.hpp
@@ -686,10 +692,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
       title: test/library_checker/enumerative_combinatorics/binomial_coefficient_prime_mod_1.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/enumerative_combinatorics/factorial.test.cpp
       title: test/library_checker/enumerative_combinatorics/factorial.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
       title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     - icon: ':heavy_check_mark:'
@@ -704,6 +710,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
       title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
+      title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
+      title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
   - name: test/library_checker/geometry
     pages:
     - icon: ':heavy_check_mark:'

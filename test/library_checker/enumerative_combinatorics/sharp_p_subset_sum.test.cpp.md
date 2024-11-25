@@ -5,14 +5,14 @@ data:
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
+    path: lib/enumerative_combinatorics/subset_sum.hpp
+    title: Subset Sum
+  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
   - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
-    path: lib/math/subset_sum.hpp
-    title: Subset Sum
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
@@ -28,8 +28,13 @@ data:
     - https://judge.yosupo.jp/problem/sharp_p_subset_sum
   bundledCode: "#line 1 \"test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/sharp_p_subset_sum\"\n#include\
-    \ <iostream>\n\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4 \"lib/math/modint.hpp\"\
-    \n#include <cassert>\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \ <iostream>\n\n#line 2 \"lib/enumerative_combinatorics/subset_sum.hpp\"\n\n/**\n\
+    \ * @brief Subset Sum\n * @see https://suu-0313.hatenablog.com/entry/2022/04/12/225153\n\
+    \ */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n * @brief Formal\
+    \ Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n#include <algorithm>\n\
+    #include <cassert>\n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n\
+    /**\n * @brief Number Theoretic Transform\n */\n\n#line 2 \"lib/math/modint.hpp\"\
+    \n\n#line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
     \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
     \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
     \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
@@ -68,27 +73,21 @@ data:
     \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
     \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
     \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
-    \ { return os << x.val; }\n};\n#line 2 \"lib/math/subset_sum.hpp\"\n\n/**\n *\
-    \ @brief Subset Sum\n * @see https://suu-0313.hatenablog.com/entry/2022/04/12/225153\n\
-    \ */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n * @brief Formal\
-    \ Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n#include <algorithm>\n\
-    #line 9 \"lib/polynomial/formal_power_series.hpp\"\n#include <vector>\n#line 2\
-    \ \"lib/convolution/ntt.hpp\"\n\n/**\n * @brief Number Theoretic Transform\n */\n\
-    \n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief Chinese Remainder Theorem (\u4E2D\
-    \u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n */\n\n#include <numeric>\n\
-    #line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n    inline long long mod(long\
-    \ long a, long long m){\n        return (a % m + m) % m;\n    }\n\n    long long\
-    \ extGCD(long long a, long long b, long long &x, long long &y){\n        if(b\
-    \ == 0){\n            x = 1;\n            y = 0;\n            return a;\n    \
-    \    }\n        long long d = extGCD(b, a % b, y, x);\n        y -= a / b * x;\n\
-    \        return d;\n    }\n\n    std::pair<long long, long long> chineseRem(const\
-    \ std::vector<long long> &b, const std::vector<long long> &m) {\n        long\
-    \ long r = 0, M = 1;\n        for(int i = 0; i < (int) b.size(); i++){\n     \
-    \       long long p, q;\n            long long d = extGCD(M, m[i], p, q);\n  \
-    \          if((b[i] - r) % d != 0) return {0, -1};\n            long long tmp\
-    \ = (b[i] - r) / d * p % (m[i] / d);\n            r += M * tmp;\n            M\
-    \ *= m[i] / d;\n        }\n        r %= M;\n        if(r < 0) r += M;\n      \
-    \  return {r, M};\n    }\n\n    // not coprime\n    long long preGarner(std::vector<long\
+    \ { return os << x.val; }\n};\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
+    \ Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
+    \ */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n\
+    \    inline long long mod(long long a, long long m){\n        return (a % m +\
+    \ m) % m;\n    }\n\n    long long extGCD(long long a, long long b, long long &x,\
+    \ long long &y){\n        if(b == 0){\n            x = 1;\n            y = 0;\n\
+    \            return a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n\
+    \        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long long,\
+    \ long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
+    \ long> &m) {\n        long long r = 0, M = 1;\n        for(int i = 0; i < (int)\
+    \ b.size(); i++){\n            long long p, q;\n            long long d = extGCD(M,\
+    \ m[i], p, q);\n            if((b[i] - r) % d != 0) return {0, -1};\n        \
+    \    long long tmp = (b[i] - r) / d * p % (m[i] / d);\n            r += M * tmp;\n\
+    \            M *= m[i] / d;\n        }\n        r %= M;\n        if(r < 0) r +=\
+    \ M;\n        return {r, M};\n    }\n\n    // not coprime\n    long long preGarner(std::vector<long\
     \ long> &b, std::vector<long long> &m, const long long MOD){\n        long long\
     \ res = 1;\n        int n = b.size();\n        for(int i = 0; i < n; i++){\n \
     \           for(int j = 0; j < i; j++){\n                long long g = std::gcd(m[i],\
@@ -324,19 +323,19 @@ data:
     \        if(sqrt0 == -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2\
     \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
-    \    }\n};\n#line 10 \"lib/math/subset_sum.hpp\"\n\ntemplate <typename T>\nstd::vector<T>\
-    \ subsetSum(std::vector<long long> s, const int t_max){\n    using FPS = FormalPowerSeries<T>;\n\
-    \    // prod (1 + x^{s_i}) -> exp(sum log(1 + x^{s_i}))\n    std::vector<T> cnt(t_max\
-    \ + 1, T(0));\n    for(auto x : s){\n        if(x > t_max) continue;\n       \
-    \ cnt[x]++;\n    }\n\n    std::vector<T> inv(t_max + 1);\n    inv[1] = 1;\n  \
-    \  long long mod = T::mod();\n    for(int i = 2; i <= t_max; ++i){\n        inv[i]\
-    \ = mod - inv[mod % i] * (mod / i);\n    }\n\n    FPS ans(t_max + 1);\n    for(int\
-    \ i = 1; i <= t_max; i++){\n        if(cnt[i] == T(0)) continue;\n        // log(1\
-    \ + x^i) = x^i - x^(2i)/2 + x^(3i)/3 - ...\n        T sign = T(1);\n        for(int\
-    \ j = i; j <= t_max; j += i){\n            ans[j] += T(cnt[i]) * sign * inv[j\
-    \ / i];\n            sign *= T(-1);\n        }\n    }\n    ans = ans.exp(t_max\
-    \ + 1);\n    return std::vector<T>(std::begin(ans), std::end(ans));\n}\n#line\
-    \ 6 \"test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp\"\
+    \    }\n};\n#line 10 \"lib/enumerative_combinatorics/subset_sum.hpp\"\n\ntemplate\
+    \ <typename T>\nstd::vector<T> subsetSum(std::vector<long long> s, const int t_max){\n\
+    \    using FPS = FormalPowerSeries<T>;\n    // prod (1 + x^{s_i}) -> exp(sum log(1\
+    \ + x^{s_i}))\n    std::vector<T> cnt(t_max + 1, T(0));\n    for(auto x : s){\n\
+    \        if(x > t_max) continue;\n        cnt[x]++;\n    }\n\n    std::vector<T>\
+    \ inv(t_max + 1);\n    inv[1] = 1;\n    long long mod = T::mod();\n    for(int\
+    \ i = 2; i <= t_max; ++i){\n        inv[i] = mod - inv[mod % i] * (mod / i);\n\
+    \    }\n\n    FPS ans(t_max + 1);\n    for(int i = 1; i <= t_max; i++){\n    \
+    \    if(cnt[i] == T(0)) continue;\n        // log(1 + x^i) = x^i - x^(2i)/2 +\
+    \ x^(3i)/3 - ...\n        T sign = T(1);\n        for(int j = i; j <= t_max; j\
+    \ += i){\n            ans[j] += T(cnt[i]) * sign * inv[j / i];\n            sign\
+    \ *= T(-1);\n        }\n    }\n    ans = ans.exp(t_max + 1);\n    return std::vector<T>(std::begin(ans),\
+    \ std::end(ans));\n}\n#line 6 \"test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp\"\
     \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\nint main(){\n \
     \   cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int n, t; cin >>\
     \ n >> t;\n    vector<long long> s(n);\n    for(int i = 0; i < n; i++){\n    \
@@ -344,23 +343,23 @@ data:
     \ = 1; i <= t; i++){\n        cout << ans[i] << (i == t ? '\\n' : ' ');\n    }\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sharp_p_subset_sum\"\n\
-    #include <iostream>\n\n#include \"../../../lib/math/modint.hpp\"\n#include \"\
-    ../../../lib/math/subset_sum.hpp\"\n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\
-    \nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n   \
-    \ int n, t; cin >> n >> t;\n    vector<long long> s(n);\n    for(int i = 0; i\
-    \ < n; i++){\n        cin >> s[i];\n    }\n    auto ans = subsetSum<mint>(s, t);\n\
-    \    for(int i = 1; i <= t; i++){\n        cout << ans[i] << (i == t ? '\\n' :\
-    \ ' ');\n    }\n}\n"
+    #include <iostream>\n\n#include \"../../../lib/enumerative_combinatorics/subset_sum.hpp\"\
+    \n#include \"../../../lib/math/modint.hpp\"\n\nusing namespace std;\n\nusing mint\
+    \ = ModInt<998244353>;\n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
+    \n    int n, t; cin >> n >> t;\n    vector<long long> s(n);\n    for(int i = 0;\
+    \ i < n; i++){\n        cin >> s[i];\n    }\n    auto ans = subsetSum<mint>(s,\
+    \ t);\n    for(int i = 1; i <= t; i++){\n        cout << ans[i] << (i == t ? '\\\
+    n' : ' ');\n    }\n}\n"
   dependsOn:
-  - lib/math/modint.hpp
-  - lib/math/subset_sum.hpp
+  - lib/enumerative_combinatorics/subset_sum.hpp
   - lib/polynomial/formal_power_series.hpp
   - lib/convolution/ntt.hpp
+  - lib/math/modint.hpp
   - lib/math/crt.hpp
   isVerificationFile: true
   path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
+  timestamp: '2024-11-25 16:56:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp

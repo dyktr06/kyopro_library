@@ -5,9 +5,6 @@ data:
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
-    path: lib/enumerative_combinatorics/combination_modint.hpp
-    title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
-  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
   - icon: ':heavy_check_mark:'
@@ -16,104 +13,72 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
-    path: lib/polynomial/taylor_shift.hpp
-    title: Taylor Shift
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+    title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   _isVerificationFailed: false
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
+    document_title: Subset Sum
     links:
-    - https://judge.yosupo.jp/problem/polynomial_taylor_shift
-  bundledCode: "#line 1 \"test/library_checker/polynomial/polynomial_taylor_shift.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\n\
-    #include <iostream>\n\n#line 2 \"lib/math/modint.hpp\"\n\n#line 4 \"lib/math/modint.hpp\"\
-    \n#include <cassert>\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
-    \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
-    \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
-    \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
-    \ normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n    }\n  \
-    \  inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val +=\
-    \ rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
-    \ inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -= rhs.val,\
-    \ val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt &operator*=(const\
-    \ ModInt &rhs) noexcept {\n        val = val * rhs.val % Modulus;\n        return\
-    \ *this;\n    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n\
-    \        val = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n\
-    \    inline ModInt &operator++() noexcept {\n        if(++val >= Modulus) val\
-    \ -= Modulus;\n        return *this;\n    }\n    inline ModInt operator++(int)\
-    \ noexcept {\n        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n\
-    \        return t;\n    }\n    inline ModInt &operator--() noexcept {\n      \
-    \  if(--val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt\
-    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
-    \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
-    \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
-    \ inv(val); }\n    ModInt pow(long long n) const {\n        assert(0 <= n);\n\
-    \        ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r\
-    \ *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
-    \ r;\n    }\n    ModInt inv(const long long n) const {\n        long long a =\
-    \ n, b = Modulus, u = 1, v = 0;\n        while(b){\n            long long t =\
-    \ a / b;\n            a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u,\
-    \ v);\n        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n   \
-    \     return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs,\
-    \ const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline\
-    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
-    \ -= rhs; }\n    friend inline ModInt operator*(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n  \
-    \  friend inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend\
-    \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
-    \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
-    \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
-    \ { return os << x.val; }\n};\n#line 2 \"lib/polynomial/taylor_shift.hpp\"\n\n\
-    /**\n * @brief Taylor Shift\n * @see https://drken1215.hatenablog.com/entry/2023/09/08/003100\n\
-    \ */\n\n#line 2 \"lib/enumerative_combinatorics/combination_modint.hpp\"\n\n/**\n\
-    \ * @brief Combination (\u4E8C\u9805\u4FC2\u6570)\n */\n\n#include <vector>\n\n\
-    template <typename T>\nstruct Combination{\n    std::vector<T> memo, memoinv,\
-    \ inv;\n    Combination(const int N) : memo(N + 1), memoinv(N + 1), inv(N + 1){\n\
-    \        T m = -1;\n        long long mod = (m.val + 1LL);\n        memo[0] =\
-    \ memo[1] = 1;\n        memoinv[0] = memoinv[1] = 1;\n        inv[1] = 1;\n  \
-    \      for(int i = 2; i <= N; ++i){\n            memo[i] = memo[i - 1] * i;\n\
-    \            inv[i] = mod - inv[mod % i] * (mod / i);\n            memoinv[i]\
-    \ = memoinv[i - 1] * inv[i];\n        }\n    }\n    inline T fact(const int n)\
-    \ const {\n        return memo[n];\n    }\n    inline T factinv(const int n) const\
-    \ {\n        return memoinv[n];\n    }\n    inline T ncr(const int n, const int\
-    \ r) const {\n        if(n < r || r < 0) return 0;\n        return (memo[n] *\
-    \ memoinv[r]) * memoinv[n - r];\n    }\n    inline T npr(const int n, const int\
-    \ r) const {\n        if(n < r || r < 0) return 0;\n        return memo[n] * memoinv[n\
-    \ - r];\n    }\n    // \u91CD\u8907\u7D44\u307F\u5408\u308F\u305B\n    inline\
-    \ T nhr(const int n, const int r) const {\n        if(n == 0 && r == 0) return\
-    \ 1;\n        return ncr(n + r - 1, r);\n    }\n    // \u30DC\u30FC\u30EB\u306E\
-    \u6570\u3001\u4E00\u500B\u4EE5\u4E0A\u5FC5\u8981\u306A\u7BB1\u306E\u6570\u3001\
-    \u5236\u9650\u304C\u306A\u3044\u7BB1\u306E\u6570 (\u7BB1\u533A\u5225\u3042\u308A\
-    )\n    // a = 0 \u306E\u5834\u5408\u306F\u91CD\u8907\u7D44\u307F\u5408\u308F\u305B\
-    \n    inline T choose(const int n, const int a, const int b = 0) const {\n   \
-    \     if(n == 0) return !a;\n        return ncr(n + b - 1, a + b - 1);\n    }\n\
-    \    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C >= 0\n    inline T cataran(const\
-    \ int n, const int m) const {\n        return ncr(n + m, n) - ncr(n + m, n - 1);\n\
-    \    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T\
-    \ cataran(const int n, const int m, const int k) const {\n        if(m < k) return\
-    \ ncr(n + m, n);\n        if(m < n + k) return ncr(n + m, n) - ncr(n + m, m -\
-    \ k);\n        return 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\
-    \u548C < +k\n    inline T cataran2(const int n, const int m, const int k) const\
-    \ {\n        return cataran(m, n, k);\n    }\n};\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\
-    \n\n/**\n * @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
-    \ */\n\n#include <algorithm>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n/**\n * @brief\
-    \ Number Theoretic Transform\n */\n\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
-    \ Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
-    \ */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n\
-    \    inline long long mod(long long a, long long m){\n        return (a % m +\
-    \ m) % m;\n    }\n\n    long long extGCD(long long a, long long b, long long &x,\
-    \ long long &y){\n        if(b == 0){\n            x = 1;\n            y = 0;\n\
-    \            return a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n\
-    \        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long long,\
-    \ long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
+    - https://suu-0313.hatenablog.com/entry/2022/04/12/225153
+  bundledCode: "#line 2 \"lib/enumerative_combinatorics/subset_sum.hpp\"\n\n/**\n\
+    \ * @brief Subset Sum\n * @see https://suu-0313.hatenablog.com/entry/2022/04/12/225153\n\
+    \ */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n * @brief Formal\
+    \ Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n#include <algorithm>\n\
+    #include <cassert>\n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n\
+    /**\n * @brief Number Theoretic Transform\n */\n\n#line 2 \"lib/math/modint.hpp\"\
+    \n\n#include <iostream>\n#line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n\
+    \ * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\nstruct ModInt{\n\
+    \    long long val;\n    static constexpr int mod() { return Modulus; }\n    constexpr\
+    \ ModInt(const long long _val = 0) noexcept : val(_val) {\n        normalize();\n\
+    \    }\n    void normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n\
+    \    }\n    inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val\
+    \ += rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n\
+    \    inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -=\
+    \ rhs.val, val < 0) val += Modulus;\n        return *this;\n    }\n    inline\
+    \ ModInt &operator*=(const ModInt &rhs) noexcept {\n        val = val * rhs.val\
+    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator/=(const\
+    \ ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val % Modulus;\n \
+    \       return *this;\n    }\n    inline ModInt &operator++() noexcept {\n   \
+    \     if(++val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
+    \ inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n        if(++val\
+    \ >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline ModInt &operator--()\
+    \ noexcept {\n        if(--val < 0) val += Modulus;\n        return *this;\n \
+    \   }\n    inline ModInt operator--(int) noexcept {\n        ModInt t = val;\n\
+    \        if(--val < 0) val += Modulus;\n        return t;\n    }\n    inline ModInt\
+    \ operator-() const noexcept { return (Modulus - val) % Modulus; }\n    inline\
+    \ ModInt inv(void) const { return inv(val); }\n    ModInt pow(long long n) const\
+    \ {\n        assert(0 <= n);\n        ModInt x = *this, r = 1;\n        while(n){\n\
+    \            if(n & 1) r *= x;\n            x *= x;\n            n >>= 1;\n  \
+    \      }\n        return r;\n    }\n    ModInt inv(const long long n) const {\n\
+    \        long long a = n, b = Modulus, u = 1, v = 0;\n        while(b){\n    \
+    \        long long t = a / b;\n            a -= t * b; std::swap(a, b);\n    \
+    \        u -= t * v; std::swap(u, v);\n        }\n        u %= Modulus;\n    \
+    \    if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline ModInt\
+    \ operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
+    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
+    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
+    \ lhs.val != rhs.val; }\n    friend inline std::istream &operator>>(std::istream\
+    \ &is, ModInt &x) noexcept {\n        is >> x.val;\n        x.normalize();\n \
+    \       return is;\n    }\n    friend inline std::ostream &operator<<(std::ostream\
+    \ &os, const ModInt &x) noexcept { return os << x.val; }\n};\n#line 2 \"lib/math/crt.hpp\"\
+    \n\n/**\n * @brief Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406\
+    )\n * @docs docs/math/crt.md\n */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\
+    \n\nnamespace CRT{\n    inline long long mod(long long a, long long m){\n    \
+    \    return (a % m + m) % m;\n    }\n\n    long long extGCD(long long a, long\
+    \ long b, long long &x, long long &y){\n        if(b == 0){\n            x = 1;\n\
+    \            y = 0;\n            return a;\n        }\n        long long d = extGCD(b,\
+    \ a % b, y, x);\n        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long\
+    \ long, long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
     \ long> &m) {\n        long long r = 0, M = 1;\n        for(int i = 0; i < (int)\
     \ b.size(); i++){\n            long long p, q;\n            long long d = extGCD(M,\
     \ m[i], p, q);\n            if((b[i] - r) % d != 0) return {0, -1};\n        \
@@ -355,50 +320,49 @@ data:
     \        if(sqrt0 == -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2\
     \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
-    \    }\n};\n#line 11 \"lib/polynomial/taylor_shift.hpp\"\n\n// g(x) = f(x + a)\
-    \ \u3068\u306A\u308B g\ntemplate <typename T>\nFormalPowerSeries<T> taylorShift(const\
-    \ FormalPowerSeries<T> &f, const T c) {\n    const int deg = f.size();\n    Combination<T>\
-    \ comb(deg);\n    // g_j = 1/j! sum(f_{i + j} (i + j!) * (c^i / i!)) -> f_{i +\
-    \ j} (i + j!) \u3068 (c^i / i!) \u306F\u6DFB\u3048\u5B57\u306E\u5DEE\u306E\u7573\
-    \u307F\u8FBC\u307F\n    FormalPowerSeries<T> res = f;\n    for(int i = 0; i <\
-    \ deg; i++){\n        res[i] *= comb.fact(i);\n    }\n    std::reverse(std::begin(res),\
-    \ std::end(res));\n    FormalPowerSeries<T> res2(deg, T(1));\n    for(int i =\
-    \ 1; i < deg; i++){\n        res2[i] = (res2[i - 1] * c) * comb.inv[i];\n    }\n\
-    \    res = (res * res2).pre(deg);\n    std::reverse(std::begin(res), std::end(res));\n\
-    \    for(int i = 0; i < deg; i++){\n        res[i] *= comb.factinv(i);\n    }\n\
-    \    return res;\n}\n#line 6 \"test/library_checker/polynomial/polynomial_taylor_shift.test.cpp\"\
-    \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\
-    \nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n   \
-    \ int n; cin >> n;\n    mint c; cin >> c;\n    FPS f(n);\n    for(int i = 0; i\
-    \ < n; i++){\n        cin >> f[i];\n    }\n    FPS g = taylorShift(f, c);\n  \
-    \  for(int i = 0; i < n; i++){\n        cout << g[i] << (i == n - 1 ? '\\n' :\
-    \ ' ');\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
-    \n#include <iostream>\n\n#include \"../../../lib/math/modint.hpp\"\n#include \"\
-    ../../../lib/polynomial/taylor_shift.hpp\"\n\nusing namespace std;\n\nusing mint\
-    \ = ModInt<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\nint main(){\n\
-    \    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int n; cin >>\
-    \ n;\n    mint c; cin >> c;\n    FPS f(n);\n    for(int i = 0; i < n; i++){\n\
-    \        cin >> f[i];\n    }\n    FPS g = taylorShift(f, c);\n    for(int i =\
-    \ 0; i < n; i++){\n        cout << g[i] << (i == n - 1 ? '\\n' : ' ');\n    }\n\
-    }\n"
+    \    }\n};\n#line 10 \"lib/enumerative_combinatorics/subset_sum.hpp\"\n\ntemplate\
+    \ <typename T>\nstd::vector<T> subsetSum(std::vector<long long> s, const int t_max){\n\
+    \    using FPS = FormalPowerSeries<T>;\n    // prod (1 + x^{s_i}) -> exp(sum log(1\
+    \ + x^{s_i}))\n    std::vector<T> cnt(t_max + 1, T(0));\n    for(auto x : s){\n\
+    \        if(x > t_max) continue;\n        cnt[x]++;\n    }\n\n    std::vector<T>\
+    \ inv(t_max + 1);\n    inv[1] = 1;\n    long long mod = T::mod();\n    for(int\
+    \ i = 2; i <= t_max; ++i){\n        inv[i] = mod - inv[mod % i] * (mod / i);\n\
+    \    }\n\n    FPS ans(t_max + 1);\n    for(int i = 1; i <= t_max; i++){\n    \
+    \    if(cnt[i] == T(0)) continue;\n        // log(1 + x^i) = x^i - x^(2i)/2 +\
+    \ x^(3i)/3 - ...\n        T sign = T(1);\n        for(int j = i; j <= t_max; j\
+    \ += i){\n            ans[j] += T(cnt[i]) * sign * inv[j / i];\n            sign\
+    \ *= T(-1);\n        }\n    }\n    ans = ans.exp(t_max + 1);\n    return std::vector<T>(std::begin(ans),\
+    \ std::end(ans));\n}\n"
+  code: "#pragma once\n\n/**\n * @brief Subset Sum\n * @see https://suu-0313.hatenablog.com/entry/2022/04/12/225153\n\
+    \ */\n\n#include \"../polynomial/formal_power_series.hpp\"\n#include <vector>\n\
+    \ntemplate <typename T>\nstd::vector<T> subsetSum(std::vector<long long> s, const\
+    \ int t_max){\n    using FPS = FormalPowerSeries<T>;\n    // prod (1 + x^{s_i})\
+    \ -> exp(sum log(1 + x^{s_i}))\n    std::vector<T> cnt(t_max + 1, T(0));\n   \
+    \ for(auto x : s){\n        if(x > t_max) continue;\n        cnt[x]++;\n    }\n\
+    \n    std::vector<T> inv(t_max + 1);\n    inv[1] = 1;\n    long long mod = T::mod();\n\
+    \    for(int i = 2; i <= t_max; ++i){\n        inv[i] = mod - inv[mod % i] * (mod\
+    \ / i);\n    }\n\n    FPS ans(t_max + 1);\n    for(int i = 1; i <= t_max; i++){\n\
+    \        if(cnt[i] == T(0)) continue;\n        // log(1 + x^i) = x^i - x^(2i)/2\
+    \ + x^(3i)/3 - ...\n        T sign = T(1);\n        for(int j = i; j <= t_max;\
+    \ j += i){\n            ans[j] += T(cnt[i]) * sign * inv[j / i];\n           \
+    \ sign *= T(-1);\n        }\n    }\n    ans = ans.exp(t_max + 1);\n    return\
+    \ std::vector<T>(std::begin(ans), std::end(ans));\n}\n"
   dependsOn:
-  - lib/math/modint.hpp
-  - lib/polynomial/taylor_shift.hpp
-  - lib/enumerative_combinatorics/combination_modint.hpp
   - lib/polynomial/formal_power_series.hpp
   - lib/convolution/ntt.hpp
+  - lib/math/modint.hpp
   - lib/math/crt.hpp
-  isVerificationFile: true
-  path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+  isVerificationFile: false
+  path: lib/enumerative_combinatorics/subset_sum.hpp
   requiredBy: []
   timestamp: '2024-11-25 16:56:48+09:00'
-  verificationStatus: TEST_ACCEPTED
-  verifiedWith: []
-documentation_of: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+documentation_of: lib/enumerative_combinatorics/subset_sum.hpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-- /verify/test/library_checker/polynomial/polynomial_taylor_shift.test.cpp.html
-title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+- /library/lib/enumerative_combinatorics/subset_sum.hpp
+- /library/lib/enumerative_combinatorics/subset_sum.hpp.html
+title: Subset Sum
 ---

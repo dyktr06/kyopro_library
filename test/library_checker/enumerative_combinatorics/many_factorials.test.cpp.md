@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: lib/math/factorial.hpp
-    title: lib/math/factorial.hpp
+  - icon: ':x:'
+    path: lib/enumerative_combinatorics/factorial.hpp
+    title: "Factorial (\u968E\u4E57)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/many_factorials
@@ -16,7 +16,8 @@ data:
     - https://judge.yosupo.jp/problem/many_factorials
   bundledCode: "#line 1 \"test/library_checker/enumerative_combinatorics/many_factorials.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/many_factorials\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"lib/math/factorial.hpp\"\n\
+    \ <iostream>\n\n#line 2 \"lib/enumerative_combinatorics/factorial.hpp\"\n\n/**\n\
+    \ * @brief Factorial (\u968E\u4E57)\n */\n\n#include <vector>\n#include <cmath>\n\
     \nlong long factorial_998244353(int n){\n    const int BLOCK = 10000000;\n   \
     \ constexpr long long memo[] = {1, 295201906, 160030060, 957629942, 545208507,\
     \ 213689172, 760025067, 939830261, 506268060, 39806322, 808258749, 440133909,\
@@ -36,7 +37,7 @@ data:
     \    int d = n / BLOCK;\n    long long res = memo[d];\n    for(int i = d * BLOCK\
     \ + 1; i <= n; ++i){\n        res = res * i % 998244353;\n    }\n    return res;\n\
     }\n\ntemplate <typename T>\nstruct ManyFactorials{\n    const T BLOCK, MOD;\n\
-    \    vector<T> memo;\n    ManyFactorials(const T MOD) : BLOCK((T) ((sqrtl(MOD)\
+    \    std::vector<T> memo;\n    ManyFactorials(const T MOD) : BLOCK((T) ((std::sqrtl(MOD)\
     \ + 49) / 50)), MOD(MOD){\n        setup();\n    }\n\n    void setup(){\n    \
     \    memo = {1};\n        T cur = 1;\n        for(T i = 1; i < MOD; ++i){\n  \
     \          cur = cur * i % MOD;\n            if(i % BLOCK == 0){\n           \
@@ -44,24 +45,24 @@ data:
     \ n){\n        if(n >= MOD){\n            return 0;\n        }\n        T d =\
     \ n / BLOCK;\n        T res = memo[d];\n        for(T i = d * BLOCK + 1; i <=\
     \ n; ++i){\n            res = res * i % MOD;\n        }\n        return res;\n\
-    \    }\n};\n#line 6 \"test/library_checker/enumerative_combinatorics/many_factorials.test.cpp\"\
-    \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
-    \   ManyFactorials<long long> fact(998244353LL);\n    int t;\n    cin >> t;\n\
-    \    while(t--){\n        int n; cin >> n;\n        cout << fact.factorial(n)\
-    \ << \"\\n\";\n    }\n}\n"
+    \    }\n};\n#line 5 \"test/library_checker/enumerative_combinatorics/many_factorials.test.cpp\"\
+    \n\nusing namespace std;\n\nint main(){\n    ios::sync_with_stdio(false);\n  \
+    \  cin.tie(nullptr);\n\n    ManyFactorials<long long> fact(998244353LL);\n   \
+    \ int t;\n    cin >> t;\n    while(t--){\n        int n; cin >> n;\n        cout\
+    \ << fact.factorial(n) << \"\\n\";\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/many_factorials\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/factorial.hpp\"\
-    \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
-    \   ManyFactorials<long long> fact(998244353LL);\n    int t;\n    cin >> t;\n\
-    \    while(t--){\n        int n; cin >> n;\n        cout << fact.factorial(n)\
-    \ << \"\\n\";\n    }\n}\n"
+    \ <iostream>\n\n#include \"../../../lib/enumerative_combinatorics/factorial.hpp\"\
+    \n\nusing namespace std;\n\nint main(){\n    ios::sync_with_stdio(false);\n  \
+    \  cin.tie(nullptr);\n\n    ManyFactorials<long long> fact(998244353LL);\n   \
+    \ int t;\n    cin >> t;\n    while(t--){\n        int n; cin >> n;\n        cout\
+    \ << fact.factorial(n) << \"\\n\";\n    }\n}\n"
   dependsOn:
-  - lib/math/factorial.hpp
+  - lib/enumerative_combinatorics/factorial.hpp
   isVerificationFile: true
   path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   requiredBy: []
-  timestamp: '2024-10-21 22:22:04+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-25 16:56:48+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
 layout: document

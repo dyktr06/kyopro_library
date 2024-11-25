@@ -5,6 +5,13 @@ data:
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
+    path: lib/enumerative_combinatorics/combination_modint.hpp
+    title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
+  - icon: ':heavy_check_mark:'
+    path: lib/enumerative_combinatorics/stirling_number_2nd.hpp
+    title: "Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\u30FC\u30EA\
+      \u30F3\u30B0\u6570)"
+  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
   - icon: ':heavy_check_mark:'
@@ -14,71 +21,100 @@ data:
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
-    title: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: "Partition Function (\u5206\u5272\u6570)"
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k
     links:
-    - https://ladywingclover.hatenablog.com/entry/2023/04/05/153502
-  bundledCode: "#line 2 \"lib/math/partition_function.hpp\"\n\n/**\n * @brief Partition\
-    \ Function (\u5206\u5272\u6570)\n * @see https://ladywingclover.hatenablog.com/entry/2023/04/05/153502\n\
-    \ */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n * @brief Formal\
-    \ Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n#include <algorithm>\n\
-    #include <cassert>\n#include <vector>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n\
-    /**\n * @brief Number Theoretic Transform\n */\n\n#line 2 \"lib/math/modint.hpp\"\
-    \n\n#include <iostream>\n#line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n\
-    \ * @docs docs/math/modint.md\n */\n\ntemplate <long long Modulus>\nstruct ModInt{\n\
-    \    long long val;\n    static constexpr int mod() { return Modulus; }\n    constexpr\
-    \ ModInt(const long long _val = 0) noexcept : val(_val) {\n        normalize();\n\
-    \    }\n    void normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n\
-    \    }\n    inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val\
-    \ += rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n\
-    \    inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -=\
-    \ rhs.val, val < 0) val += Modulus;\n        return *this;\n    }\n    inline\
-    \ ModInt &operator*=(const ModInt &rhs) noexcept {\n        val = val * rhs.val\
-    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator/=(const\
-    \ ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val % Modulus;\n \
-    \       return *this;\n    }\n    inline ModInt &operator++() noexcept {\n   \
-    \     if(++val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
-    \ inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n        if(++val\
-    \ >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline ModInt &operator--()\
-    \ noexcept {\n        if(--val < 0) val += Modulus;\n        return *this;\n \
-    \   }\n    inline ModInt operator--(int) noexcept {\n        ModInt t = val;\n\
-    \        if(--val < 0) val += Modulus;\n        return t;\n    }\n    inline ModInt\
-    \ operator-() const noexcept { return (Modulus - val) % Modulus; }\n    inline\
-    \ ModInt inv(void) const { return inv(val); }\n    ModInt pow(long long n) const\
-    \ {\n        assert(0 <= n);\n        ModInt x = *this, r = 1;\n        while(n){\n\
-    \            if(n & 1) r *= x;\n            x *= x;\n            n >>= 1;\n  \
-    \      }\n        return r;\n    }\n    ModInt inv(const long long n) const {\n\
-    \        long long a = n, b = Modulus, u = 1, v = 0;\n        while(b){\n    \
-    \        long long t = a / b;\n            a -= t * b; std::swap(a, b);\n    \
-    \        u -= t * v; std::swap(u, v);\n        }\n        u %= Modulus;\n    \
-    \    if(u < 0) u += Modulus;\n        return u;\n    }\n    friend inline ModInt\
-    \ operator+(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
-    \ += rhs; }\n    friend inline ModInt operator-(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend inline ModInt operator*(const\
-    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) *= rhs; }\n  \
-    \  friend inline ModInt operator/(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) /= rhs; }\n    friend inline bool operator==(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return lhs.val == rhs.val; }\n    friend\
-    \ inline bool operator!=(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ lhs.val != rhs.val; }\n    friend inline std::istream &operator>>(std::istream\
-    \ &is, ModInt &x) noexcept {\n        is >> x.val;\n        x.normalize();\n \
-    \       return is;\n    }\n    friend inline std::ostream &operator<<(std::ostream\
-    \ &os, const ModInt &x) noexcept { return os << x.val; }\n};\n#line 2 \"lib/math/crt.hpp\"\
-    \n\n/**\n * @brief Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406\
-    )\n * @docs docs/math/crt.md\n */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\
-    \n\nnamespace CRT{\n    inline long long mod(long long a, long long m){\n    \
-    \    return (a % m + m) % m;\n    }\n\n    long long extGCD(long long a, long\
-    \ long b, long long &x, long long &y){\n        if(b == 0){\n            x = 1;\n\
-    \            y = 0;\n            return a;\n        }\n        long long d = extGCD(b,\
-    \ a % b, y, x);\n        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long\
-    \ long, long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
+    - https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k
+  bundledCode: "#line 1 \"test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k\"\
+    \n#include <iostream>\n\n#line 2 \"lib/enumerative_combinatorics/stirling_number_2nd.hpp\"\
+    \n\n/**\n * @brief Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\
+    \u30FC\u30EA\u30F3\u30B0\u6570)\n */\n\n\n#line 2 \"lib/enumerative_combinatorics/combination_modint.hpp\"\
+    \n\n/**\n * @brief Combination (\u4E8C\u9805\u4FC2\u6570)\n */\n\n#include <vector>\n\
+    \ntemplate <typename T>\nstruct Combination{\n    std::vector<T> memo, memoinv,\
+    \ inv;\n    Combination(const int N) : memo(N + 1), memoinv(N + 1), inv(N + 1){\n\
+    \        T m = -1;\n        long long mod = (m.val + 1LL);\n        memo[0] =\
+    \ memo[1] = 1;\n        memoinv[0] = memoinv[1] = 1;\n        inv[1] = 1;\n  \
+    \      for(int i = 2; i <= N; ++i){\n            memo[i] = memo[i - 1] * i;\n\
+    \            inv[i] = mod - inv[mod % i] * (mod / i);\n            memoinv[i]\
+    \ = memoinv[i - 1] * inv[i];\n        }\n    }\n    inline T fact(const int n)\
+    \ const {\n        return memo[n];\n    }\n    inline T factinv(const int n) const\
+    \ {\n        return memoinv[n];\n    }\n    inline T ncr(const int n, const int\
+    \ r) const {\n        if(n < r || r < 0) return 0;\n        return (memo[n] *\
+    \ memoinv[r]) * memoinv[n - r];\n    }\n    inline T npr(const int n, const int\
+    \ r) const {\n        if(n < r || r < 0) return 0;\n        return memo[n] * memoinv[n\
+    \ - r];\n    }\n    // \u91CD\u8907\u7D44\u307F\u5408\u308F\u305B\n    inline\
+    \ T nhr(const int n, const int r) const {\n        if(n == 0 && r == 0) return\
+    \ 1;\n        return ncr(n + r - 1, r);\n    }\n    // \u30DC\u30FC\u30EB\u306E\
+    \u6570\u3001\u4E00\u500B\u4EE5\u4E0A\u5FC5\u8981\u306A\u7BB1\u306E\u6570\u3001\
+    \u5236\u9650\u304C\u306A\u3044\u7BB1\u306E\u6570 (\u7BB1\u533A\u5225\u3042\u308A\
+    )\n    // a = 0 \u306E\u5834\u5408\u306F\u91CD\u8907\u7D44\u307F\u5408\u308F\u305B\
+    \n    inline T choose(const int n, const int a, const int b = 0) const {\n   \
+    \     if(n == 0) return !a;\n        return ncr(n + b - 1, a + b - 1);\n    }\n\
+    \    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C >= 0\n    inline T cataran(const\
+    \ int n, const int m) const {\n        return ncr(n + m, n) - ncr(n + m, n - 1);\n\
+    \    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T\
+    \ cataran(const int n, const int m, const int k) const {\n        if(m < k) return\
+    \ ncr(n + m, n);\n        if(m < n + k) return ncr(n + m, n) - ncr(n + m, m -\
+    \ k);\n        return 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\
+    \u548C < +k\n    inline T cataran2(const int n, const int m, const int k) const\
+    \ {\n        return cataran(m, n, k);\n    }\n};\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\
+    \n\n/**\n * @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
+    \ */\n\n#include <algorithm>\n#include <cassert>\n#line 2 \"lib/convolution/ntt.hpp\"\
+    \n\n/**\n * @brief Number Theoretic Transform\n */\n\n#line 2 \"lib/math/modint.hpp\"\
+    \n\n#line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
+    \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
+    \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
+    \ normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n    }\n  \
+    \  inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val +=\
+    \ rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
+    \ inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -= rhs.val,\
+    \ val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt &operator*=(const\
+    \ ModInt &rhs) noexcept {\n        val = val * rhs.val % Modulus;\n        return\
+    \ *this;\n    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n\
+    \        val = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n\
+    \    inline ModInt &operator++() noexcept {\n        if(++val >= Modulus) val\
+    \ -= Modulus;\n        return *this;\n    }\n    inline ModInt operator++(int)\
+    \ noexcept {\n        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n\
+    \        return t;\n    }\n    inline ModInt &operator--() noexcept {\n      \
+    \  if(--val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt\
+    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
+    \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
+    \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
+    \ inv(val); }\n    ModInt pow(long long n) const {\n        assert(0 <= n);\n\
+    \        ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r\
+    \ *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
+    \ r;\n    }\n    ModInt inv(const long long n) const {\n        long long a =\
+    \ n, b = Modulus, u = 1, v = 0;\n        while(b){\n            long long t =\
+    \ a / b;\n            a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u,\
+    \ v);\n        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n   \
+    \     return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline\
+    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \ -= rhs; }\n    friend inline ModInt operator*(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n  \
+    \  friend inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend\
+    \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
+    \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
+    \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
+    \ { return os << x.val; }\n};\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
+    \ Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
+    \ */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n\
+    \    inline long long mod(long long a, long long m){\n        return (a % m +\
+    \ m) % m;\n    }\n\n    long long extGCD(long long a, long long b, long long &x,\
+    \ long long &y){\n        if(b == 0){\n            x = 1;\n            y = 0;\n\
+    \            return a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n\
+    \        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long long,\
+    \ long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
     \ long> &m) {\n        long long r = 0, M = 1;\n        for(int i = 0; i < (int)\
     \ b.size(); i++){\n            long long p, q;\n            long long d = extGCD(M,\
     \ m[i], p, q);\n            if((b[i] - r) % d != 0) return {0, -1};\n        \
@@ -320,53 +356,55 @@ data:
     \        if(sqrt0 == -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2\
     \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
-    \    }\n};\n#line 10 \"lib/math/partition_function.hpp\"\n\ntemplate <typename\
-    \ T>\nstd::vector<T> partitionFunction(const int n){\n    using FPS = FormalPowerSeries<T>;\n\
-    \    FPS f(n + 1);\n    // (1 + x + x^2 + ...)(1 + x^2 + x^4 + ...)(1 + x^3 +\
-    \ x^6 + ...)(...)\n    // N \u6B21\u307E\u3067\u3067\u826F\u3044\u306E\u3067\u3001\
-    \u7B49\u6BD4\u6570\u5217\u306E\u548C\u3092\u8003\u3048\u308B\u3068\u3001\n   \
-    \ // (1/(1 - x))(1/(1 - x^2))(1/(1 - x^3))(...)\n    // = exp(log(1/(1 - x)) +\
-    \ log(1/(1 - x^2)) + log(1/(1 - x^3)) + ...)\n    // = exp(-log(1 - x) - log(1\
-    \ - x^2) - log(1 - x^3) - ...)\n\n    std::vector<T> inv(n + 1);\n    inv[1] =\
-    \ 1;\n    long long mod = T::mod();\n    for(int i = 2; i <= n; ++i){\n      \
-    \  inv[i] = mod - inv[mod % i] * (mod / i);\n    }\n\n    for(int i = 1; i <=\
-    \ n; i++){\n        for(int j = i; j <= n; j += i){\n            // log(1 - x)\
-    \ = -x - x^2/2 - x^3/3 - ...\n            // -log(1 - x) = x + x^2/2 + x^3/3 +\
-    \ ...\n            f[j] += inv[j / i];\n        }\n    }\n    f = f.exp(n + 1);\n\
-    \    return std::vector<T>(std::begin(f), std::end(f));\n}\n"
-  code: "#pragma once\n\n/**\n * @brief Partition Function (\u5206\u5272\u6570)\n\
-    \ * @see https://ladywingclover.hatenablog.com/entry/2023/04/05/153502\n */\n\n\
-    #include \"../polynomial/formal_power_series.hpp\"\n#include <vector>\n\ntemplate\
-    \ <typename T>\nstd::vector<T> partitionFunction(const int n){\n    using FPS\
-    \ = FormalPowerSeries<T>;\n    FPS f(n + 1);\n    // (1 + x + x^2 + ...)(1 + x^2\
-    \ + x^4 + ...)(1 + x^3 + x^6 + ...)(...)\n    // N \u6B21\u307E\u3067\u3067\u826F\
-    \u3044\u306E\u3067\u3001\u7B49\u6BD4\u6570\u5217\u306E\u548C\u3092\u8003\u3048\
-    \u308B\u3068\u3001\n    // (1/(1 - x))(1/(1 - x^2))(1/(1 - x^3))(...)\n    //\
-    \ = exp(log(1/(1 - x)) + log(1/(1 - x^2)) + log(1/(1 - x^3)) + ...)\n    // =\
-    \ exp(-log(1 - x) - log(1 - x^2) - log(1 - x^3) - ...)\n\n    std::vector<T> inv(n\
-    \ + 1);\n    inv[1] = 1;\n    long long mod = T::mod();\n    for(int i = 2; i\
-    \ <= n; ++i){\n        inv[i] = mod - inv[mod % i] * (mod / i);\n    }\n\n   \
-    \ for(int i = 1; i <= n; i++){\n        for(int j = i; j <= n; j += i){\n    \
-    \        // log(1 - x) = -x - x^2/2 - x^3/3 - ...\n            // -log(1 - x)\
-    \ = x + x^2/2 + x^3/3 + ...\n            f[j] += inv[j / i];\n        }\n    }\n\
-    \    f = f.exp(n + 1);\n    return std::vector<T>(std::begin(f), std::end(f));\n\
-    }\n"
+    \    }\n};\n#line 10 \"lib/enumerative_combinatorics/stirling_number_2nd.hpp\"\
+    \n\n#line 12 \"lib/enumerative_combinatorics/stirling_number_2nd.hpp\"\n\ntemplate\
+    \ <typename T>\nstd::vector<T> stirling_number_2nd(int n){\n    // \u7B2C 2 \u7A2E\
+    \u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306F\u3001\n    // S(n, k) = 1/k!\
+    \ sum_{0}^{k} (-1)^{k - i} Choose(k, i) i^n\n    // = 1/k! sum_{0}^{k} (-1)^{k\
+    \ - i} (k!/(i)!(k - i)!) i^n\n    // = sum_{0}^{k} (-1)^{k - i} 1/(i)!(k - i)!\
+    \ i^n\n    // = sum_{0}^{k} ( (-1)^{k - i} / (k - i)! ) ( i^n / i! )\n    // ->\
+    \ \u7573\u307F\u8FBC\u307F\u3067\u8A08\u7B97\u53EF\u80FD\n    using FPS = FormalPowerSeries<T>;\n\
+    \    Combination<T> comb(n);\n    FPS f(n + 1), g(n + 1);\n    for(int i = 0;\
+    \ i <= n; i++){\n        f[i] = (i & 1) ? (-1) : 1;\n        f[i] *= comb.factinv(i);\n\
+    \n        g[i] = T(i).pow(n);\n        g[i] *= comb.factinv(i);\n    }\n    f\
+    \ *= g;\n    return std::vector<T>(f.begin(), f.begin() + n + 1);\n}\n\ntemplate\
+    \ <typename T>\nstd::vector<T> stirling_number_2nd_fixed_k(int n, int k){\n  \
+    \  // \u7B2C 2 \u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6307\u6570\
+    \u578B\u6BCD\u95A2\u6570\u306F\u3001\n    // (exp(x) - 1)^k / k! = sum S(n, k)\
+    \ x^n / n!\n    using FPS = FormalPowerSeries<T>;\n    FPS f({T(0), T(1)});\n\
+    \    f = f.exp(n + 1);\n    f[0] -= 1;\n    f = f.pow(k);\n    T k_fact = 1;\n\
+    \    for(int i = 1; i <= k; i++) k_fact *= i;\n    k_fact = k_fact.inv();\n  \
+    \  T fact = 1;\n    for(int i = 0; i <= n; i++){\n        if(i >= 1) fact *= i;\n\
+    \        f[i] *= fact;\n        f[i] *= k_fact;\n    }\n    return std::vector<T>(f.begin(),\
+    \ f.begin() + n + 1);\n}\n#line 6 \"test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp\"\
+    \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\nint main(){\n \
+    \   cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int n, k;\n   \
+    \ cin >> n >> k;\n    auto f = stirling_number_2nd_fixed_k<mint>(n, k);\n    for(int\
+    \ i = k; i <= n; i++){\n        cout << f[i] << \" \\n\"[i == n];\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k\"\
+    \n#include <iostream>\n\n#include \"../../../lib/enumerative_combinatorics/stirling_number_2nd.hpp\"\
+    \n#include \"../../../lib/math/modint.hpp\"\n\nusing namespace std;\n\nusing mint\
+    \ = ModInt<998244353>;\n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
+    \n    int n, k;\n    cin >> n >> k;\n    auto f = stirling_number_2nd_fixed_k<mint>(n,\
+    \ k);\n    for(int i = k; i <= n; i++){\n        cout << f[i] << \" \\n\"[i ==\
+    \ n];\n    }\n}\n"
   dependsOn:
+  - lib/enumerative_combinatorics/stirling_number_2nd.hpp
+  - lib/enumerative_combinatorics/combination_modint.hpp
   - lib/polynomial/formal_power_series.hpp
   - lib/convolution/ntt.hpp
   - lib/math/modint.hpp
   - lib/math/crt.hpp
-  isVerificationFile: false
-  path: lib/math/partition_function.hpp
+  isVerificationFile: true
+  path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/enumerative_combinatorics/partition_function.test.cpp
-documentation_of: lib/math/partition_function.hpp
+  timestamp: '2024-11-25 16:56:48+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
 layout: document
 redirect_from:
-- /library/lib/math/partition_function.hpp
-- /library/lib/math/partition_function.hpp.html
-title: "Partition Function (\u5206\u5272\u6570)"
+- /verify/test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
+- /verify/test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp.html
+title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
 ---

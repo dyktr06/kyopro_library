@@ -5,14 +5,14 @@ data:
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
+    path: lib/enumerative_combinatorics/partition_function.hpp
+    title: "Partition Function (\u5206\u5272\u6570)"
+  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
   - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
-    path: lib/math/partition_function.hpp
-    title: "Partition Function (\u5206\u5272\u6570)"
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
@@ -68,8 +68,8 @@ data:
     \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
     \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
     \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
-    \ { return os << x.val; }\n};\n#line 2 \"lib/math/partition_function.hpp\"\n\n\
-    /**\n * @brief Partition Function (\u5206\u5272\u6570)\n * @see https://ladywingclover.hatenablog.com/entry/2023/04/05/153502\n\
+    \ { return os << x.val; }\n};\n#line 2 \"lib/enumerative_combinatorics/partition_function.hpp\"\
+    \n\n/**\n * @brief Partition Function (\u5206\u5272\u6570)\n * @see https://ladywingclover.hatenablog.com/entry/2023/04/05/153502\n\
     \ */\n\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n * @brief Formal\
     \ Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n#include <algorithm>\n\
     #line 9 \"lib/polynomial/formal_power_series.hpp\"\n#include <vector>\n#line 2\
@@ -324,41 +324,42 @@ data:
     \        if(sqrt0 == -1) return {};\n        FPS res({T(sqrt0)});\n        T inv2\
     \ = T(1) / T(2);\n        for(int i = 1; i < deg; i <<= 1) {\n            res\
     \ = (res + pre(i << 1) * res.inv(i << 1)) * inv2;\n        }\n        return res.pre(deg);\n\
-    \    }\n};\n#line 10 \"lib/math/partition_function.hpp\"\n\ntemplate <typename\
-    \ T>\nstd::vector<T> partitionFunction(const int n){\n    using FPS = FormalPowerSeries<T>;\n\
-    \    FPS f(n + 1);\n    // (1 + x + x^2 + ...)(1 + x^2 + x^4 + ...)(1 + x^3 +\
-    \ x^6 + ...)(...)\n    // N \u6B21\u307E\u3067\u3067\u826F\u3044\u306E\u3067\u3001\
-    \u7B49\u6BD4\u6570\u5217\u306E\u548C\u3092\u8003\u3048\u308B\u3068\u3001\n   \
-    \ // (1/(1 - x))(1/(1 - x^2))(1/(1 - x^3))(...)\n    // = exp(log(1/(1 - x)) +\
-    \ log(1/(1 - x^2)) + log(1/(1 - x^3)) + ...)\n    // = exp(-log(1 - x) - log(1\
-    \ - x^2) - log(1 - x^3) - ...)\n\n    std::vector<T> inv(n + 1);\n    inv[1] =\
-    \ 1;\n    long long mod = T::mod();\n    for(int i = 2; i <= n; ++i){\n      \
-    \  inv[i] = mod - inv[mod % i] * (mod / i);\n    }\n\n    for(int i = 1; i <=\
-    \ n; i++){\n        for(int j = i; j <= n; j += i){\n            // log(1 - x)\
-    \ = -x - x^2/2 - x^3/3 - ...\n            // -log(1 - x) = x + x^2/2 + x^3/3 +\
-    \ ...\n            f[j] += inv[j / i];\n        }\n    }\n    f = f.exp(n + 1);\n\
-    \    return std::vector<T>(std::begin(f), std::end(f));\n}\n#line 6 \"test/library_checker/enumerative_combinatorics/partition_function.test.cpp\"\
+    \    }\n};\n#line 10 \"lib/enumerative_combinatorics/partition_function.hpp\"\n\
+    \ntemplate <typename T>\nstd::vector<T> partitionFunction(const int n){\n    using\
+    \ FPS = FormalPowerSeries<T>;\n    FPS f(n + 1);\n    // (1 + x + x^2 + ...)(1\
+    \ + x^2 + x^4 + ...)(1 + x^3 + x^6 + ...)(...)\n    // N \u6B21\u307E\u3067\u3067\
+    \u826F\u3044\u306E\u3067\u3001\u7B49\u6BD4\u6570\u5217\u306E\u548C\u3092\u8003\
+    \u3048\u308B\u3068\u3001\n    // (1/(1 - x))(1/(1 - x^2))(1/(1 - x^3))(...)\n\
+    \    // = exp(log(1/(1 - x)) + log(1/(1 - x^2)) + log(1/(1 - x^3)) + ...)\n  \
+    \  // = exp(-log(1 - x) - log(1 - x^2) - log(1 - x^3) - ...)\n\n    std::vector<T>\
+    \ inv(n + 1);\n    inv[1] = 1;\n    long long mod = T::mod();\n    for(int i =\
+    \ 2; i <= n; ++i){\n        inv[i] = mod - inv[mod % i] * (mod / i);\n    }\n\n\
+    \    for(int i = 1; i <= n; i++){\n        for(int j = i; j <= n; j += i){\n \
+    \           // log(1 - x) = -x - x^2/2 - x^3/3 - ...\n            // -log(1 -\
+    \ x) = x + x^2/2 + x^3/3 + ...\n            f[j] += inv[j / i];\n        }\n \
+    \   }\n    f = f.exp(n + 1);\n    return std::vector<T>(std::begin(f), std::end(f));\n\
+    }\n#line 6 \"test/library_checker/enumerative_combinatorics/partition_function.test.cpp\"\
     \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\nint main(){\n \
     \   cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int n; cin >> n;\n\
     \    auto f = partitionFunction<mint>(n);\n    for(int i = 0; i <= n; i++){\n\
     \        cout << f[i] << (i == n ? '\\n' : ' ');\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/partition_function\"\n\
     #include <iostream>\n\n#include \"../../../lib/math/modint.hpp\"\n#include \"\
-    ../../../lib/math/partition_function.hpp\"\n\nusing namespace std;\n\nusing mint\
-    \ = ModInt<998244353>;\n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
-    \n    int n; cin >> n;\n    auto f = partitionFunction<mint>(n);\n    for(int\
-    \ i = 0; i <= n; i++){\n        cout << f[i] << (i == n ? '\\n' : ' ');\n    }\n\
-    }\n"
+    ../../../lib/enumerative_combinatorics/partition_function.hpp\"\n\nusing namespace\
+    \ std;\n\nusing mint = ModInt<998244353>;\n\nint main(){\n    cin.tie(nullptr);\n\
+    \    ios::sync_with_stdio(false);\n\n    int n; cin >> n;\n    auto f = partitionFunction<mint>(n);\n\
+    \    for(int i = 0; i <= n; i++){\n        cout << f[i] << (i == n ? '\\n' : '\
+    \ ');\n    }\n}\n"
   dependsOn:
   - lib/math/modint.hpp
-  - lib/math/partition_function.hpp
+  - lib/enumerative_combinatorics/partition_function.hpp
   - lib/polynomial/formal_power_series.hpp
   - lib/convolution/ntt.hpp
   - lib/math/crt.hpp
   isVerificationFile: true
   path: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
+  timestamp: '2024-11-25 16:56:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
