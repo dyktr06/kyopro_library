@@ -6,7 +6,6 @@
  */
 
 #include "../graph/scc.hpp"
-#include "../graph/topological_sort.hpp"
 
 #include <vector>
 #include <cassert>
@@ -15,7 +14,7 @@ struct TwoSAT{
     int N;
     SCC scc;
     std::vector<bool> ans;
-    TwoSAT(int N) : N(N), scc(2 * N){ }
+    TwoSAT(const int N) : N(N), scc(2 * N){ }
 
     // ((x = f) or (y = g))
     void add_clause(int x, bool f, int y, bool g){
@@ -35,12 +34,11 @@ struct TwoSAT{
                 return;
             }
         }
-        std::vector<int> ts = topological_sort(scc.getCompressed());
-        int len = (int) ts.size();
+        int len = (int) scc.result.size();
         ans.resize(N);
         std::vector<bool> used(2 * N);
         for(int i = 0; i < len; i++){
-            for(auto x : scc.result[ts[i]]){
+            for(auto x : scc.result[i]){
                 used[x] = 1;
                 // x が 真 かつ !x が訪問済み -> !x -> x のパスが存在する可能性があるため 真 を割り当てる
                 if(x % 2 == 1 && used[x ^ 1]){
