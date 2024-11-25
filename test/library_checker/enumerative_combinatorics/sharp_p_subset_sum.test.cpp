@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/sharp_p_subset_sum"
 #include <iostream>
 
+#include "../../../lib/enumerative_combinatorics/subset_sum.hpp"
 #include "../../../lib/math/modint.hpp"
-#include "../../../lib/math/subset_sum.hpp"
 
 using namespace std;
 

@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+ * @brief Combination (二項係数)
+ */
+
 #include <vector>
 
 template <typename T>

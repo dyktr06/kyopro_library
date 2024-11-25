@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "../../../lib/math/modint.hpp"
-#include "../../../lib/math/partition_function.hpp"
+#include "../../../lib/enumerative_combinatorics/partition_function.hpp"
 
 using namespace std;
 

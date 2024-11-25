@@ -1,8 +1,9 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/factorial"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
 
-#include "../../../lib/math/factorial.hpp"
+#include "../../../lib/enumerative_combinatorics/factorial.hpp"
+
+using namespace std;
 
 int main() {
     ios::sync_with_stdio(false);

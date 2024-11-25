@@ -5,7 +5,7 @@
  * @see https://drken1215.hatenablog.com/entry/2023/09/08/003100
  */
 
-#include "../math/combination_modint.hpp"
+#include "../enumerative_combinatorics/combination_modint.hpp"
 #include "../polynomial/formal_power_series.hpp"
 #include <vector>
 

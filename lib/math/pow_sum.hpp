@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../math/combination_modint.hpp"
+#include "../enumerative_combinatorics/combination_modint.hpp"
 
 template <typename T>
 T pow_sum(long long n, long long k){

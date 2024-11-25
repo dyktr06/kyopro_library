@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/montmort_number_mod"
 #include <iostream>
 
-#include "../../../lib/math/montmort_number.hpp"
+#include "../../../lib/enumerative_combinatorics/montmort_number.hpp"
 
 using namespace std;
 
