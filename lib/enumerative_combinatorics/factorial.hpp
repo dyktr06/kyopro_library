@@ -25,7 +25,7 @@ template <typename T>
 struct ManyFactorials{
     const T BLOCK, MOD;
     std::vector<T> memo;
-    ManyFactorials(const T MOD) : BLOCK((T) ((std::sqrtl(MOD) + 49) / 50)), MOD(MOD){
+    ManyFactorials(const T MOD) : BLOCK((T) ((sqrtl(MOD) + 49) / 50)), MOD(MOD){
         setup();
     }
 
