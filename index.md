@@ -245,9 +245,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/eulerian_trail.hpp
       title: "Eulerian Trail (\u30AA\u30A4\u30E9\u30FC\u5C0F\u9053)"
-    - icon: ':heavy_check_mark:'
-      path: lib/graph/graph-input.hpp
-      title: lib/graph/graph-input.hpp
     - icon: ':warning:'
       path: lib/graph/grid-bfs.cpp
       title: "Grid BFS (\u4E8C\u6B21\u5143\u30B0\u30EA\u30C3\u30C9\u4E0A\u306E\u5E45\
@@ -287,7 +284,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/steiner_tree.hpp
       title: "Steiner Tree (\u30B7\u30E5\u30BF\u30A4\u30CA\u30FC\u6728)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/topological_sort.hpp
       title: Topological Sort
     - icon: ':heavy_check_mark:'
@@ -297,6 +294,9 @@ data:
       path: lib/graph/two_edge_connected_components.hpp
       title: "Two Edge Connected Components (\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
         \u5206\u89E3)"
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/two_sat.hpp
+      title: 2-SAT
     - icon: ':heavy_check_mark:'
       path: lib/graph/warshall_floyd.hpp
       title: "Floyd-Warshall Algorithm (\u30EF\u30FC\u30B7\u30E3\u30EB\u30D5\u30ED\
@@ -858,6 +858,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/other/longest_increasing_subsequence.test.cpp
       title: test/library_checker/other/longest_increasing_subsequence.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/other/two_sat.test.cpp
+      title: test/library_checker/other/two_sat.test.cpp
   - name: test/library_checker/polynomial
     pages:
     - icon: ':heavy_check_mark:'
