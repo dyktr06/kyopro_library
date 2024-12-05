@@ -121,7 +121,8 @@ template<class T> inline void vout(T vec, string s = "\n"){ for(auto x : vec) co
 template<class... T> void in(T&... a){ (cin >> ... >> a); }
 void out(){ cout << '\n'; }
 template<class T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; (cout << ... << (cout << ' ', b)); cout << '\n'; }
-template<class T, class U> void inGraph(vector<vector<T>> &G, U n, U m, bool directed = false){ G.resize(n); for(int i = 0; i < m; ++i){ int a, b; cin >> a >> b; a--, b--; G[a].push_back(b); if(!directed) G[b].push_back(a); } }
+void fout(){ cout << endl; }
+template<class T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; (cout << ... << (cout << ' ', b)); cout << endl; }
 
 ll T;
 
