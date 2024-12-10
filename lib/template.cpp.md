@@ -77,7 +77,9 @@ data:
     \ T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; (cout << ...\
     \ << (cout << ' ', b)); cout << '\\n'; }\nvoid fout(){ cout << endl; }\ntemplate<class\
     \ T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; (cout << ...\
-    \ << (cout << ' ', b)); cout << endl; }\n\nll T;\n\nvoid input(){\n    in(T);\n\
+    \ << (cout << ' ', b)); cout << endl; }\nvoid debug(){ cerr << '\\n'; }\ntemplate<class\
+    \ T, class... Ts> void debug(const T &a, const Ts&... b){ cerr << a; (cerr <<\
+    \ ... << (cerr << ' ', b)); cerr << '\\n'; }\n\nll T;\n\nvoid input(){\n    in(T);\n\
     }\n\nvoid solve(){\n\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n   \
     \ cin.tie(nullptr);\n    cout << fixed << setprecision(20);\n\n    T = 1;\n  \
     \  // input();\n    while(T--) solve();\n}\n"
@@ -150,7 +152,9 @@ data:
     \ T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; (cout << ...\
     \ << (cout << ' ', b)); cout << '\\n'; }\nvoid fout(){ cout << endl; }\ntemplate<class\
     \ T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; (cout << ...\
-    \ << (cout << ' ', b)); cout << endl; }\n\nll T;\n\nvoid input(){\n    in(T);\n\
+    \ << (cout << ' ', b)); cout << endl; }\nvoid debug(){ cerr << '\\n'; }\ntemplate<class\
+    \ T, class... Ts> void debug(const T &a, const Ts&... b){ cerr << a; (cerr <<\
+    \ ... << (cerr << ' ', b)); cerr << '\\n'; }\n\nll T;\n\nvoid input(){\n    in(T);\n\
     }\n\nvoid solve(){\n\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n   \
     \ cin.tie(nullptr);\n    cout << fixed << setprecision(20);\n\n    T = 1;\n  \
     \  // input();\n    while(T--) solve();\n}\n"
@@ -158,7 +162,7 @@ data:
   isVerificationFile: false
   path: lib/template.cpp
   requiredBy: []
-  timestamp: '2024-12-06 00:58:08+09:00'
+  timestamp: '2024-12-10 12:00:49+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/template.cpp
