@@ -123,6 +123,8 @@ void out(){ cout << '\n'; }
 template<class T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; (cout << ... << (cout << ' ', b)); cout << '\n'; }
 void fout(){ cout << endl; }
 template<class T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; (cout << ... << (cout << ' ', b)); cout << endl; }
+void debug(){ cerr << '\n'; }
+template<class T, class... Ts> void debug(const T &a, const Ts&... b){ cerr << a; (cerr << ... << (cerr << ' ', b)); cerr << '\n'; }
 
 ll T;
 
