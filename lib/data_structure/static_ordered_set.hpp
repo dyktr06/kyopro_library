@@ -118,6 +118,7 @@ struct StaticOrderedSet{
 
     std::vector<T> a;
     compress comp;
+    T siz, sum;
     BinaryIndexedTree cnt, val;
 
     StaticOrderedSet(){ }
@@ -128,17 +129,26 @@ struct StaticOrderedSet{
 
     void build(){
         comp.init(a);
+        siz = T(0);
+        sum = T(0);
         cnt.init(comp.size());
         val.init(comp.size());
     }
 
     T size(){
-        return cnt.sum((int) comp.size());
+        return siz;
+    }
+
+    T all_sum(){
+        return sum;
     }
 
     void insert(T x, T count = 1){
-        cnt.add(comp.get(x), count);
-        val.add(comp.get(x), count * x);
+        int idx = comp.get(x);
+        cnt.add(idx, count);
+        val.add(idx, count * x);
+        siz += count;
+        sum += count * x;
     }
 
     void erase(T x, T count = 1){
@@ -148,6 +158,8 @@ struct StaticOrderedSet{
         }
         cnt.add(idx, -count);
         val.add(idx, -count * x);
+        siz -= count;
+        sum -= count * x;
     }
 
     // 1-indexed
@@ -189,6 +201,19 @@ struct StaticOrderedSet{
     // x 未満
     T count_less(T x){
         return cnt.sum(comp.get(x));
+    }
+
+    // x 以上
+    T count_moreq(T x){
+        return size() - count_less(x);
+    }
+
+    T val_less(T x){
+        return val.sum(comp.get(x));
+    }
+
+    T val_moreq(T x){
+        return all_sum() - val_less(x);
     }
 
     T lower_bound(T x){
