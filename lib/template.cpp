@@ -17,16 +17,19 @@ using namespace atcoder;
 #define RSort(a) (sort((a).rbegin(), (a).rend()))
 #define UNIQUE(a) (a.erase(unique((a).begin(), (a).end()), (a).end()))
 
-typedef long long int ll;
-typedef unsigned long long ul;
-typedef long double ld;
-typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef vector<char> vc;
-typedef vector<string> vst;
-typedef vector<double> vd;
-typedef vector<long double> vld;
-typedef pair<long long, long long> P;
+using i64 = int64_t;
+using i128 = __int128_t;
+
+using ll = long long;
+using ul = unsigned long long;
+using ld = long double;
+using vi = vector<int>;
+using vll = vector<long long>;
+using vc = vector<char>;
+using vst = vector<string>;
+using vd = vector<double>;
+using vld = vector<long double>;
+using P = pair<long long, long long>;
 
 template<class T> long long sum(const T &a){ return accumulate(a.begin(), a.end(), 0LL); }
 template<class T> auto min(const T &a){ return *min_element(a.begin(), a.end()); }
