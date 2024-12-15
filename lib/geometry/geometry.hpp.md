@@ -293,9 +293,9 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/geometry/furthest_pair.test.cpp
-  - test/library_checker/geometry/static_convex_hull.test.cpp
   - test/library_checker/geometry/sort_points_by_argument.test.cpp
   - test/library_checker/geometry/count_points_in_triangle.test.cpp
+  - test/library_checker/geometry/static_convex_hull.test.cpp
   - test/library_checker/geometry/closest_pair.test.cpp
   - test/aoj/cgl/cgl_3_a.test.cpp
 documentation_of: lib/geometry/geometry.hpp

@@ -17,20 +17,21 @@ data:
     \n#define rrep(i,n) for(int i = (int)(n) - 1; i >= 0; --i)\n#define ALL(a) (a).begin(),\
     \ (a).end()\n#define Sort(a) (sort((a).begin(), (a).end()))\n#define RSort(a)\
     \ (sort((a).rbegin(), (a).rend()))\n#define UNIQUE(a) (a.erase(unique((a).begin(),\
-    \ (a).end()), (a).end()))\n\ntypedef long long int ll;\ntypedef unsigned long\
-    \ long ul;\ntypedef long double ld;\ntypedef vector<int> vi;\ntypedef vector<long\
-    \ long> vll;\ntypedef vector<char> vc;\ntypedef vector<string> vst;\ntypedef vector<double>\
-    \ vd;\ntypedef vector<long double> vld;\ntypedef pair<long long, long long> P;\n\
-    \ntemplate<class T> long long sum(const T &a){ return accumulate(a.begin(), a.end(),\
-    \ 0LL); }\ntemplate<class T> auto min(const T &a){ return *min_element(a.begin(),\
-    \ a.end()); }\ntemplate<class T> auto max(const T &a){ return *max_element(a.begin(),\
-    \ a.end()); }\n\nconst long long MINF = 0x7fffffffffff;\nconst long long INF =\
-    \ 0x1fffffffffffffff;\nconst long long MOD = 998244353;\nconst long double EPS\
-    \ = 1e-9;\nconst long double PI = acos(-1);\n\ntemplate<class T> inline bool chmax(T\
-    \ &a, T b) { if(a < b) { a = b; return 1; } return 0; }\ntemplate<class T> inline\
-    \ bool chmin(T &a, T b) { if(a > b) { a = b; return 1; } return 0; }\n\ntemplate<typename\
-    \ T1, typename T2> istream &operator>>(istream &is, pair<T1, T2> &p){ is >> p.first\
-    \ >> p.second; return is; }\ntemplate<typename T1, typename T2> ostream &operator<<(ostream\
+    \ (a).end()), (a).end()))\n\nusing i64 = int64_t;\nusing i128 = __int128_t;\n\n\
+    using ll = long long;\nusing ul = unsigned long long;\nusing ld = long double;\n\
+    using vi = vector<int>;\nusing vll = vector<long long>;\nusing vc = vector<char>;\n\
+    using vst = vector<string>;\nusing vd = vector<double>;\nusing vld = vector<long\
+    \ double>;\nusing P = pair<long long, long long>;\n\ntemplate<class T> long long\
+    \ sum(const T &a){ return accumulate(a.begin(), a.end(), 0LL); }\ntemplate<class\
+    \ T> auto min(const T &a){ return *min_element(a.begin(), a.end()); }\ntemplate<class\
+    \ T> auto max(const T &a){ return *max_element(a.begin(), a.end()); }\n\nconst\
+    \ long long MINF = 0x7fffffffffff;\nconst long long INF = 0x1fffffffffffffff;\n\
+    const long long MOD = 998244353;\nconst long double EPS = 1e-9;\nconst long double\
+    \ PI = acos(-1);\n\ntemplate<class T> inline bool chmax(T &a, T b) { if(a < b)\
+    \ { a = b; return 1; } return 0; }\ntemplate<class T> inline bool chmin(T &a,\
+    \ T b) { if(a > b) { a = b; return 1; } return 0; }\n\ntemplate<typename T1, typename\
+    \ T2> istream &operator>>(istream &is, pair<T1, T2> &p){ is >> p.first >> p.second;\
+    \ return is; }\ntemplate<typename T1, typename T2> ostream &operator<<(ostream\
     \ &os, const pair<T1, T2> &p){ os << \"(\" << p.first << \", \" << p.second <<\
     \ \")\"; return os; }\ntemplate<typename T> istream &operator>>(istream &is, vector<T>\
     \ &v){ for(T &in : v) is >> in; return is; }\ntemplate<typename T> ostream &operator<<(ostream\
@@ -92,20 +93,21 @@ data:
     \ rrep(i,n) for(int i = (int)(n) - 1; i >= 0; --i)\n#define ALL(a) (a).begin(),\
     \ (a).end()\n#define Sort(a) (sort((a).begin(), (a).end()))\n#define RSort(a)\
     \ (sort((a).rbegin(), (a).rend()))\n#define UNIQUE(a) (a.erase(unique((a).begin(),\
-    \ (a).end()), (a).end()))\n\ntypedef long long int ll;\ntypedef unsigned long\
-    \ long ul;\ntypedef long double ld;\ntypedef vector<int> vi;\ntypedef vector<long\
-    \ long> vll;\ntypedef vector<char> vc;\ntypedef vector<string> vst;\ntypedef vector<double>\
-    \ vd;\ntypedef vector<long double> vld;\ntypedef pair<long long, long long> P;\n\
-    \ntemplate<class T> long long sum(const T &a){ return accumulate(a.begin(), a.end(),\
-    \ 0LL); }\ntemplate<class T> auto min(const T &a){ return *min_element(a.begin(),\
-    \ a.end()); }\ntemplate<class T> auto max(const T &a){ return *max_element(a.begin(),\
-    \ a.end()); }\n\nconst long long MINF = 0x7fffffffffff;\nconst long long INF =\
-    \ 0x1fffffffffffffff;\nconst long long MOD = 998244353;\nconst long double EPS\
-    \ = 1e-9;\nconst long double PI = acos(-1);\n\ntemplate<class T> inline bool chmax(T\
-    \ &a, T b) { if(a < b) { a = b; return 1; } return 0; }\ntemplate<class T> inline\
-    \ bool chmin(T &a, T b) { if(a > b) { a = b; return 1; } return 0; }\n\ntemplate<typename\
-    \ T1, typename T2> istream &operator>>(istream &is, pair<T1, T2> &p){ is >> p.first\
-    \ >> p.second; return is; }\ntemplate<typename T1, typename T2> ostream &operator<<(ostream\
+    \ (a).end()), (a).end()))\n\nusing i64 = int64_t;\nusing i128 = __int128_t;\n\n\
+    using ll = long long;\nusing ul = unsigned long long;\nusing ld = long double;\n\
+    using vi = vector<int>;\nusing vll = vector<long long>;\nusing vc = vector<char>;\n\
+    using vst = vector<string>;\nusing vd = vector<double>;\nusing vld = vector<long\
+    \ double>;\nusing P = pair<long long, long long>;\n\ntemplate<class T> long long\
+    \ sum(const T &a){ return accumulate(a.begin(), a.end(), 0LL); }\ntemplate<class\
+    \ T> auto min(const T &a){ return *min_element(a.begin(), a.end()); }\ntemplate<class\
+    \ T> auto max(const T &a){ return *max_element(a.begin(), a.end()); }\n\nconst\
+    \ long long MINF = 0x7fffffffffff;\nconst long long INF = 0x1fffffffffffffff;\n\
+    const long long MOD = 998244353;\nconst long double EPS = 1e-9;\nconst long double\
+    \ PI = acos(-1);\n\ntemplate<class T> inline bool chmax(T &a, T b) { if(a < b)\
+    \ { a = b; return 1; } return 0; }\ntemplate<class T> inline bool chmin(T &a,\
+    \ T b) { if(a > b) { a = b; return 1; } return 0; }\n\ntemplate<typename T1, typename\
+    \ T2> istream &operator>>(istream &is, pair<T1, T2> &p){ is >> p.first >> p.second;\
+    \ return is; }\ntemplate<typename T1, typename T2> ostream &operator<<(ostream\
     \ &os, const pair<T1, T2> &p){ os << \"(\" << p.first << \", \" << p.second <<\
     \ \")\"; return os; }\ntemplate<typename T> istream &operator>>(istream &is, vector<T>\
     \ &v){ for(T &in : v) is >> in; return is; }\ntemplate<typename T> ostream &operator<<(ostream\
@@ -162,7 +164,7 @@ data:
   isVerificationFile: false
   path: lib/template.cpp
   requiredBy: []
-  timestamp: '2024-12-10 12:00:49+09:00'
+  timestamp: '2024-12-15 12:48:49+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/template.cpp
