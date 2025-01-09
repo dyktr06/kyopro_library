@@ -21,19 +21,26 @@ data:
     \        for(int j = 0; j < n; j++){\n            for(int k = 0; k < n; k++){\n\
     \                if(d[j][i] == INF || d[i][k] == INF) continue;\n            \
     \    d[j][k] = min(d[j][k], d[j][i] + d[i][k]);\n            }\n        }\n  \
-    \  }\n}\n"
+    \  }\n}\n\ntemplate <typename T>\nvoid warshall_floyd_add(vector<vector<T>> &d,\
+    \ int u, int v, T cost) {\n    int n = d.size();\n    for(int i = 0; i < n; i++){\n\
+    \        for(int j = 0; j < n; j++){\n            d[i][j] = min(d[i][j], d[i][u]\
+    \ + cost + d[v][j]);\n        }\n    }\n}\n"
   code: "#pragma once\n\n/**\n * @brief Floyd-Warshall Algorithm (\u30EF\u30FC\u30B7\
     \u30E3\u30EB\u30D5\u30ED\u30A4\u30C9\u6CD5)\n * @docs docs/graph/warshall_floyd.md\n\
     \ */\n\ntemplate <typename T>\nvoid warshall_floyd(vector<vector<T>> &d, const\
     \ T &INF) {\n    int n = d.size();\n    for(int i = 0; i < n; i++){\n        for(int\
     \ j = 0; j < n; j++){\n            for(int k = 0; k < n; k++){\n             \
     \   if(d[j][i] == INF || d[i][k] == INF) continue;\n                d[j][k] =\
-    \ min(d[j][k], d[j][i] + d[i][k]);\n            }\n        }\n    }\n}\n"
+    \ min(d[j][k], d[j][i] + d[i][k]);\n            }\n        }\n    }\n}\n\ntemplate\
+    \ <typename T>\nvoid warshall_floyd_add(vector<vector<T>> &d, int u, int v, T\
+    \ cost) {\n    int n = d.size();\n    for(int i = 0; i < n; i++){\n        for(int\
+    \ j = 0; j < n; j++){\n            d[i][j] = min(d[i][j], d[i][u] + cost + d[v][j]);\n\
+    \        }\n    }\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/graph/warshall_floyd.hpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2025-01-09 22:05:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/grl/grl_1_c.test.cpp

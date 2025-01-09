@@ -23,18 +23,22 @@ data:
     \  int n = d.size();\n    for(int i = 0; i < n; i++){\n        for(int j = 0;\
     \ j < n; j++){\n            for(int k = 0; k < n; k++){\n                if(d[j][i]\
     \ == INF || d[i][k] == INF) continue;\n                d[j][k] = min(d[j][k],\
-    \ d[j][i] + d[i][k]);\n            }\n        }\n    }\n}\n#line 6 \"test/aoj/grl/grl_1_c.test.cpp\"\
-    \n\nconst long long INF = 0x1fffffffffffffff;\n\nint main(){\n    int n, m; cin\
-    \ >> n >> m;\n    vector<vector<long long>> d(n, vector<long long>(n, INF));\n\
-    \n    for(int i = 0; i < n; i++){\n        d[i][i] = 0;\n    }\n    for(int i\
-    \ = 0; i < m; i++){\n        int a, b, c;\n        cin >> a >> b >> c;\n     \
-    \   d[a][b] = c;\n    }\n\n    warshall_floyd(d, INF);\n    for(int i = 0; i <\
-    \ n; i++){\n        if(d[i][i] < 0){\n            cout << \"NEGATIVE CYCLE\" <<\
-    \ \"\\n\";\n            return 0;\n        }\n    }\n    for(int i = 0; i < n;\
-    \ i++){\n        for(int j = 0; j < n; j++){\n            if(j >= 1) cout << \"\
-    \ \";\n            if(d[i][j] == INF){\n                cout << \"INF\";\n   \
-    \         }else{\n                cout << d[i][j];\n            }\n        }\n\
-    \        cout << \"\\n\";\n    }\n}\n"
+    \ d[j][i] + d[i][k]);\n            }\n        }\n    }\n}\n\ntemplate <typename\
+    \ T>\nvoid warshall_floyd_add(vector<vector<T>> &d, int u, int v, T cost) {\n\
+    \    int n = d.size();\n    for(int i = 0; i < n; i++){\n        for(int j = 0;\
+    \ j < n; j++){\n            d[i][j] = min(d[i][j], d[i][u] + cost + d[v][j]);\n\
+    \        }\n    }\n}\n#line 6 \"test/aoj/grl/grl_1_c.test.cpp\"\n\nconst long\
+    \ long INF = 0x1fffffffffffffff;\n\nint main(){\n    int n, m; cin >> n >> m;\n\
+    \    vector<vector<long long>> d(n, vector<long long>(n, INF));\n\n    for(int\
+    \ i = 0; i < n; i++){\n        d[i][i] = 0;\n    }\n    for(int i = 0; i < m;\
+    \ i++){\n        int a, b, c;\n        cin >> a >> b >> c;\n        d[a][b] =\
+    \ c;\n    }\n\n    warshall_floyd(d, INF);\n    for(int i = 0; i < n; i++){\n\
+    \        if(d[i][i] < 0){\n            cout << \"NEGATIVE CYCLE\" << \"\\n\";\n\
+    \            return 0;\n        }\n    }\n    for(int i = 0; i < n; i++){\n  \
+    \      for(int j = 0; j < n; j++){\n            if(j >= 1) cout << \" \";\n  \
+    \          if(d[i][j] == INF){\n                cout << \"INF\";\n           \
+    \ }else{\n                cout << d[i][j];\n            }\n        }\n       \
+    \ cout << \"\\n\";\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/graph/warshall_floyd.hpp\"\
     \n\nconst long long INF = 0x1fffffffffffffff;\n\nint main(){\n    int n, m; cin\
@@ -53,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/aoj/grl/grl_1_c.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2025-01-09 22:05:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/grl/grl_1_c.test.cpp
