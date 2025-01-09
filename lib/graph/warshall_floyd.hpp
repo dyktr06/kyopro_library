@@ -17,3 +17,13 @@ void warshall_floyd(vector<vector<T>> &d, const T &INF) {
         }
     }
 }
+
+template <typename T>
+void warshall_floyd_add(vector<vector<T>> &d, int u, int v, T cost) {
+    int n = d.size();
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            d[i][j] = min(d[i][j], d[i][u] + cost + d[v][j]);
+        }
+    }
+}
