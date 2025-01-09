@@ -38,7 +38,7 @@ struct compress{
         return sorted.size();
     }
 
-    std::vector<T> getCompressed() const{
+    std::vector<int> getCompressed() const{
         return compressed;
     }
 };
