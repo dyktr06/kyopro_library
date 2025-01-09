@@ -36,7 +36,7 @@ struct DisjointSparseTable{
                 }
                 table[i][j + h - 1] = val[j + h - 1];
                 for(int k = j + h - 2; k >= j; k--){
-                    table[i][k] = op(table[i][k + 1], val[k]);
+                    table[i][k] = op(val[k], table[i][k + 1]);
                 }
             }
         }
