@@ -76,7 +76,7 @@ data:
     \ sorted.begin();\n        }\n    }\n\n    int get(const T &x) const{\n      \
     \  return std::lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();\n\
     \    }\n\n    T inv(const int x) const{\n        return sorted[x];\n    }\n\n\
-    \    size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<T>\
+    \    size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<int>\
     \ getCompressed() const{\n        return compressed;\n    }\n};\n#line 8 \"test/library_checker/data_structure/static_range_inversions_query.test.cpp\"\
     \n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n \
     \   int n, q; cin >> n >> q;\n    vector<int> a(n);\n    for(int i = 0; i < n;\
@@ -119,7 +119,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2024-11-15 16:06:01+09:00'
+  timestamp: '2025-01-09 22:07:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_inversions_query.test.cpp

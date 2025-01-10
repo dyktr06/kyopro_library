@@ -28,7 +28,7 @@ data:
     \ sorted.begin();\n        }\n    }\n\n    int get(const T &x) const{\n      \
     \  return std::lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();\n\
     \    }\n\n    T inv(const int x) const{\n        return sorted[x];\n    }\n\n\
-    \    size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<T>\
+    \    size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<int>\
     \ getCompressed() const{\n        return compressed;\n    }\n};\n#line 6 \"test/library_checker/data_structure/associative_array.test.cpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
     \   int q; cin >> q;\n    using T = tuple<int, long long, long long>;\n    vector<T>\
@@ -57,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/associative_array.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
+  timestamp: '2025-01-09 22:07:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/associative_array.test.cpp

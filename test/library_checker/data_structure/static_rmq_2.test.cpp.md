@@ -31,11 +31,11 @@ data:
     \ + h] = val[j + h];\n                for(int k = j + h + 1; k < j + h * 2; k++){\n\
     \                    table[i][k] = op(table[i][k - 1], val[k]);\n            \
     \    }\n                table[i][j + h - 1] = val[j + h - 1];\n              \
-    \  for(int k = j + h - 2; k >= j; k--){\n                    table[i][k] = op(table[i][k\
-    \ + 1], val[k]);\n                }\n            }\n        }\n    }\n\n    //\
-    \ [l, r]\n    T query(int l, int r){\n        assert(l <= r);\n        if(l ==\
-    \ r){\n            return val[l];\n        }\n        // \u307E\u305F\u3050\u5834\
-    \u6240\u306E\u8A08\u7B97\n        int d = __builtin_clz(l ^ r) - (32 - log2);\n\
+    \  for(int k = j + h - 2; k >= j; k--){\n                    table[i][k] = op(val[k],\
+    \ table[i][k + 1]);\n                }\n            }\n        }\n    }\n\n  \
+    \  // [l, r]\n    T query(int l, int r){\n        assert(l <= r);\n        if(l\
+    \ == r){\n            return val[l];\n        }\n        // \u307E\u305F\u3050\
+    \u5834\u6240\u306E\u8A08\u7B97\n        int d = __builtin_clz(l ^ r) - (32 - log2);\n\
     \        return op(table[d][l], table[d][r]);\n    }\n};\n#line 6 \"test/library_checker/data_structure/static_rmq_2.test.cpp\"\
     \n\nint op(int x, int y){\n    return min(x, y);\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n\
     \    cin.tie(nullptr);\n\n    int n, q; cin >> n >> q;\n    vector<int> a(n);\n\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_rmq_2.test.cpp
   requiredBy: []
-  timestamp: '2024-11-15 15:44:55+09:00'
+  timestamp: '2025-01-09 22:06:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_rmq_2.test.cpp

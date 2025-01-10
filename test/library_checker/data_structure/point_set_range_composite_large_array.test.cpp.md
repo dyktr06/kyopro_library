@@ -113,7 +113,7 @@ data:
     \ sorted.begin();\n        }\n    }\n\n    int get(const T &x) const{\n      \
     \  return std::lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();\n\
     \    }\n\n    T inv(const int x) const{\n        return sorted[x];\n    }\n\n\
-    \    size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<T>\
+    \    size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<int>\
     \ getCompressed() const{\n        return compressed;\n    }\n};\n#line 10 \"test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp\"\
     \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\nusing F = pair<mint,\
     \ mint>;\n\nF op(F a, F b){\n    return {a.first * b.first, a.second * b.first\
@@ -151,7 +151,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
   requiredBy: []
-  timestamp: '2024-12-06 00:58:38+09:00'
+  timestamp: '2025-01-09 22:07:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp

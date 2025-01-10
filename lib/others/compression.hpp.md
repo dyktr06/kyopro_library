@@ -49,7 +49,7 @@ data:
     \ sorted.begin();\n        }\n    }\n\n    int get(const T &x) const{\n      \
     \  return std::lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();\n\
     \    }\n\n    T inv(const int x) const{\n        return sorted[x];\n    }\n\n\
-    \    size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<T>\
+    \    size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<int>\
     \ getCompressed() const{\n        return compressed;\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Compression (\u5EA7\u6A19\u5727\u7E2E)\n *\
     \ @docs docs/others/compression.md\n */\n\n#include <vector>\n#include <algorithm>\n\
@@ -62,13 +62,13 @@ data:
     \ sorted.begin();\n        }\n    }\n\n    int get(const T &x) const{\n      \
     \  return std::lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin();\n\
     \    }\n\n    T inv(const int x) const{\n        return sorted[x];\n    }\n\n\
-    \    size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<T>\
+    \    size_t size() const{\n        return sorted.size();\n    }\n\n    std::vector<int>\
     \ getCompressed() const{\n        return compressed;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/others/compression.hpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
+  timestamp: '2025-01-09 22:07:23+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
