@@ -380,6 +380,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/others/compression.hpp
       title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"
+    - icon: ':warning:'
+      path: lib/others/doubling.hpp
+      title: "Doubling (\u30C0\u30D6\u30EA\u30F3\u30B0)"
     - icon: ':heavy_check_mark:'
       path: lib/others/exhaustive_search.hpp
       title: "Exhaustive Search (bit \u5168\u63A2\u7D22)"
