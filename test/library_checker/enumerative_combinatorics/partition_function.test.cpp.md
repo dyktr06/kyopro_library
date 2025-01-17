@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/partition_function.hpp
     title: "Partition Function (\u5206\u5272\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []

@@ -2,13 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/partition_function.hpp
     title: "Partition Function (\u5206\u5272\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/enumerative_combinatorics/stirling_number_2nd.hpp
     title: "Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\u30FC\u30EA\
       \u30F3\u30B0\u6570)"
@@ -24,7 +24,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/bostan_mori.hpp
     title: Bostan-Mori
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
@@ -37,7 +37,7 @@ data:
     path: lib/polynomial/product_of_polynomial_sequence.hpp
     title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\u7A4D\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/taylor_shift.hpp
     title: Taylor Shift
   - icon: ':heavy_check_mark:'
@@ -56,10 +56,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
     title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
     title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
     title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
   - icon: ':heavy_check_mark:'
@@ -89,7 +89,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
     title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   - icon: ':heavy_check_mark:'
@@ -113,9 +113,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/yuki_2119.test.cpp
     title: test/yukicoder/yuki_2119.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/crt.md
     document_title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406\
@@ -213,7 +213,7 @@ data:
   - lib/polynomial/product_of_polynomial_sequence.hpp
   - lib/polynomial/taylor_shift.hpp
   timestamp: '2024-11-03 21:58:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/convolution/convolution.test.cpp
   - test/library_checker/convolution/convolution_mod_1000000007.test.cpp
