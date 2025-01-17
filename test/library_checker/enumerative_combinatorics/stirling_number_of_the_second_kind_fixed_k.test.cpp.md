@@ -1,30 +1,30 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/combination_modint.hpp
     title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/stirling_number_2nd.hpp
     title: "Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\u30FC\u30EA\
       \u30F3\u30B0\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k
@@ -41,89 +41,88 @@ data:
     \    void init(const int N){\n        if((int) memo.size() >= N + 1){\n      \
     \      return;\n        }\n        int prev_len = memo.size();\n        memo.resize(N\
     \ + 1);\n        memoinv.resize(N + 1);\n        inv.resize(N + 1);\n\n      \
-    \  T m = -1;\n        long long mod = (m.val + 1LL);\n        for(int i = max(2,\
-    \ prev_len); i <= N; ++i){\n            memo[i] = memo[i - 1] * i;\n         \
-    \   inv[i] = mod - inv[mod % i] * (mod / i);\n            memoinv[i] = memoinv[i\
-    \ - 1] * inv[i];\n        }\n    }\n\n    inline T fact(const int n) {\n     \
-    \   init(n);\n        return memo[n];\n    }\n    inline T factinv(const int n)\
-    \ {\n        init(n);\n        return memoinv[n];\n    }\n    inline T ncr(const\
-    \ int n, const int r) {\n        if(n < r || r < 0) return 0;\n        init(n);\n\
-    \        return (memo[n] * memoinv[r]) * memoinv[n - r];\n    }\n    inline T\
-    \ npr(const int n, const int r) {\n        if(n < r || r < 0) return 0;\n    \
-    \    init(n);\n        return memo[n] * memoinv[n - r];\n    }\n    // \u91CD\u8907\
-    \u7D44\u307F\u5408\u308F\u305B\n    inline T nhr(const int n, const int r) {\n\
-    \        if(n == 0 && r == 0) return 1;\n        return ncr(n + r - 1, r);\n \
-    \   }\n    // \u30DC\u30FC\u30EB\u306E\u6570\u3001\u4E00\u500B\u4EE5\u4E0A\u5FC5\
-    \u8981\u306A\u7BB1\u306E\u6570\u3001\u5236\u9650\u304C\u306A\u3044\u7BB1\u306E\
-    \u6570 (\u7BB1\u533A\u5225\u3042\u308A)\n    // a = 0 \u306E\u5834\u5408\u306F\
-    \u91CD\u8907\u7D44\u307F\u5408\u308F\u305B\n    inline T choose(const int n, const\
-    \ int a, const int b = 0) {\n        if(n == 0) return !a;\n        return ncr(n\
-    \ + b - 1, a + b - 1);\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C\
-    \ >= 0\n    inline T cataran(const int n, const int m) {\n        return ncr(n\
-    \ + m, n) - ncr(n + m, n - 1);\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\
-    \u7A4D\u548C > -k\n    inline T cataran(const int n, const int m, const int k)\
-    \ {\n        if(m < k) return ncr(n + m, n);\n        if(m < n + k) return ncr(n\
-    \ + m, n) - ncr(n + m, m - k);\n        return 0;\n    }\n    // +1 n \u500B,\
-    \ -1 m \u500B, \u7D2F\u7A4D\u548C < +k\n    inline T cataran2(const int n, const\
-    \ int m, const int k) {\n        return cataran(m, n, k);\n    }\n};\n#line 2\
-    \ \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n * @brief Formal Power Series\
-    \ (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n#include <algorithm>\n#include\
-    \ <cassert>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n/**\n * @brief Number Theoretic\
-    \ Transform\n */\n\n#line 2 \"lib/math/modint.hpp\"\n\n#line 5 \"lib/math/modint.hpp\"\
-    \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
-    \ long Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int\
-    \ mod() { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
-    \ : val(_val) {\n        normalize();\n    }\n    void normalize(){\n        val\
-    \ = (val % Modulus + Modulus) % Modulus;\n    }\n    inline ModInt &operator+=(const\
-    \ ModInt &rhs) noexcept {\n        if(val += rhs.val, val >= Modulus) val -= Modulus;\n\
-    \        return *this;\n    }\n    inline ModInt &operator-=(const ModInt &rhs)\
-    \ noexcept {\n        if(val -= rhs.val, val < 0) val += Modulus;\n        return\
-    \ *this;\n    }\n    inline ModInt &operator*=(const ModInt &rhs) noexcept {\n\
-    \        val = val * rhs.val % Modulus;\n        return *this;\n    }\n    inline\
-    \ ModInt &operator/=(const ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val\
-    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator++() noexcept\
-    \ {\n        if(++val >= Modulus) val -= Modulus;\n        return *this;\n   \
-    \ }\n    inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n \
-    \       if(++val >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline\
-    \ ModInt &operator--() noexcept {\n        if(--val < 0) val += Modulus;\n   \
-    \     return *this;\n    }\n    inline ModInt operator--(int) noexcept {\n   \
-    \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
-    \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
-    \ % Modulus; }\n    inline ModInt inv(void) const { return inv(val); }\n    ModInt\
-    \ pow(long long n) const {\n        assert(0 <= n);\n        ModInt x = *this,\
-    \ r = 1;\n        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n\
-    \            n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const\
-    \ long long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n\
-    \        while(b){\n            long long t = a / b;\n            a -= t * b;\
-    \ std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n        }\n    \
-    \    u %= Modulus;\n        if(u < 0) u += Modulus;\n        return u;\n    }\n\
-    \    friend inline ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend\
-    \ inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt &lhs,\
-    \ const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend inline\
-    \ bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val\
-    \ == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline std::istream\
-    \ &operator>>(std::istream &is, ModInt &x) noexcept {\n        is >> x.val;\n\
-    \        x.normalize();\n        return is;\n    }\n    friend inline std::ostream\
-    \ &operator<<(std::ostream &os, const ModInt &x) noexcept { return os << x.val;\
-    \ }\n};\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief Chinese Remainder Theorem\
-    \ (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n */\n\n#include\
-    \ <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n    inline long\
-    \ long mod(long long a, long long m){\n        return (a % m + m) % m;\n    }\n\
-    \n    long long extGCD(long long a, long long b, long long &x, long long &y){\n\
-    \        if(b == 0){\n            x = 1;\n            y = 0;\n            return\
-    \ a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n        y -= a\
-    \ / b * x;\n        return d;\n    }\n\n    std::pair<long long, long long> chineseRem(const\
-    \ std::vector<long long> &b, const std::vector<long long> &m) {\n        long\
-    \ long r = 0, M = 1;\n        for(int i = 0; i < (int) b.size(); i++){\n     \
-    \       long long p, q;\n            long long d = extGCD(M, m[i], p, q);\n  \
-    \          if((b[i] - r) % d != 0) return {0, -1};\n            long long tmp\
-    \ = (b[i] - r) / d * p % (m[i] / d);\n            r += M * tmp;\n            M\
-    \ *= m[i] / d;\n        }\n        r %= M;\n        if(r < 0) r += M;\n      \
-    \  return {r, M};\n    }\n\n    // not coprime\n    long long preGarner(std::vector<long\
+    \  T m = -1;\n        long long mod = (m.val + 1LL);\n        for(int i = prev_len;\
+    \ i <= N; ++i){\n            memo[i] = memo[i - 1] * i;\n            inv[i] =\
+    \ mod - inv[mod % i] * (mod / i);\n            memoinv[i] = memoinv[i - 1] * inv[i];\n\
+    \        }\n    }\n\n    inline T fact(const int n) {\n        init(n);\n    \
+    \    return memo[n];\n    }\n    inline T factinv(const int n) {\n        init(n);\n\
+    \        return memoinv[n];\n    }\n    inline T ncr(const int n, const int r)\
+    \ {\n        if(n < r || r < 0) return 0;\n        init(n);\n        return (memo[n]\
+    \ * memoinv[r]) * memoinv[n - r];\n    }\n    inline T npr(const int n, const\
+    \ int r) {\n        if(n < r || r < 0) return 0;\n        init(n);\n        return\
+    \ memo[n] * memoinv[n - r];\n    }\n    // \u91CD\u8907\u7D44\u307F\u5408\u308F\
+    \u305B\n    inline T nhr(const int n, const int r) {\n        if(n == 0 && r ==\
+    \ 0) return 1;\n        return ncr(n + r - 1, r);\n    }\n    // \u30DC\u30FC\u30EB\
+    \u306E\u6570\u3001\u4E00\u500B\u4EE5\u4E0A\u5FC5\u8981\u306A\u7BB1\u306E\u6570\
+    \u3001\u5236\u9650\u304C\u306A\u3044\u7BB1\u306E\u6570 (\u7BB1\u533A\u5225\u3042\
+    \u308A)\n    // a = 0 \u306E\u5834\u5408\u306F\u91CD\u8907\u7D44\u307F\u5408\u308F\
+    \u305B\n    inline T choose(const int n, const int a, const int b = 0) {\n   \
+    \     if(n == 0) return !a;\n        return ncr(n + b - 1, a + b - 1);\n    }\n\
+    \    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C >= 0\n    inline T cataran(const\
+    \ int n, const int m) {\n        return ncr(n + m, n) - ncr(n + m, n - 1);\n \
+    \   }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T\
+    \ cataran(const int n, const int m, const int k) {\n        if(m < k) return ncr(n\
+    \ + m, n);\n        if(m < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n\
+    \        return 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C\
+    \ < +k\n    inline T cataran2(const int n, const int m, const int k) {\n     \
+    \   return cataran(m, n, k);\n    }\n};\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\
+    \n\n/**\n * @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
+    \ */\n\n#include <algorithm>\n#include <cassert>\n#line 2 \"lib/convolution/ntt.hpp\"\
+    \n\n/**\n * @brief Number Theoretic Transform\n */\n\n#line 2 \"lib/math/modint.hpp\"\
+    \n\n#line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
+    \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
+    \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
+    \ normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n    }\n  \
+    \  inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val +=\
+    \ rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
+    \ inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -= rhs.val,\
+    \ val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt &operator*=(const\
+    \ ModInt &rhs) noexcept {\n        val = val * rhs.val % Modulus;\n        return\
+    \ *this;\n    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n\
+    \        val = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n\
+    \    inline ModInt &operator++() noexcept {\n        if(++val >= Modulus) val\
+    \ -= Modulus;\n        return *this;\n    }\n    inline ModInt operator++(int)\
+    \ noexcept {\n        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n\
+    \        return t;\n    }\n    inline ModInt &operator--() noexcept {\n      \
+    \  if(--val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt\
+    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
+    \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
+    \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
+    \ inv(val); }\n    ModInt pow(long long n) const {\n        assert(0 <= n);\n\
+    \        ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r\
+    \ *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
+    \ r;\n    }\n    ModInt inv(const long long n) const {\n        long long a =\
+    \ n, b = Modulus, u = 1, v = 0;\n        while(b){\n            long long t =\
+    \ a / b;\n            a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u,\
+    \ v);\n        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n   \
+    \     return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline\
+    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \ -= rhs; }\n    friend inline ModInt operator*(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n  \
+    \  friend inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend\
+    \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
+    \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
+    \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
+    \ { return os << x.val; }\n};\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
+    \ Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
+    \ */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n\
+    \    inline long long mod(long long a, long long m){\n        return (a % m +\
+    \ m) % m;\n    }\n\n    long long extGCD(long long a, long long b, long long &x,\
+    \ long long &y){\n        if(b == 0){\n            x = 1;\n            y = 0;\n\
+    \            return a;\n        }\n        long long d = extGCD(b, a % b, y, x);\n\
+    \        y -= a / b * x;\n        return d;\n    }\n\n    std::pair<long long,\
+    \ long long> chineseRem(const std::vector<long long> &b, const std::vector<long\
+    \ long> &m) {\n        long long r = 0, M = 1;\n        for(int i = 0; i < (int)\
+    \ b.size(); i++){\n            long long p, q;\n            long long d = extGCD(M,\
+    \ m[i], p, q);\n            if((b[i] - r) % d != 0) return {0, -1};\n        \
+    \    long long tmp = (b[i] - r) / d * p % (m[i] / d);\n            r += M * tmp;\n\
+    \            M *= m[i] / d;\n        }\n        r %= M;\n        if(r < 0) r +=\
+    \ M;\n        return {r, M};\n    }\n\n    // not coprime\n    long long preGarner(std::vector<long\
     \ long> &b, std::vector<long long> &m, const long long MOD){\n        long long\
     \ res = 1;\n        int n = b.size();\n        for(int i = 0; i < n; i++){\n \
     \           for(int j = 0; j < i; j++){\n                long long g = std::gcd(m[i],\
@@ -401,8 +400,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
   requiredBy: []
-  timestamp: '2025-01-18 04:17:26+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-01-18 04:43:36+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
 layout: document
