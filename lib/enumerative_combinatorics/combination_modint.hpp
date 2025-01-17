@@ -22,7 +22,7 @@ struct Combination{
 
         T m = -1;
         long long mod = (m.val + 1LL);
-        for(int i = max(2, prev_len); i <= N; ++i){
+        for(int i = prev_len; i <= N; ++i){
             memo[i] = memo[i - 1] * i;
             inv[i] = mod - inv[mod % i] * (mod / i);
             memoinv[i] = memoinv[i - 1] * inv[i];
