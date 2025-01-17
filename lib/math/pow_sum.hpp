@@ -18,7 +18,7 @@ T pow_sum(long long n, long long k){
         }
     }
 
-    Combination<T> comb(d);
+    Combination<T> comb;
     vector<T> l(d + 1, 1), r(d + 1, 1);
     for(int i = 0; i < d; i++){
         l[i + 1] = l[i] * (n - i);

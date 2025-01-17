@@ -13,7 +13,7 @@
 template <typename T>
 FormalPowerSeries<T> taylorShift(const FormalPowerSeries<T> &f, const T c) {
     const int deg = f.size();
-    Combination<T> comb(deg);
+    Combination<T> comb;
     // g_j = 1/j! sum(f_{i + j} (i + j!) * (c^i / i!)) -> f_{i + j} (i + j!) と (c^i / i!) は添え字の差の畳み込み
     FormalPowerSeries<T> res = f;
     for(int i = 0; i < deg; i++){

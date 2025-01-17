@@ -19,7 +19,7 @@ std::vector<T> stirling_number_2nd(int n){
     // = sum_{0}^{k} ( (-1)^{k - i} / (k - i)! ) ( i^n / i! )
     // -> 畳み込みで計算可能
     using FPS = FormalPowerSeries<T>;
-    Combination<T> comb(n);
+    Combination<T> comb;
     FPS f(n + 1), g(n + 1);
     for(int i = 0; i <= n; i++){
         f[i] = (i & 1) ? (-1) : 1;
