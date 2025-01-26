@@ -64,8 +64,8 @@ data:
   path: lib/math/prime_sieve.hpp
   requiredBy:
   - lib/convolution/lcm_convolution.hpp
-  - lib/convolution/divisor_zeta_mobius_transform.hpp
   - lib/convolution/gcd_convolution.hpp
+  - lib/convolution/divisor_zeta_mobius_transform.hpp
   timestamp: '2024-11-13 13:43:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

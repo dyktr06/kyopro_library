@@ -81,8 +81,8 @@ data:
   timestamp: '2024-11-25 17:28:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/enumerative_combinatorics/factorial.test.cpp
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
+  - test/library_checker/enumerative_combinatorics/factorial.test.cpp
 documentation_of: lib/enumerative_combinatorics/factorial.hpp
 layout: document
 redirect_from:

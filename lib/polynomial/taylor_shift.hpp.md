@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/combination_modint.hpp
     title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
@@ -323,21 +323,21 @@ data:
     \u3051\u308B\n        for(int i = 0; i < (int) this->size(); i++){\n         \
     \   if(k * i > deg) return FPS(deg, T(0));\n            if((*this)[i] != T(0)){\n\
     \                T inv_i = T(1) / (*this)[i];\n                FPS res = ((((*this)\
-    \ * inv_i) >> i).log() * k).exp() * ((*this)[i].pow(k));\n                res\
-    \ = (res << (k * i)).pre(deg);\n                return res;\n            }\n \
-    \       }\n        return *this;\n    }\n\n    long long sqrtT(const T a) const\
-    \ {\n        const long long p = T::mod();\n        if(a == T(0) || a == T(1))\
-    \ return a.val;\n        if(a.pow((p - 1) / 2) != T(1)) return -1LL;\n       \
-    \ T b = 1;\n        while(b.pow((p - 1) / 2) == 1) b++;\n        // p - 1 = m\
-    \ 2^e\n        long long m = p - 1;\n        int e = 0;\n        while(m % 2 ==\
-    \ 0) m >>= 1, e++;\n        // x = a^((m + 1) / 2) (mod p)\n        T x = a.pow((m\
-    \ - 1) / 2);\n        // y = a^{-1} x^2 (mod p)\n        T y = (a * x) * x;\n\
-    \        x *= a;\n        T z = b.pow(m);\n        while(y != 1){\n          \
-    \  int j = 0;\n            T t = y;\n            while(t != 1){\n            \
-    \    t *= t;\n                j++;\n            }\n            z = z.pow(1LL <<\
-    \ (e - j - 1));\n            x *= z;\n            z *= z;\n            y *= z;\n\
-    \            e = j;\n        }\n        return x.val;\n    }\n\n    // g^2 = f\
-    \ \u3068\u306A\u308B g\n    FPS sqrt(int deg = -1) const {\n        if(this->empty())\
+    \ * inv_i) >> i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));\n             \
+    \   res = (res << (k * i)).pre(deg);\n                return res;\n          \
+    \  }\n        }\n        return *this;\n    }\n\n    long long sqrtT(const T a)\
+    \ const {\n        const long long p = T::mod();\n        if(a == T(0) || a ==\
+    \ T(1)) return a.val;\n        if(a.pow((p - 1) / 2) != T(1)) return -1LL;\n \
+    \       T b = 1;\n        while(b.pow((p - 1) / 2) == 1) b++;\n        // p -\
+    \ 1 = m 2^e\n        long long m = p - 1;\n        int e = 0;\n        while(m\
+    \ % 2 == 0) m >>= 1, e++;\n        // x = a^((m + 1) / 2) (mod p)\n        T x\
+    \ = a.pow((m - 1) / 2);\n        // y = a^{-1} x^2 (mod p)\n        T y = (a *\
+    \ x) * x;\n        x *= a;\n        T z = b.pow(m);\n        while(y != 1){\n\
+    \            int j = 0;\n            T t = y;\n            while(t != 1){\n  \
+    \              t *= t;\n                j++;\n            }\n            z = z.pow(1LL\
+    \ << (e - j - 1));\n            x *= z;\n            z *= z;\n            y *=\
+    \ z;\n            e = j;\n        }\n        return x.val;\n    }\n\n    // g^2\
+    \ = f \u3068\u306A\u308B g\n    FPS sqrt(int deg = -1) const {\n        if(this->empty())\
     \ return {};\n        if(deg == -1) deg = this->size();\n        // inv \u3092\
     \u8A08\u7B97\u3059\u308B\u306E\u306B\u5B9A\u6570\u9805\u304C\u975E\u96F6\u3067\
     \u3042\u308B\u5FC5\u8981\u304C\u3042\u308B\u306E\u3067\u8ABF\u6574\u3059\u308B\
@@ -387,7 +387,7 @@ data:
   isVerificationFile: false
   path: lib/polynomial/taylor_shift.hpp
   requiredBy: []
-  timestamp: '2025-01-18 04:43:36+09:00'
+  timestamp: '2025-01-26 14:59:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
