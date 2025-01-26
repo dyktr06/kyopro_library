@@ -171,13 +171,13 @@ data:
     #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../lib/math/bigint.hpp\"\
     \n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n \
     \   int t; cin >> t;\n    while(t--){\n        BigInt a, b; cin >> a >> b;\n \
-    \       cout << a + b << \"\\n\";\n    }\n}"
+    \       cout << a + b << \"\\n\";\n    }\n}\n"
   dependsOn:
   - lib/math/bigint.hpp
   isVerificationFile: true
   path: test/library_checker/sample/many_aplusb_128bit.test.cpp
   requiredBy: []
-  timestamp: '2024-05-04 18:06:16+09:00'
+  timestamp: '2025-01-26 16:32:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/sample/many_aplusb_128bit.test.cpp
