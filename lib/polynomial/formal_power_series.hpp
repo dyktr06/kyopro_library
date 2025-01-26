@@ -248,7 +248,7 @@ struct FormalPowerSeries : std::vector<T> {
             if(k * i > deg) return FPS(deg, T(0));
             if((*this)[i] != T(0)){
                 T inv_i = T(1) / (*this)[i];
-                FPS res = ((((*this) * inv_i) >> i).log() * k).exp() * ((*this)[i].pow(k));
+                FPS res = ((((*this) * inv_i) >> i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));
                 res = (res << (k * i)).pre(deg);
                 return res;
             }
