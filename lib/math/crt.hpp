@@ -87,7 +87,7 @@ namespace CRT{
     long long modEquation(long long a, long long b, long long m, bool is_positive = false){
         a %= m; b %= m;
         b = (m - b) % m;
-        long long g = gcd(a, m);
+        long long g = std::gcd(a, m);
         if(b % g != 0) return -1;
         a /= g; b /= g; m /= g;
         if(is_positive && b == 0){
