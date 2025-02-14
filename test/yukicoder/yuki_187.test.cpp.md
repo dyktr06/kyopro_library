@@ -6,9 +6,9 @@ data:
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/187
@@ -54,10 +54,10 @@ data:
     \            }\n        }\n        return constants[n];\n    }\n\n    // ax +\
     \ b \u2261 0 (mod m)\n    long long modEquation(long long a, long long b, long\
     \ long m, bool is_positive = false){\n        a %= m; b %= m;\n        b = (m\
-    \ - b) % m;\n        long long g = gcd(a, m);\n        if(b % g != 0) return -1;\n\
-    \        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n       \
-    \     return m;\n        }\n        long long x, y;\n        extGCD(a, m, x, y);\n\
-    \        return (b * x % m + m) % m;\n    }\n}\n#line 6 \"test/yukicoder/yuki_187.test.cpp\"\
+    \ - b) % m;\n        long long g = std::gcd(a, m);\n        if(b % g != 0) return\
+    \ -1;\n        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n \
+    \           return m;\n        }\n        long long x, y;\n        extGCD(a, m,\
+    \ x, y);\n        return (b * x % m + m) % m;\n    }\n}\n#line 6 \"test/yukicoder/yuki_187.test.cpp\"\
     \n\nconst long long MOD = 1000000007;\n\nint main(){\n    ios::sync_with_stdio(false);\n\
     \    cin.tie(nullptr);\n\n    int n; cin >> n;\n    vector<long long> x(n), y(n);\n\
     \    int all_zero = 1;\n    for(int i = 0; i < n; i++){\n        cin >> x[i] >>\
@@ -77,8 +77,8 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_187.test.cpp
   requiredBy: []
-  timestamp: '2025-02-14 23:49:03+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2025-02-15 00:03:46+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_187.test.cpp
 layout: document

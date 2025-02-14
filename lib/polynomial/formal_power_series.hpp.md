@@ -11,14 +11,14 @@ data:
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/partition_function.hpp
     title: "Partition Function (\u5206\u5272\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/stirling_number_2nd.hpp
     title: "Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\u30FC\u30EA\
       \u30F3\u30B0\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/subset_sum.hpp
     title: Subset Sum
   - icon: ':heavy_check_mark:'
@@ -27,13 +27,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/math/bernoulli_number.hpp
     title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/bostan_mori.hpp
     title: Bostan-Mori
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/multipoint_evaluation.hpp
     title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/polynomial_interpolation.hpp
     title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':x:'
@@ -44,16 +44,16 @@ data:
     path: lib/polynomial/taylor_shift.hpp
     title: Taylor Shift
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
     title: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
     title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
     title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
     title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
   - icon: ':heavy_check_mark:'
@@ -62,25 +62,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/bernoulli_number.test.cpp
     title: test/library_checker/number_theory/bernoulli_number.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/division_of_polynomials.test.cpp
     title: test/library_checker/polynomial/division_of_polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
     title: test/library_checker/polynomial/multipoint_evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
     title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
   - icon: ':x:'
@@ -183,10 +183,10 @@ data:
     \            }\n        }\n        return constants[n];\n    }\n\n    // ax +\
     \ b \u2261 0 (mod m)\n    long long modEquation(long long a, long long b, long\
     \ long m, bool is_positive = false){\n        a %= m; b %= m;\n        b = (m\
-    \ - b) % m;\n        long long g = gcd(a, m);\n        if(b % g != 0) return -1;\n\
-    \        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n       \
-    \     return m;\n        }\n        long long x, y;\n        extGCD(a, m, x, y);\n\
-    \        return (b * x % m + m) % m;\n    }\n}\n#line 9 \"lib/convolution/ntt.hpp\"\
+    \ - b) % m;\n        long long g = std::gcd(a, m);\n        if(b % g != 0) return\
+    \ -1;\n        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n \
+    \           return m;\n        }\n        long long x, y;\n        extGCD(a, m,\
+    \ x, y);\n        return (b * x % m + m) % m;\n    }\n}\n#line 9 \"lib/convolution/ntt.hpp\"\
     \n\n#line 11 \"lib/convolution/ntt.hpp\"\n\nnamespace NTT{\n\n    // @param n\
     \ `0 <= n`\n    // @return minimum non-negative `x` s.t. `n <= 2**x`\n    int\
     \ ceil_pow2(int n) {\n        int x = 0;\n        while((1U << x) < (unsigned\
@@ -558,7 +558,7 @@ data:
   - lib/enumerative_combinatorics/stirling_number_2nd.hpp
   - lib/enumerative_combinatorics/subset_sum.hpp
   - lib/enumerative_combinatorics/partition_function.hpp
-  timestamp: '2025-02-14 23:49:03+09:00'
+  timestamp: '2025-02-15 00:03:46+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/polynomial/division_of_polynomials.test.cpp

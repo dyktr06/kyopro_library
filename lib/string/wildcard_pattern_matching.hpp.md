@@ -12,12 +12,12 @@ data:
     title: ModInt
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/string/wildcard_pattern_matching.test.cpp
     title: test/library_checker/string/wildcard_pattern_matching.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: Wildcard Pattern Matching
     links:
@@ -104,10 +104,10 @@ data:
     \            }\n        }\n        return constants[n];\n    }\n\n    // ax +\
     \ b \u2261 0 (mod m)\n    long long modEquation(long long a, long long b, long\
     \ long m, bool is_positive = false){\n        a %= m; b %= m;\n        b = (m\
-    \ - b) % m;\n        long long g = gcd(a, m);\n        if(b % g != 0) return -1;\n\
-    \        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n       \
-    \     return m;\n        }\n        long long x, y;\n        extGCD(a, m, x, y);\n\
-    \        return (b * x % m + m) % m;\n    }\n}\n#line 9 \"lib/convolution/ntt.hpp\"\
+    \ - b) % m;\n        long long g = std::gcd(a, m);\n        if(b % g != 0) return\
+    \ -1;\n        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n \
+    \           return m;\n        }\n        long long x, y;\n        extGCD(a, m,\
+    \ x, y);\n        return (b * x % m + m) % m;\n    }\n}\n#line 9 \"lib/convolution/ntt.hpp\"\
     \n\n#line 11 \"lib/convolution/ntt.hpp\"\n\nnamespace NTT{\n\n    // @param n\
     \ `0 <= n`\n    // @return minimum non-negative `x` s.t. `n <= 2**x`\n    int\
     \ ceil_pow2(int n) {\n        int x = 0;\n        while((1U << x) < (unsigned\
@@ -223,8 +223,8 @@ data:
   isVerificationFile: false
   path: lib/string/wildcard_pattern_matching.hpp
   requiredBy: []
-  timestamp: '2025-02-14 23:49:03+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-02-15 00:03:46+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/string/wildcard_pattern_matching.test.cpp
 documentation_of: lib/string/wildcard_pattern_matching.hpp

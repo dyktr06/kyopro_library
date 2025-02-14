@@ -6,9 +6,9 @@ data:
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/186
@@ -54,10 +54,10 @@ data:
     \            }\n        }\n        return constants[n];\n    }\n\n    // ax +\
     \ b \u2261 0 (mod m)\n    long long modEquation(long long a, long long b, long\
     \ long m, bool is_positive = false){\n        a %= m; b %= m;\n        b = (m\
-    \ - b) % m;\n        long long g = gcd(a, m);\n        if(b % g != 0) return -1;\n\
-    \        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n       \
-    \     return m;\n        }\n        long long x, y;\n        extGCD(a, m, x, y);\n\
-    \        return (b * x % m + m) % m;\n    }\n}\n#line 6 \"test/yukicoder/yuki_186.test.cpp\"\
+    \ - b) % m;\n        long long g = std::gcd(a, m);\n        if(b % g != 0) return\
+    \ -1;\n        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n \
+    \           return m;\n        }\n        long long x, y;\n        extGCD(a, m,\
+    \ x, y);\n        return (b * x % m + m) % m;\n    }\n}\n#line 6 \"test/yukicoder/yuki_186.test.cpp\"\
     \n\nint main(){\n    vector<long long> b(3), m(3);\n    int cnt = 0;\n    for(int\
     \ i = 0; i < 3; i++){\n        cin >> b[i] >> m[i];\n        if(b[i] == 0) cnt++;\n\
     \    }\n    pair<long long, long long> p = CRT::chineseRem(b, m);\n    if(p.second\
@@ -77,8 +77,8 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_186.test.cpp
   requiredBy: []
-  timestamp: '2025-02-14 23:49:03+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2025-02-15 00:03:46+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_186.test.cpp
 layout: document

@@ -13,14 +13,14 @@ data:
   - icon: ':question:'
     path: lib/polynomial/formal_power_series.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/multipoint_evaluation.hpp
     title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/multipoint_evaluation
@@ -113,10 +113,10 @@ data:
     \            }\n        }\n        return constants[n];\n    }\n\n    // ax +\
     \ b \u2261 0 (mod m)\n    long long modEquation(long long a, long long b, long\
     \ long m, bool is_positive = false){\n        a %= m; b %= m;\n        b = (m\
-    \ - b) % m;\n        long long g = gcd(a, m);\n        if(b % g != 0) return -1;\n\
-    \        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n       \
-    \     return m;\n        }\n        long long x, y;\n        extGCD(a, m, x, y);\n\
-    \        return (b * x % m + m) % m;\n    }\n}\n#line 9 \"lib/convolution/ntt.hpp\"\
+    \ - b) % m;\n        long long g = std::gcd(a, m);\n        if(b % g != 0) return\
+    \ -1;\n        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n \
+    \           return m;\n        }\n        long long x, y;\n        extGCD(a, m,\
+    \ x, y);\n        return (b * x % m + m) % m;\n    }\n}\n#line 9 \"lib/convolution/ntt.hpp\"\
     \n\n#line 11 \"lib/convolution/ntt.hpp\"\n\nnamespace NTT{\n\n    // @param n\
     \ `0 <= n`\n    // @return minimum non-negative `x` s.t. `n <= 2**x`\n    int\
     \ ceil_pow2(int n) {\n        int x = 0;\n        while((1U << x) < (unsigned\
@@ -369,8 +369,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
   requiredBy: []
-  timestamp: '2025-02-14 23:49:03+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-02-15 00:03:46+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/multipoint_evaluation.test.cpp
 layout: document

@@ -170,7 +170,7 @@ data:
       title: Count Substrings
   - name: lib/enumerative_combinatorics
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: lib/enumerative_combinatorics/combination_modint.hpp
       title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
     - icon: ':heavy_check_mark:'
@@ -179,14 +179,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/enumerative_combinatorics/montmort_number.hpp
       title: "Montmort Number (\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/enumerative_combinatorics/partition_function.hpp
       title: "Partition Function (\u5206\u5272\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/enumerative_combinatorics/stirling_number_2nd.hpp
       title: "Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\u30FC\
         \u30EA\u30F3\u30B0\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/enumerative_combinatorics/subset_sum.hpp
       title: Subset Sum
   - name: lib/geometry
@@ -412,16 +412,16 @@ data:
       title: lib/others/zorbrist_hash.hpp
   - name: lib/polynomial
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/bostan_mori.hpp
       title: Bostan-Mori
     - icon: ':question:'
       path: lib/polynomial/formal_power_series.hpp
       title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/multipoint_evaluation.hpp
       title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/polynomial/polynomial_interpolation.hpp
       title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':x:'
@@ -460,7 +460,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/string/suffix_array.hpp
       title: lib/string/suffix_array.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/string/wildcard_pattern_matching.hpp
       title: Wildcard Pattern Matching
     - icon: ':heavy_check_mark:'
@@ -559,10 +559,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
       title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/convolution.test.cpp
       title: test/library_checker/convolution/convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
       title: test/library_checker/convolution/convolution_mod_1000000007.test.cpp
     - icon: ':heavy_check_mark:'
@@ -710,16 +710,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp
       title: test/library_checker/enumerative_combinatorics/number_of_subsequences.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
       title: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
       title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
       title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
       title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
   - name: test/library_checker/geometry
@@ -858,7 +858,7 @@ data:
       title: test/library_checker/number_theory/sqrt_mod.test.cpp
   - name: test/library_checker/other
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
       title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     - icon: ':heavy_check_mark:'
@@ -869,22 +869,22 @@ data:
       title: test/library_checker/other/two_sat.test.cpp
   - name: test/library_checker/polynomial
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/division_of_polynomials.test.cpp
       title: test/library_checker/polynomial/division_of_polynomials.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
       title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
       title: test/library_checker/polynomial/multipoint_evaluation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
       title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
     - icon: ':x:'
@@ -927,7 +927,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/string/suffixarray_1.test.cpp
       title: test/library_checker/string/suffixarray_1.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/string/wildcard_pattern_matching.test.cpp
       title: test/library_checker/string/wildcard_pattern_matching.test.cpp
     - icon: ':heavy_check_mark:'
@@ -973,10 +973,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_184.test.cpp
       title: test/yukicoder/yuki_184.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/yuki_186.test.cpp
       title: test/yukicoder/yuki_186.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/yuki_187.test.cpp
       title: test/yukicoder/yuki_187.test.cpp
     - icon: ':heavy_check_mark:'
@@ -988,7 +988,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/yuki_2087.test.cpp
       title: test/yukicoder/yuki_2087.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/yuki_2119.test.cpp
       title: test/yukicoder/yuki_2119.test.cpp
     - icon: ':heavy_check_mark:'

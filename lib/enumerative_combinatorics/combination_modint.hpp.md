@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/stirling_number_2nd.hpp
     title: "Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\u30FC\u30EA\
       \u30F3\u30B0\u6570)"
@@ -13,10 +13,10 @@ data:
     path: lib/polynomial/taylor_shift.hpp
     title: Taylor Shift
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
     title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
     title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
   - icon: ':x:'
@@ -24,7 +24,7 @@ data:
     title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
     links: []
@@ -100,7 +100,7 @@ data:
   - lib/math/pow_sum.hpp
   - lib/enumerative_combinatorics/stirling_number_2nd.hpp
   timestamp: '2025-01-18 04:43:36+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp

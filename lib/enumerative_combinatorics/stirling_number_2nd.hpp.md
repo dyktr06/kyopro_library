@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/enumerative_combinatorics/combination_modint.hpp
     title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
   - icon: ':question:'
@@ -18,15 +18,15 @@ data:
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
     title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
     title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\
       \u30FC\u30EA\u30F3\u30B0\u6570)"
@@ -146,10 +146,10 @@ data:
     \            }\n        }\n        return constants[n];\n    }\n\n    // ax +\
     \ b \u2261 0 (mod m)\n    long long modEquation(long long a, long long b, long\
     \ long m, bool is_positive = false){\n        a %= m; b %= m;\n        b = (m\
-    \ - b) % m;\n        long long g = gcd(a, m);\n        if(b % g != 0) return -1;\n\
-    \        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n       \
-    \     return m;\n        }\n        long long x, y;\n        extGCD(a, m, x, y);\n\
-    \        return (b * x % m + m) % m;\n    }\n}\n#line 9 \"lib/convolution/ntt.hpp\"\
+    \ - b) % m;\n        long long g = std::gcd(a, m);\n        if(b % g != 0) return\
+    \ -1;\n        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n \
+    \           return m;\n        }\n        long long x, y;\n        extGCD(a, m,\
+    \ x, y);\n        return (b * x % m + m) % m;\n    }\n}\n#line 9 \"lib/convolution/ntt.hpp\"\
     \n\n#line 11 \"lib/convolution/ntt.hpp\"\n\nnamespace NTT{\n\n    // @param n\
     \ `0 <= n`\n    // @return minimum non-negative `x` s.t. `n <= 2**x`\n    int\
     \ ceil_pow2(int n) {\n        int x = 0;\n        while((1U << x) < (unsigned\
@@ -414,8 +414,8 @@ data:
   isVerificationFile: false
   path: lib/enumerative_combinatorics/stirling_number_2nd.hpp
   requiredBy: []
-  timestamp: '2025-02-14 23:49:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2025-02-15 00:03:46+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
   - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp

@@ -10,14 +10,14 @@ data:
   - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/string/wildcard_pattern_matching.hpp
     title: Wildcard Pattern Matching
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/wildcard_pattern_matching
@@ -106,8 +106,8 @@ data:
     \ *= tm[i]) %= tm[j];\n            }\n        }\n        return constants[n];\n\
     \    }\n\n    // ax + b \u2261 0 (mod m)\n    long long modEquation(long long\
     \ a, long long b, long long m, bool is_positive = false){\n        a %= m; b %=\
-    \ m;\n        b = (m - b) % m;\n        long long g = gcd(a, m);\n        if(b\
-    \ % g != 0) return -1;\n        a /= g; b /= g; m /= g;\n        if(is_positive\
+    \ m;\n        b = (m - b) % m;\n        long long g = std::gcd(a, m);\n      \
+    \  if(b % g != 0) return -1;\n        a /= g; b /= g; m /= g;\n        if(is_positive\
     \ && b == 0){\n            return m;\n        }\n        long long x, y;\n   \
     \     extGCD(a, m, x, y);\n        return (b * x % m + m) % m;\n    }\n}\n#line\
     \ 9 \"lib/convolution/ntt.hpp\"\n\n#line 11 \"lib/convolution/ntt.hpp\"\n\nnamespace\
@@ -219,8 +219,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/string/wildcard_pattern_matching.test.cpp
   requiredBy: []
-  timestamp: '2025-02-14 23:49:03+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2025-02-15 00:03:46+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/string/wildcard_pattern_matching.test.cpp
 layout: document
