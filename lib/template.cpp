@@ -22,9 +22,11 @@ using i128 = __int128_t;
 
 using ll = long long;
 using ul = unsigned long long;
+using ull = unsigned long long;
 using ld = long double;
 using vi = vector<int>;
 using vll = vector<long long>;
+using vull = vector<unsigned long long>;
 using vc = vector<char>;
 using vst = vector<string>;
 using vd = vector<double>;
