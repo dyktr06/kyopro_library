@@ -215,13 +215,13 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
   - test/library_checker/graph/counting_spanning_tree_directed.test.cpp
+  - test/library_checker/graph/counting_spanning_tree_undirected.test.cpp
   - test/library_checker/linear_algebra/matrix_rank.test.cpp
   - test/library_checker/linear_algebra/matrix_det.test.cpp
-  - test/library_checker/linear_algebra/inverse_matrix.test.cpp
-  - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - test/library_checker/linear_algebra/matrix_product.test.cpp
+  - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - test/library_checker/linear_algebra/inverse_matrix.test.cpp
 documentation_of: lib/math/matrix.hpp
 layout: document
 redirect_from:

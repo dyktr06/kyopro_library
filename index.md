@@ -377,6 +377,9 @@ data:
       title: lib/math/utils.hpp
   - name: lib/others
     pages:
+    - icon: ':warning:'
+      path: lib/others/binary_gcd.hpp
+      title: Binary GCD
     - icon: ':heavy_check_mark:'
       path: lib/others/compression.hpp
       title: "Compression (\u5EA7\u6A19\u5727\u7E2E)"

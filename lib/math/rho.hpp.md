@@ -117,10 +117,10 @@ data:
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yukicoder/yuki_888.test.cpp
+  - test/library_checker/number_theory/primitive_root.test.cpp
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
-  - test/library_checker/number_theory/primitive_root.test.cpp
-  - test/yukicoder/yuki_888.test.cpp
 documentation_of: lib/math/rho.hpp
 layout: document
 redirect_from:
