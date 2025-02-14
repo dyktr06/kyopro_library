@@ -18,8 +18,9 @@ data:
     \ (a).end()\n#define Sort(a) (sort((a).begin(), (a).end()))\n#define RSort(a)\
     \ (sort((a).rbegin(), (a).rend()))\n#define UNIQUE(a) (a.erase(unique((a).begin(),\
     \ (a).end()), (a).end()))\n\nusing i64 = int64_t;\nusing i128 = __int128_t;\n\n\
-    using ll = long long;\nusing ul = unsigned long long;\nusing ld = long double;\n\
-    using vi = vector<int>;\nusing vll = vector<long long>;\nusing vc = vector<char>;\n\
+    using ll = long long;\nusing ul = unsigned long long;\nusing ull = unsigned long\
+    \ long;\nusing ld = long double;\nusing vi = vector<int>;\nusing vll = vector<long\
+    \ long>;\nusing vull = vector<unsigned long long>;\nusing vc = vector<char>;\n\
     using vst = vector<string>;\nusing vd = vector<double>;\nusing vld = vector<long\
     \ double>;\nusing P = pair<long long, long long>;\n\ntemplate<class T> long long\
     \ sum(const T &a){ return accumulate(a.begin(), a.end(), 0LL); }\ntemplate<class\
@@ -94,8 +95,9 @@ data:
     \ (a).end()\n#define Sort(a) (sort((a).begin(), (a).end()))\n#define RSort(a)\
     \ (sort((a).rbegin(), (a).rend()))\n#define UNIQUE(a) (a.erase(unique((a).begin(),\
     \ (a).end()), (a).end()))\n\nusing i64 = int64_t;\nusing i128 = __int128_t;\n\n\
-    using ll = long long;\nusing ul = unsigned long long;\nusing ld = long double;\n\
-    using vi = vector<int>;\nusing vll = vector<long long>;\nusing vc = vector<char>;\n\
+    using ll = long long;\nusing ul = unsigned long long;\nusing ull = unsigned long\
+    \ long;\nusing ld = long double;\nusing vi = vector<int>;\nusing vll = vector<long\
+    \ long>;\nusing vull = vector<unsigned long long>;\nusing vc = vector<char>;\n\
     using vst = vector<string>;\nusing vd = vector<double>;\nusing vld = vector<long\
     \ double>;\nusing P = pair<long long, long long>;\n\ntemplate<class T> long long\
     \ sum(const T &a){ return accumulate(a.begin(), a.end(), 0LL); }\ntemplate<class\
@@ -164,7 +166,7 @@ data:
   isVerificationFile: false
   path: lib/template.cpp
   requiredBy: []
-  timestamp: '2024-12-15 12:48:49+09:00'
+  timestamp: '2025-02-14 23:44:49+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/template.cpp

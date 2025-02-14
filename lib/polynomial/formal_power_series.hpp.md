@@ -1,24 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/enumerative_combinatorics/partition_function.hpp
     title: "Partition Function (\u5206\u5272\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/enumerative_combinatorics/stirling_number_2nd.hpp
     title: "Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\u30FC\u30EA\
       \u30F3\u30B0\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/enumerative_combinatorics/subset_sum.hpp
     title: Subset Sum
   - icon: ':heavy_check_mark:'
@@ -27,33 +27,33 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/math/bernoulli_number.hpp
     title: "Bernoulli Number (\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/bostan_mori.hpp
     title: Bostan-Mori
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/multipoint_evaluation.hpp
     title: "Multipoint Evaluation (\u591A\u70B9\u8A55\u4FA1)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/polynomial_interpolation.hpp
     title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/product_of_polynomial_sequence.hpp
     title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\u7A4D\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/taylor_shift.hpp
     title: Taylor Shift
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
     title: test/library_checker/enumerative_combinatorics/partition_function.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
     title: test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
     title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
     title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
   - icon: ':heavy_check_mark:'
@@ -62,42 +62,42 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/bernoulli_number.test.cpp
     title: test/library_checker/number_theory/bernoulli_number.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/division_of_polynomials.test.cpp
     title: test/library_checker/polynomial/division_of_polynomials.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/log_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/multipoint_evaluation.test.cpp
     title: test/library_checker/polynomial/multipoint_evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
     title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
     title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -180,119 +180,124 @@ data:
     \    long long t = mod((b[i] - constants[i]) * inv(coeffs[i], tm[i]), tm[i]);\n\
     \            for(int j = i + 1; j < n + 1; j++){\n                (constants[j]\
     \ += t * coeffs[j]) %= tm[j];\n                (coeffs[j] *= tm[i]) %= tm[j];\n\
-    \            }\n        }\n        return constants[n];\n    }\n}\n#line 9 \"\
-    lib/convolution/ntt.hpp\"\n\n#line 11 \"lib/convolution/ntt.hpp\"\n\nnamespace\
-    \ NTT{\n\n    // @param n `0 <= n`\n    // @return minimum non-negative `x` s.t.\
-    \ `n <= 2**x`\n    int ceil_pow2(int n) {\n        int x = 0;\n        while((1U\
-    \ << x) < (unsigned int) (n)) x++;\n        return x;\n    }\n\n    // @param\
-    \ n `1 <= n`\n    // @return minimum non-negative `x` s.t. `(n & (1 << x)) !=\
-    \ 0`\n    int bsf(unsigned int n) {\n        return __builtin_ctz(n);\n    }\n\
-    \n    int primitive_root(int m) {\n        if(m == 2) return 1;\n        if(m\
-    \ == 167772161) return 3;\n        if(m == 469762049) return 3;\n        if(m\
-    \ == 754974721) return 11;\n        if(m == 998244353) return 3;\n        return\
-    \ 1;\n    }\n\n    template <typename T>\n    void butterfly(std::vector<T> &a){\n\
-    \        int g = primitive_root(T::mod());\n        int n = int(a.size());\n \
-    \       int h = ceil_pow2(n);\n\n        static bool first = true;\n        static\
-    \ T sum_e[30];  // sum_e[i] = ies[0] * ... * ies[i - 1] * es[i]\n        if(first){\n\
+    \            }\n        }\n        return constants[n];\n    }\n\n    // ax +\
+    \ b \u2261 0 (mod m)\n    long long modEquation(long long a, long long b, long\
+    \ long m, bool is_positive = false){\n        a %= m; b %= m;\n        b = (m\
+    \ - b) % m;\n        long long g = gcd(a, m);\n        if(b % g != 0) return -1;\n\
+    \        a /= g; b /= g; m /= g;\n        if(is_positive && b == 0){\n       \
+    \     return m;\n        }\n        long long x, y;\n        extGCD(a, m, x, y);\n\
+    \        return (b * x % m + m) % m;\n    }\n}\n#line 9 \"lib/convolution/ntt.hpp\"\
+    \n\n#line 11 \"lib/convolution/ntt.hpp\"\n\nnamespace NTT{\n\n    // @param n\
+    \ `0 <= n`\n    // @return minimum non-negative `x` s.t. `n <= 2**x`\n    int\
+    \ ceil_pow2(int n) {\n        int x = 0;\n        while((1U << x) < (unsigned\
+    \ int) (n)) x++;\n        return x;\n    }\n\n    // @param n `1 <= n`\n    //\
+    \ @return minimum non-negative `x` s.t. `(n & (1 << x)) != 0`\n    int bsf(unsigned\
+    \ int n) {\n        return __builtin_ctz(n);\n    }\n\n    int primitive_root(int\
+    \ m) {\n        if(m == 2) return 1;\n        if(m == 167772161) return 3;\n \
+    \       if(m == 469762049) return 3;\n        if(m == 754974721) return 11;\n\
+    \        if(m == 998244353) return 3;\n        return 1;\n    }\n\n    template\
+    \ <typename T>\n    void butterfly(std::vector<T> &a){\n        int g = primitive_root(T::mod());\n\
+    \        int n = int(a.size());\n        int h = ceil_pow2(n);\n\n        static\
+    \ bool first = true;\n        static T sum_e[30];  // sum_e[i] = ies[0] * ...\
+    \ * ies[i - 1] * es[i]\n        if(first){\n            first = false;\n     \
+    \       T es[30], ies[30];  // es[i]^(2^(2+i)) == 1\n            int cnt2 = bsf(T::mod()\
+    \ - 1);\n            T e = T(g).pow((T::mod() - 1) >> cnt2), ie = e.inv();\n \
+    \           for(int i = cnt2; i >= 2; i--){\n                // e^(2^i) == 1\n\
+    \                es[i - 2] = e;\n                ies[i - 2] = ie;\n          \
+    \      e *= e;\n                ie *= ie;\n            }\n            T now =\
+    \ 1;\n            for(int i = 0; i <= cnt2 - 2; i++){\n                sum_e[i]\
+    \ = es[i] * now;\n                now *= ies[i];\n            }\n        }\n \
+    \       for(int ph = 1; ph <= h; ph++){\n            int w = 1 << (ph - 1), p\
+    \ = 1 << (h - ph);\n            T now = 1;\n            for(int s = 0; s < w;\
+    \ s++){\n                int offset = s << (h - ph + 1);\n                for(int\
+    \ i = 0; i < p; i++){\n                    auto l = a[i + offset];\n         \
+    \           auto r = a[i + offset + p] * now;\n                    a[i + offset]\
+    \ = l + r;\n                    a[i + offset + p] = l - r;\n                }\n\
+    \                now *= sum_e[bsf(~(unsigned int) (s))];\n            }\n    \
+    \    }\n    }\n\n    template <typename T>\n    void butterfly_inv(std::vector<T>\
+    \ &a) {\n        int g = primitive_root(T::mod());\n        int n = int(a.size());\n\
+    \        int h = ceil_pow2(n);\n\n        static bool first = true;\n        static\
+    \ T sum_ie[30];  // sum_ie[i] = es[0] * ... * es[i - 1] * ies[i]\n        if(first){\n\
     \            first = false;\n            T es[30], ies[30];  // es[i]^(2^(2+i))\
     \ == 1\n            int cnt2 = bsf(T::mod() - 1);\n            T e = T(g).pow((T::mod()\
     \ - 1) >> cnt2), ie = e.inv();\n            for(int i = cnt2; i >= 2; i--){\n\
     \                // e^(2^i) == 1\n                es[i - 2] = e;\n           \
     \     ies[i - 2] = ie;\n                e *= e;\n                ie *= ie;\n \
     \           }\n            T now = 1;\n            for(int i = 0; i <= cnt2 -\
-    \ 2; i++){\n                sum_e[i] = es[i] * now;\n                now *= ies[i];\n\
-    \            }\n        }\n        for(int ph = 1; ph <= h; ph++){\n         \
-    \   int w = 1 << (ph - 1), p = 1 << (h - ph);\n            T now = 1;\n      \
-    \      for(int s = 0; s < w; s++){\n                int offset = s << (h - ph\
-    \ + 1);\n                for(int i = 0; i < p; i++){\n                    auto\
-    \ l = a[i + offset];\n                    auto r = a[i + offset + p] * now;\n\
+    \ 2; i++){\n                sum_ie[i] = ies[i] * now;\n                now *=\
+    \ es[i];\n            }\n        }\n\n        for(int ph = h; ph >= 1; ph--){\n\
+    \            int w = 1 << (ph - 1), p = 1 << (h - ph);\n            T inow = 1;\n\
+    \            for(int s = 0; s < w; s++){\n                int offset = s << (h\
+    \ - ph + 1);\n                for(int i = 0; i < p; i++){\n                  \
+    \  auto l = a[i + offset];\n                    auto r = a[i + offset + p];\n\
     \                    a[i + offset] = l + r;\n                    a[i + offset\
-    \ + p] = l - r;\n                }\n                now *= sum_e[bsf(~(unsigned\
-    \ int) (s))];\n            }\n        }\n    }\n\n    template <typename T>\n\
-    \    void butterfly_inv(std::vector<T> &a) {\n        int g = primitive_root(T::mod());\n\
-    \        int n = int(a.size());\n        int h = ceil_pow2(n);\n\n        static\
-    \ bool first = true;\n        static T sum_ie[30];  // sum_ie[i] = es[0] * ...\
-    \ * es[i - 1] * ies[i]\n        if(first){\n            first = false;\n     \
-    \       T es[30], ies[30];  // es[i]^(2^(2+i)) == 1\n            int cnt2 = bsf(T::mod()\
-    \ - 1);\n            T e = T(g).pow((T::mod() - 1) >> cnt2), ie = e.inv();\n \
-    \           for(int i = cnt2; i >= 2; i--){\n                // e^(2^i) == 1\n\
-    \                es[i - 2] = e;\n                ies[i - 2] = ie;\n          \
-    \      e *= e;\n                ie *= ie;\n            }\n            T now =\
-    \ 1;\n            for(int i = 0; i <= cnt2 - 2; i++){\n                sum_ie[i]\
-    \ = ies[i] * now;\n                now *= es[i];\n            }\n        }\n\n\
-    \        for(int ph = h; ph >= 1; ph--){\n            int w = 1 << (ph - 1), p\
-    \ = 1 << (h - ph);\n            T inow = 1;\n            for(int s = 0; s < w;\
-    \ s++){\n                int offset = s << (h - ph + 1);\n                for(int\
-    \ i = 0; i < p; i++){\n                    auto l = a[i + offset];\n         \
-    \           auto r = a[i + offset + p];\n                    a[i + offset] = l\
-    \ + r;\n                    a[i + offset + p] = (unsigned long long) (T::mod()\
-    \ + l.val - r.val) * inow.val;\n                }\n                inow *= sum_ie[bsf(~(unsigned\
-    \ int) (s))];\n            }\n        }\n    }\n\n    template <typename T>\n\
-    \    std::vector<T> convolution(std::vector<T> a, std::vector<T> b){\n       \
-    \ int n = int(a.size()), m = int(b.size());\n        if(!n || !m) return {};\n\
-    \        if(std::min(n, m) <= 60) {\n            if(n < m) {\n               \
-    \ std::swap(n, m);\n                std::swap(a, b);\n            }\n        \
-    \    std::vector<T> ans(n + m - 1);\n            for(int i = 0; i < n; i++){\n\
-    \                for(int j = 0; j < m; j++){\n                    ans[i + j] +=\
-    \ a[i] * b[j];\n                }\n            }\n            return ans;\n  \
-    \      }\n        int z = 1 << ceil_pow2(n + m - 1);\n        a.resize(z);\n \
-    \       butterfly(a);\n        b.resize(z);\n        butterfly(b);\n        for(int\
-    \ i = 0; i < z; i++){\n            a[i] *= b[i];\n        }\n        butterfly_inv(a);\n\
-    \        a.resize(n + m - 1);\n        T iz = T(z).inv();\n        for(int i =\
-    \ 0; i < n + m - 1; i++) a[i] *= iz;\n        return a;\n    }\n\n    template\
-    \ <typename T>\n    std::vector<T> convolution_mod(const std::vector<T> &a, const\
-    \ std::vector<T> &b, const long long MOD){\n        if(MOD == 998244353){\n  \
-    \          return convolution(a, b);\n        }\n        constexpr long long m0\
-    \ = 167772161;\n        constexpr long long m1 = 469762049;\n        constexpr\
-    \ long long m2 = 754974721;\n        using mint0 = ModInt<m0>;\n        using\
-    \ mint1 = ModInt<m1>;\n        using mint2 = ModInt<m2>;\n        int n = a.size(),\
-    \ m = b.size();\n        std::vector<mint0> a0(n), b0(m);\n        std::vector<mint1>\
-    \ a1(n), b1(m);\n        std::vector<mint2> a2(n), b2(m);\n        for(int i =\
-    \ 0; i < n; i++){\n            a0[i] = a[i].val;\n            a1[i] = a[i].val;\n\
-    \            a2[i] = a[i].val;\n        }\n        for(int i = 0; i < m; i++){\n\
-    \            b0[i] = b[i].val;\n            b1[i] = b[i].val;\n            b2[i]\
-    \ = b[i].val;\n        }\n        auto c0 = convolution(a0, b0);\n        auto\
-    \ c1 = convolution(a1, b1);\n        auto c2 = convolution(a2, b2);\n        std::vector<T>\
-    \ ret(n + m - 1);\n        for(int i = 0; i < n + m - 1; i++){\n            ret[i]\
-    \ = CRT::garner({c0[i].val, c1[i].val, c2[i].val}, {m0, m1, m2}, MOD);\n     \
-    \   }\n        return ret;\n    }\n};\n#line 11 \"lib/polynomial/formal_power_series.hpp\"\
-    \n\ntemplate <typename T>\nstruct FormalPowerSeries : std::vector<T> {\n    using\
-    \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n\n    // deg \u6B21\
-    \u3068\u3057\u3066\u521D\u671F\u5316\n    FPS pre(int deg) const {\n        FPS\
-    \ res(std::begin(*this), std::begin(*this) + std::min((int) this->size(), deg));\n\
-    \        if((int) res.size() < deg) res.resize(deg, T(0));\n        return res;\n\
-    \    }\n\n    // deg \u6B21\u3068\u3057\u3066\u53CD\u8EE2\n    FPS rev(int deg\
-    \ = -1) const {\n        FPS res(*this);\n        if(deg != -1) res.resize(deg,\
-    \ T(0));\n        std::reverse(std::begin(res), std::end(res));\n        return\
-    \ res;\n    }\n\n    int notZeroCount() const {\n        int res = 0;\n      \
-    \  for(auto x : *this){\n            if(x != T(0)) res++;\n        }\n       \
-    \ return res;\n    }\n\n    int maxDeg() const {\n        for(int i = (int) this->size()\
-    \ - 1; i >= 0; i--){\n            if((*this)[i] != T(0)) return i;\n        }\n\
-    \        return -1;\n    }\n\n    void shrink() {\n        while(this->size()\
-    \ && this->back() == T(0)) this->pop_back();\n    }\n\n    std::vector<std::pair<int,\
-    \ T>> sparseFormat() const {\n        std::vector<std::pair<int, T>> res;\n  \
-    \      for(int i = 0; i < (int) this->size(); i++){\n            if((*this)[i]\
-    \ != T(0)) res.emplace_back(i, (*this)[i]);\n        }\n        return res;\n\
-    \    }\n\n    FPS operator+(const T &rhs) const { return FPS(*this) += rhs; }\n\
-    \    FPS operator+(const FPS &rhs) const { return FPS(*this) += rhs; }\n    FPS\
-    \ operator-(const T &rhs) const { return FPS(*this) -= rhs; }\n    FPS operator-(const\
-    \ FPS &rhs) const { return FPS(*this) -= rhs; }\n    FPS operator*(const T &rhs)\
-    \ const { return FPS(*this) *= rhs; }\n    FPS operator*(const FPS &rhs) const\
-    \ { return FPS(*this) *= rhs; }\n    FPS operator/(const T &rhs) const { return\
-    \ FPS(*this) /= rhs; }\n    FPS operator/(const FPS &rhs) const { return FPS(*this)\
-    \ /= rhs; }\n    FPS operator%(const FPS &rhs) const { return FPS(*this) %= rhs;\
-    \ }\n    FPS operator-() const {\n        FPS res(this->size());\n        for(int\
-    \ i = 0; i < (int) this->size(); i++) res[i] = -(*this)[i];\n        return res;\n\
-    \    }\n\n    FPS &operator+=(const T &rhs){\n        if(this->empty()) this->resize(1);\n\
-    \        (*this)[0] += rhs;\n        return *this;\n    }\n\n    FPS &operator-=(const\
-    \ T &rhs){\n        if(this->empty()) this->resize(1);\n        (*this)[0] -=\
-    \ rhs;\n        return *this;\n    }\n\n    FPS &operator*=(const T &rhs){\n \
-    \       for(auto &x : *this) x *= rhs;\n        return *this;\n    }\n\n    FPS\
-    \ &operator/=(const T &rhs){\n        for(auto &x : *this) x /= rhs;\n       \
-    \ return *this;\n    }\n\n    FPS &operator+=(const FPS &rhs) noexcept {\n   \
-    \     if(this->size() < rhs.size()) this->resize(rhs.size());\n        for(int\
-    \ i = 0; i < (int) rhs.size(); i++) (*this)[i] += rhs[i];\n        return *this;\n\
-    \    }\n\n    FPS &operator-=(const FPS &rhs) noexcept {\n        if(this->size()\
+    \ + p] = (unsigned long long) (T::mod() + l.val - r.val) * inow.val;\n       \
+    \         }\n                inow *= sum_ie[bsf(~(unsigned int) (s))];\n     \
+    \       }\n        }\n    }\n\n    template <typename T>\n    std::vector<T> convolution(std::vector<T>\
+    \ a, std::vector<T> b){\n        int n = int(a.size()), m = int(b.size());\n \
+    \       if(!n || !m) return {};\n        if(std::min(n, m) <= 60) {\n        \
+    \    if(n < m) {\n                std::swap(n, m);\n                std::swap(a,\
+    \ b);\n            }\n            std::vector<T> ans(n + m - 1);\n           \
+    \ for(int i = 0; i < n; i++){\n                for(int j = 0; j < m; j++){\n \
+    \                   ans[i + j] += a[i] * b[j];\n                }\n          \
+    \  }\n            return ans;\n        }\n        int z = 1 << ceil_pow2(n + m\
+    \ - 1);\n        a.resize(z);\n        butterfly(a);\n        b.resize(z);\n \
+    \       butterfly(b);\n        for(int i = 0; i < z; i++){\n            a[i] *=\
+    \ b[i];\n        }\n        butterfly_inv(a);\n        a.resize(n + m - 1);\n\
+    \        T iz = T(z).inv();\n        for(int i = 0; i < n + m - 1; i++) a[i] *=\
+    \ iz;\n        return a;\n    }\n\n    template <typename T>\n    std::vector<T>\
+    \ convolution_mod(const std::vector<T> &a, const std::vector<T> &b, const long\
+    \ long MOD){\n        if(MOD == 998244353){\n            return convolution(a,\
+    \ b);\n        }\n        constexpr long long m0 = 167772161;\n        constexpr\
+    \ long long m1 = 469762049;\n        constexpr long long m2 = 754974721;\n   \
+    \     using mint0 = ModInt<m0>;\n        using mint1 = ModInt<m1>;\n        using\
+    \ mint2 = ModInt<m2>;\n        int n = a.size(), m = b.size();\n        std::vector<mint0>\
+    \ a0(n), b0(m);\n        std::vector<mint1> a1(n), b1(m);\n        std::vector<mint2>\
+    \ a2(n), b2(m);\n        for(int i = 0; i < n; i++){\n            a0[i] = a[i].val;\n\
+    \            a1[i] = a[i].val;\n            a2[i] = a[i].val;\n        }\n   \
+    \     for(int i = 0; i < m; i++){\n            b0[i] = b[i].val;\n           \
+    \ b1[i] = b[i].val;\n            b2[i] = b[i].val;\n        }\n        auto c0\
+    \ = convolution(a0, b0);\n        auto c1 = convolution(a1, b1);\n        auto\
+    \ c2 = convolution(a2, b2);\n        std::vector<T> ret(n + m - 1);\n        for(int\
+    \ i = 0; i < n + m - 1; i++){\n            ret[i] = CRT::garner({c0[i].val, c1[i].val,\
+    \ c2[i].val}, {m0, m1, m2}, MOD);\n        }\n        return ret;\n    }\n};\n\
+    #line 11 \"lib/polynomial/formal_power_series.hpp\"\n\ntemplate <typename T>\n\
+    struct FormalPowerSeries : std::vector<T> {\n    using std::vector<T>::vector;\n\
+    \    using FPS = FormalPowerSeries;\n\n    // deg \u6B21\u3068\u3057\u3066\u521D\
+    \u671F\u5316\n    FPS pre(int deg) const {\n        FPS res(std::begin(*this),\
+    \ std::begin(*this) + std::min((int) this->size(), deg));\n        if((int) res.size()\
+    \ < deg) res.resize(deg, T(0));\n        return res;\n    }\n\n    // deg \u6B21\
+    \u3068\u3057\u3066\u53CD\u8EE2\n    FPS rev(int deg = -1) const {\n        FPS\
+    \ res(*this);\n        if(deg != -1) res.resize(deg, T(0));\n        std::reverse(std::begin(res),\
+    \ std::end(res));\n        return res;\n    }\n\n    int notZeroCount() const\
+    \ {\n        int res = 0;\n        for(auto x : *this){\n            if(x != T(0))\
+    \ res++;\n        }\n        return res;\n    }\n\n    int maxDeg() const {\n\
+    \        for(int i = (int) this->size() - 1; i >= 0; i--){\n            if((*this)[i]\
+    \ != T(0)) return i;\n        }\n        return -1;\n    }\n\n    void shrink()\
+    \ {\n        while(this->size() && this->back() == T(0)) this->pop_back();\n \
+    \   }\n\n    std::vector<std::pair<int, T>> sparseFormat() const {\n        std::vector<std::pair<int,\
+    \ T>> res;\n        for(int i = 0; i < (int) this->size(); i++){\n           \
+    \ if((*this)[i] != T(0)) res.emplace_back(i, (*this)[i]);\n        }\n       \
+    \ return res;\n    }\n\n    FPS operator+(const T &rhs) const { return FPS(*this)\
+    \ += rhs; }\n    FPS operator+(const FPS &rhs) const { return FPS(*this) += rhs;\
+    \ }\n    FPS operator-(const T &rhs) const { return FPS(*this) -= rhs; }\n   \
+    \ FPS operator-(const FPS &rhs) const { return FPS(*this) -= rhs; }\n    FPS operator*(const\
+    \ T &rhs) const { return FPS(*this) *= rhs; }\n    FPS operator*(const FPS &rhs)\
+    \ const { return FPS(*this) *= rhs; }\n    FPS operator/(const T &rhs) const {\
+    \ return FPS(*this) /= rhs; }\n    FPS operator/(const FPS &rhs) const { return\
+    \ FPS(*this) /= rhs; }\n    FPS operator%(const FPS &rhs) const { return FPS(*this)\
+    \ %= rhs; }\n    FPS operator-() const {\n        FPS res(this->size());\n   \
+    \     for(int i = 0; i < (int) this->size(); i++) res[i] = -(*this)[i];\n    \
+    \    return res;\n    }\n\n    FPS &operator+=(const T &rhs){\n        if(this->empty())\
+    \ this->resize(1);\n        (*this)[0] += rhs;\n        return *this;\n    }\n\
+    \n    FPS &operator-=(const T &rhs){\n        if(this->empty()) this->resize(1);\n\
+    \        (*this)[0] -= rhs;\n        return *this;\n    }\n\n    FPS &operator*=(const\
+    \ T &rhs){\n        for(auto &x : *this) x *= rhs;\n        return *this;\n  \
+    \  }\n\n    FPS &operator/=(const T &rhs){\n        for(auto &x : *this) x /=\
+    \ rhs;\n        return *this;\n    }\n\n    FPS &operator+=(const FPS &rhs) noexcept\
+    \ {\n        if(this->size() < rhs.size()) this->resize(rhs.size());\n       \
+    \ for(int i = 0; i < (int) rhs.size(); i++) (*this)[i] += rhs[i];\n        return\
+    \ *this;\n    }\n\n    FPS &operator-=(const FPS &rhs) noexcept {\n        if(this->size()\
     \ < rhs.size()) this->resize(rhs.size());\n        for(int i = 0; i < (int) rhs.size();\
     \ i++) (*this)[i] -= rhs[i];\n        return *this;\n    }\n\n    FPS &operator*=(const\
     \ FPS &rhs) noexcept {\n        long long len1 = this->notZeroCount(), len2 =\
@@ -553,8 +558,8 @@ data:
   - lib/enumerative_combinatorics/stirling_number_2nd.hpp
   - lib/enumerative_combinatorics/subset_sum.hpp
   - lib/enumerative_combinatorics/partition_function.hpp
-  timestamp: '2025-01-26 14:59:10+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-02-14 23:49:03+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/polynomial/division_of_polynomials.test.cpp
   - test/library_checker/polynomial/log_of_formal_power_series.test.cpp

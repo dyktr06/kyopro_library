@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   - icon: ':heavy_check_mark:'
@@ -104,18 +104,24 @@ data:
     \ tm[i]), tm[i]);\n            for(int j = i + 1; j < n + 1; j++){\n         \
     \       (constants[j] += t * coeffs[j]) %= tm[j];\n                (coeffs[j]\
     \ *= tm[i]) %= tm[j];\n            }\n        }\n        return constants[n];\n\
-    \    }\n}\n#line 9 \"lib/convolution/ntt.hpp\"\n\n#line 11 \"lib/convolution/ntt.hpp\"\
-    \n\nnamespace NTT{\n\n    // @param n `0 <= n`\n    // @return minimum non-negative\
-    \ `x` s.t. `n <= 2**x`\n    int ceil_pow2(int n) {\n        int x = 0;\n     \
-    \   while((1U << x) < (unsigned int) (n)) x++;\n        return x;\n    }\n\n \
-    \   // @param n `1 <= n`\n    // @return minimum non-negative `x` s.t. `(n & (1\
-    \ << x)) != 0`\n    int bsf(unsigned int n) {\n        return __builtin_ctz(n);\n\
-    \    }\n\n    int primitive_root(int m) {\n        if(m == 2) return 1;\n    \
-    \    if(m == 167772161) return 3;\n        if(m == 469762049) return 3;\n    \
-    \    if(m == 754974721) return 11;\n        if(m == 998244353) return 3;\n   \
-    \     return 1;\n    }\n\n    template <typename T>\n    void butterfly(std::vector<T>\
-    \ &a){\n        int g = primitive_root(T::mod());\n        int n = int(a.size());\n\
-    \        int h = ceil_pow2(n);\n\n        static bool first = true;\n        static\
+    \    }\n\n    // ax + b \u2261 0 (mod m)\n    long long modEquation(long long\
+    \ a, long long b, long long m, bool is_positive = false){\n        a %= m; b %=\
+    \ m;\n        b = (m - b) % m;\n        long long g = gcd(a, m);\n        if(b\
+    \ % g != 0) return -1;\n        a /= g; b /= g; m /= g;\n        if(is_positive\
+    \ && b == 0){\n            return m;\n        }\n        long long x, y;\n   \
+    \     extGCD(a, m, x, y);\n        return (b * x % m + m) % m;\n    }\n}\n#line\
+    \ 9 \"lib/convolution/ntt.hpp\"\n\n#line 11 \"lib/convolution/ntt.hpp\"\n\nnamespace\
+    \ NTT{\n\n    // @param n `0 <= n`\n    // @return minimum non-negative `x` s.t.\
+    \ `n <= 2**x`\n    int ceil_pow2(int n) {\n        int x = 0;\n        while((1U\
+    \ << x) < (unsigned int) (n)) x++;\n        return x;\n    }\n\n    // @param\
+    \ n `1 <= n`\n    // @return minimum non-negative `x` s.t. `(n & (1 << x)) !=\
+    \ 0`\n    int bsf(unsigned int n) {\n        return __builtin_ctz(n);\n    }\n\
+    \n    int primitive_root(int m) {\n        if(m == 2) return 1;\n        if(m\
+    \ == 167772161) return 3;\n        if(m == 469762049) return 3;\n        if(m\
+    \ == 754974721) return 11;\n        if(m == 998244353) return 3;\n        return\
+    \ 1;\n    }\n\n    template <typename T>\n    void butterfly(std::vector<T> &a){\n\
+    \        int g = primitive_root(T::mod());\n        int n = int(a.size());\n \
+    \       int h = ceil_pow2(n);\n\n        static bool first = true;\n        static\
     \ T sum_e[30];  // sum_e[i] = ies[0] * ... * ies[i - 1] * es[i]\n        if(first){\n\
     \            first = false;\n            T es[30], ies[30];  // es[i]^(2^(2+i))\
     \ == 1\n            int cnt2 = bsf(T::mod() - 1);\n            T e = T(g).pow((T::mod()\
@@ -213,7 +219,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/string/wildcard_pattern_matching.test.cpp
   requiredBy: []
-  timestamp: '2024-11-13 13:43:26+09:00'
+  timestamp: '2025-02-14 23:49:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/string/wildcard_pattern_matching.test.cpp
