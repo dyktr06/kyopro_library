@@ -92,9 +92,9 @@ data:
   timestamp: '2024-11-25 23:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/other/two_sat.test.cpp
   - test/library_checker/graph/cycle_detection.test.cpp
   - test/library_checker/graph/scc.test.cpp
+  - test/library_checker/other/two_sat.test.cpp
 documentation_of: lib/graph/scc.hpp
 layout: document
 redirect_from:

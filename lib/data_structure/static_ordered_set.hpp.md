@@ -160,8 +160,8 @@ data:
   timestamp: '2024-12-15 12:50:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/yuki_2809.test.cpp
   - test/library_checker/data_structure/ordered_set.test.cpp
+  - test/yukicoder/yuki_2809.test.cpp
 documentation_of: lib/data_structure/static_ordered_set.hpp
 layout: document
 redirect_from:

@@ -87,8 +87,8 @@ data:
   timestamp: '2024-11-13 13:43:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/convolution/lcm_convolution.test.cpp
   - test/library_checker/convolution/gcd_convolution.test.cpp
+  - test/library_checker/convolution/lcm_convolution.test.cpp
 documentation_of: lib/convolution/divisor_zeta_mobius_transform.hpp
 layout: document
 redirect_from:

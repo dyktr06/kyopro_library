@@ -9,7 +9,7 @@ data:
   - icon: ':warning:'
     path: lib/math/pow_sum.hpp
     title: lib/math/pow_sum.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/taylor_shift.hpp
     title: Taylor Shift
   _extendedVerifiedWith:
@@ -19,12 +19,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
     title: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
     links: []
@@ -96,15 +96,15 @@ data:
   isVerificationFile: false
   path: lib/enumerative_combinatorics/combination_modint.hpp
   requiredBy:
+  - lib/enumerative_combinatorics/stirling_number_2nd.hpp
   - lib/polynomial/taylor_shift.hpp
   - lib/math/pow_sum.hpp
-  - lib/enumerative_combinatorics/stirling_number_2nd.hpp
   timestamp: '2025-01-18 04:43:36+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
   - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
+  - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
 documentation_of: lib/enumerative_combinatorics/combination_modint.hpp
 layout: document
 redirect_from:

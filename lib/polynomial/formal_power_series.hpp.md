@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy:
@@ -36,11 +36,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/polynomial_interpolation.hpp
     title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/product_of_polynomial_sequence.hpp
     title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\u7A4D\
       )"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/polynomial/taylor_shift.hpp
     title: Taylor Shift
   _extendedVerifiedWith:
@@ -83,21 +83,21 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
     title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
     title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -548,36 +548,36 @@ data:
   isVerificationFile: false
   path: lib/polynomial/formal_power_series.hpp
   requiredBy:
-  - lib/polynomial/taylor_shift.hpp
+  - lib/enumerative_combinatorics/subset_sum.hpp
+  - lib/enumerative_combinatorics/stirling_number_2nd.hpp
+  - lib/enumerative_combinatorics/partition_function.hpp
+  - lib/polynomial/multipoint_evaluation.hpp
   - lib/polynomial/polynomial_interpolation.hpp
   - lib/polynomial/bostan_mori.hpp
-  - lib/polynomial/multipoint_evaluation.hpp
   - lib/polynomial/product_of_polynomial_sequence.hpp
-  - lib/math/bernoulli_number.hpp
+  - lib/polynomial/taylor_shift.hpp
   - lib/math/bell_number.hpp
-  - lib/enumerative_combinatorics/stirling_number_2nd.hpp
-  - lib/enumerative_combinatorics/subset_sum.hpp
-  - lib/enumerative_combinatorics/partition_function.hpp
+  - lib/math/bernoulli_number.hpp
   timestamp: '2025-02-15 00:03:46+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/polynomial/division_of_polynomials.test.cpp
-  - test/library_checker/polynomial/log_of_formal_power_series.test.cpp
-  - test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
-  - test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-  - test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
-  - test/library_checker/polynomial/polynomial_interpolation.test.cpp
-  - test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
-  - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+  - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
+  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
+  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
+  - test/library_checker/enumerative_combinatorics/partition_function.test.cpp
   - test/library_checker/polynomial/inv_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/log_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/division_of_polynomials.test.cpp
+  - test/library_checker/polynomial/polynomial_interpolation.test.cpp
+  - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   - test/library_checker/polynomial/multipoint_evaluation.test.cpp
+  - test/library_checker/polynomial/exp_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
   - test/library_checker/number_theory/bernoulli_number.test.cpp
   - test/library_checker/number_theory/bell_number.test.cpp
   - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
-  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
-  - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
-  - test/library_checker/enumerative_combinatorics/partition_function.test.cpp
 documentation_of: lib/polynomial/formal_power_series.hpp
 layout: document
 redirect_from:
