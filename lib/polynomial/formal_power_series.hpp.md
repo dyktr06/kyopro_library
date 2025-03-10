@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/convolution/ntt.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy:
@@ -36,11 +36,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/polynomial/polynomial_interpolation.hpp
     title: "Polynomial Interpolation (\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/product_of_polynomial_sequence.hpp
     title: "Product of Polynomial Sequence (\u591A\u9805\u5F0F\u5217\u306E\u7DCF\u7A4D\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/polynomial/taylor_shift.hpp
     title: Taylor Shift
   _extendedVerifiedWith:
@@ -83,21 +83,21 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/polynomial_interpolation.test.cpp
     title: test/library_checker/polynomial/polynomial_interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
     title: test/library_checker/polynomial/product_of_polynomial_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/library_checker/polynomial/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -248,10 +248,10 @@ data:
     \ iz;\n        return a;\n    }\n\n    template <typename T>\n    std::vector<T>\
     \ convolution_mod(const std::vector<T> &a, const std::vector<T> &b, const long\
     \ long MOD){\n        if(MOD == 998244353){\n            return convolution(a,\
-    \ b);\n        }\n        constexpr long long m0 = 167772161;\n        constexpr\
-    \ long long m1 = 469762049;\n        constexpr long long m2 = 754974721;\n   \
-    \     using mint0 = ModInt<m0>;\n        using mint1 = ModInt<m1>;\n        using\
-    \ mint2 = ModInt<m2>;\n        int n = a.size(), m = b.size();\n        std::vector<mint0>\
+    \ b);\n        }\n        constexpr long long M0 = 167772161;\n        constexpr\
+    \ long long M1 = 469762049;\n        constexpr long long M2 = 754974721;\n   \
+    \     using mint0 = ModInt<M0>;\n        using mint1 = ModInt<M1>;\n        using\
+    \ mint2 = ModInt<M2>;\n        int n = a.size(), m = b.size();\n        std::vector<mint0>\
     \ a0(n), b0(m);\n        std::vector<mint1> a1(n), b1(m);\n        std::vector<mint2>\
     \ a2(n), b2(m);\n        for(int i = 0; i < n; i++){\n            a0[i] = a[i].val;\n\
     \            a1[i] = a[i].val;\n            a2[i] = a[i].val;\n        }\n   \
@@ -260,7 +260,7 @@ data:
     \ = convolution(a0, b0);\n        auto c1 = convolution(a1, b1);\n        auto\
     \ c2 = convolution(a2, b2);\n        std::vector<T> ret(n + m - 1);\n        for(int\
     \ i = 0; i < n + m - 1; i++){\n            ret[i] = CRT::garner({c0[i].val, c1[i].val,\
-    \ c2[i].val}, {m0, m1, m2}, MOD);\n        }\n        return ret;\n    }\n};\n\
+    \ c2[i].val}, {M0, M1, M2}, MOD);\n        }\n        return ret;\n    }\n};\n\
     #line 11 \"lib/polynomial/formal_power_series.hpp\"\n\ntemplate <typename T>\n\
     struct FormalPowerSeries : std::vector<T> {\n    using std::vector<T>::vector;\n\
     \    using FPS = FormalPowerSeries;\n\n    // deg \u6B21\u3068\u3057\u3066\u521D\
@@ -325,8 +325,9 @@ data:
     \ division(const FPS &rhs) const {\n        FPS q = *this / rhs;\n        FPS\
     \ r = *this - q * rhs;\n        q.shrink(), r.shrink();\n        return {q, r};\n\
     \    }\n\n    FPS multiply_naive(const std::vector<std::pair<int, T>> &rhs, int\
-    \ deg = -1){\n        if(deg == -1) deg = this->size() + (rhs.back().first + 1)\
-    \ - 1;\n        FPS res(deg, T(0));\n        for(auto &[i, x] : this->sparseFormat()){\n\
+    \ deg = -1){\n        if(deg == -1){\n            if(rhs.empty()) deg = this->size();\n\
+    \            else deg = this->size() + (rhs.back().first + 1) - 1;\n        }\n\
+    \        FPS res(deg, T(0));\n        for(auto &[i, x] : this->sparseFormat()){\n\
     \            for(auto &[j, y] : rhs){\n                if(i + j >= deg) break;\n\
     \                res[i + j] += x * y;\n            }\n        }\n        return\
     \ *this = {std::begin(res), std::end(res)};\n    }\n\n    FPS divide_naive(const\
@@ -466,8 +467,9 @@ data:
     \ division(const FPS &rhs) const {\n        FPS q = *this / rhs;\n        FPS\
     \ r = *this - q * rhs;\n        q.shrink(), r.shrink();\n        return {q, r};\n\
     \    }\n\n    FPS multiply_naive(const std::vector<std::pair<int, T>> &rhs, int\
-    \ deg = -1){\n        if(deg == -1) deg = this->size() + (rhs.back().first + 1)\
-    \ - 1;\n        FPS res(deg, T(0));\n        for(auto &[i, x] : this->sparseFormat()){\n\
+    \ deg = -1){\n        if(deg == -1){\n            if(rhs.empty()) deg = this->size();\n\
+    \            else deg = this->size() + (rhs.back().first + 1) - 1;\n        }\n\
+    \        FPS res(deg, T(0));\n        for(auto &[i, x] : this->sparseFormat()){\n\
     \            for(auto &[j, y] : rhs){\n                if(i + j >= deg) break;\n\
     \                res[i + j] += x * y;\n            }\n        }\n        return\
     \ *this = {std::begin(res), std::end(res)};\n    }\n\n    FPS divide_naive(const\
@@ -558,8 +560,8 @@ data:
   - lib/polynomial/taylor_shift.hpp
   - lib/math/bell_number.hpp
   - lib/math/bernoulli_number.hpp
-  timestamp: '2025-02-15 00:03:46+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-03-11 03:37:55+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/sharp_p_subset_sum.test.cpp
   - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
