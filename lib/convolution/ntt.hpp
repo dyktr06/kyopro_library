@@ -156,12 +156,12 @@ namespace NTT{
         if(MOD == 998244353){
             return convolution(a, b);
         }
-        constexpr long long m0 = 167772161;
-        constexpr long long m1 = 469762049;
-        constexpr long long m2 = 754974721;
-        using mint0 = ModInt<m0>;
-        using mint1 = ModInt<m1>;
-        using mint2 = ModInt<m2>;
+        constexpr long long M0 = 167772161;
+        constexpr long long M1 = 469762049;
+        constexpr long long M2 = 754974721;
+        using mint0 = ModInt<M0>;
+        using mint1 = ModInt<M1>;
+        using mint2 = ModInt<M2>;
         int n = a.size(), m = b.size();
         std::vector<mint0> a0(n), b0(m);
         std::vector<mint1> a1(n), b1(m);
@@ -181,7 +181,7 @@ namespace NTT{
         auto c2 = convolution(a2, b2);
         std::vector<T> ret(n + m - 1);
         for(int i = 0; i < n + m - 1; i++){
-            ret[i] = CRT::garner({c0[i].val, c1[i].val, c2[i].val}, {m0, m1, m2}, MOD);
+            ret[i] = CRT::garner({c0[i].val, c1[i].val, c2[i].val}, {M0, M1, M2}, MOD);
         }
         return ret;
     }

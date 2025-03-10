@@ -166,7 +166,10 @@ struct FormalPowerSeries : std::vector<T> {
     }
 
     FPS multiply_naive(const std::vector<std::pair<int, T>> &rhs, int deg = -1){
-        if(deg == -1) deg = this->size() + (rhs.back().first + 1) - 1;
+        if(deg == -1){
+            if(rhs.empty()) deg = this->size();
+            else deg = this->size() + (rhs.back().first + 1) - 1;
+        }
         FPS res(deg, T(0));
         for(auto &[i, x] : this->sparseFormat()){
             for(auto &[j, y] : rhs){
