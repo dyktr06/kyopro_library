@@ -90,8 +90,8 @@ long double binary_search_real(long double ok, long double ng, T check, int iter
     return ok;
 }
 
-template <typename T>
-long long trisum(T a, T b){
+long long trisum(long long a, long long b){
+    if(a > b) return 0;
     long long res = ((b - a + 1) * (a + b)) / 2;
     return res;
 }
@@ -105,6 +105,20 @@ T intpow(T x, int n){
         n >>= 1;
     }
     return ret;
+}
+
+template <typename T>
+T getDivision(T a, T b){
+    if(b == 0) return -1;
+    if(a >= 0 && b > 0){
+        return a / b;
+    } else if(a < 0 && b > 0){
+        return a / b - (a % b != 0);
+    } else if(a >= 0 && b < 0){
+        return a / b;
+    } else{
+        return a / b + (a % b != 0);
+    }
 }
 
 template <typename T>
