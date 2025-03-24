@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/combination_modint.hpp
     title: "Combination (\u4E8C\u9805\u4FC2\u6570)"
   _extendedRequiredBy: []

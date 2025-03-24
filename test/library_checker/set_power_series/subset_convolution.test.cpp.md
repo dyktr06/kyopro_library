@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/convolution/subset_convolution.hpp
     title: lib/convolution/subset_convolution.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []

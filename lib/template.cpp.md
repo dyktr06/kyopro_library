@@ -63,19 +63,23 @@ data:
     \    return ok;\n}\n\ntemplate <typename T>\nlong double binary_search_real(long\
     \ double ok, long double ng, T check, int iter = 100){\n    for(int i = 0; i <\
     \ iter; ++i){\n        long double mid = (ok + ng) / 2;\n        if(check(mid))\
-    \ ok = mid;\n        else ng = mid;\n    }\n    return ok;\n}\n\ntemplate <typename\
-    \ T>\nlong long trisum(T a, T b){\n    long long res = ((b - a + 1) * (a + b))\
-    \ / 2;\n    return res;\n}\n\ntemplate <typename T>\nT intpow(T x, int n){\n \
-    \   T ret = 1;\n    while(n > 0) {\n        if(n & 1) (ret *= x);\n        (x\
-    \ *= x);\n        n >>= 1;\n    }\n    return ret;\n}\n\ntemplate <typename T>\n\
-    T getReminder(T a, T b){\n    if(b == 0) return -1;\n    if(a >= 0 && b > 0){\n\
-    \        return a % b;\n    } else if(a < 0 && b > 0){\n        return ((a % b)\
-    \ + b) % b;\n    } else if(a >= 0 && b < 0){\n        return a % b;\n    } else{\n\
-    \        return (abs(b) - abs(a % b)) % b;\n    }\n}\n\ntemplate<class T, class\
-    \ U> inline T vin(T &vec, U n) { vec.resize(n); for(int i = 0; i < (int) n; ++i)\
-    \ cin >> vec[i]; return vec; }\ntemplate<class T> inline void vout(T vec, string\
-    \ s = \"\\n\"){ for(auto x : vec) cout << x << s; }\ntemplate<class... T> void\
-    \ in(T&... a){ (cin >> ... >> a); }\nvoid out(){ cout << '\\n'; }\ntemplate<class\
+    \ ok = mid;\n        else ng = mid;\n    }\n    return ok;\n}\n\nlong long trisum(long\
+    \ long a, long long b){\n    if(a > b) return 0;\n    long long res = ((b - a\
+    \ + 1) * (a + b)) / 2;\n    return res;\n}\n\ntemplate <typename T>\nT intpow(T\
+    \ x, int n){\n    T ret = 1;\n    while(n > 0) {\n        if(n & 1) (ret *= x);\n\
+    \        (x *= x);\n        n >>= 1;\n    }\n    return ret;\n}\n\ntemplate <typename\
+    \ T>\nT getDivision(T a, T b){\n    if(b == 0) return -1;\n    if(a >= 0 && b\
+    \ > 0){\n        return a / b;\n    } else if(a < 0 && b > 0){\n        return\
+    \ a / b - (a % b != 0);\n    } else if(a >= 0 && b < 0){\n        return a / b;\n\
+    \    } else{\n        return a / b + (a % b != 0);\n    }\n}\n\ntemplate <typename\
+    \ T>\nT getReminder(T a, T b){\n    if(b == 0) return -1;\n    if(a >= 0 && b\
+    \ > 0){\n        return a % b;\n    } else if(a < 0 && b > 0){\n        return\
+    \ ((a % b) + b) % b;\n    } else if(a >= 0 && b < 0){\n        return a % b;\n\
+    \    } else{\n        return (abs(b) - abs(a % b)) % b;\n    }\n}\n\ntemplate<class\
+    \ T, class U> inline T vin(T &vec, U n) { vec.resize(n); for(int i = 0; i < (int)\
+    \ n; ++i) cin >> vec[i]; return vec; }\ntemplate<class T> inline void vout(T vec,\
+    \ string s = \"\\n\"){ for(auto x : vec) cout << x << s; }\ntemplate<class...\
+    \ T> void in(T&... a){ (cin >> ... >> a); }\nvoid out(){ cout << '\\n'; }\ntemplate<class\
     \ T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; (cout << ...\
     \ << (cout << ' ', b)); cout << '\\n'; }\nvoid fout(){ cout << endl; }\ntemplate<class\
     \ T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; (cout << ...\
@@ -140,19 +144,23 @@ data:
     \    return ok;\n}\n\ntemplate <typename T>\nlong double binary_search_real(long\
     \ double ok, long double ng, T check, int iter = 100){\n    for(int i = 0; i <\
     \ iter; ++i){\n        long double mid = (ok + ng) / 2;\n        if(check(mid))\
-    \ ok = mid;\n        else ng = mid;\n    }\n    return ok;\n}\n\ntemplate <typename\
-    \ T>\nlong long trisum(T a, T b){\n    long long res = ((b - a + 1) * (a + b))\
-    \ / 2;\n    return res;\n}\n\ntemplate <typename T>\nT intpow(T x, int n){\n \
-    \   T ret = 1;\n    while(n > 0) {\n        if(n & 1) (ret *= x);\n        (x\
-    \ *= x);\n        n >>= 1;\n    }\n    return ret;\n}\n\ntemplate <typename T>\n\
-    T getReminder(T a, T b){\n    if(b == 0) return -1;\n    if(a >= 0 && b > 0){\n\
-    \        return a % b;\n    } else if(a < 0 && b > 0){\n        return ((a % b)\
-    \ + b) % b;\n    } else if(a >= 0 && b < 0){\n        return a % b;\n    } else{\n\
-    \        return (abs(b) - abs(a % b)) % b;\n    }\n}\n\ntemplate<class T, class\
-    \ U> inline T vin(T &vec, U n) { vec.resize(n); for(int i = 0; i < (int) n; ++i)\
-    \ cin >> vec[i]; return vec; }\ntemplate<class T> inline void vout(T vec, string\
-    \ s = \"\\n\"){ for(auto x : vec) cout << x << s; }\ntemplate<class... T> void\
-    \ in(T&... a){ (cin >> ... >> a); }\nvoid out(){ cout << '\\n'; }\ntemplate<class\
+    \ ok = mid;\n        else ng = mid;\n    }\n    return ok;\n}\n\nlong long trisum(long\
+    \ long a, long long b){\n    if(a > b) return 0;\n    long long res = ((b - a\
+    \ + 1) * (a + b)) / 2;\n    return res;\n}\n\ntemplate <typename T>\nT intpow(T\
+    \ x, int n){\n    T ret = 1;\n    while(n > 0) {\n        if(n & 1) (ret *= x);\n\
+    \        (x *= x);\n        n >>= 1;\n    }\n    return ret;\n}\n\ntemplate <typename\
+    \ T>\nT getDivision(T a, T b){\n    if(b == 0) return -1;\n    if(a >= 0 && b\
+    \ > 0){\n        return a / b;\n    } else if(a < 0 && b > 0){\n        return\
+    \ a / b - (a % b != 0);\n    } else if(a >= 0 && b < 0){\n        return a / b;\n\
+    \    } else{\n        return a / b + (a % b != 0);\n    }\n}\n\ntemplate <typename\
+    \ T>\nT getReminder(T a, T b){\n    if(b == 0) return -1;\n    if(a >= 0 && b\
+    \ > 0){\n        return a % b;\n    } else if(a < 0 && b > 0){\n        return\
+    \ ((a % b) + b) % b;\n    } else if(a >= 0 && b < 0){\n        return a % b;\n\
+    \    } else{\n        return (abs(b) - abs(a % b)) % b;\n    }\n}\n\ntemplate<class\
+    \ T, class U> inline T vin(T &vec, U n) { vec.resize(n); for(int i = 0; i < (int)\
+    \ n; ++i) cin >> vec[i]; return vec; }\ntemplate<class T> inline void vout(T vec,\
+    \ string s = \"\\n\"){ for(auto x : vec) cout << x << s; }\ntemplate<class...\
+    \ T> void in(T&... a){ (cin >> ... >> a); }\nvoid out(){ cout << '\\n'; }\ntemplate<class\
     \ T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; (cout << ...\
     \ << (cout << ' ', b)); cout << '\\n'; }\nvoid fout(){ cout << endl; }\ntemplate<class\
     \ T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; (cout << ...\
@@ -166,7 +174,7 @@ data:
   isVerificationFile: false
   path: lib/template.cpp
   requiredBy: []
-  timestamp: '2025-02-14 23:44:49+09:00'
+  timestamp: '2025-03-25 01:35:09+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/template.cpp
