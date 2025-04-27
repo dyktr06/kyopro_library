@@ -54,8 +54,8 @@ data:
     \ q.y == q.x * p.y;\n    }\n\n    long double rad2deg(long double rad){\n    \
     \    return rad * (long double) 180 / acos(-1);\n    }\n\n    long double deg2rad(long\
     \ double deg){\n        return deg * acosl(-1) / (long double) 180;\n    }\n\n\
-    \    Point rotate(Point &p, long double deg){\n        complex<T> comp(p.x, p.y);\n\
-    \        comp *= exp(complex<T>(.0, deg2rad(deg)));\n        return Point(comp.real(),\
+    \    Point rotate(const Point &p, long double deg){\n        complex<T> comp(p.x,\
+    \ p.y);\n        comp *= exp(complex<T>(.0, deg2rad(deg)));\n        return Point(comp.real(),\
     \ comp.imag());\n    }\n\n    T cross(const Point &p, const Point &q){\n     \
     \   return p.x * q.y - p.y * q.x;\n    }\n\n    T dot(const Point &p, const Point\
     \ &q){\n        return p.x * q.x + p.y * q.y;\n    }\n\n    T manhattanDist(const\
@@ -181,7 +181,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/geometry/count_points_in_triangle.test.cpp
   requiredBy: []
-  timestamp: '2024-11-01 00:31:34+09:00'
+  timestamp: '2025-04-28 02:37:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/geometry/count_points_in_triangle.test.cpp
