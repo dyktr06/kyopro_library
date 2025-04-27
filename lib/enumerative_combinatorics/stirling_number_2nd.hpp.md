@@ -418,8 +418,8 @@ data:
   timestamp: '2025-03-11 03:37:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
   - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
+  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
 documentation_of: lib/enumerative_combinatorics/stirling_number_2nd.hpp
 layout: document
 redirect_from:

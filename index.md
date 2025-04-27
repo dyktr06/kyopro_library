@@ -72,6 +72,9 @@ data:
       path: lib/data_structure/dynamic_li_chao_tree.hpp
       title: Dynamic Li Chao Tree
     - icon: ':heavy_check_mark:'
+      path: lib/data_structure/dynamic_segment_tree.hpp
+      title: Dynamic Segment Tree
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/dynamic_union_find.hpp
       title: lib/data_structure/dynamic_union_find.hpp
     - icon: ':heavy_check_mark:'
@@ -621,6 +624,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
       title: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/point_set_range_composite_large_array_1.test.cpp
+      title: test/library_checker/data_structure/point_set_range_composite_large_array_1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_set_range_frequency.test.cpp
       title: test/library_checker/data_structure/point_set_range_frequency.test.cpp

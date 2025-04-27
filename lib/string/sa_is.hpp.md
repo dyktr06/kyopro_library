@@ -180,8 +180,8 @@ data:
   timestamp: '2024-10-31 23:51:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/string/suffixarray_1.test.cpp
   - test/library_checker/string/number_of_substrings_1.test.cpp
+  - test/library_checker/string/suffixarray_1.test.cpp
 documentation_of: lib/string/sa_is.hpp
 layout: document
 redirect_from:
