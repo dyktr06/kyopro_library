@@ -73,7 +73,7 @@ namespace Geometry{
         return deg * acosl(-1) / (long double) 180;
     }
 
-    Point rotate(Point &p, long double deg){
+    Point rotate(const Point &p, long double deg){
         complex<T> comp(p.x, p.y);
         comp *= exp(complex<T>(.0, deg2rad(deg)));
         return Point(comp.real(), comp.imag());
