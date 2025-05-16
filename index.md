@@ -117,7 +117,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/persistent_union_find.hpp
       title: "Persistent Union Find (\u6C38\u7D9A UnionFind)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/priority_queue.hpp
       title: "Eraseable Priority Queue (\u524A\u9664\u53EF\u80FD\u512A\u5148\u5EA6\
         \u4ED8\u304D\u30AD\u30E5\u30FC)"
@@ -157,7 +157,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/swag.hpp
       title: SWAG
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/data_structure/union_find.hpp
       title: Union-Find
     - icon: ':heavy_check_mark:'
@@ -283,7 +283,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/rerooting.hpp
       title: "Rerooting (\u5168\u65B9\u4F4D\u6728DP)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp
       title: lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp
     - icon: ':heavy_check_mark:'
@@ -961,7 +961,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/lca_hl.test.cpp
       title: test/library_checker/tree/lca_hl.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
       title: test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
     - icon: ':heavy_check_mark:'

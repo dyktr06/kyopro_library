@@ -2,16 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp
     title: lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
     title: test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Eraseable Priority Queue (\u524A\u9664\u53EF\u80FD\u512A\u5148\
       \u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC)"
@@ -47,7 +47,7 @@ data:
   requiredBy:
   - lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp
   timestamp: '2024-11-18 03:25:02+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
 documentation_of: lib/data_structure/priority_queue.hpp

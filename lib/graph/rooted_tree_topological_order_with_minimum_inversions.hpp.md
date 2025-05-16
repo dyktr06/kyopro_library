@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/priority_queue.hpp
     title: "Eraseable Priority Queue (\u524A\u9664\u53EF\u80FD\u512A\u5148\u5EA6\u4ED8\
       \u304D\u30AD\u30E5\u30FC)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/union_find.hpp
     title: Union-Find
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
     title: test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp\"\
@@ -50,8 +50,8 @@ data:
     \n\ntemplate <typename T>\nstruct fraction{\n    T p, q; // long long or BigInt\n\
     \    fraction(T P = 0, T Q = 1) : p(P), q(Q){}\n    inline bool operator==(const\
     \ fraction &other) const {\n        return p * other.q == other.p * q;\n    }\n\
-    \    inline bool operator<(const fraction &other) const {\n        if(p == 0 &&\
-    \ q == 0) return true;\n        if(other.p == 0 && other.q == 0) return false;\n\
+    \    inline bool operator<(const fraction &other) const {\n        if(other.p\
+    \ == 0 && other.q == 0) return false;\n        if(p == 0 && q == 0) return true;\n\
     \        return p * other.q < other.p * q;\n    }\n};\n\ntemplate <typename T>\n\
     std::pair<T, std::vector<int>> rootedTreeTopologicalOrderWithMinimumInversions(const\
     \ std::vector<int> &par, const std::vector<T> &zero, const std::vector<T> &one){\n\
@@ -83,8 +83,8 @@ data:
     \n\ntemplate <typename T>\nstruct fraction{\n    T p, q; // long long or BigInt\n\
     \    fraction(T P = 0, T Q = 1) : p(P), q(Q){}\n    inline bool operator==(const\
     \ fraction &other) const {\n        return p * other.q == other.p * q;\n    }\n\
-    \    inline bool operator<(const fraction &other) const {\n        if(p == 0 &&\
-    \ q == 0) return true;\n        if(other.p == 0 && other.q == 0) return false;\n\
+    \    inline bool operator<(const fraction &other) const {\n        if(other.p\
+    \ == 0 && other.q == 0) return false;\n        if(p == 0 && q == 0) return true;\n\
     \        return p * other.q < other.p * q;\n    }\n};\n\ntemplate <typename T>\n\
     std::pair<T, std::vector<int>> rootedTreeTopologicalOrderWithMinimumInversions(const\
     \ std::vector<int> &par, const std::vector<T> &zero, const std::vector<T> &one){\n\
@@ -117,8 +117,8 @@ data:
   isVerificationFile: false
   path: lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp
   requiredBy: []
-  timestamp: '2025-05-17 03:06:52+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2025-05-17 03:39:23+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
 documentation_of: lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp

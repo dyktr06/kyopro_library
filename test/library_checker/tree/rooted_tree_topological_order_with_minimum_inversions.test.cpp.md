@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/priority_queue.hpp
     title: "Eraseable Priority Queue (\u524A\u9664\u53EF\u80FD\u512A\u5148\u5EA6\u4ED8\
       \u304D\u30AD\u30E5\u30FC)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/data_structure/union_find.hpp
     title: Union-Find
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp
     title: lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/rooted_tree_topological_order_with_minimum_inversions
@@ -56,8 +56,8 @@ data:
     \n\ntemplate <typename T>\nstruct fraction{\n    T p, q; // long long or BigInt\n\
     \    fraction(T P = 0, T Q = 1) : p(P), q(Q){}\n    inline bool operator==(const\
     \ fraction &other) const {\n        return p * other.q == other.p * q;\n    }\n\
-    \    inline bool operator<(const fraction &other) const {\n        if(p == 0 &&\
-    \ q == 0) return true;\n        if(other.p == 0 && other.q == 0) return false;\n\
+    \    inline bool operator<(const fraction &other) const {\n        if(other.p\
+    \ == 0 && other.q == 0) return false;\n        if(p == 0 && q == 0) return true;\n\
     \        return p * other.q < other.p * q;\n    }\n};\n\ntemplate <typename T>\n\
     std::pair<T, std::vector<int>> rootedTreeTopologicalOrderWithMinimumInversions(const\
     \ std::vector<int> &par, const std::vector<T> &zero, const std::vector<T> &one){\n\
@@ -109,8 +109,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
   requiredBy: []
-  timestamp: '2025-05-17 03:06:52+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-05-17 03:39:23+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
 layout: document

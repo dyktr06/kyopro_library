@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/manhattanMST.hpp
     title: Manhattan MST
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp
     title: lib/graph/rooted_tree_topological_order_with_minimum_inversions.hpp
   _extendedVerifiedWith:
@@ -30,12 +30,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/minimum_spanning_tree.test.cpp
     title: test/library_checker/graph/minimum_spanning_tree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
     title: test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/union_find.md
     document_title: Union-Find
@@ -79,7 +79,7 @@ data:
   - lib/graph/manhattanMST.hpp
   - lib/graph/T_join.hpp
   timestamp: '2024-11-18 03:54:10+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/geometry/manhattanmst.test.cpp
   - test/library_checker/data_structure/range_parallel_unionfind.test.cpp
