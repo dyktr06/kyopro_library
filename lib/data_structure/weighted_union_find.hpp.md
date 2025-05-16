@@ -67,9 +67,9 @@ data:
   timestamp: '2024-11-18 03:54:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/dsl/dsl_1_b.test.cpp
-  - test/library_checker/data_structure/unionfind_with_potential.test.cpp
   - test/library_checker/data_structure/unionfind_with_potential_non_commutative_group.test.cpp
+  - test/library_checker/data_structure/unionfind_with_potential.test.cpp
+  - test/aoj/dsl/dsl_1_b.test.cpp
 documentation_of: lib/data_structure/weighted_union_find.hpp
 layout: document
 redirect_from:

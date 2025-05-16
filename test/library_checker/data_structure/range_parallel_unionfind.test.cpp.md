@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/segment_tree_func.hpp
     title: lib/data_structure/segment_tree_func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/data_structure/union_find.hpp
     title: Union-Find
   - icon: ':heavy_check_mark:'
