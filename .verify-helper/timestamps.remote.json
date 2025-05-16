@@ -147,6 +147,7 @@
 "test/library_checker/tree/cartesian_tree.test.cpp": "2024-10-31 23:51:11 +0900",
 "test/library_checker/tree/jump_on_tree.test.cpp": "2024-05-04 18:06:16 +0900",
 "test/library_checker/tree/lca_hl.test.cpp": "2024-05-04 18:06:16 +0900",
+"test/library_checker/tree/rooted_tree_topological_order_with_minimum_inversions.test.cpp": "2025-05-17 03:39:23 +0900",
 "test/library_checker/tree/tree_diameter.test.cpp": "2024-10-21 21:40:42 +0900",
 "test/library_checker/tree/tree_path_composite_sum.test.cpp": "2024-11-03 21:58:22 +0900",
 "test/library_checker/tree/vertex_add_path_sum.test.cpp": "2024-11-15 16:06:01 +0900",
