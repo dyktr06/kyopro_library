@@ -41,9 +41,13 @@ data:
     \ ^= basis[j];\n                    inds[i] ^= inds[j];\n                }\n \
     \           }\n        }\n    }\n\n    bool exist(const T &x){\n        T y =\
     \ x;\n        for(auto z : basis){\n            y = min(y, y ^ z);\n        }\n\
-    \        return y == 0;\n    }\n\n    T kth_element(const long long &k){\n   \
-    \     T res = 0;\n        for(int i = 0; i < (int) basis.size(); ++i){\n     \
-    \       if(k & (1LL << i)){\n                res ^= basis[i];\n            }\n\
+    \        return y == 0;\n    }\n\n    T getInd(const T &x){\n        int len =\
+    \ basis.size();\n        T v = T(0);\n        T y = x;\n        for(int i = 0;\
+    \ i < len; i++){\n            if((y ^ basis[i]) < y){\n                y ^= basis[i];\n\
+    \                v ^= inds[i];\n            }\n        }\n        if(y > 0) return\
+    \ -1;\n        return v;\n    }\n\n    T kth_element(const long long &k){\n  \
+    \      T res = 0;\n        for(int i = 0; i < (int) basis.size(); ++i){\n    \
+    \        if(k & (1LL << i)){\n                res ^= basis[i];\n            }\n\
     \        }\n        return res;\n    }\n\n    size_t size(){\n        return basis.size();\n\
     \    }\n};\n#line 6 \"test/yukicoder/yuki_184.test.cpp\"\n\nint main(){\n    int\
     \ n; cin >> n;\n    vector<long long> a(n);\n    for(int i = 0; i < n; i++){\n\
@@ -59,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yuki_184.test.cpp
   requiredBy: []
-  timestamp: '2024-09-21 06:02:38+09:00'
+  timestamp: '2025-06-02 01:41:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yukicoder/yuki_184.test.cpp

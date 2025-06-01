@@ -72,14 +72,14 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/static_range_inversions_query.test.cpp
-  - test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
   - test/library_checker/data_structure/static_range_mode_query.test.cpp
-  - test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
-  - test/library_checker/data_structure/static_range_count_distinct.test.cpp
-  - test/library_checker/data_structure/static_range_frequency.test.cpp
-  - test/library_checker/data_structure/range_kth_smallest.test.cpp
-  - test/library_checker/data_structure/associative_array.test.cpp
   - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
+  - test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
+  - test/library_checker/data_structure/associative_array.test.cpp
+  - test/library_checker/data_structure/point_add_rectangle_sum.test.cpp
+  - test/library_checker/data_structure/range_kth_smallest.test.cpp
+  - test/library_checker/data_structure/static_range_frequency.test.cpp
+  - test/library_checker/data_structure/static_range_count_distinct.test.cpp
 documentation_of: lib/others/compression.hpp
 layout: document
 redirect_from:

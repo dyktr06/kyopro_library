@@ -94,8 +94,8 @@ data:
   timestamp: '2024-11-03 20:15:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/number_theory/sqrt_mod.test.cpp
   - test/aoj/ntl/ntl_1_b.test.cpp
+  - test/library_checker/number_theory/sqrt_mod.test.cpp
 documentation_of: lib/math/modcalc.hpp
 layout: document
 redirect_from:
