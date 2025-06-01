@@ -77,6 +77,20 @@ struct BinaryBasis{
         return y == 0;
     }
 
+    T getInd(const T &x){
+        int len = basis.size();
+        T v = T(0);
+        T y = x;
+        for(int i = 0; i < len; i++){
+            if((y ^ basis[i]) < y){
+                y ^= basis[i];
+                v ^= inds[i];
+            }
+        }
+        if(y > 0) return -1;
+        return v;
+    }
+
     T kth_element(const long long &k){
         T res = 0;
         for(int i = 0; i < (int) basis.size(); ++i){
