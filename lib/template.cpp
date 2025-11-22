@@ -139,11 +139,11 @@ template<class T, class U> inline T vin(T &vec, U n) { vec.resize(n); for(int i 
 template<class T> inline void vout(T vec, string s = "\n"){ for(auto x : vec) cout << x << s; }
 template<class... T> void in(T&... a){ (cin >> ... >> a); }
 void out(){ cout << '\n'; }
-template<class T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; (cout << ... << (cout << ' ', b)); cout << '\n'; }
+template<class T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; ((cout << ' ' << b), ...); cout << '\n'; }
 void fout(){ cout << endl; }
-template<class T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; (cout << ... << (cout << ' ', b)); cout << endl; }
+template<class T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; ((cout << ' ' << b), ...); cout << endl; }
 void debug(){ cerr << '\n'; }
-template<class T, class... Ts> void debug(const T &a, const Ts&... b){ cerr << a; (cerr << ... << (cerr << ' ', b)); cerr << '\n'; }
+template<class T, class... Ts> void debug(const T &a, const Ts&... b){ cerr << a; ((cout << ' ' << b), ...); cerr << '\n'; }
 
 ll T;
 
