@@ -80,15 +80,15 @@ data:
     \ n; ++i) cin >> vec[i]; return vec; }\ntemplate<class T> inline void vout(T vec,\
     \ string s = \"\\n\"){ for(auto x : vec) cout << x << s; }\ntemplate<class...\
     \ T> void in(T&... a){ (cin >> ... >> a); }\nvoid out(){ cout << '\\n'; }\ntemplate<class\
-    \ T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; (cout << ...\
-    \ << (cout << ' ', b)); cout << '\\n'; }\nvoid fout(){ cout << endl; }\ntemplate<class\
-    \ T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; (cout << ...\
-    \ << (cout << ' ', b)); cout << endl; }\nvoid debug(){ cerr << '\\n'; }\ntemplate<class\
-    \ T, class... Ts> void debug(const T &a, const Ts&... b){ cerr << a; (cerr <<\
-    \ ... << (cerr << ' ', b)); cerr << '\\n'; }\n\nll T;\n\nvoid input(){\n    in(T);\n\
-    }\n\nvoid solve(){\n\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n   \
-    \ cin.tie(nullptr);\n    cout << fixed << setprecision(20);\n\n    T = 1;\n  \
-    \  // input();\n    while(T--) solve();\n}\n"
+    \ T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; ((cout << '\
+    \ ' << b), ...); cout << '\\n'; }\nvoid fout(){ cout << endl; }\ntemplate<class\
+    \ T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; ((cout <<\
+    \ ' ' << b), ...); cout << endl; }\nvoid debug(){ cerr << '\\n'; }\ntemplate<class\
+    \ T, class... Ts> void debug(const T &a, const Ts&... b){ cerr << a; ((cout <<\
+    \ ' ' << b), ...); cerr << '\\n'; }\n\nll T;\n\nvoid input(){\n    in(T);\n}\n\
+    \nvoid solve(){\n\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
+    \    cout << fixed << setprecision(20);\n\n    T = 1;\n    // input();\n    while(T--)\
+    \ solve();\n}\n"
   code: "#include <bits/stdc++.h>\n#include <atcoder/all>\n\nusing namespace std;\n\
     using namespace atcoder;\n\n#define overload4(_1, _2, _3, _4, name, ...) name\n\
     #define rep1(n) for(int i = 0; i < (int)(n); ++i)\n#define rep2(i, n) for(int\
@@ -161,20 +161,20 @@ data:
     \ n; ++i) cin >> vec[i]; return vec; }\ntemplate<class T> inline void vout(T vec,\
     \ string s = \"\\n\"){ for(auto x : vec) cout << x << s; }\ntemplate<class...\
     \ T> void in(T&... a){ (cin >> ... >> a); }\nvoid out(){ cout << '\\n'; }\ntemplate<class\
-    \ T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; (cout << ...\
-    \ << (cout << ' ', b)); cout << '\\n'; }\nvoid fout(){ cout << endl; }\ntemplate<class\
-    \ T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; (cout << ...\
-    \ << (cout << ' ', b)); cout << endl; }\nvoid debug(){ cerr << '\\n'; }\ntemplate<class\
-    \ T, class... Ts> void debug(const T &a, const Ts&... b){ cerr << a; (cerr <<\
-    \ ... << (cerr << ' ', b)); cerr << '\\n'; }\n\nll T;\n\nvoid input(){\n    in(T);\n\
-    }\n\nvoid solve(){\n\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n   \
-    \ cin.tie(nullptr);\n    cout << fixed << setprecision(20);\n\n    T = 1;\n  \
-    \  // input();\n    while(T--) solve();\n}\n"
+    \ T, class... Ts> void out(const T &a, const Ts&... b){ cout << a; ((cout << '\
+    \ ' << b), ...); cout << '\\n'; }\nvoid fout(){ cout << endl; }\ntemplate<class\
+    \ T, class... Ts> void fout(const T &a, const Ts&... b){ cout << a; ((cout <<\
+    \ ' ' << b), ...); cout << endl; }\nvoid debug(){ cerr << '\\n'; }\ntemplate<class\
+    \ T, class... Ts> void debug(const T &a, const Ts&... b){ cerr << a; ((cout <<\
+    \ ' ' << b), ...); cerr << '\\n'; }\n\nll T;\n\nvoid input(){\n    in(T);\n}\n\
+    \nvoid solve(){\n\n}\n\nint main(){\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\
+    \    cout << fixed << setprecision(20);\n\n    T = 1;\n    // input();\n    while(T--)\
+    \ solve();\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/template.cpp
   requiredBy: []
-  timestamp: '2025-03-25 01:35:09+09:00'
+  timestamp: '2025-11-23 02:50:45+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/template.cpp

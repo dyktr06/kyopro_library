@@ -62,8 +62,8 @@ data:
   isVerificationFile: false
   path: lib/convolution/set_zeta_mobius_transform.hpp
   requiredBy:
-  - lib/convolution/bitwise_and_convolution.hpp
   - lib/convolution/bitwise_or_convolution.hpp
+  - lib/convolution/bitwise_and_convolution.hpp
   timestamp: '2024-11-13 13:43:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

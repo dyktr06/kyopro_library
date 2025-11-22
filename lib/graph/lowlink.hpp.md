@@ -92,8 +92,8 @@ data:
   timestamp: '2024-10-31 23:51:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/graph/biconnected_components.test.cpp
   - test/library_checker/graph/two_edge_connected_components.test.cpp
+  - test/library_checker/graph/biconnected_components.test.cpp
 documentation_of: lib/graph/lowlink.hpp
 layout: document
 redirect_from:

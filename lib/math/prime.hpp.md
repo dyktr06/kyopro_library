@@ -64,8 +64,8 @@ data:
   timestamp: '2024-10-21 04:45:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/ntl/ntl_1_a.test.cpp
   - test/aoj/alds1/alds1_1_c.test.cpp
+  - test/aoj/ntl/ntl_1_a.test.cpp
   - test/yukicoder/yuki_888_1.test.cpp
 documentation_of: lib/math/prime.hpp
 layout: document
