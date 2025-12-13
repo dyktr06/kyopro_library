@@ -33,10 +33,10 @@ T bostan_mori(long long n, FormalPowerSeries<T> f, FormalPowerSeries<T> g){
             tmp_g[i] *= -1;
         }
         FPS u = f * tmp_g;
+        f.resize(((int) u.size() + 1 - (n % 2)) / 2);
         for(int i = 0; i < (int) f.size(); i++){
             f[i] = u[i * 2 + n % 2];
         }
-        f.resize(((int) u.size() + 1 - (n % 2)) / 2);
         tmp_g *= g;
         for(int i = 0; i < (int) g.size(); i++){
             g[i] = tmp_g[i * 2];
