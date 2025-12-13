@@ -334,20 +334,19 @@ data:
     \        n += h;\n    }\n\n    if((int) g.size() == 1){\n        return ((int)\
     \ f.size() > n) ? f[n] / g[0] : T(0);\n    }\n\n    while(n > 0){\n        FPS\
     \ tmp_g = g;\n        for(int i = 1; i < (int) g.size(); i += 2){\n          \
-    \  tmp_g[i] *= -1;\n        }\n        FPS u = f * tmp_g;\n        for(int i =\
-    \ 0; i < (int) f.size(); i++){\n            f[i] = u[i * 2 + n % 2];\n       \
-    \ }\n        f.resize(((int) u.size() + 1 - (n % 2)) / 2);\n        tmp_g *= g;\n\
-    \        for(int i = 0; i < (int) g.size(); i++){\n            g[i] = tmp_g[i\
-    \ * 2];\n        }\n        n >>= 1;\n    }\n    return f[0] / g[0];\n}\n\n//\
-    \ a_i = sum_{j = 1}^{d} a_{i - j} * c[j] \u3092\u6E80\u305F\u3059\u6570\u5217\u306E\
-    \ k (0-indexed) \u756A\u76EE\u306E\u9805\u3092\u6C42\u3081\u308B\ntemplate <typename\
-    \ T>\nT findKthTerm(const std::vector<T> &init, const std::vector<T> &c, long\
-    \ long k){\n    using FPS = FormalPowerSeries<T>;\n    assert((int) init.size()\
-    \ + 1 == (int) c.size());\n    FPS f(init.size()), g(c.size());\n    for(int i\
-    \ = 0; i < (int) init.size(); i++){\n        f[i] = init[i];\n    }\n    g[0]\
-    \ = 1;\n    for(int i = 1; i < (int) c.size(); i++){\n        g[i] = c[i] * T(-1);\n\
-    \    }\n    f *= g;\n    f.resize(init.size());\n    return bostan_mori(k, f,\
-    \ g);\n}\n"
+    \  tmp_g[i] *= -1;\n        }\n        FPS u = f * tmp_g;\n        f.resize(((int)\
+    \ u.size() + 1 - (n % 2)) / 2);\n        for(int i = 0; i < (int) f.size(); i++){\n\
+    \            f[i] = u[i * 2 + n % 2];\n        }\n        tmp_g *= g;\n      \
+    \  for(int i = 0; i < (int) g.size(); i++){\n            g[i] = tmp_g[i * 2];\n\
+    \        }\n        n >>= 1;\n    }\n    return f[0] / g[0];\n}\n\n// a_i = sum_{j\
+    \ = 1}^{d} a_{i - j} * c[j] \u3092\u6E80\u305F\u3059\u6570\u5217\u306E k (0-indexed)\
+    \ \u756A\u76EE\u306E\u9805\u3092\u6C42\u3081\u308B\ntemplate <typename T>\nT findKthTerm(const\
+    \ std::vector<T> &init, const std::vector<T> &c, long long k){\n    using FPS\
+    \ = FormalPowerSeries<T>;\n    assert((int) init.size() + 1 == (int) c.size());\n\
+    \    FPS f(init.size()), g(c.size());\n    for(int i = 0; i < (int) init.size();\
+    \ i++){\n        f[i] = init[i];\n    }\n    g[0] = 1;\n    for(int i = 1; i <\
+    \ (int) c.size(); i++){\n        g[i] = c[i] * T(-1);\n    }\n    f *= g;\n  \
+    \  f.resize(init.size());\n    return bostan_mori(k, f, g);\n}\n"
   code: "#pragma once\n\n/**\n * @brief Bostan-Mori\n * @see https://qiita.com/ryuhe1/items/da5acbcce4ac1911f47a\n\
     \ */\n\n#include <cassert>\n#include <vector>\n#include \"../polynomial/formal_power_series.hpp\"\
     \n\n// [x^n] f(x)/g(x) : O(d log d log n)\ntemplate <typename T>\nT bostan_mori(long\
@@ -357,20 +356,19 @@ data:
     \ + h);\n        n += h;\n    }\n\n    if((int) g.size() == 1){\n        return\
     \ ((int) f.size() > n) ? f[n] / g[0] : T(0);\n    }\n\n    while(n > 0){\n   \
     \     FPS tmp_g = g;\n        for(int i = 1; i < (int) g.size(); i += 2){\n  \
-    \          tmp_g[i] *= -1;\n        }\n        FPS u = f * tmp_g;\n        for(int\
-    \ i = 0; i < (int) f.size(); i++){\n            f[i] = u[i * 2 + n % 2];\n   \
-    \     }\n        f.resize(((int) u.size() + 1 - (n % 2)) / 2);\n        tmp_g\
-    \ *= g;\n        for(int i = 0; i < (int) g.size(); i++){\n            g[i] =\
-    \ tmp_g[i * 2];\n        }\n        n >>= 1;\n    }\n    return f[0] / g[0];\n\
-    }\n\n// a_i = sum_{j = 1}^{d} a_{i - j} * c[j] \u3092\u6E80\u305F\u3059\u6570\u5217\
-    \u306E k (0-indexed) \u756A\u76EE\u306E\u9805\u3092\u6C42\u3081\u308B\ntemplate\
-    \ <typename T>\nT findKthTerm(const std::vector<T> &init, const std::vector<T>\
-    \ &c, long long k){\n    using FPS = FormalPowerSeries<T>;\n    assert((int) init.size()\
-    \ + 1 == (int) c.size());\n    FPS f(init.size()), g(c.size());\n    for(int i\
-    \ = 0; i < (int) init.size(); i++){\n        f[i] = init[i];\n    }\n    g[0]\
-    \ = 1;\n    for(int i = 1; i < (int) c.size(); i++){\n        g[i] = c[i] * T(-1);\n\
-    \    }\n    f *= g;\n    f.resize(init.size());\n    return bostan_mori(k, f,\
-    \ g);\n}\n"
+    \          tmp_g[i] *= -1;\n        }\n        FPS u = f * tmp_g;\n        f.resize(((int)\
+    \ u.size() + 1 - (n % 2)) / 2);\n        for(int i = 0; i < (int) f.size(); i++){\n\
+    \            f[i] = u[i * 2 + n % 2];\n        }\n        tmp_g *= g;\n      \
+    \  for(int i = 0; i < (int) g.size(); i++){\n            g[i] = tmp_g[i * 2];\n\
+    \        }\n        n >>= 1;\n    }\n    return f[0] / g[0];\n}\n\n// a_i = sum_{j\
+    \ = 1}^{d} a_{i - j} * c[j] \u3092\u6E80\u305F\u3059\u6570\u5217\u306E k (0-indexed)\
+    \ \u756A\u76EE\u306E\u9805\u3092\u6C42\u3081\u308B\ntemplate <typename T>\nT findKthTerm(const\
+    \ std::vector<T> &init, const std::vector<T> &c, long long k){\n    using FPS\
+    \ = FormalPowerSeries<T>;\n    assert((int) init.size() + 1 == (int) c.size());\n\
+    \    FPS f(init.size()), g(c.size());\n    for(int i = 0; i < (int) init.size();\
+    \ i++){\n        f[i] = init[i];\n    }\n    g[0] = 1;\n    for(int i = 1; i <\
+    \ (int) c.size(); i++){\n        g[i] = c[i] * T(-1);\n    }\n    f *= g;\n  \
+    \  f.resize(init.size());\n    return bostan_mori(k, f, g);\n}\n"
   dependsOn:
   - lib/polynomial/formal_power_series.hpp
   - lib/convolution/ntt.hpp
@@ -379,7 +377,7 @@ data:
   isVerificationFile: false
   path: lib/polynomial/bostan_mori.hpp
   requiredBy: []
-  timestamp: '2025-03-11 03:37:55+09:00'
+  timestamp: '2025-12-14 02:57:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp

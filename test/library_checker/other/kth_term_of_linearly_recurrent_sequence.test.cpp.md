@@ -337,20 +337,19 @@ data:
     \        n += h;\n    }\n\n    if((int) g.size() == 1){\n        return ((int)\
     \ f.size() > n) ? f[n] / g[0] : T(0);\n    }\n\n    while(n > 0){\n        FPS\
     \ tmp_g = g;\n        for(int i = 1; i < (int) g.size(); i += 2){\n          \
-    \  tmp_g[i] *= -1;\n        }\n        FPS u = f * tmp_g;\n        for(int i =\
-    \ 0; i < (int) f.size(); i++){\n            f[i] = u[i * 2 + n % 2];\n       \
-    \ }\n        f.resize(((int) u.size() + 1 - (n % 2)) / 2);\n        tmp_g *= g;\n\
-    \        for(int i = 0; i < (int) g.size(); i++){\n            g[i] = tmp_g[i\
-    \ * 2];\n        }\n        n >>= 1;\n    }\n    return f[0] / g[0];\n}\n\n//\
-    \ a_i = sum_{j = 1}^{d} a_{i - j} * c[j] \u3092\u6E80\u305F\u3059\u6570\u5217\u306E\
-    \ k (0-indexed) \u756A\u76EE\u306E\u9805\u3092\u6C42\u3081\u308B\ntemplate <typename\
-    \ T>\nT findKthTerm(const std::vector<T> &init, const std::vector<T> &c, long\
-    \ long k){\n    using FPS = FormalPowerSeries<T>;\n    assert((int) init.size()\
-    \ + 1 == (int) c.size());\n    FPS f(init.size()), g(c.size());\n    for(int i\
-    \ = 0; i < (int) init.size(); i++){\n        f[i] = init[i];\n    }\n    g[0]\
-    \ = 1;\n    for(int i = 1; i < (int) c.size(); i++){\n        g[i] = c[i] * T(-1);\n\
-    \    }\n    f *= g;\n    f.resize(init.size());\n    return bostan_mori(k, f,\
-    \ g);\n}\n#line 6 \"test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp\"\
+    \  tmp_g[i] *= -1;\n        }\n        FPS u = f * tmp_g;\n        f.resize(((int)\
+    \ u.size() + 1 - (n % 2)) / 2);\n        for(int i = 0; i < (int) f.size(); i++){\n\
+    \            f[i] = u[i * 2 + n % 2];\n        }\n        tmp_g *= g;\n      \
+    \  for(int i = 0; i < (int) g.size(); i++){\n            g[i] = tmp_g[i * 2];\n\
+    \        }\n        n >>= 1;\n    }\n    return f[0] / g[0];\n}\n\n// a_i = sum_{j\
+    \ = 1}^{d} a_{i - j} * c[j] \u3092\u6E80\u305F\u3059\u6570\u5217\u306E k (0-indexed)\
+    \ \u756A\u76EE\u306E\u9805\u3092\u6C42\u3081\u308B\ntemplate <typename T>\nT findKthTerm(const\
+    \ std::vector<T> &init, const std::vector<T> &c, long long k){\n    using FPS\
+    \ = FormalPowerSeries<T>;\n    assert((int) init.size() + 1 == (int) c.size());\n\
+    \    FPS f(init.size()), g(c.size());\n    for(int i = 0; i < (int) init.size();\
+    \ i++){\n        f[i] = init[i];\n    }\n    g[0] = 1;\n    for(int i = 1; i <\
+    \ (int) c.size(); i++){\n        g[i] = c[i] * T(-1);\n    }\n    f *= g;\n  \
+    \  f.resize(init.size());\n    return bostan_mori(k, f, g);\n}\n#line 6 \"test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp\"\
     \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\nint main(){\n \
     \   cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int d; long long\
     \ k;\n    cin >> d >> k;\n    vector<mint> init(d), c(d + 1);\n    for(int i =\
@@ -374,7 +373,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   requiredBy: []
-  timestamp: '2025-03-11 03:37:55+09:00'
+  timestamp: '2025-12-14 02:57:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
