@@ -31,6 +31,7 @@ namespace modcalc{
         return u;
     }
 
+    // i64 だとたまにオーバーフローする？
     i64 modarithmeticsum(i64 a, i64 d, i64 n, const i64 m){
         i64 m2 = m * 2;
         a %= m2, n %= m2, d %= m2;
