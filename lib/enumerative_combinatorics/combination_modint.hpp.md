@@ -102,8 +102,8 @@ data:
   timestamp: '2025-01-18 04:43:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
   - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
+  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
 documentation_of: lib/enumerative_combinatorics/combination_modint.hpp
 layout: document
