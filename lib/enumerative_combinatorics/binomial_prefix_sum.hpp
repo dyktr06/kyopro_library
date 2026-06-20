@@ -21,9 +21,9 @@ std::vector<T> binomialPrefixSum(const std::vector<U> &query){
     int n = 0, r = -1;
     auto addL = [&](int i){
         // n -> n + 1
-        //   sum_{i=0}^{k} binom(n + 1, i)
-        // = sum_{i=0}^{k} binom(n, i) + binom(n, i - 1)
-        // = -binom(n, k) + 2 * sum_{i=0}^{k} binom(n, i)
+        //   sum_{i=0}^{r} binom(n + 1, i)
+        // = sum_{i=0}^{r} (binom(n, i) + binom(n, i - 1))
+        // = -binom(n, r) + 2 * sum_{i=0}^{r} binom(n, i)
         s *= 2;
         s -= comb.ncr(n, r);
         n++;
@@ -50,7 +50,7 @@ std::vector<T> binomialPrefixSum(const std::vector<U> &query){
     return res;
 }
 
-// sum_{i=0}^{k-1} binom(n, i) i
+// sum_{i=0}^{r-1} binom(n, i) i
 template <typename T, typename U>
 std::vector<std::pair<T, T>> binomialPrefixSum2(const std::vector<U> &query){
     Combination<T> comb;
@@ -64,10 +64,10 @@ std::vector<std::pair<T, T>> binomialPrefixSum2(const std::vector<U> &query){
     int n = 0, r = -1;
     auto addL = [&](int i){
         // n -> n + 1
-        //   sum_{i=0}^{k} binom(n + 1, i) i
-        // = sum_{i=0}^{k} binom(n, i) i + binom(n, i - 1) (i - 1) + binom(n, i - 1) (1)
-        // = -binom(n, k) * k + 2 * sum_{i=0}^{k} binom(n, i) i + sum_{i=0}^{k} binom(n, i) - binom(n, k)
-        // = -binom(n, k) * (k + 1) + 2 * sum_{i=0}^{k} binom(n, i) i + sum_{i=0}^{k} binom(n, i)
+        //   sum_{i=0}^{r} binom(n + 1, i) i
+        // = sum_{i=0}^{r} (binom(n, i) i + binom(n, i - 1) (i - 1) + binom(n, i - 1) (1))
+        // = -binom(n, r) * r + 2 * sum_{i=0}^{r} binom(n, i) i + sum_{i=0}^{r} binom(n, i) - binom(n, r)
+        // = -binom(n, r) * (r + 1) + 2 * sum_{i=0}^{r} binom(n, i) i + sum_{i=0}^{r} binom(n, i)
         T binom = comb.ncr(n, r);
         s2 *= 2;
         s2 -= binom * (r + 1);
