@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: lib/enumerative_combinatorics/binomial_prefix_sum.hpp
+    title: "Binomial Prefix Sum (\u4E8C\u9805\u4FC2\u6570\u306E\u7D2F\u7A4D\u548C)"
   - icon: ':heavy_check_mark:'
     path: lib/enumerative_combinatorics/stirling_number_2nd.hpp
     title: "Stirling Number of the Second Kind (\u7B2C 2 \u7A2E\u30B9\u30BF\u30FC\u30EA\
@@ -97,6 +100,7 @@ data:
   path: lib/enumerative_combinatorics/combination_modint.hpp
   requiredBy:
   - lib/math/pow_sum.hpp
+  - lib/enumerative_combinatorics/binomial_prefix_sum.hpp
   - lib/enumerative_combinatorics/stirling_number_2nd.hpp
   - lib/polynomial/taylor_shift.hpp
   timestamp: '2025-01-18 04:43:36+09:00'

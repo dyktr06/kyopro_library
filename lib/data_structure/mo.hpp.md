@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: lib/enumerative_combinatorics/binomial_prefix_sum.hpp
+    title: "Binomial Prefix Sum (\u4E8C\u9805\u4FC2\u6570\u306E\u7D2F\u7A4D\u548C)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_kth_smallest.test.cpp
@@ -68,7 +71,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: lib/data_structure/mo.hpp
-  requiredBy: []
+  requiredBy:
+  - lib/enumerative_combinatorics/binomial_prefix_sum.hpp
   timestamp: '2024-05-04 18:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
