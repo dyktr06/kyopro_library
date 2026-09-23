@@ -8,19 +8,19 @@
 #include <cassert>
 #include <memory>
 
-template <typename T, T (*op)(T, T), T(*e)()>
+template <typename S, typename T, T (*op)(T, T), T(*e)()>
 struct DynamicSegTree{
-    DynamicSegTree(int n) : n(n), root(nullptr) {}
+    DynamicSegTree(S n) : n(n), root(nullptr) {}
 private:
     struct node;
     using node_ptr = std::unique_ptr<node>;
 
     struct node{
-        int index;
+        S index;
         T value, product;
         node_ptr left, right;
 
-        node(int index, T value)
+        node(S index, T value)
             : index(index),
                 value(value),
                 product(value),
@@ -32,10 +32,10 @@ private:
         }
     };
 
-    const int n;
+    const S n;
     node_ptr root;
 
-    void update(node_ptr& t, int a, int b, int i, T x) const {
+    void update(node_ptr& t, S a, S b, S i, T x) const {
         if(!t){
             t = std::make_unique<node>(i, x);
             return;
@@ -45,7 +45,7 @@ private:
             t->refresh();
             return;
         }
-        int c = (a + b) >> 1;
+        S c = (a + b) >> 1;
         if(i < c){
             if(t->index < i) std::swap(t->index, i), std::swap(t->value, x);
             update(t->left, a, c, i, x);
@@ -56,44 +56,44 @@ private:
         t->refresh();
     }
 
-    T get(const node_ptr& t, int a, int b, int i) const {
+    T get(const node_ptr& t, S a, S b, S i) const {
         if(!t) return e();
         if(t->index == i) return t->value;
-        int c = (a + b) >> 1;
+        S c = (a + b) >> 1;
         if(i < c) return get(t->left, a, c, i);
         else return get(t->right, c, b, i);
     }
 
-    T query(const node_ptr& t, int a, int b, int l, int r) const {
+    T query(const node_ptr& t, S a, S b, S l, S r) const {
         if(!t || b <= l || r <= a) return e();
         if(l <= a && b <= r) return t->product;
-        int c = (a + b) >> 1;
+        S c = (a + b) >> 1;
         T result = query(t->left, a, c, l, r);
         if(l <= t->index && t->index < r) result = op(result, t->value);
         return op(result, query(t->right, c, b, l, r));
     }
 
-    void reset(node_ptr& t, int a, int b, int l, int r) const {
+    void reset(node_ptr& t, S a, S b, S l, S r) const {
         if(!t || b <= l || r <= a) return;
         if(l <= a && b <= r){
             t.reset();
             return;
         }
-        int c = (a + b) >> 1;
+        S c = (a + b) >> 1;
         reset(t->left, a, c, l, r);
         reset(t->right, c, b, l, r);
         t->refresh();
     }
 
     template <class F>
-    int max_right(const node_ptr& t, int a, int b, int l, const F& f, T& product) const {
+    S max_right(const node_ptr& t, S a, S b, S l, const F& f, T& product) const {
         if(!t || b <= l) return n;
         if(f(op(product, t->product))){
             product = op(product, t->product);
             return n;
         }
-        int c = (a + b) >> 1;
-        int result = max_right(t->left, a, c, l, f, product);
+        S c = (a + b) >> 1;
+        S result = max_right(t->left, a, c, l, f, product);
         if(result != n) return result;
         if(l <= t->index) {
             product = op(product, t->value);
@@ -103,14 +103,14 @@ private:
     }
 
     template <class F>
-    int min_left(const node_ptr& t, int a, int b, int r, const F& f, T& product) const {
+    S min_left(const node_ptr& t, S a, S b, S r, const F& f, T& product) const {
         if(!t || r <= a) return 0;
         if(f(op(t->product, product))){
             product = op(t->product, product);
             return 0;
         }
-        int c = (a + b) >> 1;
-        int result = min_left(t->right, c, b, r, f, product);
+        S c = (a + b) >> 1;
+        S result = min_left(t->right, c, b, r, f, product);
         if(result != 0) return result;
         if(t->index < r){
             product = op(t->value, product);
@@ -120,17 +120,17 @@ private:
     }
 
 public:
-    void update(int i, T x) {
+    void update(S i, T x) {
         assert(i < n);
         update(root, 0, n, i, x);
     }
 
-    T get(int i) const {
+    T get(S i) const {
         assert(i < n);
         return get(root, 0, n, i);
     }
 
-    T query(int l, int r) const {
+    T query(S l, S r) const {
         assert(l <= r && r <= n);
         return query(root, 0, n, l, r);
     }
@@ -139,18 +139,18 @@ public:
         return root ? root->product : e();
     }
 
-    void reset(int l, int r) {
+    void reset(S l, S r) {
         assert(l <= r && r <= n);
         return reset(root, 0, n, l, r);
     }
 
     template <bool (*f)(T)>
-    int max_right(int l) const {
+    S max_right(S l) const {
         return max_right(l, [](T x) { return f(x); });
     }
 
     template <class F>
-    int max_right(int l, const F& f) const {
+    S max_right(S l, const F& f) const {
         assert(l <= n);
         T product = e();
         assert(f(product));
@@ -158,12 +158,12 @@ public:
     }
 
     template <bool (*f)(T)>
-    int min_left(int r) const {
+    S min_left(S r) const {
         return min_left(r, [](T x) { return f(x); });
     }
 
     template <class F>
-    int min_left(int r, const F& f) const {
+    S min_left(S r, const F& f) const {
         assert(r <= n);
         T product = e();
         assert(f(product));
