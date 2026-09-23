@@ -66,8 +66,10 @@ private:
     void build(std::vector<std::pair<Point, int>> &v, int l, int r, bool div_x = true){
         int len = r - l;
         if(len == 1){
-            nodes[size + l] = Node(v[l].first, v[l].second);
-            if(v[l].second != -1){
+            if(v[l].second == -1){
+                nodes[size + l] = Node();
+            }else{
+                nodes[size + l] = Node(v[l].first, v[l].second);
                 info[v[l].second].second = l;
             }
             return;
@@ -131,6 +133,9 @@ public:
         assert(0 <= k && k < _n);
         int p = info[k].second + size;
         for(int i = log; i >= 1; i--) push(p >> i);
+        if(nodes[p].size == 0){
+            return;
+        }
         info[k].first = nodes[p].sum;
         nodes[p].size = 0;
         nodes[p].sum = e();
@@ -141,6 +146,10 @@ public:
         assert(0 <= k && k < _n);
         int p = info[k].second + size;
         for(int i = log; i >= 1; i--) push(p >> i);
+        if(nodes[p].size == 0){
+            info[k].first = x;
+            return;
+        }
         nodes[p].sum = x;
         for(int i = 1; i <= log; i++) pull(p >> i);
     }
@@ -200,7 +209,7 @@ public:
             int p = que.front();
             que.pop();
             if(nodes[p].size == 0 || !inside(std::clamp(x, nodes[p].min_x, nodes[p].max_x) - x, std::clamp(y, nodes[p].min_y, nodes[p].max_y) - y, dist)) continue;
-            if(nodes[p].size == 1){
+            if(p >= size){
                 f(nodes[p].index);
                 continue;
             }
