@@ -41,3 +41,99 @@ struct imos_linear{
         return imos0[i];
     }
 };
+
+template <class T, class Index = long long>
+struct StaticImosLinear {
+private:
+    struct Event {
+        Index x;
+        T da;
+        T db;
+    };
+
+    Index N;
+    std::vector<Event> events;
+
+    Index clamp_index(Index x) const {
+        return std::clamp(x, Index(0), N);
+    }
+
+public:
+    explicit StaticImosLinear(Index n) : N(n) {}
+
+    // [l, r) に wX + v を加算
+    // imos[l] += v, imos[l + 1] += v + w, ...
+    void add(Index l, Index r, T v, T w) {
+        l = clamp_index(l);
+        r = clamp_index(r);
+
+        if (l >= r) {
+            return;
+        }
+
+        // v + w(x-l) = wx + (v-wl)
+        const T a = w;
+        const T b = v - w * T(l);
+
+        events.push_back({l, a, b});
+        events.push_back({r, -a, -b});
+    }
+
+    // [l, r) に wX + v を加算
+    // imos[l] += wl + v, imos[l + 1] += w(l + 1) + v, ...
+    void add_absolute(Index l, Index r, T v, T w) {
+        l = clamp_index(l);
+        r = clamp_index(r);
+
+        if (l >= r) {
+            return;
+        }
+
+        events.push_back({l, w, v});
+        events.push_back({r, -w, -v});
+    }
+
+    std::vector<T> build(const std::vector<Index>& query) const {
+        std::vector<Event> sorted_events = events;
+
+        std::sort(
+            sorted_events.begin(),
+            sorted_events.end(),
+            [](const Event& lhs, const Event& rhs) {
+                return lhs.x < rhs.x;
+            }
+        );
+
+        std::vector<int> order(query.size());
+        std::iota(order.begin(), order.end(), 0);
+
+        std::sort(
+            order.begin(),
+            order.end(),
+            [&](int lhs, int rhs) {
+                return query[lhs] < query[rhs];
+            }
+        );
+
+        std::vector<T> answer(query.size(), T{});
+
+        T a{};
+        T b{};
+        std::size_t event_index = 0;
+
+        for (int query_index : order) {
+            const Index x = query[query_index];
+            while (
+                event_index < sorted_events.size() &&
+                sorted_events[event_index].x <= x
+            ) {
+                a += sorted_events[event_index].da;
+                b += sorted_events[event_index].db;
+                ++event_index;
+            }
+
+            answer[query_index] = a * T(x) + b;
+        }
+        return answer;
+    }
+};
