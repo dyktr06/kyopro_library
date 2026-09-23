@@ -71,7 +71,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/dynamic_li_chao_tree.hpp
       title: Dynamic Li Chao Tree
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/data_structure/dynamic_segment_tree.hpp
       title: Dynamic Segment Tree
     - icon: ':heavy_check_mark:'
@@ -86,7 +86,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/grid_unionfind.hpp
       title: Grid Union-Find
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/data_structure/imos_linear.hpp
       title: "Imos Linear (\u9759\u7684\u306A\u4E00\u6B21\u95A2\u6570\u306E\u52A0\u7B97\
         )"
@@ -154,6 +154,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/static_ordered_set.hpp
       title: Static Ordered Set
+    - icon: ':warning:'
+      path: lib/data_structure/static_wavelet_matrix.hpp
+      title: Static Wavelet Matrix
     - icon: ':heavy_check_mark:'
       path: lib/data_structure/swag.hpp
       title: SWAG
@@ -361,7 +364,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modcalc.hpp
       title: Mod Calculation
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/modint.hpp
       title: ModInt
     - icon: ':warning:'
@@ -631,7 +634,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
       title: test/library_checker/data_structure/point_set_range_composite_large_array.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/data_structure/point_set_range_composite_large_array_1.test.cpp
       title: test/library_checker/data_structure/point_set_range_composite_large_array_1.test.cpp
     - icon: ':heavy_check_mark:'
@@ -985,7 +988,7 @@ data:
       title: test/library_checker/tree/vertex_set_path_composite.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/yuki_1008.test.cpp
       title: test/yukicoder/yuki_1008.test.cpp
     - icon: ':heavy_check_mark:'

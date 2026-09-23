@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/data_structure/kd_tree.hpp
     title: k-d Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   _extendedRequiredBy: []
@@ -46,111 +46,113 @@ data:
     \ * k, nodes[k].lazy);\n        all_apply(2 * k + 1, nodes[k].lazy);\n       \
     \ nodes[k].lazy = id();\n    }\n\n    void build(std::vector<std::pair<Point,\
     \ int>> &v, int l, int r, bool div_x = true){\n        int len = r - l;\n    \
-    \    if(len == 1){\n            nodes[size + l] = Node(v[l].first, v[l].second);\n\
-    \            if(v[l].second != -1){\n                info[v[l].second].second\
-    \ = l;\n            }\n            return;\n        }\n        int m = (l + r)\
-    \ / 2;\n        if(div_x){\n            std::nth_element(v.begin() + l, v.begin()\
-    \ + m, v.begin() + r, [](const std::pair<Point, int> &p, const std::pair<Point,\
-    \ int> &q){\n                return p.first.x < q.first.x;\n            });\n\
-    \        }else{\n            std::nth_element(v.begin() + l, v.begin() + m, v.begin()\
-    \ + r, [](const std::pair<Point, int> &p, const std::pair<Point, int> &q){\n \
-    \               return p.first.y < q.first.y;\n            });\n        }\n  \
-    \      build(v, l, m, !div_x);\n        build(v, m, r, !div_x);\n    }\n\n   \
-    \ bool inside(long long dx, long long dy, long long dist){\n        using i128\
-    \ = __int128_t;\n        return i128(dx) * dx + i128(dy) * dy <= i128(dist) *\
-    \ dist;\n    }\n\npublic:\n    KdTree(const std::vector<std::pair<long long, long\
-    \ long>> &point) : _n(point.size()){\n        std::vector<S> val(_n, e());\n \
-    \       init(point, val);\n    }\n\n    KdTree(const std::vector<std::pair<long\
-    \ long, long long>> &point, const std::vector<S> &val) : _n(point.size()){\n \
-    \       init(point, val);\n    }\n\n    void init(const std::vector<std::pair<long\
-    \ long, long long>> &point, const std::vector<S> &val){\n        assert(point.size()\
-    \ == val.size());\n        size = 1, log = 0;\n        while(size < _n) size *=\
-    \ 2, log++;\n        nodes.resize(size * 2);\n        info.resize(size, {e(),\
-    \ -1});\n        std::vector<std::pair<Point, int>> P(size, {Point{INF, INF, e()},\
-    \ -1});\n        for(int i = 0; i < _n; i++){\n            P[i] = {Point(point[i].first,\
-    \ point[i].second, val[i]), i};\n        }\n        build(P, 0, size);\n     \
-    \   for(int i = size - 1; i >= 1; i--) pull(i);\n    }\n\n    void on(int k){\n\
+    \    if(len == 1){\n            if(v[l].second == -1){\n                nodes[size\
+    \ + l] = Node();\n            }else{\n                nodes[size + l] = Node(v[l].first,\
+    \ v[l].second);\n                info[v[l].second].second = l;\n            }\n\
+    \            return;\n        }\n        int m = (l + r) / 2;\n        if(div_x){\n\
+    \            std::nth_element(v.begin() + l, v.begin() + m, v.begin() + r, [](const\
+    \ std::pair<Point, int> &p, const std::pair<Point, int> &q){\n               \
+    \ return p.first.x < q.first.x;\n            });\n        }else{\n           \
+    \ std::nth_element(v.begin() + l, v.begin() + m, v.begin() + r, [](const std::pair<Point,\
+    \ int> &p, const std::pair<Point, int> &q){\n                return p.first.y\
+    \ < q.first.y;\n            });\n        }\n        build(v, l, m, !div_x);\n\
+    \        build(v, m, r, !div_x);\n    }\n\n    bool inside(long long dx, long\
+    \ long dy, long long dist){\n        using i128 = __int128_t;\n        return\
+    \ i128(dx) * dx + i128(dy) * dy <= i128(dist) * dist;\n    }\n\npublic:\n    KdTree(const\
+    \ std::vector<std::pair<long long, long long>> &point) : _n(point.size()){\n \
+    \       std::vector<S> val(_n, e());\n        init(point, val);\n    }\n\n   \
+    \ KdTree(const std::vector<std::pair<long long, long long>> &point, const std::vector<S>\
+    \ &val) : _n(point.size()){\n        init(point, val);\n    }\n\n    void init(const\
+    \ std::vector<std::pair<long long, long long>> &point, const std::vector<S> &val){\n\
+    \        assert(point.size() == val.size());\n        size = 1, log = 0;\n   \
+    \     while(size < _n) size *= 2, log++;\n        nodes.resize(size * 2);\n  \
+    \      info.resize(size, {e(), -1});\n        std::vector<std::pair<Point, int>>\
+    \ P(size, {Point{INF, INF, e()}, -1});\n        for(int i = 0; i < _n; i++){\n\
+    \            P[i] = {Point(point[i].first, point[i].second, val[i]), i};\n   \
+    \     }\n        build(P, 0, size);\n        for(int i = size - 1; i >= 1; i--)\
+    \ pull(i);\n    }\n\n    void on(int k){\n        assert(0 <= k && k < _n);\n\
+    \        int p = info[k].second + size;\n        for(int i = log; i >= 1; i--)\
+    \ push(p >> i);\n        if(nodes[p].size == 1){\n            return;\n      \
+    \  }\n        nodes[p].size = 1;\n        nodes[p].sum = info[k].first;\n    \
+    \    for(int i = 1; i <= log; i++) pull(p >> i);\n    }\n\n    void off(int k){\n\
     \        assert(0 <= k && k < _n);\n        int p = info[k].second + size;\n \
     \       for(int i = log; i >= 1; i--) push(p >> i);\n        if(nodes[p].size\
-    \ == 1){\n            return;\n        }\n        nodes[p].size = 1;\n       \
-    \ nodes[p].sum = info[k].first;\n        for(int i = 1; i <= log; i++) pull(p\
-    \ >> i);\n    }\n\n    void off(int k){\n        assert(0 <= k && k < _n);\n \
-    \       int p = info[k].second + size;\n        for(int i = log; i >= 1; i--)\
-    \ push(p >> i);\n        info[k].first = nodes[p].sum;\n        nodes[p].size\
-    \ = 0;\n        nodes[p].sum = e();\n        for(int i = 1; i <= log; i++) pull(p\
-    \ >> i);\n    }\n\n    void update(int k, const S &x){\n        assert(0 <= k\
-    \ && k < _n);\n        int p = info[k].second + size;\n        for(int i = log;\
-    \ i >= 1; i--) push(p >> i);\n        nodes[p].sum = x;\n        for(int i = 1;\
-    \ i <= log; i++) pull(p >> i);\n    }\n\n    // [sx, tx] x [sy, ty]\n    void\
-    \ apply(long long sx, long long sy, long long tx, long long ty, const F &f){\n\
-    \        if(sx > tx || sy > ty) return;\n        std::queue<int> que;\n      \
-    \  std::vector<int> st;\n        que.push(1);\n        while(que.size()){\n  \
-    \          int p = que.front();\n            que.pop();\n            if(nodes[p].size\
+    \ == 0){\n            return;\n        }\n        info[k].first = nodes[p].sum;\n\
+    \        nodes[p].size = 0;\n        nodes[p].sum = e();\n        for(int i =\
+    \ 1; i <= log; i++) pull(p >> i);\n    }\n\n    void update(int k, const S &x){\n\
+    \        assert(0 <= k && k < _n);\n        int p = info[k].second + size;\n \
+    \       for(int i = log; i >= 1; i--) push(p >> i);\n        if(nodes[p].size\
+    \ == 0){\n            info[k].first = x;\n            return;\n        }\n   \
+    \     nodes[p].sum = x;\n        for(int i = 1; i <= log; i++) pull(p >> i);\n\
+    \    }\n\n    // [sx, tx] x [sy, ty]\n    void apply(long long sx, long long sy,\
+    \ long long tx, long long ty, const F &f){\n        if(sx > tx || sy > ty) return;\n\
+    \        std::queue<int> que;\n        std::vector<int> st;\n        que.push(1);\n\
+    \        while(que.size()){\n            int p = que.front();\n            que.pop();\n\
+    \            if(nodes[p].size == 0 || nodes[p].max_x < sx || tx < nodes[p].min_x\
+    \ || nodes[p].max_y < sy || ty < nodes[p].min_y) continue;\n            if(sx\
+    \ <= nodes[p].min_x && nodes[p].max_x <= tx && sy <= nodes[p].min_y && nodes[p].max_y\
+    \ <= ty){\n                all_apply(p, f);\n                continue;\n     \
+    \       }\n            push(p);\n            que.push(2 * p);\n            que.push(2\
+    \ * p + 1);\n            st.push_back(p);\n        }\n        while(st.size()){\n\
+    \            pull(st.back());\n            st.pop_back();\n        }\n    }\n\n\
+    \    // [sx, tx] x [sy, ty]\n    S query(long long sx, long long sy, long long\
+    \ tx, long long ty){\n        if(sx > tx || sy > ty) return e();\n        std::queue<int>\
+    \ que;\n        que.push(1);\n        S res = e();\n        while(que.size()){\n\
+    \            int p = que.front();\n            que.pop();\n            if(nodes[p].size\
     \ == 0 || nodes[p].max_x < sx || tx < nodes[p].min_x || nodes[p].max_y < sy ||\
     \ ty < nodes[p].min_y) continue;\n            if(sx <= nodes[p].min_x && nodes[p].max_x\
-    \ <= tx && sy <= nodes[p].min_y && nodes[p].max_y <= ty){\n                all_apply(p,\
-    \ f);\n                continue;\n            }\n            push(p);\n      \
-    \      que.push(2 * p);\n            que.push(2 * p + 1);\n            st.push_back(p);\n\
-    \        }\n        while(st.size()){\n            pull(st.back());\n        \
-    \    st.pop_back();\n        }\n    }\n\n    // [sx, tx] x [sy, ty]\n    S query(long\
-    \ long sx, long long sy, long long tx, long long ty){\n        if(sx > tx || sy\
-    \ > ty) return e();\n        std::queue<int> que;\n        que.push(1);\n    \
-    \    S res = e();\n        while(que.size()){\n            int p = que.front();\n\
-    \            que.pop();\n            if(nodes[p].size == 0 || nodes[p].max_x <\
-    \ sx || tx < nodes[p].min_x || nodes[p].max_y < sy || ty < nodes[p].min_y) continue;\n\
-    \            if(sx <= nodes[p].min_x && nodes[p].max_x <= tx && sy <= nodes[p].min_y\
-    \ && nodes[p].max_y <= ty){\n                res = op(res, nodes[p].sum);\n  \
-    \              continue;\n            }\n            push(p);\n            que.push(2\
-    \ * p);\n            que.push(2 * p + 1);\n        }\n        return res;\n  \
-    \  }\n\n    // \u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u8DDD\u96E2\n    template\
-    \ <typename T>\n    void getNearbyPoints(long long x, long long y, long long dist,\
-    \ const T &f){\n        std::queue<int> que;\n        que.push(1);\n        while(que.size()){\n\
-    \            int p = que.front();\n            que.pop();\n            if(nodes[p].size\
-    \ == 0 || !inside(std::clamp(x, nodes[p].min_x, nodes[p].max_x) - x, std::clamp(y,\
-    \ nodes[p].min_y, nodes[p].max_y) - y, dist)) continue;\n            if(nodes[p].size\
-    \ == 1){\n                f(nodes[p].index);\n                continue;\n    \
-    \        }\n            que.push(2 * p);\n            que.push(2 * p + 1);\n \
-    \       }\n    }\n};\n#line 2 \"lib/math/modint.hpp\"\n\n#line 5 \"lib/math/modint.hpp\"\
-    \n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n */\n\ntemplate <long\
-    \ long Modulus>\nstruct ModInt{\n    long long val;\n    static constexpr int\
-    \ mod() { return Modulus; }\n    constexpr ModInt(const long long _val = 0) noexcept\
-    \ : val(_val) {\n        normalize();\n    }\n    void normalize(){\n        val\
-    \ = (val % Modulus + Modulus) % Modulus;\n    }\n    inline ModInt &operator+=(const\
-    \ ModInt &rhs) noexcept {\n        if(val += rhs.val, val >= Modulus) val -= Modulus;\n\
-    \        return *this;\n    }\n    inline ModInt &operator-=(const ModInt &rhs)\
-    \ noexcept {\n        if(val -= rhs.val, val < 0) val += Modulus;\n        return\
-    \ *this;\n    }\n    inline ModInt &operator*=(const ModInt &rhs) noexcept {\n\
-    \        val = val * rhs.val % Modulus;\n        return *this;\n    }\n    inline\
-    \ ModInt &operator/=(const ModInt &rhs) noexcept {\n        val = val * inv(rhs.val).val\
-    \ % Modulus;\n        return *this;\n    }\n    inline ModInt &operator++() noexcept\
-    \ {\n        if(++val >= Modulus) val -= Modulus;\n        return *this;\n   \
-    \ }\n    inline ModInt operator++(int) noexcept {\n        ModInt t = val;\n \
-    \       if(++val >= Modulus) val -= Modulus;\n        return t;\n    }\n    inline\
-    \ ModInt &operator--() noexcept {\n        if(--val < 0) val += Modulus;\n   \
-    \     return *this;\n    }\n    inline ModInt operator--(int) noexcept {\n   \
-    \     ModInt t = val;\n        if(--val < 0) val += Modulus;\n        return t;\n\
-    \    }\n    inline ModInt operator-() const noexcept { return (Modulus - val)\
-    \ % Modulus; }\n    inline ModInt inv(void) const { return inv(val); }\n    ModInt\
-    \ pow(long long n) const {\n        assert(0 <= n);\n        ModInt x = *this,\
-    \ r = 1;\n        while(n){\n            if(n & 1) r *= x;\n            x *= x;\n\
-    \            n >>= 1;\n        }\n        return r;\n    }\n    ModInt inv(const\
-    \ long long n) const {\n        long long a = n, b = Modulus, u = 1, v = 0;\n\
-    \        while(b){\n            long long t = a / b;\n            a -= t * b;\
-    \ std::swap(a, b);\n            u -= t * v; std::swap(u, v);\n        }\n    \
-    \    u %= Modulus;\n        if(u < 0) u += Modulus;\n        return u;\n    }\n\
-    \    friend inline ModInt operator+(const ModInt &lhs, const ModInt &rhs) noexcept\
-    \ { return ModInt(lhs) += rhs; }\n    friend inline ModInt operator-(const ModInt\
-    \ &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) -= rhs; }\n    friend\
-    \ inline ModInt operator*(const ModInt &lhs, const ModInt &rhs) noexcept { return\
-    \ ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const ModInt &lhs,\
-    \ const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n    friend inline\
-    \ bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept { return lhs.val\
-    \ == rhs.val; }\n    friend inline bool operator!=(const ModInt &lhs, const ModInt\
-    \ &rhs) noexcept { return lhs.val != rhs.val; }\n    friend inline std::istream\
-    \ &operator>>(std::istream &is, ModInt &x) noexcept {\n        is >> x.val;\n\
-    \        x.normalize();\n        return is;\n    }\n    friend inline std::ostream\
-    \ &operator<<(std::ostream &os, const ModInt &x) noexcept { return os << x.val;\
-    \ }\n};\n#line 8 \"test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp\"\
+    \ <= tx && sy <= nodes[p].min_y && nodes[p].max_y <= ty){\n                res\
+    \ = op(res, nodes[p].sum);\n                continue;\n            }\n       \
+    \     push(p);\n            que.push(2 * p);\n            que.push(2 * p + 1);\n\
+    \        }\n        return res;\n    }\n\n    // \u30E6\u30FC\u30AF\u30EA\u30C3\
+    \u30C9\u8DDD\u96E2\n    template <typename T>\n    void getNearbyPoints(long long\
+    \ x, long long y, long long dist, const T &f){\n        std::queue<int> que;\n\
+    \        que.push(1);\n        while(que.size()){\n            int p = que.front();\n\
+    \            que.pop();\n            if(nodes[p].size == 0 || !inside(std::clamp(x,\
+    \ nodes[p].min_x, nodes[p].max_x) - x, std::clamp(y, nodes[p].min_y, nodes[p].max_y)\
+    \ - y, dist)) continue;\n            if(p >= size){\n                f(nodes[p].index);\n\
+    \                continue;\n            }\n            que.push(2 * p);\n    \
+    \        que.push(2 * p + 1);\n        }\n    }\n};\n#line 2 \"lib/math/modint.hpp\"\
+    \n\n#line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
+    \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
+    \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
+    \ long _val = 0) noexcept : val(_val) {\n        normalize();\n    }\n    void\
+    \ normalize(){\n        val = (val % Modulus + Modulus) % Modulus;\n    }\n  \
+    \  inline ModInt &operator+=(const ModInt &rhs) noexcept {\n        if(val +=\
+    \ rhs.val, val >= Modulus) val -= Modulus;\n        return *this;\n    }\n   \
+    \ inline ModInt &operator-=(const ModInt &rhs) noexcept {\n        if(val -= rhs.val,\
+    \ val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt &operator*=(const\
+    \ ModInt &rhs) noexcept {\n        val = val * rhs.val % Modulus;\n        return\
+    \ *this;\n    }\n    inline ModInt &operator/=(const ModInt &rhs) noexcept {\n\
+    \        val = val * inv(rhs.val).val % Modulus;\n        return *this;\n    }\n\
+    \    inline ModInt &operator++() noexcept {\n        if(++val >= Modulus) val\
+    \ -= Modulus;\n        return *this;\n    }\n    inline ModInt operator++(int)\
+    \ noexcept {\n        ModInt t = val;\n        if(++val >= Modulus) val -= Modulus;\n\
+    \        return t;\n    }\n    inline ModInt &operator--() noexcept {\n      \
+    \  if(--val < 0) val += Modulus;\n        return *this;\n    }\n    inline ModInt\
+    \ operator--(int) noexcept {\n        ModInt t = val;\n        if(--val < 0) val\
+    \ += Modulus;\n        return t;\n    }\n    inline ModInt operator-() const noexcept\
+    \ { return (Modulus - val) % Modulus; }\n    inline ModInt inv(void) const { return\
+    \ inv(val); }\n    ModInt pow(long long n) const {\n        assert(0 <= n);\n\
+    \        ModInt x = *this, r = 1;\n        while(n){\n            if(n & 1) r\
+    \ *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
+    \ r;\n    }\n    ModInt inv(const long long n) const {\n        long long a =\
+    \ n, b = Modulus, u = 1, v = 0;\n        while(b){\n            long long t =\
+    \ a / b;\n            a -= t * b; std::swap(a, b);\n            u -= t * v; std::swap(u,\
+    \ v);\n        }\n        u %= Modulus;\n        if(u < 0) u += Modulus;\n   \
+    \     return u;\n    }\n    friend inline ModInt operator+(const ModInt &lhs,\
+    \ const ModInt &rhs) noexcept { return ModInt(lhs) += rhs; }\n    friend inline\
+    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs)\
+    \ -= rhs; }\n    friend inline ModInt operator*(const ModInt &lhs, const ModInt\
+    \ &rhs) noexcept { return ModInt(lhs) *= rhs; }\n    friend inline ModInt operator/(const\
+    \ ModInt &lhs, const ModInt &rhs) noexcept { return ModInt(lhs) /= rhs; }\n  \
+    \  friend inline bool operator==(const ModInt &lhs, const ModInt &rhs) noexcept\
+    \ { return lhs.val == rhs.val; }\n    friend inline bool operator!=(const ModInt\
+    \ &lhs, const ModInt &rhs) noexcept { return lhs.val != rhs.val; }\n    friend\
+    \ inline std::istream &operator>>(std::istream &is, ModInt &x) noexcept {\n  \
+    \      is >> x.val;\n        x.normalize();\n        return is;\n    }\n    friend\
+    \ inline std::ostream &operator<<(std::ostream &os, const ModInt &x) noexcept\
+    \ { return os << x.val; }\n};\n#line 8 \"test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp\"\
     \n\nusing namespace std;\n\nusing mint = ModInt<998244353>;\n\nusing S = mint;\n\
     \nstruct F{\n    mint a, b;\n};\n\nS op(S l, S r){ return l + r; }\n\nS e(){ return\
     \ S{0}; }\n\nS mapping(F l, S r, int size){ return S{r * l.a + size * l.b}; }\n\
@@ -214,7 +216,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-11-20 20:38:44+09:00'
+  timestamp: '2026-09-23 21:31:21+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp

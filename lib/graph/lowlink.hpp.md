@@ -87,8 +87,8 @@ data:
   isVerificationFile: false
   path: lib/graph/lowlink.hpp
   requiredBy:
-  - lib/graph/two_edge_connected_components.hpp
   - lib/graph/biconnected_components.hpp
+  - lib/graph/two_edge_connected_components.hpp
   timestamp: '2024-10-31 23:51:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

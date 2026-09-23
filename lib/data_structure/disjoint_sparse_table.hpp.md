@@ -64,8 +64,8 @@ data:
   timestamp: '2025-01-09 22:06:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/data_structure/static_rmq_2.test.cpp
   - test/library_checker/data_structure/static_range_sum.test.cpp
+  - test/library_checker/data_structure/static_rmq_2.test.cpp
 documentation_of: lib/data_structure/disjoint_sparse_table.hpp
 layout: document
 redirect_from:

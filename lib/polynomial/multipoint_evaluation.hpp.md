@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/math/crt.hpp
     title: "Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/modint.hpp
     title: ModInt
   - icon: ':heavy_check_mark:'
@@ -371,8 +371,8 @@ data:
   timestamp: '2025-03-11 03:37:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/polynomial/polynomial_interpolation.test.cpp
   - test/library_checker/polynomial/multipoint_evaluation.test.cpp
+  - test/library_checker/polynomial/polynomial_interpolation.test.cpp
 documentation_of: lib/polynomial/multipoint_evaluation.hpp
 layout: document
 redirect_from:

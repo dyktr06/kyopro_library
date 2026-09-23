@@ -99,9 +99,9 @@ data:
   isVerificationFile: false
   path: lib/enumerative_combinatorics/combination_modint.hpp
   requiredBy:
-  - lib/math/pow_sum.hpp
-  - lib/enumerative_combinatorics/binomial_prefix_sum.hpp
   - lib/enumerative_combinatorics/stirling_number_2nd.hpp
+  - lib/enumerative_combinatorics/binomial_prefix_sum.hpp
+  - lib/math/pow_sum.hpp
   - lib/polynomial/taylor_shift.hpp
   timestamp: '2025-01-18 04:43:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
