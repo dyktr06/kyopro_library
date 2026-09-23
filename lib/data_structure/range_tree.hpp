@@ -4,6 +4,7 @@ template <typename S, typename T>
 struct RangeTree{
     struct BinaryIndexedTree{
         int N;
+        T cs = 0;
         vector<T> BIT;
         BinaryIndexedTree() {}
 
@@ -18,6 +19,7 @@ struct RangeTree{
 
         void add(int i, T x){
             ++i;
+            cs += x;
             while(i <= N){
                 BIT[i] += x;
                 i += i & -i;
@@ -34,7 +36,21 @@ struct RangeTree{
         }
 
         T sum(int L, int R) const {
-            return sum(R) - sum(L);
+            if(R == N){
+                return cs - sum(L);
+            }
+
+            T ans = T();
+            while(L != R){
+                if(L < R){
+                    ans += BIT[R];
+                    R -= R & -R;
+                }else{
+                    ans -= BIT[L];
+                    L -= L & -L;
+                }
+            }
+            return ans;
         }
     };
 
