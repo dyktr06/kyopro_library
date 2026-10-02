@@ -60,7 +60,7 @@ struct Combination{
     }
     // +1 n 個, -1 m 個, 累積和 >= 0
     inline T cataran(const int n, const int m) {
-        return ncr(n + m, n) - ncr(n + m, n - 1);
+        return cataran(n, m, 1);
     }
     // +1 n 個, -1 m 個, 累積和 > -k
     inline T cataran(const int n, const int m, const int k) {
