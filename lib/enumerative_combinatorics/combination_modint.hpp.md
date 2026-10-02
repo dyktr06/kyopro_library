@@ -56,13 +56,13 @@ data:
     \u305B\n    inline T choose(const int n, const int a, const int b = 0) {\n   \
     \     if(n == 0) return !a;\n        return ncr(n + b - 1, a + b - 1);\n    }\n\
     \    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C >= 0\n    inline T cataran(const\
-    \ int n, const int m) {\n        return ncr(n + m, n) - ncr(n + m, n - 1);\n \
-    \   }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T\
-    \ cataran(const int n, const int m, const int k) {\n        if(m < k) return ncr(n\
-    \ + m, n);\n        if(m < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n\
-    \        return 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C\
-    \ < +k\n    inline T cataran2(const int n, const int m, const int k) {\n     \
-    \   return cataran(m, n, k);\n    }\n};\n"
+    \ int n, const int m) {\n        return cataran(n, m, 1);\n    }\n    // +1 n\
+    \ \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T cataran(const int\
+    \ n, const int m, const int k) {\n        if(m < k) return ncr(n + m, n);\n  \
+    \      if(m < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n        return\
+    \ 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C < +k\n    inline\
+    \ T cataran2(const int n, const int m, const int k) {\n        return cataran(m,\
+    \ n, k);\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Combination (\u4E8C\u9805\u4FC2\u6570)\n */\n\
     \n#include <vector>\n\ntemplate <typename T>\nstruct Combination{\n    std::vector<T>\
     \ memo, memoinv, inv;\n    Combination() : memo(2, T(1)), memoinv(2, T(1)), inv(2,\
@@ -88,27 +88,26 @@ data:
     \ int n, const int a, const int b = 0) {\n        if(n == 0) return !a;\n    \
     \    return ncr(n + b - 1, a + b - 1);\n    }\n    // +1 n \u500B, -1 m \u500B\
     , \u7D2F\u7A4D\u548C >= 0\n    inline T cataran(const int n, const int m) {\n\
-    \        return ncr(n + m, n) - ncr(n + m, n - 1);\n    }\n    // +1 n \u500B\
-    , -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T cataran(const int n, const\
-    \ int m, const int k) {\n        if(m < k) return ncr(n + m, n);\n        if(m\
-    \ < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n        return 0;\n    }\n\
-    \    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C < +k\n    inline T cataran2(const\
-    \ int n, const int m, const int k) {\n        return cataran(m, n, k);\n    }\n\
-    };\n"
+    \        return cataran(n, m, 1);\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\
+    \u7A4D\u548C > -k\n    inline T cataran(const int n, const int m, const int k)\
+    \ {\n        if(m < k) return ncr(n + m, n);\n        if(m < n + k) return ncr(n\
+    \ + m, n) - ncr(n + m, m - k);\n        return 0;\n    }\n    // +1 n \u500B,\
+    \ -1 m \u500B, \u7D2F\u7A4D\u548C < +k\n    inline T cataran2(const int n, const\
+    \ int m, const int k) {\n        return cataran(m, n, k);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/enumerative_combinatorics/combination_modint.hpp
   requiredBy:
-  - lib/enumerative_combinatorics/stirling_number_2nd.hpp
-  - lib/enumerative_combinatorics/binomial_prefix_sum.hpp
-  - lib/math/pow_sum.hpp
   - lib/polynomial/taylor_shift.hpp
-  timestamp: '2025-01-18 04:43:36+09:00'
+  - lib/math/pow_sum.hpp
+  - lib/enumerative_combinatorics/binomial_prefix_sum.hpp
+  - lib/enumerative_combinatorics/stirling_number_2nd.hpp
+  timestamp: '2026-10-03 02:18:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
-  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
+  - test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind_fixed_k.test.cpp
 documentation_of: lib/enumerative_combinatorics/combination_modint.hpp
 layout: document
 redirect_from:

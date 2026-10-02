@@ -59,16 +59,16 @@ data:
     \u305B\n    inline T choose(const int n, const int a, const int b = 0) {\n   \
     \     if(n == 0) return !a;\n        return ncr(n + b - 1, a + b - 1);\n    }\n\
     \    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C >= 0\n    inline T cataran(const\
-    \ int n, const int m) {\n        return ncr(n + m, n) - ncr(n + m, n - 1);\n \
-    \   }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T\
-    \ cataran(const int n, const int m, const int k) {\n        if(m < k) return ncr(n\
-    \ + m, n);\n        if(m < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n\
-    \        return 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C\
-    \ < +k\n    inline T cataran2(const int n, const int m, const int k) {\n     \
-    \   return cataran(m, n, k);\n    }\n};\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\
-    \n\n/**\n * @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
-    \ */\n\n#include <algorithm>\n#include <cassert>\n#line 2 \"lib/convolution/ntt.hpp\"\
-    \n\n/**\n * @brief Number Theoretic Transform\n */\n\n#line 2 \"lib/math/modint.hpp\"\
+    \ int n, const int m) {\n        return cataran(n, m, 1);\n    }\n    // +1 n\
+    \ \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T cataran(const int\
+    \ n, const int m, const int k) {\n        if(m < k) return ncr(n + m, n);\n  \
+    \      if(m < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n        return\
+    \ 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C < +k\n    inline\
+    \ T cataran2(const int n, const int m, const int k) {\n        return cataran(m,\
+    \ n, k);\n    }\n};\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n\
+    \ * @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n\
+    #include <algorithm>\n#include <cassert>\n#line 2 \"lib/convolution/ntt.hpp\"\n\
+    \n/**\n * @brief Number Theoretic Transform\n */\n\n#line 2 \"lib/math/modint.hpp\"\
     \n\n#line 5 \"lib/math/modint.hpp\"\n\n/**\n * @brief ModInt\n * @docs docs/math/modint.md\n\
     \ */\n\ntemplate <long long Modulus>\nstruct ModInt{\n    long long val;\n   \
     \ static constexpr int mod() { return Modulus; }\n    constexpr ModInt(const long\
@@ -405,7 +405,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp
   requiredBy: []
-  timestamp: '2025-03-11 03:37:55+09:00'
+  timestamp: '2026-10-03 02:18:01+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/stirling_number_of_the_second_kind.test.cpp

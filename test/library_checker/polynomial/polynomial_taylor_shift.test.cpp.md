@@ -98,17 +98,17 @@ data:
     \u305B\n    inline T choose(const int n, const int a, const int b = 0) {\n   \
     \     if(n == 0) return !a;\n        return ncr(n + b - 1, a + b - 1);\n    }\n\
     \    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C >= 0\n    inline T cataran(const\
-    \ int n, const int m) {\n        return ncr(n + m, n) - ncr(n + m, n - 1);\n \
-    \   }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T\
-    \ cataran(const int n, const int m, const int k) {\n        if(m < k) return ncr(n\
-    \ + m, n);\n        if(m < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n\
-    \        return 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C\
-    \ < +k\n    inline T cataran2(const int n, const int m, const int k) {\n     \
-    \   return cataran(m, n, k);\n    }\n};\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\
-    \n\n/**\n * @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
-    \ */\n\n#include <algorithm>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n/**\n * @brief\
-    \ Number Theoretic Transform\n */\n\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief\
-    \ Chinese Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
+    \ int n, const int m) {\n        return cataran(n, m, 1);\n    }\n    // +1 n\
+    \ \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T cataran(const int\
+    \ n, const int m, const int k) {\n        if(m < k) return ncr(n + m, n);\n  \
+    \      if(m < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n        return\
+    \ 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C < +k\n    inline\
+    \ T cataran2(const int n, const int m, const int k) {\n        return cataran(m,\
+    \ n, k);\n    }\n};\n#line 2 \"lib/polynomial/formal_power_series.hpp\"\n\n/**\n\
+    \ * @brief Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\n\n\
+    #include <algorithm>\n#line 2 \"lib/convolution/ntt.hpp\"\n\n/**\n * @brief Number\
+    \ Theoretic Transform\n */\n\n#line 2 \"lib/math/crt.hpp\"\n\n/**\n * @brief Chinese\
+    \ Remainder Theorem (\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406)\n * @docs docs/math/crt.md\n\
     \ */\n\n#include <numeric>\n#line 10 \"lib/math/crt.hpp\"\n\nnamespace CRT{\n\
     \    inline long long mod(long long a, long long m){\n        return (a % m +\
     \ m) % m;\n    }\n\n    long long extGCD(long long a, long long b, long long &x,\
@@ -400,7 +400,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2025-03-11 03:37:55+09:00'
+  timestamp: '2026-10-03 02:18:01+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp

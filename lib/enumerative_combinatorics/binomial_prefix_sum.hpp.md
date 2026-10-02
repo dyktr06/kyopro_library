@@ -64,50 +64,49 @@ data:
     \n    inline T choose(const int n, const int a, const int b = 0) {\n        if(n\
     \ == 0) return !a;\n        return ncr(n + b - 1, a + b - 1);\n    }\n    // +1\
     \ n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C >= 0\n    inline T cataran(const int\
-    \ n, const int m) {\n        return ncr(n + m, n) - ncr(n + m, n - 1);\n    }\n\
-    \    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T cataran(const\
-    \ int n, const int m, const int k) {\n        if(m < k) return ncr(n + m, n);\n\
-    \        if(m < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n        return\
-    \ 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C < +k\n    inline\
-    \ T cataran2(const int n, const int m, const int k) {\n        return cataran(m,\
-    \ n, k);\n    }\n};\n#line 9 \"lib/enumerative_combinatorics/binomial_prefix_sum.hpp\"\
-    \n\n// sum_{i=0}^{r-1} binom(n, i)\ntemplate <typename T, typename U>\nstd::vector<T>\
-    \ binomialPrefixSum(const std::vector<U> &query){\n    Combination<T> comb;\n\
-    \    int q = query.size();\n    std::vector<T> res(q);\n    int max_n = 0;\n \
-    \   for(auto [q1, q2] : query) max_n = std::max(max_n, (int) q1);\n    Mo mo(max_n\
-    \ + 1);\n    for(auto [q1, q2] : query) mo.add(q1, q2);\n    T s = 0, inv2 = T(2).inv();\n\
-    \    int n = 0, r = -1;\n    auto addL = [&](int i){\n        // n -> n + 1\n\
-    \        //   sum_{i=0}^{r} binom(n + 1, i)\n        // = sum_{i=0}^{r} (binom(n,\
-    \ i) + binom(n, i - 1))\n        // = -binom(n, r) + 2 * sum_{i=0}^{r} binom(n,\
-    \ i)\n        s *= 2;\n        s -= comb.ncr(n, r);\n        n++;\n    };\n  \
-    \  auto eraseL = [&](int i){\n        n--;\n        s += comb.ncr(n, r);\n   \
-    \     s *= inv2;\n    };\n    auto addR = [&](int i){\n        // r -> r + 1\n\
-    \        r++;\n        s += comb.ncr(n, r);\n    };\n    auto eraseR = [&](int\
-    \ i){\n        // r -> r - 1\n        s -= comb.ncr(n, r);\n        r--;\n   \
-    \ };\n    auto output = [&](int q){\n        res[q] = s;\n    };\n    mo.build(eraseL,\
-    \ addR, addL, eraseR, output);\n    return res;\n}\n\n// sum_{i=0}^{r-1} binom(n,\
-    \ i) i\ntemplate <typename T, typename U>\nstd::vector<std::pair<T, T>> binomialPrefixSum2(const\
+    \ n, const int m) {\n        return cataran(n, m, 1);\n    }\n    // +1 n \u500B\
+    , -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T cataran(const int n, const\
+    \ int m, const int k) {\n        if(m < k) return ncr(n + m, n);\n        if(m\
+    \ < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n        return 0;\n    }\n\
+    \    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C < +k\n    inline T cataran2(const\
+    \ int n, const int m, const int k) {\n        return cataran(m, n, k);\n    }\n\
+    };\n#line 9 \"lib/enumerative_combinatorics/binomial_prefix_sum.hpp\"\n\n// sum_{i=0}^{r-1}\
+    \ binom(n, i)\ntemplate <typename T, typename U>\nstd::vector<T> binomialPrefixSum(const\
     \ std::vector<U> &query){\n    Combination<T> comb;\n    int q = query.size();\n\
-    \    std::vector<std::pair<T, T>> res(q);\n    int max_n = 0;\n    for(auto [q1,\
-    \ q2] : query) max_n = std::max(max_n, (int) q1);\n    Mo mo(max_n + 1);\n   \
-    \ for(auto [q1, q2] : query) mo.add(q1, q2);\n    T s1 = 0, s2 = 0, inv2 = T(2).inv()\
-    \ = 0;\n    int n = 0, r = -1;\n    auto addL = [&](int i){\n        // n -> n\
-    \ + 1\n        //   sum_{i=0}^{r} binom(n + 1, i) i\n        // = sum_{i=0}^{r}\
-    \ (binom(n, i) i + binom(n, i - 1) (i - 1) + binom(n, i - 1) (1))\n        //\
-    \ = -binom(n, r) * r + 2 * sum_{i=0}^{r} binom(n, i) i + sum_{i=0}^{r} binom(n,\
-    \ i) - binom(n, r)\n        // = -binom(n, r) * (r + 1) + 2 * sum_{i=0}^{r} binom(n,\
-    \ i) i + sum_{i=0}^{r} binom(n, i)\n        T binom = comb.ncr(n, r);\n      \
-    \  s2 *= 2;\n        s2 -= binom * (r + 1);\n        s2 += s1;\n        s1 *=\
-    \ 2;\n        s1 -= binom;\n        n++;\n    };\n    auto eraseL = [&](int i){\n\
-    \        n--;\n        T binom = comb.ncr(n, r);\n        s1 += binom;\n     \
-    \   s1 *= inv2;\n        s2 -= s1;\n        s2 += binom * (r + 1);\n        s2\
-    \ *= inv2;\n    };\n    auto addR = [&](int i){\n        // r -> r + 1\n     \
-    \   r++;\n        T binom = comb.ncr(n, r);\n        s1 += binom;\n        s2\
-    \ += binom * (r);\n    };\n    auto eraseR = [&](int i){\n        // r -> r -\
-    \ 1\n        T binom = comb.ncr(n, r);\n        s1 -= binom;\n        s2 -= binom\
-    \ * (r);\n        r--;\n    };\n    auto output = [&](int q){\n        res[q]\
-    \ = std::make_pair(s1, s2);\n    };\n    mo.build(eraseL, addR, addL, eraseR,\
-    \ output);\n    return res;\n}\n"
+    \    std::vector<T> res(q);\n    int max_n = 0;\n    for(auto [q1, q2] : query)\
+    \ max_n = std::max(max_n, (int) q1);\n    Mo mo(max_n + 1);\n    for(auto [q1,\
+    \ q2] : query) mo.add(q1, q2);\n    T s = 0, inv2 = T(2).inv();\n    int n = 0,\
+    \ r = -1;\n    auto addL = [&](int i){\n        // n -> n + 1\n        //   sum_{i=0}^{r}\
+    \ binom(n + 1, i)\n        // = sum_{i=0}^{r} (binom(n, i) + binom(n, i - 1))\n\
+    \        // = -binom(n, r) + 2 * sum_{i=0}^{r} binom(n, i)\n        s *= 2;\n\
+    \        s -= comb.ncr(n, r);\n        n++;\n    };\n    auto eraseL = [&](int\
+    \ i){\n        n--;\n        s += comb.ncr(n, r);\n        s *= inv2;\n    };\n\
+    \    auto addR = [&](int i){\n        // r -> r + 1\n        r++;\n        s +=\
+    \ comb.ncr(n, r);\n    };\n    auto eraseR = [&](int i){\n        // r -> r -\
+    \ 1\n        s -= comb.ncr(n, r);\n        r--;\n    };\n    auto output = [&](int\
+    \ q){\n        res[q] = s;\n    };\n    mo.build(eraseL, addR, addL, eraseR, output);\n\
+    \    return res;\n}\n\n// sum_{i=0}^{r-1} binom(n, i) i\ntemplate <typename T,\
+    \ typename U>\nstd::vector<std::pair<T, T>> binomialPrefixSum2(const std::vector<U>\
+    \ &query){\n    Combination<T> comb;\n    int q = query.size();\n    std::vector<std::pair<T,\
+    \ T>> res(q);\n    int max_n = 0;\n    for(auto [q1, q2] : query) max_n = std::max(max_n,\
+    \ (int) q1);\n    Mo mo(max_n + 1);\n    for(auto [q1, q2] : query) mo.add(q1,\
+    \ q2);\n    T s1 = 0, s2 = 0, inv2 = T(2).inv() = 0;\n    int n = 0, r = -1;\n\
+    \    auto addL = [&](int i){\n        // n -> n + 1\n        //   sum_{i=0}^{r}\
+    \ binom(n + 1, i) i\n        // = sum_{i=0}^{r} (binom(n, i) i + binom(n, i -\
+    \ 1) (i - 1) + binom(n, i - 1) (1))\n        // = -binom(n, r) * r + 2 * sum_{i=0}^{r}\
+    \ binom(n, i) i + sum_{i=0}^{r} binom(n, i) - binom(n, r)\n        // = -binom(n,\
+    \ r) * (r + 1) + 2 * sum_{i=0}^{r} binom(n, i) i + sum_{i=0}^{r} binom(n, i)\n\
+    \        T binom = comb.ncr(n, r);\n        s2 *= 2;\n        s2 -= binom * (r\
+    \ + 1);\n        s2 += s1;\n        s1 *= 2;\n        s1 -= binom;\n        n++;\n\
+    \    };\n    auto eraseL = [&](int i){\n        n--;\n        T binom = comb.ncr(n,\
+    \ r);\n        s1 += binom;\n        s1 *= inv2;\n        s2 -= s1;\n        s2\
+    \ += binom * (r + 1);\n        s2 *= inv2;\n    };\n    auto addR = [&](int i){\n\
+    \        // r -> r + 1\n        r++;\n        T binom = comb.ncr(n, r);\n    \
+    \    s1 += binom;\n        s2 += binom * (r);\n    };\n    auto eraseR = [&](int\
+    \ i){\n        // r -> r - 1\n        T binom = comb.ncr(n, r);\n        s1 -=\
+    \ binom;\n        s2 -= binom * (r);\n        r--;\n    };\n    auto output =\
+    \ [&](int q){\n        res[q] = std::make_pair(s1, s2);\n    };\n    mo.build(eraseL,\
+    \ addR, addL, eraseR, output);\n    return res;\n}\n"
   code: "#pragma once\n\n/**\n * @brief Binomial Prefix Sum (\u4E8C\u9805\u4FC2\u6570\
     \u306E\u7D2F\u7A4D\u548C)\n */\n\n#include \"../data_structure/mo.hpp\"\n#include\
     \ \"../enumerative_combinatorics/combination_modint.hpp\"\n\n// sum_{i=0}^{r-1}\
@@ -153,7 +152,7 @@ data:
   isVerificationFile: false
   path: lib/enumerative_combinatorics/binomial_prefix_sum.hpp
   requiredBy: []
-  timestamp: '2026-06-21 04:09:16+09:00'
+  timestamp: '2026-10-03 02:18:01+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/enumerative_combinatorics/binomial_prefix_sum.hpp

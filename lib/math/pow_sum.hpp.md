@@ -36,26 +36,26 @@ data:
     \u305B\n    inline T choose(const int n, const int a, const int b = 0) {\n   \
     \     if(n == 0) return !a;\n        return ncr(n + b - 1, a + b - 1);\n    }\n\
     \    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C >= 0\n    inline T cataran(const\
-    \ int n, const int m) {\n        return ncr(n + m, n) - ncr(n + m, n - 1);\n \
-    \   }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T\
-    \ cataran(const int n, const int m, const int k) {\n        if(m < k) return ncr(n\
-    \ + m, n);\n        if(m < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n\
-    \        return 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C\
-    \ < +k\n    inline T cataran2(const int n, const int m, const int k) {\n     \
-    \   return cataran(m, n, k);\n    }\n};\n#line 4 \"lib/math/pow_sum.hpp\"\n\n\
-    template <typename T>\nT pow_sum(long long n, long long k){\n    long long d =\
-    \ k + 1;\n    vector<vector<T>> f(d + 1, vector<T>(2));\n    for(int j = 0; j\
-    \ < 2; j++){\n        for(int i = 0; i < d + 1; i++){\n            if(i > 0 &&\
-    \ j == 0){\n                f[i][0] = i;\n                f[i][0] = f[i][0].pow(k);\n\
-    \            }\n            if(i > 0 && j > 0){\n                f[i][j] = f[i\
-    \ - 1][j] + f[i][j - 1];\n            }\n        }\n    }\n\n    Combination<T>\
-    \ comb;\n    vector<T> l(d + 1, 1), r(d + 1, 1);\n    for(int i = 0; i < d; i++){\n\
-    \        l[i + 1] = l[i] * (n - i);\n        r[i + 1] = r[i] * (n - (d - i));\n\
-    \    }\n    T ans = 0;\n    for(int i = 0; i < d + 1; i++){\n        T s = f[i][1];\n\
-    \        // mul(n - x_j) (j != i)\n        s *= l[i];\n        s *= r[d - i];\n\
-    \        // i! * (d - i)! * (-1)^{d - i}\n        s *= comb.factinv(i);\n    \
-    \    s *= comb.factinv(d - i);\n        if((d - i) % 2) s *= -1;\n        ans\
-    \ += s;\n    }\n    return ans;\n}\n"
+    \ int n, const int m) {\n        return cataran(n, m, 1);\n    }\n    // +1 n\
+    \ \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C > -k\n    inline T cataran(const int\
+    \ n, const int m, const int k) {\n        if(m < k) return ncr(n + m, n);\n  \
+    \      if(m < n + k) return ncr(n + m, n) - ncr(n + m, m - k);\n        return\
+    \ 0;\n    }\n    // +1 n \u500B, -1 m \u500B, \u7D2F\u7A4D\u548C < +k\n    inline\
+    \ T cataran2(const int n, const int m, const int k) {\n        return cataran(m,\
+    \ n, k);\n    }\n};\n#line 4 \"lib/math/pow_sum.hpp\"\n\ntemplate <typename T>\n\
+    T pow_sum(long long n, long long k){\n    long long d = k + 1;\n    vector<vector<T>>\
+    \ f(d + 1, vector<T>(2));\n    for(int j = 0; j < 2; j++){\n        for(int i\
+    \ = 0; i < d + 1; i++){\n            if(i > 0 && j == 0){\n                f[i][0]\
+    \ = i;\n                f[i][0] = f[i][0].pow(k);\n            }\n           \
+    \ if(i > 0 && j > 0){\n                f[i][j] = f[i - 1][j] + f[i][j - 1];\n\
+    \            }\n        }\n    }\n\n    Combination<T> comb;\n    vector<T> l(d\
+    \ + 1, 1), r(d + 1, 1);\n    for(int i = 0; i < d; i++){\n        l[i + 1] = l[i]\
+    \ * (n - i);\n        r[i + 1] = r[i] * (n - (d - i));\n    }\n    T ans = 0;\n\
+    \    for(int i = 0; i < d + 1; i++){\n        T s = f[i][1];\n        // mul(n\
+    \ - x_j) (j != i)\n        s *= l[i];\n        s *= r[d - i];\n        // i! *\
+    \ (d - i)! * (-1)^{d - i}\n        s *= comb.factinv(i);\n        s *= comb.factinv(d\
+    \ - i);\n        if((d - i) % 2) s *= -1;\n        ans += s;\n    }\n    return\
+    \ ans;\n}\n"
   code: "#pragma once\n\n#include \"../enumerative_combinatorics/combination_modint.hpp\"\
     \n\ntemplate <typename T>\nT pow_sum(long long n, long long k){\n    long long\
     \ d = k + 1;\n    vector<vector<T>> f(d + 1, vector<T>(2));\n    for(int j = 0;\
@@ -75,7 +75,7 @@ data:
   isVerificationFile: false
   path: lib/math/pow_sum.hpp
   requiredBy: []
-  timestamp: '2025-01-18 04:43:36+09:00'
+  timestamp: '2026-10-03 02:18:01+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/pow_sum.hpp
